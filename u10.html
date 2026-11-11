@@ -4,24 +4,27 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <link rel="stylesheet" href="assets/style.css"></head><body>
-<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 6.3</p><h1>Elasticity of demand and economic order quantity</h1><p class="sub">E = -(p/q)(dq/dp), elastic and inelastic demand, revenue, lot size and order quantity.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 6.3: Further business applications</h2>
-<p>Section 6.3 has three business applications of calculus. The professor lectured on all three in Lecture 18: the economic lot size, the economic order quantity, and the elasticity of demand. Elasticity of demand is the one that showed up on his real Fall 2025 Midterm 2 (a quadratic demand function, a price of unit elasticity, and a "should the price be increased or decreased" question), so this lesson starts there and gives it the most space. The lot size and order quantity come second. They are one optimization problem with one formula, but you have to know how the cost function is built, because the professor showed that changing one assumption changes the answer.</p>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 6.3</p><h1>Elasticity of demand and economic order quantity</h1><p class="sub">E = -(p/q)(dq/dp), elastic and inelastic demand, revenue, lot size and order quantity.</p><div class="toc"><a href="#learn">Lesson</a><a href="#vars">Every way it is asked</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a><a href="#L5">Level 5</a></div><section id="learn"><h2>Section 6.3: Further business applications</h2>
+<div class="big"><div class="rt">The big idea</div><p>This section answers two business questions with derivatives. First: if a store changes its price, does it take in more money or less? The elasticity \(E\) answers that, and the one fact to remember is that revenue goes up with price when \(E \lt 1\), goes down when \(E \gt 1\), and is largest when \(E = 1\). Second: how big should each batch or order be so the yearly cost is smallest? That is one optimization problem whose answer is \(q = \sqrt{2fM/k}\), as long as the usual assumptions hold.</p></div>
+<p>Section 6.3 has three business applications of calculus: the economic lot size, the economic order quantity, and the elasticity of demand. The professor lectured on all three in Lecture 18. Elasticity of demand is the one that showed up on his real Fall 2025 Midterm 2. That question had a quadratic demand function, asked for the price of unit elasticity, and asked whether the price should be increased or decreased. So this lesson starts with elasticity and gives it the most space.</p>
+<p>The lot size and the order quantity come second. They are one optimization problem with one formula. You still have to know how the cost function is built, because the professor showed in lecture that changing one assumption changes the answer.</p>
 
 <h3>Part A. Elasticity of demand</h3>
 
 <h4>Demand as a function of price</h4>
-<p>A <b>demand function</b> tells you how many units customers will buy at a given price. In this section the demand is written as \(q = f(p)\), where \(p\) is the price per unit (in dollars) and \(q\) is the quantity demanded (the number of units customers buy at that price). Before this section you usually saw it the other way around, as \(p = D(q)\). Both describe the same relationship; \(f\) is the inverse function of \(D\).</p>
+<p>A <b>demand function</b> tells you how many units customers will buy at a given price. In this section the demand is written as \(q = f(p)\). Here \(p\) is the price per unit (in dollars) and \(q\) is the quantity demanded, which means the number of units customers buy at that price. Before this section you usually saw it the other way around, as \(p = D(q)\). Both describe the same relationship: \(f\) is the inverse function of \(D\).</p>
 <p>Demand goes down when the price goes up. In the professor's words, demand \(q = f(p)\) is a decreasing function of price \(p\). So \(\dfrac{dq}{dp}\) is negative.</p>
 
 <h4>What elasticity measures</h4>
-<p>Suppose a store raises a price by \$1. Whether that is a big change depends on the starting price: \$1 on a \$2 item is a 50% raise, and \$1 on a \$200 item is a 0.5% raise. The same goes for quantity. So economists compare <b>relative changes</b> (percent changes), not raw changes. The relative change in price is \(\dfrac{\Delta p}{p}\) and the relative change in quantity is \(\dfrac{\Delta q}{q}\). Elasticity compares the two:</p>
-\[\frac{\Delta q / q}{\Delta p / p} = \frac{p}{q}\cdot\frac{\Delta q}{\Delta p}.\]
-<p>As \(\Delta p \to 0\), the ratio \(\dfrac{\Delta q}{\Delta p}\) becomes the derivative \(\dfrac{dq}{dp}\) (by the definition of the derivative), so the ratio becomes \(\dfrac{p}{q}\cdot\dfrac{dq}{dp}\). This number is negative, because \(p\) and \(q\) are positive and \(\dfrac{dq}{dp}\) is negative. The elasticity of demand is defined as its opposite, so that it comes out positive.</p>
+<p>Suppose a store raises a price by \$1. Whether that is a big change depends on the starting price. A \$1 raise on a \$2 item is a 50% raise, and a \$1 raise on a \$200 item is a 0.5% raise. The same goes for quantity. So economists compare <b>relative changes</b> (percent changes), not raw changes. The relative change in price is \(\dfrac{\Delta p}{p}\) and the relative change in quantity is \(\dfrac{\Delta q}{q}\). Elasticity compares the two:</p>
+\[\frac{\Delta q / q}{\Delta p / p} = \frac{\Delta q}{q}\cdot\frac{p}{\Delta p} = \frac{p}{q}\cdot\frac{\Delta q}{\Delta p}.\]
+<p>As \(\Delta p \to 0\), the ratio \(\dfrac{\Delta q}{\Delta p}\) becomes the derivative \(\dfrac{dq}{dp}\) (this is the definition of the derivative). So the ratio becomes \(\dfrac{p}{q}\cdot\dfrac{dq}{dp}\). This number is negative, because \(p\) and \(q\) are positive and \(\dfrac{dq}{dp}\) is negative. The elasticity of demand is defined as its opposite, so that it comes out positive.</p>
 <div class="rule"><div class="rt">Elasticity of demand</div>
 <p>If the demand is \(q = f(p)\), the <b>elasticity of demand</b> at price \(p\) is</p>
 \[E = -\frac{p}{q}\cdot\frac{dq}{dp}.\]
 <p>The minus sign is there because \(\dfrac{dq}{dp}\) is negative (demand decreases as price increases), so the minus sign makes \(E\) positive. In words, \(E\) is approximately the percent decrease in the quantity demanded caused by a 1% increase in price.</p></div>
-<p>For example, if \(E = 2\) at the current price, then raising the price by 1% makes the quantity demanded drop by about 2%. If \(E = \tfrac{1}{2}\), raising the price by 1% makes the quantity demanded drop by only about half a percent.</p>
+<p class="plain"><b>In plain words:</b> elasticity tells you how strongly customers react to a price change. Raise the price by one percent, and the number of units sold drops by about \(E\) percent.</p>
+<p>For example, if \(E = 2\) at the current price, then raising the price by 1% makes the quantity demanded drop by about 2%. If \(E = \tfrac{1}{2}\), raising the price by 1% makes the quantity demanded drop by only about half a percent. The same estimate works for small changes other than 1%: if \(E = 2\) and the price rises 3%, the quantity drops by about \(2\cdot 3\% = 6\%\).</p>
 
 <h4>Elastic, inelastic, and unit elasticity</h4>
 <table class="t">
@@ -30,16 +33,19 @@
 <tr><td>\(E \gt 1\)</td><td>elastic</td><td>The relative change in demand is larger than the relative change in price. A small change in price has a bigger effect on demand.</td></tr>
 <tr><td>\(E = 1\)</td><td>unit elasticity</td><td>The relative change in demand and the relative change in price are equal.</td></tr>
 </table>
+<p class="plain"><b>In plain words:</b> compare \(E\) with the number 1. Below 1, customers barely react to the price. Above 1, customers react a lot. Exactly 1 is the dividing line.</p>
 <p>A product people need, like insulin or gasoline, tends to have inelastic demand: customers keep buying even when the price goes up. A product with many substitutes, like one brand of soda, tends to have elastic demand: a price increase sends customers elsewhere.</p>
+<p>Two edge cases from the textbook exercises. If \(E = 0\) at every price, then \(\dfrac{dq}{dp} = 0\), so the demand is constant: customers buy the same amount no matter the price. A <b>Giffen good</b> is a product whose demand increases with price. Then \(\dfrac{dq}{dp} \gt 0\), so \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\) is negative. Every demand function in the course problems decreases with price, so in practice your \(E\) should come out positive.</p>
 
 <div class="recipe"><div class="rt">How to find the elasticity of demand</div><ol>
-<li>Make sure the demand is written as \(q\) in terms of \(p\). (If it is given as \(p\) in terms of \(q\), see Worked example 5.)</li>
+<li>Make sure the demand is written as \(q\) in terms of \(p\). (If it is given as \(p\) in terms of \(q\), or as an equation mixing both, see Worked example 5.)</li>
 <li>Differentiate to get \(\dfrac{dq}{dp}\) as a formula in \(p\). Do this before plugging in any number for \(p\).</li>
 <li>Substitute \(q\) and \(\dfrac{dq}{dp}\) into \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\) and simplify. Two minus signs multiply to a plus.</li>
 <li>If a price is given, substitute it now and compare \(E\) with 1.</li>
 </ol></div>
 
 <div class="ex"><div class="et">Worked example 1 (linear demand)</div><p class="p">The demand for a product is \(q = 600 - 3p\), for \(0 \le p \le 200\). Find the elasticity of demand as a function of \(p\). Then find \(E\) at \(p = 50\) and at \(p = 150\), say whether demand is elastic or inelastic at each price, and interpret each number.</p>
+<p class="spot"><b>How to spot this type:</b> the demand is given as \(q =\) (something in \(p\)) and the problem says "find the elasticity" and "elastic or inelastic", so you use the definition of \(E\) directly and compare with 1.</p>
 <ol class="steps">
 <li>Differentiate the demand function. The derivative of 600 is 0 and the derivative of \(-3p\) is \(-3\).
 \[\frac{dq}{dp} = -3\]</li>
@@ -55,15 +61,15 @@ Interpretation: at a price of \$50, a 1% increase in price makes the quantity de
 Interpretation: at a price of \$150, a 1% increase in price makes the quantity demanded drop by about 3%.</li>
 </ol><p class="final">Answer: \(E = \dfrac{p}{200 - p}\). At \(p = 50\), \(E = \tfrac{1}{3}\) (inelastic). At \(p = 150\), \(E = 3\) (elastic).</p></div>
 
-<div class="trap"><b>Common mistake.</b> Forgetting the minus sign in the definition and getting a negative elasticity. If your \(E\) is negative, you dropped the minus sign or the minus sign of \(\dfrac{dq}{dp}\). In this course \(E\) is always positive.</div>
+<div class="trap"><b>Common mistake.</b> Forgetting the minus sign in the definition and getting a negative elasticity. If your \(E\) is negative for an ordinary product, you dropped the minus sign in front or the minus sign of \(\dfrac{dq}{dp}\).</div>
 
 <h4>Elasticity and revenue</h4>
-<p>The reason businesses care about elasticity is revenue. The <b>revenue</b> is the price per unit times the number of units sold, \(R = pq\). Raising the price has two effects that pull in opposite directions: each unit brings in more money, but fewer units are sold. Elasticity tells you which effect wins.</p>
+<p>The reason businesses care about elasticity is revenue. The <b>revenue</b> is the price per unit times the number of units sold, \(R = pq\). Raising the price has two effects that pull in opposite directions. Each unit brings in more money, but fewer units are sold. Elasticity tells you which effect wins.</p>
 <p>Here is the derivation the professor did in lecture. Think of \(q = f(p)\) as a function of \(p\), so \(R = p\,f(p)\).</p>
 <ol class="steps">
 <li>Differentiate \(R = p\cdot q\) with respect to \(p\) using the product rule, with \(u = p\), \(v = q\), \(u' = 1\), \(v' = \dfrac{dq}{dp}\).
 \[\frac{dR}{dp} = u'v + uv' = 1\cdot q + p\,\frac{dq}{dp} = q + p\,\frac{dq}{dp}\]</li>
-<li>Multiply and divide the second term by \(q\), so that the combination \(\dfrac{p}{q}\cdot\dfrac{dq}{dp}\) appears.
+<li>Multiply and divide the second term by \(q\), so that the combination \(\dfrac{p}{q}\cdot\dfrac{dq}{dp}\) appears. (Multiplying by \(\dfrac{q}{q} = 1\) changes nothing.)
 \[\frac{dR}{dp} = q + q\cdot\frac{p}{q}\cdot\frac{dq}{dp}\]</li>
 <li>By the definition of elasticity, \(\dfrac{p}{q}\cdot\dfrac{dq}{dp} = -E\). Substitute that in and factor out \(q\).
 \[\frac{dR}{dp} = q + q(-E) = q - qE = q(1 - E)\]</li>
@@ -76,14 +82,16 @@ Interpretation: at a price of \$150, a 1% increase in price makes the quantity d
 <li>If the demand is elastic (\(E \gt 1\)), then \(\dfrac{dR}{dp} \lt 0\), so revenue decreases as the price increases. Lowering the price raises revenue.</li>
 <li>At the price where the demand has unit elasticity (\(E = 1\)), \(\dfrac{dR}{dp} = 0\). This is where revenue is largest.</li>
 </ul></div>
+<p class="plain"><b>In plain words:</b> if customers barely react (inelastic), charge more and you take in more money. If customers react strongly (elastic), charge less and you take in more money. The best price for revenue is the one where \(E\) equals exactly 1.</p>
 <p>A way to remember it: inelastic means customers barely react, so you can charge more and keep almost all of them. Elastic means customers react strongly, so a lower price brings in enough extra customers to make up for it.</p>
-<p>For the demand in Worked example 1, revenue is \(R = p(600 - 3p) = 600p - 3p^2\), so \(R'(p) = 600 - 6p\). The formula \(q(1 - E)\) gives the same thing:</p>
-\[q(1 - E) = (600 - 3p)\left(1 - \frac{p}{200 - p}\right) = 3(200 - p)\cdot\frac{200 - p - p}{200 - p} = 3(200 - 2p) = 600 - 6p.\]
+<p>For the demand in Worked example 1, revenue is \(R = p(600 - 3p) = 600p - 3p^2\), so \(R'(p) = 600 - 6p\). The formula \(q(1 - E)\) gives the same thing. Write \(600 - 3p = 3(200 - p)\) and put \(1 - E\) over the common denominator \(200 - p\):</p>
+\[\begin{aligned} q(1 - E) &= (600 - 3p)\left(1 - \frac{p}{200 - p}\right) \\ &= 3(200 - p)\cdot\frac{(200 - p) - p}{200 - p} \\ &= 3(200 - 2p) = 600 - 6p. \end{aligned}\]
 <p>Unit elasticity happens where \(\dfrac{p}{200 - p} = 1\), that is \(p = 200 - p\), so \(2p = 200\) and \(p = 100\). The revenue is largest there: \(R(100) = 100(600 - 300) = 100\cdot 300 = 30000\) dollars. The graph shows revenue rising while demand is inelastic and falling once demand is elastic.</p>
 <div class="plot" data-f="600*x-3*x**2" data-x="0,200" data-y="0,35000"
      data-pts="100,30000,E = 1: max revenue (100, 30000)|50,22500,E = 1/3: inelastic, R rising|150,22500,E = 3: elastic, R falling"
      data-v="100" data-cap="Revenue R(p) = 600p - 3p^2 for the demand q = 600 - 3p. Revenue peaks at the price of unit elasticity, p = 100."></div>
-<p>You can always find the price that maximizes revenue without elasticity too: write \(R = pq\) as a function of \(p\) and maximize it with the methods of Sections 6.1 and 6.2. The professor asked exactly this in lecture. Both ways give the same price.</p>
+<p>You can always find the price that maximizes revenue without elasticity too. Write \(R = pq\) as a function of \(p\) and maximize it with the methods of Sections 6.1 and 6.2. The professor asked exactly this in lecture. Both ways give the same price.</p>
+<p>A shortcut for straight-line demand. If \(q = m - np\) (with \(m, n \gt 0\)), then \(E = \dfrac{np}{m - np}\). At the price \(p = \dfrac{m}{2n}\), the top is \(np = \dfrac{m}{2}\) and the bottom is \(m - \dfrac{m}{2} = \dfrac{m}{2}\), so \(E = 1\). That price is halfway between \(p = 0\) and the price \(\dfrac{m}{n}\) where demand hits zero. So for a straight-line demand, unit elasticity is always at the midpoint between the two intercepts (Homework 6.3 #11). In Worked example 1, demand hits zero at \(p = 200\), and the midpoint is \(p = 100\).</p>
 
 <div class="recipe"><div class="rt">How to answer "should the price be increased or decreased to increase revenue?"</div><ol>
 <li>Find \(E\) as a function of \(p\).</li>
@@ -93,9 +101,10 @@ Interpretation: at a price of \$150, a 1% increase in price makes the quantity d
 <li>Answer the question: increase the price if \(E \lt 1\), decrease it if \(E \gt 1\).</li>
 </ol></div>
 
-<div class="say"><b>What to write on the exam.</b> For an "explain" part, write the number, the comparison with 1, the name of the case, the revenue fact, and the decision, all in full sentences. For example: "At \(p = 5\), \(E = \tfrac{50}{23}\), which is greater than 1, so demand is elastic at this price. Since \(\dfrac{dR}{dp} = q(1 - E)\) and \(q \gt 0\), \(\dfrac{dR}{dp} \lt 0\) when \(E \gt 1\), so revenue decreases as the price increases. Therefore the price should be decreased in order to increase revenue." Writing only "decrease" without the reason will not get full credit, because the exam says "Explain."</div>
+<div class="say"><b>What to write on the exam.</b> For an "explain" part, write five things in full sentences: the number, the comparison with 1, the name of the case, the revenue fact, and the decision. For example: "At \(p = 5\), \(E = \tfrac{50}{23}\), which is greater than 1, so demand is elastic at this price. Since \(\dfrac{dR}{dp} = q(1 - E)\) and \(q \gt 0\), \(\dfrac{dR}{dp} \lt 0\) when \(E \gt 1\), so revenue decreases as the price increases. Therefore the price should be decreased in order to increase revenue." Writing only "decrease" without the reason will not get full credit, because the exam says "Explain."</div>
 
 <div class="ex"><div class="et">Worked example 2 (quadratic demand, exam style)</div><p class="p">The demand for a product is \(q = 48 - p^2\), where \(p\) is the price in dollars. Recall that the elasticity of demand is \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\). (a) At what price does the demand have unit elasticity? (b) If the price is \$5, should it be increased or decreased in order to increase revenue? Explain. (c) Same question if the price is \$3.</p>
+<p class="spot"><b>How to spot this type:</b> the words "unit elasticity" mean solve \(E = 1\), and "increased or decreased in order to increase revenue" means find \(E\) at that price and use the sign of \(q(1 - E)\). This is the exact shape of the Fall 2025 exam question.</p>
 <ol class="steps">
 <li>State the domain. The quantity must be positive, so \(48 - p^2 \gt 0\), which means \(p^2 \lt 48\) and \(0 \lt p \lt \sqrt{48} = 4\sqrt{3}\).</li>
 <li>Differentiate the demand function with the power rule.
@@ -116,8 +125,8 @@ so revenue decreases as the price increases. To increase revenue, decrease the p
 <li>(c) Substitute \(p = 3\). First \(q = 48 - 9 = 39\), then
 \[E(3) = \frac{2(3)^2}{48 - 3^2} = \frac{18}{39} = \frac{6}{13}\]
 Since \(6 \lt 13\), \(E(3) \lt 1\), so demand is inelastic at \(p = 3\).</li>
-<li>Connect to revenue. At \(p = 3\)
-\[\frac{dR}{dp} = 39\left(1 - \frac{6}{13}\right) = 39\cdot\frac{7}{13} = 21 \gt 0,\]
+<li>Connect to revenue. At \(p = 3\), using \(\tfrac{39}{13} = 3\),
+\[\frac{dR}{dp} = 39\left(1 - \frac{6}{13}\right) = 39\cdot\frac{7}{13} = 3\cdot 7 = 21 \gt 0,\]
 so revenue increases as the price increases. To increase revenue, increase the price.</li>
 <li>Double check with the revenue function directly. \(R = p(48 - p^2) = 48p - p^3\), so \(R'(p) = 48 - 3p^2\). Then \(R'(5) = 48 - 75 = -27\) and \(R'(3) = 48 - 27 = 21\), matching the two steps above.</li>
 </ol><p class="final">Answer: (a) \(p = 4\) dollars. (b) At \$5, \(E = \tfrac{50}{23} \gt 1\), demand is elastic, so \(\tfrac{dR}{dp} = q(1 - E) \lt 0\): decrease the price. (c) At \$3, \(E = \tfrac{6}{13} \lt 1\), demand is inelastic, so \(\tfrac{dR}{dp} \gt 0\): increase the price.</p></div>
@@ -126,6 +135,7 @@ so revenue increases as the price increases. To increase revenue, increase the p
 <div class="trap"><b>Common mistake.</b> Plugging the price in before differentiating. If you substitute \(p = 5\) into \(q = 48 - p^2\) first, you get the constant 23, whose derivative is 0, and \(E\) comes out 0. Always find \(\dfrac{dq}{dp}\) as a formula first.</div>
 
 <div class="ex"><div class="et">Worked example 3 (exponential demand)</div><p class="p">The demand for a product is \(q = 400e^{-p/20}\). Find \(E\). For which prices is demand elastic, and for which is it inelastic? At what price is revenue maximized, and what is the maximum revenue?</p>
+<p class="spot"><b>How to spot this type:</b> an \(e\) to a power of \(p\) in the demand means the chain rule for \(e^{g(p)}\), and the exponential always cancels in \(E\). "For which prices" means solve \(E \lt 1\) and \(E \gt 1\).</p>
 <ol class="steps">
 <li>Differentiate with the rule \(\dfrac{d}{dp}e^{g(p)} = e^{g(p)}\,g'(p)\), where \(g(p) = -\dfrac{p}{20}\) and \(g'(p) = -\dfrac{1}{20}\).
 \[\frac{dq}{dp} = 400e^{-p/20}\cdot\left(-\frac{1}{20}\right) = -20e^{-p/20}\]</li>
@@ -140,6 +150,7 @@ Justification: \(\dfrac{dR}{dp} = q(1 - E)\) is positive for \(p \lt 20\) (inela
 </ol><p class="final">Answer: \(E = \dfrac{p}{20}\). Inelastic for \(0 \lt p \lt 20\), elastic for \(p \gt 20\). Revenue is maximized at \(p = 20\) dollars, with maximum revenue \(\dfrac{8000}{e}\) dollars.</p></div>
 
 <div class="ex"><div class="et">Worked example 4 (power demand)</div><p class="p">The demand for a product is \(q = \dfrac{2000}{p^2}\). Find \(E\) and explain what it says about how the price affects revenue.</p>
+<p class="spot"><b>How to spot this type:</b> the demand is a constant divided by a power of \(p\). Expect every \(p\) to cancel, leaving a constant \(E\), so the answer is the same at every price.</p>
 <ol class="steps">
 <li>Rewrite with a negative exponent so you can use the power rule.
 \[q = 2000p^{-2}\]</li>
@@ -149,13 +160,16 @@ Justification: \(\dfrac{dR}{dp} = q(1 - E)\) is positive for \(p \lt 20\) (inela
 \[E = -p\cdot\frac{p^2}{2000}\cdot\left(-\frac{4000}{p^3}\right) = \frac{4000p^3}{2000p^3} = 2\]</li>
 <li>Interpret. \(E = 2 \gt 1\) at every price, so demand is elastic at every price. Since \(\dfrac{dR}{dp} = q(1 - 2) = -q \lt 0\), revenue decreases whenever the price increases, so lowering the price always raises revenue. Check: \(R = p\cdot\dfrac{2000}{p^2} = \dfrac{2000}{p}\), and \(R'(p) = -\dfrac{2000}{p^2} = -q\), which is negative.</li>
 </ol><p class="final">Answer: \(E = 2\) at every price, so demand is always elastic and lowering the price always increases revenue.</p></div>
-<p>The same computation shows that a demand of the form \(q = c\,p^{-n}\) (with \(c\) and \(n\) positive constants) has constant elasticity \(E = n\). For example, \(q = \dfrac{64}{\sqrt{p}} = 64p^{-1/2}\) has \(E = \tfrac{1}{2}\) at every price.</p>
+<p>The same computation shows that a demand of the form \(q = c\,p^{-n}\) (with \(c\) and \(n\) positive constants) has constant elasticity \(E = n\). Here is the line: \(\dfrac{dq}{dp} = -nc\,p^{-n-1}\), so \(E = -\dfrac{p}{c\,p^{-n}}\cdot\left(-nc\,p^{-n-1}\right) = \dfrac{nc\,p^{-n}}{c\,p^{-n}} = n\). For example, \(q = \dfrac{64}{\sqrt{p}} = 64p^{-1/2}\) has \(E = \tfrac{1}{2}\) at every price. This also answers the reverse question "find a demand function whose elasticity is the constant 2": \(q = \dfrac{1}{p^2}\), or any \(q = \dfrac{c}{p^2}\).</p>
 
 <h4>When the demand is given as p in terms of q</h4>
-<p>Sometimes the problem gives the demand equation as \(p = D(q)\). The formula for \(E\) still needs \(\dfrac{dq}{dp}\). There are two ways to get it. You can solve the equation for \(q\) and differentiate as before. Or you can differentiate both sides of \(p = D(q)\) with respect to \(p\), treating \(q\) as a function of \(p\) (this is implicit differentiation, Section 6.4). The left side gives 1 and the chain rule gives \(D'(q)\,\dfrac{dq}{dp}\) on the right, so</p>
+<p>Sometimes the problem gives the demand equation as \(p = D(q)\). The formula for \(E\) still needs \(\dfrac{dq}{dp}\). There are two ways to get it. You can solve the equation for \(q\) and differentiate as before. Or you can differentiate both sides of \(p = D(q)\) with respect to \(p\), treating \(q\) as a function of \(p\). (This is implicit differentiation, Section 6.4.) The left side gives 1, and the chain rule gives \(D'(q)\,\dfrac{dq}{dp}\) on the right, so</p>
 \[1 = D'(q)\,\frac{dq}{dp} \quad\Longleftrightarrow\quad \frac{dq}{dp} = \frac{1}{D'(q)} = \frac{1}{dp/dq}.\]
+<p class="plain"><b>In plain words:</b> if you know how fast the price changes when quantity changes, flip that fraction upside down to get how fast quantity changes when price changes.</p>
+<p>The same move works when the demand is an equation that mixes \(p\) and \(q\), such as \(q^2 + pq + 2p^2 = 23\). Differentiate every term with respect to \(p\), write \(\dfrac{dq}{dp}\) every time you differentiate a \(q\), and solve for \(\dfrac{dq}{dp}\). Your \(E\) will then contain both \(p\) and \(q\), which is fine unless the problem asks for \(E(p)\), meaning \(E\) written with \(p\) only.</p>
 
 <div class="ex"><div class="et">Worked example 5 (demand given as p in terms of q)</div><p class="p">The demand equation for a product is \(p = 100 - q^2\), for \(0 \lt q \lt 10\). Find the elasticity of demand when \(q = 5\), and say whether the price should be raised or lowered to increase revenue. Then find the price at which demand has unit elasticity.</p>
+<p class="spot"><b>How to spot this type:</b> the equation starts with "\(p =\)" and the problem tells you how many units are sold (a value of \(q\)), so you need \(\dfrac{dq}{dp}\) as the reciprocal of \(\dfrac{dp}{dq}\), and the price comes from plugging \(q\) into the demand equation.</p>
 <ol class="steps">
 <li>Differentiate both sides of \(p = 100 - q^2\) with respect to \(p\), treating \(q\) as a function of \(p\). The chain rule gives \(\dfrac{d}{dp}[q^2] = 2q\,\dfrac{dq}{dp}\).
 \[1 = -2q\,\frac{dq}{dp}\]</li>
@@ -172,10 +186,16 @@ Since \(\tfrac{3}{2} \gt 1\), demand is elastic, so \(\dfrac{dR}{dp} = q(1 - E) 
 \[p = 2\cdot\frac{100}{3} = \frac{200}{3}\]</li>
 <li>Check by the other method. Solving \(p = 100 - q^2\) for \(q\) (with \(q \gt 0\)) gives \(q = \sqrt{100 - p} = (100 - p)^{1/2}\). The chain rule gives \(\dfrac{dq}{dp} = \tfrac{1}{2}(100 - p)^{-1/2}\cdot(-1) = -\dfrac{1}{2\sqrt{100 - p}}\), so
 \[E = -\frac{p}{\sqrt{100 - p}}\cdot\left(-\frac{1}{2\sqrt{100 - p}}\right) = \frac{p}{2(100 - p)}.\]
-At \(p = 75\) this is \(\dfrac{75}{2\cdot 25} = \dfrac{3}{2}\), and \(E = 1\) gives \(p = 200 - 2p\), so \(p = \dfrac{200}{3}\). Both methods agree.</li>
+At \(p = 75\) this is \(\dfrac{75}{2\cdot 25} = \dfrac{3}{2}\). Setting it equal to 1 gives \(p = 200 - 2p\), so \(3p = 200\) and \(p = \dfrac{200}{3}\). Both methods agree.</li>
 </ol><p class="final">Answer: At \(q = 5\) (price \$75), \(E = \tfrac{3}{2}\), demand is elastic, and the price should be lowered. Unit elasticity occurs at \(p = \dfrac{200}{3}\) dollars.</p></div>
 
 <div class="trap"><b>Common mistake.</b> Using \(\dfrac{dp}{dq}\) in place of \(\dfrac{dq}{dp}\). When the demand is \(p = 100 - q^2\), the derivative \(-2q\) is \(\dfrac{dp}{dq}\). The formula needs its reciprocal, \(\dfrac{dq}{dp} = -\dfrac{1}{2q}\).</div>
+
+<h4>Marginal revenue: the derivative with respect to quantity</h4>
+<p>Some past Berkeley exams ask for the <b>marginal revenue</b> instead of the elasticity. Marginal revenue is \(\dfrac{dR}{dq}\), the rate at which revenue changes per extra unit sold (Section 4.1). It is a derivative with respect to \(q\), not \(p\). Think of \(p\) as a function of \(q\) and use the product rule on \(R = pq\):</p>
+\[\frac{dR}{dq} = \frac{dp}{dq}\cdot q + p\cdot 1 = p + q\,\frac{dp}{dq}.\]
+<p>If \(\dfrac{dR}{dq} \gt 0\), selling more units raises revenue (and selling more means lowering the price). If \(\dfrac{dR}{dq} \lt 0\), selling fewer units raises revenue. This always agrees with the elasticity answer, because \(\dfrac{dp}{dq} = \dfrac{1}{dq/dp}\) turns the formula into \(\dfrac{dR}{dq} = p\left(1 - \dfrac{1}{E}\right)\), which is positive exactly when \(E \gt 1\). Level 5 has a full problem of this type.</p>
+<p class="plain"><b>In plain words:</b> marginal revenue answers "if I sell one more unit, does my revenue go up or down?" A positive number means sell more; a negative number means sell fewer.</p>
 
 <h3>Part B. Economic lot size and economic order quantity</h3>
 
@@ -192,7 +212,7 @@ At \(p = 75\) this is \(\dfrac{75}{2\cdot 25} = \dfrac{3}{2}\), and \(E = 1\) gi
 <p><b>Number of batches.</b> To make \(M\) units in batches of \(q\), the company runs \(\dfrac{M}{q}\) batches per year. For example, \(q = M\) means 1 batch, \(q = \dfrac{M}{2}\) means 2 batches, and \(q = \dfrac{M}{4}\) means 4 batches.</p>
 <p><b>Manufacturing cost.</b> One batch of \(q\) units costs the setup fee plus \(g\) dollars per unit, which is \(f + gq\). Multiply by the number of batches to get the annual manufacturing cost:</p>
 \[(f + gq)\cdot\frac{M}{q} = \frac{fM}{q} + \frac{gqM}{q} = \frac{fM}{q} + gM.\]
-<p><b>Storage cost.</b> The model assumes demand is constant, so the inventory goes down at a constant rate (linearly) from \(q\) to 0, and then the next batch arrives. The picture is a sawtooth. The inventory is \(q\) at the start of each cycle and 0 at the end, so the <b>average inventory</b> is \(\dfrac{q}{2}\) units. Storing \(\dfrac{q}{2}\) units for a year at \(k\) dollars per unit per year costs</p>
+<p><b>Storage cost.</b> The model assumes demand is constant, so the inventory goes down at a constant rate (along a straight line) from \(q\) to 0, and then the next batch arrives. The picture is a sawtooth. The inventory is \(q\) at the start of each cycle and 0 at the end, so the <b>average inventory</b> is \(\dfrac{q}{2}\) units. Storing \(\dfrac{q}{2}\) units for a year at \(k\) dollars per unit per year costs</p>
 \[k\cdot\frac{q}{2} = \frac{kq}{2}.\]
 <svg class="dia" viewBox="0 0 320 200">
 <line x1="40" y1="20" x2="40" y2="175" stroke="currentColor" fill="none"/>
@@ -210,22 +230,25 @@ At \(p = 75\) this is \(\dfrac{75}{2\cdot 25} = \dfrac{3}{2}\), and \(E = 1\) gi
 <div class="rule"><div class="rt">Total annual cost (economic lot size and order quantity)</div>
 \[C(q) = \frac{fM}{q} + gM + \frac{kq}{2}, \qquad 0 \lt q \le M\]
 <p>The first term is the setup (or ordering) cost, the middle term is the cost of the units themselves, and the last term is the storage cost. The domain is \((0, M]\) because a batch must have a positive number of units and can be at most the whole year's production.</p></div>
-<p><b>Minimizing.</b> Differentiate with respect to \(q\). Write \(\dfrac{fM}{q} = fMq^{-1}\), whose derivative is \(-fMq^{-2}\). The term \(gM\) is a constant, so its derivative is 0.</p>
+<p class="plain"><b>In plain words:</b> yearly cost equals (number of batches times the setup fee) plus (the cost of all the units) plus (storage on half a batch, since on average the shelf is half full).</p>
+<p><b>Minimizing.</b> Differentiate with respect to \(q\). Write \(\dfrac{fM}{q} = fMq^{-1}\), whose derivative is \(-fMq^{-2}\). The term \(gM\) is a constant, so its derivative is 0. The derivative of \(\dfrac{kq}{2}\) is \(\dfrac{k}{2}\).</p>
 \[C'(q) = -\frac{fM}{q^2} + \frac{k}{2}.\]
-<p>Set \(C'(q) = 0\) and solve for \(q\):</p>
+<p>Set \(C'(q) = 0\), move the negative term to the other side, multiply both sides by \(2q^2\), and divide by \(k\):</p>
 \[\frac{fM}{q^2} = \frac{k}{2} \quad\Longleftrightarrow\quad 2fM = kq^2 \quad\Longleftrightarrow\quad q^2 = \frac{2fM}{k} \quad\Longleftrightarrow\quad q = \sqrt{\frac{2fM}{k}},\]
 <p>taking the positive square root because \(q\) must be positive. For the second derivative, the derivative of \(-fMq^{-2}\) is \(2fMq^{-3}\):</p>
 \[C''(q) = \frac{2fM}{q^3} \gt 0 \quad\text{for every } q \gt 0.\]
-<p>So the critical number is a local minimum by the second derivative test. It is the only critical number on the interval \((0, M]\), so by the critical point theorem (one critical number on an interval, and it is a local minimum) it is the absolute minimum, as long as it lies in \((0, M]\).</p>
+<p>So the critical number is a local minimum by the second derivative test. It is the only critical number on the interval \((0, M]\). By the critical point theorem (one critical number on an interval, and it is a local minimum), it is the absolute minimum, as long as it lies in \((0, M]\).</p>
 <div class="rule"><div class="rt">Economic lot size</div>
 \[q = \sqrt{\frac{2fM}{k}} \qquad \text{(valid when this number is in } (0, M]\text{)}\]
 <p>The number of batches per year is \(\dfrac{M}{q}\).</p></div>
-<p>Two of the professor's lecture questions, with answers. The constant term \(gM\) is the cost of the units themselves: making (or buying) all \(M\) units at \(g\) dollars each costs \(gM\) dollars no matter how the year is split into batches. That is also why \(g\) does not appear in the formula: a constant term has derivative 0, so it cannot change where the minimum is.</p>
+<p class="plain"><b>In plain words:</b> the best batch size is the square root of (2 times the setup fee times the yearly amount, divided by the yearly storage cost per unit). Then divide the yearly amount by the batch size to count the batches.</p>
+<p>Two of the professor's lecture questions, with answers. First, the constant term \(gM\) is the cost of the units themselves: making (or buying) all \(M\) units at \(g\) dollars each costs \(gM\) dollars no matter how the year is split into batches. Second, that is also why \(g\) does not appear in the formula. A constant term has derivative 0, so it cannot change where the minimum is.</p>
 
 <h4>The economic order quantity</h4>
-<p>A store that reorders an item it sells has the same problem. Ordering a lot at once means few ordering fees but high storage; ordering a little at a time means low storage but many fees. The number of units per order that minimizes cost is the <b>economic order quantity</b>. Now \(M\) is the number of units ordered per year, \(q\) is the number of units per order, \(f\) is the fixed cost of placing one order, \(g\) is the price per unit, and \(k\) is the cost of storing one unit for one year. An order costs \(f + gq\), there are \(\dfrac{M}{q}\) orders, and the item is used at a constant rate, so the average inventory is again \(\dfrac{q}{2}\). The total cost is the exact same formula,</p>
+<p>A store that reorders an item it sells has the same problem. Ordering a lot at once means few ordering fees but high storage. Ordering a little at a time means low storage but many fees. The number of units per order that minimizes cost is the <b>economic order quantity</b>. Now \(M\) is the number of units ordered per year, \(q\) is the number of units per order, \(f\) is the fixed cost of placing one order, \(g\) is the price per unit, and \(k\) is the cost of storing one unit for one year. An order costs \(f + gq\), there are \(\dfrac{M}{q}\) orders, and the item is used at a constant rate, so the average inventory is again \(\dfrac{q}{2}\). The total cost is the exact same formula,</p>
 \[C(q) = \frac{fM}{q} + gM + \frac{kq}{2},\]
 <p>so the economic order quantity is also \(q = \sqrt{\dfrac{2fM}{k}}\), when this number is in \((0, M]\).</p>
+<p>If the formula gives a number that is not a whole number (for example \(\sqrt{9000} \approx 94.9\) bottles in Homework 6.3 #16), the order must still be a whole number of units. Since \(C\) decreases before the critical number and increases after it, the best whole number is one of the two integers on either side. Compute \(C\) at both and pick the smaller value.</p>
 
 <div class="recipe"><div class="rt">How to solve a lot size or order quantity problem</div><ol>
 <li>Identify \(M\) (units per year), \(f\) (cost per batch or per order), \(g\) (cost per unit), and \(k\) (storage cost per unit per year). If storage is quoted per month, multiply by 12.</li>
@@ -237,14 +260,15 @@ At \(p = 75\) this is \(\dfrac{75}{2\cdot 25} = \dfrac{3}{2}\), and \(E = 1\) gi
 </ol></div>
 
 <div class="ex"><div class="et">Worked example 6 (economic lot size)</div><p class="p">A company makes 20,000 bicycle helmets per year. Setting up the factory for a batch costs \$400, each helmet costs \$3 to make, and storing one helmet for one year costs \$4. How many helmets should be made in each batch to minimize the total annual cost? How many batches should be made per year, and what is the minimum total annual cost?</p>
+<p class="spot"><b>How to spot this type:</b> a yearly amount, a cost "to set up" each batch, and a cost "to store one unit for one year" are the three ingredients \(M\), \(f\), \(k\) of the lot size model, with storage on the average inventory.</p>
 <ol class="steps">
 <li>Identify the constants: \(M = 20000\) helmets per year, \(f = 400\) dollars per batch, \(g = 3\) dollars per helmet, \(k = 4\) dollars per helmet per year. Let \(q\) be the number of helmets per batch, with \(0 \lt q \le 20000\).</li>
 <li>Build the total annual cost. Setup: \(\dfrac{fM}{q} = \dfrac{400\cdot 20000}{q} = \dfrac{8000000}{q}\). Units: \(gM = 3\cdot 20000 = 60000\). Storage: \(\dfrac{kq}{2} = \dfrac{4q}{2} = 2q\).
 \[C(q) = \frac{8000000}{q} + 60000 + 2q\]</li>
 <li>Differentiate.
 \[C'(q) = -\frac{8000000}{q^2} + 2\]</li>
-<li>Set the derivative equal to 0 and solve, keeping the positive root.
-\[\frac{8000000}{q^2} = 2 \quad\Longleftrightarrow\quad q^2 = 4000000 \quad\Longleftrightarrow\quad q = 2000\]
+<li>Set the derivative equal to 0 and solve, keeping the positive root. Multiply both sides by \(q^2\), then divide by 2.
+\[\frac{8000000}{q^2} = 2 \quad\Longleftrightarrow\quad 8000000 = 2q^2 \quad\Longleftrightarrow\quad q^2 = 4000000 \quad\Longleftrightarrow\quad q = 2000\]
 This agrees with the formula: \(\sqrt{\dfrac{2fM}{k}} = \sqrt{\dfrac{2\cdot 400\cdot 20000}{4}} = \sqrt{4000000} = 2000\). It lies in \((0, 20000]\).</li>
 <li>Justify the minimum with the second derivative.
 \[C''(q) = \frac{16000000}{q^3} \gt 0 \quad\text{for all } q \gt 0\]
@@ -253,9 +277,10 @@ So \(q = 2000\) is a local minimum, and since it is the only critical number in 
 <li>Minimum cost: substitute \(q = 2000\).
 \[C(2000) = \frac{8000000}{2000} + 60000 + 2(2000) = 4000 + 60000 + 4000 = 68000\]</li>
 </ol><p class="final">Answer: Make 2000 helmets per batch, in 10 batches per year. The minimum total annual cost is \$68,000.</p></div>
-<p>Notice that at the optimal \(q\), the setup cost (\$4000) equals the storage cost (\$4000). That always happens with this model, because \(C'(q) = 0\) says \(\dfrac{fM}{q^2} = \dfrac{k}{2}\), and multiplying both sides by \(q\) gives \(\dfrac{fM}{q} = \dfrac{kq}{2}\). It makes a quick check of your arithmetic.</p>
+<p>Notice that at the optimal \(q\), the setup cost (\$4000) equals the storage cost (\$4000). That always happens with this model. The equation \(C'(q) = 0\) says \(\dfrac{fM}{q^2} = \dfrac{k}{2}\), and multiplying both sides by \(q\) gives \(\dfrac{fM}{q} = \dfrac{kq}{2}\). It makes a quick check of your arithmetic.</p>
 
 <div class="ex"><div class="et">Worked example 7 (changed assumption: build the cost from scratch)</div><p class="p">A grocery chain sells 4500 cases of sparkling water per year. Each order costs \$10 to place, and each case costs \$20. The chain rents warehouse space large enough to hold a full order, and the rent is \$2 per case of space per year, charged whether the space is full or empty. How many cases should be ordered each time to minimize the total annual cost? How many orders are placed per year?</p>
+<p class="spot"><b>How to spot this type:</b> the words "large enough to hold a full order" and "whether the space is full or empty" mean storage is charged on the maximum inventory \(q\), not the average \(\dfrac{q}{2}\). That changes the cost function, so the usual formula is off limits.</p>
 <ol class="steps">
 <li>Spot the change. The storage cost is charged on the space for the <i>maximum</i> inventory, not the average inventory. This is the situation the professor worked in lecture (Homework 6.3 #17). The maximum inventory is a full order, \(q\) cases, so storage costs \(kq\), not \(\dfrac{kq}{2}\), and the usual formula does not apply.</li>
 <li>Define the variable and constants. Let \(q\) be the number of cases per order, with \(0 \lt q \le 4500\). Here \(M = 4500\), \(f = 10\), \(g = 20\), \(k = 2\).</li>
@@ -263,8 +288,8 @@ So \(q = 2000\) is a local minimum, and since it is the only critical number in 
 \[C(q) = \frac{45000}{q} + 90000 + 2q\]</li>
 <li>Differentiate.
 \[C'(q) = -\frac{45000}{q^2} + 2\]</li>
-<li>Set the derivative equal to 0 and solve, keeping the positive root.
-\[\frac{45000}{q^2} = 2 \quad\Longleftrightarrow\quad q^2 = 22500 \quad\Longleftrightarrow\quad q = 150\]
+<li>Set the derivative equal to 0 and solve, keeping the positive root. Multiply both sides by \(q^2\), then divide by 2.
+\[\frac{45000}{q^2} = 2 \quad\Longleftrightarrow\quad 45000 = 2q^2 \quad\Longleftrightarrow\quad q^2 = 22500 \quad\Longleftrightarrow\quad q = 150\]
 This is in \((0, 4500]\).</li>
 <li>Justify the minimum.
 \[C''(q) = \frac{90000}{q^3} \gt 0 \quad\text{for all } q \gt 0,\]
@@ -275,8 +300,25 @@ so \(q = 150\) is a local minimum, and it is the only critical number in the dom
 
 <div class="trap"><b>Common mistake.</b> Using \(q = \sqrt{2fM/k}\) when the problem changes an assumption (storage on maximum inventory, an extra cost per unit of space, storage quoted per month). The formula is only valid under the assumptions used to derive it. When in doubt, build \(C(q)\) from its parts and differentiate; it takes three lines.</div>
 <div class="trap"><b>Common mistake.</b> Writing the number of batches as \(\dfrac{q}{M}\) instead of \(\dfrac{M}{q}\), or using the full batch \(q\) as the average inventory instead of \(\dfrac{q}{2}\).</div>
-<div class="trap"><b>Common mistake.</b> Forgetting to check that the critical number is at most \(M\). If \(\sqrt{2fM/k} \gt M\), then \(C'(q) \lt 0\) on all of \((0, M]\), the cost is decreasing, and the best plan is one batch of size \(M\).</div>
+<div class="trap"><b>Common mistake.</b> Forgetting to check that the critical number is at most \(M\). If \(\sqrt{2fM/k} \gt M\), then \(C'(q) \lt 0\) on all of \((0, M]\). The cost is decreasing there, so the best plan is one batch of size \(M\).</div>
 <div class="say"><b>What to write on the exam.</b> For the justification: "Since \(C''(q) = \dfrac{2fM}{q^3} \gt 0\) for all \(q \gt 0\), the critical number is a local minimum by the second derivative test. It is the only critical number in \((0, M]\), so it gives the absolute minimum cost." Then answer the question in a sentence with units.</div>
+
+<div class="stuck"><div class="rt">If you get stuck</div><ul>
+<li>Write the definition \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\) at the top of the page before anything else. Then find \(\dfrac{dq}{dp}\) as a formula and substitute both pieces.</li>
+<li>If the equation starts with "\(p =\)" or mixes \(p\) and \(q\), differentiate every term with respect to \(p\) and solve for \(\dfrac{dq}{dp}\). You will get 1 on the left side of \(p = \ldots\).</li>
+<li>Simplify \(E\) to one fraction and cancel common factors (an exponential, a power of \(p\), a constant) before you set it equal to 1 or plug in a price.</li>
+<li>To decide raise or lower, compute the number \(E\), compare with 1, and write \(\dfrac{dR}{dp} = q(1 - E)\). If you doubt the direction, compute \(R = pq\) as a function of \(p\) and check the sign of \(R'(p)\) directly.</li>
+<li>For a lot size or order problem, write the three cost pieces in words first (setup or ordering, the units themselves, storage) and only then turn each into a formula in \(q\).</li>
+<li>After you find \(q\), check that \(0 \lt q \le M\), and check that setup cost equals storage cost at your answer. If they are not equal (in the standard model), the arithmetic slipped.</li>
+</ul></div>
+
+<div class="qc"><div class="rt">Quick check</div>
+<details class="qa"><summary>When the price rises 2%, the quantity demanded falls 6%. About what is \(E\), and is demand elastic?</summary><p>\(E \approx \dfrac{6\%}{2\%} = 3\), which is greater than 1, so demand is elastic.</p></details>
+<details class="qa"><summary>At the price where demand has unit elasticity, will raising the price a little increase revenue?</summary><p>No. There \(\dfrac{dR}{dp} = q(1 - 1) = 0\), and this is the price of maximum revenue, so moving the price away from it in either direction does not raise revenue.</p></details>
+<details class="qa"><summary>Why does the per-unit cost \(g\) not appear in \(q = \sqrt{2fM/k}\)?</summary><p>It enters \(C(q)\) only as the constant \(gM\), whose derivative is 0, so it cannot move the critical number.</p></details>
+<details class="qa"><summary>Can \(\sqrt{2fM/k}\) be the wrong answer even with correct arithmetic? Give an example.</summary><p>Yes, when it is larger than \(M\). With \(M = 200\), \(f = 900\), \(k = 1\) it gives 600, which is outside \((0, 200]\), so the cost is decreasing on the whole domain and the best plan is one batch of 200.</p></details>
+<details class="qa"><summary>For the demand \(q = \dfrac{500}{p^3}\), should a seller raise or lower the price to increase revenue?</summary><p>Lower it. A demand \(c\,p^{-n}\) has \(E = n\), so \(E = 3 \gt 1\) at every price, and \(\dfrac{dR}{dp} = q(1 - 3) \lt 0\).</p></details>
+</div>
 
 <div class="mem"><div class="rt">What to have memorized</div><ul>
 <li>Elasticity of demand: \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\). It is about the percent drop in quantity demanded for a 1% rise in price. The minus sign makes \(E\) positive because demand decreases as price increases.</li>
@@ -284,13 +326,46 @@ so \(q = 150\) is a local minimum, and it is the only critical number in the dom
 <li>\(R = pq\) and \(\dfrac{dR}{dp} = q(1 - E)\), from the product rule. Inelastic: raise the price to raise revenue. Elastic: lower the price to raise revenue. Revenue is largest where \(E = 1\).</li>
 <li>An "explain" answer names the value of \(E\), compares it with 1, names the case, cites \(\dfrac{dR}{dp} = q(1 - E)\) and its sign, and states the decision.</li>
 <li>Demand given as \(p = D(q)\): differentiate both sides with respect to \(p\) to get \(\dfrac{dq}{dp} = \dfrac{1}{dp/dq}\).</li>
-<li>Power demand \(q = c\,p^{-n}\) has constant elasticity \(E = n\).</li>
+<li>Power demand \(q = c\,p^{-n}\) has constant elasticity \(E = n\). Straight-line demand has unit elasticity halfway between its intercepts.</li>
+<li>Marginal revenue is \(\dfrac{dR}{dq} = p + q\,\dfrac{dp}{dq}\): positive means sell more units, negative means sell fewer.</li>
 <li>Lot size and order quantity: \(C(q) = \dfrac{fM}{q} + gM + \dfrac{kq}{2}\) on \((0, M]\). Number of batches \(\dfrac{M}{q}\), average inventory \(\dfrac{q}{2}\).</li>
 <li>\(C'(q) = -\dfrac{fM}{q^2} + \dfrac{k}{2}\), so \(q = \sqrt{\dfrac{2fM}{k}}\); \(C''(q) = \dfrac{2fM}{q^3} \gt 0\) shows it is the minimum. The formula has no \(g\) because \(gM\) is constant.</li>
 <li>If storage is charged on the maximum inventory, the storage term is \(kq\) and \(q = \sqrt{\dfrac{fM}{k}}\). Any changed assumption means rebuilding \(C(q)\).</li>
 </ul></div>
 </section>
-<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u10-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = 120 - 4p\). Find the elasticity of demand \(E\) as a function of \(p\). Then find \(E\) at \(p = 10\) and say whether demand is elastic or inelastic there.</div>
+<section id="vars"><h2>Every way this can be asked</h2>
+<p>These are the question wordings for Section 6.3 found in the homework, the lecture notes, the worksheets, the professor's two exams, and past Berkeley Math 16A exams, with what each one is really asking and the first thing to write.</p>
+<table class="t">
+<tr><th>How the question is worded</th><th>What it is really asking</th><th>First move</th></tr>
+<tr><td>"Find the elasticity of demand \(E\)." "Find \(E\) at \(p = 20\). Is the demand elastic, inelastic, or neither?"</td><td>Compute \(E = -\frac{p}{q}\cdot\frac{dq}{dp}\) as a formula in \(p\), then plug in the price and compare with 1.</td><td>Differentiate \(q = f(p)\) before substituting any number.</td></tr>
+<tr><td>"Interpret your result." "How would a 1% increase in the price affect the demand?"</td><td>Say in words what the number \(E\) means.</td><td>Write "a 1% rise in price lowers the quantity demanded by about \(E\) percent."</td></tr>
+<tr><td>"If the quantity demanded falls 10% when the price rises 5%, is demand elastic?" "The price rises 4%; estimate the change in demand."</td><td>Use \(E \approx\) (percent drop in \(q\)) divided by (percent rise in \(p\)), or percent drop \(\approx E\) times percent rise.</td><td>Divide the two percents (or multiply \(E\) by the percent) and compare with 1.</td></tr>
+<tr><td>"At what price will the demand have unit elasticity?"</td><td>Solve \(E = 1\) on the domain.</td><td>Write \(E\) as one fraction, set it equal to 1, cross multiply, and keep the positive root that makes \(q \gt 0\).</td></tr>
+<tr><td>"If the price is \$6, should it be increased or decreased in order to increase revenue? Explain."</td><td>Find the sign of \(\frac{dR}{dp} = q(1 - E)\) at that price.</td><td>Compute \(E(6)\), compare with 1, cite \(q(1 - E)\), then decide.</td></tr>
+<tr><td>"Find the price intervals where demand is elastic and where it is inelastic."</td><td>Solve \(E \gt 1\) and \(E \lt 1\) on the domain.</td><td>Find the unit elasticity price, then test one price on each side of it.</td></tr>
+<tr><td>"What price results in maximum revenue? What is the maximum revenue?" "Find the values of \(q\) at which total revenue is maximized."</td><td>Find the unit elasticity price, justify the max, and compute \(R = pq\). The second wording wants the quantity, not the price.</td><td>Solve \(E = 1\), then plug that price into the demand to get \(q\) and \(R\).</td></tr>
+<tr><td>"Show that demand is elastic (or inelastic) at every price." "If \(q = Cp^{-k}\), what does this say about how prices should be set?"</td><td>\(E\) is a constant, or stays on one side of 1 for every price, so revenue always moves one way.</td><td>Simplify \(E\) completely; compare it with 1 for all \(p\) in the domain.</td></tr>
+<tr><td>"The demand equation is \(p = 169 - q^2\). Find \(E\). If they are selling 12 units, should they raise or lower the price?"</td><td>Demand is given as price in terms of quantity, and the point is given by a quantity.</td><td>Differentiate both sides with respect to \(p\) to get \(\frac{dq}{dp} = \frac{1}{dp/dq}\); find \(p\) from the given \(q\).</td></tr>
+<tr><td>"The demand equation is \(p = 200e^{-0.1q}\). Determine the elasticity \(E(p)\)."</td><td>\(E\) must be written with \(p\) only.</td><td>Find \(E\) in terms of \(q\), then solve the demand for \(q\) (take ln of both sides) and substitute.</td></tr>
+<tr><td>"The demand equation is \(q^2 + qp + 4p^2 = 10\). Find the elasticity in terms of \(p\) and \(q\). If \(q = 3\), raise or lower the price?"</td><td>Implicit differentiation with \(q\) as a function of \(p\), then find the matching price.</td><td>Differentiate every term with respect to \(p\) and solve for \(\frac{dq}{dp}\); plug \(q = 3\) into the equation to find \(p\).</td></tr>
+<tr><td>"Determine the marginal revenue when 50 units are sold. Should the company aim to sell more or fewer units?" "Find the marginal revenue when \(p = 3\)."</td><td>Find \(\frac{dR}{dq}\), a derivative with respect to quantity, and read its sign.</td><td>Use \(\frac{dR}{dq} = p + q\,\frac{dp}{dq}\); find the matching \(p\) (or \(q\)) from the demand.</td></tr>
+<tr><td>"Supply is \(p = \ldots\), demand is \(p = \ldots\). Calculate the elasticity at the equilibrium."</td><td>Find the point where supply equals demand, then compute \(E\) from the demand curve only.</td><td>Set the two prices equal and solve for \(q\).</td></tr>
+<tr><td>"Show that \(E = 1\) at the midpoint of a linear demand curve." A graph of a straight-line demand is given.</td><td>For a line, unit elasticity is halfway between the two intercepts.</td><td>Read the intercepts, write \(q = m - np\), and take half of the price intercept \(\frac{m}{n}\).</td></tr>
+<tr><td>"The demand \(q = 540 - kp^2\) has unit elasticity at \(p = 6\). Find \(k\)." "Find a demand function whose elasticity is the constant 2."</td><td>Reverse problems: the answer is known and a constant or a formula is missing.</td><td>Compute \(E\) with the letter \(k\) inside, plug in \(p\), and set it equal to 1. For a constant \(E = n\), use \(q = \frac{c}{p^n}\).</td></tr>
+<tr><td>"What must be true about the demand function if \(E = 0\)?" "What is true about the elasticity of a Giffen good?" "If demand has unit elasticity, will raising the price increase revenue? True or false."</td><td>Concept questions answered from the definition and from \(q(1 - E)\).</td><td>Look at the sign of \(\frac{dq}{dp}\) (or of \(1 - E\)) and say what it means.</td></tr>
+<tr><td>"Find the number of lamps to produce in each batch and the number of batches per year." "Find the optimum number of copies per order. How many times a year should they be ordered?"</td><td>Economic lot size or economic order quantity: minimize \(C(q) = \frac{fM}{q} + gM + \frac{kq}{2}\).</td><td>List \(M\), \(f\), \(k\); compute \(\sqrt{2fM/k}\), check it is at most \(M\), then the count is \(\frac{M}{q}\).</td></tr>
+<tr><td>"Write the total annual cost." "Without quoting the formula, find the batch size and explain why your answer gives the smallest cost."</td><td>Build \(C(q)\) from its parts and do the calculus yourself.</td><td>Write setup, unit, and storage costs as three terms; then \(C'(q) = 0\), and \(C''(q) \gt 0\) with only one critical number.</td></tr>
+<tr><td>"Storing one unit costs 50 cents per month."</td><td>The model needs \(k\) per unit per year.</td><td>Multiply the monthly cost by 12 before anything else.</td></tr>
+<tr><td>"The storage cost depends on the maximum inventory." "Warehouse fees of \$2 per case for the maximum number stored." "Plus insurance on space for a full batch."</td><td>A changed assumption: the storage term is \(kq\), or \(\frac{k_1 q}{2} + k_2 q\) for a mix.</td><td>Rebuild \(C(q)\) with the new storage term; do not use \(\sqrt{2fM/k}\).</td></tr>
+<tr><td>"The cost per book is so low it can be ignored." "Minimize the annual cost of ordering plus storage."</td><td>The constant \(gM\) is left out of the cost; the best \(q\) does not change.</td><td>Write only the setup (or ordering) and storage terms.</td></tr>
+<tr><td>The formula \(\sqrt{2fM/k}\) gives a number larger than \(M\).</td><td>A trick: the critical number is outside the domain \((0, M]\).</td><td>Show \(C'(q) \lt 0\) on \((0, M]\); the answer is one batch of size \(M\).</td></tr>
+<tr><td>The formula gives a number that is not a whole number, such as \(\sqrt{96}\).</td><td>The order must be a whole number of units.</td><td>Find the two integers on either side and compare \(C\) at both.</td></tr>
+<tr><td>"What storage cost would make the best order size exactly 12 cases?"</td><td>Reverse lot size: \(q\) is known, a cost constant is missing.</td><td>Set \(q^2 = \frac{2fM}{k}\) with the known \(q\) and solve for the missing letter.</td></tr>
+<tr><td>"Why is there no \(g\) in the formula?" "What is the meaning of the constant term \(gM\)?"</td><td>An explanation from the derivation.</td><td>Say \(gM\) is the cost of all the units, a constant whose derivative is 0.</td></tr>
+</table>
+<div class="say"><b>Words that change the method.</b> "Elasticity" or "raise or lower the price" means use \(\frac{dR}{dp} = q(1 - E)\); "marginal revenue" or "sell more or fewer units" means use \(\frac{dR}{dq}\), the derivative with respect to quantity. "Increase revenue" asks for a direction (the sign of \(1 - E\) at one price), while "maximize revenue" asks for one price (solve \(E = 1\)). "At what price" wants \(p\), while "at what values of \(q\)" or "how many units" wants the quantity. "\(E(p)\)" means write \(E\) using \(p\) only, while "in terms of \(p\) and \(q\)" lets you leave both. "Estimate" or "approximately" with percents means use \(E\) as a ratio of percent changes; "find" means compute exactly. "Explain" or "justify" means write the full sentence chain: the value, the comparison with 1, the case, the revenue fact, the decision. In inventory problems, "average inventory" gives the storage term \(\frac{kq}{2}\) and "maximum inventory" gives \(kq\); "per month" means multiply by 12; "total cost" includes \(gM\), while "ordering plus storage cost" leaves it out; "batch size" is \(q\), while "number of batches" or "how many times a year" is \(\frac{M}{q}\).</div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u10-q01"><div class="qh"><span class="qn">Problem 1</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = 120 - 4p\). Find the elasticity of demand \(E\) as a function of \(p\). Then find \(E\) at \(p = 10\) and say whether demand is elastic or inelastic there.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Differentiate the demand function. The derivative of 120 is 0 and the derivative of \(-4p\) is \(-4\).
 \[\frac{dq}{dp} = -4\]</li>
@@ -303,14 +378,14 @@ so \(q = 150\) is a local minimum, and it is the only critical number in the dom
 Since \(\tfrac{1}{2} \lt 1\), demand is inelastic at \(p = 10\).</li>
 </ol><p class="final">Answer: \(E = \dfrac{p}{30 - p}\). At \(p = 10\), \(E = \tfrac{1}{2}\), so demand is inelastic.</p></div></details></div>
 
-<div class="q" id="u10-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">At the current price of a product, the elasticity of demand is \(E = \tfrac{3}{5}\). Is demand elastic or inelastic? If the price goes up by 1%, approximately what happens to the quantity demanded?</div>
+<div class="q" id="u10-q02"><div class="qh"><span class="qn">Problem 2</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">At the current price of a product, the elasticity of demand is \(E = \tfrac{3}{5}\). Is demand elastic or inelastic? If the price goes up by 1%, approximately what happens to the quantity demanded?</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Compare \(E\) with 1. Since \(\tfrac{3}{5} \lt 1\), demand is inelastic.</li>
 <li>Use the meaning of elasticity: \(E\) is approximately the percent decrease in quantity demanded caused by a 1% increase in price. Here that is \(\tfrac{3}{5}\) of one percent.
 \[\tfrac{3}{5}\cdot 1\% = 0.6\%\]</li>
 </ol><p class="final">Answer: Demand is inelastic. A 1% price increase makes the quantity demanded drop by about 0.6%.</p></div></details></div>
 
-<div class="q" id="u10-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = \dfrac{64}{\sqrt{p}}\). Find \(E\) and say for which prices demand is elastic.</div>
+<div class="q" id="u10-q03"><div class="qh"><span class="qn">Problem 3</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = \dfrac{64}{\sqrt{p}}\). Find \(E\) and say for which prices demand is elastic.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Rewrite with an exponent so the power rule applies.
 \[q = 64p^{-1/2}\]</li>
@@ -321,28 +396,29 @@ Since \(\tfrac{1}{2} \lt 1\), demand is inelastic at \(p = 10\).</li>
 <li>Compare with 1. \(E = \tfrac{1}{2} \lt 1\) at every price, so demand is never elastic; it is inelastic at every price.</li>
 </ol><p class="final">Answer: \(E = \tfrac{1}{2}\) at every price, so demand is inelastic at every price and elastic at none.</p></div></details></div>
 
-<div class="q" id="u10-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = 50e^{-p/8}\). Find \(E\), and evaluate it at \(p = 12\).</div>
+<div class="q" id="u10-q04"><div class="qh"><span class="qn">Problem 4</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = 50e^{-p/8}\). Find \(E\), and evaluate it at \(p = 12\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Differentiate with the rule \(\dfrac{d}{dp}e^{g(p)} = e^{g(p)}g'(p)\), where \(g(p) = -\dfrac{p}{8}\) and \(g'(p) = -\dfrac{1}{8}\).
 \[\frac{dq}{dp} = 50e^{-p/8}\cdot\left(-\frac{1}{8}\right) = -\frac{50}{8}e^{-p/8}\]</li>
-<li>Substitute into the definition of \(E\). The factor \(50e^{-p/8}\) cancels.
-\[E = -\frac{p}{50e^{-p/8}}\cdot\left(-\frac{50}{8}e^{-p/8}\right) = \frac{p}{8}\]</li>
+<li>Substitute into the definition of \(E\). The two minus signs multiply to a plus, and the factor \(50e^{-p/8}\) cancels.
+\[E = -\frac{p}{50e^{-p/8}}\cdot\left(-\frac{50}{8}e^{-p/8}\right) = \frac{p\cdot 50e^{-p/8}}{8\cdot 50e^{-p/8}} = \frac{p}{8}\]</li>
 <li>Substitute \(p = 12\).
 \[E(12) = \frac{12}{8} = \frac{3}{2}\]
 Since \(\tfrac{3}{2} \gt 1\), demand is elastic at \(p = 12\).</li>
 </ol><p class="final">Answer: \(E = \dfrac{p}{8}\), and \(E(12) = \tfrac{3}{2}\) (elastic).</p></div></details></div>
 
-<div class="q" id="u10-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">A factory makes 9000 units of a product per year. It costs \$20 to set up a production run and \$4 to store one unit for one year. Use the economic lot size formula to find how many units should be made in each batch, and how many batches should be made per year.</div>
+<div class="q" id="u10-q05"><div class="qh"><span class="qn">Problem 5</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A factory makes 9000 units of a product per year. It costs \$20 to set up a production run and \$4 to store one unit for one year. Use the economic lot size formula to find how many units should be made in each batch, and how many batches should be made per year.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Identify the constants: \(M = 9000\) units per year, \(f = 20\) dollars per batch, \(k = 4\) dollars per unit per year. Storage is charged on the average inventory, so the formula \(q = \sqrt{2fM/k}\) applies.</li>
 <li>Substitute into the formula.
 \[q = \sqrt{\frac{2\cdot 20\cdot 9000}{4}} = \sqrt{\frac{360000}{4}} = \sqrt{90000} = 300\]
+(Since \(300^2 = 90000\).)
 This is in \((0, 9000]\).</li>
 <li>Number of batches per year.
 \[\frac{M}{q} = \frac{9000}{300} = 30\]</li>
 </ol><p class="final">Answer: 300 units per batch, 30 batches per year.</p></div></details></div>
 
-<div class="q" id="u10-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">A hardware store sells 1200 boxes of screws per year. Placing an order costs \$15, each box costs the store \$6, and storing one box for one year costs \$2. Assume the boxes sell at a constant rate. Let \(q\) be the number of boxes per order. Write the total annual cost \(C(q)\) and its domain.</div>
+<div class="q" id="u10-q06"><div class="qh"><span class="qn">Problem 6</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A hardware store sells 1200 boxes of screws per year. Placing an order costs \$15, each box costs the store \$6, and storing one box for one year costs \$2. Assume the boxes sell at a constant rate. Let \(q\) be the number of boxes per order. Write the total annual cost \(C(q)\) and its domain.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Identify the constants: \(M = 1200\), \(f = 15\), \(g = 6\), \(k = 2\).</li>
 <li>Ordering cost: there are \(\dfrac{M}{q}\) orders at \(f\) dollars each.
@@ -355,7 +431,7 @@ This is in \((0, 9000]\).</li>
 \[C(q) = \frac{18000}{q} + 7200 + q\]</li>
 </ol><p class="final">Answer: \(C(q) = \dfrac{18000}{q} + 7200 + q\), for \(0 \lt q \le 1200\).</p></div></details></div>
 </section>
-<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u10-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a concert ticket is \(q = 2400 - 8p\), where \(p\) is the price in dollars. (a) Find \(E\) as a function of \(p\). (b) Find \(E\) at \(p = 100\) and classify the demand. (c) Use elasticity to find the price that maximizes revenue, and find the maximum revenue.</div>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u10-q07"><div class="qh"><span class="qn">Problem 7</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a concert ticket is \(q = 2400 - 8p\), where \(p\) is the price in dollars. (a) Find \(E\) as a function of \(p\). (b) Find \(E\) at \(p = 100\) and classify the demand. (c) Use elasticity to find the price that maximizes revenue, and find the maximum revenue.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) Differentiate the demand function.
 \[\frac{dq}{dp} = -8\]</li>
@@ -372,7 +448,7 @@ Since \(\tfrac{1}{2} \lt 1\), demand is inelastic at \(p = 100\).</li>
 <li>Check with the revenue function. \(R = p(2400 - 8p) = 2400p - 8p^2\), so \(R'(p) = 2400 - 16p\), which is 0 at \(p = \dfrac{2400}{16} = 150\).</li>
 </ol><p class="final">Answer: (a) \(E = \dfrac{p}{300 - p}\). (b) \(E(100) = \tfrac{1}{2}\), inelastic. (c) Revenue is maximized at \(p = \$150\), with maximum revenue \$180,000.</p></div></details></div>
 
-<div class="q" id="u10-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = 300 - p^2\), where \(p\) is in dollars. (a) At what price does the demand have unit elasticity? (b) If the price is \$8, should it be increased or decreased in order to increase revenue? Explain.</div>
+<div class="q" id="u10-q08"><div class="qh"><span class="qn">Problem 8</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = 300 - p^2\), where \(p\) is in dollars. (a) At what price does the demand have unit elasticity? (b) If the price is \$8, should it be increased or decreased in order to increase revenue? Explain.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Differentiate the demand function.
 \[\frac{dq}{dp} = -2p\]</li>
@@ -382,20 +458,20 @@ Since \(\tfrac{1}{2} \lt 1\), demand is inelastic at \(p = 100\).</li>
 \[2p^2 = 300 - p^2 \quad\Longleftrightarrow\quad 3p^2 = 300 \quad\Longleftrightarrow\quad p^2 = 100 \quad\Longleftrightarrow\quad p = 10\]
 We keep the positive root because a price is positive.</li>
 <li>(b) Substitute \(p = 8\). First \(q = 300 - 64 = 236\). Then
-\[E(8) = \frac{2(64)}{300 - 64} = \frac{128}{236} = \frac{32}{59}\]
+\[E(8) = \frac{2(64)}{300 - 64} = \frac{128}{236} = \frac{4\cdot 32}{4\cdot 59} = \frac{32}{59}\]
 Since \(32 \lt 59\), \(E(8) \lt 1\), so demand is inelastic at \(p = 8\).</li>
 <li>Connect to revenue. Since \(\dfrac{dR}{dp} = q(1 - E)\),
-\[\frac{dR}{dp} = 236\left(1 - \frac{32}{59}\right) = 236\cdot\frac{27}{59} = 4\cdot 27 = 108 \gt 0,\]
-so revenue increases as the price increases.</li>
+\[\frac{dR}{dp} = 236\left(1 - \frac{32}{59}\right) = 236\cdot\frac{59 - 32}{59} = 236\cdot\frac{27}{59} = 4\cdot 27 = 108 \gt 0,\]
+where the last step uses \(236 = 4\cdot 59\). So revenue increases as the price increases.</li>
 </ol><p class="final">Answer: (a) \(p = \$10\). (b) At \$8, \(E = \tfrac{32}{59} \lt 1\), so demand is inelastic and \(\tfrac{dR}{dp} = q(1 - E) \gt 0\). Revenue increases with price, so the price should be increased.</p></div></details></div>
 
-<div class="q" id="u10-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">A campus bookstore sells 1600 copies of a lab manual per year, at a constant rate. Each order costs \$50 to place, each copy costs the store \$10, and storing one copy for a year costs \$4. Find the economic order quantity, the number of orders per year, and the minimum total annual cost.</div>
+<div class="q" id="u10-q09"><div class="qh"><span class="qn">Problem 9</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A campus bookstore sells 1600 copies of a lab manual per year, at a constant rate. Each order costs \$50 to place, each copy costs the store \$10, and storing one copy for a year costs \$4. Find the economic order quantity, the number of orders per year, and the minimum total annual cost.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Identify the constants: \(M = 1600\), \(f = 50\), \(g = 10\), \(k = 4\). Let \(q\) be the number of copies per order, \(0 \lt q \le 1600\).</li>
 <li>Write the total annual cost: ordering \(\dfrac{50\cdot 1600}{q} = \dfrac{80000}{q}\), copies \(10\cdot 1600 = 16000\), storage \(\dfrac{4q}{2} = 2q\).
 \[C(q) = \frac{80000}{q} + 16000 + 2q\]</li>
 <li>Differentiate, set equal to 0, and solve for the positive root.
-\[C'(q) = -\frac{80000}{q^2} + 2 = 0 \quad\Longleftrightarrow\quad q^2 = 40000 \quad\Longleftrightarrow\quad q = 200\]
+\[C'(q) = -\frac{80000}{q^2} + 2 = 0 \quad\Longleftrightarrow\quad \frac{80000}{q^2} = 2 \quad\Longleftrightarrow\quad q^2 = \frac{80000}{2} = 40000 \quad\Longleftrightarrow\quad q = 200\]
 This matches \(\sqrt{\dfrac{2fM}{k}} = \sqrt{\dfrac{2\cdot 50\cdot 1600}{4}} = \sqrt{40000} = 200\), and it is in \((0, 1600]\).</li>
 <li>Justify the minimum.
 \[C''(q) = \frac{160000}{q^3} \gt 0 \quad\text{for all } q \gt 0,\]
@@ -405,17 +481,17 @@ so \(q = 200\) is a local minimum, and as the only critical number in the domain
 \[C(200) = \frac{80000}{200} + 16000 + 2(200) = 400 + 16000 + 400 = 16800\]</li>
 </ol><p class="final">Answer: Order 200 copies at a time, 8 times per year. The minimum total annual cost is \$16,800.</p></div></details></div>
 
-<div class="q" id="u10-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">A company manufactures 45,000 phone cases per year. Each production run has a setup cost of \$100, each case costs \$5 to make, and storing one case for one year costs \$1. Without quoting the lot size formula, write the total annual cost \(C(q)\) for batches of \(q\) cases, find the batch size that minimizes it, and justify that your answer is a minimum. How many batches are made per year?</div>
+<div class="q" id="u10-q10"><div class="qh"><span class="qn">Problem 10</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A company manufactures 45,000 phone cases per year. Each production run has a setup cost of \$100, each case costs \$5 to make, and storing one case for one year costs \$1. Without quoting the lot size formula, write the total annual cost \(C(q)\) for batches of \(q\) cases, find the batch size that minimizes it, and justify that your answer is a minimum. How many batches are made per year?</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Define the variable and constants. Let \(q\) be the number of cases per batch, \(0 \lt q \le 45000\). \(M = 45000\), \(f = 100\), \(g = 5\), \(k = 1\).</li>
 <li>Manufacturing cost. There are \(\dfrac{45000}{q}\) batches, each costing \(100 + 5q\).
-\[(100 + 5q)\cdot\frac{45000}{q} = \frac{4500000}{q} + 225000\]</li>
+\[(100 + 5q)\cdot\frac{45000}{q} = \frac{100\cdot 45000}{q} + \frac{5q\cdot 45000}{q} = \frac{4500000}{q} + 225000\]</li>
 <li>Storage cost. The average inventory is \(\dfrac{q}{2}\) cases at \$1 each per year, so it is \(\dfrac{q}{2}\) dollars. The total is
 \[C(q) = \frac{4500000}{q} + 225000 + \frac{q}{2}\]</li>
 <li>Differentiate. The constant 225000 has derivative 0.
 \[C'(q) = -\frac{4500000}{q^2} + \frac{1}{2}\]</li>
 <li>Set the derivative equal to 0 and solve. Multiply both sides by \(2q^2\).
-\[\frac{4500000}{q^2} = \frac{1}{2} \quad\Longleftrightarrow\quad q^2 = 9000000 \quad\Longleftrightarrow\quad q = 3000\]
+\[\frac{4500000}{q^2} = \frac{1}{2} \quad\Longleftrightarrow\quad 9000000 = q^2 \quad\Longleftrightarrow\quad q = 3000\]
 We keep the positive root, and 3000 is in \((0, 45000]\).</li>
 <li>Second derivative test.
 \[C''(q) = \frac{9000000}{q^3} \gt 0 \quad\text{for all } q \gt 0\]
@@ -423,7 +499,7 @@ So \(q = 3000\) is a local minimum. It is the only critical number in \((0, 4500
 <li>Number of batches: \(\dfrac{45000}{3000} = 15\).</li>
 </ol><p class="final">Answer: \(C(q) = \dfrac{4500000}{q} + 225000 + \dfrac{q}{2}\). The cost is smallest with batches of 3000 cases, which means 15 batches per year.</p></div></details></div>
 
-<div class="q" id="u10-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">The demand equation for a product is \(p = 40 - \dfrac{q}{2}\), where \(p\) is in dollars. Find the elasticity of demand when \(q = 20\). Should the price be raised or lowered to increase revenue?</div>
+<div class="q" id="u10-q11"><div class="qh"><span class="qn">Problem 11</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand equation for a product is \(p = 40 - \dfrac{q}{2}\), where \(p\) is in dollars. Find the elasticity of demand when \(q = 20\). Should the price be raised or lowered to increase revenue?</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Differentiate both sides with respect to \(p\), treating \(q\) as a function of \(p\).
 \[1 = -\frac{1}{2}\cdot\frac{dq}{dp}\]</li>
@@ -437,7 +513,7 @@ So \(q = 3000\) is a local minimum. It is the only critical number in \((0, 4500
 <li>Since \(E = 3 \gt 1\), demand is elastic, so \(\dfrac{dR}{dp} = q(1 - E) = 20(1 - 3) = -40 \lt 0\). Revenue decreases as the price increases, so the price should be lowered.</li>
 </ol><p class="final">Answer: \(E = 3\) (elastic) at \(q = 20\), so the price should be lowered to increase revenue.</p></div></details></div>
 
-<div class="q" id="u10-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = 1000e^{-p/40}\). (a) Find \(E\). (b) For which prices is demand elastic? (c) Find the price that maximizes revenue and the maximum revenue.</div>
+<div class="q" id="u10-q12"><div class="qh"><span class="qn">Problem 12</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = 1000e^{-p/40}\). (a) Find \(E\). (b) For which prices is demand elastic? (c) Find the price that maximizes revenue and the maximum revenue.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) Differentiate with the rule for \(e^{g(p)}\), where \(g(p) = -\dfrac{p}{40}\) and \(g'(p) = -\dfrac{1}{40}\).
 \[\frac{dq}{dp} = 1000e^{-p/40}\cdot\left(-\frac{1}{40}\right) = -25e^{-p/40}\]</li>
@@ -449,8 +525,8 @@ So \(q = 3000\) is a local minimum. It is the only critical number in \((0, 4500
 \[R = pq = 40\cdot\frac{1000}{e} = \frac{40000}{e}\]</li>
 </ol><p class="final">Answer: (a) \(E = \dfrac{p}{40}\). (b) Elastic for \(p \gt 40\). (c) Revenue is maximized at \(p = \$40\), with maximum revenue \(\dfrac{40000}{e}\) dollars.</p></div></details></div>
 </section>
-<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u10-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = \sqrt{900 - p^2}\), for \(0 \le p \lt 30\). (a) Find \(E\) as a function of \(p\). (b) Find the price at which demand has unit elasticity. (c) If the price is \$20, should it be raised or lowered to increase revenue? Explain.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u10-q13"><div class="qh"><span class="qn">Problem 13</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = \sqrt{900 - p^2}\), for \(0 \le p \lt 30\). (a) Find \(E\) as a function of \(p\). (b) Find the price at which demand has unit elasticity. (c) If the price is \$20, should it be raised or lowered to increase revenue? Explain.</div>
+<details class="hint"><summary>Hint</summary><div>Write the square root as the power \(\tfrac{1}{2}\) and use the chain rule. In \(E\), the two square roots multiply to \(900 - p^2\), so no root is left.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) Write \(q = (900 - p^2)^{1/2}\) and differentiate with the chain rule (generalized power rule). The outside function is \(u^{1/2}\) with derivative \(\tfrac{1}{2}u^{-1/2}\), and the inside is \(u = 900 - p^2\) with derivative \(-2p\).
 \[\frac{dq}{dp} = \frac{1}{2}(900 - p^2)^{-1/2}\cdot(-2p) = -\frac{p}{\sqrt{900 - p^2}}\]</li>
 <li>Substitute into \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\) with \(q = \sqrt{900 - p^2}\). The two square roots multiply to \(900 - p^2\).
@@ -466,10 +542,11 @@ Since \(\tfrac{4}{5} \lt 1\), demand is inelastic at \(p = 20\).</li>
 <li>Connect to revenue. At \(p = 20\), \(q = \sqrt{500} = 10\sqrt{5}\), and
 \[\frac{dR}{dp} = q(1 - E) = 10\sqrt{5}\left(1 - \frac{4}{5}\right) = 10\sqrt{5}\cdot\frac{1}{5} = 2\sqrt{5} \gt 0.\]
 Revenue increases as the price increases, so the price should be raised.</li>
-</ol><p class="final">Answer: (a) \(E = \dfrac{p^2}{900 - p^2}\). (b) \(p = 15\sqrt{2}\) dollars. (c) At \$20, \(E = \tfrac{4}{5} \lt 1\), demand is inelastic, \(\tfrac{dR}{dp} = q(1 - E) \gt 0\), so the price should be raised.</p></div></details></div>
+</ol><p class="final">Answer: (a) \(E = \dfrac{p^2}{900 - p^2}\). (b) \(p = 15\sqrt{2}\) dollars. (c) At \$20, \(E = \tfrac{4}{5} \lt 1\), demand is inelastic, \(\tfrac{dR}{dp} = q(1 - E) \gt 0\), so the price should be raised.</p>
+<p class="wrong"><b>Where students lose points:</b> Differentiating \(\sqrt{900 - p^2}\) without the inside derivative \(-2p\). Also writing the product of the two roots as \((900 - p^2)^2\) instead of \(900 - p^2\), or keeping the negative root \(p = -15\sqrt{2}\).</p></div></details></div>
 
-<div class="q" id="u10-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">The demand equation for a product is \(p = 20 - \sqrt{q}\), for \(0 \lt q \lt 400\), with \(p\) in dollars. (a) Find \(E\) in terms of \(p\) and \(q\). (b) When 100 units are demanded, should the price be raised or lowered to increase revenue? (c) Find the quantity and the price at which demand has unit elasticity.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u10-q14"><div class="qh"><span class="qn">Problem 14</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand equation for a product is \(p = 20 - \sqrt{q}\), for \(0 \lt q \lt 400\), with \(p\) in dollars. (a) Find \(E\) in terms of \(p\) and \(q\). (b) When 100 units are demanded, should the price be raised or lowered to increase revenue? (c) Find the quantity and the price at which demand has unit elasticity.</div>
+<details class="hint"><summary>Hint</summary><div>The equation starts with \(p =\), so differentiate both sides with respect to \(p\) and solve for \(\frac{dq}{dp}\). For unit elasticity, combine \(E = 1\) with the demand equation.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) Differentiate both sides of \(p = 20 - q^{1/2}\) with respect to \(p\), treating \(q\) as a function of \(p\). The chain rule gives \(\dfrac{d}{dp}\left[q^{1/2}\right] = \tfrac{1}{2}q^{-1/2}\,\dfrac{dq}{dp}\).
 \[1 = -\frac{1}{2\sqrt{q}}\cdot\frac{dq}{dp}\]</li>
 <li>Multiply both sides by \(-2\sqrt{q}\).
@@ -484,10 +561,11 @@ Since \(E = 2 \gt 1\), demand is elastic, so \(\dfrac{dR}{dp} = q(1 - E) = 100(1
 <li>Square to get \(q\), and use the demand equation to get \(p\).
 \[q = \left(\frac{40}{3}\right)^2 = \frac{1600}{9}, \qquad p = 20 - \frac{40}{3} = \frac{60}{3} - \frac{40}{3} = \frac{20}{3}\]
 Check: \(\dfrac{2p}{\sqrt{q}} = \dfrac{40/3}{40/3} = 1\).</li>
-</ol><p class="final">Answer: (a) \(E = \dfrac{2p}{\sqrt{q}}\). (b) At \(q = 100\) (price \$10), \(E = 2\), elastic, so lower the price. (c) Unit elasticity at \(q = \dfrac{1600}{9}\) units and \(p = \dfrac{20}{3}\) dollars.</p></div></details></div>
+</ol><p class="final">Answer: (a) \(E = \dfrac{2p}{\sqrt{q}}\). (b) At \(q = 100\) (price \$10), \(E = 2\), elastic, so lower the price. (c) Unit elasticity at \(q = \dfrac{1600}{9}\) units and \(p = \dfrac{20}{3}\) dollars.</p>
+<p class="wrong"><b>Where students lose points:</b> Using \(\frac{dp}{dq} = -\frac{1}{2\sqrt{q}}\) where \(\frac{dq}{dp}\) belongs. Also plugging \(q = 100\) into \(E\) without first finding the matching price \(p = 10\).</p></div></details></div>
 
-<div class="q" id="u10-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">A bike shop uses 1200 inner tubes per year, at a constant rate. Placing an order costs \$36, and storing an inner tube costs 50 cents per month. Find the number of tubes per order that minimizes the annual cost of ordering plus storage, the number of orders per year, and that minimum annual ordering plus storage cost.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u10-q15"><div class="qh"><span class="qn">Problem 15</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A bike shop uses 1200 inner tubes per year, at a constant rate. Placing an order costs \$36, and storing an inner tube costs 50 cents per month. Find the number of tubes per order that minimizes the annual cost of ordering plus storage, the number of orders per year, and that minimum annual ordering plus storage cost.</div>
+<details class="hint"><summary>Hint</summary><div>Convert the storage cost to dollars per tube per year before anything else. The question asks for ordering plus storage only.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Convert the storage cost to dollars per tube per year, since the model uses a yearly storage cost. Twelve months at \$0.50 per month is
 \[k = 12\cdot 0.50 = 6 \text{ dollars per tube per year.}\]</li>
 <li>Identify the other constants: \(M = 1200\) tubes per year, \(f = 36\) dollars per order. Let \(q\) be the number of tubes per order, \(0 \lt q \le 1200\). The purchase cost \(gM\) is a constant and is not part of the cost asked for.</li>
@@ -502,10 +580,11 @@ so \(q = 120\) is a local minimum, and the only critical number in the domain, s
 <li>Number of orders: \(\dfrac{1200}{120} = 10\).</li>
 <li>Minimum ordering plus storage cost.
 \[C(120) = \frac{43200}{120} + 3(120) = 360 + 360 = 720\]</li>
-</ol><p class="final">Answer: Order 120 tubes at a time, 10 times per year. The minimum annual ordering plus storage cost is \$720.</p></div></details></div>
+</ol><p class="final">Answer: Order 120 tubes at a time, 10 times per year. The minimum annual ordering plus storage cost is \$720.</p>
+<p class="wrong"><b>Where students lose points:</b> Using \(k = 0.50\) (the monthly cost) instead of \(k = 6\), which gives \(\sqrt{172800}\) instead of 120. Also adding the purchase cost \(gM\), which the question did not ask for.</p></div></details></div>
 
-<div class="q" id="u10-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">A small studio makes 200 custom guitars per year. Setting up a production run is expensive: \$900 per batch. Each guitar costs \$50 in materials, and storing a finished guitar costs \$1 per year. Let \(q\) be the number of guitars per batch. Find the batch size that minimizes the total annual cost, and explain why the formula \(\sqrt{2fM/k}\) cannot be the answer here.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u10-q16"><div class="qh"><span class="qn">Problem 16</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A small studio makes 200 custom guitars per year. Setting up a production run is expensive: \$900 per batch. Each guitar costs \$50 in materials, and storing a finished guitar costs \$1 per year. Let \(q\) be the number of guitars per batch. Find the batch size that minimizes the total annual cost, and explain why the formula \(\sqrt{2fM/k}\) cannot be the answer here.</div>
+<details class="hint"><summary>Hint</summary><div>Compute \(\sqrt{2fM/k}\) and compare it with \(M\) before you trust it.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Identify the constants: \(M = 200\), \(f = 900\), \(g = 50\), \(k = 1\). The domain is \(0 \lt q \le 200\).</li>
 <li>Write the total annual cost: setup \(\dfrac{900\cdot 200}{q} = \dfrac{180000}{q}\), materials \(50\cdot 200 = 10000\), storage \(\dfrac{1\cdot q}{2} = \dfrac{q}{2}\).
 \[C(q) = \frac{180000}{q} + 10000 + \frac{q}{2}\]</li>
@@ -513,15 +592,16 @@ so \(q = 120\) is a local minimum, and the only critical number in the domain, s
 \[\sqrt{\frac{2fM}{k}} = \sqrt{\frac{2\cdot 900\cdot 200}{1}} = \sqrt{360000} = 600\]
 This is greater than \(M = 200\), so it is not in the domain. A batch cannot hold more guitars than the studio makes in a year.</li>
 <li>Find the sign of the derivative on the domain. Write it over a common denominator \(2q^2\).
-\[C'(q) = -\frac{180000}{q^2} + \frac{1}{2} = \frac{q^2 - 360000}{2q^2}\]
+\[C'(q) = -\frac{180000}{q^2} + \frac{1}{2} = -\frac{2\cdot 180000}{2q^2} + \frac{q^2}{2q^2} = \frac{q^2 - 360000}{2q^2}\]
 For \(0 \lt q \le 200\), \(q^2 \le 40000 \lt 360000\), so the numerator is negative and \(C'(q) \lt 0\).</li>
 <li>Conclude. \(C\) is decreasing on all of \((0, 200]\), so its smallest value on this interval is at the right endpoint \(q = 200\). That is one batch per year.</li>
 <li>The cost of this plan is
 \[C(200) = \frac{180000}{200} + 10000 + \frac{200}{2} = 900 + 10000 + 100 = 11000\]</li>
-</ol><p class="final">Answer: Make all 200 guitars in one batch (total annual cost \$11,000). The formula gives 600, which is outside the domain \((0, 200]\), and \(C'(q) \lt 0\) on the whole domain, so the minimum is at the endpoint \(q = 200\).</p></div></details></div>
+</ol><p class="final">Answer: Make all 200 guitars in one batch (total annual cost \$11,000). The formula gives 600, which is outside the domain \((0, 200]\), and \(C'(q) \lt 0\) on the whole domain, so the minimum is at the endpoint \(q = 200\).</p>
+<p class="wrong"><b>Where students lose points:</b> Answering 600 guitars per batch, which is more than the studio makes in a year. Also stating that the minimum is at the endpoint without showing \(C'(q) \lt 0\) on the whole domain.</p></div></details></div>
 
-<div class="q" id="u10-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = \dfrac{1200}{p + 4}\), for \(p \gt 0\). (a) Find \(E\). (b) Show that demand is inelastic at every price. (c) What does this say about revenue? Verify by computing \(R'(p)\) directly.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u10-q17"><div class="qh"><span class="qn">Problem 17</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = \dfrac{1200}{p + 4}\), for \(p \gt 0\). (a) Find \(E\). (b) Show that demand is inelastic at every price. (c) What does this say about revenue? Verify by computing \(R'(p)\) directly.</div>
+<details class="hint"><summary>Hint</summary><div>Write \(q = 1200(p + 4)^{-1}\) and use the chain rule. After simplifying \(E\), compare its top and bottom.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) Write \(q = 1200(p + 4)^{-1}\) and differentiate with the chain rule.
 \[\frac{dq}{dp} = 1200\cdot(-1)(p + 4)^{-2}\cdot 1 = -\frac{1200}{(p + 4)^2}\]</li>
 <li>Substitute into the definition of \(E\). Dividing by \(q = \dfrac{1200}{p + 4}\) is the same as multiplying by \(\dfrac{p + 4}{1200}\).
@@ -533,10 +613,11 @@ For \(0 \lt q \le 200\), \(q^2 \le 40000 \lt 360000\), so the numerator is negat
 \[R'(p) = \frac{u'v - uv'}{v^2} = \frac{1200(p + 4) - 1200p}{(p + 4)^2} = \frac{4800}{(p + 4)^2} \gt 0\]
 This matches \(q(1 - E)\).</li>
 <li>Note that revenue has no maximum: \(R = 1200\cdot\dfrac{p}{p + 4}\) is always less than 1200 (because \(\dfrac{p}{p + 4} \lt 1\)) and keeps increasing toward 1200 as \(p\) grows, but never reaches it. There is no price of unit elasticity.</li>
-</ol><p class="final">Answer: (a) \(E = \dfrac{p}{p + 4}\). (b) \(E \lt 1\) for every \(p \gt 0\), so demand is always inelastic. (c) Revenue increases with price at every price: \(R'(p) = \dfrac{4800}{(p + 4)^2} \gt 0\).</p></div></details></div>
+</ol><p class="final">Answer: (a) \(E = \dfrac{p}{p + 4}\). (b) \(E \lt 1\) for every \(p \gt 0\), so demand is always inelastic. (c) Revenue increases with price at every price: \(R'(p) = \dfrac{4800}{(p + 4)^2} \gt 0\).</p>
+<p class="wrong"><b>Where students lose points:</b> Claiming revenue has a maximum at some price: \(E\) never equals 1 here, so there is none. Also a sign slip in the quotient rule, which must be \(u'v - uv'\) in that order.</p></div></details></div>
 </section>
-<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u10-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Suppose that the demand for a product is \(q = 108 - p^2\). Recall that the elasticity of demand is \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\).<br>(a) (6 points) At what price will the demand have unit elasticity?<br>(b) (4 points) If the price is \$5, should it be increased or decreased in order to increase revenue? Explain.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u10-q18"><div class="qh"><span class="qn">Problem 18</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Suppose that the demand for a product is \(q = 108 - p^2\). Recall that the elasticity of demand is \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\).<br>(a) (6 points) At what price will the demand have unit elasticity?<br>(b) (4 points) If the price is \$5, should it be increased or decreased in order to increase revenue? Explain.</div>
+<details class="hint"><summary>Hint</summary><div>Find \(E\) as one fraction, set it equal to 1, and cross multiply. For (b), compute \(E(5)\) and use \(\frac{dR}{dp} = q(1 - E)\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>State the domain. The quantity must be positive, so \(108 - p^2 \gt 0\), which means \(0 \lt p \lt \sqrt{108} = 6\sqrt{3}\).</li>
 <li>Differentiate the demand function with the power rule.
 \[\frac{dq}{dp} = -2p\]</li>
@@ -554,14 +635,15 @@ Since \(50 \lt 83\), \(E(5) \lt 1\), so the demand is inelastic at \(p = 5\).</l
 \[\frac{dR}{dp} = 83\left(1 - \frac{50}{83}\right) = 83 - 50 = 33 \gt 0.\]
 So revenue increases as the price increases.</li>
 <li>Check directly: \(R = p(108 - p^2) = 108p - p^3\), so \(R'(p) = 108 - 3p^2\) and \(R'(5) = 108 - 75 = 33\), the same value.</li>
-</ol><p class="final">Answer: (a) \(p = \$6\). (b) At \$5, \(E = \tfrac{50}{83} \lt 1\), so demand is inelastic. Since \(\tfrac{dR}{dp} = q(1 - E) \gt 0\) when \(E \lt 1\), revenue increases as the price increases, so the price should be increased.</p></div></details></div>
+</ol><p class="final">Answer: (a) \(p = \$6\). (b) At \$5, \(E = \tfrac{50}{83} \lt 1\), so demand is inelastic. Since \(\tfrac{dR}{dp} = q(1 - E) \gt 0\) when \(E \lt 1\), revenue increases as the price increases, so the price should be increased.</p>
+<p class="wrong"><b>Where students lose points:</b> Writing only "increase" without the reason (\(E \lt 1\), so \(\frac{dR}{dp} = q(1 - E) \gt 0\)), which loses most of part (b). Also plugging \(p = 5\) into \(q\) before differentiating, which makes \(E\) come out 0.</p></div></details></div>
 
-<div class="q" id="u10-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = 30e^{-p^2/50}\), where \(p\) is the price in dollars.<br>(a) Find the elasticity of demand \(E\) as a function of \(p\).<br>(b) At what price does the demand have unit elasticity?<br>(c) If the price is \$6, should it be increased or decreased in order to increase revenue? Explain.<br>(d) What is the maximum revenue?</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u10-q19"><div class="qh"><span class="qn">Problem 19</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = 30e^{-p^2/50}\), where \(p\) is the price in dollars.<br>(a) Find the elasticity of demand \(E\) as a function of \(p\).<br>(b) At what price does the demand have unit elasticity?<br>(c) If the price is \$6, should it be increased or decreased in order to increase revenue? Explain.<br>(d) What is the maximum revenue?</div>
+<details class="hint"><summary>Hint</summary><div>Use the chain rule on \(e^{-p^2/50}\); the exponential cancels in \(E\). The maximum revenue happens at the price you found in (b).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) Differentiate with the rule \(\dfrac{d}{dp}e^{g(p)} = e^{g(p)}g'(p)\), where \(g(p) = -\dfrac{p^2}{50}\) and \(g'(p) = -\dfrac{2p}{50} = -\dfrac{p}{25}\).
 \[\frac{dq}{dp} = 30e^{-p^2/50}\cdot\left(-\frac{p}{25}\right) = -\frac{30p}{25}e^{-p^2/50} = -\frac{6p}{5}e^{-p^2/50}\]</li>
 <li>Substitute into the definition of \(E\). The factor \(e^{-p^2/50}\) cancels.
-\[E = -\frac{p}{30e^{-p^2/50}}\cdot\left(-\frac{6p}{5}e^{-p^2/50}\right) = \frac{6p^2}{5\cdot 30} = \frac{6p^2}{150} = \frac{p^2}{25}\]</li>
+\[E = -\frac{p}{30e^{-p^2/50}}\cdot\left(-\frac{6p}{5}e^{-p^2/50}\right) = \frac{6p^2\,e^{-p^2/50}}{5\cdot 30\,e^{-p^2/50}} = \frac{6p^2}{150} = \frac{p^2}{25}\]</li>
 <li>(b) Set \(E = 1\) and take the positive root.
 \[\frac{p^2}{25} = 1 \quad\Longleftrightarrow\quad p^2 = 25 \quad\Longleftrightarrow\quad p = 5\]</li>
 <li>(c) Substitute \(p = 6\).
@@ -573,10 +655,11 @@ so revenue decreases as the price increases. To increase revenue, decrease the p
 <li>(d) For \(0 \lt p \lt 5\), \(E = \dfrac{p^2}{25} \lt 1\) and \(\dfrac{dR}{dp} \gt 0\). For \(p \gt 5\), \(E \gt 1\) and \(\dfrac{dR}{dp} \lt 0\). By the first derivative test, revenue has its absolute maximum at \(p = 5\).</li>
 <li>Compute the revenue at \(p = 5\). First \(q = 30e^{-25/50} = 30e^{-1/2}\). Then
 \[R = pq = 5\cdot 30e^{-1/2} = 150e^{-1/2} = \frac{150}{\sqrt{e}}\]</li>
-</ol><p class="final">Answer: (a) \(E = \dfrac{p^2}{25}\). (b) \(p = \$5\). (c) At \$6, \(E = \tfrac{36}{25} \gt 1\), demand is elastic, \(\tfrac{dR}{dp} = q(1 - E) \lt 0\), so decrease the price. (d) The maximum revenue is \(\dfrac{150}{\sqrt{e}}\) dollars, at \(p = 5\).</p></div></details></div>
+</ol><p class="final">Answer: (a) \(E = \dfrac{p^2}{25}\). (b) \(p = \$5\). (c) At \$6, \(E = \tfrac{36}{25} \gt 1\), demand is elastic, \(\tfrac{dR}{dp} = q(1 - E) \lt 0\), so decrease the price. (d) The maximum revenue is \(\dfrac{150}{\sqrt{e}}\) dollars, at \(p = 5\).</p>
+<p class="wrong"><b>Where students lose points:</b> Dropping the inside derivative \(-\frac{p}{25}\) of the exponent. Also giving the price 5 as the maximum revenue, when the question wants \(R = pq = \frac{150}{\sqrt{e}}\).</p></div></details></div>
 
-<div class="q" id="u10-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">A company manufactures 6000 electric scooters per year, in batches of equal size. Each batch has a setup cost of \$45, and each scooter costs \$8 to make (not counting the setup). Scooters sell at a constant rate. Storage costs \$2 per scooter per year on the average inventory. In addition, the company pays insurance on its storage space, which must hold a full batch: \$2 per year for each scooter of maximum inventory. Find the batch size that minimizes the total annual cost and explain why your answer gives the smallest possible cost. How many batches are made per year, and what is the minimum cost?</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u10-q20"><div class="qh"><span class="qn">Problem 20</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A company manufactures 6000 electric scooters per year, in batches of equal size. Each batch has a setup cost of \$45, and each scooter costs \$8 to make (not counting the setup). Scooters sell at a constant rate. Storage costs \$2 per scooter per year on the average inventory. In addition, the company pays insurance on its storage space, which must hold a full batch: \$2 per year for each scooter of maximum inventory. Find the batch size that minimizes the total annual cost and explain why your answer gives the smallest possible cost. How many batches are made per year, and what is the minimum cost?</div>
+<details class="hint"><summary>Hint</summary><div>There are two storage-type costs here: one charged on the average inventory \(\frac{q}{2}\) and one charged on the maximum inventory \(q\). Write every cost piece before differentiating.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Define the variable and its domain. Let \(q\) be the number of scooters per batch, with \(0 \lt q \le 6000\). The constants are \(M = 6000\), \(f = 45\), \(g = 8\).</li>
 <li>Manufacturing cost. There are \(\dfrac{6000}{q}\) batches per year, each costing \(45 + 8q\).
 \[(45 + 8q)\cdot\frac{6000}{q} = \frac{270000}{q} + 48000\]</li>
@@ -598,10 +681,11 @@ so \(q = 300\) is a local minimum by the second derivative test. It is the only 
 <li>Minimum cost.
 \[C(300) = \frac{270000}{300} + 48000 + 3(300) = 900 + 48000 + 900 = 49800\]</li>
 <li>Note that the textbook formula would give \(\sqrt{\dfrac{2\cdot 45\cdot 6000}{2}} = \sqrt{270000} = 300\sqrt{3}\), which is wrong here because the insurance term changes the cost function.</li>
-</ol><p class="final">Answer: Make 300 scooters per batch, 20 batches per year. Since \(C''(q) \gt 0\) and \(q = 300\) is the only critical number in \((0, 6000]\), it gives the absolute minimum total annual cost, \$49,800.</p></div></details></div>
+</ol><p class="final">Answer: Make 300 scooters per batch, 20 batches per year. Since \(C''(q) \gt 0\) and \(q = 300\) is the only critical number in \((0, 6000]\), it gives the absolute minimum total annual cost, \$49,800.</p>
+<p class="wrong"><b>Where students lose points:</b> Quoting the textbook formula and getting \(300\sqrt{3}\), or forgetting the insurance term (or charging it on \(\frac{q}{2}\) instead of \(q\)). Also skipping the reason why \(C'' \gt 0\) with one critical number gives the absolute minimum.</p></div></details></div>
 
-<div class="q" id="u10-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">A company sells \(q\) thousand units of a product per month when the price is \(p\) dollars per unit, where \(p = 64 - q^2\) for \(0 \lt q \lt 8\).<br>(a) Find the elasticity of demand \(E\) in terms of \(p\) and \(q\).<br>(b) The company currently sells 4 thousand units per month. Should it raise or lower the price to increase revenue? Explain.<br>(c) Find the price that maximizes revenue.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u10-q21"><div class="qh"><span class="qn">Problem 21</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A company sells \(q\) thousand units of a product per month when the price is \(p\) dollars per unit, where \(p = 64 - q^2\) for \(0 \lt q \lt 8\).<br>(a) Find the elasticity of demand \(E\) in terms of \(p\) and \(q\).<br>(b) The company currently sells 4 thousand units per month. Should it raise or lower the price to increase revenue? Explain.<br>(c) Find the price that maximizes revenue.</div>
+<details class="hint"><summary>Hint</summary><div>Differentiate both sides of \(p = 64 - q^2\) with respect to \(p\) to get \(\frac{dq}{dp}\). For (c), combine \(E = 1\) with the demand equation.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) Differentiate both sides of \(p = 64 - q^2\) with respect to \(p\), treating \(q\) as a function of \(p\). The chain rule gives \(\dfrac{d}{dp}[q^2] = 2q\,\dfrac{dq}{dp}\).
 \[1 = -2q\,\frac{dq}{dp}\]</li>
 <li>Divide both sides by \(-2q\).
@@ -617,7 +701,186 @@ Since \(\tfrac{3}{2} \gt 1\), demand is elastic.</li>
 <li>Find the price.
 \[p = 2q^2 = 2\cdot\frac{64}{3} = \frac{128}{3}\]</li>
 <li>Justify that this is the maximum. Write revenue in terms of \(q\): \(R = pq = (64 - q^2)q = 64q - q^3\) (in thousands of dollars), so \(\dfrac{dR}{dq} = 64 - 3q^2\), which is 0 at \(q^2 = \dfrac{64}{3}\), the same point. Also \(\dfrac{d^2R}{dq^2} = -6q \lt 0\) for \(q \gt 0\), so it is a local maximum, and as the only critical number in \((0, 8)\) it is the absolute maximum.</li>
-</ol><p class="final">Answer: (a) \(E = \dfrac{p}{2q^2}\). (b) At \(q = 4\) (price \$48), \(E = \tfrac{3}{2} \gt 1\), demand is elastic, so \(\tfrac{dR}{dp} \lt 0\) and the company should lower the price. (c) Revenue is maximized at \(p = \dfrac{128}{3}\) dollars per unit.</p></div></details></div>
+</ol><p class="final">Answer: (a) \(E = \dfrac{p}{2q^2}\). (b) At \(q = 4\) (price \$48), \(E = \tfrac{3}{2} \gt 1\), demand is elastic, so \(\tfrac{dR}{dp} \lt 0\) and the company should lower the price. (c) Revenue is maximized at \(p = \dfrac{128}{3}\) dollars per unit.</p>
+<p class="wrong"><b>Where students lose points:</b> Treating \(\frac{dp}{dq} = -2q\) as if it were \(\frac{dq}{dp}\), which gives \(E = 2p\) (the nonsense value 96 at \(q = 4\)). Also answering with the quantity \(q^2 = \frac{64}{3}\) when part (c) asks for the price.</p></div></details></div>
+</section>
+<section id="L5"><div class="lvl"><h2>Level 5: More variations</h2><span>Every other way this section can be asked.</span></div><div class="q" id="u10-q22"><div class="qh"><span class="qn">Problem 22</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Answer each part and give a one-line reason.<br>(a) When the price of a product rises 5%, the quantity demanded falls 10%. Estimate \(E\). Is demand elastic or inelastic?<br>(b) At the current price, \(E = \tfrac{3}{2}\). If the price rises 4%, estimate the percent change in the quantity demanded.<br>(c) True or false: if demand has unit elasticity at the current price, raising the price a little will increase revenue.<br>(d) What must be true about the demand function if \(E = 0\) at every price?<br>(e) A Giffen good is a product whose demand increases when its price increases. What is true about its elasticity?<br>(f) Explain why the cost per unit \(g\) does not appear in the economic lot size formula \(q = \sqrt{2fM/k}\).</div>
+<details class="hint"><summary>Hint</summary><div>Every part comes straight from the definition \(E = -\frac{p}{q}\cdot\frac{dq}{dp}\), its meaning as a ratio of percent changes, or the formula \(\frac{dR}{dp} = q(1 - E)\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Elasticity is approximately the percent drop in quantity divided by the percent rise in price.
+\[E \approx \frac{10\%}{5\%} = 2\]
+Since \(2 \gt 1\), demand is elastic.</li>
+<li>(b) The percent drop in quantity is approximately \(E\) times the percent rise in price.
+\[\frac{3}{2}\cdot 4\% = 6\%\]
+So the quantity demanded falls by about 6%.</li>
+<li>(c) At unit elasticity, \(E = 1\), so
+\[\frac{dR}{dp} = q(1 - E) = q(1 - 1) = 0.\]
+This is the price where revenue is largest, so a price increase cannot raise revenue. The statement is false.</li>
+<li>(d) If \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp} = 0\) and \(p, q \gt 0\), then \(\dfrac{dq}{dp} = 0\) at every price. So the demand is constant: customers buy the same amount at every price. (Then \(\dfrac{dR}{dp} = q(1 - 0) = q \gt 0\), so raising the price always raises revenue.)</li>
+<li>(e) For a Giffen good \(\dfrac{dq}{dp} \gt 0\). Since \(p \gt 0\) and \(q \gt 0\), the factor \(-\dfrac{p}{q}\) is negative, so
+\[E = -\frac{p}{q}\cdot\frac{dq}{dp} \lt 0.\]
+The elasticity of a Giffen good is negative.</li>
+<li>(f) In \(C(q) = \dfrac{fM}{q} + gM + \dfrac{kq}{2}\), the cost \(g\) appears only in the term \(gM\), the cost of making all \(M\) units. That term does not depend on \(q\), so its derivative is 0 and it drops out of
+\[C'(q) = -\frac{fM}{q^2} + \frac{k}{2}.\]
+Since the critical number comes from \(C'(q) = 0\), \(g\) cannot affect it.</li>
+</ol><p class="final">Answer: (a) \(E \approx 2\), elastic. (b) The quantity falls by about 6%. (c) False: \(\tfrac{dR}{dp} = 0\) there and revenue is at its maximum. (d) Demand is constant (\(\tfrac{dq}{dp} = 0\)). (e) \(E \lt 0\). (f) \(g\) only appears in the constant \(gM\), whose derivative is 0.</p></div></details></div>
+
+<div class="q" id="u10-q23"><div class="qh"><span class="qn">Problem 23</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The graph shows a straight-line demand curve \(q = f(p)\) for a product, with the price \(p\) in dollars on the horizontal axis and the quantity \(q\) on the vertical axis.
+<div class="plot" data-f="90-3*x" data-x="0,32" data-y="0,100" data-pts="0,90,(0, 90)|30,0,(30, 0)" data-cap="Demand q = f(p): a straight line through (0, 90) and (30, 0)."></div>
+(a) Use the two intercepts to write the demand function.<br>(b) Without computing \(E\), use the midpoint fact for straight-line demand to find the price of unit elasticity.<br>(c) Confirm part (b) with the formula for \(E\).<br>(d) The current price is \$20. Should it be raised or lowered to increase revenue? Explain.</div>
+<details class="hint"><summary>Hint</summary><div>A straight line through \((0, b)\) and \((a, 0)\) has slope \(-\frac{b}{a}\). For any straight-line demand, unit elasticity sits at the price halfway between the two intercepts.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) The line passes through \((0, 90)\) and \((30, 0)\). Its slope is the change in \(q\) over the change in \(p\).
+\[\text{slope} = \frac{0 - 90}{30 - 0} = -3\]
+The vertical intercept is 90, so
+\[q = 90 - 3p, \qquad 0 \le p \le 30.\]</li>
+<li>(b) For a straight-line demand \(q = m - np\), unit elasticity is at the midpoint between the intercepts. The price intercept is \(p = 30\), so the midpoint price is
+\[p = \frac{0 + 30}{2} = 15,\]
+with quantity \(q = 90 - 3(15) = 45\), which is halfway between 90 and 0.</li>
+<li>(c) Differentiate: \(\dfrac{dq}{dp} = -3\). Substitute into the definition and cancel the common factor 3.
+\[E = -\frac{p}{90 - 3p}\cdot(-3) = \frac{3p}{90 - 3p} = \frac{3p}{3(30 - p)} = \frac{p}{30 - p}\]
+At \(p = 15\):
+\[E(15) = \frac{15}{30 - 15} = \frac{15}{15} = 1.\]
+This confirms part (b).</li>
+<li>(d) At \(p = 20\), \(q = 90 - 60 = 30\) and
+\[E(20) = \frac{20}{30 - 20} = \frac{20}{10} = 2.\]
+Since \(2 \gt 1\), demand is elastic at \$20.</li>
+<li>Connect to revenue. Since \(\dfrac{dR}{dp} = q(1 - E)\),
+\[\frac{dR}{dp} = 30(1 - 2) = -30 \lt 0,\]
+so revenue decreases as the price increases. To increase revenue, lower the price.</li>
+</ol><p class="final">Answer: (a) \(q = 90 - 3p\). (b) and (c) Unit elasticity at \(p = \$15\) (where \(E = \tfrac{15}{15} = 1\)). (d) At \$20, \(E = 2 \gt 1\), demand is elastic and \(\tfrac{dR}{dp} = q(1 - E) \lt 0\), so the price should be lowered.</p></div></details></div>
+
+<div class="q" id="u10-q24"><div class="qh"><span class="qn">Problem 24</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(a) The demand for a product is \(q = 540 - kp^2\), where \(k\) is a positive constant. Demand has unit elasticity at \(p = 6\). Find \(k\), and then find the maximum revenue.<br>(b) Find a demand function \(q = f(p)\) whose elasticity equals 3 at every price, and for which 400 units are demanded when the price is \$2.</div>
+<details class="hint"><summary>Hint</summary><div>In (a), find \(E\) with the letter \(k\) still inside, then plug in \(p = 6\) and set it equal to 1. In (b), recall which family of demand functions has a constant elasticity.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate with \(k\) treated as a constant.
+\[\frac{dq}{dp} = -2kp\]</li>
+<li>Substitute into the definition of \(E\).
+\[E = -\frac{p}{540 - kp^2}\cdot(-2kp) = \frac{2kp^2}{540 - kp^2}\]</li>
+<li>Substitute \(p = 6\), so \(p^2 = 36\), and set \(E = 1\).
+\[\frac{2k(36)}{540 - 36k} = 1 \quad\Longleftrightarrow\quad \frac{72k}{540 - 36k} = 1\]</li>
+<li>Multiply both sides by \(540 - 36k\), then collect the \(k\) terms.
+\[72k = 540 - 36k \quad\Longleftrightarrow\quad 108k = 540 \quad\Longleftrightarrow\quad k = 5\]</li>
+<li>So the demand is \(q = 540 - 5p^2\). Check that unit elasticity really is at \(p = 6\) and that it is a maximum. Now \(E = \dfrac{10p^2}{540 - 5p^2} = \dfrac{2p^2}{108 - p^2}\). For \(0 \lt p \lt 6\), \(p^2 \lt 36\), so \(2p^2 \lt 72 \lt 108 - p^2\) and \(E \lt 1\). For \(6 \lt p \lt \sqrt{108}\), \(p^2 \gt 36\), so \(2p^2 \gt 72 \gt 108 - p^2\) and \(E \gt 1\). So \(\dfrac{dR}{dp} = q(1 - E)\) changes from positive to negative at \(p = 6\), and revenue has its maximum there.</li>
+<li>Compute the maximum revenue.
+\[q(6) = 540 - 5(36) = 540 - 180 = 360, \qquad R = pq = 6\cdot 360 = 2160\]</li>
+<li>(b) A demand of the form \(q = c\,p^{-n}\) has \(E = n\) at every price. Check it for \(n = 3\): with \(q = c\,p^{-3}\), \(\dfrac{dq}{dp} = -3c\,p^{-4}\), so
+\[E = -\frac{p}{c\,p^{-3}}\cdot\left(-3c\,p^{-4}\right) = \frac{3c\,p^{-3}}{c\,p^{-3}} = 3.\]</li>
+<li>Use the condition \(q = 400\) when \(p = 2\) to find \(c\). Since \(2^3 = 8\),
+\[400 = \frac{c}{8} \quad\Longleftrightarrow\quad c = 3200.\]</li>
+</ol><p class="final">Answer: (a) \(k = 5\); the maximum revenue is \$2160, at \(p = \$6\). (b) \(q = \dfrac{3200}{p^3}\).</p></div></details></div>
+
+<div class="q" id="u10-q25"><div class="qh"><span class="qn">Problem 25</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A shop sells 120 cases of sparkling cider per year, at a constant rate. Placing an order costs \$2, and storing one case for one year costs \$5. Orders must be a whole number of cases.<br>(a) Find the number of cases per order that minimizes the annual cost of ordering plus storage.<br>(b) How many orders are placed per year, and about how often?<br>(c) If the ordering cost and yearly sales stayed the same, what storage cost per case per year would make the best order size exactly 12 cases?</div>
+<details class="hint"><summary>Hint</summary><div>The formula gives \(\sqrt{96}\), which is not a whole number. The cost decreases up to the critical number and increases after it, so compare the cost at the two whole numbers on either side.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Identify the constants: \(M = 120\) cases per year, \(f = 2\) dollars per order, \(k = 5\) dollars per case per year. Let \(q\) be the number of cases per order, \(0 \lt q \le 120\).</li>
+<li>Write the annual ordering plus storage cost. Ordering: \(\dfrac{fM}{q} = \dfrac{2\cdot 120}{q} = \dfrac{240}{q}\). Storage on the average inventory: \(\dfrac{kq}{2} = \dfrac{5q}{2}\).
+\[C(q) = \frac{240}{q} + \frac{5q}{2}\]</li>
+<li>(a) Differentiate and set the derivative equal to 0.
+\[C'(q) = -\frac{240}{q^2} + \frac{5}{2} = 0 \quad\Longleftrightarrow\quad \frac{240}{q^2} = \frac{5}{2} \quad\Longleftrightarrow\quad 480 = 5q^2 \quad\Longleftrightarrow\quad q^2 = 96\]</li>
+<li>Take the positive root and simplify, using \(96 = 16\cdot 6\).
+\[q = \sqrt{96} = 4\sqrt{6}\]
+Since \(81 \lt 96 \lt 100\), this number is between 9 and 10.</li>
+<li>Decide the shape. \(C''(q) = \dfrac{480}{q^3} \gt 0\) for \(q \gt 0\), and \(4\sqrt{6}\) is the only critical number, so \(C\) decreases on \((0, 4\sqrt{6})\) and increases after it. The best whole number is therefore 9 or 10.</li>
+<li>Compare the costs at 9 and 10. Use the common denominator 6 for \(C(9)\).
+\[C(9) = \frac{240}{9} + \frac{45}{2} = \frac{80}{3} + \frac{45}{2} = \frac{160}{6} + \frac{135}{6} = \frac{295}{6}\]
+\[C(10) = \frac{240}{10} + \frac{50}{2} = 24 + 25 = 49 = \frac{294}{6}\]
+Since \(\tfrac{294}{6} \lt \tfrac{295}{6}\), ordering 10 cases is cheaper.</li>
+<li>(b) Number of orders per year.
+\[\frac{M}{q} = \frac{120}{10} = 12\]
+Twelve orders per year is one order per month.</li>
+<li>(c) For the best order size to be \(q = 12\), the critical number must be 12, so \(q^2 = \dfrac{2fM}{k}\) with \(q = 12\).
+\[144 = \frac{2\cdot 2\cdot 120}{k} = \frac{480}{k} \quad\Longleftrightarrow\quad 144k = 480 \quad\Longleftrightarrow\quad k = \frac{480}{144} = \frac{10}{3}\]
+Check: \(C'(12) = -\dfrac{240}{144} + \dfrac{10/3}{2} = -\dfrac{5}{3} + \dfrac{5}{3} = 0\).</li>
+</ol><p class="final">Answer: (a) Order 10 cases at a time (the critical number is \(4\sqrt{6} \approx 9.8\), and \(C(10) = \$49\) is less than \(C(9) = \$\tfrac{295}{6}\)). (b) 12 orders per year, about once a month. (c) A storage cost of \(\tfrac{10}{3}\) dollars (about \$3.33) per case per year.</p></div></details></div>
+
+<div class="q" id="u10-q26"><div class="qh"><span class="qn">Problem 26</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand equation for a product is \(p = 120e^{-q/4}\), where \(p\) is the price per unit in dollars and \(q\) is the number of units sold, \(q \gt 0\).<br>(a) Find the elasticity \(E\) in terms of \(q\), and then the elasticity \(E(p)\) as a function of \(p\) only.<br>(b) If the company is selling 3 units, should it increase or decrease the price to improve revenue? Justify your answer.<br>(c) For which prices is demand elastic?<br>(d) Find the number of units and the price at which revenue is maximized, and the maximum revenue.</div>
+<details class="hint"><summary>Hint</summary><div>Differentiate both sides with respect to \(p\) and notice that \(120e^{-q/4}\) is just \(p\) again. To get \(E(p)\), solve the demand equation for \(q\) by taking ln of both sides.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate both sides of \(p = 120e^{-q/4}\) with respect to \(p\), treating \(q\) as a function of \(p\). The chain rule gives \(\dfrac{d}{dp}e^{-q/4} = e^{-q/4}\cdot\left(-\dfrac{1}{4}\right)\dfrac{dq}{dp}\).
+\[1 = 120e^{-q/4}\cdot\left(-\frac{1}{4}\right)\frac{dq}{dp}\]</li>
+<li>Replace \(120e^{-q/4}\) by \(p\), since that is the demand equation, and solve for \(\dfrac{dq}{dp}\).
+\[1 = -\frac{p}{4}\cdot\frac{dq}{dp} \quad\Longleftrightarrow\quad \frac{dq}{dp} = -\frac{4}{p}\]</li>
+<li>Substitute into the definition of \(E\). The \(p\) cancels.
+\[E = -\frac{p}{q}\cdot\left(-\frac{4}{p}\right) = \frac{4}{q}\]</li>
+<li>Solve the demand equation for \(q\). Divide by 120, take ln of both sides, and multiply by \(-4\).
+\[\frac{p}{120} = e^{-q/4} \quad\Longleftrightarrow\quad \ln\frac{p}{120} = -\frac{q}{4} \quad\Longleftrightarrow\quad q = -4\ln\frac{p}{120} = 4\ln\frac{120}{p}\]
+Here \(0 \lt p \lt 120\), because \(q \gt 0\) needs \(\tfrac{120}{p} \gt 1\).</li>
+<li>Substitute into \(E = \dfrac{4}{q}\).
+\[E(p) = \frac{4}{4\ln(120/p)} = \frac{1}{\ln(120/p)}\]</li>
+<li>(b) At \(q = 3\):
+\[E = \frac{4}{3} \gt 1,\]
+so demand is elastic. Then \(\dfrac{dR}{dp} = q(1 - E) = 3\left(1 - \dfrac{4}{3}\right) = -1 \lt 0\), so revenue decreases as the price increases. The company should decrease the price.</li>
+<li>(c) Demand is elastic when \(E \gt 1\), that is \(\dfrac{4}{q} \gt 1\), which means \(q \lt 4\). Convert to prices. Since \(q = 4\ln(120/p)\),
+\[4\ln\frac{120}{p} \lt 4 \quad\Longleftrightarrow\quad \ln\frac{120}{p} \lt 1 \quad\Longleftrightarrow\quad \frac{120}{p} \lt e \quad\Longleftrightarrow\quad p \gt \frac{120}{e}.\]
+So demand is elastic for \(\dfrac{120}{e} \lt p \lt 120\) (and inelastic for \(0 \lt p \lt \dfrac{120}{e}\)).</li>
+<li>(d) Revenue is maximized at unit elasticity: \(\dfrac{4}{q} = 1\) gives \(q = 4\), and the price is
+\[p = 120e^{-4/4} = 120e^{-1} = \frac{120}{e}.\]</li>
+<li>Justify the maximum with revenue as a function of \(q\). \(R(q) = pq = 120q\,e^{-q/4}\). By the product rule with \(u = 120q\), \(v = e^{-q/4}\), \(u' = 120\), \(v' = -\tfrac{1}{4}e^{-q/4}\):
+\[R'(q) = 120e^{-q/4} - 30q\,e^{-q/4} = 30e^{-q/4}(4 - q).\]
+This is positive for \(q \lt 4\) and negative for \(q \gt 4\), so by the first derivative test \(q = 4\) gives the absolute maximum.</li>
+<li>Compute the maximum revenue.
+\[R = pq = \frac{120}{e}\cdot 4 = \frac{480}{e}\]</li>
+</ol><p class="final">Answer: (a) \(E = \dfrac{4}{q}\), so \(E(p) = \dfrac{1}{\ln(120/p)}\) for \(0 \lt p \lt 120\). (b) At 3 units \(E = \tfrac{4}{3} \gt 1\), so \(\tfrac{dR}{dp} \lt 0\): decrease the price. (c) Elastic for \(\tfrac{120}{e} \lt p \lt 120\). (d) Revenue is maximized at \(q = 4\) units and \(p = \tfrac{120}{e}\) dollars, with maximum revenue \(\tfrac{480}{e}\) dollars.</p></div></details></div>
+
+<div class="q" id="u10-q27"><div class="qh"><span class="qn">Problem 27</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A company is selling a product. The demand equation is \(q = 162 - 2p^2\), where \(p\) is the price per unit and \(q\) is the number of units sold.<br>(a) Determine the marginal revenue \(\dfrac{dR}{dq}\) when the number of units sold is 90.<br>(b) Should the company aim to sell more or fewer units to increase revenue? Justify your answer, and check it against the elasticity at that point.<br>(c) Find the marginal revenue when the price is \$8.</div>
+<details class="hint"><summary>Hint</summary><div>Marginal revenue is the derivative of \(R = pq\) with respect to \(q\), so treat \(p\) as the function: \(\frac{dR}{dq} = p + q\,\frac{dp}{dq}\). Get \(\frac{dp}{dq}\) as the reciprocal of \(\frac{dq}{dp}\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Write revenue as \(R = pq\) and differentiate with respect to \(q\) by the product rule, with \(p\) a function of \(q\).
+\[\frac{dR}{dq} = \frac{dp}{dq}\cdot q + p\cdot 1 = p + q\,\frac{dp}{dq}\]</li>
+<li>Find \(\dfrac{dp}{dq}\). From \(q = 162 - 2p^2\), \(\dfrac{dq}{dp} = -4p\), so
+\[\frac{dp}{dq} = \frac{1}{dq/dp} = -\frac{1}{4p}.\]
+So
+\[\frac{dR}{dq} = p - \frac{q}{4p}.\]</li>
+<li>Find the price when 90 units are sold. Take the positive root, since a price is positive.
+\[90 = 162 - 2p^2 \quad\Longleftrightarrow\quad 2p^2 = 72 \quad\Longleftrightarrow\quad p^2 = 36 \quad\Longleftrightarrow\quad p = 6\]</li>
+<li>Substitute \(p = 6\), \(q = 90\). Simplify \(\tfrac{90}{24} = \tfrac{15}{4}\).
+\[\frac{dR}{dq} = 6 - \frac{90}{4\cdot 6} = 6 - \frac{90}{24} = 6 - \frac{15}{4} = \frac{24}{4} - \frac{15}{4} = \frac{9}{4}\]</li>
+<li>Check by writing \(R\) as a function of \(q\). Solve for \(p\): \(p = \sqrt{\dfrac{162 - q}{2}}\), so \(R(q) = q\left(\dfrac{162 - q}{2}\right)^{1/2}\). By the product and chain rules,
+\[R'(q) = \left(\frac{162 - q}{2}\right)^{1/2} + q\cdot\frac{1}{2}\left(\frac{162 - q}{2}\right)^{-1/2}\cdot\left(-\frac{1}{2}\right).\]
+At \(q = 90\), \(\dfrac{162 - 90}{2} = 36\), so \(R'(90) = 6 - \dfrac{90}{4\cdot 6} = \dfrac{9}{4}\), the same value.</li>
+<li>(b) Since \(\dfrac{dR}{dq} = \dfrac{9}{4} \gt 0\), revenue increases as the number of units sold increases. The company should aim to sell more units (which means lowering the price).</li>
+<li>Check against the elasticity. With \(\dfrac{dq}{dp} = -4p\),
+\[E = -\frac{p}{q}\cdot(-4p) = \frac{4p^2}{q} = \frac{4(36)}{90} = \frac{144}{90} = \frac{8}{5}.\]
+Since \(\tfrac{8}{5} \gt 1\), demand is elastic, so lowering the price raises revenue. That agrees with "sell more units." The formula \(\dfrac{dR}{dq} = p\left(1 - \dfrac{1}{E}\right) = 6\left(1 - \dfrac{5}{8}\right) = 6\cdot\dfrac{3}{8} = \dfrac{9}{4}\) also matches.</li>
+<li>(c) At \(p = 8\), \(q = 162 - 2(64) = 162 - 128 = 34\). Then
+\[\frac{dR}{dq} = 8 - \frac{34}{4\cdot 8} = 8 - \frac{34}{32} = 8 - \frac{17}{16} = \frac{128}{16} - \frac{17}{16} = \frac{111}{16}.\]</li>
+</ol><p class="final">Answer: (a) The marginal revenue at 90 units is \(\tfrac{9}{4}\) dollars per unit. (b) It is positive, so the company should sell more units (lower the price); this agrees with \(E = \tfrac{8}{5} \gt 1\). (c) At \$8, the marginal revenue is \(\tfrac{111}{16}\) dollars per unit.</p></div></details></div>
+
+<div class="q" id="u10-q28"><div class="qh"><span class="qn">Problem 28</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A product is being sold. The demand equation is \(q^2 + pq + 2p^2 = 23\), where \(p\) is the price per unit and \(q\) is the number of units sold.<br>(a) Calculate the elasticity of demand. Your answer may involve both \(p\) and \(q\).<br>(b) If \(q = 3\), should the price be increased or decreased to raise revenue? Explain.</div>
+<details class="hint"><summary>Hint</summary><div>Differentiate every term with respect to \(p\), writing \(\frac{dq}{dp}\) each time you differentiate something with \(q\) in it; the term \(pq\) needs the product rule. For (b), the price is not given: plug \(q = 3\) into the equation to find it.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate both sides with respect to \(p\), treating \(q\) as a function of \(p\). Term by term: \(\dfrac{d}{dp}[q^2] = 2q\,\dfrac{dq}{dp}\) (chain rule); \(\dfrac{d}{dp}[pq] = 1\cdot q + p\,\dfrac{dq}{dp}\) (product rule); \(\dfrac{d}{dp}[2p^2] = 4p\); and the constant 23 gives 0.
+\[2q\,\frac{dq}{dp} + q + p\,\frac{dq}{dp} + 4p = 0\]</li>
+<li>Collect the \(\dfrac{dq}{dp}\) terms on one side and factor.
+\[(2q + p)\frac{dq}{dp} = -(q + 4p) \quad\Longleftrightarrow\quad \frac{dq}{dp} = -\frac{q + 4p}{2q + p}\]</li>
+<li>Substitute into the definition of \(E\). The two minus signs multiply to a plus.
+\[E = -\frac{p}{q}\cdot\left(-\frac{q + 4p}{2q + p}\right) = \frac{p(q + 4p)}{q(2q + p)}\]</li>
+<li>(b) Find the price when \(q = 3\) by substituting into the demand equation.
+\[9 + 3p + 2p^2 = 23 \quad\Longleftrightarrow\quad 2p^2 + 3p - 14 = 0\]</li>
+<li>Factor. We need two numbers with product \(2\cdot(-14) = -28\) and sum 3, namely 7 and \(-4\).
+\[2p^2 + 7p - 4p - 14 = p(2p + 7) - 2(2p + 7) = (2p + 7)(p - 2) = 0\]
+So \(p = 2\) or \(p = -\tfrac{7}{2}\). A price is positive, so \(p = 2\). Check that \((p, q) = (2, 3)\) is on the curve: \(9 + 6 + 8 = 23\).</li>
+<li>Evaluate \(E\) at \(p = 2\), \(q = 3\).
+\[E = \frac{2(3 + 8)}{3(6 + 2)} = \frac{22}{24} = \frac{11}{12}\]
+Since \(11 \lt 12\), \(E \lt 1\), so demand is inelastic. (Also \(\dfrac{dq}{dp} = -\dfrac{11}{8} \lt 0\) there, so demand is decreasing, as it should be.)</li>
+<li>Connect to revenue. Since \(\dfrac{dR}{dp} = q(1 - E)\),
+\[\frac{dR}{dp} = 3\left(1 - \frac{11}{12}\right) = 3\cdot\frac{1}{12} = \frac{1}{4} \gt 0,\]
+so revenue increases as the price increases.</li>
+</ol><p class="final">Answer: (a) \(E = \dfrac{p(q + 4p)}{q(2q + p)}\). (b) At \(q = 3\) the price is \$2 and \(E = \tfrac{11}{12} \lt 1\), so demand is inelastic and \(\tfrac{dR}{dp} = q(1 - E) \gt 0\). The price should be increased.</p></div></details></div>
+
+<div class="q" id="u10-q29"><div class="qh"><span class="qn">Problem 29</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The supply equation for a product is \(p = q + 10\), and the demand equation is \(p = \dfrac{160}{q + 4}\), where \(p\) is the price per unit in dollars and \(q\) is the number of units.<br>(a) Find the equilibrium quantity and the equilibrium price.<br>(b) Calculate the elasticity of demand at the equilibrium.<br>(c) At the equilibrium price, would a small increase in price raise or lower revenue? Explain.</div>
+<details class="hint"><summary>Hint</summary><div>Equilibrium is where supply and demand give the same price, so set the two right sides equal. Elasticity of demand uses the demand equation only, never the supply equation.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) At equilibrium the two prices are equal.
+\[q + 10 = \frac{160}{q + 4}\]</li>
+<li>Multiply both sides by \(q + 4\) and expand.
+\[(q + 10)(q + 4) = 160 \quad\Longleftrightarrow\quad q^2 + 14q + 40 = 160 \quad\Longleftrightarrow\quad q^2 + 14q - 120 = 0\]</li>
+<li>Factor. We need two numbers with product \(-120\) and sum 14, namely 20 and \(-6\).
+\[(q + 20)(q - 6) = 0\]
+A quantity is positive, so \(q = 6\), and the price is \(p = 6 + 10 = 16\). Check with demand: \(\dfrac{160}{6 + 4} = 16\).</li>
+<li>(b) Use the demand equation. Multiply it out first so it is easy to differentiate: \(p(q + 4) = 160\). Differentiate both sides with respect to \(p\), using the product rule on the left with \(u = p\), \(v = q + 4\), \(u' = 1\), \(v' = \dfrac{dq}{dp}\).
+\[1\cdot(q + 4) + p\,\frac{dq}{dp} = 0 \quad\Longleftrightarrow\quad \frac{dq}{dp} = -\frac{q + 4}{p}\]</li>
+<li>Substitute into the definition of \(E\). The \(p\) cancels.
+\[E = -\frac{p}{q}\cdot\left(-\frac{q + 4}{p}\right) = \frac{q + 4}{q}\]</li>
+<li>At the equilibrium \(q = 6\):
+\[E = \frac{6 + 4}{6} = \frac{10}{6} = \frac{5}{3}\]</li>
+<li>(c) Since \(\tfrac{5}{3} \gt 1\), demand is elastic at the equilibrium. Then
+\[\frac{dR}{dp} = q(1 - E) = 6\left(1 - \frac{5}{3}\right) = 6\cdot\left(-\frac{2}{3}\right) = -4 \lt 0,\]
+so revenue decreases as the price increases.</li>
+</ol><p class="final">Answer: (a) Equilibrium at \(q = 6\) units and \(p = \$16\). (b) \(E = \tfrac{5}{3}\). (c) Demand is elastic there, so \(\tfrac{dR}{dp} = q(1 - E) \lt 0\): a small price increase would lower revenue.</p></div></details></div>
 </section><div class="pager"><a href="u09.html">Back: Optimization word problems</a><a href="u11.html">Next: Implicit differentiation</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="assets/app.js"></script></body></html>

@@ -1,11 +1,14 @@
 // Progress checkboxes (saved in this browser), reveal-all toggle, and to-scale function plots.
 (function(){
-  var KEY='m16a-mt2-done', done={};
+  var KEY='m16a-mt2-done', done={}, RKEY='m16a-mt2-redo', redo={};
+  try{redo=JSON.parse(localStorage.getItem(RKEY)||'{}')}catch(e){}
   try{done=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}}
   function bar(el,n,t){if(el)el.style.width=(t?Math.round(100*n/t):0)+'%'}
   document.querySelectorAll('.q[id]').forEach(function(q){
-    var cb=q.querySelector('input[type=checkbox]'); if(!cb)return;
+    var cb=q.querySelector('input.done')||q.querySelector('input[type=checkbox]'); if(!cb)return;
+    var rb=q.querySelector('input.redo'); if(rb){ if(redo[q.id]){rb.checked=true;q.classList.add('star')}
+      rb.addEventListener('change',function(){if(rb.checked){var p=q.querySelector('.p');redo[q.id]={u:location.pathname.split('/').pop(),t:document.title.split(' | ')[0],n:(q.querySelector('.qn')||{}).textContent||''}}else delete redo[q.id];q.classList.toggle('star',rb.checked);try{localStorage.setItem(RKEY,JSON.stringify(redo))}catch(e){}})}
     if(done[q.id]){cb.checked=true;q.classList.add('done')}
     cb.addEventListener('change',function(){if(cb.checked)done[q.id]=1;else delete done[q.id];q.classList.toggle('done',cb.checked);save();upd()});
   });
@@ -20,6 +23,9 @@
     });
   }
   upd();
+  var rl=document.getElementById('redolist');
+  if(rl){var ks=Object.keys(redo).sort();rl.innerHTML=ks.length?'<ul>'+ks.map(function(k){var r=redo[k];return '<li><a href="'+r.u+'#'+k+'">'+r.t+': '+r.n+'</a></li>'}).join('')+'</ul>':'<p class="sub">Nothing marked yet. Tick "redo later" on any problem you got wrong, and it will be listed here.</p>'}
+  if(location.hash){var hq=document.getElementById(location.hash.slice(1));if(hq&&hq.scrollIntoView)setTimeout(function(){hq.scrollIntoView()},400)}
   var tg=document.getElementById('toggleAll');
   if(tg)tg.addEventListener('click',function(){var open=tg.getAttribute('data-open')!=='1';
     document.querySelectorAll('details.sol').forEach(function(d){d.open=open});tg.setAttribute('data-open',open?'1':'0');

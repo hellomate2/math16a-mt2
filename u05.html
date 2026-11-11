@@ -4,7 +4,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <link rel="stylesheet" href="assets/style.css"></head><body>
-<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 5.1, 5.2</p><h1>Increasing, decreasing, and relative extrema</h1><p class="sub">Critical numbers, sign charts for f&#x27;, and the first derivative test.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Sections 5.1 and 5.2: Increasing and decreasing functions, relative extrema</h2>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 5.1, 5.2</p><h1>Increasing, decreasing, and relative extrema</h1><p class="sub">Critical numbers, sign charts for f&#x27;, and the first derivative test.</p><div class="toc"><a href="#learn">Lesson</a><a href="#vars">Every way it is asked</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a><a href="#L5">Level 5</a></div><section id="learn"><h2>Sections 5.1 and 5.2: Increasing and decreasing functions, relative extrema</h2>
+
+<div class="big"><div class="rt">The big idea</div><p>This section uses the derivative to find where a graph goes up, where it goes down, and where it turns around. Where \(f'\) is positive the graph rises, and where \(f'\) is negative the graph falls. The one thing to remember: build a sign chart for \(f'\) (never for \(f\)), because the hills and valleys of the graph can only sit at numbers where \(f'\) is zero or does not exist.</p></div>
 
 <h3>Intervals, and why the answers use open intervals</h3>
 <p>An <b>interval</b> is an unbroken piece of the number line. The <b>open interval</b> \((a, b)\) is the set of all \(x\) with \(a \lt x \lt b\); the endpoints are left out. The closed interval \([a, b]\) includes both endpoints. An interval can run forever in one direction, as in \((a, \infty)\) or \((-\infty, b)\), and the whole number line is \((-\infty, \infty)\). The symbol \(\infty\) is never a number, so it always gets a round bracket.</p>
@@ -14,28 +16,31 @@
 <div class="rule"><div class="rt">Definition (increasing and decreasing)</div>
 <p>A function \(f\) is <b>increasing</b> on an interval if \(f(x_1) \lt f(x_2)\) for any \(x_1 \lt x_2\) in the interval. The graph rises from left to right.</p>
 <p>A function \(f\) is <b>decreasing</b> on an interval if \(f(x_1) \gt f(x_2)\) for any \(x_1 \lt x_2\) in the interval. The graph falls from left to right.</p></div>
+<p class="plain"><b>In plain words:</b> increasing means that as you move to the right, the values of the function go up. Decreasing means that as you move to the right, the values go down.</p>
 <p>Always read a graph from left to right, the same direction \(x\) grows. A graph that goes up as you move to the right is increasing there, no matter how high or low it sits on the page. Being above or below the \(x\)-axis has nothing to do with increasing or decreasing: a function can be negative and increasing at the same time.</p>
 
 <h3>Why the sign of f' tells you the direction</h3>
 <p>Recall that \(f'(c)\) is the slope of the tangent line to the graph of \(f\) at the point \((c, f(c))\). If the tangent line has positive slope, the graph is climbing at that point. If the tangent line has negative slope, the graph is going down at that point. So if \(f'(x) \gt 0\) at <b>every</b> point of an interval, the graph is climbing everywhere on that interval, and \(f\) is increasing there.</p>
-<p>The professor proves this with the Mean Value Theorem. Take any \(x_1 \lt x_2\) in an interval where \(f'(x) \gt 0\). The Mean Value Theorem gives a number \(c\) between them with</p>
+<p>The professor proves this with the Mean Value Theorem, which is stated in full near the end of this lesson. Take any \(x_1 \lt x_2\) in an interval where \(f'(x) \gt 0\). The Mean Value Theorem gives a number \(c\) between them with</p>
 \[f(x_2) - f(x_1) = f'(c)\,(x_2 - x_1).\]
 <p>Both factors on the right are positive (\(f'(c) \gt 0\) and \(x_2 - x_1 \gt 0\)), so \(f(x_2) - f(x_1) \gt 0\), which means \(f(x_1) \lt f(x_2)\). That is exactly the definition of increasing. The same argument with \(f'(c) \lt 0\) shows \(f\) is decreasing.</p>
 <div class="rule"><div class="rt">Test for increasing and decreasing functions</div>
-<p>Suppose \(f\) is differentiable at every point of an open interval \(I\).</p>
+<p>Suppose \(f\) is differentiable (has a derivative) at every point of an open interval \(I\).</p>
 <ul>
 <li>If \(f'(x) \gt 0\) for all \(x\) in \(I\), then \(f\) is increasing on \(I\).</li>
 <li>If \(f'(x) \lt 0\) for all \(x\) in \(I\), then \(f\) is decreasing on \(I\).</li>
 <li>If \(f'(x) = 0\) for all \(x\) in \(I\), then \(f\) is constant on \(I\).</li>
 </ul></div>
+<p class="plain"><b>In plain words:</b> a positive derivative means the graph is going uphill, and a negative derivative means it is going downhill. A derivative that is zero all along an interval means the graph is flat there.</p>
 
 <h3>Where f' can change sign, and test points</h3>
-<p>The professor's lecture states a useful fact about any continuous function: if a function is continuous on an interval and has no zeros on a piece of that interval, then it has one sign (all positive or all negative) on the whole piece. The reason is the Intermediate Value Theorem: to go from positive to negative without a break, the function would have to pass through 0. So once you know where a function is 0, you can find its sign on each piece between zeros by plugging in a single number from that piece. That number is called a <b>test point</b> or test value.</p>
+<p>The professor's lecture states a useful fact about continuous functions. (A function is <b>continuous</b> on an interval when its graph there has no breaks, holes, or jumps.) If a function is continuous on an interval and has no zeros on a piece of that interval, then it has one sign on the whole piece: all positive or all negative. The reason is the Intermediate Value Theorem, which says a continuous function cannot get from one value to another without passing through every value in between. So to go from positive to negative, the function would have to pass through 0. So once you know where a function is 0, you can find its sign on each piece between zeros by plugging in a single number from that piece. That number is called a <b>test point</b> or test value.</p>
 <p>Apply this to \(f'\). The sign of \(f'\) can only change at a number where \(f'(x) = 0\), where \(f'(x)\) does not exist, or where \(f\) itself is not defined (for example at a vertical asymptote). These numbers cut the number line into open intervals, and on each one \(f'\) has a single sign.</p>
 
 <h3>Critical numbers</h3>
 <div class="rule"><div class="rt">Definition (critical number)</div>
 <p>A <b>critical number</b> of \(f\) is a number \(c\) <b>in the domain of \(f\)</b> such that either \(f'(c) = 0\) or \(f'(c)\) does not exist. The point \((c, f(c))\) is called a <b>critical point</b>.</p></div>
+<p class="plain"><b>In plain words:</b> a critical number is an \(x\)-value where the function exists and its graph either has a flat tangent line or has no slope at all (a sharp corner, a cusp, or a vertical tangent). A critical number is an \(x\)-value only; the critical point is the dot on the graph above it.</p>
 <p>The phrase "in the domain" matters. Three quick examples show the cases.</p>
 <ul>
 <li>For \(f(x) = x^2\), \(f'(x) = 2x\), which is 0 at \(x = 0\). So 0 is a critical number of the first kind (\(f' = 0\)).</li>
@@ -53,6 +58,7 @@
 </ol></div>
 
 <div class="ex"><div class="et">Worked example 1</div><p class="p">Find the open intervals where \(f(x) = x^3 - 12x + 1\) is increasing and where it is decreasing.</p>
+<p class="spot"><b>How to spot this type:</b> the question asks for "intervals where \(f\) is increasing and decreasing" and \(f\) is a polynomial, so the method is a sign chart of \(f'\) whose only break points are the zeros of \(f'\).</p>
 <ol class="steps">
 <li>Find the domain. A polynomial is defined for every real number, so the domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the power rule, then factor. First take out the common factor 3, then factor the difference of squares. \[\begin{aligned} f'(x) &= 3x^2 - 12\\ &= 3(x^2 - 4)\\ &= 3(x + 2)(x - 2). \end{aligned}\]</li>
@@ -67,7 +73,7 @@
 <tr><td>Sign of \(f'(x) = 3(x + 2)(x - 2)\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td></tr>
 <tr><td>\(f\) is</td><td>increasing</td><td>decreasing</td><td>increasing</td></tr>
 </table></li>
-<li>Compare with the graph. The values at the turning points are \(f(-2) = -8 + 24 + 1 = 17\) and \(f(2) = 8 - 24 + 1 = -15\).
+<li>Compare with the graph. The values at the turning points are \(f(-2) = (-2)^3 - 12(-2) + 1 = -8 + 24 + 1 = 17\) and \(f(2) = 2^3 - 12(2) + 1 = 8 - 24 + 1 = -15\).
 <div class="plot" data-f="x**3-12*x+1" data-x="-4.5,4.5" data-y="-22,24" data-pts="-2,17,(-2, 17)|2,-15,(2, -15)" data-cap="Graph of f(x) = x^3 - 12x + 1. It rises until x = -2, falls until x = 2, then rises again."></div></li>
 </ol><p class="final">Answer: \(f\) is increasing on \((-\infty, -2)\) and \((2, \infty)\), and decreasing on \((-2, 2)\).</p></div>
 
@@ -75,10 +81,11 @@
 <div class="trap"><b>Common mistake.</b> Writing the answer with square brackets, as in \([-2, 2]\), or listing the critical numbers alone as the answer. The question asks for intervals, and the textbook uses open intervals.</div>
 
 <h3>Relative extrema</h3>
-<p>The professor's definitions: \(f(c)\) is a <b>relative (or local) maximum</b> of \(f\) if there is an open interval containing \(c\) on which \(f(c) \ge f(x)\) for every \(x\). In words, the point \((c, f(c))\) is at least as high as every nearby point on the graph: it is the top of a hill. \(f(c)\) is a <b>relative (or local) minimum</b> if there is an open interval containing \(c\) on which \(f(c) \le f(x)\): the bottom of a valley. Both kinds are called <b>relative extrema</b>. A relative maximum does not have to be the highest point of the whole graph; that would be an absolute maximum, which comes in Section 6.1.</p>
+<p>Here are the professor's definitions. \(f(c)\) is a <b>relative (or local) maximum</b> of \(f\) if there is an open interval containing \(c\) on which \(f(c) \ge f(x)\) for every \(x\). In words, the point \((c, f(c))\) is at least as high as every nearby point on the graph. It is the top of a hill. \(f(c)\) is a <b>relative (or local) minimum</b> if there is an open interval containing \(c\) on which \(f(c) \le f(x)\). It is the bottom of a valley. Both kinds are called <b>relative extrema</b> (one of them is a relative extremum). A relative maximum does not have to be the highest point of the whole graph. The highest point of the whole graph is called an absolute maximum, and that comes in Section 6.1.</p>
 <p>Notice the difference between where an extremum occurs and what it is. "The relative maximum occurs at \(x = -2\)" names the location. "The relative maximum value is 17" names the height \(f(-2)\). Questions often ask for both.</p>
 <div class="rule"><div class="rt">Fermat's Theorem</div>
 <p>If \(f\) has a local maximum or minimum at \(c\), and if \(f'(c)\) exists, then \(f'(c) = 0\). Rephrased: if \(f\) has a local extreme value at \(c\), then \(c\) is a critical number of \(f\).</p></div>
+<p class="plain"><b>In plain words:</b> at the top of a smooth hill or the bottom of a smooth valley, the tangent line is flat. So the only places where hills and valleys can happen are the critical numbers.</p>
 <p>So relative extrema can only happen at critical numbers. The critical numbers are the candidates; you still have to test each one. Two cautions from lecture:</p>
 <ul>
 <li>A critical number does not have to be an extremum. For \(f(x) = x^3\), \(f'(x) = 3x^2\) and \(f'(0) = 0\), so 0 is a critical number. But \(3x^2 \gt 0\) on both sides of 0, so the graph rises, flattens for an instant at the origin, and keeps rising. There is no hill and no valley at 0. The textbook says \(x^3\) is increasing on \((-\infty, \infty)\). The same happens for \(x^{1/3}\): its derivative \(\dfrac{1}{3x^{2/3}}\) is positive on both sides of 0, so it is increasing on \((-\infty, \infty)\) with no extremum.</li>
@@ -92,11 +99,13 @@
 <li>If \(f'\) changes from negative to positive at \(c\), then \(f\) has a local minimum at \(c\).</li>
 <li>If \(f'\) does not change sign at \(c\), then \(f\) does not have a local maximum or minimum at \(c\).</li>
 </ul></div>
+<p class="plain"><b>In plain words:</b> uphill and then downhill makes a hilltop, which is a maximum. Downhill and then uphill makes a valley bottom, which is a minimum. Going the same direction on both sides makes neither.</p>
 <p>The picture behind it: positive then negative means the graph goes up and then down, which makes a hill. Negative then positive means down and then up, which makes a valley. The test only applies at a number in the domain. At a vertical asymptote the sign of \(f'\) can change, but there is no point on the graph, so there is no extremum there.</p>
 <div class="say"><b>What to write on the exam.</b> Name the sign change and the conclusion in one sentence, for example: "\(f\) has a relative maximum at \(x = 2\) because \(f'\) changes from positive to negative there." For a minimum: "\(f\) has a relative minimum at \(x = 5\) because \(f'\) changes from negative to positive there." For a critical number that is not an extremum: "\(f\) has no relative extremum at \(x = 0\) because \(f'\) is negative on both sides of 0." Then give the value, for example "the relative maximum value is \(f(2) = 7\)." A sign chart with no sentence leaves the reasoning unstated.</div>
 <p>Back to Worked example 1: the chart shows \(f'\) changes from positive to negative at \(x = -2\), so \(f\) has a relative maximum there with value \(f(-2) = 17\). It shows \(f'\) changes from negative to positive at \(x = 2\), so \(f\) has a relative minimum there with value \(f(2) = -15\).</p>
 
 <div class="ex"><div class="et">Worked example 2</div><p class="p">Find all relative extrema of \(f(x) = 3x^4 - 8x^3 + 5\), and give the open intervals where \(f\) is increasing and decreasing.</p>
+<p class="spot"><b>How to spot this type:</b> the words "relative extrema" mean critical numbers plus the first derivative test. Once you factor \(f'\), a squared factor such as \(x^2\) warns you that one critical number may not be an extremum.</p>
 <ol class="steps">
 <li>Find the domain. \(f\) is a polynomial, so its domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the power rule and factor out the greatest common factor \(12x^2\). \[\begin{aligned} f'(x) &= 12x^3 - 24x^2\\ &= 12x^2(x - 2). \end{aligned}\]</li>
@@ -121,6 +130,7 @@
 <h3>Rational functions: a vertical asymptote splits the chart</h3>
 <p>For a quotient, any zero of the denominator of \(f\) is outside the domain. It is never a critical number, but \(f'\) can change sign there, so it must appear on the sign chart. The intervals on either side of it are always listed separately.</p>
 <div class="ex"><div class="et">Worked example 3</div><p class="p">Let \(f(x) = \dfrac{x^2}{x - 1}\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema.</p>
+<p class="spot"><b>How to spot this type:</b> \(f\) is a fraction with \(x\) in the denominator, so some number is missing from the domain. That number goes on the sign chart as a break point, but it is never a critical number.</p>
 <ol class="steps">
 <li>Find the domain. The denominator is 0 at \(x = 1\), so the domain is all real numbers except 1.</li>
 <li>Differentiate with the quotient rule. Set \(u = x^2\), \(v = x - 1\), \(u' = 2x\), \(v' = 1\). Then \(f' = \dfrac{u'v - uv'}{v^2}\). \[\begin{aligned} f'(x) &= \frac{2x(x - 1) - x^2(1)}{(x - 1)^2}\\ &= \frac{2x^2 - 2x - x^2}{(x - 1)^2}\\ &= \frac{x^2 - 2x}{(x - 1)^2}\\ &= \frac{x(x - 2)}{(x - 1)^2}. \end{aligned}\]</li>
@@ -144,12 +154,13 @@
 <h3>Fractional powers</h3>
 <p>Here \(x^{1/3}\) means the real cube root \(\sqrt[3]{x}\), which is defined for negative numbers too: \((-8)^{1/3} = -2\). Also \(x^{2/3} = \left(\sqrt[3]{x}\right)^2\), which is never negative. When you differentiate, negative exponents appear, such as \(x^{-1/3} = \dfrac{1}{x^{1/3}}\). Rewrite them as fractions so you can see where \(f'\) does not exist. Those numbers are critical numbers whenever \(f\) itself is defined there.</p>
 <div class="ex"><div class="et">Worked example 4</div><p class="p">Let \(f(x) = x^{2/3}(x - 5)\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema.</p>
+<p class="spot"><b>How to spot this type:</b> a fractional power such as \(x^{2/3}\) means \(f'\) will contain \(x\) to a negative power. So look for numbers where \(f'\) does not exist, not only numbers where \(f' = 0\).</p>
 <ol class="steps">
 <li>Find the domain. The cube root is defined for every real number, so the domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the product rule. Set \(u = x^{2/3}\), \(v = x - 5\), \(u' = \tfrac23 x^{-1/3}\), \(v' = 1\). Then \(f' = u'v + uv'\). \[f'(x) = \tfrac23 x^{-1/3}(x - 5) + x^{2/3}(1).\]</li>
 <li>Write both terms over the common denominator \(3x^{1/3}\). The first term is \(\dfrac{2(x - 5)}{3x^{1/3}}\). For the second, \(x^{2/3} = \dfrac{x^{2/3}\cdot 3x^{1/3}}{3x^{1/3}} = \dfrac{3x}{3x^{1/3}}\). \[\begin{aligned} f'(x) &= \frac{2(x - 5)}{3x^{1/3}} + \frac{3x}{3x^{1/3}}\\ &= \frac{2x - 10 + 3x}{3x^{1/3}}\\ &= \frac{5x - 10}{3x^{1/3}}\\ &= \frac{5(x - 2)}{3x^{1/3}}. \end{aligned}\]</li>
 <li>Find the critical numbers. The numerator is 0 at \(x = 2\). The denominator is 0 at \(x = 0\), so \(f'(0)\) does not exist, and \(f(0) = 0\) is defined, so 0 is a critical number too. The critical numbers are \(x = 0\) and \(x = 2\).</li>
-<li>Test one value in each interval. The sign of \(x^{1/3}\) is the sign of \(x\). \[\begin{aligned} f'(-1) &= \frac{5(-3)}{3(-1)} = 5 \gt 0, \qquad f'(1) = \frac{5(-1)}{3(1)} = -\frac53 \lt 0,\\ f'(8) &= \frac{5(6)}{3(2)} = 5 \gt 0. \end{aligned}\]
+<li>Test one value in each interval. The sign of \(x^{1/3}\) is the sign of \(x\). Use \((-1)^{1/3} = -1\), \(1^{1/3} = 1\), and \(8^{1/3} = 2\). \[\begin{aligned} f'(-1) &= \frac{5(-3)}{3(-1)} = 5 \gt 0, \qquad f'(1) = \frac{5(-1)}{3(1)} = -\frac53 \lt 0,\\ f'(8) &= \frac{5(6)}{3(2)} = 5 \gt 0. \end{aligned}\]
 <table class="t">
 <tr><th>Interval</th><th>\((-\infty, 0)\)</th><th>\((0, 2)\)</th><th>\((2, \infty)\)</th></tr>
 <tr><td>Test value</td><td>\(-1\)</td><td>\(1\)</td><td>\(8\)</td></tr>
@@ -167,6 +178,7 @@
 <p>Three facts do most of the work. First, \(e^{\text{anything}} \gt 0\), so a factor like \(e^{x}\), \(e^{-x}\), or \(e^{x^2}\) is always positive and never creates a critical number. Second, \(\ln x\) is only defined for \(x \gt 0\), so a function with \(\ln x\) in it has domain inside \((0, \infty)\). Third, \(\ln x \lt 0\) for \(0 \lt x \lt 1\), \(\ln 1 = 0\), and \(\ln x \gt 0\) for \(x \gt 1\); to solve \(\ln x = k\), write \(x = e^{k}\). Good test values for logarithms are powers of \(e\), such as \(e^{-1}\), \(1\), and \(e\), because their logarithms are \(-1\), 0, and 1.</p>
 <p>On his Fall 2025 Midterm 2, the professor's first question asked for the intervals where \(f(x) = \dfrac{x^2}{e^{x}}\) increases and decreases, and said no graph was needed. That is the function in part (a) below, since \(\dfrac{x^2}{e^{x}} = x^2e^{-x}\). Level 4 practices more questions of that kind.</p>
 <div class="ex"><div class="et">Worked example 5</div><p class="p">Find the open intervals where each function is increasing and decreasing, and find all relative extrema. (a) \(f(x) = x^2 e^{-x}\) &nbsp; (b) \(g(x) = x^2 \ln x\)</p>
+<p class="spot"><b>How to spot this type:</b> an \(e^{\text{something}}\) factor is always positive, so it never creates a critical number and can be marked \(+\) on the chart. A \(\ln x\) tells you to write the domain \(x \gt 0\) first, because the chart starts at 0.</p>
 <ol class="steps">
 <li>(a) Find the domain. Both \(x^2\) and \(e^{-x}\) are defined for all \(x\), so the domain is \((-\infty, \infty)\).</li>
 <li>(a) Differentiate with the product rule. Set \(u = x^2\), \(v = e^{-x}\), \(u' = 2x\), and by the chain rule \(v' = e^{-x}\cdot(-1) = -e^{-x}\). Then factor out \(xe^{-x}\). \[\begin{aligned} f'(x) &= 2x\,e^{-x} + x^2\left(-e^{-x}\right)\\ &= 2xe^{-x} - x^2e^{-x}\\ &= xe^{-x}(2 - x). \end{aligned}\]</li>
@@ -181,7 +193,7 @@
 <tr><td>Sign of \(f'(x)\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
 <tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td></tr>
 </table></li>
-<li>(a) Apply the first derivative test. \(f\) has a relative minimum at \(x = 0\) because \(f'\) changes from negative to positive there; \(f(0) = 0\cdot e^{0} = 0\). \(f\) has a relative maximum at \(x = 2\) because \(f'\) changes from positive to negative there; \(f(2) = 4e^{-2} = \dfrac{4}{e^2}\).
+<li>(a) Apply the first derivative test. \(f\) has a relative minimum at \(x = 0\) because \(f'\) changes from negative to positive there; \(f(0) = 0\cdot e^{0} = 0\). \(f\) has a relative maximum at \(x = 2\) because \(f'\) changes from positive to negative there; \(f(2) = 2^2e^{-2} = 4e^{-2} = \dfrac{4}{e^2}\).
 <div class="plot" data-f="x**2*Math.exp(-x)" data-x="-1.5,7" data-y="-0.5,3" data-pts="0,0,relative min (0, 0)|2,0.541341,relative max (2, 4/e²)" data-cap="Graph of f(x) = x^2 e^(-x)."></div></li>
 <li>(b) Find the domain. \(\ln x\) needs \(x \gt 0\), so the domain is \((0, \infty)\).</li>
 <li>(b) Differentiate with the product rule. Set \(u = x^2\), \(v = \ln x\), \(u' = 2x\), \(v' = \dfrac1x\). Then factor out \(x\). \[\begin{aligned} g'(x) &= 2x\ln x + x^2\cdot\frac{1}{x}\\ &= 2x\ln x + x\\ &= x(2\ln x + 1). \end{aligned}\]</li>
@@ -205,6 +217,7 @@
 <div class="ex"><div class="et">Worked example 6</div><p class="p">(a) The first graph below is the graph of a function \(f\). Find the open intervals where \(f\) is increasing and decreasing. (b) The second graph is the graph of the <b>derivative</b> \(h'\) of a different function \(h\). Find the open intervals where \(h\) is increasing and decreasing, and the \(x\)-values of the relative extrema of \(h\).</p>
 <div class="plot" data-f="x**4-2*x**2+1" data-x="-2,2" data-y="-0.5,3" data-pts="-1,0,(-1, 0)|0,1,(0, 1)|1,0,(1, 0)" data-cap="Part (a): the graph of f."></div>
 <div class="plot" data-f="-(x+3)*(x-1)**2*(x-4)/10" data-x="-4,5.5" data-y="-5,7" data-pts="-3,0,(-3, 0)|1,0,(1, 0)|4,0,(4, 0)" data-cap="Part (b): the graph of h' (the derivative), not h."></div>
+<p class="spot"><b>How to spot this type:</b> the problem shows a picture instead of a formula. Before anything else, read the caption or the wording to decide whether it is the graph of the function or the graph of its derivative, because the two are read in different ways.</p>
 <ol class="steps">
 <li>(a) Read the graph of \(f\) from left to right. It falls until \(x = -1\), rises from \(x = -1\) to \(x = 0\), falls from \(x = 0\) to \(x = 1\), and rises after \(x = 1\).</li>
 <li>(a) Write the intervals, leaving out the turning points. Increasing on \((-1, 0)\) and \((1, \infty)\); decreasing on \((-\infty, -1)\) and \((0, 1)\).</li>
@@ -223,6 +236,7 @@
 <h3>A business application: when is profit increasing</h3>
 <p>Profit is \(P(x) = R(x) - C(x)\), revenue minus cost, where \(x\) is the number of units. Profit is increasing exactly where \(P'(x) \gt 0\). Since \(P'(x) = R'(x) - C'(x)\), that is the same as \(R'(x) \gt C'(x)\): profit grows while each extra unit brings in more revenue (marginal revenue) than it costs to make (marginal cost). The domain in a word problem is usually \(x \ge 0\), so the sign chart starts at 0.</p>
 <div class="ex"><div class="et">Worked example 7</div><p class="p">A company makes \(x\) thousand units of a product, \(x \ge 0\). Its revenue is \(R(x) = 30x\) and its cost is \(C(x) = x^3 - 6x^2 + 15x + 20\), both in thousands of dollars. On what interval is the profit increasing, and on what interval is it decreasing? At what production level does profit have a relative maximum, and what is that profit?</p>
+<p class="spot"><b>How to spot this type:</b> the words revenue, cost, and "on what interval is the profit increasing" mean: build \(P = R - C\), then make a sign chart of \(P'\) on the domain \(x \ge 0\) given in the problem.</p>
 <ol class="steps">
 <li>Write the profit function. \[\begin{aligned} P(x) &= R(x) - C(x)\\ &= 30x - (x^3 - 6x^2 + 15x + 20)\\ &= -x^3 + 6x^2 + 15x - 20. \end{aligned}\]</li>
 <li>Differentiate and factor. Take out \(-3\), then factor the quadratic by finding two numbers with product \(-5\) and sum \(-4\), which are \(-5\) and 1. \[\begin{aligned} P'(x) &= -3x^2 + 12x + 15\\ &= -3(x^2 - 4x - 5)\\ &= -3(x - 5)(x + 1). \end{aligned}\]</li>
@@ -242,24 +256,98 @@
 <div class="plot" data-f="-(x**3)+6*x**2+15*x-20" data-x="0,7" data-y="-30,90" data-pts="5,80,relative max (5, 80)" data-cap="Profit P(x) = -x^3 + 6x^2 + 15x - 20, in thousands of dollars, for x thousand units."></div></li>
 </ol><p class="final">Answer: Profit is increasing on \((0, 5)\) and decreasing on \((5, \infty)\). It has a relative maximum at a production level of 5 thousand units, where the profit is \$80 thousand.</p></div>
 
+<h3>Rolle's Theorem and the Mean Value Theorem</h3>
+<p>Lecture 14 uses the Mean Value Theorem to prove the increasing and decreasing test, and the theorem is also asked about by itself. Two kinds of questions use it. One kind gives a function and an interval and asks for the number \(c\) that the theorem promises. The other kind gives a bound on \(f'\) and asks how large or how small a value of \(f\) can be.</p>
+<div class="rule"><div class="rt">Rolle's Theorem</div>
+<p>Suppose \(f\) is continuous on \([a, b]\), differentiable on \((a, b)\), and \(f(a) = f(b)\). Then there is at least one number \(c\) in \((a, b)\) with \(f'(c) = 0\).</p></div>
+<p class="plain"><b>In plain words:</b> if a smooth curve starts and ends at the same height, then somewhere in between it has a flat tangent line.</p>
+<div class="rule"><div class="rt">Mean Value Theorem (MVT)</div>
+<p>Suppose \(f\) is continuous on \([a, b]\) and differentiable on \((a, b)\). Then there is at least one number \(c\) in \((a, b)\) with \[f'(c) = \frac{f(b) - f(a)}{b - a}, \qquad\text{or equivalently}\qquad f(b) - f(a) = f'(c)\,(b - a).\]</p></div>
+<p class="plain"><b>In plain words:</b> somewhere between the two endpoints, the slope of the curve equals the average slope, which is the slope of the straight line joining the two endpoints. If you drive 120 miles in 2 hours, then at some moment your speedometer reads exactly 60 miles per hour.</p>
+<p>The conditions after "suppose" are called the <b>hypotheses</b>. Polynomials, \(e^{x}\), \(\sin x\), and \(\cos x\) are continuous and differentiable everywhere, so the hypotheses hold automatically for them on any interval. For a bound question, write the theorem in the form \(f(b) - f(a) = f'(c)(b - a)\), then replace \(f'(c)\) by the largest or smallest value it is allowed to have.</p>
+<p>A related argument shows that an equation has exactly one solution. If \(f' \gt 0\) everywhere, then \(f\) is increasing, so its graph can cross the \(x\)-axis at most once. If also \(f\) is negative at one number and positive at another, the Intermediate Value Theorem says the graph crosses the axis between them. Together these give exactly one solution. Level 5 practices this.</p>
+<div class="ex"><div class="et">Worked example 8</div><p class="p">Let \(f(x) = x^2 - 4x\). (a) Check that Rolle's Theorem applies to \(f\) on \([0, 4]\), and find the number \(c\) it gives. (b) Find every number \(c\) that the Mean Value Theorem gives for \(f\) on \([1, 5]\). (c) A different function \(g\) is differentiable everywhere, \(g(1) = 3\), and \(g'(x) \le 2\) for all \(x\). How large can \(g(5)\) possibly be?</p>
+<p class="spot"><b>How to spot this type:</b> "check that the theorem applies" and "find the number \(c\)" signal Rolle or the MVT. The words "how large can it possibly be" together with an inequality for the derivative signal an MVT bound.</p>
+<ol class="steps">
+<li>(a) Check the hypotheses. \(f\) is a polynomial, so it is continuous on \([0, 4]\) and differentiable on \((0, 4)\). Compare the endpoint values. \[f(0) = 0^2 - 4(0) = 0, \qquad f(4) = 16 - 16 = 0.\] They are equal, so Rolle's Theorem applies.</li>
+<li>(a) Find \(c\). Set the derivative equal to 0. \[f'(x) = 2x - 4 = 0 \quad\text{gives}\quad x = 2.\] The number 2 lies in \((0, 4)\), so \(c = 2\).</li>
+<li>(b) Compute the average rate of change on \([1, 5]\). \[f(5) = 25 - 20 = 5, \qquad f(1) = 1 - 4 = -3, \qquad \frac{f(5) - f(1)}{5 - 1} = \frac{5 - (-3)}{4} = \frac{8}{4} = 2.\]</li>
+<li>(b) Solve \(f'(c) = 2\) and keep only solutions inside \((1, 5)\). \[\begin{aligned} 2c - 4 &= 2\\ 2c &= 6\\ c &= 3. \end{aligned}\] The number 3 lies in \((1, 5)\). The picture shows the tangent line at \(x = 3\) is parallel to the line joining the endpoints.
+<div class="plot" data-f="x**2-4*x;;2*x-5;;2*x-9" data-x="-1,6" data-y="-6,8" data-pts="1,-3,(1, -3)|5,5,(5, 5)|3,-3,c = 3|2,-4,Rolle: c = 2" data-cap="f(x) = x^2 - 4x, the line through (1, -3) and (5, 5), and the parallel tangent line at x = 3."></div></li>
+<li>(c) Apply the MVT to \(g\) on \([1, 5]\). It gives a number \(c\) between 1 and 5 with \[g(5) - g(1) = g'(c)\,(5 - 1) = 4g'(c).\]</li>
+<li>(c) Use the bound \(g'(c) \le 2\). \[\begin{aligned} g(5) - 3 &= 4g'(c) \le 4(2) = 8\\ g(5) &\le 3 + 8 = 11. \end{aligned}\] The value 11 really happens: \(g(x) = 2x + 1\) has \(g(1) = 3\), \(g'(x) = 2\), and \(g(5) = 11\).</li>
+</ol><p class="final">Answer: (a) \(c = 2\). (b) \(c = 3\). (c) \(g(5)\) can be at most 11.</p></div>
+<div class="trap"><b>Common mistake.</b> Keeping a value of \(c\) that is outside the open interval \((a, b)\). Solve \(f'(c) = \) (average slope), then throw away any solution that is not strictly between \(a\) and \(b\).</div>
+<div class="trap"><b>Common mistake.</b> Going backward in a bound question without care. If you know \(g(1)\) and want \(g(0)\), the MVT gives \(g(1) - g(0) = g'(c)(1 - 0)\), so an upper bound on \(g'\) gives a <b>lower</b> bound on \(g(0)\). Always write the equation first, then solve for the unknown value.</div>
+
 <h3>More common mistakes</h3>
 <div class="trap"><b>Common mistake.</b> Forgetting to put numbers outside the domain on the chart. For \(f(x) = \dfrac{3}{x + 2}\), \(f'(x) = -\dfrac{3}{(x + 2)^2}\) is never 0 and there are no critical numbers, but the answer is "decreasing on \((-\infty, -2)\) and \((-2, \infty)\)," never "decreasing on \((-\infty, \infty)\)."</div>
 <div class="trap"><b>Common mistake.</b> Dividing both sides of \(f'(x) = 0\) by a factor that can be 0. In \(x^2 e^{-x}(3 - x) = 0\), dividing by \(x^2\) loses the critical number 0. Factor and set each factor equal to 0 instead.</div>
 <div class="trap"><b>Common mistake.</b> Simplifying \(f'\) incorrectly and then building a perfect chart for the wrong derivative. Check your factored \(f'\) by plugging one number into both the unfactored and the factored forms; they must agree.</div>
 
+<div class="stuck"><div class="rt">If you get stuck</div><ul>
+<li>Write \(f'\) as one fraction, then factor the top and the bottom completely. Pull out common pieces such as \(e^{x}\), \(x^2\), or the lowest power of \(x\) first.</li>
+<li>Make one list of every break point: zeros of the top of \(f'\), zeros of the bottom of \(f'\), and numbers outside the domain of \(f\). Put them all on one number line in increasing order.</li>
+<li>Mark the factors that can never be negative (\(e^{\text{anything}}\), a square, \(x^2 + 1\), \(x^{2/3}\)) as \(+\) and stop thinking about them. The sign of \(f'\) comes from the other factors.</li>
+<li>If a quadratic in \(f'\) will not factor, use the quadratic formula. If \(b^2 - 4ac \lt 0\), the quadratic has no zeros and keeps one sign everywhere.</li>
+<li>If you cannot tell where a number like \(\sqrt3\) or \(e^{-1/2}\) sits, trap it between two easy numbers (for example \(1.7^2 = 2.89 \lt 3 \lt 3.24 = 1.8^2\)), then pick test values on each side.</li>
+<li>If the problem gives a picture, ask first: is this the graph of \(f\) or of \(f'\)? For \(f\), look at up and down. For \(f'\), look at above and below the axis.</li>
+</ul></div>
+
+<div class="qc"><div class="rt">Quick check</div>
+<details class="qa"><summary>Can a critical number fail to be a relative extremum? Give an example.</summary><p>Yes. For \(f(x) = x^3\), \(f'(0) = 0\), but \(f'(x) = 3x^2 \gt 0\) on both sides of 0, so the sign does not change and there is no extremum at 0.</p></details>
+<details class="qa"><summary>If \(f'(x) \gt 0\) for every \(x\) in \((0, 5)\), must \(f(x)\) be positive on \((0, 5)\)?</summary><p>No. \(f(x) = x - 10\) has \(f'(x) = 1 \gt 0\), but \(f(1) = -9 \lt 0\). The sign of \(f'\) tells you direction, not height.</p></details>
+<details class="qa"><summary>Is \(x = 3\) a critical number of \(f(x) = \dfrac{1}{(x - 3)^2}\)?</summary><p>No. \(f'(x) = -\dfrac{2}{(x - 3)^3}\) does not exist at 3, but 3 is not in the domain of \(f\). It still goes on the sign chart as a break point.</p></details>
+<details class="qa"><summary>The graph of \(f'\) crosses the \(x\)-axis from below to above at \(x = 2\). What does \(f\) have at 2?</summary><p>A relative minimum, because \(f'\) changes from negative to positive at 2, so \(f\) goes down and then up.</p></details>
+<details class="qa"><summary>Where is \(f(x) = ax^2 + bx + c\) with \(a \gt 0\) decreasing?</summary><p>\(f'(x) = 2ax + b \lt 0\) exactly when \(x \lt -\tfrac{b}{2a}\), so \(f\) is decreasing on \(\left(-\infty, -\tfrac{b}{2a}\right)\) and increasing after it. The relative minimum is at the vertex \(x = -\tfrac{b}{2a}\).</p></details>
+</div>
+
 <div class="mem"><div class="rt">What to have memorized</div><ul>
 <li>Increasing on an interval means \(f(x_1) \lt f(x_2)\) whenever \(x_1 \lt x_2\); decreasing means \(f(x_1) \gt f(x_2)\).</li>
 <li>If \(f' \gt 0\) on an interval, \(f\) is increasing there. If \(f' \lt 0\), \(f\) is decreasing. If \(f' = 0\) on the whole interval, \(f\) is constant.</li>
 <li>A critical number is a number \(c\) in the domain of \(f\) where \(f'(c) = 0\) or \(f'(c)\) does not exist.</li>
-<li>Fermat's Theorem: every relative extremum happens at a critical number. The converse is false (\(x^3\) at 0).</li>
+<li>Fermat's Theorem: every relative extremum happens at a critical number. The converse (the reverse statement, "every critical number is an extremum") is false: \(x^3\) at 0.</li>
 <li>The sign chart recipe: domain, factor \(f'\), critical numbers and points outside the domain, one test value per interval, sign of each factor, answer in open intervals.</li>
 <li>First Derivative Test: \(f'\) from \(+\) to \(-\) gives a relative maximum, from \(-\) to \(+\) gives a relative minimum, no sign change gives no extremum.</li>
 <li>The sentence: "\(f\) has a relative maximum at \(x = c\) because \(f'\) changes from positive to negative there," followed by the value \(f(c)\).</li>
 <li>\(e^{\text{anything}} \gt 0\); \(\ln x\) needs \(x \gt 0\); \(\ln x\) is negative on \((0, 1)\) and positive on \((1, \infty)\).</li>
 <li>Never join intervals across a vertical asymptote or any number outside the domain.</li>
+<li>Rolle's Theorem: continuous on \([a, b]\), differentiable on \((a, b)\), and \(f(a) = f(b)\) give some \(c\) in \((a, b)\) with \(f'(c) = 0\).</li>
+<li>Mean Value Theorem: continuous on \([a, b]\) and differentiable on \((a, b)\) give some \(c\) in \((a, b)\) with \(f(b) - f(a) = f'(c)(b - a)\).</li>
 </ul></div>
 </section>
-<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u05-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">The graph of a function \(f\) is shown below. Find the open intervals where \(f\) is increasing and the open intervals where \(f\) is decreasing.
+<section id="vars"><h2>Every way this can be asked</h2>
+<p>These are the wordings that show up for Sections 5.1 and 5.2 in the textbook exercises, the lecture notes, the worksheets, the professor's exams, and past Berkeley Math 16A exams, with what each one really wants and the first thing to write.</p>
+<table class="t">
+<tr><th>How the question is worded</th><th>What it is really asking</th><th>First move</th></tr>
+<tr><td>"Find the intervals where \(f\) is increasing and the intervals where it is decreasing. You do not need to graph the function."</td><td>A sign chart of \(f'\), with the answer written as open intervals. No picture is needed for full credit.</td><td>Write the domain, compute \(f'\), and factor it completely.</td></tr>
+<tr><td>"Find all critical numbers of \(f\)."</td><td>Every \(x\) in the domain where \(f' = 0\) or \(f'\) does not exist. No classification is needed.</td><td>Write \(f'\) as one fraction; set the top equal to 0 and the bottom equal to 0, then check each answer is in the domain.</td></tr>
+<tr><td>"Find the \(x\)-values of all relative extrema and the values of the extrema," or "find and classify the relative extrema."</td><td>Locations (critical numbers), the type of each (max, min, or neither) by the first derivative test, and the heights \(f(c)\).</td><td>Sign chart of \(f'\), then plug each extremum location into \(f\), not \(f'\).</td></tr>
+<tr><td>"Identify any critical number that is not an extremum."</td><td>Find a critical number where \(f'\) has the same sign on both sides, usually from a squared factor.</td><td>Factor \(f'\) and look for a repeated factor like \(x^2\) or \((x - 4)^2\).</td></tr>
+<tr><td>A quotient such as \(\dfrac{x^2}{x - 1}\) or \(\dfrac{x^2}{x^2 - 9}\).</td><td>The same chart, but numbers outside the domain are break points that are not critical numbers, and intervals are never joined across them.</td><td>Find the zeros of the denominator of \(f\) before differentiating.</td></tr>
+<tr><td>"Find the critical numbers" when \(f'\) is never 0 (for example \(\dfrac{3}{x + 2}\)).</td><td>The answer "no critical numbers" is allowed. The function can still be decreasing on two separate pieces.</td><td>Check whether the numerator of \(f'\) is a nonzero constant.</td></tr>
+<tr><td>Fractional powers such as \(x^{2/3}(x - 5)\) or \(x^{1/3}(x + 3)^{2/3}\).</td><td>Critical numbers include places where \(f'\) does not exist (cusps and vertical tangents).</td><td>Product rule, then one common denominator with positive exponents.</td></tr>
+<tr><td>Exponentials such as \(\dfrac{x^2}{e^{x}}\), \(xe^{x}\), or \(\dfrac{e^{x}}{x^2}\).</td><td>A sign chart where the factor \(e^{\text{something}}\) is always positive.</td><td>Factor the \(e\) power out of the top of \(f'\) and mark it \(+\).</td></tr>
+<tr><td>Logarithms such as \(x\ln(3x)\) or \(x - \ln x\).</td><td>A sign chart that starts at the edge of the domain, because \(\ln\) needs a positive input.</td><td>Write the domain first; solve \(\ln(\ldots) = k\) by exponentiating.</td></tr>
+<tr><td>The log of a quotient, such as \(\ln\dfrac{x^2 + 1}{x^2 + 9}\).</td><td>The same chart; splitting the log first makes the derivative much easier.</td><td>Use \(\ln\frac{A}{B} = \ln A - \ln B\) before differentiating.</td></tr>
+<tr><td>A trig function on an interval, such as \(x - 2\sin x\) on \((0, 2\pi)\).</td><td>A sign chart whose break points are the solutions of a trig equation inside the given interval only.</td><td>Solve \(f'(x) = 0\) on the interval using the unit circle values.</td></tr>
+<tr><td>"The graph of \(f\) is shown. Find the open intervals where \(f\) is increasing or decreasing."</td><td>Read up and down from left to right; the turning points are left out of the intervals.</td><td>Mark the \(x\)-values of every peak, valley, and corner.</td></tr>
+<tr><td>"Find the locations and values of all relative extrema" from a graph of \(f\), including sharp corners.</td><td>Read the peaks and valleys and their heights. A corner can be an extremum even though \(f'\) does not exist there.</td><td>List each turning point as \((x, y)\), then say max or min.</td></tr>
+<tr><td>"Suppose the function graphed is not \(f\) but \(f'\)."</td><td>Read above and below the \(x\)-axis. Extrema of \(f\) are where the graph crosses the axis, not its own peaks.</td><td>Mark the \(x\)-intercepts of the graph and make a sign row.</td></tr>
+<tr><td>"The derivative of \(f\) is \(f'(x) = \ldots\)" (you are given \(f'\), not \(f\)).</td><td>Skip the differentiating; go straight to the sign chart. You can find locations of extrema but not their values.</td><td>Factor the given \(f'\) and mark its zeros.</td></tr>
+<tr><td>"Is \(f\) increasing or decreasing at \(x = a\)?"</td><td>Only the sign of the single number \(f'(a)\).</td><td>Simplify \(f'\), then plug in \(a\).</td></tr>
+<tr><td>"On what interval is the profit increasing?" or "find the quantity, the price, and the maximum profit."</td><td>Build \(P = R - C\) with \(R = xp\), then a sign chart of \(P'\) on the stated domain.</td><td>Write revenue as quantity times price, then subtract cost.</td></tr>
+<tr><td>Word problems: "When does the number of users start to decline? Interpret your answer."</td><td>The time where \(D'\) changes from positive to negative, followed by a sentence in the units of the problem.</td><td>Define the variables with units and note the domain \(t \ge 0\).</td></tr>
+<tr><td>Critical number outside the domain or interval (a negative root in a word problem, \(x = 0\) for \(\ln x\)).</td><td>Throw that number out. It is neither a critical number nor a break point inside the chart.</td><td>Compare every solution of \(f' = 0\) with the domain before testing.</td></tr>
+<tr><td>"Find constants \(a\) and \(b\) so that \(f\) has a relative maximum at \(x = -1\) and a relative minimum at \(x = 3\)."</td><td>A reverse question: use \(f'(-1) = 0\) and \(f'(3) = 0\) as equations, then confirm with the first derivative test.</td><td>Differentiate with the letters left in and plug in the given \(x\)-values.</td></tr>
+<tr><td>"True or false? Explain why," or "justify your answer or give a counterexample."</td><td>A short reason from the definitions, or one specific function that breaks the statement.</td><td>Test the statement on \(x^3\), \(\frac{1}{x}\), a line, or a function with a jump.</td></tr>
+<tr><td>"Show that \(f\) has no relative extrema," or "show the equation has exactly one real solution."</td><td>Show \(f'\) is never 0 (often by completing the square) so \(f\) is always increasing; then use the Intermediate Value Theorem for existence.</td><td>Complete the square in \(f'\) or check the discriminant.</td></tr>
+<tr><td>"Check that Rolle's Theorem (or the Mean Value Theorem) applies and find every number \(c\) it guarantees."</td><td>Verify continuity, differentiability, and (for Rolle) \(f(a) = f(b)\); then solve \(f'(c) = \frac{f(b) - f(a)}{b - a}\) inside \((a, b)\).</td><td>Compute \(f(a)\), \(f(b)\), and the average slope.</td></tr>
+<tr><td>"Suppose \(f(1) = 2\) and \(f'(x) \le 5\) for all \(x\). How large can \(f(4)\) possibly be?"</td><td>An MVT bound: \(f(4) - f(1) = f'(c)(4 - 1)\), then replace \(f'(c)\) by its bound.</td><td>Write the MVT equation with the two given \(x\)-values.</td></tr>
+</table>
+<div class="say"><b>Words that change the method.</b> "Relative" or "local" means compare only with nearby points and use the first derivative test; "absolute" (Section 6.1) means compare with the whole domain or interval, endpoints included. "Critical number" is an \(x\)-value, while "critical point" is the pair \((c, f(c))\). "Where does it occur" asks for \(x\); "what is the value" asks for \(f(c)\). "Intervals" means open intervals, never a list of numbers. "The graph of \(f\)" is read up and down, but "the graph of \(f'\)" is read above and below the axis. "At \(x = a\)" asks for one sign; "on an interval" asks for a whole chart. "Explain" or "justify" means write the sentence "because \(f'\) changes from positive to negative there." "Start to decline" or "stop growing" means the moment \(f'\) changes from positive to negative. "How large can it possibly be" means the Mean Value Theorem. "Exactly one solution" means increasing (at most one) plus the Intermediate Value Theorem (at least one).</div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u05-q01"><div class="qh"><span class="qn">Problem 1</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The graph of a function \(f\) is shown below. Find the open intervals where \(f\) is increasing and the open intervals where \(f\) is decreasing.
 <div class="plot" data-f="x**3-6*x**2+9*x+1" data-x="-1,5" data-y="-4,8" data-pts="1,5,(1, 5)|3,1,(3, 1)" data-cap="The graph of f."></div></div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Read the graph from left to right, the direction in which \(x\) grows. The curve rises until it reaches the peak at \(x = 1\), falls from \(x = 1\) down to the low point at \(x = 3\), and rises again after \(x = 3\).</li>
@@ -267,7 +355,7 @@
 <li>Do not use the \(y\)-values. The intervals are about \(x\); the heights 5 and 1 of the turning points are not part of the answer.</li>
 </ol><p class="final">Answer: \(f\) is increasing on \((-\infty, 1)\) and \((3, \infty)\), and decreasing on \((1, 3)\).</p></div></details></div>
 
-<div class="q" id="u05-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Find all critical numbers of \(f(x) = 2x^3 - 3x^2 - 36x + 4\).</div>
+<div class="q" id="u05-q02"><div class="qh"><span class="qn">Problem 2</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find all critical numbers of \(f(x) = 2x^3 - 3x^2 - 36x + 4\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Note the domain. \(f\) is a polynomial, so it is defined for all real numbers, and \(f'\) exists everywhere. The critical numbers are therefore exactly the solutions of \(f'(x) = 0\).</li>
 <li>Differentiate with the power rule. \[f'(x) = 6x^2 - 6x - 36.\]</li>
@@ -275,7 +363,7 @@
 <li>Set each factor equal to 0. \(x - 3 = 0\) gives \(x = 3\), and \(x + 2 = 0\) gives \(x = -2\). Both are in the domain.</li>
 </ol><p class="final">Answer: The critical numbers are \(x = -2\) and \(x = 3\).</p></div></details></div>
 
-<div class="q" id="u05-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = (x - 2)^{2/3}\). Find every critical number of \(f\), and decide whether \(f\) has a relative extremum there.</div>
+<div class="q" id="u05-q03"><div class="qh"><span class="qn">Problem 3</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = (x - 2)^{2/3}\). Find every critical number of \(f\), and decide whether \(f\) has a relative extremum there.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Note the domain. The cube root is defined for every real number, so \(f\) is defined for all \(x\).</li>
 <li>Differentiate with the chain rule (generalized power rule). The outside is \(u^{2/3}\) and the inside is \(u = x - 2\) with \(u' = 1\). \[\begin{aligned} f'(x) &= \tfrac23 (x - 2)^{-1/3}\cdot 1\\ &= \frac{2}{3(x - 2)^{1/3}}. \end{aligned}\]</li>
@@ -285,7 +373,7 @@
 <li>Apply the first derivative test. \(f\) has a relative minimum at \(x = 2\) because \(f'\) changes from negative to positive there. The value is \(f(2) = 0\).</li>
 </ol><p class="final">Answer: The only critical number is \(x = 2\), where \(f'\) does not exist. \(f\) has a relative minimum there, with value \(f(2) = 0\).</p></div></details></div>
 
-<div class="q" id="u05-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">The graph below is the graph of the <b>derivative</b> \(f'\) of a function \(f\), not the graph of \(f\). Find the open intervals where \(f\) is increasing and decreasing, and the \(x\)-values where \(f\) has a relative extremum.
+<div class="q" id="u05-q04"><div class="qh"><span class="qn">Problem 4</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The graph below is the graph of the <b>derivative</b> \(f'\) of a function \(f\), not the graph of \(f\). Find the open intervals where \(f\) is increasing and decreasing, and the \(x\)-values where \(f\) has a relative extremum.
 <div class="plot" data-f="(x+1)*(x-4)**2/8" data-x="-3,6" data-y="-5,5" data-pts="-1,0,(-1, 0)|4,0,(4, 0)" data-cap="The graph of f' (the derivative)."></div></div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Use the sign of \(f'\). Since this is the graph of \(f'\), \(f\) is increasing where the curve is above the \(x\)-axis and decreasing where it is below.</li>
@@ -301,7 +389,7 @@
 <li>Join the two increasing intervals across \(x = 4\). The number 4 is in the domain and \(f'\) does not change sign there, so \(f\) is increasing on all of \((-1, \infty)\).</li>
 </ol><p class="final">Answer: \(f\) is decreasing on \((-\infty, -1)\) and increasing on \((-1, \infty)\). It has a relative minimum at \(x = -1\) and no other relative extrema; \(x = 4\) is a critical number but not an extremum.</p></div></details></div>
 
-<div class="q" id="u05-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Find the open intervals where \(f(x) = x - \ln x\) is increasing and decreasing, and find its relative extrema.</div>
+<div class="q" id="u05-q05"><div class="qh"><span class="qn">Problem 5</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the open intervals where \(f(x) = x - \ln x\) is increasing and decreasing, and find its relative extrema.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. \(\ln x\) is defined only for \(x \gt 0\), so the domain is \((0, \infty)\).</li>
 <li>Differentiate, then write \(f'\) as one fraction. \[\begin{aligned} f'(x) &= 1 - \frac1x\\ &= \frac{x}{x} - \frac1x\\ &= \frac{x - 1}{x}. \end{aligned}\]</li>
@@ -316,7 +404,7 @@
 <li>Apply the first derivative test. \(f\) has a relative minimum at \(x = 1\) because \(f'\) changes from negative to positive there. The value is \(f(1) = 1 - \ln 1 = 1 - 0 = 1\).</li>
 </ol><p class="final">Answer: \(f\) is decreasing on \((0, 1)\) and increasing on \((1, \infty)\). It has a relative minimum value of 1 at \(x = 1\) and no relative maximum.</p></div></details></div>
 
-<div class="q" id="u05-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Find the critical numbers of \(f(x) = \dfrac{3}{x + 2}\) and the open intervals where \(f\) is increasing and decreasing.</div>
+<div class="q" id="u05-q06"><div class="qh"><span class="qn">Problem 6</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the critical numbers of \(f(x) = \dfrac{3}{x + 2}\) and the open intervals where \(f\) is increasing and decreasing.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. The denominator is 0 at \(x = -2\), so the domain is all real numbers except \(-2\).</li>
 <li>Differentiate. Write \(f(x) = 3(x + 2)^{-1}\) and use the chain rule (generalized power rule), with inside \(x + 2\) whose derivative is 1. \[\begin{aligned} f'(x) &= 3\cdot(-1)(x + 2)^{-2}\cdot 1\\ &= -\frac{3}{(x + 2)^2}. \end{aligned}\]</li>
@@ -325,7 +413,7 @@
 <li>Write the answer, keeping \(-2\) as a break. The intervals \((-\infty, -2)\) and \((-2, \infty)\) cannot be joined, because \(-2\) is not in the domain. In fact \(f(-3) = -3\) and \(f(0) = \tfrac32\), so \(f\) is not decreasing across \(-2\).</li>
 </ol><p class="final">Answer: There are no critical numbers. \(f\) is decreasing on \((-\infty, -2)\) and on \((-2, \infty)\), and increasing nowhere.</p></div></details></div>
 </section>
-<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u05-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^3 + 3x^2 - 24x + 5\). Find the open intervals where \(f\) is increasing and decreasing, and find all relative extrema (locations and values).</div>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u05-q07"><div class="qh"><span class="qn">Problem 7</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^3 + 3x^2 - 24x + 5\). Find the open intervals where \(f\) is increasing and decreasing, and find all relative extrema (locations and values).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Note the domain. \(f\) is a polynomial, so its domain is \((-\infty, \infty)\) and \(f'\) exists everywhere.</li>
 <li>Differentiate with the power rule and factor. Take out 3, then find two numbers with product \(-8\) and sum 2, which are 4 and \(-2\). \[\begin{aligned} f'(x) &= 3x^2 + 6x - 24\\ &= 3(x^2 + 2x - 8)\\ &= 3(x + 4)(x - 2). \end{aligned}\]</li>
@@ -340,11 +428,11 @@
 <tr><td>\(f\) is</td><td>increasing</td><td>decreasing</td><td>increasing</td></tr>
 </table></li>
 <li>Apply the first derivative test at \(x = -4\). \(f\) has a relative maximum at \(x = -4\) because \(f'\) changes from positive to negative there. \[\begin{aligned} f(-4) &= (-4)^3 + 3(-4)^2 - 24(-4) + 5\\ &= -64 + 48 + 96 + 5 = 85. \end{aligned}\]</li>
-<li>Apply the first derivative test at \(x = 2\). \(f\) has a relative minimum at \(x = 2\) because \(f'\) changes from negative to positive there. \[\begin{aligned} f(2) &= 8 + 3(4) - 24(2) + 5\\ &= 8 + 12 - 48 + 5 = -23. \end{aligned}\]
+<li>Apply the first derivative test at \(x = 2\). \(f\) has a relative minimum at \(x = 2\) because \(f'\) changes from negative to positive there. \[\begin{aligned} f(2) &= 2^3 + 3(2)^2 - 24(2) + 5\\ &= 8 + 3(4) - 24(2) + 5\\ &= 8 + 12 - 48 + 5 = -23. \end{aligned}\]
 <div class="plot" data-f="x**3+3*x**2-24*x+5" data-x="-7,5" data-y="-40,100" data-pts="-4,85,relative max (-4, 85)|2,-23,relative min (2, -23)" data-cap="Graph of f(x) = x^3 + 3x^2 - 24x + 5."></div></li>
 </ol><p class="final">Answer: \(f\) is increasing on \((-\infty, -4)\) and \((2, \infty)\), and decreasing on \((-4, 2)\). Relative maximum value 85 at \(x = -4\); relative minimum value \(-23\) at \(x = 2\).</p></div></details></div>
 
-<div class="q" id="u05-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = xe^{x}\). Find the open intervals where \(f\) is increasing and decreasing, and find all relative extrema.</div>
+<div class="q" id="u05-q08"><div class="qh"><span class="qn">Problem 8</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = xe^{x}\). Find the open intervals where \(f\) is increasing and decreasing, and find all relative extrema.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Note the domain. Both \(x\) and \(e^{x}\) are defined for all real numbers, so the domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the product rule. Set \(u = x\), \(v = e^{x}\), \(u' = 1\), \(v' = e^{x}\). Then factor out \(e^{x}\). \[\begin{aligned} f'(x) &= 1\cdot e^{x} + x\cdot e^{x}\\ &= e^{x}(1 + x). \end{aligned}\]</li>
@@ -362,7 +450,7 @@
 <div class="plot" data-f="x*Math.exp(x)" data-x="-5,1.5" data-y="-1,3" data-pts="-1,-0.367879,relative min (-1, -1/e)" data-cap="Graph of f(x) = x e^x."></div></li>
 </ol><p class="final">Answer: \(f\) is decreasing on \((-\infty, -1)\) and increasing on \((-1, \infty)\). Relative minimum value \(-\tfrac1e\) at \(x = -1\); no relative maximum.</p></div></details></div>
 
-<div class="q" id="u05-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{x^2 + 9}{x}\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema.</div>
+<div class="q" id="u05-q09"><div class="qh"><span class="qn">Problem 9</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = \dfrac{x^2 + 9}{x}\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. The denominator is 0 at \(x = 0\), so the domain is all real numbers except 0.</li>
 <li>Differentiate with the quotient rule. Set \(u = x^2 + 9\), \(v = x\), \(u' = 2x\), \(v' = 1\). Then \(f' = \dfrac{u'v - uv'}{v^2}\). \[\begin{aligned} f'(x) &= \frac{2x\cdot x - (x^2 + 9)\cdot 1}{x^2}\\ &= \frac{2x^2 - x^2 - 9}{x^2}\\ &= \frac{x^2 - 9}{x^2}\\ &= \frac{(x - 3)(x + 3)}{x^2}. \end{aligned}\]</li>
@@ -381,13 +469,13 @@
 <div class="plot" data-f="(x**2+9)/x" data-x="-9,9" data-y="-16,16" data-v="0" data-pts="-3,-6,relative max (-3, -6)|3,6,relative min (3, 6)" data-cap="Graph of f(x) = (x^2 + 9)/x. The y-axis is a vertical asymptote."></div></li>
 </ol><p class="final">Answer: Critical numbers \(x = -3\) and \(x = 3\). \(f\) is increasing on \((-\infty, -3)\) and \((3, \infty)\), and decreasing on \((-3, 0)\) and \((0, 3)\). Relative maximum value \(-6\) at \(x = -3\); relative minimum value 6 at \(x = 3\).</p></div></details></div>
 
-<div class="q" id="u05-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^{4/3} - 4x^{1/3}\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema.</div>
+<div class="q" id="u05-q10"><div class="qh"><span class="qn">Problem 10</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^{4/3} - 4x^{1/3}\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. Cube roots are defined for all real numbers, so the domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the power rule. \[f'(x) = \tfrac43 x^{1/3} - 4\cdot\tfrac13 x^{-2/3} = \tfrac43 x^{1/3} - \tfrac43 x^{-2/3}.\]</li>
 <li>Factor out the lowest power, \(\tfrac43 x^{-2/3}\). Dividing \(x^{1/3}\) by \(x^{-2/3}\) gives \(x^{1/3 + 2/3} = x\). \[\begin{aligned} f'(x) &= \tfrac43 x^{-2/3}(x - 1)\\ &= \frac{4(x - 1)}{3x^{2/3}}. \end{aligned}\]</li>
 <li>Find the critical numbers. The numerator is 0 at \(x = 1\). The denominator is 0 at \(x = 0\), so \(f'(0)\) does not exist, and \(f(0) = 0 - 0 = 0\) is defined. The critical numbers are \(x = 0\) and \(x = 1\).</li>
-<li>Test one value in each interval. The factor \(x^{2/3} = (\sqrt[3]{x})^2\) is positive for every \(x \ne 0\). At \(x = \tfrac18\), \(x^{2/3} = \left(\tfrac12\right)^2 = \tfrac14\). \[\begin{aligned} f'(-1) &= \frac{4(-2)}{3(1)} = -\frac83 \lt 0, \qquad f'\!\left(\tfrac18\right) = \frac{4\left(-\tfrac78\right)}{3\cdot\tfrac14} = \frac{-\tfrac72}{\tfrac34} = -\frac{14}{3} \lt 0,\\ f'(8) &= \frac{4(7)}{3(4)} = \frac{7}{3} \gt 0. \end{aligned}\]
+<li>Test one value in each interval. The factor \(x^{2/3} = (\sqrt[3]{x})^2\) is positive for every \(x \ne 0\). At \(x = -1\), \(x^{2/3} = (-1)^2 = 1\). At \(x = \tfrac18\), \(x^{2/3} = \left(\tfrac12\right)^2 = \tfrac14\). At \(x = 8\), \(x^{2/3} = 2^2 = 4\). \[\begin{aligned} f'(-1) &= \frac{4(-2)}{3(1)} = -\frac83 \lt 0, \qquad f'\!\left(\tfrac18\right) = \frac{4\left(-\tfrac78\right)}{3\cdot\tfrac14} = \frac{-\tfrac72}{\tfrac34} = -\frac{14}{3} \lt 0,\\ f'(8) &= \frac{4(7)}{3(4)} = \frac{7}{3} \gt 0. \end{aligned}\]
 <table class="t">
 <tr><th>Interval</th><th>\((-\infty, 0)\)</th><th>\((0, 1)\)</th><th>\((1, \infty)\)</th></tr>
 <tr><td>Test value</td><td>\(-1\)</td><td>\(\tfrac18\)</td><td>\(8\)</td></tr>
@@ -401,12 +489,12 @@
 <div class="plot" data-f="Math.cbrt(x)**4-4*Math.cbrt(x)" data-x="-3,5" data-y="-4,6" data-pts="0,0,critical, not an extremum (0, 0)|1,-3,relative min (1, -3)" data-cap="Graph of f(x) = x^(4/3) - 4x^(1/3). The tangent line is vertical at the origin."></div></li>
 </ol><p class="final">Answer: Critical numbers \(x = 0\) and \(x = 1\). \(f\) is decreasing on \((-\infty, 1)\) and increasing on \((1, \infty)\). Relative minimum value \(-3\) at \(x = 1\); no relative maximum, and no extremum at \(x = 0\).</p></div></details></div>
 
-<div class="q" id="u05-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">A shop sells \(x\) bicycle helmets per week at a price of \(p = 70 - x\) dollars each, for \(0 \le x \le 70\). The weekly cost of making \(x\) helmets is \(C(x) = 0.5x^2 + 10x + 200\) dollars. (a) On what interval is the weekly profit increasing, and on what interval is it decreasing? (b) At what number of helmets does profit have a relative maximum? Give the price and the profit there.</div>
+<div class="q" id="u05-q11"><div class="qh"><span class="qn">Problem 11</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A shop sells \(x\) bicycle helmets per week at a price of \(p = 70 - x\) dollars each, for \(0 \le x \le 70\). The weekly cost of making \(x\) helmets is \(C(x) = 0.5x^2 + 10x + 200\) dollars. (a) On what interval is the weekly profit increasing, and on what interval is it decreasing? (b) At what number of helmets does profit have a relative maximum? Give the price and the profit there.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Name the variables. \(x\) is the number of helmets sold per week, \(p\) the price per helmet in dollars, \(R\), \(C\), and \(P\) the weekly revenue, cost, and profit in dollars. The domain is \(0 \le x \le 70\).</li>
 <li>Write the revenue. Revenue is price times quantity. \[R(x) = xp = x(70 - x) = 70x - x^2.\]</li>
-<li>Write the profit. Profit is revenue minus cost. \[\begin{aligned} P(x) &= 70x - x^2 - (0.5x^2 + 10x + 200)\\ &= -1.5x^2 + 60x - 200. \end{aligned}\]</li>
-<li>Differentiate. \[P'(x) = -3x + 60 = -3(x - 20).\]</li>
+<li>Write the profit. Profit is revenue minus cost. \[\begin{aligned} P(x) &= 70x - x^2 - (0.5x^2 + 10x + 200)\\ &= 70x - x^2 - 0.5x^2 - 10x - 200\\ &= -1.5x^2 + 60x - 200. \end{aligned}\]</li>
+<li>Differentiate with the power rule, then factor out \(-3\). \[P'(x) = -1.5(2x) + 60 = -3x + 60 = -3(x - 20).\]</li>
 <li>Find the critical number. \(P'(x) = 0\) when \(x = 20\), which is in the domain.</li>
 <li>Test one value on each side of 20. \[P'(10) = -3(-10) = 30 \gt 0, \qquad P'(30) = -3(10) = -30 \lt 0.\]
 <table class="t">
@@ -418,7 +506,7 @@
 <li>(b) Apply the first derivative test. \(P\) has a relative maximum at \(x = 20\) because \(P'\) changes from positive to negative there. The price is \(p = 70 - 20 = 50\) dollars, and the profit is \[\begin{aligned} P(20) &= -1.5(20)^2 + 60(20) - 200\\ &= -1.5(400) + 1200 - 200\\ &= -600 + 1200 - 200 = 400. \end{aligned}\]</li>
 </ol><p class="final">Answer: (a) Profit is increasing on \((0, 20)\) and decreasing on \((20, 70)\). (b) Profit has a relative maximum at 20 helmets per week, sold at \$50 each, for a weekly profit of \$400.</p></div></details></div>
 
-<div class="q" id="u05-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x\ln(3x)\). State the domain, find the critical numbers, find the open intervals where \(f\) is increasing and decreasing, and classify each relative extremum.</div>
+<div class="q" id="u05-q12"><div class="qh"><span class="qn">Problem 12</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x\ln(3x)\). State the domain, find the critical numbers, find the open intervals where \(f\) is increasing and decreasing, and classify each relative extremum.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. \(\ln(3x)\) needs \(3x \gt 0\), that is \(x \gt 0\). The domain is \((0, \infty)\).</li>
 <li>Differentiate with the product rule. Set \(u = x\), \(v = \ln(3x)\), \(u' = 1\), and by the chain rule \(v' = \dfrac{3}{3x} = \dfrac1x\). \[\begin{aligned} f'(x) &= 1\cdot\ln(3x) + x\cdot\frac1x\\ &= \ln(3x) + 1. \end{aligned}\]</li>
@@ -433,8 +521,8 @@
 <li>Apply the first derivative test. \(f\) has a relative minimum at \(x = \dfrac{1}{3e}\) because \(f'\) changes from negative to positive there. The value is \[f\!\left(\tfrac{1}{3e}\right) = \frac{1}{3e}\ln\!\left(\frac{3}{3e}\right) = \frac{1}{3e}\ln\!\left(e^{-1}\right) = \frac{1}{3e}(-1) = -\frac{1}{3e}.\]</li>
 </ol><p class="final">Answer: Domain \((0, \infty)\); critical number \(x = \tfrac{1}{3e}\). \(f\) is decreasing on \(\left(0, \tfrac{1}{3e}\right)\) and increasing on \(\left(\tfrac{1}{3e}, \infty\right)\). Relative minimum value \(-\tfrac{1}{3e}\) at \(x = \tfrac{1}{3e}\); no relative maximum.</p></div></details></div>
 </section>
-<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u05-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^3 e^{-x}\). Find the open intervals where \(f\) is increasing and decreasing, find all relative extrema, and identify any critical number that is not an extremum.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u05-q13"><div class="qh"><span class="qn">Problem 13</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^3 e^{-x}\). Find the open intervals where \(f\) is increasing and decreasing, find all relative extrema, and identify any critical number that is not an extremum.</div>
+<details class="hint"><summary>Hint</summary><div>After the product rule, both terms share the factor \(x^2e^{-x}\). Factor it out, and remember that a squared factor needs a careful look on the sign chart.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Note the domain. \(x^3\) and \(e^{-x}\) are defined everywhere, so the domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the product rule. Set \(u = x^3\), \(v = e^{-x}\), \(u' = 3x^2\), and by the chain rule \(v' = -e^{-x}\). \[\begin{aligned} f'(x) &= 3x^2e^{-x} + x^3\left(-e^{-x}\right)\\ &= 3x^2e^{-x} - x^3e^{-x}. \end{aligned}\]</li>
 <li>Factor out the common factor \(x^2e^{-x}\). \[f'(x) = x^2e^{-x}(3 - x).\]</li>
@@ -452,10 +540,11 @@
 <li>Apply the first derivative test at \(x = 0\). \(f'\) is positive on both sides of 0, so \(f\) has no relative extremum at 0. Since 0 is in the domain, the increasing intervals join into \((-\infty, 3)\).</li>
 <li>Apply the first derivative test at \(x = 3\). \(f\) has a relative maximum at \(x = 3\) because \(f'\) changes from positive to negative there. The value is \(f(3) = 3^3e^{-3} = \dfrac{27}{e^3}\).
 <div class="plot" data-f="x**3*Math.exp(-x)" data-x="-1,10" data-y="-1,2" data-pts="0,0,critical, not an extremum (0, 0)|3,1.344251,relative max (3, 27/e³)" data-cap="Graph of f(x) = x^3 e^(-x)."></div></li>
-</ol><p class="final">Answer: \(f\) is increasing on \((-\infty, 3)\) and decreasing on \((3, \infty)\). Relative maximum value \(\tfrac{27}{e^3}\) at \(x = 3\); no relative minimum. The critical number \(x = 0\) is not an extremum.</p></div></details></div>
+</ol><p class="final">Answer: \(f\) is increasing on \((-\infty, 3)\) and decreasing on \((3, \infty)\). Relative maximum value \(\tfrac{27}{e^3}\) at \(x = 3\); no relative minimum. The critical number \(x = 0\) is not an extremum.</p>
+<p class="wrong"><b>Where students lose points:</b> calling \(x = 0\) a relative minimum just because \(f'(0) = 0\), without testing both sides. Another common slip is dividing \(x^2e^{-x}(3 - x) = 0\) by \(x^2\), which loses the critical number 0 entirely.</p></div></details></div>
 
-<div class="q" id="u05-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{x^2}{x^2 - 9}\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u05-q14"><div class="qh"><span class="qn">Problem 14</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = \dfrac{x^2}{x^2 - 9}\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema.</div>
+<details class="hint"><summary>Hint</summary><div>Find the numbers outside the domain first; they go on the chart but are not critical numbers. In the quotient rule numerator, the \(x^3\) terms cancel.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. The denominator factors as \(x^2 - 9 = (x - 3)(x + 3)\), which is 0 at \(x = 3\) and \(x = -3\). The domain is all real numbers except \(-3\) and 3.</li>
 <li>Differentiate with the quotient rule. Set \(u = x^2\), \(v = x^2 - 9\), \(u' = 2x\), \(v' = 2x\). \[\begin{aligned} f'(x) &= \frac{2x(x^2 - 9) - x^2(2x)}{(x^2 - 9)^2}\\ &= \frac{2x^3 - 18x - 2x^3}{(x^2 - 9)^2}\\ &= \frac{-18x}{(x^2 - 9)^2}. \end{aligned}\]</li>
 <li>Find the critical numbers. The numerator \(-18x\) is 0 at \(x = 0\), which is in the domain. The denominator is 0 at \(x = \pm 3\), which are not in the domain, so they are not critical numbers. The only critical number is \(x = 0\).</li>
@@ -471,15 +560,16 @@
 <li>Do not join intervals across \(\pm 3\). Those numbers are outside the domain, so the increasing intervals \((-\infty, -3)\) and \((-3, 0)\) stay separate, and so do the decreasing intervals \((0, 3)\) and \((3, \infty)\).</li>
 <li>Apply the first derivative test at \(x = 0\). \(f\) has a relative maximum at \(x = 0\) because \(f'\) changes from positive to negative there. The value is \(f(0) = \dfrac{0}{-9} = 0\).
 <div class="plot" data-f="x**2/(x**2-9)" data-x="-7,7" data-y="-5,5" data-v="-3,3" data-h="1" data-pts="0,0,relative max (0, 0)" data-cap="Graph of f(x) = x^2/(x^2 - 9) with asymptotes x = -3, x = 3, and y = 1 dashed."></div></li>
-</ol><p class="final">Answer: The only critical number is \(x = 0\). \(f\) is increasing on \((-\infty, -3)\) and \((-3, 0)\), and decreasing on \((0, 3)\) and \((3, \infty)\). Relative maximum value 0 at \(x = 0\); no relative minimum.</p></div></details></div>
+</ol><p class="final">Answer: The only critical number is \(x = 0\). \(f\) is increasing on \((-\infty, -3)\) and \((-3, 0)\), and decreasing on \((0, 3)\) and \((3, \infty)\). Relative maximum value 0 at \(x = 0\); no relative minimum.</p>
+<p class="wrong"><b>Where students lose points:</b> writing "increasing on \((-\infty, 0)\)" by joining intervals across \(-3\), which is not in the domain. Listing \(\pm 3\) as critical numbers is the other frequent error.</p></div></details></div>
 
-<div class="q" id="u05-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^{2/3}(x^2 - 8)\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema with their exact values.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u05-q15"><div class="qh"><span class="qn">Problem 15</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^{2/3}(x^2 - 8)\). Find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema with their exact values.</div>
+<details class="hint"><summary>Hint</summary><div>Use the product rule, then put both terms over the common denominator \(3x^{1/3}\). The derivative fails to exist where that denominator is 0.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. Cube roots are defined everywhere, so the domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the product rule. Set \(u = x^{2/3}\), \(v = x^2 - 8\), \(u' = \tfrac23 x^{-1/3}\), \(v' = 2x\). \[f'(x) = \tfrac23 x^{-1/3}(x^2 - 8) + x^{2/3}(2x).\]</li>
 <li>Write both terms over the common denominator \(3x^{1/3}\). The first term is \(\dfrac{2(x^2 - 8)}{3x^{1/3}}\). For the second, \(2x\cdot x^{2/3} = \dfrac{2x\cdot x^{2/3}\cdot 3x^{1/3}}{3x^{1/3}} = \dfrac{6x^2}{3x^{1/3}}\). \[\begin{aligned} f'(x) &= \frac{2x^2 - 16 + 6x^2}{3x^{1/3}}\\ &= \frac{8x^2 - 16}{3x^{1/3}}\\ &= \frac{8(x^2 - 2)}{3x^{1/3}}. \end{aligned}\]</li>
 <li>Find the critical numbers. The numerator is 0 when \(x^2 = 2\), that is \(x = -\sqrt2\) or \(x = \sqrt2\). The denominator is 0 at \(x = 0\), where \(f'\) does not exist, and \(f(0) = 0\) is defined. The critical numbers are \(-\sqrt2\), 0, and \(\sqrt2\).</li>
-<li>Test one value in each interval. Note \(\sqrt2\) is between 1 and 2, so \(-8\) and \(-1\) lie on either side of \(-\sqrt2\), and 1 and 8 lie on either side of \(\sqrt2\). The sign of \(x^{1/3}\) is the sign of \(x\). \[\begin{aligned} f'(-8) &= \frac{8(62)}{3(-2)} \lt 0, & f'(-1) &= \frac{8(-1)}{3(-1)} = \frac83 \gt 0,\\ f'(1) &= \frac{8(-1)}{3(1)} = -\frac83 \lt 0, & f'(8) &= \frac{8(62)}{3(2)} \gt 0. \end{aligned}\]
+<li>Test one value in each interval. Note \(\sqrt2\) is between 1 and 2, so \(-8\) and \(-1\) lie on either side of \(-\sqrt2\), and 1 and 8 lie on either side of \(\sqrt2\). The sign of \(x^{1/3}\) is the sign of \(x\). Use \((-8)^2 - 2 = 62\), \((-8)^{1/3} = -2\), and \(8^{1/3} = 2\). \[\begin{aligned} f'(-8) &= \frac{8(62)}{3(-2)} = -\frac{248}{3} \lt 0, & f'(-1) &= \frac{8(-1)}{3(-1)} = \frac83 \gt 0,\\ f'(1) &= \frac{8(-1)}{3(1)} = -\frac83 \lt 0, & f'(8) &= \frac{8(62)}{3(2)} = \frac{248}{3} \gt 0. \end{aligned}\]
 <table class="t">
 <tr><th>Interval</th><th>\((-\infty, -\sqrt2)\)</th><th>\((-\sqrt2, 0)\)</th><th>\((0, \sqrt2)\)</th><th>\((\sqrt2, \infty)\)</th></tr>
 <tr><td>Test value</td><td>\(-8\)</td><td>\(-1\)</td><td>\(1\)</td><td>\(8\)</td></tr>
@@ -491,15 +581,16 @@
 <li>Apply the first derivative test. \(f\) has relative minima at \(x = -\sqrt2\) and \(x = \sqrt2\) because \(f'\) changes from negative to positive at each. \(f\) has a relative maximum at \(x = 0\) because \(f'\) changes from positive to negative there.</li>
 <li>Compute the values. Since \(x^2 = 2\) at both minima and \(x^{2/3} = (x^2)^{1/3} = 2^{1/3}\), \[f(\pm\sqrt2) = 2^{1/3}(2 - 8) = -6\cdot 2^{1/3} = -6\sqrt[3]{2}.\] At the maximum, \(f(0) = 0\cdot(0 - 8) = 0\).
 <div class="plot" data-f="Math.cbrt(x)**2*(x**2-8)" data-x="-3.5,3.5" data-y="-9,6" data-pts="-1.414214,-7.559526,relative min|0,0,relative max (0, 0)|1.414214,-7.559526,relative min (√2, -6∛2)" data-cap="Graph of f(x) = x^(2/3)(x^2 - 8). The maximum at 0 is a cusp."></div></li>
-</ol><p class="final">Answer: Critical numbers \(-\sqrt2\), 0, \(\sqrt2\). \(f\) is decreasing on \((-\infty, -\sqrt2)\) and \((0, \sqrt2)\), and increasing on \((-\sqrt2, 0)\) and \((\sqrt2, \infty)\). Relative minimum value \(-6\sqrt[3]{2}\) at \(x = \pm\sqrt2\); relative maximum value 0 at \(x = 0\).</p></div></details></div>
+</ol><p class="final">Answer: Critical numbers \(-\sqrt2\), 0, \(\sqrt2\). \(f\) is decreasing on \((-\infty, -\sqrt2)\) and \((0, \sqrt2)\), and increasing on \((-\sqrt2, 0)\) and \((\sqrt2, \infty)\). Relative minimum value \(-6\sqrt[3]{2}\) at \(x = \pm\sqrt2\); relative maximum value 0 at \(x = 0\).</p>
+<p class="wrong"><b>Where students lose points:</b> missing the critical number \(x = 0\), where \(f'\) does not exist, which is the relative maximum here. In the values, writing \((\sqrt2)^{2/3} = 2^{2/3}\) instead of the correct \(2^{1/3}\) gives the wrong minimum value.</p></div></details></div>
 
-<div class="q" id="u05-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">A new phone app has \(D(t) = 50te^{-t/4}\) thousand daily users \(t\) weeks after launch, for \(t \ge 0\). On what time interval is the number of daily users increasing, and on what interval is it decreasing? When does the number of daily users have a relative maximum, and how many users is that? Interpret the answer in a sentence.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u05-q16"><div class="qh"><span class="qn">Problem 16</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A new phone app has \(D(t) = 50te^{-t/4}\) thousand daily users \(t\) weeks after launch, for \(t \ge 0\). On what time interval is the number of daily users increasing, and on what interval is it decreasing? When does the number of daily users have a relative maximum, and how many users is that? Interpret the answer in a sentence.</div>
+<details class="hint"><summary>Hint</summary><div>Use the product rule with \(v = e^{-t/4}\), whose derivative needs the chain rule. Factor out the exponential, and remember the domain starts at \(t = 0\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Name the variables. \(t\) is the time in weeks since launch, and \(D(t)\) is the number of daily users in thousands. The domain is \(t \ge 0\).</li>
 <li>Differentiate with the product rule. Set \(u = 50t\), \(v = e^{-t/4}\), \(u' = 50\), and by the chain rule \(v' = e^{-t/4}\cdot\left(-\tfrac14\right) = -\tfrac14 e^{-t/4}\). \[\begin{aligned} D'(t) &= 50e^{-t/4} + 50t\left(-\tfrac14 e^{-t/4}\right)\\ &= 50e^{-t/4} - \tfrac{25}{2}te^{-t/4}. \end{aligned}\]</li>
 <li>Factor out \(\tfrac{25}{2}e^{-t/4}\). Since \(50 = \tfrac{25}{2}\cdot 4\), \[D'(t) = \tfrac{25}{2}e^{-t/4}(4 - t).\]</li>
 <li>Find the critical number. \(e^{-t/4} \gt 0\) is never 0, so \(D'(t) = 0\) only when \(4 - t = 0\), that is \(t = 4\).</li>
-<li>Test one value on each side of 4. \[D'(1) = \tfrac{25}{2}e^{-1/4}(3) \gt 0, \qquad D'(8) = \tfrac{25}{2}e^{-2}(-4) = -\frac{50}{e^2} \lt 0.\]
+<li>Test one value on each side of 4. \[D'(1) = \tfrac{25}{2}e^{-1/4}(3) = \tfrac{75}{2}e^{-1/4} \gt 0, \qquad D'(8) = \tfrac{25}{2}e^{-2}(-4) = -\frac{50}{e^2} \lt 0.\]
 <table class="t">
 <tr><th>Interval</th><th>\((0, 4)\)</th><th>\((4, \infty)\)</th></tr>
 <tr><td>Test value</td><td>\(1\)</td><td>\(8\)</td></tr>
@@ -510,10 +601,11 @@
 </table></li>
 <li>Apply the first derivative test. \(D\) has a relative maximum at \(t = 4\) because \(D'\) changes from positive to negative there. The value is \[D(4) = 50(4)e^{-4/4} = 200e^{-1} = \frac{200}{e}.\] Since \(e\) is about 2.72, this is about 73.6 thousand users.
 <div class="plot" data-f="50*x*Math.exp(-x/4)" data-x="0,20" data-y="0,80" data-pts="4,73.575888,relative max (4, 200/e)" data-cap="Daily users D(t) = 50t e^(-t/4), in thousands, t weeks after launch."></div></li>
-</ol><p class="final">Answer: Daily users increase on \((0, 4)\) and decrease on \((4, \infty)\). The relative maximum is at \(t = 4\) weeks, with \(\tfrac{200}{e}\) thousand (about 73.6 thousand) daily users. In words: the app gains users for its first 4 weeks, peaks at about 73,600 daily users in week 4, and loses users after that.</p></div></details></div>
+</ol><p class="final">Answer: Daily users increase on \((0, 4)\) and decrease on \((4, \infty)\). The relative maximum is at \(t = 4\) weeks, with \(\tfrac{200}{e}\) thousand (about 73.6 thousand) daily users. In words: the app gains users for its first 4 weeks, peaks at about 73,600 daily users in week 4, and loses users after that.</p>
+<p class="wrong"><b>Where students lose points:</b> forgetting the chain rule factor \(-\tfrac14\) when differentiating \(e^{-t/4}\), which moves the critical number. Also, stopping at "\(t = 4\)" without the number of users, the units, and the sentence of interpretation the question asks for.</p></div></details></div>
 
-<div class="q" id="u05-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">Find constants \(a\) and \(b\) so that \(f(x) = x^3 + ax^2 + bx\) has a relative maximum at \(x = -1\) and a relative minimum at \(x = 3\). Then use the first derivative test to confirm both, and find the two extreme values.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u05-q17"><div class="qh"><span class="qn">Problem 17</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find constants \(a\) and \(b\) so that \(f(x) = x^3 + ax^2 + bx\) has a relative maximum at \(x = -1\) and a relative minimum at \(x = 3\). Then use the first derivative test to confirm both, and find the two extreme values.</div>
+<details class="hint"><summary>Hint</summary><div>A relative extremum of a polynomial must be a zero of \(f'\). Plug the two given \(x\)-values into \(f'\) to get two equations in \(a\) and \(b\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Use Fermat's Theorem. \(f\) is a polynomial, so \(f'\) exists everywhere, and any relative extremum must be a zero of \(f'\). So we need \(f'(-1) = 0\) and \(f'(3) = 0\).</li>
 <li>Differentiate. \[f'(x) = 3x^2 + 2ax + b.\]</li>
 <li>Write the two conditions as equations. \[\begin{aligned} f'(-1) &= 3(1) + 2a(-1) + b = 3 - 2a + b = 0,\\ f'(3) &= 3(9) + 2a(3) + b = 27 + 6a + b = 0. \end{aligned}\]</li>
@@ -529,10 +621,11 @@
 \(f\) has a relative maximum at \(x = -1\) because \(f'\) changes from positive to negative there, and a relative minimum at \(x = 3\) because \(f'\) changes from negative to positive there.</li>
 <li>Compute the values with \(f(x) = x^3 - 3x^2 - 9x\). \[\begin{aligned} f(-1) &= -1 - 3(1) - 9(-1) = -1 - 3 + 9 = 5,\\ f(3) &= 27 - 3(9) - 9(3) = 27 - 27 - 27 = -27. \end{aligned}\]
 <div class="plot" data-f="x**3-3*x**2-9*x" data-x="-3,5" data-y="-30,10" data-pts="-1,5,relative max (-1, 5)|3,-27,relative min (3, -27)" data-cap="Graph of f(x) = x^3 - 3x^2 - 9x."></div></li>
-</ol><p class="final">Answer: \(a = -3\) and \(b = -9\). Then \(f(x) = x^3 - 3x^2 - 9x\) has a relative maximum value of 5 at \(x = -1\) and a relative minimum value of \(-27\) at \(x = 3\).</p></div></details></div>
+</ol><p class="final">Answer: \(a = -3\) and \(b = -9\). Then \(f(x) = x^3 - 3x^2 - 9x\) has a relative maximum value of 5 at \(x = -1\) and a relative minimum value of \(-27\) at \(x = 3\).</p>
+<p class="wrong"><b>Where students lose points:</b> setting \(f(-1) = 0\) and \(f(3) = 0\) instead of \(f'(-1) = 0\) and \(f'(3) = 0\); the problem says nothing about the heights. Also, stopping after finding \(a\) and \(b\) without the sign chart that confirms which point is the maximum and which is the minimum.</p></div></details></div>
 </section>
-<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u05-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Find the intervals where the function \(f(x) = \dfrac{x^2 - 3}{e^{x}}\) is increasing and the intervals where it is decreasing. You do not need to graph the function.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u05-q18"><div class="qh"><span class="qn">Problem 18</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the intervals where the function \(f(x) = \dfrac{x^2 - 3}{e^{x}}\) is increasing and the intervals where it is decreasing. You do not need to graph the function.</div>
+<details class="hint"><summary>Hint</summary><div>Use the quotient rule, then factor \(e^{x}\) out of the numerator and cancel it with one factor of \(e^{2x}\). What is left on top is a quadratic.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. The denominator \(e^{x}\) is positive for every \(x\), so it is never 0, and the domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the quotient rule. Set \(u = x^2 - 3\), \(v = e^{x}\), \(u' = 2x\), \(v' = e^{x}\). Then \(f' = \dfrac{u'v - uv'}{v^2}\). \[f'(x) = \frac{2x\,e^{x} - (x^2 - 3)\,e^{x}}{\left(e^{x}\right)^2}.\]</li>
 <li>Simplify. Factor \(e^{x}\) out of the numerator, use \(\left(e^{x}\right)^2 = e^{2x}\), and cancel one factor of \(e^{x}\). \[\begin{aligned} f'(x) &= \frac{e^{x}\left(2x - x^2 + 3\right)}{e^{2x}}\\ &= \frac{-x^2 + 2x + 3}{e^{x}}. \end{aligned}\]</li>
@@ -551,10 +644,11 @@
 </table></li>
 <li>State the conclusion with the reason. Since \(f'(x) \lt 0\) on \((-\infty, -1)\) and on \((3, \infty)\), \(f\) is decreasing there. Since \(f'(x) \gt 0\) on \((-1, 3)\), \(f\) is increasing there. (Not asked, but the same chart shows a relative minimum \(f(-1) = \dfrac{-2}{e^{-1}} = -2e\) and a relative maximum \(f(3) = \dfrac{6}{e^3}\).)
 <div class="plot" data-f="(x**2-3)/Math.exp(x)" data-x="-2.5,8" data-y="-7,2" data-pts="-1,-5.436564,relative min (-1, -2e)|3,0.298722,relative max (3, 6/e³)" data-cap="Graph of f(x) = (x^2 - 3)/e^x, for checking only."></div></li>
-</ol><p class="final">Answer: \(f\) is decreasing on \((-\infty, -1)\) and \((3, \infty)\), and increasing on \((-1, 3)\).</p></div></details></div>
+</ol><p class="final">Answer: \(f\) is decreasing on \((-\infty, -1)\) and \((3, \infty)\), and increasing on \((-1, 3)\).</p>
+<p class="wrong"><b>Where students lose points:</b> writing the quotient rule numerator in the wrong order, \(uv' - u'v\), which flips every sign in the chart. The other common slip is losing the minus sign when factoring \(-x^2 + 2x + 3\) as \(-(x - 3)(x + 1)\).</p></div></details></div>
 
-<div class="q" id="u05-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Find the intervals where the function \(f(x) = \dfrac{e^{x}}{x^2}\) is increasing and the intervals where it is decreasing, and find any relative extrema. You do not need to graph the function.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u05-q19"><div class="qh"><span class="qn">Problem 19</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the intervals where the function \(f(x) = \dfrac{e^{x}}{x^2}\) is increasing and the intervals where it is decreasing, and find any relative extrema. You do not need to graph the function.</div>
+<details class="hint"><summary>Hint</summary><div>The number 0 is outside the domain but must still go on the chart. After the quotient rule, factor \(xe^{x}\) out of the top and cancel one \(x\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. The denominator \(x^2\) is 0 at \(x = 0\), so the domain is all real numbers except 0.</li>
 <li>Differentiate with the quotient rule. Set \(u = e^{x}\), \(v = x^2\), \(u' = e^{x}\), \(v' = 2x\). \[f'(x) = \frac{e^{x}\cdot x^2 - e^{x}\cdot 2x}{\left(x^2\right)^2} = \frac{x^2e^{x} - 2xe^{x}}{x^4}.\]</li>
 <li>Simplify. Factor \(xe^{x}\) out of the numerator, then cancel one factor of \(x\) (allowed because \(x \ne 0\) in the domain). \[\begin{aligned} f'(x) &= \frac{xe^{x}(x - 2)}{x^4}\\ &= \frac{e^{x}(x - 2)}{x^3}. \end{aligned}\]</li>
@@ -571,10 +665,11 @@
 </table></li>
 <li>Apply the first derivative test. \(f\) has a relative minimum at \(x = 2\) because \(f'\) changes from negative to positive there, with value \(f(2) = \dfrac{e^2}{4}\). The sign also changes at \(x = 0\), but 0 is not in the domain, so there is no extremum there; the graph has a vertical asymptote at \(x = 0\) instead.
 <div class="plot" data-f="Math.exp(x)/x**2" data-x="-4,4" data-y="-1,10" data-v="0" data-pts="2,1.847264,relative min (2, e²/4)" data-cap="Graph of f(x) = e^x/x^2, for checking only."></div></li>
-</ol><p class="final">Answer: \(f\) is increasing on \((-\infty, 0)\) and \((2, \infty)\), and decreasing on \((0, 2)\). Relative minimum value \(\tfrac{e^2}{4}\) at \(x = 2\); no relative maximum.</p></div></details></div>
+</ol><p class="final">Answer: \(f\) is increasing on \((-\infty, 0)\) and \((2, \infty)\), and decreasing on \((0, 2)\). Relative minimum value \(\tfrac{e^2}{4}\) at \(x = 2\); no relative maximum.</p>
+<p class="wrong"><b>Where students lose points:</b> leaving 0 off the chart and writing "decreasing on \((-\infty, 2)\)", or calling \(x = 0\) a relative maximum because \(f'\) changes sign there. Since 0 is not in the domain, it is neither a critical number nor an extremum.</p></div></details></div>
 
-<div class="q" id="u05-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">Find the intervals where the function \(f(x) = \dfrac{e^{x}}{x^2 - 3}\) is increasing and the intervals where it is decreasing, and find the relative extrema with their values.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u05-q20"><div class="qh"><span class="qn">Problem 20</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the intervals where the function \(f(x) = \dfrac{e^{x}}{x^2 - 3}\) is increasing and the intervals where it is decreasing, and find the relative extrema with their values.</div>
+<details class="hint"><summary>Hint</summary><div>There are four break points: two zeros of the top of \(f'\) and two numbers outside the domain. Estimate \(\sqrt3\) to put all four in order before testing.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. The denominator is 0 when \(x^2 = 3\), that is \(x = -\sqrt3\) or \(x = \sqrt3\). The domain is all real numbers except \(\pm\sqrt3\).</li>
 <li>Differentiate with the quotient rule. Set \(u = e^{x}\), \(v = x^2 - 3\), \(u' = e^{x}\), \(v' = 2x\). \[\begin{aligned} f'(x) &= \frac{e^{x}(x^2 - 3) - e^{x}(2x)}{(x^2 - 3)^2}\\ &= \frac{e^{x}(x^2 - 2x - 3)}{(x^2 - 3)^2}\\ &= \frac{e^{x}(x - 3)(x + 1)}{(x^2 - 3)^2}. \end{aligned}\]</li>
 <li>Find the critical numbers. The numerator is 0 at \(x = 3\) and \(x = -1\), both in the domain. The denominator is 0 only at \(\pm\sqrt3\), which are outside the domain. The critical numbers are \(x = -1\) and \(x = 3\).</li>
@@ -592,10 +687,11 @@
 <li>Keep the intervals separate at \(\pm\sqrt3\). Those numbers are outside the domain, so \((-\infty, -\sqrt3)\) and \((-\sqrt3, -1)\) are listed separately, and so are \((-1, \sqrt3)\) and \((\sqrt3, 3)\).</li>
 <li>Apply the first derivative test. \(f\) has a relative maximum at \(x = -1\) because \(f'\) changes from positive to negative there, with value \(f(-1) = \dfrac{e^{-1}}{1 - 3} = -\dfrac{1}{2e}\). \(f\) has a relative minimum at \(x = 3\) because \(f'\) changes from negative to positive there, with value \(f(3) = \dfrac{e^{3}}{9 - 3} = \dfrac{e^3}{6}\).
 <div class="plot" data-f="Math.exp(x)/(x**2-3)" data-x="-4,5" data-y="-6,8" data-v="-1.732051,1.732051" data-pts="-1,-0.18394,relative max (-1, -1/(2e))|3,3.347589,relative min (3, e³/6)" data-cap="Graph of f(x) = e^x/(x^2 - 3) with asymptotes x = -√3 and x = √3 dashed."></div></li>
-</ol><p class="final">Answer: \(f\) is increasing on \((-\infty, -\sqrt3)\), \((-\sqrt3, -1)\), and \((3, \infty)\), and decreasing on \((-1, \sqrt3)\) and \((\sqrt3, 3)\). Relative maximum value \(-\tfrac{1}{2e}\) at \(x = -1\); relative minimum value \(\tfrac{e^3}{6}\) at \(x = 3\).</p></div></details></div>
+</ol><p class="final">Answer: \(f\) is increasing on \((-\infty, -\sqrt3)\), \((-\sqrt3, -1)\), and \((3, \infty)\), and decreasing on \((-1, \sqrt3)\) and \((\sqrt3, 3)\). Relative maximum value \(-\tfrac{1}{2e}\) at \(x = -1\); relative minimum value \(\tfrac{e^3}{6}\) at \(x = 3\).</p>
+<p class="wrong"><b>Where students lose points:</b> putting the break points in the wrong order (for example placing \(\sqrt3\) after 3), or joining \((-\infty, -\sqrt3)\) with \((-\sqrt3, -1)\) into one interval even though \(-\sqrt3\) is not in the domain.</p></div></details></div>
 
-<div class="q" id="u05-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^{1/3}(x + 3)^{2/3}\). Find all critical numbers of \(f\), the intervals where \(f\) is increasing and decreasing, and the numbers where \(f\) has a local extreme value. Say which kind each one is and give its value.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u05-q21"><div class="qh"><span class="qn">Problem 21</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^{1/3}(x + 3)^{2/3}\). Find all critical numbers of \(f\), the intervals where \(f\) is increasing and decreasing, and the numbers where \(f\) has a local extreme value. Say which kind each one is and give its value.</div>
+<details class="hint"><summary>Hint</summary><div>After the product rule, use the common denominator \(3x^{2/3}(x + 3)^{1/3}\). The derivative fails to exist at two numbers, and \(f\) is defined at both of them.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. Cube roots are defined for all real numbers, so the domain is \((-\infty, \infty)\).</li>
 <li>Differentiate with the product rule. Set \(u = x^{1/3}\) and \(v = (x + 3)^{2/3}\). Then \(u' = \tfrac13 x^{-2/3}\), and by the chain rule (inside \(x + 3\), derivative 1) \(v' = \tfrac23 (x + 3)^{-1/3}\). \[f'(x) = \tfrac13 x^{-2/3}(x + 3)^{2/3} + \tfrac23 x^{1/3}(x + 3)^{-1/3}.\]</li>
 <li>Write both terms over the common denominator \(3x^{2/3}(x + 3)^{1/3}\). In the first term, multiply top and bottom by \((x + 3)^{1/3}\): \((x + 3)^{2/3}(x + 3)^{1/3} = x + 3\). In the second, multiply top and bottom by \(x^{2/3}\): \(x^{1/3}x^{2/3} = x\). \[\begin{aligned} f'(x) &= \frac{x + 3}{3x^{2/3}(x + 3)^{1/3}} + \frac{2x}{3x^{2/3}(x + 3)^{1/3}}\\ &= \frac{3x + 3}{3x^{2/3}(x + 3)^{1/3}}\\ &= \frac{x + 1}{x^{2/3}(x + 3)^{1/3}}. \end{aligned}\]</li>
@@ -614,7 +710,137 @@
 <li>Compute the minimum value. \((-1)^{1/3} = -1\) and \(2^{2/3} = \sqrt[3]{4}\), so \[f(-1) = (-1)^{1/3}(2)^{2/3} = -\sqrt[3]{4}.\]</li>
 <li>Join the increasing intervals across 0. The number 0 is in the domain and \(f'\) has the same sign on both sides, so \(f\) is increasing on \((-1, \infty)\).
 <div class="plot" data-f="Math.cbrt(x)*Math.cbrt(x+3)**2" data-x="-6,3" data-y="-3,4" data-pts="-3,0,local max (-3, 0)|-1,-1.587401,local min (-1, -∛4)|0,0,critical, not an extremum" data-cap="Graph of f(x) = x^(1/3)(x + 3)^(2/3). The graph has a cusp at x = -3 and a vertical tangent at x = 0."></div></li>
-</ol><p class="final">Answer: Critical numbers \(-3\), \(-1\), 0. \(f\) is increasing on \((-\infty, -3)\) and \((-1, \infty)\), and decreasing on \((-3, -1)\). Local maximum value 0 at \(x = -3\); local minimum value \(-\sqrt[3]{4}\) at \(x = -1\); no extremum at \(x = 0\).</p></div></details></div>
+</ol><p class="final">Answer: Critical numbers \(-3\), \(-1\), 0. \(f\) is increasing on \((-\infty, -3)\) and \((-1, \infty)\), and decreasing on \((-3, -1)\). Local maximum value 0 at \(x = -3\); local minimum value \(-\sqrt[3]{4}\) at \(x = -1\); no extremum at \(x = 0\).</p>
+<p class="wrong"><b>Where students lose points:</b> missing \(x = -3\) or \(x = 0\) as critical numbers because only the numerator was set to 0. Also, treating \(x^{2/3}\) as if it had the sign of \(x\) (it is never negative), or forgetting that \((x + 3)^{1/3}\) is negative for \(x \lt -3\).</p></div></details></div>
+</section>
+<section id="L5"><div class="lvl"><h2>Level 5: More variations</h2><span>Every other way this section can be asked.</span></div><div class="q" id="u05-q22"><div class="qh"><span class="qn">Problem 22</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The graph of \(f(x) = |x^2 - 2x - 3|\) is shown below. Using the graph, (a) find the open intervals where \(f\) is increasing and decreasing, (b) find the locations and values of all relative extrema, and (c) say at which of those \(x\)-values \(f' = 0\) and at which \(f'\) does not exist.
+<div class="plot" data-f="Math.abs(x**2-2*x-3)" data-x="-3,5" data-y="-1,8" data-pts="-1,0,(-1, 0)|1,4,(1, 4)|3,0,(3, 0)" data-cap="The graph of f(x) = |x^2 - 2x - 3|."></div></div>
+<details class="hint"><summary>Hint</summary><div>Read the picture left to right and mark every place where the graph changes direction. Then ask, at each one, whether the turn is rounded or a sharp corner.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Read the graph from left to right. It falls until \(x = -1\), where it touches the axis at a sharp point. It rises from \(x = -1\) to a rounded peak at \(x = 1\). It falls from \(x = 1\) to another sharp point at \(x = 3\), and rises after \(x = 3\).</li>
+<li>(a) Write the pieces as open intervals, leaving out the turning points. Increasing on \((-1, 1)\) and \((3, \infty)\). Decreasing on \((-\infty, -1)\) and \((1, 3)\).</li>
+<li>(b) Classify each turning point. At \(x = -1\) the graph goes down and then up, so there is a relative minimum, and its height read from the graph is \(f(-1) = |1 + 2 - 3| = 0\). At \(x = 1\) the graph goes up and then down, so there is a relative maximum, with value \(f(1) = |1 - 2 - 3| = |-4| = 4\). At \(x = 3\) the graph goes down and then up, so there is a relative minimum, with value \(f(3) = |9 - 6 - 3| = 0\).</li>
+<li>(c) Decide the kind of critical number. At \(x = 1\) the top is rounded, so the tangent line is flat and \(f'(1) = 0\). To confirm: between \(-1\) and 3 the expression inside the absolute value is negative, so there \(f(x) = -(x^2 - 2x - 3) = -x^2 + 2x + 3\) and \(f'(x) = -2x + 2\), which is 0 at \(x = 1\). At \(x = -1\) and \(x = 3\) the graph has sharp corners, so no single tangent line exists and \(f'\) does not exist there. Both are still critical numbers because \(f\) is defined there.</li>
+</ol><p class="final">Answer: (a) Increasing on \((-1, 1)\) and \((3, \infty)\); decreasing on \((-\infty, -1)\) and \((1, 3)\). (b) Relative maximum value 4 at \(x = 1\); relative minimum value 0 at \(x = -1\) and at \(x = 3\). (c) \(f'(1) = 0\); \(f'\) does not exist at \(x = -1\) and \(x = 3\) (corners).</p></div></details></div>
+
+<div class="q" id="u05-q23"><div class="qh"><span class="qn">Problem 23</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">You are not told the formula for \(f\). You are only told that its derivative is \[f'(x) = (x + 4)(x - 1)^2(3 - x)\,e^{-x}.\] (a) Find the open intervals where \(f\) is increasing and decreasing. (b) Find the \(x\)-values of all relative extrema of \(f\) and say which kind each is. (c) Explain why this information is not enough to find the relative maximum value.</div>
+<details class="hint"><summary>Hint</summary><div>There is nothing to differentiate. The derivative is already factored, so go straight to its zeros and a sign chart, and watch the squared factor.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the critical numbers. \(f'\) exists for every \(x\), and \(e^{-x} \gt 0\) is never 0. Setting the other factors equal to 0 gives \(x + 4 = 0\), \((x - 1)^2 = 0\), or \(3 - x = 0\), so \(x = -4\), \(x = 1\), or \(x = 3\).</li>
+<li>Note which factors never change sign. \(e^{-x}\) is always positive. \((x - 1)^2\) is positive for every \(x \ne 1\). So the sign of \(f'\) comes from \((x + 4)(3 - x)\).</li>
+<li>Test one value in each interval. \[\begin{aligned} f'(-5) &= (-1)(36)(8)e^{5} = -288e^{5} \lt 0, & f'(0) &= (4)(1)(3)e^{0} = 12 \gt 0,\\ f'(2) &= (6)(1)(1)e^{-2} = \frac{6}{e^2} \gt 0, & f'(4) &= (8)(9)(-1)e^{-4} = -\frac{72}{e^4} \lt 0. \end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -4)\)</th><th>\((-4, 1)\)</th><th>\((1, 3)\)</th><th>\((3, \infty)\)</th></tr>
+<tr><td>Test value</td><td>\(-5\)</td><td>\(0\)</td><td>\(2\)</td><td>\(4\)</td></tr>
+<tr><td>Sign of \(x + 4\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td></tr>
+<tr><td>Sign of \((x - 1)^2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td></tr>
+<tr><td>Sign of \(3 - x\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>Sign of \(e^{-x}\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td></tr>
+<tr><td>Sign of \(f'(x)\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>increasing</td><td>decreasing</td></tr>
+</table></li>
+<li>(a) Join the two increasing intervals across \(x = 1\). The derivative is defined for every \(x\), so \(f\) is defined everywhere, and \(f'\) is positive on both sides of 1. So \(f\) is increasing on all of \((-4, 3)\).</li>
+<li>(b) Apply the first derivative test. \(f\) has a relative minimum at \(x = -4\) because \(f'\) changes from negative to positive there. \(f\) has no extremum at \(x = 1\) because \(f'\) is positive on both sides. \(f\) has a relative maximum at \(x = 3\) because \(f'\) changes from positive to negative there.</li>
+<li>(c) Explain the limit of the information. The derivative only gives slopes. If \(f\) has this derivative, then so does \(f(x) + 10\) or \(f(x) - 7\), since adding a constant does not change any slope. These functions have their maximum at the same place, \(x = 3\), but at different heights. So the value \(f(3)\) cannot be found without one more fact, such as a known value of \(f\).</li>
+</ol><p class="final">Answer: (a) \(f\) is decreasing on \((-\infty, -4)\) and \((3, \infty)\), and increasing on \((-4, 3)\). (b) Relative minimum at \(x = -4\), relative maximum at \(x = 3\), and no extremum at \(x = 1\). (c) Adding any constant to \(f\) keeps the same derivative but moves the graph up or down, so the height of the maximum is not determined.</p></div></details></div>
+
+<div class="q" id="u05-q24"><div class="qh"><span class="qn">Problem 24</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = \dfrac{x}{(x - 2)^2}\). (a) Is \(f\) increasing or decreasing at \(x = 1\)? At \(x = 3\)? (b) Find the open intervals where \(f\) is increasing and decreasing. (c) Find all relative extrema.</div>
+<details class="hint"><summary>Hint</summary><div>Use the quotient rule, then factor \((x - 2)\) out of the top and cancel it with one factor of the bottom before plugging anything in.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the domain. The denominator is 0 at \(x = 2\), so the domain is all real numbers except 2.</li>
+<li>Differentiate with the quotient rule. Set \(u = x\), \(v = (x - 2)^2\), \(u' = 1\), and by the chain rule \(v' = 2(x - 2)\). \[f'(x) = \frac{u'v - uv'}{v^2} = \frac{1\cdot(x - 2)^2 - x\cdot 2(x - 2)}{(x - 2)^4}.\]</li>
+<li>Simplify. Factor \((x - 2)\) out of the top, then cancel it against one factor of \((x - 2)^4\), which is allowed because \(x \ne 2\). \[\begin{aligned} f'(x) &= \frac{(x - 2)\left[(x - 2) - 2x\right]}{(x - 2)^4}\\ &= \frac{(x - 2)(-x - 2)}{(x - 2)^4}\\ &= \frac{-(x + 2)}{(x - 2)^3}. \end{aligned}\]</li>
+<li>(a) Plug in the two numbers. \[f'(1) = \frac{-(1 + 2)}{(1 - 2)^3} = \frac{-3}{-1} = 3 \gt 0, \qquad f'(3) = \frac{-(3 + 2)}{(3 - 2)^3} = \frac{-5}{1} = -5 \lt 0.\] So \(f\) is increasing at \(x = 1\) and decreasing at \(x = 3\).</li>
+<li>(b) Find the break points. The top is 0 at \(x = -2\), which is in the domain, so \(-2\) is the only critical number. The bottom is 0 at \(x = 2\), which is not in the domain, so 2 is a break point but not a critical number.</li>
+<li>(b) Test one value in each interval. \[f'(-3) = \frac{-(-1)}{(-5)^3} = \frac{1}{-125} \lt 0, \qquad f'(0) = \frac{-(2)}{(-2)^3} = \frac{-2}{-8} = \frac14 \gt 0, \qquad f'(3) = -5 \lt 0.\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -2)\)</th><th>\((-2, 2)\)</th><th>\((2, \infty)\)</th></tr>
+<tr><td>Test value</td><td>\(-3\)</td><td>\(0\)</td><td>\(3\)</td></tr>
+<tr><td>Sign of \(-(x + 2)\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td></tr>
+<tr><td>Sign of \((x - 2)^3\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>Sign of \(f'(x)\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td></tr>
+</table></li>
+<li>(c) Apply the first derivative test. \(f\) has a relative minimum at \(x = -2\) because \(f'\) changes from negative to positive there. Its value is \[f(-2) = \frac{-2}{(-2 - 2)^2} = \frac{-2}{16} = -\frac18.\] The sign of \(f'\) also changes at \(x = 2\), but 2 is not in the domain (the graph has a vertical asymptote there), so there is no extremum at 2.
+<div class="plot" data-f="x/(x-2)**2" data-x="-8,8" data-y="-1,4" data-v="2" data-h="0" data-pts="-2,-0.125,relative min (-2, -1/8)|1,1,rising at (1, 1)|3,3,falling at (3, 3)" data-cap="Graph of f(x) = x/(x - 2)^2 with the vertical asymptote x = 2 dashed."></div></li>
+</ol><p class="final">Answer: (a) Increasing at \(x = 1\) because \(f'(1) = 3 \gt 0\); decreasing at \(x = 3\) because \(f'(3) = -5 \lt 0\). (b) Decreasing on \((-\infty, -2)\) and \((2, \infty)\); increasing on \((-2, 2)\). (c) Relative minimum value \(-\tfrac18\) at \(x = -2\); no relative maximum.</p></div></details></div>
+
+<div class="q" id="u05-q25"><div class="qh"><span class="qn">Problem 25</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Decide whether each statement is true or false. If it is true, explain why. If it is false, give a specific function that shows it is false.
+(a) If \(f'(x) \lt 0\) for every \(x\) in an interval, then \(f(x) \lt 0\) on that interval.
+(b) If \(f\) is increasing on \((-1, 1)\), then \(f'(x) \gt 0\) for every \(x\) in \((-1, 1)\).
+(c) If \(f\) is increasing on \([0, 2]\) and increasing on \([2, 5]\), then \(f\) is increasing on \([0, 5]\).
+(d) If \(f\) is increasing on \([0, 2]\) and increasing on \((2, 5]\), then \(f\) is increasing on \([0, 5]\).
+(e) If \(f\) and \(g\) are both decreasing on \((0, 1)\), then the product \(fg\) is increasing on \((0, 1)\).
+(f) A relative minimum value of a function can never be larger than one of its relative maximum values.</div>
+<details class="hint"><summary>Hint</summary><div>For each false statement, try a simple function: a line, \(x^3\), a function with a jump, or one of the rational functions with an asymptote from this unit.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) False. Take \(f(x) = 5 - x\) on \((0, 1)\). Then \(f'(x) = -1 \lt 0\), but \(f\left(\tfrac12\right) = \tfrac92 \gt 0\). A negative derivative says the graph is going down, not that it is below the axis.</li>
+<li>(b) False. Take \(f(x) = x^3\). It is increasing on \((-1, 1)\) (the lesson shows \(x^3\) is increasing on the whole line), but \(f'(0) = 3(0)^2 = 0\), which is not positive. The test only works in one direction: \(f' \gt 0\) forces increasing, but increasing allows \(f' = 0\) at single points.</li>
+<li>(c) True. Take any \(x_1 \lt x_2\) in \([0, 5]\). If both are in \([0, 2]\) or both are in \([2, 5]\), then \(f(x_1) \lt f(x_2)\) directly. Otherwise \(x_1 \lt 2 \lt x_2\). Then \(f(x_1) \lt f(2)\) because \(f\) is increasing on \([0, 2]\), and \(f(2) \lt f(x_2)\) because \(f\) is increasing on \([2, 5]\). So \(f(x_1) \lt f(x_2)\) in every case, which is the definition of increasing on \([0, 5]\). The shared point 2 links the two pieces.</li>
+<li>(d) False. Without the shared point, the function can jump down at 2. Take \(f(x) = x\) for \(0 \le x \le 2\) and \(f(x) = x - 10\) for \(2 \lt x \le 5\). Each piece is increasing, but \(2 \lt 3\) while \(f(2) = 2 \gt f(3) = -7\).</li>
+<li>(e) False. Take \(f(x) = g(x) = 1 - x\) on \((0, 1)\). Both have derivative \(-1\), so both are decreasing. Their product is \((1 - x)^2\), whose derivative by the chain rule is \(2(1 - x)(-1) = -2(1 - x)\). For \(0 \lt x \lt 1\), \(1 - x \gt 0\), so this derivative is negative and the product is decreasing, not increasing.</li>
+<li>(f) False. Level 2 has \(f(x) = \dfrac{x^2 + 9}{x}\), with relative maximum value \(f(-3) = -6\) and relative minimum value \(f(3) = 6\). The minimum value 6 is larger than the maximum value \(-6\). This can happen because the vertical asymptote at \(x = 0\) separates them; "relative" only compares with nearby points.</li>
+</ol><p class="final">Answer: (a) False, \(f(x) = 5 - x\). (b) False, \(f(x) = x^3\) at 0. (c) True, because the shared point 2 links the two pieces. (d) False, a function that jumps down just after 2. (e) False, \(f = g = 1 - x\) gives the decreasing product \((1 - x)^2\). (f) False, \(\dfrac{x^2 + 9}{x}\) has minimum value 6 and maximum value \(-6\).</p></div></details></div>
+
+<div class="q" id="u05-q26"><div class="qh"><span class="qn">Problem 26</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(a) Let \(f(x) = x - 2\sin x\) on the interval \((0, 2\pi)\). Find the open intervals where \(f\) is increasing and decreasing, and find all relative extrema with their exact values. (b) Show that \(g(x) = x - \sin x\) is increasing on \((-\infty, \infty)\) and has no relative extrema.</div>
+<details class="hint"><summary>Hint</summary><div>Set the derivative equal to 0 and use the unit circle; keep only solutions inside \((0, 2\pi)\). For part (b), compare \(\cos x\) with 1.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate. The derivative of \(\sin x\) is \(\cos x\). \[f'(x) = 1 - 2\cos x.\]</li>
+<li>(a) Find the critical numbers in \((0, 2\pi)\). \(f'\) exists everywhere. Set it equal to 0. \[\begin{aligned} 1 - 2\cos x &= 0\\ \cos x &= \tfrac12. \end{aligned}\] On \((0, 2\pi)\), cosine equals \(\tfrac12\) at \(x = \tfrac{\pi}{3}\) and \(x = \tfrac{5\pi}{3}\).</li>
+<li>(a) Test one value in each interval, using angles whose cosine you know. \(\tfrac{\pi}{4}\) is between 0 and \(\tfrac{\pi}{3}\), \(\pi\) is between \(\tfrac{\pi}{3}\) and \(\tfrac{5\pi}{3}\), and \(\tfrac{7\pi}{4}\) is between \(\tfrac{5\pi}{3}\) and \(2\pi\). \[\begin{aligned} f'\!\left(\tfrac{\pi}{4}\right) &= 1 - 2\cdot\tfrac{\sqrt2}{2} = 1 - \sqrt2 \lt 0,\\ f'(\pi) &= 1 - 2(-1) = 3 \gt 0,\\ f'\!\left(\tfrac{7\pi}{4}\right) &= 1 - 2\cdot\tfrac{\sqrt2}{2} = 1 - \sqrt2 \lt 0. \end{aligned}\] (\(1 - \sqrt2 \lt 0\) because \(\sqrt2 \gt 1\).)
+<table class="t">
+<tr><th>Interval</th><th>\(\left(0, \tfrac{\pi}{3}\right)\)</th><th>\(\left(\tfrac{\pi}{3}, \tfrac{5\pi}{3}\right)\)</th><th>\(\left(\tfrac{5\pi}{3}, 2\pi\right)\)</th></tr>
+<tr><td>Test value</td><td>\(\tfrac{\pi}{4}\)</td><td>\(\pi\)</td><td>\(\tfrac{7\pi}{4}\)</td></tr>
+<tr><td>Sign of \(f'(x) = 1 - 2\cos x\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td></tr>
+</table></li>
+<li>(a) Apply the first derivative test. \(f\) has a relative minimum at \(x = \tfrac{\pi}{3}\) because \(f'\) changes from negative to positive there. Since \(\sin\tfrac{\pi}{3} = \tfrac{\sqrt3}{2}\), \[f\!\left(\tfrac{\pi}{3}\right) = \frac{\pi}{3} - 2\cdot\frac{\sqrt3}{2} = \frac{\pi}{3} - \sqrt3.\] \(f\) has a relative maximum at \(x = \tfrac{5\pi}{3}\) because \(f'\) changes from positive to negative there. Since \(\sin\tfrac{5\pi}{3} = -\tfrac{\sqrt3}{2}\), \[f\!\left(\tfrac{5\pi}{3}\right) = \frac{5\pi}{3} - 2\left(-\frac{\sqrt3}{2}\right) = \frac{5\pi}{3} + \sqrt3.\]
+<div class="plot" data-f="x-2*Math.sin(x)" data-x="0,6.2832" data-y="-1.5,7.5" data-pts="1.047198,-0.684853,relative min (π/3, π/3 - √3)|5.235988,6.968039,relative max (5π/3, 5π/3 + √3)" data-cap="Graph of f(x) = x - 2 sin x on (0, 2π)."></div></li>
+<li>(b) Differentiate \(g\). \[g'(x) = 1 - \cos x.\]</li>
+<li>(b) Find the sign of \(g'\). Cosine is never more than 1, so \(1 - \cos x \ge 0\) for every \(x\). It equals 0 only where \(\cos x = 1\), which is at \(x = 0, \pm 2\pi, \pm 4\pi, \ldots\), isolated single points.</li>
+<li>(b) Conclude. On each open interval between two neighboring multiples of \(2\pi\), \(g' \gt 0\), so \(g\) is increasing there. At each multiple of \(2\pi\), \(g'\) is positive on both sides, so by the first derivative test there is no extremum, and since \(g\) is defined there the increasing intervals join, exactly as for \(x^3\) at 0. So \(g\) is increasing on \((-\infty, \infty)\), and it has no relative extrema.</li>
+</ol><p class="final">Answer: (a) \(f\) is decreasing on \(\left(0, \tfrac{\pi}{3}\right)\) and \(\left(\tfrac{5\pi}{3}, 2\pi\right)\), and increasing on \(\left(\tfrac{\pi}{3}, \tfrac{5\pi}{3}\right)\). Relative minimum value \(\tfrac{\pi}{3} - \sqrt3\) at \(x = \tfrac{\pi}{3}\); relative maximum value \(\tfrac{5\pi}{3} + \sqrt3\) at \(x = \tfrac{5\pi}{3}\). (b) \(g'(x) = 1 - \cos x \ge 0\), with equality only at isolated points where the sign does not change, so \(g\) is increasing on \((-\infty, \infty)\) with no relative extrema.</p></div></details></div>
+
+<div class="q" id="u05-q27"><div class="qh"><span class="qn">Problem 27</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^3 - 3x\). (a) Check that Rolle's Theorem applies to \(f\) on \([-\sqrt3, \sqrt3]\), and find every number \(c\) it guarantees. (b) Find every number \(c\) in \((0, 3)\) that the Mean Value Theorem guarantees for \(f\) on \([0, 3]\). (c) A different function \(g\) is differentiable everywhere, with \(g(2) = 7\) and \(-1 \le g'(x) \le 4\) for all \(x\). Between what two numbers must \(g(6)\) lie? (d) For the same \(g\), how large can \(g(0)\) possibly be?</div>
+<details class="hint"><summary>Hint</summary><div>For (a) and (b), compute the endpoint values first. For (c) and (d), write \(g(b) - g(a) = g'(c)(b - a)\) with the two \(x\)-values in the problem, then use the bounds on \(g'\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Check the hypotheses. \(f\) is a polynomial, so it is continuous on \([-\sqrt3, \sqrt3]\) and differentiable on \((-\sqrt3, \sqrt3)\). Compare the endpoint values, using \((\sqrt3)^3 = \sqrt3\cdot\sqrt3\cdot\sqrt3 = 3\sqrt3\). \[\begin{aligned} f(\sqrt3) &= 3\sqrt3 - 3\sqrt3 = 0,\\ f(-\sqrt3) &= -3\sqrt3 + 3\sqrt3 = 0. \end{aligned}\] They are equal, so Rolle's Theorem applies.</li>
+<li>(a) Solve \(f'(c) = 0\). \[\begin{aligned} f'(x) &= 3x^2 - 3 = 3(x - 1)(x + 1) = 0 \end{aligned}\] gives \(x = 1\) or \(x = -1\). Since \(\sqrt3\) is about 1.73, both lie inside \((-\sqrt3, \sqrt3)\).</li>
+<li>(b) Compute the average rate of change on \([0, 3]\). \[f(3) = 27 - 9 = 18, \qquad f(0) = 0, \qquad \frac{f(3) - f(0)}{3 - 0} = \frac{18}{3} = 6.\]</li>
+<li>(b) Solve \(f'(c) = 6\). \[\begin{aligned} 3c^2 - 3 &= 6\\ 3c^2 &= 9\\ c^2 &= 3\\ c &= \pm\sqrt3. \end{aligned}\] Only \(c = \sqrt3\) is in \((0, 3)\); \(-\sqrt3\) is negative, so it is rejected.</li>
+<li>(c) Apply the MVT to \(g\) on \([2, 6]\). There is a number \(c\) between 2 and 6 with \[g(6) - g(2) = g'(c)\,(6 - 2) = 4g'(c).\]</li>
+<li>(c) Use both bounds on \(g'(c)\). Multiply \(-1 \le g'(c) \le 4\) by 4, then add \(g(2) = 7\). \[\begin{aligned} -4 \le 4g'(c) &\le 16\\ -4 \le g(6) - 7 &\le 16\\ 3 \le g(6) &\le 23. \end{aligned}\] Both ends really happen: \(g(x) = 4x - 1\) gives \(g(6) = 23\), and \(g(x) = 9 - x\) gives \(g(6) = 3\). Each has \(g(2) = 7\).</li>
+<li>(d) Apply the MVT to \(g\) on \([0, 2]\). Now the unknown value is on the left end. \[g(2) - g(0) = g'(c)\,(2 - 0) = 2g'(c).\]</li>
+<li>(d) Solve for \(g(0)\) and use the bound that makes it largest. \(g(0) = 7 - 2g'(c)\). This is largest when \(g'(c)\) is as small as possible, which is \(-1\). \[g(0) = 7 - 2g'(c) \le 7 - 2(-1) = 9.\] The function \(g(x) = 9 - x\) reaches this: \(g(2) = 7\), \(g'(x) = -1\), and \(g(0) = 9\).</li>
+</ol><p class="final">Answer: (a) Rolle applies since \(f(-\sqrt3) = f(\sqrt3) = 0\); \(c = -1\) and \(c = 1\). (b) \(c = \sqrt3\). (c) \(3 \le g(6) \le 23\). (d) \(g(0)\) can be at most 9.</p></div></details></div>
+
+<div class="q" id="u05-q28"><div class="qh"><span class="qn">Problem 28</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^3 + 3x^2 + 6x - 12\). (a) Show that \(f\) has no relative extrema, and find where it is increasing. (b) Explain why the equation \(f(x) = 0\) has exactly one real solution, and find two consecutive integers that the solution lies between.</div>
+<details class="hint"><summary>Hint</summary><div>Complete the square in \(f'\) to see its sign. For part (b), plug small integers into \(f\) to find a sign change, then use the fact that an increasing function cannot hit 0 twice.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate and take out the common factor 3. \[f'(x) = 3x^2 + 6x + 6 = 3(x^2 + 2x + 2).\]</li>
+<li>(a) Complete the square inside the parentheses. Half of 2 is 1, and \(1^2 = 1\). \[\begin{aligned} x^2 + 2x + 2 &= (x^2 + 2x + 1) + 1\\ &= (x + 1)^2 + 1. \end{aligned}\] So \(f'(x) = 3\left[(x + 1)^2 + 1\right]\). (The discriminant gives the same conclusion: \(b^2 - 4ac = 4 - 8 = -4 \lt 0\), so \(x^2 + 2x + 2\) has no real zeros.)</li>
+<li>(a) Find the sign. A square is never negative, so \((x + 1)^2 + 1 \ge 1\) and \(f'(x) \ge 3 \gt 0\) for every \(x\). So \(f'\) is never 0, and it exists everywhere. \(f\) has no critical numbers. By Fermat's Theorem, a relative extremum can only happen at a critical number, so \(f\) has no relative extrema. Since \(f' \gt 0\) everywhere, \(f\) is increasing on \((-\infty, \infty)\).</li>
+<li>(b) Find a sign change of \(f\). \[\begin{aligned} f(1) &= 1 + 3 + 6 - 12 = -2 \lt 0,\\ f(2) &= 8 + 12 + 12 - 12 = 20 \gt 0. \end{aligned}\]</li>
+<li>(b) Show there is at least one solution. \(f\) is a polynomial, so it is continuous. It is negative at 1 and positive at 2, so by the Intermediate Value Theorem it equals 0 at some number between 1 and 2.</li>
+<li>(b) Show there is at most one solution. Suppose there were two solutions \(r \lt s\). Since \(f\) is increasing, \(f(r) \lt f(s)\). But both values are 0, and \(0 \lt 0\) is false. So there cannot be two solutions.
+<div class="plot" data-f="x**3+3*x**2+6*x-12" data-x="-3,3" data-y="-30,30" data-h="0" data-pts="1,-2,(1, -2)|2,20,(2, 20)" data-cap="Graph of f(x) = x^3 + 3x^2 + 6x - 12. It always rises, so it crosses the x-axis once."></div></li>
+</ol><p class="final">Answer: (a) \(f'(x) = 3\left[(x + 1)^2 + 1\right] \ge 3 \gt 0\), so \(f\) has no critical numbers and no relative extrema, and it is increasing on \((-\infty, \infty)\). (b) \(f(1) = -2 \lt 0 \lt 20 = f(2)\) gives at least one solution between 1 and 2, and an increasing function takes the value 0 at most once, so there is exactly one real solution, between 1 and 2.</p></div></details></div>
+
+<div class="q" id="u05-q29"><div class="qh"><span class="qn">Problem 29</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = \ln\left(\dfrac{x^2 + 1}{x^2 + 9}\right)\). (a) State the domain, find the critical numbers, the open intervals where \(f\) is increasing and decreasing, and all relative extrema. (b) Show that \(f\) is an even function and explain how that matches your sign chart. (c) Show that \(f(x) \lt 0\) for every \(x\), even though \(f\) is increasing on \((0, \infty)\).</div>
+<details class="hint"><summary>Hint</summary><div>Split the logarithm with \(\ln\frac{A}{B} = \ln A - \ln B\) before differentiating. Then combine the two fractions over one denominator; most of the top cancels.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Find the domain. For every \(x\), \(x^2 + 1 \ge 1 \gt 0\) and \(x^2 + 9 \ge 9 \gt 0\), so the fraction is positive and the logarithm is defined. The domain is \((-\infty, \infty)\).</li>
+<li>(a) Simplify with the quotient rule for logarithms. \[f(x) = \ln(x^2 + 1) - \ln(x^2 + 9).\]</li>
+<li>(a) Differentiate each term with the chain rule, \(\dfrac{d}{dx}\ln u = \dfrac{u'}{u}\). \[f'(x) = \frac{2x}{x^2 + 1} - \frac{2x}{x^2 + 9}.\]</li>
+<li>(a) Combine over the common denominator \((x^2 + 1)(x^2 + 9)\). \[\begin{aligned} f'(x) &= \frac{2x(x^2 + 9) - 2x(x^2 + 1)}{(x^2 + 1)(x^2 + 9)}\\ &= \frac{2x^3 + 18x - 2x^3 - 2x}{(x^2 + 1)(x^2 + 9)}\\ &= \frac{16x}{(x^2 + 1)(x^2 + 9)}. \end{aligned}\]</li>
+<li>(a) Find the critical numbers. The denominator is always positive, so \(f'\) exists everywhere. The numerator \(16x\) is 0 only at \(x = 0\). The only critical number is \(x = 0\).</li>
+<li>(a) Test one value on each side of 0. \[f'(-1) = \frac{-16}{(2)(10)} = -\frac45 \lt 0, \qquad f'(1) = \frac{16}{(2)(10)} = \frac45 \gt 0.\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, 0)\)</th><th>\((0, \infty)\)</th></tr>
+<tr><td>Test value</td><td>\(-1\)</td><td>\(1\)</td></tr>
+<tr><td>Sign of \(16x\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>Sign of \((x^2 + 1)(x^2 + 9)\)</td><td>\(+\)</td><td>\(+\)</td></tr>
+<tr><td>Sign of \(f'(x)\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td></tr>
+</table></li>
+<li>(a) Apply the first derivative test. \(f\) has a relative minimum at \(x = 0\) because \(f'\) changes from negative to positive there. Its value is \[f(0) = \ln\left(\frac{1}{9}\right) = -\ln 9 = -\ln(3^2) = -2\ln 3.\]</li>
+<li>(b) Check that \(f\) is even. Replace \(x\) by \(-x\) and use \((-x)^2 = x^2\). \[f(-x) = \ln\left(\frac{(-x)^2 + 1}{(-x)^2 + 9}\right) = \ln\left(\frac{x^2 + 1}{x^2 + 9}\right) = f(x).\] So the graph is symmetric about the \(y\)-axis. Rising on the right side means the mirror image falls on the left side, which is exactly the chart: decreasing on \((-\infty, 0)\) and increasing on \((0, \infty)\).</li>
+<li>(c) Show \(f\) is negative. For every \(x\), \(x^2 + 1 \lt x^2 + 9\), so the fraction \(\dfrac{x^2 + 1}{x^2 + 9}\) is between 0 and 1. The logarithm of a number between 0 and 1 is negative, so \(f(x) \lt 0\) for all \(x\).</li>
+<li>(c) Explain why this fits with increasing. As \(x\) grows, the fraction gets closer to 1, so \(f(x)\) climbs toward \(\ln 1 = 0\) but never reaches it. The graph rises while staying below the axis; the line \(y = 0\) is a horizontal asymptote. Being negative is about height and increasing is about direction, so both can be true at once.
+<div class="plot" data-f="Math.log((x**2+1)/(x**2+9))" data-x="-10,10" data-y="-2.5,0.5" data-h="0" data-pts="0,-2.197225,relative min (0, -2 ln 3)" data-cap="Graph of f(x) = ln((x^2 + 1)/(x^2 + 9)). It stays below the asymptote y = 0."></div></li>
+</ol><p class="final">Answer: (a) Domain \((-\infty, \infty)\); the only critical number is \(x = 0\). \(f\) is decreasing on \((-\infty, 0)\) and increasing on \((0, \infty)\). Relative minimum value \(-2\ln 3\) at \(x = 0\); no relative maximum. (b) \(f(-x) = f(x)\), so the chart on the left is the mirror image of the chart on the right. (c) The fraction is always between 0 and 1, so its logarithm is negative; \(f\) rises toward 0 without reaching it.</p></div></details></div>
 </section><div class="pager"><a href="u04.html">Back: Trig derivatives and L&#x27;Hospital&#x27;s rule</a><a href="u06.html">Next: Higher derivatives, concavity, second derivative test</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="assets/app.js"></script></body></html>

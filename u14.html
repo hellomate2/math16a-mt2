@@ -81,7 +81,7 @@
 </section>
 <section id="L1"><div class="lvl"><h2>Practice Midterm 2</h2><span>The professor's Fall 2025 practice exam, 5 questions.</span></div><p class="sub">Practice Midterm 2 (Fall 2025)</p>
 
-<div class="q" id="u14-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) Draw a rough sketch of the graph of \(f(x) = x^3 + 3x^2\). Label every local extremum and every inflection point.</div>
+<div class="q" id="u14-q01"><div class="qh"><span class="qn">Problem 1</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) Draw a rough sketch of the graph of \(f(x) = x^3 + 3x^2\). Label every local extremum and every inflection point.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the intercepts, so the sketch has fixed points to pass through. The \(y\)-intercept is \(f(0) = 0 + 0 = 0\). For the \(x\)-intercepts, set \(f(x) = 0\) and factor out \(x^2\): \[x^3 + 3x^2 = 0 \quad\Longrightarrow\quad x^2(x + 3) = 0 \quad\Longrightarrow\quad x = 0 \ \text{ or } \ x = -3.\] The graph crosses or touches the \(x\)-axis at \((-3, 0)\) and \((0, 0)\).</li>
 <li>Note the domain and the end behavior. \(f\) is a polynomial, so its domain is all real numbers and it has no asymptotes. The leading term is \(x^3\), so \(f(x) \to \infty\) as \(x \to \infty\) and \(f(x) \to -\infty\) as \(x \to -\infty\).</li>
@@ -109,7 +109,7 @@
 <div class="say"><b>Grading note.</b> On a sketch question, expect the points to come from the correct \(f'\) and critical numbers, the increasing and decreasing chart, \(f''\) with the concavity chart, and a graph whose labeled points match your charts. A correct-looking picture with no calculus written next to it shows almost none of that work.</div>
 <p class="final">Answer: Local maximum at \((-2, 4)\), local minimum at \((0, 0)\), inflection point at \((-1, 2)\). \(f\) is increasing on \((-\infty, -2)\) and \((0, \infty)\) and decreasing on \((-2, 0)\); concave down on \((-\infty, -1)\) and concave up on \((-1, \infty)\); \(x\)-intercepts at \(x = -3\) and \(x = 0\).</p></div></details></div>
 
-<div class="q" id="u14-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) The radius of a sphere is measured to be 5 cm, and the measurement could be off by as much as 0.1 cm. Use differentials to estimate the largest possible error in the volume computed from this measurement.</div>
+<div class="q" id="u14-q02"><div class="qh"><span class="qn">Problem 2</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) The radius of a sphere is measured to be 5 cm, and the measurement could be off by as much as 0.1 cm. Use differentials to estimate the largest possible error in the volume computed from this measurement.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Define the variables. Let \(r\) be the radius of the sphere in cm and \(V\) its volume in cm<sup>3</sup>. The formula for the volume of a sphere is \[V = \tfrac{4}{3}\pi r^3.\]</li>
 <li>Take the differential. The differential is \(dV = V'(r)\,dr\), and by the power rule \(V'(r) = \tfrac{4}{3}\pi \cdot 3r^2 = 4\pi r^2\), so \[dV = 4\pi r^2\, dr.\]</li>
@@ -120,7 +120,7 @@
 <div class="say"><b>Grading note.</b> Most of the credit here sits in two lines: the volume formula with its differential \(dV = 4\pi r^2\,dr\), and the correct substitution \(r = 5\), \(dr = 0.1\). Write the units on the answer. Computing \(V(5.1) - V(5)\) exactly instead does not use differentials, which the question asks for.</div>
 <p class="final">Answer: The maximum error in the volume is approximately \(dV = 10\pi\) cm<sup>3</sup>.</p></div></details></div>
 
-<div class="q" id="u14-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) Find the derivative of \(f(x) = \ln\!\left[\sin\!\left(e^{x^2 + x}\right)\right]\).</div>
+<div class="q" id="u14-q03"><div class="qh"><span class="qn">Problem 3</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) Find the derivative of \(f(x) = \ln\!\left[\sin\!\left(e^{x^2 + x}\right)\right]\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Identify the layers from the outside in. The outermost function is \(\ln(\,\cdot\,)\), inside it is \(\sin(\,\cdot\,)\), inside that is \(e^{(\,\cdot\,)}\), and the innermost piece is \(x^2 + x\). The plan, as the professor writes it, is to use the chain rule repeatedly, peeling one layer at a time.</li>
 <li>Peel the \(\ln\) layer. The rule is \(\tfrac{d}{dx}\ln u = \tfrac{1}{u}\cdot u'\) with \(u = \sin(e^{x^2 + x})\): \[f'(x) = \frac{1}{\sin(e^{x^2 + x})}\cdot\frac{d}{dx}\left[\sin(e^{x^2 + x})\right].\]</li>
@@ -133,7 +133,7 @@
 <div class="say"><b>Grading note.</b> On a pure chain rule question each layer is a piece of the answer. Writing one line per layer, as above, lets a grader give credit for every layer you got right even if one factor is wrong.</div>
 <p class="final">Answer: \(f'(x) = \dfrac{\cos(e^{x^2+x})\cdot e^{x^2+x}\cdot(2x+1)}{\sin(e^{x^2+x})} = (2x + 1)\,e^{x^2 + x}\cot\!\left(e^{x^2 + x}\right)\).</p></div></details></div>
 
-<div class="q" id="u14-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) The equation \(e^y \sin x = x + xy\) defines \(y\) as a function of \(x\). Use implicit differentiation to find \(y' = \dfrac{dy}{dx}\).</div>
+<div class="q" id="u14-q04"><div class="qh"><span class="qn">Problem 4</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) The equation \(e^y \sin x = x + xy\) defines \(y\) as a function of \(x\). Use implicit differentiation to find \(y' = \dfrac{dy}{dx}\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>State the plan in the professor's words: differentiate both sides with respect to \(x\), and remember that \(y\) is a function of \(x\), so every time you differentiate something with \(y\) in it, the chain rule produces a factor \(y'\).</li>
 <li>Differentiate the left side with the product rule. Let \(u = e^y\) and \(v = \sin x\). Then \(u' = e^y\, y'\) (chain rule, because \(y\) depends on \(x\)) and \(v' = \cos x\). \[\frac{d}{dx}\left[e^y \sin x\right] = u'v + uv' = e^y\, y' \sin x + e^y \cos x.\]</li>
@@ -146,7 +146,7 @@
 <div class="say"><b>Grading note.</b> Expect most of the credit to come from differentiating both sides correctly (the two product rules and the \(y'\) from \(e^y\)). The rest comes from collecting the \(y'\) terms, factoring, and dividing.</div>
 <p class="final">Answer: \(y' = \dfrac{1 + y - e^y \cos x}{e^y \sin x - x}\).</p></div></details></div>
 
-<div class="q" id="u14-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) A cylindrical can must hold exactly 1000 cm<sup>3</sup>. Find the radius and height of the can that uses the least material, meaning the can with the smallest possible surface area. The surface is made of two circular disks (the top and the bottom) and a side sheet, which becomes a rectangle when you unroll it.</div>
+<div class="q" id="u14-q05"><div class="qh"><span class="qn">Problem 5</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) A cylindrical can must hold exactly 1000 cm<sup>3</sup>. Find the radius and height of the can that uses the least material, meaning the can with the smallest possible surface area. The surface is made of two circular disks (the top and the bottom) and a side sheet, which becomes a rectangle when you unroll it.</div>
 <details class="sol"><summary>Show full solution</summary><div>
 <svg class="dia" viewBox="0 0 320 200">
 <ellipse cx="80" cy="40" rx="50" ry="13" stroke="currentColor" fill="none" stroke-width="2"/>
@@ -180,7 +180,7 @@
 </section>
 <section id="L2"><div class="lvl"><h2>Actual Midterm 2</h2><span>The real Fall 2025 Midterm 2, 5 questions.</span></div><p class="sub">Actual Midterm 2 (Fall 2025)</p>
 
-<div class="q" id="u14-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) Find the intervals on which \(f(x) = \dfrac{x^2}{e^x}\) is increasing and the intervals on which it is decreasing. You do not need to graph the function.</div>
+<div class="q" id="u14-q06"><div class="qh"><span class="qn">Problem 6</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) Find the intervals on which \(f(x) = \dfrac{x^2}{e^x}\) is increasing and the intervals on which it is decreasing. You do not need to graph the function.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the domain. The denominator \(e^x\) is positive for every \(x\), so it is never zero and the domain is all real numbers.</li>
 <li>Differentiate with the quotient rule. Let \(u = x^2\) and \(v = e^x\). Then \(u' = 2x\) and \(v' = e^x\). \[f'(x) = \frac{u'v - uv'}{v^2} = \frac{2x\cdot e^x - x^2\cdot e^x}{(e^x)^2}.\]</li>
@@ -200,7 +200,7 @@
 <div class="say"><b>Grading note.</b> Expect most of the credit to come from a correct \(f'(x)\) (quotient rule and the simplification) and the correct critical numbers. The rest comes from the sign chart with test values and each interval labeled as increasing or decreasing.</div>
 <p class="final">Answer: \(f\) is increasing on \((0, 2)\) and decreasing on \((-\infty, 0)\) and \((2, \infty)\).</p></div></details></div>
 
-<div class="q" id="u14-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(q = 75 - p^2\), where \(p\) is the price in dollars. The elasticity of demand is \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\).
+<div class="q" id="u14-q07"><div class="qh"><span class="qn">Problem 7</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = 75 - p^2\), where \(p\) is the price in dollars. The elasticity of demand is \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\).
 <br>(a) (6 points) At what price does the demand have unit elasticity?
 <br>(b) (4 points) If the price is $6, should the price be raised or lowered to increase revenue? Explain.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
@@ -216,7 +216,7 @@
 <div class="say"><b>Grading note.</b> In part (a), expect the points to come from \(\tfrac{dq}{dp}\), the formula \(E(p)\) written out, the equation \(E = 1\), and solving it with the negative root rejected. In part (b), they come from computing \(E(6)\), comparing it with 1, and a conclusion with a reason.</div>
 <p class="final">Answer: (a) Unit elasticity at \(p = \$5\). (b) At \(p = \$6\), \(E = \tfrac{24}{13} \gt 1\), so demand is elastic and the price should be decreased to increase revenue (also \(R'(6) = -33 \lt 0\)).</p></div></details></div>
 
-<div class="q" id="u14-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) You must build an open rectangular box (no top) with a square base and a volume of 1000 ft<sup>3</sup>. Material for the base costs $4 per square foot and material for the sides costs $2 per square foot. Find the dimensions that minimize the total cost, and explain why your answer gives the smallest possible cost.</div>
+<div class="q" id="u14-q08"><div class="qh"><span class="qn">Problem 8</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) You must build an open rectangular box (no top) with a square base and a volume of 1000 ft<sup>3</sup>. Material for the base costs $4 per square foot and material for the sides costs $2 per square foot. Find the dimensions that minimize the total cost, and explain why your answer gives the smallest possible cost.</div>
 <details class="sol"><summary>Show full solution</summary><div>
 <svg class="dia" viewBox="0 0 320 200">
 <path d="M100 80 H200 V170 H100 Z M200 80 L240 50 V140 L200 170" stroke="currentColor" fill="none" stroke-width="2"/>
@@ -243,7 +243,7 @@
 <div class="say"><b>Grading note.</b> Expect the points to be spread over the setup (constraint and the cost function in one variable), the derivative, solving \(C'(x) = 0\), the written explanation that it is a minimum, and the dimensions with units. On this question the explanation is part of what is asked, not an extra.</div>
 <p class="final">Answer: The base is 10 ft by 10 ft and the height is 10 ft (minimum cost $1200). It is the smallest cost because \(C''(x) = 8 + \tfrac{16000}{x^3} \gt 0\) for all \(x \gt 0\), so the only critical number \(x = 10\) is the absolute minimum on \((0, \infty)\).</p></div></details></div>
 
-<div class="q" id="u14-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) The length and width of a rectangle change, but its area stays fixed at 100 cm<sup>2</sup>. At the moment the length is 20 cm and the length is decreasing at 3 cm/sec, how fast is the width increasing?</div>
+<div class="q" id="u14-q09"><div class="qh"><span class="qn">Problem 9</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) The length and width of a rectangle change, but its area stays fixed at 100 cm<sup>2</sup>. At the moment the length is 20 cm and the length is decreasing at 3 cm/sec, how fast is the width increasing?</div>
 <details class="sol"><summary>Show full solution</summary><div>
 <svg class="dia" viewBox="0 0 320 200">
 <rect x="60" y="60" width="200" height="80" stroke="currentColor" fill="none" stroke-width="2"/>
@@ -264,7 +264,7 @@
 <div class="say"><b>Grading note.</b> Expect the points to come from the equation \(lw = 100\) with variables defined, differentiating it with respect to \(t\) (product rule), finding \(w = 5\), the correct sign on \(\tfrac{dl}{dt}\), and the final rate with units.</div>
 <p class="final">Answer: The width is increasing at \(\tfrac{3}{4}\) cm/sec.</p></div></details></div>
 
-<div class="q" id="u14-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) Use implicit differentiation to find the slope of the tangent line to the curve \(x^2 - xy - y^2 = 1\) at the point \((2, 1)\).</div>
+<div class="q" id="u14-q10"><div class="qh"><span class="qn">Problem 10</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(10 points) Use implicit differentiation to find the slope of the tangent line to the curve \(x^2 - xy - y^2 = 1\) at the point \((2, 1)\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Check that the point is on the curve. \[2^2 - (2)(1) - 1^2 = 4 - 2 - 1 = 1.\] The left side equals 1, so \((2, 1)\) is on the curve.</li>
 <li>Differentiate both sides with respect to \(x\), remembering that \(y\) is a function of \(x\). Term by term: \(\tfrac{d}{dx}[x^2] = 2x\). For \(xy\) use the product rule with \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\), which gives \(y + x\,y'\). For \(y^2\) the chain rule gives \(2y\,y'\). The derivative of the constant 1 is 0. \[2x - (y + x\,y') - 2y\,y' = 0.\]</li>

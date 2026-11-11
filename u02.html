@@ -4,55 +4,63 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <link rel="stylesheet" href="assets/style.css"></head><body>
-<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 4.3</p><h1>The chain rule</h1><p class="sub">Composite functions, the chain rule, the generalized power rule, and combining it with product and quotient rules.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 4.3: The chain rule</h2>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 4.3</p><h1>The chain rule</h1><p class="sub">Composite functions, the chain rule, the generalized power rule, and combining it with product and quotient rules.</p><div class="toc"><a href="#learn">Lesson</a><a href="#vars">Every way it is asked</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a><a href="#L5">Level 5</a></div><section id="learn"><h2>Section 4.3: The chain rule</h2>
+
+<div class="big"><div class="rt">The big idea</div><p>Many functions are one function placed inside another, like \(\sqrt{x^2 + 3}\) or \((2x - 7)^{50}\). The chain rule is how you take the derivative of such a function without expanding anything. The one thing to remember: differentiate the outside function and leave the inside alone, then multiply by the derivative of the inside.</p></div>
 
 <h3>Composite functions</h3>
-<p>Many functions are built by doing one thing to \(x\) and then doing a second thing to the result. To evaluate \(\sqrt{x^2 + 3}\) at \(x = 1\), you first compute \(1^2 + 3 = 4\), and then you take the square root of 4 to get 2. Two separate functions are at work: one that sends \(x\) to \(x^2 + 3\), and one that takes a square root. Putting functions together this way is called composition.</p>
+<p>Many functions are built in two stages. First you do one thing to \(x\). Then you do a second thing to the result. To evaluate \(\sqrt{x^2 + 3}\) at \(x = 1\), you first compute \(1^2 + 3 = 4\). Then you take the square root of 4 to get 2. Two separate functions are at work: one sends \(x\) to \(x^2 + 3\), and the other takes a square root. Putting functions together this way is called composition.</p>
 <div class="rule"><div class="rt">Composite function (the professor's definition)</div>
 <p>Suppose \(g\) is a function from a set \(A\) to a set \(B\), and \(f\) is a function from \(B\) to a set \(C\). The <b>composite function</b>, or <b>composition</b>, \(f \circ g\) is the function from \(A\) to \(C\) defined by</p>
 \[(f \circ g)(x) = f\big(g(x)\big) \quad \text{for all } x \text{ in } A.\]
 <p>Read \(f \circ g\) as "f composed with g" or "f of g." The textbook writes the same thing as \(f[g(x)]\).</p></div>
-<p>The order matters. In \(f \circ g\) the function \(g\) is applied <b>first</b> and \(f\) is applied <b>second</b>, even though \(f\) is written on the left. We call \(g\) the <b>inside function</b> (it is applied to \(x\) directly) and \(f\) the <b>outside function</b> (it is applied to the output of \(g\)). In general \(f \circ g\) and \(g \circ f\) are different functions, and they can even have different domains. The domain of each composite is the largest set of real numbers for which the formula makes sense: \(x\) must be in the domain of \(g\), and \(g(x)\) must be in the domain of \(f\).</p>
+<p class="plain"><b>In plain words:</b> to compose two functions, take the output of the first one and feed it in as the input of the second one.</p>
+<p>The order matters. In \(f \circ g\) the function \(g\) is applied <b>first</b> and \(f\) is applied <b>second</b>, even though \(f\) is written on the left. We call \(g\) the <b>inside function</b>, because it is applied to \(x\) directly. We call \(f\) the <b>outside function</b>, because it is applied to the output of \(g\). In general \(f \circ g\) and \(g \circ f\) are different functions, and they can even have different domains.</p>
+<p>The <b>domain</b> of a function is the set of inputs where its formula makes sense. The domain of \(f \circ g\) is the largest set of real numbers that passes two tests: \(x\) must be in the domain of \(g\), and the output \(g(x)\) must be in the domain of \(f\).</p>
+<p class="plain"><b>In plain words:</b> an input is allowed only if the inside function accepts it and the outside function accepts what the inside function gives back.</p>
 
 <div class="ex"><div class="et">Worked example 1</div><p class="p">(a) Let \(f(x) = \sqrt{x}\) and \(g(x) = 4x - 8\). Find \((f \circ g)(x)\) and \((g \circ f)(x)\), and give the domain of each. (b) Write \(F(x) = 2\sqrt{x^3 + 5}\) as a composite of four simpler functions, and also as a composite of just an outside and an inside function.</p>
+<p class="spot"><b>How to spot this type:</b> the problem gives you two formulas and asks for \(f \circ g\), \(f[g(x)]\), or "write as a composition," with no derivative in sight.</p>
 <ol class="steps">
 <li>(a) To form \((f \circ g)(x)\), put \(g(x)\) in place of \(x\) in the formula for \(f\).
 \[(f \circ g)(x) = f\big(g(x)\big) = f(4x - 8) = \sqrt{4x - 8}\]</li>
-<li>(a) A square root needs a number that is at least 0, so the domain of \(f \circ g\) is the set of \(x\) with \(4x - 8 \ge 0\). Add 8 to both sides and divide by 4.
+<li>(a) A square root needs a number that is at least 0. So the domain of \(f \circ g\) is the set of \(x\) with \(4x - 8 \ge 0\). Add 8 to both sides, then divide by 4.
 \[4x - 8 \ge 0 \quad\Longleftrightarrow\quad 4x \ge 8 \quad\Longleftrightarrow\quad x \ge 2\]
 So the domain of \(f \circ g\) is \([2, \infty)\).</li>
 <li>(a) To form \((g \circ f)(x)\), put \(f(x)\) in place of \(x\) in the formula for \(g\).
 \[(g \circ f)(x) = g\big(f(x)\big) = g(\sqrt{x}) = 4\sqrt{x} - 8\]
 The only restriction is that \(\sqrt{x}\) must be defined, so \(x \ge 0\). The domain of \(g \circ f\) is \([0, \infty)\). The two composites have different formulas and different domains.</li>
-<li>(b) To break \(F\) into pieces, follow the order in which you would evaluate \(F(x)\) on a calculator: first cube \(x\), then add 5, then take the square root, then multiply by 2.
+<li>(b) To break \(F\) into pieces, follow the order in which you would evaluate \(F(x)\) by hand: first cube \(x\), then add 5, then take the square root, then multiply by 2.
 \[x \;\xrightarrow{\;f\;}\; x^3 \;\xrightarrow{\;g\;}\; x^3 + 5 \;\xrightarrow{\;h\;}\; \sqrt{x^3 + 5} \;\xrightarrow{\;i\;}\; 2\sqrt{x^3 + 5}\]
 \[f(x) = x^3, \qquad g(x) = x + 5, \qquad h(x) = \sqrt{x}, \qquad i(x) = 2x\]</li>
 <li>(b) Check by composing from the inside out. The function applied first goes on the right.
 \[(i \circ h \circ g \circ f)(x) = i\Big(h\big(g(f(x))\big)\Big) = i\Big(h\big(g(x^3)\big)\Big) = i\big(h(x^3 + 5)\big) = i\big(\sqrt{x^3 + 5}\big) = 2\sqrt{x^3 + 5}\]</li>
-<li>(b) For the chain rule you usually want only two pieces. Take the inside function to be everything under the square root, \(u = x^3 + 5\), and the outside function to be what is done to \(u\), namely \(2\sqrt{u}\).
+<li>(b) For the chain rule you usually want only two pieces. Take the inside function to be everything under the square root, \(u = x^3 + 5\). Take the outside function to be what is done to \(u\), namely \(2\sqrt{u}\).
 \[F(x) = f\big(g(x)\big) \quad\text{with}\quad f(u) = 2\sqrt{u}, \quad g(x) = x^3 + 5\]</li>
 </ol>
 <p class="final">Answer: (a) \((f \circ g)(x) = \sqrt{4x - 8}\) with domain \([2, \infty)\), and \((g \circ f)(x) = 4\sqrt{x} - 8\) with domain \([0, \infty)\). (b) \(F = i \circ h \circ g \circ f\) with \(f(x) = x^3\), \(g(x) = x + 5\), \(h(x) = \sqrt{x}\), \(i(x) = 2x\); as two pieces, outside \(2\sqrt{u}\) and inside \(u = x^3 + 5\).</p></div>
 
-<div class="trap"><b>Common mistake.</b> \((f \circ g)(x)\) means \(f\big(g(x)\big)\). It does not mean the product \(f(x)\,g(x)\). With \(f(x) = \sqrt{x}\) and \(g(x) = 4x - 8\), the product is \(\sqrt{x}\,(4x - 8)\), which is a different function from \(\sqrt{4x - 8}\).</div>
+<div class="trap"><b>Common mistake.</b> \((f \circ g)(x)\) means \(f\big(g(x)\big)\). It does not mean the product \(f(x)\,g(x)\). With \(f(x) = \sqrt{x}\) and \(g(x) = 4x - 8\), the product is \(\sqrt{x}\,(4x - 8)\). That is a different function from \(\sqrt{4x - 8}\).</div>
 <div class="trap"><b>Common mistake.</b> Reversing the order. In \(f \circ g\) the right-hand function \(g\) acts first. If you are unsure, plug in a number: \((f \circ g)(3) = f(g(3)) = f(4) = 2\), while \((g \circ f)(3) = g(\sqrt{3}) = 4\sqrt{3} - 8\).</div>
+<div class="trap"><b>Common mistake: simplifying away a restriction.</b> The professor's example: with \(f(x) = \sqrt{x}\) and \(g(x) = x^2\), you get \((f \circ g)(x) = \sqrt{x^2} = |x|\), not \(x\), and its domain is all real numbers. In the other order, \((g \circ f)(x) = \left(\sqrt{x}\right)^2\), which equals \(x\) only for \(x \ge 0\). Its domain is \([0, \infty)\), because the inside function \(\sqrt{x}\) must be defined first. Always find the domain from the unsimplified composite.</div>
 
 <h3>Why the chain rule works: rates multiply</h3>
 <p>Suppose \(y\) depends on \(u\), and \(u\) depends on \(x\). Start with straight lines. If \(y = 3u\), then \(y\) changes 3 times as fast as \(u\). If \(u = 2x\), then \(u\) changes 2 times as fast as \(x\). When \(x\) goes up by 1, \(u\) goes up by 2, and then \(y\) goes up by \(3 \cdot 2 = 6\). So \(y\) changes 6 times as fast as \(x\). You can confirm it by substituting: \(y = 3(2x) = 6x\).</p>
-<p>For curved functions the same reasoning works one point at a time, because a derivative is the rate of change right at a point. Near a particular \(x\), the inside quantity \(u = g(x)\) changes about \(g'(x)\) times as fast as \(x\). Near the matching value of \(u\), the outside quantity \(y = f(u)\) changes about \(f'(u)\) times as fast as \(u\). Multiplying the two rates, \(y\) changes about \(f'(u)\cdot g'(x)\) times as fast as \(x\). The important detail is <b>where</b> the outside rate is measured: at \(u = g(x)\), the value the inside function actually produced.</p>
+<p>For curved functions the same reasoning works one point at a time, because a derivative is the rate of change right at a point. Near a particular \(x\), the inside quantity \(u = g(x)\) changes about \(g'(x)\) times as fast as \(x\). Near the matching value of \(u\), the outside quantity \(y = f(u)\) changes about \(f'(u)\) times as fast as \(u\). Multiplying the two rates, \(y\) changes about \(f'(u)\cdot g'(x)\) times as fast as \(x\). The important detail is <b>where</b> the outside rate is measured. It is measured at \(u = g(x)\), the value the inside function actually produced.</p>
 <div class="rule"><div class="rt">The Chain Rule</div>
 <p>If \(f\) and \(g\) are differentiable and \(F = f \circ g\) is their composite, \(F(x) = f\big(g(x)\big)\), then \(F\) is differentiable and</p>
 \[F'(x) = \frac{d}{dx}\Big[f\big(g(x)\big)\Big] = f'\big(g(x)\big)\cdot g'(x).\]
 <p>In the other notation, let \(y = f(u)\) and \(u = g(x)\), so that \(y = f\big(g(x)\big)\). Then</p>
-\[\frac{dy}{dx} = \frac{dy}{du}\cdot\frac{du}{dx}.\]
-<p>In words: the derivative of the outside function, evaluated at the inside function, times the derivative of the inside function.</p></div>
-<p>The second form looks as if the \(du\)'s cancel like fractions. They are not really fractions, but the picture is a good memory aid, and it matches the "rates multiply" story exactly: \(\frac{dy}{du}\) is how fast \(y\) changes compared with \(u\), and \(\frac{du}{dx}\) is how fast \(u\) changes compared with \(x\).</p>
+\[\frac{dy}{dx} = \frac{dy}{du}\cdot\frac{du}{dx}.\]</div>
+<p class="plain"><b>In plain words:</b> take the derivative of the outside function, keep the inside function plugged into it unchanged, and then multiply by the derivative of the inside function.</p>
+<p>The second form looks as if the \(du\)'s cancel like fractions. They are not really fractions, but the picture is a good memory aid. It matches the "rates multiply" story exactly: \(\frac{dy}{du}\) is how fast \(y\) changes compared with \(u\), and \(\frac{du}{dx}\) is how fast \(u\) changes compared with \(x\).</p>
 
 <div class="ex"><div class="et">Worked example 2</div><p class="p">Find the derivative of \(F(x) = (2x - 7)^{50}\), using each form of the chain rule.</p>
+<p class="spot"><b>How to spot this type:</b> something other than plain \(x\) sits inside a power, and expanding it would take forever.</p>
 <ol class="steps">
 <li>Expanding \((2x - 7)^{50}\) would give a polynomial with 51 terms, so do not expand. Identify the outside and inside functions instead. The last operation performed is raising to the 50th power, so that is the outside function.
 \[F(x) = f\big(g(x)\big) \quad\text{with}\quad f(x) = x^{50}, \quad g(x) = 2x - 7\]</li>
-<li>First form. Differentiate each piece with the power rule, then evaluate \(f'\) at \(g(x)\).
+<li>First form. Differentiate each piece with the power rule. Then evaluate \(f'\) at \(g(x)\), which means replacing the \(x\) in \(f'(x)\) by \(2x - 7\).
 \[f'(x) = 50x^{49}, \qquad g'(x) = 2, \qquad f'\big(g(x)\big) = 50(2x - 7)^{49}\]</li>
 <li>Multiply by the inside derivative.
 \[F'(x) = f'\big(g(x)\big)\cdot g'(x) = 50(2x - 7)^{49}\cdot 2 = 100(2x - 7)^{49}\]</li>
@@ -62,49 +70,54 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 </ol>
 <p class="final">Answer: \(F'(x) = 100(2x - 7)^{49}\)</p></div>
 
-<div class="trap"><b>Common mistake: forgetting the inside derivative.</b> Writing \(\frac{d}{dx}(2x - 7)^{50} = 50(2x - 7)^{49}\) drops the factor \(g'(x) = 2\). The chain rule always has two factors. After you differentiate the outside, ask yourself out loud "times the derivative of the inside," and write it.</div>
-<div class="trap"><b>Common mistake: differentiating the inside inside the outside.</b> The outside derivative is evaluated at \(g(x)\), not at \(g'(x)\). For \((2x - 7)^{50}\), the expression \(f'\big(g'(x)\big) = 50(2)^{49}\) is wrong, and so is \(50(2)^{49}\cdot 2\). Keep the inside function exactly as it was, untouched, inside the outside derivative. Only afterward multiply by \(g'(x)\).</div>
-<div class="say"><b>What to write on the exam.</b> Name the pieces before you differentiate: "By the chain rule, with outside function \(f(u) = u^{50}\) and inside function \(u = 2x - 7\), we get \(F'(x) = 50(2x - 7)^{49}\cdot 2\)." Graders give credit for a correctly set up chain rule even if an arithmetic slip happens later.</div>
+<div class="trap"><b>Common mistake: forgetting the inside derivative.</b> Writing \(\frac{d}{dx}(2x - 7)^{50} = 50(2x - 7)^{49}\) drops the factor \(g'(x) = 2\). The chain rule always has two factors. After you differentiate the outside, say "times the derivative of the inside" to yourself, and write it.</div>
+<div class="trap"><b>Common mistake: putting the inside derivative inside the outside.</b> The outside derivative is evaluated at \(g(x)\), not at \(g'(x)\). For \((2x - 7)^{50}\), the expression \(f'\big(g'(x)\big) = 50(2)^{49}\) is wrong, and so is \(50(2)^{49}\cdot 2\). Keep the inside function exactly as it was inside the outside derivative. Only afterward multiply by \(g'(x)\).</div>
+<div class="say"><b>What to write on the exam.</b> Name the pieces before you differentiate: "By the chain rule, with outside function \(f(u) = u^{50}\) and inside function \(u = 2x - 7\), we get \(F'(x) = 50(2x - 7)^{49}\cdot 2\)." A correctly set up chain rule usually earns most of the credit even if an arithmetic slip happens later.</div>
 
 <h3>The generalized power rule</h3>
-<p>The most common composite on exams is a power of a function, \([g(x)]^r\). The outside function is \(f(x) = x^r\), whose derivative by the power rule is \(f'(x) = rx^{r-1}\). Putting this into the chain rule gives a formula you will use constantly. It holds for every real exponent \(r\): positive, negative, or a fraction, so it covers roots and reciprocals too.</p>
+<p>The most common composite on exams is a power of a function, \([g(x)]^r\). The outside function is \(f(x) = x^r\), whose derivative by the power rule is \(f'(x) = rx^{r-1}\). Putting this into the chain rule gives a formula you will use constantly. It holds for every real exponent \(r\): positive, negative, or a fraction. So it covers roots and reciprocals too.</p>
 <div class="rule"><div class="rt">Generalized power rule (chain rule combined with the power rule)</div>
 \[\frac{d}{dx}\Big[g(x)\Big]^{r} = r\,\big[g(x)\big]^{r-1}\cdot g'(x) \qquad \text{for any real number } r.\]</div>
+<p class="plain"><b>In plain words:</b> bring the exponent down in front, copy what is inside the parentheses exactly, lower the exponent by one, and then multiply by the derivative of what is inside the parentheses.</p>
 <div class="recipe"><div class="rt">How to differentiate a power of a function</div><ol>
 <li>Rewrite roots and reciprocals as powers: \(\sqrt{g} = g^{1/2}\), \(\sqrt[3]{g} = g^{1/3}\), \(\dfrac{c}{g^{n}} = c\,g^{-n}\).</li>
 <li>Identify the inside function \(g(x)\) (everything inside the parentheses or under the root) and the exponent \(r\).</li>
 <li>Bring the exponent down in front, copy the inside function unchanged, and lower the exponent by 1: \(r\,[g(x)]^{r-1}\).</li>
 <li>Multiply by the derivative of the inside, \(g'(x)\).</li>
-<li>Simplify: multiply the constants, and rewrite negative and fractional exponents as fractions and roots if the problem asks for that form.</li>
+<li>Simplify. Multiply the constants. Rewrite negative and fractional exponents as fractions and roots if the problem asks for that form.</li>
 <li>If you need the derivative at a number \(a\), find \(F'(x)\) first, then substitute \(x = a\).</li>
 </ol></div>
 
 <div class="ex"><div class="et">Worked example 3</div><p class="p">(a) Let \(f(x) = \sqrt{2x^2 + 1}\). Find \(f'(x)\) and \(f'(2)\). (b) Let \(F(x) = \dfrac{6}{(x^2 + x + 2)^3}\). Find \(F'(x)\) and \(F'(1)\).</p>
+<p class="spot"><b>How to spot this type:</b> a root of a function, or a number divided by a power of a function. Rewrite it as a single power and use the generalized power rule; no quotient rule is needed.</p>
 <ol class="steps">
 <li>(a) Rewrite the root as a power. The inside function is \(g(x) = 2x^2 + 1\), the exponent is \(r = \tfrac12\), and \(g'(x) = 4x\).
 \[f(x) = (2x^2 + 1)^{1/2}\]</li>
 <li>(a) Apply the generalized power rule. The new exponent is \(\tfrac12 - 1 = -\tfrac12\).
 \[f'(x) = \tfrac12(2x^2 + 1)^{-1/2}\cdot 4x\]</li>
-<li>(a) Simplify. Multiply \(\tfrac12\cdot 4x = 2x\), and move the negative power to the denominator as a square root.
-\[f'(x) = 2x(2x^2 + 1)^{-1/2} = \frac{2x}{\sqrt{2x^2 + 1}}\]</li>
+<li>(a) Simplify. Multiply \(\tfrac12\cdot 4x = 2x\). Then move the negative power to the denominator, where the power \(\tfrac12\) becomes a square root.
+\[f'(x) = 2x(2x^2 + 1)^{-1/2} = \frac{2x}{(2x^2 + 1)^{1/2}} = \frac{2x}{\sqrt{2x^2 + 1}}\]</li>
 <li>(a) Substitute \(x = 2\). Inside the root, \(2(2)^2 + 1 = 8 + 1 = 9\).
 \[f'(2) = \frac{2(2)}{\sqrt{9}} = \frac{4}{3}\]</li>
 <li>(b) Rewrite the reciprocal as a negative power. The inside function is \(g(x) = x^2 + x + 2\), the exponent is \(r = -3\), and \(g'(x) = 2x + 1\).
 \[F(x) = 6(x^2 + x + 2)^{-3}\]</li>
 <li>(b) Apply the generalized power rule. The constant 6 stays in front, and the new exponent is \(-3 - 1 = -4\).
-\[F'(x) = 6\cdot(-3)(x^2 + x + 2)^{-4}\cdot(2x + 1) = -18(2x + 1)(x^2 + x + 2)^{-4} = -\frac{18(2x + 1)}{(x^2 + x + 2)^4}\]</li>
-<li>(b) Substitute \(x = 1\). The pieces are \(2(1) + 1 = 3\) and \(1 + 1 + 2 = 4\), and \(4^4 = 256\).
+\[F'(x) = 6\cdot(-3)(x^2 + x + 2)^{-4}\cdot(2x + 1)\]</li>
+<li>(b) Simplify. Multiply \(6\cdot(-3) = -18\), and move the negative power to the denominator.
+\[F'(x) = -18(2x + 1)(x^2 + x + 2)^{-4} = -\frac{18(2x + 1)}{(x^2 + x + 2)^4}\]</li>
+<li>(b) Substitute \(x = 1\). The pieces are \(2(1) + 1 = 3\) and \(1 + 1 + 2 = 4\), and \(4^4 = 256\). Then divide the top and bottom by 2.
 \[F'(1) = -\frac{18\cdot 3}{4^4} = -\frac{54}{256} = -\frac{27}{128}\]</li>
 </ol>
 <p class="final">Answer: (a) \(f'(x) = \dfrac{2x}{\sqrt{2x^2 + 1}}\) and \(f'(2) = \dfrac43\). (b) \(F'(x) = -\dfrac{18(2x + 1)}{(x^2 + x + 2)^4}\) and \(F'(1) = -\dfrac{27}{128}\).</p></div>
 
-<div class="trap"><b>Common mistake: losing the chain factor when the outside is a power.</b> The plain power rule \(\frac{d}{dx}x^r = rx^{r-1}\) is only for \(x\) itself raised to a power. Students who see a power reach for it automatically and write \(\frac{d}{dx}\sqrt{2x^2 + 1} = \frac{1}{2\sqrt{2x^2 + 1}}\), treating \(2x^2 + 1\) as if it were \(x\). The factor \(4x\) is missing. It is easiest to lose when the inside is linear, as in \(\frac{d}{dx}(5x + 2)^6\), because the missing factor is just the number 5.</div>
-<div class="trap"><b>Common mistake.</b> Lowering the exponent the wrong way for negative or fractional powers. Subtracting 1 from \(-3\) gives \(-4\), not \(-2\). Subtracting 1 from \(\tfrac12\) gives \(-\tfrac12\). Also, a constant in the denominator is not a negative power of the inside function: \(\dfrac{(x^2 + 1)^3}{5} = \tfrac15(x^2 + 1)^3\).</div>
+<div class="trap"><b>Common mistake: losing the chain factor when the outside is a power.</b> The plain power rule \(\frac{d}{dx}x^r = rx^{r-1}\) is only for \(x\) itself raised to a power. Students who see a power reach for it automatically and write \(\frac{d}{dx}\sqrt{2x^2 + 1} = \frac{1}{2\sqrt{2x^2 + 1}}\). That treats \(2x^2 + 1\) as if it were \(x\), and the factor \(4x\) is missing. It is easiest to lose when the inside is linear, as in \(\frac{d}{dx}(5x + 2)^6\), because the missing factor is just the number 5.</div>
+<div class="trap"><b>Common mistake: lowering the exponent the wrong way.</b> For negative or fractional powers, subtract 1 carefully. Subtracting 1 from \(-3\) gives \(-4\), not \(-2\). Subtracting 1 from \(\tfrac12\) gives \(-\tfrac12\). Also, a constant in the denominator is not a negative power of the inside function: \(\dfrac{(x^2 + 1)^3}{5} = \tfrac15(x^2 + 1)^3\).</div>
 
 <h3>Evaluating at a point, and tables of values</h3>
 <p>If \(F(x) = (f \circ g)(x)\), then at \(x = a\) the chain rule says</p>
 \[F'(a) = f'\big(g(a)\big)\cdot g'(a).\]
-<p>So \(f'\) is evaluated at \(g(a)\), not at \(a\). The professor likes to test this with a table of values, where you cannot use formulas at all and must read the right numbers.</p>
+<p class="plain"><b>In plain words:</b> first find where the inside function sends \(a\). Read the outside slope at that new number, not at \(a\). Then multiply by the inside slope at \(a\).</p>
+<p>The professor likes to test this with a table of values. There you cannot use formulas at all, and you must read the right numbers.</p>
 <div class="recipe"><div class="rt">How to find \((f \circ g)'(a)\) from a table</div><ol>
 <li>Write the chain rule at \(a\): \((f \circ g)'(a) = f'\big(g(a)\big)\cdot g'(a)\).</li>
 <li>Read \(g(a)\) from the \(g(x)\) column in the row \(x = a\). Call this number \(b\).</li>
@@ -118,6 +131,7 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 <tr><td>1</td><td>3</td><td>2</td><td>\(-2\)</td><td>5</td></tr>
 <tr><td>2</td><td>4</td><td>3</td><td>6</td><td>\(-1\)</td></tr>
 <tr><td>3</td><td>1</td><td>1</td><td>2</td><td>4</td></tr></table>
+<p class="spot"><b>How to spot this type:</b> there are no formulas, only a table with columns for \(f\), \(g\), \(f'\), and \(g'\), and the question asks for the derivative of a composite at one number.</p>
 <ol class="steps">
 <li>Write the chain rule for \(f \circ g\) at \(x = 1\).
 \[(f \circ g)'(1) = f'\big(g(1)\big)\cdot g'(1)\]</li>
@@ -131,31 +145,41 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 <p class="final">Answer: \((f \circ g)'(1) = 30\) and \((g \circ f)'(1) = -8\).</p></div>
 <div class="trap"><b>Common mistake.</b> Computing \(f'(1)\cdot g'(1) = (-2)(5) = -10\) for \((f \circ g)'(1)\). That multiplies two derivatives at the same point, which is the wrong rule. The outside derivative has to be read at the output of the inside function.</div>
 
+<h3>When the outside function is unknown</h3>
+<p>Sometimes the problem never gives a formula for the outside function. It only tells you its derivative, or calls it \(h\) and gives a few values. The chain rule still works. You just leave the answer written with \(f'\) or \(h'\). The professor's notes state the case where the inside function is a power of \(x\):</p>
+<div class="rule"><div class="rt">The chain rule with a power of \(x\) inside</div>
+\[\frac{d}{dx}\Big[g\big(x^{r}\big)\Big] = g'\big(x^{r}\big)\cdot r x^{r-1}.\]</div>
+<p class="plain"><b>In plain words:</b> this is the same chain rule with the roles switched. The power \(x^r\) is now the inside, so you copy \(x^r\) into \(g'\) and multiply by the derivative of \(x^r\).</p>
+<p>For example, if all you know is \(f'(x) = \sqrt{x^2 + 9}\), then \(\frac{d}{dx}\big[f(x^2)\big] = f'(x^2)\cdot 2x = 2x\sqrt{(x^2)^2 + 9} = 2x\sqrt{x^4 + 9}\). You never needed \(f\) itself.</p>
+
 <h3>Nested chains: three or more layers</h3>
-<p>Composition is associative, which means \((f \circ g) \circ h = f \circ (g \circ h)\), so you can write \(f \circ g \circ h\) without parentheses. To differentiate \(F(x) = f\Big(g\big(h(x)\big)\Big)\), let \(k(x) = g\big(h(x)\big)\). Then \(F(x) = f\big(k(x)\big)\), and the chain rule used twice gives</p>
+<p>Composition is <b>associative</b>, which means \((f \circ g) \circ h = f \circ (g \circ h)\). So you can write \(f \circ g \circ h\) without parentheses. To differentiate \(F(x) = f\Big(g\big(h(x)\big)\Big)\), let \(k(x) = g\big(h(x)\big)\). Then \(F(x) = f\big(k(x)\big)\), and the chain rule used twice gives</p>
 \[F'(x) = f'\big(k(x)\big)\cdot k'(x) = f'\Big(g\big(h(x)\big)\Big)\cdot g'\big(h(x)\big)\cdot h'(x).\]
-<p>Think of peeling an onion from the outside in. Differentiate the outermost layer and leave everything inside it alone. Then multiply by the derivative of the next layer, again leaving everything inside that layer alone. Keep going until you reach the innermost function. There is one factor for every layer. For four layers, \(\frac{d}{dx}f\big(g(h(i(x)))\big) = f'\big(g(h(i(x)))\big)\cdot g'\big(h(i(x))\big)\cdot h'\big(i(x)\big)\cdot i'(x)\), and so on.</p>
+<p class="plain"><b>In plain words:</b> a function with three layers has a derivative with three factors, one for each layer, and each layer's derivative keeps everything inside that layer unchanged.</p>
+<p>Think of peeling an onion from the outside in. Differentiate the outermost layer and leave everything inside it alone. Then multiply by the derivative of the next layer, again leaving everything inside that layer alone. Keep going until you reach the innermost function. For four layers, \(\frac{d}{dx}f\big(g(h(i(x)))\big) = f'\big(g(h(i(x)))\big)\cdot g'\big(h(i(x))\big)\cdot h'\big(i(x)\big)\cdot i'(x)\), and so on.</p>
 
 <div class="ex"><div class="et">Worked example 5</div><p class="p">Let \(F(x) = \left(2 + \sqrt{x^2 + 5}\right)^3\). Find \(F'(x)\) and \(F'(2)\).</p>
+<p class="spot"><b>How to spot this type:</b> a root or power sits inside another root or power. Count the layers before you start.</p>
 <ol class="steps">
 <li>Identify the layers from the outside in. The outermost operation is cubing. Inside the cube is \(2 + \sqrt{x^2 + 5}\). Inside the root is \(x^2 + 5\).
 \[F(x) = \big(2 + (x^2 + 5)^{1/2}\big)^3\]</li>
 <li>Outermost layer. Use the generalized power rule with exponent 3 and leave \(2 + \sqrt{x^2 + 5}\) unchanged.
 \[F'(x) = 3\big(2 + (x^2 + 5)^{1/2}\big)^2\cdot\frac{d}{dx}\Big[2 + (x^2 + 5)^{1/2}\Big]\]</li>
-<li>Middle layer. The derivative of the constant 2 is 0. The root is another power of a function, so use the generalized power rule again with exponent \(\tfrac12\), and multiply by the derivative of the innermost layer, \(\frac{d}{dx}(x^2 + 5) = 2x\).
-\[\frac{d}{dx}\Big[2 + (x^2 + 5)^{1/2}\Big] = 0 + \tfrac12(x^2 + 5)^{-1/2}\cdot 2x = \frac{x}{\sqrt{x^2 + 5}}\]</li>
+<li>Middle layer. The derivative of the constant 2 is 0. The root is another power of a function, so use the generalized power rule again with exponent \(\tfrac12\). Multiply by the derivative of the innermost layer, \(\frac{d}{dx}(x^2 + 5) = 2x\). Then \(\tfrac12\cdot 2x = x\).
+\[\frac{d}{dx}\Big[2 + (x^2 + 5)^{1/2}\Big] = 0 + \tfrac12(x^2 + 5)^{-1/2}\cdot 2x = x(x^2 + 5)^{-1/2} = \frac{x}{\sqrt{x^2 + 5}}\]</li>
 <li>Put the factors together and simplify.
 \[F'(x) = 3\left(2 + \sqrt{x^2 + 5}\right)^2\cdot\frac{x}{\sqrt{x^2 + 5}} = \frac{3x\left(2 + \sqrt{x^2 + 5}\right)^2}{\sqrt{x^2 + 5}}\]</li>
-<li>Substitute \(x = 2\). First \(\sqrt{2^2 + 5} = \sqrt{9} = 3\), so \(2 + 3 = 5\).
+<li>Substitute \(x = 2\). First \(\sqrt{2^2 + 5} = \sqrt{9} = 3\), so \(2 + 3 = 5\). The top is \(3\cdot 2\cdot 25 = 150\).
 \[F'(2) = \frac{3(2)(5)^2}{3} = \frac{150}{3} = 50\]</li>
 </ol>
 <p class="final">Answer: \(F'(x) = \dfrac{3x\left(2 + \sqrt{x^2 + 5}\right)^2}{\sqrt{x^2 + 5}}\) and \(F'(2) = 50\).</p></div>
 <div class="trap"><b>Common mistake.</b> Stopping after two layers. In the example above, writing \(3\big(2 + \sqrt{x^2 + 5}\big)^2\cdot\frac{1}{2\sqrt{x^2 + 5}}\) forgets the \(2x\) from the innermost layer. Count the layers before you start, and check that your answer has that many factors.</div>
 
 <h3>The chain rule with the product and quotient rules, and factoring the answer</h3>
-<p>When a function is a product or a quotient of powers, use the product or quotient rule for the overall structure, and use the chain rule each time you differentiate a power of a function. The answer that comes straight out of the rules has two big terms. Exams reward factoring it, and you must factor it whenever you need to solve \(F'(x) = 0\), because a product is zero exactly when one of its factors is zero.</p>
+<p>Sometimes a function is a product or a quotient of powers. Use the product or quotient rule for the overall structure. Use the chain rule each time you differentiate a power of a function. The answer that comes straight out of the rules has two big terms. Exams reward factoring it. You must factor it whenever you need to solve \(F'(x) = 0\), because a product is zero exactly when one of its factors is zero.</p>
 <div class="rule"><div class="rt">Product rule and quotient rule (from Section 4.2)</div>
 \[\frac{d}{dx}[uv] = u'v + uv', \qquad \frac{d}{dx}\left[\frac{u}{v}\right] = \frac{u'v - uv'}{v^2}.\]</div>
+<p class="plain"><b>In plain words:</b> for a product, take turns differentiating one factor while copying the other, and add. For a quotient, compute "derivative of top times bottom, minus top times derivative of bottom," all over the bottom squared.</p>
 <div class="recipe"><div class="rt">How to factor a derivative made of powers</div><ol>
 <li>List the factors that appear in every term, such as \(x\), \((3x + 1)\), and any common number.</li>
 <li>For each common factor, pull out its <b>lowest</b> power, meaning the smallest exponent that appears. Between \((3x + 1)^4\) and \((3x + 1)^3\) the lowest is 3. Between \((2x + 3)^{1/2}\) and \((2x + 3)^{-1/2}\) the lowest is \(-\tfrac12\), because \(-\tfrac12\) is smaller than \(\tfrac12\).</li>
@@ -166,7 +190,7 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 <p>For instance, for \(g(x) = x\sqrt{2x + 3}\) the product rule gives \(g'(x) = (2x + 3)^{1/2} + x(2x + 3)^{-1/2}\). Pulling out \((2x + 3)^{-1/2}\) gives</p>
 \[g'(x) = (2x + 3)^{-1/2}\big[(2x + 3) + x\big] = (2x + 3)^{-1/2}(3x + 3) = \frac{3(x + 1)}{\sqrt{2x + 3}}.\]</div>
 <div class="recipe"><div class="rt">How to find where the tangent line is horizontal</div><ol>
-<li>A tangent line is horizontal exactly when its slope is 0, so you need the \(x\) values where \(f'(x) = 0\).</li>
+<li>A tangent line is horizontal exactly when its slope is 0. So you need the \(x\) values where \(f'(x) = 0\).</li>
 <li>Find \(f'(x)\) and factor it completely.</li>
 <li>Set each factor in the numerator equal to 0 and solve. Throw out any \(x\) that is not in the domain of \(f\).</li>
 <li>Find each \(y\) value by substituting into the original function \(f\), not into \(f'\).</li>
@@ -174,31 +198,33 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 </ol></div>
 
 <div class="ex"><div class="et">Worked example 6</div><p class="p">(a) Let \(f(x) = x^2(3x + 1)^4\). Find \(f'(x)\) in factored form, and find every point where the tangent line to the graph of \(f\) is horizontal. (b) Let \(h(x) = \dfrac{(x + 1)^2}{(2x - 1)^3}\). Find \(h'(x)\) and simplify it completely.</p>
+<p class="spot"><b>How to spot this type:</b> two pieces are multiplied or divided, and at least one piece is a power of something other than plain \(x\). The words "factored form," "single fraction," or "horizontal tangent" tell you that the factoring step is part of the question.</p>
 <ol class="steps">
 <li>(a) This is a product, so set up the product rule with \(u = x^2\) and \(v = (3x + 1)^4\). The derivative \(v'\) needs the generalized power rule, with inside \(3x + 1\) whose derivative is 3.
 \[u = x^2, \qquad u' = 2x, \qquad v = (3x + 1)^4, \qquad v' = 4(3x + 1)^3\cdot 3 = 12(3x + 1)^3\]</li>
 <li>(a) Apply the product rule \(f' = u'v + uv'\).
 \[f'(x) = 2x(3x + 1)^4 + x^2\cdot 12(3x + 1)^3 = 2x(3x + 1)^4 + 12x^2(3x + 1)^3\]</li>
-<li>(a) Factor. The common number is 2, the lowest power of \(x\) is \(x^1\), and the lowest power of \((3x + 1)\) is 3. Pull out \(2x(3x + 1)^3\). The first term leaves \((3x + 1)\), and the second term leaves \(6x\).
+<li>(a) Factor. The common number is 2, the lowest power of \(x\) is \(x^1\), and the lowest power of \((3x + 1)\) is 3. Pull out \(2x(3x + 1)^3\). The first term leaves \((3x + 1)\). The second term leaves \(6x\), because \(12x^2 = 2x\cdot 6x\).
 \[f'(x) = 2x(3x + 1)^3\big[(3x + 1) + 6x\big] = 2x(3x + 1)^3(9x + 1)\]</li>
 <li>(a) Set each factor equal to 0.
 \[2x = 0 \;\Rightarrow\; x = 0, \qquad 3x + 1 = 0 \;\Rightarrow\; x = -\tfrac13, \qquad 9x + 1 = 0 \;\Rightarrow\; x = -\tfrac19\]</li>
-<li>(a) Find the \(y\) values from the original function \(f(x) = x^2(3x + 1)^4\).
-\[\begin{aligned} f(0) &= 0^2(1)^4 = 0 \\ f\left(-\tfrac13\right) &= \tfrac19\,(0)^4 = 0 \\ f\left(-\tfrac19\right) &= \tfrac{1}{81}\left(-\tfrac13 + 1\right)^4 = \tfrac{1}{81}\left(\tfrac23\right)^4 = \tfrac{1}{81}\cdot\tfrac{16}{81} = \tfrac{16}{6561} \end{aligned}\]</li>
+<li>(a) Find the \(y\) values from the original function \(f(x) = x^2(3x + 1)^4\). At \(x = -\tfrac19\), the inside is \(3\left(-\tfrac19\right) + 1 = -\tfrac13 + 1 = \tfrac23\).
+\[\begin{aligned} f(0) &= 0^2(1)^4 = 0 \\ f\left(-\tfrac13\right) &= \tfrac19\,(0)^4 = 0 \\ f\left(-\tfrac19\right) &= \tfrac{1}{81}\left(\tfrac23\right)^4 = \tfrac{1}{81}\cdot\tfrac{16}{81} = \tfrac{16}{6561} \end{aligned}\]</li>
 <li>(b) This is a quotient, so set up the quotient rule with \(u = (x + 1)^2\) and \(v = (2x - 1)^3\). Both derivatives need the generalized power rule.
 \[u' = 2(x + 1)\cdot 1 = 2(x + 1), \qquad v' = 3(2x - 1)^2\cdot 2 = 6(2x - 1)^2, \qquad v^2 = (2x - 1)^6\]</li>
 <li>(b) Apply the quotient rule \(h' = \dfrac{u'v - uv'}{v^2}\).
 \[h'(x) = \frac{2(x + 1)(2x - 1)^3 - (x + 1)^2\cdot 6(2x - 1)^2}{(2x - 1)^6}\]</li>
-<li>(b) Factor the numerator. The common pieces are 2, \((x + 1)^1\), and \((2x - 1)^2\). Pull out \(2(x + 1)(2x - 1)^2\). The first term leaves \((2x - 1)\), and the second term leaves \(3(x + 1)\).
+<li>(b) Factor the numerator. The common pieces are 2, \((x + 1)^1\), and \((2x - 1)^2\). Pull out \(2(x + 1)(2x - 1)^2\). The first term leaves \((2x - 1)\). The second term leaves \(3(x + 1)\), because \(6 = 2\cdot 3\) and \((x + 1)^2 = (x + 1)\cdot(x + 1)\).
 \[\text{numerator} = 2(x + 1)(2x - 1)^2\big[(2x - 1) - 3(x + 1)\big]\]</li>
 <li>(b) Simplify the bracket.
 \[(2x - 1) - 3(x + 1) = 2x - 1 - 3x - 3 = -x - 4 = -(x + 4)\]</li>
-<li>(b) Put it back over the denominator and cancel \((2x - 1)^2\) from the top and the bottom, which leaves \((2x - 1)^{6 - 2} = (2x - 1)^4\) downstairs.
+<li>(b) Put it back over the denominator. Cancel \((2x - 1)^2\) from the top and the bottom, which leaves \((2x - 1)^{6 - 2} = (2x - 1)^4\) downstairs.
 \[h'(x) = \frac{-2(x + 1)(x + 4)(2x - 1)^2}{(2x - 1)^6} = -\frac{2(x + 1)(x + 4)}{(2x - 1)^4}\]</li>
 </ol>
 <p class="final">Answer: (a) \(f'(x) = 2x(3x + 1)^3(9x + 1)\); the tangent line is horizontal at \((0, 0)\), \(\left(-\tfrac13, 0\right)\), and \(\left(-\tfrac19, \tfrac{16}{6561}\right)\). (b) \(h'(x) = -\dfrac{2(x + 1)(x + 4)}{(2x - 1)^4}\).</p></div>
 <div class="trap"><b>Common mistake.</b> Pulling out the highest power instead of the lowest. In part (a), you cannot pull \((3x + 1)^4\) out of \(12x^2(3x + 1)^3\), because that term only has three copies of \((3x + 1)\). With negative exponents the same rule holds: \(-\tfrac12\) is lower than \(\tfrac12\), and \(-3\) is lower than \(-2\).</div>
 <div class="trap"><b>Common mistake.</b> Forgetting the chain factor inside one term of the product or quotient rule. In part (b), writing \(v' = 3(2x - 1)^2\) instead of \(6(2x - 1)^2\) makes the whole answer wrong. Every time you differentiate a power of something other than plain \(x\), multiply by the inside derivative.</div>
+<div class="trap"><b>Common mistake: using the quotient rule when it is not needed.</b> A constant over a power, such as \(\dfrac{8}{(4x - 3)^2}\), is just \(8(4x - 3)^{-2}\). The generalized power rule gives the answer in one line. The quotient rule also works, but it takes longer and gives more chances for a sign slip. Also check whether the fraction cancels before you differentiate: \(\dfrac{(2 + x)^3}{4 - x^2} = \dfrac{(2 + x)^3}{(2 - x)(2 + x)} = \dfrac{(2 + x)^2}{2 - x}\) for \(x \ne -2\).</div>
 <div class="say"><b>What to write on the exam.</b> "The tangent line is horizontal where \(f'(x) = 0\). Since \(f'(x) = 2x(3x + 1)^3(9x + 1)\), this happens when \(x = 0\), \(x = -\tfrac13\), or \(x = -\tfrac19\)." Then give the points with \(y\) values computed from \(f\).</div>
 
 <h3>Applications: rates of change of a composite</h3>
@@ -211,32 +237,83 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 </ol></div>
 
 <div class="ex"><div class="et">Worked example 7</div><p class="p">An environmental study finds that the level of pollution in a town's lake is \(P(n) = \sqrt{n^2 + 9}\) parts per million (ppm) when the town's population is \(n\) thousand people. The population \(t\) years from now is expected to be \(n(t) = 3 + \tfrac14 t^2\) thousand people. How fast will the pollution level be changing 2 years from now?</p>
+<p class="spot"><b>How to spot this type:</b> the problem gives one quantity as a function of a second quantity, gives the second as a function of time, and asks "how fast" or "at what rate" the first one changes with time.</p>
 <ol class="steps">
 <li>Define the variables. \(t\) is time in years from now, \(n\) is the population in thousands of people, and \(P\) is the pollution level in ppm. Pollution depends on population, and population depends on time, so by the chain rule
 \[\frac{dP}{dt} = \frac{dP}{dn}\cdot\frac{dn}{dt}.\]</li>
-<li>Find \(\frac{dP}{dn}\) with the generalized power rule. Write \(P = (n^2 + 9)^{1/2}\); the inside is \(n^2 + 9\) with derivative \(2n\).
+<li>Find \(\frac{dP}{dn}\) with the generalized power rule. Write \(P = (n^2 + 9)^{1/2}\). The inside is \(n^2 + 9\), with derivative \(2n\), and \(\tfrac12\cdot 2n = n\).
 \[\frac{dP}{dn} = \tfrac12(n^2 + 9)^{-1/2}\cdot 2n = \frac{n}{\sqrt{n^2 + 9}}\]</li>
 <li>Find \(\frac{dn}{dt}\) with the power rule.
 \[\frac{dn}{dt} = \tfrac14\cdot 2t = \frac{t}{2}\]</li>
 <li>Find the population at \(t = 2\), since \(\frac{dP}{dn}\) is evaluated at that population.
 \[n(2) = 3 + \tfrac14(2)^2 = 3 + 1 = 4\]</li>
-<li>Evaluate both rates and multiply. At \(n = 4\), \(\sqrt{4^2 + 9} = \sqrt{25} = 5\). At \(t = 2\), \(\frac{dn}{dt} = \frac22 = 1\).
+<li>Evaluate both rates and multiply. At \(n = 4\), \(\sqrt{4^2 + 9} = \sqrt{25} = 5\), so \(\frac{dP}{dn} = \frac45\). At \(t = 2\), \(\frac{dn}{dt} = \frac22 = 1\).
 \[\frac{dP}{dt} = \frac{4}{5}\cdot 1 = \frac45\]</li>
 </ol>
 <p class="final">Answer: Two years from now the pollution level will be rising at \(\tfrac45\) ppm per year.</p></div>
 
+<div class="stuck"><div class="rt">If you get stuck</div><ul>
+<li>Pretend you are evaluating the function at \(x = 2\) by hand. The last operation you would do is the outside function. Everything before it is the inside.</li>
+<li>Rewrite every root and every "number over a power" as a power with a fraction or negative exponent before you differentiate.</li>
+<li>Write the pieces on scratch paper first: inside \(g\), its derivative \(g'\), and for a product or quotient also \(u\), \(v\), \(u'\), \(v'\). Then assemble.</li>
+<li>Count the layers and check that your answer has one factor per layer.</li>
+<li>To solve \(f'(x) = 0\), write \(f'\) as one fraction, factor the top by pulling out the lowest powers, and set each factor equal to 0. Then throw out any \(x\) that is not in the domain.</li>
+<li>For a table or a graph, write \((f \circ g)'(a) = f'\big(g(a)\big)\cdot g'(a)\) first, then fill in one number at a time, starting with \(g(a)\).</li>
+</ul></div>
+
+<div class="qc"><div class="rt">Quick check</div>
+<details class="qa"><summary>Is \((f \circ g)(x)\) the same as \(f(x)\cdot g(x)\)?</summary><p>No. With \(f(x) = x^2\) and \(g(x) = x + 1\), the composite is \((x + 1)^2\), while the product is \(x^2(x + 1)\).</p></details>
+<details class="qa"><summary>If \(g(1) = 4\), \(g'(1) = 2\), \(f'(1) = 7\), and \(f'(4) = -3\), what is \((f \circ g)'(1)\)?</summary><p>It is \(f'\big(g(1)\big)\cdot g'(1) = f'(4)\cdot 2 = -3\cdot 2 = -6\). The value \(f'(1) = 7\) is a distractor.</p></details>
+<details class="qa"><summary>Can \(\frac{d}{dx}f\big(g(x)\big)\) be 0 at a point where \(g'(x)\) is not 0? Give an example.</summary><p>Yes, when the outside slope \(f'\big(g(x)\big)\) is 0. For \(F(x) = (x^2 - 1)^2\), \(F'(x) = 2(x^2 - 1)\cdot 2x\), so \(F'(1) = 0\) even though the inside slope is \(2(1) = 2\).</p></details>
+<details class="qa"><summary>How many chain factors does the derivative of \(\sqrt{1 + (3x - 1)^4}\) have, and what is it?</summary><p>Three, one per layer: \(\tfrac{1}{2\sqrt{1 + (3x - 1)^4}}\cdot 4(3x - 1)^3\cdot 3\), which simplifies to \(\dfrac{6(3x - 1)^3}{\sqrt{1 + (3x - 1)^4}}\).</p></details>
+<details class="qa"><summary>Is \(\sqrt{x^2}\) equal to \(x\)? What does this say about \(f \circ g\) for \(f(x) = \sqrt{x}\), \(g(x) = x^2\)?</summary><p>No, \(\sqrt{x^2} = |x|\); for example \(\sqrt{(-3)^2} = 3\). So \((f \circ g)(x) = |x|\), with domain all real numbers.</p></details>
+</div>
+
 <div class="mem"><div class="rt">What to have memorized</div><ul>
 <li>\((f \circ g)(x) = f\big(g(x)\big)\): the inside function \(g\) acts first, and \(f \circ g\) is usually different from \(g \circ f\).</li>
-<li>The domain of \(f \circ g\) is every \(x\) in the domain of \(g\) for which \(g(x)\) is in the domain of \(f\).</li>
+<li>The domain of \(f \circ g\) is every \(x\) in the domain of \(g\) for which \(g(x)\) is in the domain of \(f\). Find it before simplifying.</li>
 <li>The chain rule: \(\dfrac{d}{dx}\Big[f\big(g(x)\big)\Big] = f'\big(g(x)\big)\cdot g'(x)\), or \(\dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx}\).</li>
 <li>At a point: \((f \circ g)'(a) = f'\big(g(a)\big)\cdot g'(a)\), with \(f'\) read at \(g(a)\).</li>
 <li>The generalized power rule: \(\dfrac{d}{dx}[g(x)]^r = r[g(x)]^{r-1}\cdot g'(x)\) for every real \(r\). The special case for roots: \(\dfrac{d}{dx}\sqrt{g(x)} = \dfrac{g'(x)}{2\sqrt{g(x)}}\).</li>
+<li>A power of \(x\) inside: \(\dfrac{d}{dx}g(x^r) = g'(x^r)\cdot rx^{r-1}\).</li>
 <li>Three layers: \(\dfrac{d}{dx}f\Big(g\big(h(x)\big)\Big) = f'\Big(g\big(h(x)\big)\Big)\cdot g'\big(h(x)\big)\cdot h'(x)\), one factor per layer.</li>
 <li>To factor a derivative, pull out the lowest power of each common factor.</li>
 <li>Horizontal tangent means \(f'(x) = 0\); get the \(y\) values from \(f\).</li>
 </ul></div>
 </section>
-<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u02-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^2 + 1\) and \(g(x) = 3x - 2\). Find \((f \circ g)(x)\) and \((g \circ f)(x)\), and simplify each.</div>
+<section id="vars"><h2>Every way this can be asked</h2>
+<p>These are the wordings of chain rule questions found in the textbook exercises for Section 4.3, the professor's lecture notes, the GSI worksheets, and past Berkeley Math 16A midterms, with the problem on this page that practices each one.</p>
+<table class="t">
+<tr><th>How the question is worded</th><th>What it is really asking</th><th>First move</th></tr>
+<tr><td>"Find \((f \circ g)(x)\) and \((g \circ f)(x)\)," or "find \(f[g(x)]\) and \(g[f(x)]\)."</td><td>Build the composite formula. No derivative is involved.</td><td>Copy the formula for the outside function and replace every \(x\) in it by the whole inside function, in parentheses. Practice: Problems 1, 7.</td></tr>
+<tr><td>"... and give the domain of each."</td><td>Which inputs are allowed in both stages.</td><td>Find where the inside is defined, then where its output is allowed in the outside. Do this before simplifying. Practice: Problem 7.</td></tr>
+<tr><td>"Find \(f[g(2)]\)," or "find the area after 3 minutes" when area is a composite.</td><td>Evaluate a composite at one number.</td><td>Work from the inside out: compute \(g(2)\) first, then put that number into \(f\). Practice: Problem 22.</td></tr>
+<tr><td>"Write \(F\) as the composition of two (or four) simpler functions."</td><td>Undo a composite into its layers.</td><td>Evaluate \(F\) at a sample number in your head and list the operations in order. The last operation is the outside function. Practice: Problem 2.</td></tr>
+<tr><td>"Find and interpret \(A[r(t)]\)" in a word problem.</td><td>Build the composite and say in words what its input and output are.</td><td>Substitute the time formula into the outside formula, then write a sentence with both units. Practice: Problem 22.</td></tr>
+<tr><td>"Find the derivative of \((8x^4 - 5x^2 + 1)^4\)" or any power of a polynomial.</td><td>The generalized power rule.</td><td>Write the inside \(g\) and its derivative \(g'\) on the side, then \(r\,g^{r-1}\cdot g'\). Do not expand. Practice: Problem 8.</td></tr>
+<tr><td>"Differentiate \(\sqrt{x^2 + 4x}\)," "\(\dfrac{1}{4 - x^2}\)," or "\(\dfrac{12}{\sqrt[3]{x^2 + 4}}\)."</td><td>The generalized power rule after rewriting.</td><td>Rewrite the root or reciprocal as a power with a fractional or negative exponent. Practice: Problems 4, 5, 9.</td></tr>
+<tr><td>"Let \(y = u^6\) and \(u = 5x + 2\). Find \(\frac{dy}{dx}\)."</td><td>The chain rule in Leibniz notation.</td><td>Find \(\frac{dy}{du}\) and \(\frac{du}{dx}\) separately, multiply, and replace \(u\) by its formula in \(x\). Practice: Problem 3.</td></tr>
+<tr><td>"Find \(F'(1)\)" or "find \(g'(4)\)."</td><td>The derivative at one number.</td><td>Find the formula for \(F'(x)\) first, then substitute. Practice: Problems 9, 20.</td></tr>
+<tr><td>"Find the equation of the tangent line at \(x = 2\)."</td><td>A point from \(f\) and a slope from \(f'\).</td><td>Compute \(f(2)\) for the point and \(f'(2)\) for the slope, then use \(y - y_1 = m(x - x_1)\). Practice: Problems 10, 18.</td></tr>
+<tr><td>"Find all values of \(x\) (or all points) where the tangent line is horizontal."</td><td>Solve \(f'(x) = 0\).</td><td>Factor \(f'\) completely, set each factor of the top equal to 0, and get the \(y\) values from \(f\). Practice: Problems 11, 19.</td></tr>
+<tr><td>Trick version: a solution of "top of \(f'\) equals 0" is not in the domain, or the bottom of \(f'\) is 0 there.</td><td>Only points on the graph count, and only where \(f'\) exists.</td><td>Write the domain of \(f\) first and test every candidate against it. Practice: Problems 19, 25.</td></tr>
+<tr><td>"Find \(f'(x)\) and write it as a single fraction," "in factored form," or "simplify completely."</td><td>Product or quotient rule with the chain rule inside, then factoring.</td><td>Write \(u, v, u', v'\) first. After the rule, pull out the lowest power of each common factor. Practice: Problems 13, 14, 20.</td></tr>
+<tr><td>A function that can be simplified first, such as a fraction that cancels or \(\big((x^2)^3\big)^2\).</td><td>Choosing the shortest correct path.</td><td>Factor and cancel, or combine exponents, before differentiating. Note any input lost in the cancelling. Practice: Problems 24, 25.</td></tr>
+<tr><td>"Use two methods," or "compare the two procedures; which is preferable?"</td><td>Show that the quotient rule and the generalized power rule agree.</td><td>Do both in full, simplify both to the same form, and say which was shorter and why. Practice: Problem 24.</td></tr>
+<tr><td>"Use the table to find \((f \circ g)'(1)\), \((g \circ f)'(1)\), or \((f \circ f)'(2)\)."</td><td>The chain rule at a point with numbers only.</td><td>Write \(f'\big(g(a)\big)\cdot g'(a)\), read \(g(a)\) first, then read \(f'\) in the row of that new number. Practice: Problems 6, 12.</td></tr>
+<tr><td>Table questions mixed with other rules: \(f\big(g(f(x))\big)\), \(x\,g(x^2)\), \(\sqrt{f(x) + g(x)}\).</td><td>Product rule, generalized power rule, and several chain layers, all with table values.</td><td>Write the derivative formula with letters, then find the inside values from the innermost function outward. Practice: Problem 21.</td></tr>
+<tr><td>"The graph of \(g\) and its tangent line at \(x = 2\) are shown. Find the tangent line to \(y = f\big(g(x)\big)\)."</td><td>Read \(g(2)\) and \(g'(2)\) from a picture.</td><td>Read \(g(2)\) as the height of the curve, and \(g'(2)\) as the slope (rise over run) of the tangent line. Practice: Problem 27.</td></tr>
+<tr><td>"A function \(f\) has \(f'(x) = \sqrt{x^2 + 9}\). Find \(\frac{d}{dx}f(3x - 2)\)," or a product with an unknown \(h(x^2 - 1)\).</td><td>The chain rule with an unknown outside function.</td><td>Write \(f'(\text{inside})\cdot(\text{inside})'\), then put the inside into the given formula for \(f'\). Practice: Problem 28.</td></tr>
+<tr><td>Three or more layers, such as \(\sqrt{3 + (x^3 - 7)^2}\) or \(\sqrt{x + \sqrt{x^2 + 9}}\).</td><td>The chain rule used repeatedly.</td><td>Count the layers from the outside in. The answer has one factor per layer. Practice: Problems 17, 18.</td></tr>
+<tr><td>Reverse question: "find the value(s) of \(k\) so that the tangent line at \(x = 1\) has slope 54."</td><td>Set the derivative at the point equal to the given number and solve for the constant.</td><td>Find \(f'(x)\) with \(k\) still in it, substitute \(x = 1\), and solve. Look for more than one answer. Practice: Problem 26.</td></tr>
+<tr><td>"How fast is the pollution level changing 2 years from now?" when \(P\) depends on \(n\) and \(n\) depends on \(t\).</td><td>\(\frac{dP}{dt} = \frac{dP}{dn}\cdot\frac{dn}{dt}\) with units.</td><td>Find the middle quantity \(n\) at the given time first, because \(\frac{dP}{dn}\) is evaluated there. Practice: Problem 16.</td></tr>
+<tr><td>Geometry rates: a balloon being inflated, a spreading circle of oil, a dissolving jawbreaker.</td><td>The chain rule with a volume or area formula.</td><td>Write \(\frac{dV}{dt} = \frac{dV}{dr}\cdot\frac{dr}{dt}\) and substitute the given rate. Practice: Problems 15, 22.</td></tr>
+<tr><td>Business: "find the marginal revenue," "at what sales level is marginal revenue zero," "interpret your answer."</td><td>A derivative of a composite, read as the approximate change from one more unit.</td><td>Build the function (for example \(R = q\cdot p\)), differentiate with the chain rule, and write a sentence with dollars and units. Practice: Problem 29.</td></tr>
+<tr><td>"True or false: explain," "explain the error," or "explain why the general power rule follows from the chain rule."</td><td>Spot a missing or misplaced chain factor and justify with a reason or a counterexample.</td><td>Redo the derivative correctly and compare. For a false "always" claim, give one specific counterexample with numbers. Practice: Problem 23.</td></tr>
+</table>
+<div class="say"><b>Words that change the method.</b> "Composite," "\(f \circ g\)," or "\(f[g(x)]\)" means plug one function into the other; "\(f(x)\,g(x)\)" or "product" means multiply and use the product rule. "Find \(F'(x)\)" wants a formula, while "find \(F'(2)\)" wants a number, but you still find the formula first. "Tangent line" needs both a point and a slope; "horizontal tangent" means solve \(f'(x) = 0\) and then get \(y\) from \(f\). "Single fraction" or "factored form" means pull out the lowest powers. "At what rate" or "how fast" means a derivative with respect to time, with units in the answer. "With respect to price" means the derivative is \(\frac{dq}{dp}\), not a time rate. "Interpret" or "explain" means a full sentence with units or a reason, not just a number. "In terms of \(x\)" means replace every \(u\) by its formula before you stop.</div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u02-q01"><div class="qh"><span class="qn">Problem 1</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^2 + 1\) and \(g(x) = 3x - 2\). Find \((f \circ g)(x)\) and \((g \circ f)(x)\), and simplify each.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>To form \((f \circ g)(x) = f\big(g(x)\big)\), put \(3x - 2\) in place of \(x\) in \(f\). Then expand \((3x - 2)^2 = 9x^2 - 12x + 4\).
 \[(f \circ g)(x) = (3x - 2)^2 + 1 = 9x^2 - 12x + 4 + 1 = 9x^2 - 12x + 5\]</li>
@@ -244,7 +321,7 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 \[(g \circ f)(x) = 3(x^2 + 1) - 2 = 3x^2 + 3 - 2 = 3x^2 + 1\]</li>
 </ol><p class="final">Answer: \((f \circ g)(x) = 9x^2 - 12x + 5\) and \((g \circ f)(x) = 3x^2 + 1\).</p></div></details></div>
 
-<div class="q" id="u02-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Find an outside function \(f\) and an inside function \(g\) so that \(H(x) = (x^3 - 4x)^7\) equals \(f\big(g(x)\big)\). Then check your choice by composing.</div>
+<div class="q" id="u02-q02"><div class="qh"><span class="qn">Problem 2</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find an outside function \(f\) and an inside function \(g\) so that \(H(x) = (x^3 - 4x)^7\) equals \(f\big(g(x)\big)\). Then check your choice by composing.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>To evaluate \(H(x)\) you first compute \(x^3 - 4x\), and the last thing you do is raise the result to the 7th power. So the inside function is what is in the parentheses, and the outside function is the 7th power.
 \[g(x) = x^3 - 4x, \qquad f(x) = x^7\]</li>
@@ -252,7 +329,7 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 \[f\big(g(x)\big) = f(x^3 - 4x) = (x^3 - 4x)^7 = H(x)\]</li>
 </ol><p class="final">Answer: \(f(x) = x^7\) and \(g(x) = x^3 - 4x\).</p></div></details></div>
 
-<div class="q" id="u02-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Let \(y = u^6\) and \(u = 5x + 2\). Use \(\dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx}\) to find \(\dfrac{dy}{dx}\) in terms of \(x\).</div>
+<div class="q" id="u02-q03"><div class="qh"><span class="qn">Problem 3</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(y = u^6\) and \(u = 5x + 2\). Use \(\dfrac{dy}{dx} = \dfrac{dy}{du}\cdot\dfrac{du}{dx}\) to find \(\dfrac{dy}{dx}\) in terms of \(x\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Differentiate each piece with the power rule.
 \[\frac{dy}{du} = 6u^5, \qquad \frac{du}{dx} = 5\]</li>
@@ -260,7 +337,7 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 \[\frac{dy}{dx} = 6u^5\cdot 5 = 30u^5 = 30(5x + 2)^5\]</li>
 </ol><p class="final">Answer: \(\dfrac{dy}{dx} = 30(5x + 2)^5\)</p></div></details></div>
 
-<div class="q" id="u02-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(y = \sqrt{x^2 + 4x}\).</div>
+<div class="q" id="u02-q04"><div class="qh"><span class="qn">Problem 4</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the derivative of \(y = \sqrt{x^2 + 4x}\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Rewrite the root as a power. The inside function is \(x^2 + 4x\), whose derivative is \(2x + 4\). Apply the generalized power rule with exponent \(\tfrac12\); the new exponent is \(\tfrac12 - 1 = -\tfrac12\).
 \[y = (x^2 + 4x)^{1/2}, \qquad y' = \tfrac12(x^2 + 4x)^{-1/2}\cdot(2x + 4)\]</li>
@@ -268,15 +345,15 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 \[y' = \tfrac12\cdot 2(x + 2)(x^2 + 4x)^{-1/2} = \frac{x + 2}{\sqrt{x^2 + 4x}}\]</li>
 </ol><p class="final">Answer: \(y' = \dfrac{x + 2}{\sqrt{x^2 + 4x}}\)</p></div></details></div>
 
-<div class="q" id="u02-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(y = \dfrac{1}{4 - x^2}\) using the generalized power rule.</div>
+<div class="q" id="u02-q05"><div class="qh"><span class="qn">Problem 5</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the derivative of \(y = \dfrac{1}{4 - x^2}\) using the generalized power rule.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Rewrite the reciprocal as a negative power. The inside function is \(4 - x^2\), whose derivative is \(-2x\). Apply the generalized power rule with exponent \(-1\); the new exponent is \(-1 - 1 = -2\).
 \[y = (4 - x^2)^{-1}, \qquad y' = -1\cdot(4 - x^2)^{-2}\cdot(-2x)\]</li>
-<li>Simplify. The two negative signs multiply to a positive, and the negative power moves to the denominator.
+<li>Simplify. The two negative signs multiply to a positive, \((-1)(-2x) = 2x\), and the negative power moves to the denominator.
 \[y' = 2x(4 - x^2)^{-2} = \frac{2x}{(4 - x^2)^2}\]</li>
 </ol><p class="final">Answer: \(y' = \dfrac{2x}{(4 - x^2)^2}\)</p></div></details></div>
 
-<div class="q" id="u02-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Suppose \(g(2) = 5\), \(g'(2) = -3\), \(f'(2) = 7\), and \(f'(5) = 4\). Find \((f \circ g)'(2)\).</div>
+<div class="q" id="u02-q06"><div class="qh"><span class="qn">Problem 6</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Suppose \(g(2) = 5\), \(g'(2) = -3\), \(f'(2) = 7\), and \(f'(5) = 4\). Find \((f \circ g)'(2)\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Write the chain rule at \(x = 2\). The outside derivative \(f'\) is evaluated at \(g(2)\).
 \[(f \circ g)'(2) = f'\big(g(2)\big)\cdot g'(2)\]</li>
@@ -284,7 +361,7 @@ The last step replaces \(u\) by \(2x - 7\), because the answer must be in terms 
 \[(f \circ g)'(2) = f'(5)\cdot g'(2) = 4\cdot(-3) = -12\]</li>
 </ol><p class="final">Answer: \((f \circ g)'(2) = -12\)</p></div></details></div>
 </section>
-<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u02-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \sqrt{x + 3}\) and \(g(x) = x^2 - 7\). Find \((f \circ g)(x)\) and \((g \circ f)(x)\), and give the domain of each.</div>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u02-q07"><div class="qh"><span class="qn">Problem 7</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = \sqrt{x + 3}\) and \(g(x) = x^2 - 7\). Find \((f \circ g)(x)\) and \((g \circ f)(x)\), and give the domain of each.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Form \((f \circ g)(x)\) by putting \(g(x)\) in place of \(x\) in \(f\), then combine the constants.
 \[(f \circ g)(x) = \sqrt{(x^2 - 7) + 3} = \sqrt{x^2 - 4}\]</li>
@@ -296,7 +373,7 @@ So the domain of \(f \circ g\) is \((-\infty, -2] \cup [2, \infty)\). Since \(g\
 <li>The simplified formula \(x - 4\) makes sense for every \(x\), but the composite is only defined where the inside function \(f(x) = \sqrt{x + 3}\) is defined, which is \(x + 3 \ge 0\), that is, \(x \ge -3\). So the domain of \(g \circ f\) is \([-3, \infty)\).</li>
 </ol><p class="final">Answer: \((f \circ g)(x) = \sqrt{x^2 - 4}\) with domain \((-\infty, -2] \cup [2, \infty)\); \((g \circ f)(x) = x - 4\) with domain \([-3, \infty)\).</p></div></details></div>
 
-<div class="q" id="u02-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(y = (x^4 - 3x^2 + 2)^5\), and factor the answer.</div>
+<div class="q" id="u02-q08"><div class="qh"><span class="qn">Problem 8</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the derivative of \(y = (x^4 - 3x^2 + 2)^5\), and factor the answer.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Identify the pieces for the generalized power rule. The inside function is \(g(x) = x^4 - 3x^2 + 2\) and the exponent is 5.
 \[g'(x) = 4x^3 - 6x\]</li>
@@ -306,19 +383,19 @@ So the domain of \(f \circ g\) is \((-\infty, -2] \cup [2, \infty)\). Since \(g\
 \[y' = 5\cdot 2x(2x^2 - 3)(x^4 - 3x^2 + 2)^4 = 10x(2x^2 - 3)(x^4 - 3x^2 + 2)^4\]</li>
 </ol><p class="final">Answer: \(y' = 10x(2x^2 - 3)(x^4 - 3x^2 + 2)^4\)</p></div></details></div>
 
-<div class="q" id="u02-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{12}{\sqrt[3]{x^2 + 4}}\). Find \(f'(x)\) and \(f'(2)\).</div>
+<div class="q" id="u02-q09"><div class="qh"><span class="qn">Problem 9</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = \dfrac{12}{\sqrt[3]{x^2 + 4}}\). Find \(f'(x)\) and \(f'(2)\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Rewrite with a power. A cube root is the power \(\tfrac13\), and dividing by it makes the power negative.
 \[f(x) = 12(x^2 + 4)^{-1/3}\]</li>
 <li>Apply the generalized power rule with inside \(x^2 + 4\), whose derivative is \(2x\). The new exponent is \(-\tfrac13 - 1 = -\tfrac43\).
 \[f'(x) = 12\cdot\left(-\tfrac13\right)(x^2 + 4)^{-4/3}\cdot 2x\]</li>
-<li>Multiply the constants: \(12\cdot\left(-\tfrac13\right)\cdot 2 = -8\). Move the negative power to the denominator.
+<li>Multiply the constants: \(12\cdot\left(-\tfrac13\right) = -4\), and then \(-4\cdot 2 = -8\). Move the negative power to the denominator.
 \[f'(x) = -8x(x^2 + 4)^{-4/3} = -\frac{8x}{(x^2 + 4)^{4/3}}\]</li>
 <li>Substitute \(x = 2\). Then \(x^2 + 4 = 8\), and \(8^{4/3} = \left(\sqrt[3]{8}\right)^4 = 2^4 = 16\).
 \[f'(2) = -\frac{8(2)}{8^{4/3}} = -\frac{16}{16} = -1\]</li>
 </ol><p class="final">Answer: \(f'(x) = -\dfrac{8x}{(x^2 + 4)^{4/3}}\) and \(f'(2) = -1\).</p></div></details></div>
 
-<div class="q" id="u02-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Find an equation of the tangent line to the graph of \(f(x) = (x^2 - 3)^4\) at the point where \(x = 2\).</div>
+<div class="q" id="u02-q10"><div class="qh"><span class="qn">Problem 10</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find an equation of the tangent line to the graph of \(f(x) = (x^2 - 3)^4\) at the point where \(x = 2\).</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Find the point on the graph. At \(x = 2\), \(x^2 - 3 = 4 - 3 = 1\).
 \[f(2) = 1^4 = 1, \quad\text{so the point is } (2, 1).\]</li>
@@ -330,7 +407,7 @@ So the domain of \(f \circ g\) is \((-\infty, -2] \cup [2, \infty)\). Since \(g\
 \[y - 1 = 16(x - 2) \quad\Longrightarrow\quad y - 1 = 16x - 32 \quad\Longrightarrow\quad y = 16x - 31\]</li>
 </ol><p class="final">Answer: \(y = 16x - 31\)</p></div></details></div>
 
-<div class="q" id="u02-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = (x - 2)^3(x + 1)^2\). Find \(f'(x)\) in fully factored form, and find every point where the tangent line to the graph is horizontal.</div>
+<div class="q" id="u02-q11"><div class="qh"><span class="qn">Problem 11</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = (x - 2)^3(x + 1)^2\). Find \(f'(x)\) in fully factored form, and find every point where the tangent line to the graph is horizontal.</div>
 <details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>This is a product, so set up the product rule. Both factors are powers of linear functions whose derivatives are 1.
 \[u = (x - 2)^3, \quad u' = 3(x - 2)^2\cdot 1 = 3(x - 2)^2, \qquad v = (x + 1)^2, \quad v' = 2(x + 1)\cdot 1 = 2(x + 1)\]</li>
@@ -344,10 +421,11 @@ So the domain of \(f \circ g\) is \((-\infty, -2] \cup [2, \infty)\). Since \(g\
 <li>The tangent line is horizontal where \(f'(x) = 0\). Set each factor equal to 0.
 \[x - 2 = 0 \;\Rightarrow\; x = 2, \qquad x + 1 = 0 \;\Rightarrow\; x = -1, \qquad 5x - 1 = 0 \;\Rightarrow\; x = \tfrac15\]</li>
 <li>Find the \(y\) values from the original function. At \(x = \tfrac15\), \(x - 2 = -\tfrac95\) and \(x + 1 = \tfrac65\).
-\[\begin{aligned} f(2) &= 0^3\cdot 3^2 = 0 \\ f(-1) &= (-3)^3\cdot 0^2 = 0 \\ f\left(\tfrac15\right) &= \left(-\tfrac95\right)^3\left(\tfrac65\right)^2 = -\tfrac{729}{125}\cdot\tfrac{36}{25} = -\tfrac{26244}{3125} \end{aligned}\]</li>
+\[\begin{aligned} f(2) &= 0^3\cdot 3^2 = 0 \\ f(-1) &= (-3)^3\cdot 0^2 = 0 \\ f\left(\tfrac15\right) &= \left(-\tfrac95\right)^3\left(\tfrac65\right)^2 = -\tfrac{729}{125}\cdot\tfrac{36}{25} = -\tfrac{26244}{3125} \end{aligned}\]
+For the last product, multiply the tops, \(729\cdot 36 = 26244\), and the bottoms, \(125\cdot 25 = 3125\). Nothing cancels, because the top has no factor of 5.</li>
 </ol><p class="final">Answer: \(f'(x) = (x - 2)^2(x + 1)(5x - 1)\). The tangent line is horizontal at \((2, 0)\), \((-1, 0)\), and \(\left(\tfrac15, -\tfrac{26244}{3125}\right)\).</p></div></details></div>
 
-<div class="q" id="u02-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Use the table to find \((f \circ g)'(0)\), \((g \circ f)'(0)\), and \((f \circ f)'(2)\).
+<div class="q" id="u02-q12"><div class="qh"><span class="qn">Problem 12</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Use the table to find \((f \circ g)'(0)\), \((g \circ f)'(0)\), and \((f \circ f)'(2)\).
 <table class="t"><tr><th>\(x\)</th><th>\(f(x)\)</th><th>\(g(x)\)</th><th>\(f'(x)\)</th><th>\(g'(x)\)</th></tr>
 <tr><td>0</td><td>2</td><td>3</td><td>4</td><td>\(-1\)</td></tr>
 <tr><td>2</td><td>3</td><td>0</td><td>\(-5\)</td><td>6</td></tr>
@@ -361,23 +439,24 @@ So the domain of \(f \circ g\) is \((-\infty, -2] \cup [2, \infty)\). Since \(g\
 \[(f \circ f)'(2) = f'(3)\cdot f'(2) = 1\cdot(-5) = -5\]</li>
 </ol><p class="final">Answer: \((f \circ g)'(0) = -1\), \((g \circ f)'(0) = 24\), and \((f \circ f)'(2) = -5\).</p></div></details></div>
 </section>
-<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u02-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(y = \dfrac{(3x - 1)^4}{(x^2 + 1)^2}\) and simplify it to a single fraction in factored form.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u02-q13"><div class="qh"><span class="qn">Problem 13</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the derivative of \(y = \dfrac{(3x - 1)^4}{(x^2 + 1)^2}\) and simplify it to a single fraction in factored form.</div>
+<details class="hint"><summary>Hint</summary><div>This is a quotient of two powers. Set up the quotient rule, use the generalized power rule for both \(u'\) and \(v'\), and then pull the lowest power of each common factor out of the numerator.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>This is a quotient, so set up the quotient rule. Both the top and the bottom are powers of functions, so each derivative uses the generalized power rule.
 \[\begin{aligned} u &= (3x - 1)^4, & u' &= 4(3x - 1)^3\cdot 3 = 12(3x - 1)^3 \\ v &= (x^2 + 1)^2, & v' &= 2(x^2 + 1)\cdot 2x = 4x(x^2 + 1) \end{aligned}\]
 Also \(v^2 = \big[(x^2 + 1)^2\big]^2 = (x^2 + 1)^4\).</li>
 <li>Apply the quotient rule \(y' = \dfrac{u'v - uv'}{v^2}\).
 \[y' = \frac{12(3x - 1)^3(x^2 + 1)^2 - (3x - 1)^4\cdot 4x(x^2 + 1)}{(x^2 + 1)^4}\]</li>
-<li>Factor the numerator. The common number is 4, the lowest power of \((3x - 1)\) is 3, and the lowest power of \((x^2 + 1)\) is 1. Pull out \(4(3x - 1)^3(x^2 + 1)\). The first term leaves \(3(x^2 + 1)\), and the second term leaves \(x(3x - 1)\).
+<li>Factor the numerator. The common number is 4, the lowest power of \((3x - 1)\) is 3, and the lowest power of \((x^2 + 1)\) is 1. Pull out \(4(3x - 1)^3(x^2 + 1)\). The first term leaves \(3(x^2 + 1)\), because \(12 = 4\cdot 3\) and \((x^2 + 1)^2 = (x^2 + 1)\cdot(x^2 + 1)\). The second term leaves \(x(3x - 1)\), because \((3x - 1)^4 = (3x - 1)^3\cdot(3x - 1)\) and \(4x = 4\cdot x\).
 \[\text{numerator} = 4(3x - 1)^3(x^2 + 1)\big[3(x^2 + 1) - x(3x - 1)\big]\]</li>
 <li>Simplify the bracket.
 \[3(x^2 + 1) - x(3x - 1) = 3x^2 + 3 - 3x^2 + x = x + 3\]</li>
 <li>Put the numerator over the denominator and cancel one factor of \((x^2 + 1)\), which leaves \((x^2 + 1)^{4 - 1} = (x^2 + 1)^3\) in the denominator.
 \[y' = \frac{4(3x - 1)^3(x^2 + 1)(x + 3)}{(x^2 + 1)^4} = \frac{4(x + 3)(3x - 1)^3}{(x^2 + 1)^3}\]</li>
-</ol><p class="final">Answer: \(y' = \dfrac{4(x + 3)(3x - 1)^3}{(x^2 + 1)^3}\)</p></div></details></div>
+</ol><p class="final">Answer: \(y' = \dfrac{4(x + 3)(3x - 1)^3}{(x^2 + 1)^3}\)</p>
+<p class="wrong"><b>Where students lose points:</b> Writing the denominator as \((x^2 + 1)^2\) or \((x^2 + 1)^3\) instead of \(\big[(x^2 + 1)^2\big]^2 = (x^2 + 1)^4\). Also common: forgetting the inside derivative 3 in \(u'\) or \(2x\) in \(v'\).</p></div></details></div>
 
-<div class="q" id="u02-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">Find \(f'(x)\) for \(f(x) = (x + 2)^2\sqrt{x^2 + 5}\), and write it as a single fraction.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u02-q14"><div class="qh"><span class="qn">Problem 14</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find \(f'(x)\) for \(f(x) = (x + 2)^2\sqrt{x^2 + 5}\), and write it as a single fraction.</div>
+<details class="hint"><summary>Hint</summary><div>Write the root as the power \(\tfrac12\) and use the product rule. To reach one fraction, pull out \((x^2 + 5)^{-1/2}\), the lower of the two powers of \(x^2 + 5\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Write the root as a power and set up the product rule. Each derivative uses the generalized power rule.
 \[\begin{aligned} u &= (x + 2)^2, & u' &= 2(x + 2)\cdot 1 = 2(x + 2) \\ v &= (x^2 + 5)^{1/2}, & v' &= \tfrac12(x^2 + 5)^{-1/2}\cdot 2x = x(x^2 + 5)^{-1/2} \end{aligned}\]</li>
 <li>Apply the product rule \(f' = u'v + uv'\).
@@ -388,10 +467,11 @@ Also \(v^2 = \big[(x^2 + 1)^2\big]^2 = (x^2 + 1)^4\).</li>
 \[2(x^2 + 5) + x(x + 2) = 2x^2 + 10 + x^2 + 2x = 3x^2 + 2x + 10\]</li>
 <li>Move the negative power to the denominator.
 \[f'(x) = \frac{(x + 2)(3x^2 + 2x + 10)}{\sqrt{x^2 + 5}}\]</li>
-</ol><p class="final">Answer: \(f'(x) = \dfrac{(x + 2)(3x^2 + 2x + 10)}{\sqrt{x^2 + 5}}\)</p></div></details></div>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{(x + 2)(3x^2 + 2x + 10)}{\sqrt{x^2 + 5}}\)</p>
+<p class="wrong"><b>Where students lose points:</b> Trying to pull out \((x^2 + 5)^{1/2}\), the higher power, which leaves a negative power behind in the bracket. Also common: missing that \((x + 2)\) is a factor of both terms, so the final top is left unfactored.</p></div></details></div>
 
-<div class="q" id="u02-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">A spherical balloon is being inflated so that its volume increases at a constant rate of \(36\pi\) cubic centimeters per second. Use the chain rule to find how fast the radius is increasing at the moment the radius is 3 cm, and at the moment the radius is 6 cm. (The volume of a sphere of radius \(r\) is \(V = \tfrac43\pi r^3\).)</div>
-<details class="sol"><summary>Show full solution</summary><div>
+<div class="q" id="u02-q15"><div class="qh"><span class="qn">Problem 15</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A spherical balloon is being inflated so that its volume increases at a constant rate of \(36\pi\) cubic centimeters per second. Use the chain rule to find how fast the radius is increasing at the moment the radius is 3 cm, and at the moment the radius is 6 cm. (The volume of a sphere of radius \(r\) is \(V = \tfrac43\pi r^3\).)</div>
+<details class="hint"><summary>Hint</summary><div>Volume depends on radius, and radius depends on time. Write \(\frac{dV}{dt} = \frac{dV}{dr}\cdot\frac{dr}{dt}\), put in the known value of \(\frac{dV}{dt}\), and solve for \(\frac{dr}{dt}\).</div></details><details class="sol"><summary>Show full solution</summary><div>
 <svg class="dia" viewBox="0 0 320 200"><circle cx="160" cy="100" r="80" stroke="currentColor" fill="none"/><ellipse cx="160" cy="100" rx="80" ry="22" stroke="currentColor" fill="none"/><line x1="160" y1="100" x2="240" y2="100" stroke="currentColor"/><circle cx="160" cy="100" r="2" stroke="currentColor" fill="none"/><text x="195" y="92" fill="currentColor" font-size="16">r</text><text x="128" y="60" fill="currentColor" font-size="16">V</text></svg>
 <ol class="steps">
 <li>Define the variables. Let \(t\) be the time in seconds, \(r\) the radius of the balloon in cm, and \(V\) its volume in cubic cm. Both \(r\) and \(V\) change with time. We are told \(\dfrac{dV}{dt} = 36\pi\) cm\(^3\) per second, and we want \(\dfrac{dr}{dt}\).</li>
@@ -404,10 +484,11 @@ Also \(v^2 = \big[(x^2 + 1)^2\big]^2 = (x^2 + 1)^4\).</li>
 <li>Evaluate at \(r = 3\) and at \(r = 6\).
 \[r = 3: \ \frac{dr}{dt} = \frac{9}{3^2} = \frac99 = 1, \qquad r = 6: \ \frac{dr}{dt} = \frac{9}{6^2} = \frac{9}{36} = \frac14\]</li>
 <li>Interpret. Air goes in at the same rate the whole time, but a bigger balloon needs more air to grow its radius by the same amount, so the radius grows more slowly as the balloon gets larger.</li>
-</ol><p class="final">Answer: When the radius is 3 cm it is increasing at 1 cm per second. When the radius is 6 cm it is increasing at \(\tfrac14\) cm per second.</p></div></details></div>
+</ol><p class="final">Answer: When the radius is 3 cm it is increasing at 1 cm per second. When the radius is 6 cm it is increasing at \(\tfrac14\) cm per second.</p>
+<p class="wrong"><b>Where students lose points:</b> Substituting \(r = 3\) into the volume formula before differentiating, which turns \(V\) into a constant with derivative 0. Also common: answering without units, or giving cm\(^3\) per second for a rate of change of a length.</p></div></details></div>
 
-<div class="q" id="u02-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">When food is taken out of a refrigerator, the number of bacteria in it is \(N(T) = 10T^2 - 40T + 300\), where \(T\) is the temperature of the food in degrees Celsius. The temperature \(t\) hours after the food is taken out is \(T(t) = 2 + 3t\) for \(0 \le t \le 6\). (a) Use the chain rule to find \(\dfrac{dN}{dt}\) as a function of \(t\). (b) How fast is the number of bacteria changing 2 hours after the food is taken out? (c) Check part (a) by writing \(N\) directly as a function of \(t\) and differentiating.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u02-q16"><div class="qh"><span class="qn">Problem 16</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">When food is taken out of a refrigerator, the number of bacteria in it is \(N(T) = 10T^2 - 40T + 300\), where \(T\) is the temperature of the food in degrees Celsius. The temperature \(t\) hours after the food is taken out is \(T(t) = 2 + 3t\) for \(0 \le t \le 6\). (a) Use the chain rule to find \(\dfrac{dN}{dt}\) as a function of \(t\). (b) How fast is the number of bacteria changing 2 hours after the food is taken out? (c) Check part (a) by writing \(N\) directly as a function of \(t\) and differentiating.</div>
+<details class="hint"><summary>Hint</summary><div>Write \(\frac{dN}{dt} = \frac{dN}{dT}\cdot\frac{dT}{dt}\). In part (b), the rate \(\frac{dN}{dT}\) must be evaluated at the temperature at that time, not at the time itself.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) Define the variables: \(t\) is time in hours, \(T\) is temperature in degrees Celsius, and \(N\) is the number of bacteria. The count depends on temperature and temperature depends on time, so
 \[\frac{dN}{dt} = \frac{dN}{dT}\cdot\frac{dT}{dt}.\]</li>
 <li>(a) Differentiate each piece with the power rule.
@@ -420,10 +501,11 @@ Also \(v^2 = \big[(x^2 + 1)^2\big]^2 = (x^2 + 1)^4\).</li>
 \[\begin{aligned} N &= 10(2 + 3t)^2 - 40(2 + 3t) + 300 \\ &= 40 + 120t + 90t^2 - 80 - 120t + 300 \\ &= 90t^2 + 260 \end{aligned}\]</li>
 <li>(c) Differentiate directly. This agrees with part (a).
 \[\frac{dN}{dt} = 180t\]</li>
-</ol><p class="final">Answer: (a) \(\dfrac{dN}{dt} = 180t\). (b) Two hours after the food is taken out, the number of bacteria is increasing at 360 bacteria per hour. (c) \(N = 90t^2 + 260\), whose derivative is \(180t\), matching part (a).</p></div></details></div>
+</ol><p class="final">Answer: (a) \(\dfrac{dN}{dt} = 180t\). (b) Two hours after the food is taken out, the number of bacteria is increasing at 360 bacteria per hour. (c) \(N = 90t^2 + 260\), whose derivative is \(180t\), matching part (a).</p>
+<p class="wrong"><b>Where students lose points:</b> In part (b), putting \(T = 2\) (the number of hours) into \(\frac{dN}{dT} = 20T - 40\). That gives \(3(40 - 40) = 0\), which is wrong. The temperature at \(t = 2\) is \(T = 2 + 3(2) = 8\), and \(3(20\cdot 8 - 40) = 360\).</p></div></details></div>
 
-<div class="q" id="u02-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">Let \(y = \sqrt{x + \sqrt{x^2 + 9}}\). Find \(\dfrac{dy}{dx}\) and its value at \(x = 4\).</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u02-q17"><div class="qh"><span class="qn">Problem 17</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(y = \sqrt{x + \sqrt{x^2 + 9}}\). Find \(\dfrac{dy}{dx}\) and its value at \(x = 4\).</div>
+<details class="hint"><summary>Hint</summary><div>There are three layers: the outer square root, then \(x\) plus a second square root, then \(x^2 + 9\). Differentiate from the outside in, keeping each inside unchanged.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Identify the layers from the outside in. The outermost operation is a square root. Inside it is \(x + \sqrt{x^2 + 9}\). Inside the second root is \(x^2 + 9\).
 \[y = \Big(x + (x^2 + 9)^{1/2}\Big)^{1/2}\]</li>
 <li>Outermost layer. Use the generalized power rule with exponent \(\tfrac12\), leaving the inside unchanged.
@@ -432,15 +514,18 @@ Also \(v^2 = \big[(x^2 + 1)^2\big]^2 = (x^2 + 1)^4\).</li>
 \[\frac{d}{dx}\Big[x + (x^2 + 9)^{1/2}\Big] = 1 + \tfrac12(x^2 + 9)^{-1/2}\cdot 2x = 1 + \frac{x}{\sqrt{x^2 + 9}}\]</li>
 <li>Put the factors together.
 \[\frac{dy}{dx} = \frac{1}{2\sqrt{x + \sqrt{x^2 + 9}}}\left(1 + \frac{x}{\sqrt{x^2 + 9}}\right)\]</li>
-<li>Simplify. Write \(1 + \dfrac{x}{\sqrt{x^2 + 9}} = \dfrac{\sqrt{x^2 + 9} + x}{\sqrt{x^2 + 9}}\). The numerator \(x + \sqrt{x^2 + 9}\) equals \(\left(\sqrt{x + \sqrt{x^2 + 9}}\right)^2\), so one square root cancels.
-\[\frac{dy}{dx} = \frac{x + \sqrt{x^2 + 9}}{2\sqrt{x + \sqrt{x^2 + 9}}\,\sqrt{x^2 + 9}} = \frac{\sqrt{x + \sqrt{x^2 + 9}}}{2\sqrt{x^2 + 9}}\]</li>
+<li>Simplify. To shorten the writing, call the outer inside \(A = x + \sqrt{x^2 + 9}\). Write the bracket as one fraction over the common denominator \(\sqrt{x^2 + 9}\).
+\[1 + \frac{x}{\sqrt{x^2 + 9}} = \frac{\sqrt{x^2 + 9}}{\sqrt{x^2 + 9}} + \frac{x}{\sqrt{x^2 + 9}} = \frac{\sqrt{x^2 + 9} + x}{\sqrt{x^2 + 9}} = \frac{A}{\sqrt{x^2 + 9}}\]
+Multiply the two fractions. Since \(A = \sqrt{A}\cdot\sqrt{A}\), one \(\sqrt{A}\) cancels from the top and the bottom.
+\[\frac{dy}{dx} = \frac{1}{2\sqrt{A}}\cdot\frac{A}{\sqrt{x^2 + 9}} = \frac{\sqrt{A}\cdot\sqrt{A}}{2\sqrt{A}\,\sqrt{x^2 + 9}} = \frac{\sqrt{A}}{2\sqrt{x^2 + 9}} = \frac{\sqrt{x + \sqrt{x^2 + 9}}}{2\sqrt{x^2 + 9}}\]</li>
 <li>Substitute \(x = 4\). First \(\sqrt{4^2 + 9} = \sqrt{25} = 5\), then \(\sqrt{4 + 5} = \sqrt9 = 3\).
 \[\frac{dy}{dx}\bigg|_{x = 4} = \frac{3}{2(5)} = \frac{3}{10}\]
 The unsimplified form gives the same value: \(\dfrac{1}{2(3)}\left(1 + \dfrac45\right) = \dfrac16\cdot\dfrac95 = \dfrac{9}{30} = \dfrac{3}{10}\).</li>
-</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{\sqrt{x + \sqrt{x^2 + 9}}}{2\sqrt{x^2 + 9}}\), and at \(x = 4\) it equals \(\dfrac{3}{10}\).</p></div></details></div>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{\sqrt{x + \sqrt{x^2 + 9}}}{2\sqrt{x^2 + 9}}\), and at \(x = 4\) it equals \(\dfrac{3}{10}\).</p>
+<p class="wrong"><b>Where students lose points:</b> Forgetting the derivative 1 of the lone \(x\) inside the outer root, or dropping the \(2x\) from the innermost layer. Students also lose the \(\tfrac12\) from the outer root when they rewrite it as a fraction.</p></div></details></div>
 </section>
-<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u02-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \sqrt{3 + (x^3 - 7)^2}\). Find \(f'(x)\), and find an equation of the tangent line to the graph of \(f\) at the point where \(x = 2\).</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u02-q18"><div class="qh"><span class="qn">Problem 18</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = \sqrt{3 + (x^3 - 7)^2}\). Find \(f'(x)\), and find an equation of the tangent line to the graph of \(f\) at the point where \(x = 2\).</div>
+<details class="hint"><summary>Hint</summary><div>Count the layers: a square root, then \(3\) plus a square, then \(x^3 - 7\). The derivative has one factor per layer. The point comes from \(f(2)\) and the slope from \(f'(2)\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>Identify the layers from the outside in. The outermost operation is a square root. Inside it is \(3 + (x^3 - 7)^2\). Inside the square is \(x^3 - 7\). So there are three layers, and the derivative will have three factors.
 \[f(x) = \Big(3 + (x^3 - 7)^2\Big)^{1/2}\]</li>
 <li>Outermost layer. Use the generalized power rule with exponent \(\tfrac12\), leaving \(3 + (x^3 - 7)^2\) unchanged.
@@ -457,15 +542,17 @@ The unsimplified form gives the same value: \(\dfrac{1}{2(3)}\left(1 + \dfrac45\
 \[m = f'(2) = \frac{3(4)(1)}{2} = \frac{12}{2} = 6\]</li>
 <li>Write the tangent line in point-slope form and solve for \(y\).
 \[y - 2 = 6(x - 2) \quad\Longrightarrow\quad y - 2 = 6x - 12 \quad\Longrightarrow\quad y = 6x - 10\]</li>
-</ol><p class="final">Answer: \(f'(x) = \dfrac{3x^2(x^3 - 7)}{\sqrt{3 + (x^3 - 7)^2}}\), and the tangent line at \(x = 2\) is \(y = 6x - 10\).</p></div></details></div>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{3x^2(x^3 - 7)}{\sqrt{3 + (x^3 - 7)^2}}\), and the tangent line at \(x = 2\) is \(y = 6x - 10\).</p>
+<p class="wrong"><b>Where students lose points:</b> Leaving out the factor \(3x^2\) from the innermost layer, which gives slope \(\tfrac12\) instead of 6. Also common: using the slope as the \(y\) value of the point, instead of computing \(f(2) = 2\).</p></div></details></div>
 
-<div class="q" id="u02-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^2\sqrt{x + 5}\). Find \(f'(x)\) and write it as a single factored fraction. Then find all points on the graph of \(f\) where the tangent line is horizontal.</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u02-q19"><div class="qh"><span class="qn">Problem 19</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = x^2\sqrt{x + 5}\). Find \(f'(x)\) and write it as a single factored fraction. Then find all points on the graph of \(f\) where the tangent line is horizontal.</div>
+<details class="hint"><summary>Hint</summary><div>Use the product rule with \(v = (x + 5)^{1/2}\). Then pull out \(\tfrac12 x(x + 5)^{-1/2}\) to reach one fraction, and set its numerator equal to 0.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>The domain of \(f\) is \(x + 5 \ge 0\), that is, \(x \ge -5\). Write the root as a power and set up the product rule, using the generalized power rule for \(v'\).
 \[\begin{aligned} u &= x^2, & u' &= 2x \\ v &= (x + 5)^{1/2}, & v' &= \tfrac12(x + 5)^{-1/2}\cdot 1 = \tfrac12(x + 5)^{-1/2} \end{aligned}\]</li>
 <li>Apply the product rule \(f' = u'v + uv'\).
 \[f'(x) = 2x(x + 5)^{1/2} + \tfrac12x^2(x + 5)^{-1/2}\]</li>
-<li>Factor. Pull out \(\tfrac12\), the lowest power of \(x\), which is \(x^1\), and the lowest power of \((x + 5)\), which is \(-\tfrac12\). From the first term this leaves \(4(x + 5)^{1/2 - (-1/2)} = 4(x + 5)\), because \(2x = \tfrac12\cdot x\cdot 4\). From the second term it leaves \(x\).
+<li>Factor. Pull out \(\tfrac12\), the lowest power of \(x\), which is \(x^1\), and the lowest power of \((x + 5)\), which is \(-\tfrac12\). So the common factor is \(\tfrac12 x(x + 5)^{-1/2}\). Divide each term by it to see what is left.
+\[\frac{2x(x + 5)^{1/2}}{\tfrac12 x(x + 5)^{-1/2}} = 4(x + 5)^{1/2 - (-1/2)} = 4(x + 5), \qquad \frac{\tfrac12 x^2(x + 5)^{-1/2}}{\tfrac12 x(x + 5)^{-1/2}} = x\]
 \[f'(x) = \tfrac12x(x + 5)^{-1/2}\big[4(x + 5) + x\big]\]</li>
 <li>Simplify the bracket and factor out 5.
 \[4(x + 5) + x = 4x + 20 + x = 5x + 20 = 5(x + 4)\]</li>
@@ -477,10 +564,11 @@ The unsimplified form gives the same value: \(\dfrac{1}{2(3)}\left(1 + \dfrac45\
 <div class="plot" data-f="x**2*Math.sqrt(x+5)" data-x="-5,1" data-y="-2,18"
      data-pts="-4,16,horizontal tangent (-4, 16)|0,0,horizontal tangent (0, 0)"
      data-cap="Graph of f(x) = x^2 sqrt(x + 5) with its two horizontal tangents"></div></li>
-</ol><p class="final">Answer: \(f'(x) = \dfrac{5x(x + 4)}{2\sqrt{x + 5}}\). The tangent line is horizontal at \((-4, 16)\) and \((0, 0)\).</p></div></details></div>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{5x(x + 4)}{2\sqrt{x + 5}}\). The tangent line is horizontal at \((-4, 16)\) and \((0, 0)\).</p>
+<p class="wrong"><b>Where students lose points:</b> Listing \(x = -5\) as a horizontal tangent. There the denominator is 0, so \(f'(-5)\) does not exist. Also common: giving only the \(x\) values and forgetting to compute the \(y\) values from \(f\).</p></div></details></div>
 
-<div class="q" id="u02-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">Let \(h(x) = \dfrac{(x^2 + 1)^3}{(2x - 1)^4}\). Find \(h'(x)\), simplify it to a single fraction in factored form, and find \(h'(1)\).</div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<div class="q" id="u02-q20"><div class="qh"><span class="qn">Problem 20</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(h(x) = \dfrac{(x^2 + 1)^3}{(2x - 1)^4}\). Find \(h'(x)\), simplify it to a single fraction in factored form, and find \(h'(1)\).</div>
+<details class="hint"><summary>Hint</summary><div>Quotient rule, with the generalized power rule for the top and the bottom. Pull \(2(x^2 + 1)^2(2x - 1)^3\) out of the numerator, then cancel \((2x - 1)^3\) against the denominator.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>This is a quotient, so set up the quotient rule. Both derivatives use the generalized power rule.
 \[\begin{aligned} u &= (x^2 + 1)^3, & u' &= 3(x^2 + 1)^2\cdot 2x = 6x(x^2 + 1)^2 \\ v &= (2x - 1)^4, & v' &= 4(2x - 1)^3\cdot 2 = 8(2x - 1)^3 \end{aligned}\]
 Also \(v^2 = \big[(2x - 1)^4\big]^2 = (2x - 1)^8\).</li>
@@ -494,14 +582,15 @@ Also \(v^2 = \big[(2x - 1)^4\big]^2 = (2x - 1)^8\).</li>
 \[h'(x) = \frac{2(x^2 + 1)^2(2x - 1)^3(2x^2 - 3x - 4)}{(2x - 1)^8} = \frac{2(x^2 + 1)^2(2x^2 - 3x - 4)}{(2x - 1)^5}\]</li>
 <li>Substitute \(x = 1\). The pieces are \(1^2 + 1 = 2\), \(2(1)^2 - 3(1) - 4 = 2 - 3 - 4 = -5\), and \(2(1) - 1 = 1\).
 \[h'(1) = \frac{2(2)^2(-5)}{1^5} = \frac{2\cdot 4\cdot(-5)}{1} = -40\]</li>
-</ol><p class="final">Answer: \(h'(x) = \dfrac{2(x^2 + 1)^2(2x^2 - 3x - 4)}{(2x - 1)^5}\) and \(h'(1) = -40\).</p></div></details></div>
+</ol><p class="final">Answer: \(h'(x) = \dfrac{2(x^2 + 1)^2(2x^2 - 3x - 4)}{(2x - 1)^5}\) and \(h'(1) = -40\).</p>
+<p class="wrong"><b>Where students lose points:</b> Writing the denominator as \((2x - 1)^6\) or \((2x - 1)^{16}\) instead of \(\big[(2x - 1)^4\big]^2 = (2x - 1)^8\). Also common: dropping the inside derivative 2 in \(v' = 8(2x - 1)^3\), or a sign slip when expanding \(-4(x^2 + 1)\).</p></div></details></div>
 
-<div class="q" id="u02-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">Use the table to find (a) \(H'(1)\) for \(H(x) = f\Big(g\big(f(x)\big)\Big)\), (b) \(K'(1)\) for \(K(x) = x\,f(x^2 + 2)\), and (c) \(L'(2)\) for \(L(x) = \sqrt{f(x) + g(x)}\).
+<div class="q" id="u02-q21"><div class="qh"><span class="qn">Problem 21</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Use the table to find (a) \(H'(1)\) for \(H(x) = f\Big(g\big(f(x)\big)\Big)\), (b) \(K'(1)\) for \(K(x) = x\,f(x^2 + 2)\), and (c) \(L'(2)\) for \(L(x) = \sqrt{f(x) + g(x)}\).
 <table class="t"><tr><th>\(x\)</th><th>\(f(x)\)</th><th>\(g(x)\)</th><th>\(f'(x)\)</th><th>\(g'(x)\)</th></tr>
 <tr><td>1</td><td>2</td><td>3</td><td>\(-1\)</td><td>4</td></tr>
 <tr><td>2</td><td>3</td><td>1</td><td>5</td><td>\(-2\)</td></tr>
 <tr><td>3</td><td>1</td><td>2</td><td>2</td><td>6</td></tr></table></div>
-<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<details class="hint"><summary>Hint</summary><div>Write each chain rule formula with letters first. Then work from the inside out: find the inside values from the table before you read any derivative.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
 <li>(a) \(H\) has three layers: \(f\) on the outside, then \(g\), then \(f\) on the inside. The chain rule gives one factor per layer.
 \[H'(x) = f'\Big(g\big(f(x)\big)\Big)\cdot g'\big(f(x)\big)\cdot f'(x)\]</li>
 <li>(a) Work out the inner values at \(x = 1\) from the table, starting with the innermost function.
@@ -517,7 +606,159 @@ Also \(v^2 = \big[(2x - 1)^4\big]^2 = (2x - 1)^8\).</li>
 \[L(x) = \big(f(x) + g(x)\big)^{1/2}, \qquad L'(x) = \tfrac12\big(f(x) + g(x)\big)^{-1/2}\big(f'(x) + g'(x)\big) = \frac{f'(x) + g'(x)}{2\sqrt{f(x) + g(x)}}\]</li>
 <li>(c) Substitute \(x = 2\). The row \(x = 2\) gives \(f(2) + g(2) = 3 + 1 = 4\) and \(f'(2) + g'(2) = 5 + (-2) = 3\).
 \[L'(2) = \frac{3}{2\sqrt4} = \frac{3}{2\cdot 2} = \frac34\]</li>
-</ol><p class="final">Answer: (a) \(H'(1) = -2\). (b) \(K'(1) = 5\). (c) \(L'(2) = \dfrac34\).</p></div></details></div>
+</ol><p class="final">Answer: (a) \(H'(1) = -2\). (b) \(K'(1) = 5\). (c) \(L'(2) = \dfrac34\).</p>
+<p class="wrong"><b>Where students lose points:</b> In (a), reading the outer \(f'\) at \(g(1)\) instead of at \(g\big(f(1)\big)\). In (b), forgetting the product rule term \(f(x^2 + 2)\), or forgetting the factor \(2x\) from the inside function \(x^2 + 2\).</p></div></details></div>
+</section>
+<section id="L5"><div class="lvl"><h2>Level 5: More variations</h2><span>Every other way this section can be asked.</span></div><div class="q" id="u02-q22"><div class="qh"><span class="qn">Problem 22</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Oil leaking from a pipe spreads over the water as a circle. The radius of the circle \(t\) minutes after the leak starts is \(r(t) = 2t + 1\) feet, and the area of a circle of radius \(r\) is \(A(r) = \pi r^2\) square feet. (a) Find \(A\big(r(t)\big)\) and say in a sentence what it represents. (b) Find the area of the slick 3 minutes after the leak starts. (c) Use the chain rule to find how fast the area is growing at \(t = 3\), and check your answer by differentiating your formula from part (a). (d) Explain why \(r\big(A(t)\big)\) has no meaning here.</div>
+<details class="hint"><summary>Hint</summary><div>In part (a), the radius formula goes inside the area formula. In part (c), area depends on radius and radius depends on time.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Define the variables: \(t\) is time in minutes since the leak started, \(r\) is the radius in feet, and \(A\) is the area in square feet. To form \(A\big(r(t)\big)\), replace \(r\) in \(A(r) = \pi r^2\) by \(2t + 1\).
+\[A\big(r(t)\big) = \pi(2t + 1)^2\]
+This is the area of the slick, in square feet, \(t\) minutes after the leak starts.</li>
+<li>(b) Work from the inside out. First find the radius at \(t = 3\), then put that radius into the area formula.
+\[r(3) = 2(3) + 1 = 7, \qquad A(7) = \pi(7)^2 = 49\pi\]</li>
+<li>(c) Area depends on radius, and radius depends on time, so by the chain rule
+\[\frac{dA}{dt} = \frac{dA}{dr}\cdot\frac{dr}{dt}.\]
+Find each piece with the power rule.
+\[\frac{dA}{dr} = 2\pi r, \qquad \frac{dr}{dt} = 2\]</li>
+<li>(c) Evaluate \(\frac{dA}{dr}\) at the radius at time 3, which is \(r = 7\), and multiply.
+\[\frac{dA}{dt}\bigg|_{t = 3} = 2\pi(7)\cdot 2 = 28\pi\]</li>
+<li>(c) Check with the formula from part (a). Use the generalized power rule with inside \(2t + 1\), whose derivative is 2.
+\[\frac{d}{dt}\Big[\pi(2t + 1)^2\Big] = \pi\cdot 2(2t + 1)\cdot 2 = 4\pi(2t + 1)\]
+At \(t = 3\) this is \(4\pi(7) = 28\pi\), which matches.</li>
+<li>(d) The function \(r\) expects a time in minutes as its input. The output of \(A\) is an area in square feet, so feeding an area into \(r\) as if it were a time makes no sense. In \(A\big(r(t)\big)\) the units line up: \(r\) turns minutes into feet, and \(A\) turns feet into square feet.</li>
+</ol><p class="final">Answer: (a) \(A\big(r(t)\big) = \pi(2t + 1)^2\), the area in square feet after \(t\) minutes. (b) \(49\pi\) square feet. (c) At \(t = 3\) the area is growing at \(28\pi\) square feet per minute. (d) \(r\) needs a time as input, but \(A\) produces an area, so \(r\big(A(t)\big)\) mixes units and has no meaning.</p>
+<p class="wrong"><b>Where students lose points:</b> In part (c), putting \(t = 3\) into \(\frac{dA}{dr} = 2\pi r\) instead of the radius \(r = 7\), which gives \(12\pi\). Also common: forgetting the factor \(\frac{dr}{dt} = 2\).</p></div></details></div>
+
+<div class="q" id="u02-q23"><div class="qh"><span class="qn">Problem 23</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Each statement below is false. For each one, explain the error in a sentence and give the correct statement. (a) \(\dfrac{d}{dx}(2x^3 + 7x)^5 = 5(6x^2 + 7)^4\). (b) \(\dfrac{d}{dx}\sqrt{x^2 + 9} = \dfrac{1}{2\sqrt{x^2 + 9}}\). (c) For all functions \(f\) and \(g\), \(f\big(g(x)\big) = g\big(f(x)\big)\). (d) If \(F(x) = f\big(g(x)\big)\), then \(F'(2) = f'(2)\cdot g'(2)\). (e) Then explain in two sentences why the generalized power rule is a consequence of the chain rule and the power rule.</div>
+<details class="hint"><summary>Hint</summary><div>For (a) and (b), redo each derivative with the chain rule and compare. For (c) and (d), a single example with actual numbers is enough to show that a claim is false.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) The error is that the derivative of the inside was put inside the power, and the inside function itself was thrown away. The outside derivative must keep the inside unchanged, and then you multiply by the inside derivative \(6x^2 + 7\).
+\[\frac{d}{dx}(2x^3 + 7x)^5 = 5(2x^3 + 7x)^4\cdot(6x^2 + 7)\]</li>
+<li>(b) The error is that the inside derivative is missing. The inside is \(x^2 + 9\), whose derivative is \(2x\). Write the root as a power and use the generalized power rule.
+\[\frac{d}{dx}(x^2 + 9)^{1/2} = \tfrac12(x^2 + 9)^{-1/2}\cdot 2x = \frac{2x}{2\sqrt{x^2 + 9}} = \frac{x}{\sqrt{x^2 + 9}}\]</li>
+<li>(c) Composition depends on order, so one counterexample shows the claim is false. Take \(f(x) = x^2\) and \(g(x) = x + 1\), and test \(x = 1\).
+\[f\big(g(1)\big) = f(2) = 4, \qquad g\big(f(1)\big) = g(1) = 2\]
+Since \(4 \ne 2\), the two composites are different. The correct statement is that \(f \circ g\) and \(g \circ f\) are in general different functions.</li>
+<li>(d) The error is that \(f'\) must be evaluated at \(g(2)\), not at 2. The correct statement is \(F'(2) = f'\big(g(2)\big)\cdot g'(2)\). To see that the original claim fails, take \(f(x) = x^2\) and \(g(x) = 3x\). Then \(F(x) = (3x)^2 = 9x^2\), so \(F'(x) = 18x\).
+\[F'(2) = 18(2) = 36, \qquad f'(2)\cdot g'(2) = (2\cdot 2)(3) = 12\]
+These differ. The correct formula gives \(f'\big(g(2)\big)\cdot g'(2) = f'(6)\cdot 3 = 12\cdot 3 = 36\), which matches.</li>
+<li>(e) The function \([g(x)]^r\) is the composite \(f\big(g(x)\big)\) with outside function \(f(x) = x^r\). By the power rule \(f'(x) = rx^{r-1}\), so the chain rule gives \(f'\big(g(x)\big)\cdot g'(x) = r[g(x)]^{r-1}\cdot g'(x)\), which is exactly the generalized power rule.</li>
+</ol><p class="final">Answer: (a) \(5(2x^3 + 7x)^4(6x^2 + 7)\). (b) \(\dfrac{x}{\sqrt{x^2 + 9}}\). (c) False; with \(f(x) = x^2\), \(g(x) = x + 1\), \(f(g(1)) = 4\) but \(g(f(1)) = 2\). (d) The correct rule is \(F'(2) = f'\big(g(2)\big)\cdot g'(2)\); for \(f(x) = x^2\), \(g(x) = 3x\) it gives 36, not 12. (e) \([g(x)]^r = f(g(x))\) with \(f(x) = x^r\), and the chain rule with \(f'(x) = rx^{r-1}\) gives \(r[g(x)]^{r-1}g'(x)\).</p>
+<p class="wrong"><b>Where students lose points:</b> Saying only "false" without a reason or counterexample, which earns little credit on an "explain" question. In (c), choosing a test value where the two composites happen to agree (here \(x = 0\) gives 1 both times) and wrongly concluding the claim is true.</p></div></details></div>
+
+<div class="q" id="u02-q24"><div class="qh"><span class="qn">Problem 24</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(a) Find the derivative of \(y = \dfrac{8}{(4x - 3)^2}\) in two ways: with the quotient rule, and with the generalized power rule. Show that the answers agree and say which method is shorter. (b) Find the derivative of \(y = \big((x^2)^3\big)^2\) in two ways: by using the chain rule twice, and by simplifying first with the rules of exponents.</div>
+<details class="hint"><summary>Hint</summary><div>For the power rule method in (a), rewrite the fraction as \(8(4x - 3)^{-2}\). For (b), there are two layers around \(x^2\), so the chain rule gives three factors.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Quotient rule. Let \(u = 8\) and \(v = (4x - 3)^2\). A constant has derivative 0, and \(v'\) needs the generalized power rule with inside \(4x - 3\), whose derivative is 4.
+\[u' = 0, \qquad v' = 2(4x - 3)\cdot 4 = 8(4x - 3), \qquad v^2 = (4x - 3)^4\]</li>
+<li>(a) Apply \(y' = \dfrac{u'v - uv'}{v^2}\), then cancel one factor of \((4x - 3)\) from the top and the bottom.
+\[y' = \frac{0\cdot(4x - 3)^2 - 8\cdot 8(4x - 3)}{(4x - 3)^4} = \frac{-64(4x - 3)}{(4x - 3)^4} = -\frac{64}{(4x - 3)^3}\]</li>
+<li>(a) Generalized power rule. Rewrite as a negative power. The exponent is \(-2\), and the new exponent is \(-2 - 1 = -3\).
+\[y = 8(4x - 3)^{-2}, \qquad y' = 8\cdot(-2)(4x - 3)^{-3}\cdot 4 = -64(4x - 3)^{-3} = -\frac{64}{(4x - 3)^3}\]
+The two answers agree. The power rule method is shorter: one line, no zero term to carry, and no cancelling.</li>
+<li>(b) Chain rule twice. The outside layer is squaring, the middle layer is cubing, and the inside is \(x^2\). Differentiate the outside and keep \((x^2)^3\) unchanged.
+\[y' = 2\big((x^2)^3\big)^1\cdot\frac{d}{dx}\Big[(x^2)^3\Big]\]</li>
+<li>(b) Differentiate the middle layer, keeping \(x^2\) unchanged, and multiply by the inside derivative \(2x\).
+\[\frac{d}{dx}\Big[(x^2)^3\Big] = 3(x^2)^2\cdot 2x\]</li>
+<li>(b) Put the factors together. Use \((x^2)^3 = x^6\) and \((x^2)^2 = x^4\), then add the exponents \(6 + 4 + 1 = 11\).
+\[y' = 2x^6\cdot 3x^4\cdot 2x = 12x^{11}\]</li>
+<li>(b) Simplify first. A power of a power multiplies the exponents: \((x^2)^3 = x^{6}\), and \((x^6)^2 = x^{12}\). Then use the plain power rule.
+\[y = x^{12}, \qquad y' = 12x^{11}\]
+Both methods agree.</li>
+</ol><p class="final">Answer: (a) \(y' = -\dfrac{64}{(4x - 3)^3}\) by both methods; the generalized power rule is shorter. (b) \(y' = 12x^{11}\) by both methods.</p>
+<p class="wrong"><b>Where students lose points:</b> In the quotient rule, writing \(v' = 2(4x - 3)\) and forgetting the factor 4. In (b), adding exponents where they should be multiplied, writing \((x^2)^3 = x^5\).</p></div></details></div>
+
+<div class="q" id="u02-q25"><div class="qh"><span class="qn">Problem 25</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(y = \dfrac{(x + 2)^4}{x^2 - 4}\). (a) Give the domain, and simplify the fraction before differentiating. (b) Find \(y'\) in factored form. (c) Find every point on the graph where the tangent line is horizontal.</div>
+<details class="hint"><summary>Hint</summary><div>Factor the bottom as a difference of squares and cancel one factor of \(x + 2\). Remember which inputs were excluded before you cancelled.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) The function is undefined where the bottom is 0. Factor the bottom as a difference of squares.
+\[x^2 - 4 = (x - 2)(x + 2) = 0 \quad\Longleftrightarrow\quad x = 2 \ \text{ or } \ x = -2\]
+So the domain is every real number except \(x = 2\) and \(x = -2\).</li>
+<li>(a) Cancel one factor of \((x + 2)\) from the top and the bottom. This is valid for every \(x\) in the domain, and \(x = -2\) stays excluded even though it no longer makes the bottom 0.
+\[y = \frac{(x + 2)^4}{(x - 2)(x + 2)} = \frac{(x + 2)^3}{x - 2}, \qquad x \ne \pm 2\]</li>
+<li>(b) Use the quotient rule on the simpler form. The top needs the generalized power rule; its inside \(x + 2\) has derivative 1.
+\[u = (x + 2)^3, \quad u' = 3(x + 2)^2, \qquad v = x - 2, \quad v' = 1\]
+\[y' = \frac{3(x + 2)^2(x - 2) - (x + 2)^3\cdot 1}{(x - 2)^2}\]</li>
+<li>(b) Factor the top by pulling out the lowest power of \((x + 2)\), which is \((x + 2)^2\). The first term leaves \(3(x - 2)\), and the second term leaves \((x + 2)\).
+\[\text{top} = (x + 2)^2\big[3(x - 2) - (x + 2)\big] = (x + 2)^2\big[3x - 6 - x - 2\big] = (x + 2)^2(2x - 8) = 2(x + 2)^2(x - 4)\]
+\[y' = \frac{2(x + 2)^2(x - 4)}{(x - 2)^2}\]</li>
+<li>(c) The tangent line is horizontal where \(y' = 0\), which happens when the top is 0 and the bottom is not. The top is 0 at \(x = -2\) and at \(x = 4\). But \(x = -2\) is not in the domain of the original function, so the graph has no point there. Only \(x = 4\) remains.</li>
+<li>(c) Find the \(y\) value at \(x = 4\) from the function. Use the simplified form and check with the original.
+\[y(4) = \frac{6^3}{4 - 2} = \frac{216}{2} = 108, \qquad \frac{(4 + 2)^4}{4^2 - 4} = \frac{1296}{12} = 108\]</li>
+</ol><p class="final">Answer: (a) Domain: all \(x\) except \(\pm 2\); \(y = \dfrac{(x + 2)^3}{x - 2}\) there. (b) \(y' = \dfrac{2(x + 2)^2(x - 4)}{(x - 2)^2}\). (c) The only horizontal tangent is at \((4, 108)\); \(x = -2\) is excluded because it is not in the domain.</p>
+<p class="wrong"><b>Where students lose points:</b> Listing \(x = -2\) as a horizontal tangent because the simplified formula hides that it was excluded. Also common: getting the \(y\) value by substituting into \(y'\) instead of \(y\).</p></div></details></div>
+
+<div class="q" id="u02-q26"><div class="qh"><span class="qn">Problem 26</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Let \(f(x) = (x^2 + k)^3\), where \(k\) is a constant. Find every value of \(k\) for which the tangent line to the graph of \(f\) at \(x = 1\) has slope 54. For each such \(k\), find the equation of that tangent line.</div>
+<details class="hint"><summary>Hint</summary><div>Find \(f'(x)\) with \(k\) still in it, substitute \(x = 1\), and set the result equal to 54. A squared quantity equal to a positive number has two solutions.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find \(f'(x)\) with the generalized power rule. The inside is \(x^2 + k\), and since \(k\) is a constant its derivative is \(2x\).
+\[f'(x) = 3(x^2 + k)^2\cdot 2x = 6x(x^2 + k)^2\]</li>
+<li>The slope at \(x = 1\) is \(f'(1)\). Set it equal to 54 and divide both sides by 6.
+\[f'(1) = 6(1)(1 + k)^2 = 54 \quad\Longrightarrow\quad (1 + k)^2 = 9\]</li>
+<li>Take square roots, keeping both signs.
+\[1 + k = 3 \ \text{ or } \ 1 + k = -3 \quad\Longrightarrow\quad k = 2 \ \text{ or } \ k = -4\]</li>
+<li>For \(k = 2\), the point is \(f(1) = (1 + 2)^3 = 27\). Use point-slope form with slope 54.
+\[y - 27 = 54(x - 1) \quad\Longrightarrow\quad y = 54x - 54 + 27 = 54x - 27\]</li>
+<li>For \(k = -4\), the point is \(f(1) = (1 - 4)^3 = (-3)^3 = -27\). Use point-slope form with slope 54.
+\[y - (-27) = 54(x - 1) \quad\Longrightarrow\quad y = 54x - 54 - 27 = 54x - 81\]</li>
+</ol><p class="final">Answer: \(k = 2\), with tangent line \(y = 54x - 27\); and \(k = -4\), with tangent line \(y = 54x - 81\).</p>
+<p class="wrong"><b>Where students lose points:</b> Taking only the positive square root and missing \(k = -4\). Also common: forgetting the inside derivative \(2x\), which leads to \(3(1 + k)^2 = 54\) and the wrong values \(k = -1 \pm 3\sqrt2\).</p></div></details></div>
+
+<div class="q" id="u02-q27"><div class="qh"><span class="qn">Problem 27</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The graph of a function \(g\) is shown below, together with its tangent line at \(x = 2\). The labeled points are on the curve or on the tangent line as marked. Let \(f(x) = 5x^2\) and \(h(x) = f\big(g(x)\big)\). (a) Read \(g(2)\) and \(g'(2)\) from the graph. (b) Find \(h(2)\) and \(h'(2)\). (c) Find the equation of the tangent line to the graph of \(h\) at \(x = 2\). (d) Find the derivative of \(k(x) = [g(x)]^3\) at \(x = 2\).
+<div class="plot" data-f="0.5*x**2-1;;2*x-3" data-x="-1,4" data-y="-2,6"
+     data-pts="2,1,(2, 1) on the curve|3,3,(3, 3) on the tangent line"
+     data-cap="The curve y = g(x) (blue) and its tangent line at x = 2 (green)"></div></div>
+<details class="hint"><summary>Hint</summary><div>The height of the curve at \(x = 2\) is \(g(2)\). The slope of the tangent line, rise over run between its two labeled points, is \(g'(2)\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) The curve passes through \((2, 1)\), so \(g(2) = 1\). The tangent line passes through \((2, 1)\) and \((3, 3)\). The derivative \(g'(2)\) is the slope of that line.
+\[g'(2) = \frac{3 - 1}{3 - 2} = \frac{2}{1} = 2\]</li>
+<li>(b) Find \(h(2)\) from the inside out.
+\[h(2) = f\big(g(2)\big) = f(1) = 5(1)^2 = 5\]</li>
+<li>(b) For \(h'(2)\), use the chain rule at a point. First \(f'(x) = 10x\), so \(f'(1) = 10\).
+\[h'(2) = f'\big(g(2)\big)\cdot g'(2) = f'(1)\cdot 2 = 10\cdot 2 = 20\]</li>
+<li>(c) The tangent line to \(h\) at \(x = 2\) passes through \((2, h(2)) = (2, 5)\) with slope \(h'(2) = 20\).
+\[y - 5 = 20(x - 2) \quad\Longrightarrow\quad y = 20x - 40 + 5 = 20x - 35\]</li>
+<li>(d) \(k\) is a power of the function \(g\), so use the generalized power rule with inside \(g(x)\).
+\[k'(x) = 3[g(x)]^2\cdot g'(x), \qquad k'(2) = 3(1)^2\cdot 2 = 6\]</li>
+</ol><p class="final">Answer: (a) \(g(2) = 1\) and \(g'(2) = 2\). (b) \(h(2) = 5\) and \(h'(2) = 20\). (c) \(y = 20x - 35\). (d) \(k'(2) = 6\).</p>
+<p class="wrong"><b>Where students lose points:</b> Using \(f'(2) = 20\) instead of \(f'\big(g(2)\big) = f'(1) = 10\); here that gives 40. Also common: reading the slope of the tangent line as the run over the rise.</p></div></details></div>
+
+<div class="q" id="u02-q28"><div class="qh"><span class="qn">Problem 28</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A function \(f\) is not given by a formula, but you are told that \(f'(x) = \sqrt{x^2 + 9}\) for every \(x\). (a) Find \(\dfrac{d}{dx}\Big[f(x^2)\Big]\) and its value at \(x = 2\). (b) Find the derivative of \(f(3x - 2)\) at \(x = 2\). (c) Another function \(h\) has \(h(3) = 2\) and \(h'(3) = -1\). Let \(k(x) = x^3\,h(x^2 - 1)\). Find \(k'(x)\) in terms of \(h\) and \(h'\), and find \(k'(2)\).</div>
+<details class="hint"><summary>Hint</summary><div>You never need \(f\) itself. The chain rule says \(\frac{d}{dx}f(\text{inside}) = f'(\text{inside})\cdot(\text{inside})'\), and you know the formula for \(f'\). Part (c) is a product, and its second factor is a composite.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) The inside function is \(x^2\), with derivative \(2x\). By the chain rule, \(f'\) is evaluated at \(x^2\).
+\[\frac{d}{dx}\Big[f(x^2)\Big] = f'(x^2)\cdot 2x\]</li>
+<li>(a) Put \(x^2\) into the formula for \(f'\). The formula says \(f'(\text{anything}) = \sqrt{(\text{anything})^2 + 9}\), and \((x^2)^2 = x^4\).
+\[f'(x^2) = \sqrt{(x^2)^2 + 9} = \sqrt{x^4 + 9}, \qquad \frac{d}{dx}\Big[f(x^2)\Big] = 2x\sqrt{x^4 + 9}\]</li>
+<li>(a) Substitute \(x = 2\). Then \(x^4 = 16\) and \(\sqrt{16 + 9} = \sqrt{25} = 5\).
+\[2(2)\cdot 5 = 20\]</li>
+<li>(b) The inside function is \(3x - 2\), with derivative 3. At \(x = 2\) the inside value is \(3(2) - 2 = 4\).
+\[\frac{d}{dx}\Big[f(3x - 2)\Big] = f'(3x - 2)\cdot 3, \qquad \text{at } x = 2: \ f'(4)\cdot 3 = \sqrt{4^2 + 9}\cdot 3 = 5\cdot 3 = 15\]</li>
+<li>(c) \(k\) is a product, so use the product rule with \(u = x^3\) and \(v = h(x^2 - 1)\). The factor \(v\) is a composite with inside \(x^2 - 1\), whose derivative is \(2x\).
+\[u' = 3x^2, \qquad v' = h'(x^2 - 1)\cdot 2x\]</li>
+<li>(c) Apply \(k' = u'v + uv'\) and combine \(x^3\cdot 2x = 2x^4\).
+\[k'(x) = 3x^2\,h(x^2 - 1) + x^3\cdot h'(x^2 - 1)\cdot 2x = 3x^2\,h(x^2 - 1) + 2x^4\,h'(x^2 - 1)\]</li>
+<li>(c) Substitute \(x = 2\). The inside value is \(2^2 - 1 = 3\), so use \(h(3) = 2\) and \(h'(3) = -1\). Also \(3x^2 = 12\) and \(2x^4 = 32\).
+\[k'(2) = 12\cdot h(3) + 32\cdot h'(3) = 12(2) + 32(-1) = 24 - 32 = -8\]</li>
+</ol><p class="final">Answer: (a) \(\dfrac{d}{dx}f(x^2) = 2x\sqrt{x^4 + 9}\), which is 20 at \(x = 2\). (b) 15. (c) \(k'(x) = 3x^2\,h(x^2 - 1) + 2x^4\,h'(x^2 - 1)\) and \(k'(2) = -8\).</p>
+<p class="wrong"><b>Where students lose points:</b> Evaluating \(f'\) at \(x\) instead of at the inside, for example writing \(f'(2)\cdot 3 = 3\sqrt{13}\) in part (b). In part (c), using \(h(2)\) and \(h'(2)\) instead of the values at \(x^2 - 1 = 3\), or dropping the factor \(2x\).</p></div></details></div>
+
+<div class="q" id="u02-q29"><div class="qh"><span class="qn">Problem 29</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A small company finds that it can sell \(q\) units of a product per week when the price is \(p = 30\sqrt{100 - q}\) dollars per unit, for \(0 \le q \le 100\). (a) Find the weekly revenue \(R(q)\) and the marginal revenue \(R'(q)\), written as a single fraction. (b) Find \(R'(64)\) and \(R'(75)\), and interpret each in a sentence. (c) At what weekly sales level is the marginal revenue 0? Explain what happens to revenue as sales pass that level.</div>
+<details class="hint"><summary>Hint</summary><div>Revenue is quantity times price, so \(R(q) = 30q(100 - q)^{1/2}\). Use the product rule, and remember that the inside \(100 - q\) has derivative \(-1\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Define the variables: \(q\) is the number of units sold per week, \(p\) is the price in dollars per unit, and \(R\) is the weekly revenue in dollars. Revenue is quantity times price.
+\[R(q) = q\cdot p = 30q\sqrt{100 - q} = 30q(100 - q)^{1/2}\]</li>
+<li>(a) Set up the product rule with \(u = 30q\) and \(v = (100 - q)^{1/2}\). The derivative \(v'\) needs the generalized power rule, with inside \(100 - q\) whose derivative is \(-1\).
+\[u' = 30, \qquad v' = \tfrac12(100 - q)^{-1/2}\cdot(-1) = -\tfrac12(100 - q)^{-1/2}\]</li>
+<li>(a) Apply \(R' = u'v + uv'\). The second term is \(30q\cdot\left(-\tfrac12\right) = -15q\) times the power.
+\[R'(q) = 30(100 - q)^{1/2} - 15q(100 - q)^{-1/2}\]</li>
+<li>(a) Factor out 15 and the lowest power \((100 - q)^{-1/2}\). The first term leaves \(2(100 - q)\), because \(30 = 15\cdot 2\) and \(\tfrac12 - \left(-\tfrac12\right) = 1\). The second term leaves \(q\).
+\[R'(q) = 15(100 - q)^{-1/2}\big[2(100 - q) - q\big] = 15(100 - q)^{-1/2}(200 - 3q) = \frac{15(200 - 3q)}{\sqrt{100 - q}}\]</li>
+<li>(b) At \(q = 64\): \(\sqrt{100 - 64} = \sqrt{36} = 6\) and \(200 - 3(64) = 200 - 192 = 8\).
+\[R'(64) = \frac{15\cdot 8}{6} = \frac{120}{6} = 20\]
+When 64 units are sold per week, selling one more unit raises weekly revenue by about \$20.</li>
+<li>(b) At \(q = 75\): \(\sqrt{100 - 75} = \sqrt{25} = 5\) and \(200 - 3(75) = 200 - 225 = -25\).
+\[R'(75) = \frac{15(-25)}{5} = \frac{-375}{5} = -75\]
+When 75 units are sold per week, selling one more unit lowers weekly revenue by about \$75. The extra sale requires a lower price on every unit, and that loss outweighs the extra unit's price.</li>
+<li>(c) A fraction is 0 when its top is 0 and its bottom is not. Solve \(200 - 3q = 0\).
+\[3q = 200 \quad\Longrightarrow\quad q = \frac{200}{3} = 66\tfrac23\]
+This is between 0 and 100, and the bottom \(\sqrt{100 - \tfrac{200}{3}} = \sqrt{\tfrac{100}{3}}\) is not 0 there.</li>
+<li>(c) Read the sign of \(R'\). The bottom \(\sqrt{100 - q}\) is positive for \(q \lt 100\), so the sign of \(R'\) is the sign of \(200 - 3q\). For \(q \lt \tfrac{200}{3}\) the top is positive, so revenue increases as sales grow. For \(q \gt \tfrac{200}{3}\) the top is negative, so revenue decreases as sales grow.</li>
+</ol><p class="final">Answer: (a) \(R(q) = 30q\sqrt{100 - q}\) and \(R'(q) = \dfrac{15(200 - 3q)}{\sqrt{100 - q}}\). (b) \(R'(64) = 20\): at 64 units per week, one more unit adds about \$20 of revenue. \(R'(75) = -75\): at 75 units per week, one more unit lowers revenue by about \$75. (c) Marginal revenue is 0 at \(q = \tfrac{200}{3}\) units per week. Revenue rises up to that level and falls after it.</p>
+<p class="wrong"><b>Where students lose points:</b> Forgetting the factor \(-1\) from the inside \(100 - q\), which makes both terms positive and gives \(R'(64) = 340\). Also common: interpreting \(R'(64)\) as the revenue itself rather than the approximate change from one more unit.</p></div></details></div>
 </section><div class="pager"><a href="u01.html">Back: Derivative rules: power, sum, product, quotient</a><a href="u03.html">Next: Derivatives of exponential and logarithmic functions</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="assets/app.js"></script></body></html>

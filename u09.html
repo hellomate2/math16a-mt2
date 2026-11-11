@@ -1,0 +1,537 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Optimization word problems | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 6.2</p><h1>Optimization word problems</h1><p class="sub">Fences, boxes, cans, revenue, cables: set up, solve, and justify the max or min.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 6.2: Applications of extrema (optimization word problems)</h2>
+
+<h3>What an optimization problem is</h3>
+<p>An <b>optimization problem</b> asks for the largest or the smallest possible value of some quantity when the situation has to obey certain rules. To <b>optimize</b> a quantity means to make it as large as possible (to <b>maximize</b> it) or as small as possible (to <b>minimize</b> it). The professor's examples are typical: the largest area a fixed length of fence can enclose, the cheapest box that holds a required volume, the can that uses the least material, and the cheapest route for a cable.</p>
+<p>Every optimization problem has two ingredients. The <b>objective</b> is the quantity you want to make largest or smallest, such as an area, a volume, a cost, a revenue, or a distance. A <b>constraint</b> is a fixed condition that the variables must satisfy, such as "the fencing is 200 meters long" or "the volume is 1000 cubic feet." The professor's summary of the whole method is this: express the quantity you need to optimize as a function of one variable, defined on an interval that comes from the context of the problem, and then use the calculus of Section 6.1 to find the absolute maximum or minimum of that function on that interval.</p>
+<p>The reason for insisting on one variable is that Section 6.1 only tells you how to find the absolute extrema of a function of one variable. The objective usually starts out with two variables in it (the area of a rectangle is length times width). The constraint is what connects them. You solve the constraint for one variable and substitute it into the objective, and what is left is a function of a single variable.</p>
+
+<h3>The Section 6.1 tools you will use</h3>
+<p>Recall the vocabulary. The number \(f(c)\) is the <b>absolute maximum value</b> of \(f\) on an interval \(I\) if \(f(c) \ge f(x)\) for every \(x\) in \(I\), and the <b>absolute minimum value</b> if \(f(c) \le f(x)\) for every \(x\) in \(I\). A <b>critical number</b> of \(f\) is a number \(c\) in the domain of \(f\) where \(f'(c) = 0\) or \(f'(c)\) does not exist. A critical number is only a candidate. You always need one of the following tools to decide whether it gives the maximum or the minimum you want.</p>
+<div class="rule"><div class="rt">Closed interval method</div>
+<p>If \(f\) is continuous on a closed and bounded interval \([a, b]\), the Extreme Value Theorem says \(f\) attains an absolute maximum value and an absolute minimum value on \([a, b]\). To find them: (1) find the critical numbers of \(f\) in \((a, b)\) and evaluate \(f\) at each one; (2) evaluate \(f(a)\) and \(f(b)\); (3) the largest of these values is the absolute maximum value and the smallest is the absolute minimum value.</p></div>
+<div class="rule"><div class="rt">Critical point theorem</div>
+<p>Suppose \(f\) is continuous on an interval \(I\) (open, closed, half-open, or unbounded) and has exactly one critical number \(c\) in \(I\). If \(f\) has a local maximum at \(c\), then \(f(c)\) is the absolute maximum value of \(f\) on \(I\). If \(f\) has a local minimum at \(c\), then \(f(c)\) is the absolute minimum value of \(f\) on \(I\).</p></div>
+<p>The idea behind the critical point theorem: suppose the graph climbs up to a peak at \(c\) and comes down after it. To get higher than \(f(c)\) somewhere else, the graph would have to stop going down and turn back up, and the turning spot would be a second critical number. There is no second critical number, so the peak at \(c\) is the highest point on all of \(I\). The same reasoning works for a valley. To use the theorem you still have to show that \(c\) is a local maximum or a local minimum, and there are two tests for that.</p>
+<div class="rule"><div class="rt">First derivative test</div>
+<p>Let \(c\) be a critical number of a continuous function \(f\). If \(f'\) changes from positive to negative at \(c\), then \(f\) has a local maximum at \(c\). If \(f'\) changes from negative to positive at \(c\), then \(f\) has a local minimum at \(c\). If \(f'\) does not change sign at \(c\), then \(f\) has neither.</p></div>
+<div class="rule"><div class="rt">Second derivative test</div>
+<p>Suppose \(f'(c) = 0\). If \(f''(c) \lt 0\), the graph is concave down at \(c\) and \(f\) has a local maximum at \(c\). If \(f''(c) \gt 0\), the graph is concave up at \(c\) and \(f\) has a local minimum at \(c\). If \(f''(c) = 0\), the test gives no information, and you must use the first derivative test instead.</p></div>
+
+<h3>The procedure</h3>
+<div class="recipe"><div class="rt">How to solve an optimization word problem</div><ol>
+<li>Read the problem carefully, twice. Find the sentence that says what to maximize or minimize, and the sentences that give the fixed conditions.</li>
+<li>Draw a picture and label every length with a letter. Use the same letter for lengths that must be equal.</li>
+<li>Define each variable in a full sentence with its units, for example "Let \(x\) be the side of the square base, in feet, and let \(h\) be the height, in feet."</li>
+<li>Write the objective as a formula. At this point it may contain two variables.</li>
+<li>Write the constraint as an equation and solve it for one of the variables. Pick the variable that is easiest to isolate.</li>
+<li>Substitute into the objective, so that it becomes a function of one variable. Simplify it.</li>
+<li>State the domain from the context: lengths cannot be negative, a variable you divide by must be positive, a price cannot be negative, a cut cannot be wider than the sheet.</li>
+<li>Differentiate, and find the critical numbers that lie inside the domain. Throw away any that lie outside it.</li>
+<li>Justify that your critical number gives the maximum or minimum the problem asks for (see the table below).</li>
+<li>Answer the question that was asked, in a sentence with units. If it asks for dimensions, give every dimension. If it also asks for the smallest cost or the largest area, compute that value too.</li>
+</ol></div>
+
+<h3>Choosing the justification</h3>
+<p>The shape of the domain decides which tool to use.</p>
+<table class="t">
+<tr><th>The domain is</th><th>Use</th><th>What to write</th></tr>
+<tr><td>closed and bounded, \([a, b]\)</td><td>the closed interval method</td><td>"The values at the critical number and at both endpoints are ..., so the largest value is ... at \(x = \ldots\)."</td></tr>
+<tr><td>open, half-open, or unbounded, with exactly one critical number</td><td>the critical point theorem, together with the first or second derivative test</td><td>"Since \(C'(x) \lt 0\) for \(0 \lt x \lt 5\) and \(C'(x) \gt 0\) for \(x \gt 5\), \(C\) decreases and then increases, so \(x = 5\) gives the absolute minimum of \(C\) on \((0, \infty)\)."</td></tr>
+<tr><td>open or unbounded, with several critical numbers</td><td>evaluate \(f\) at every critical number and study what \(f\) does toward the ends of the domain</td><td>"\(D(x) \to \infty\) as \(x \to \pm\infty\), and the smallest value at a critical number is ..., so that is the absolute minimum."</td></tr>
+</table>
+<p>A few practical notes on choosing. The second derivative test is quickest when \(f''\) is easy to compute and its sign is obvious; for example \(C''(x) = 8 + \tfrac{2000}{x^3}\) is positive for every \(x \gt 0\). The first derivative test is best when \(f'\) is already factored, or when \(f''\) would be messy. The closed interval method needs only function values, but it only applies when both endpoints belong to the domain. When an endpoint gives a shape that is real but flat (a fence side of length 0 encloses area 0, a box of height 0 has volume 0), the formula still makes sense there, so you may include that endpoint and use the closed interval method. When the formula has the variable in a denominator, as in \(\tfrac{1000}{x}\), the endpoint \(x = 0\) is not allowed, the domain is open on that side, and you need the critical point theorem.</p>
+<div class="say"><b>What to write on the exam.</b> On his Fall 2025 midterm the professor asked students to "explain why your answer gives you the smallest possible cost." That explanation is part of the grade. Write it as a sentence that names the test and the interval, for example: "The function \(C\) is continuous on \((0, \infty)\) and \(x = 5\) is its only critical number there. Since \(C''(5) = 24 \gt 0\), \(C\) has a local minimum at \(x = 5\), so by the critical point theorem \(C(5)\) is the absolute minimum. No other box with this volume costs less." Writing only "\(C''(5) \gt 0\), so it is a minimum" proves that \(x = 5\) is a local minimum, but it says nothing about the other boxes, so add the sentence about the only critical number.</div>
+
+<h3>Two numbers with a fixed sum</h3>
+<p>The simplest problems have no picture at all. The constraint is an equation that links two numbers, and the objective is an expression in them.</p>
+<div class="ex"><div class="et">Worked example 1</div><p class="p">Find two nonnegative numbers \(x\) and \(y\) with \(x + y = 30\) for which the product \(xy^2\) is as large as possible. What is that largest product?</p>
+<ol class="steps">
+<li>Name the objective and the constraint. We want to maximize \(P = xy^2\), and the numbers must satisfy \(x + y = 30\) with \(x \ge 0\) and \(y \ge 0\).</li>
+<li>Solve the constraint for one variable. Solving for \(x\) is easier because then nothing gets squared later. \[x = 30 - y.\]</li>
+<li>Substitute into the objective to get a function of \(y\) alone. \[P(y) = (30 - y)y^2 = 30y^2 - y^3.\]</li>
+<li>State the domain. We need \(y \ge 0\) and also \(x = 30 - y \ge 0\), which means \(y \le 30\). So the domain is the closed interval \([0, 30]\), and the closed interval method applies.</li>
+<li>Differentiate with the power rule and factor. \[P'(y) = 60y - 3y^2 = 3y(20 - y).\]</li>
+<li>Find the critical numbers. \(P'(y) = 0\) when \(3y = 0\) or \(20 - y = 0\), so \(y = 0\) or \(y = 20\). The number \(y = 0\) is an endpoint, and \(y = 20\) is inside \((0, 30)\).</li>
+<li>Evaluate \(P\) at the critical number and at both endpoints. \[\begin{aligned} P(0) &= 30(0)^2 - 0^3 = 0, \\ P(20) &= 30(400) - 8000 = 12000 - 8000 = 4000, \\ P(30) &= 30(900) - 27000 = 27000 - 27000 = 0. \end{aligned}\]</li>
+<li>Compare. The largest value is \(4000\), at \(y = 20\). Then \(x = 30 - 20 = 10\). By the closed interval method, no other pair of nonnegative numbers adding to 30 gives a larger value of \(xy^2\).</li>
+</ol><p class="final">Answer: \(x = 10\) and \(y = 20\); the largest value of \(xy^2\) is \(4000\).</p></div>
+
+<h3>Fencing</h3>
+<p>In a fencing problem the objective is usually an area and the constraint is the total length of fence. Count the fence pieces from your picture: a side along a wall or a river gets no fence, and every divider inside the rectangle is one more piece of fence.</p>
+<div class="ex"><div class="et">Worked example 2</div><p class="p">A gardener has 200 meters of fencing to enclose a rectangular plot along the straight wall of a barn. No fence is needed along the wall. What dimensions give the largest possible area, and what is that area?</p>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="30" y1="40" x2="290" y2="40" stroke="currentColor" stroke-width="5"/>
+<text x="160" y="27" text-anchor="middle" fill="currentColor" font-size="14">barn wall (no fence)</text>
+<path d="M80 40 V160 H240 V40" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="68" y="105" text-anchor="end" fill="currentColor" font-size="16">x</text>
+<text x="252" y="105" fill="currentColor" font-size="16">x</text>
+<text x="160" y="182" text-anchor="middle" fill="currentColor" font-size="16">y</text>
+</svg>
+<ol class="steps">
+<li>Define the variables from the picture. Let \(x\) be the length, in meters, of each of the two sides perpendicular to the wall, and let \(y\) be the length, in meters, of the side parallel to the wall.</li>
+<li>Write the objective. The area in square meters is \[A = xy.\]</li>
+<li>Write the constraint and solve it for \(y\). The fence covers two sides of length \(x\) and one side of length \(y\). \[2x + y = 200, \qquad \text{so} \qquad y = 200 - 2x.\]</li>
+<li>Substitute to get a function of \(x\) alone. \[A(x) = x(200 - 2x) = 200x - 2x^2.\]</li>
+<li>State the domain. We need \(x \ge 0\) and \(y = 200 - 2x \ge 0\), which gives \(x \le 100\). The domain is \([0, 100]\). At \(x = 0\) or \(x = 100\) the rectangle is flat with area 0, which is a real value of \(A\), so the closed interval method applies.</li>
+<li>Differentiate and find the critical number. \[A'(x) = 200 - 4x = 0 \quad \text{gives} \quad 4x = 200, \quad x = 50.\]</li>
+<li>Evaluate \(A\) at the critical number and at both endpoints. \[\begin{aligned} A(0) &= 0, \\ A(50) &= 200(50) - 2(2500) = 10000 - 5000 = 5000, \\ A(100) &= 200(100) - 2(10000) = 20000 - 20000 = 0. \end{aligned}\]</li>
+<li>Compare and find the other side. The largest value is \(A(50) = 5000\). The side parallel to the wall is \(y = 200 - 2(50) = 100\).</li>
+</ol>
+<div class="plot" data-f="200*x-2*x**2" data-x="0,100" data-y="0,5600" data-pts="50,5000,max (50, 5000)" data-cap="The area A(x) = 200x - 2x^2 on [0, 100] is largest at x = 50."></div>
+<p class="final">Answer: Make the two sides perpendicular to the wall 50 m each and the side parallel to the wall 100 m. The largest area is 5000 square meters.</p></div>
+
+<h3>Open box from a sheet</h3>
+<p>To make an open box (a box with no top) from a flat sheet, cut a square of side \(x\) from each corner and fold up the flaps. The height of the box is \(x\). Each side of the sheet loses \(x\) at both of its ends, so a side of length \(L\) becomes \(L - 2x\).</p>
+<div class="ex"><div class="et">Worked example 3</div><p class="p">An open box is made from a 12-inch by 12-inch square of cardboard by cutting equal squares from the four corners and folding up the sides. What size squares should be cut to make the volume as large as possible? What is that volume?</p>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="20" y="25" width="150" height="150" stroke="currentColor" fill="none" stroke-width="2"/>
+<rect x="20" y="25" width="25" height="25" stroke="currentColor" fill="none"/>
+<rect x="145" y="25" width="25" height="25" stroke="currentColor" fill="none"/>
+<rect x="20" y="150" width="25" height="25" stroke="currentColor" fill="none"/>
+<rect x="145" y="150" width="25" height="25" stroke="currentColor" fill="none"/>
+<rect x="45" y="50" width="100" height="100" stroke="currentColor" fill="none" stroke-dasharray="4 3"/>
+<text x="32" y="18" text-anchor="middle" fill="currentColor" font-size="13">x</text>
+<text x="12" y="42" text-anchor="middle" fill="currentColor" font-size="13">x</text>
+<text x="95" y="18" text-anchor="middle" fill="currentColor" font-size="13">12</text>
+<text x="95" y="104" text-anchor="middle" fill="currentColor" font-size="13">12 - 2x</text>
+<path d="M200 120 H270 V160 H200 Z M200 120 L222 100 H292 L270 120 M292 100 V140 L270 160" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="192" y="145" text-anchor="end" fill="currentColor" font-size="13">x</text>
+<text x="235" y="178" text-anchor="middle" fill="currentColor" font-size="13">12 - 2x</text>
+<text x="262" y="92" text-anchor="middle" fill="currentColor" font-size="13">12 - 2x</text>
+</svg>
+<ol class="steps">
+<li>Define the variable. Let \(x\) be the side, in inches, of each square cut from a corner. After folding, the box has height \(x\) and a square base of side \(12 - 2x\), because each 12-inch edge loses \(x\) at both ends.</li>
+<li>Write the volume, length times width times height, in cubic inches. \[V(x) = x(12 - 2x)^2.\]</li>
+<li>State the domain. We need \(x \ge 0\) and \(12 - 2x \ge 0\), which gives \(x \le 6\). The domain is \([0, 6]\). Both endpoints give a flat box of volume 0, so the closed interval method applies.</li>
+<li>Differentiate with the product rule. Take \(u = x\) and \(v = (12 - 2x)^2\). Then \(u' = 1\), and by the chain rule \(v' = 2(12 - 2x)\cdot(-2) = -4(12 - 2x)\). \[V'(x) = u'v + uv' = (12 - 2x)^2 - 4x(12 - 2x).\]</li>
+<li>Factor out the common factor \(12 - 2x\). \[V'(x) = (12 - 2x)\big[(12 - 2x) - 4x\big] = (12 - 2x)(12 - 6x).\]</li>
+<li>Find the critical numbers. \(12 - 2x = 0\) gives \(x = 6\), an endpoint. \(12 - 6x = 0\) gives \(x = 2\), which is inside \((0, 6)\).</li>
+<li>Evaluate \(V\) at the critical number and at both endpoints. \[\begin{aligned} V(0) &= 0\cdot 12^2 = 0, \\ V(2) &= 2(12 - 4)^2 = 2(64) = 128, \\ V(6) &= 6(12 - 12)^2 = 0. \end{aligned}\]</li>
+<li>Compare. The largest value is \(V(2) = 128\). With \(x = 2\) the base is \(12 - 4 = 8\) inches on each side.</li>
+</ol><p class="final">Answer: Cut 2-inch squares from the corners. The box is 8 in by 8 in by 2 in, and its largest volume is 128 cubic inches.</p></div>
+
+<h3>Box with a square base and different costs</h3>
+<p>For a box with a square base of side \(x\) and height \(h\), the bottom and the top each have area \(x^2\), and each of the four sides is an \(x\) by \(h\) rectangle with area \(xh\). An open box has no top. When different faces cost different amounts, the cost of each face is its price per square unit times its area, and the total cost is the sum over all the faces. This is the type of the professor's lecture example (6.2 #27) and of Question 3 on his Fall 2025 midterm.</p>
+<div class="ex"><div class="et">Worked example 4</div><p class="p">A closed box with a square base must have a volume of 250 cubic feet. The material for the top and the bottom costs $2 per square foot, and the material for the four sides costs $1 per square foot. Find the dimensions of the box with the smallest possible cost, find that cost, and explain why your answer gives the smallest possible cost.</p>
+<svg class="dia" viewBox="0 0 320 200">
+<path d="M110 70 H190 V170 H110 Z M110 70 L150 40 H230 L190 70 M230 40 V140 L190 170" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="150" y="188" text-anchor="middle" fill="currentColor" font-size="15">x</text>
+<text x="220" y="168" fill="currentColor" font-size="15">x</text>
+<text x="98" y="125" text-anchor="end" fill="currentColor" font-size="15">h</text>
+</svg>
+<ol class="steps">
+<li>Define the variables. Let \(x\) be the side of the square base, in feet, and let \(h\) be the height of the box, in feet.</li>
+<li>List the faces with their areas and prices. The bottom and the top each have area \(x^2\) and cost $2 per square foot. The four sides each have area \(xh\) and cost $1 per square foot. So the total cost in dollars is \[C = 2x^2 + 2x^2 + 1\cdot 4xh = 4x^2 + 4xh.\]</li>
+<li>Write the constraint and solve it for \(h\). The volume is the base area times the height. \[x^2h = 250, \qquad \text{so} \qquad h = \frac{250}{x^2}.\]</li>
+<li>Substitute to get the cost as a function of \(x\) alone. \[C(x) = 4x^2 + 4x\cdot\frac{250}{x^2} = 4x^2 + \frac{1000}{x}.\]</li>
+<li>State the domain. The base side must be positive, and \(x = 0\) is not allowed because we divide by \(x\). Every \(x \gt 0\) gives a box, with height \(h = \tfrac{250}{x^2}\). The domain is \((0, \infty)\). It is not closed, so we will use the critical point theorem.</li>
+<li>Differentiate. Write \(\tfrac{1000}{x} = 1000x^{-1}\) and use the power rule, then combine over a common denominator. \[C'(x) = 8x - 1000x^{-2} = 8x - \frac{1000}{x^2} = \frac{8x^3 - 1000}{x^2}.\]</li>
+<li>Find the critical numbers. \(C'(x)\) does not exist at \(x = 0\), but 0 is not in the domain. \(C'(x) = 0\) when the numerator is 0. \[8x^3 - 1000 = 0, \qquad x^3 = 125, \qquad x = 5.\] So \(x = 5\) is the only critical number in \((0, \infty)\).</li>
+<li>Use the second derivative test. \[C''(x) = 8 + 2000x^{-3} = 8 + \frac{2000}{x^3}, \qquad C''(5) = 8 + \frac{2000}{125} = 8 + 16 = 24 \gt 0.\] So \(C\) has a local minimum at \(x = 5\).</li>
+<li>Explain why this is the smallest possible cost. \(C\) is continuous on \((0, \infty)\), \(x = 5\) is its only critical number there, and \(C\) has a local minimum at \(x = 5\). By the critical point theorem, \(C(5)\) is the absolute minimum value of \(C\) on \((0, \infty)\), so every other box with volume 250 cubic feet costs more.</li>
+<li>Compute the height and the cost. \[h = \frac{250}{5^2} = \frac{250}{25} = 10, \qquad C(5) = 4(25) + \frac{1000}{5} = 100 + 200 = 300.\]</li>
+</ol><p class="final">Answer: The cheapest box has a 5 ft by 5 ft base and a height of 10 ft. Its cost is $300, the smallest possible, because \(x = 5\) is the only critical number of \(C\) on \((0, \infty)\) and \(C''(5) = 24 \gt 0\).</p></div>
+
+<h3>Cylindrical can</h3>
+<p>A closed cylindrical can of radius \(r\) and height \(h\) has volume \(V = \pi r^2 h\). Its surface consists of two circular disks (top and bottom), each of area \(\pi r^2\), and a lateral sheet. If you cut the lateral sheet straight down and unroll it, it becomes a rectangle whose width is the circumference \(2\pi r\) and whose height is \(h\), so its area is \(2\pi r h\). The total surface area is \(S = 2\pi r^2 + 2\pi r h\). This is the setting of Question 5 on the professor's practice Midterm 2.</p>
+<div class="ex"><div class="et">Worked example 5</div><p class="p">A closed cylindrical can must hold \(16\pi\) cubic centimeters. Find the radius and the height of the can that uses the least material, that is, the can with the smallest surface area.</p>
+<svg class="dia" viewBox="0 0 320 200">
+<ellipse cx="160" cy="40" rx="60" ry="15" stroke="currentColor" fill="none" stroke-width="2"/>
+<path d="M100 160 A60 15 0 0 0 220 160" stroke="currentColor" fill="none" stroke-width="2"/>
+<path d="M100 160 A60 15 0 0 1 220 160" stroke="currentColor" fill="none" stroke-dasharray="4 3"/>
+<line x1="100" y1="40" x2="100" y2="160" stroke="currentColor" stroke-width="2"/>
+<line x1="220" y1="40" x2="220" y2="160" stroke="currentColor" stroke-width="2"/>
+<line x1="160" y1="40" x2="220" y2="40" stroke="currentColor"/>
+<text x="190" y="34" text-anchor="middle" fill="currentColor" font-size="15">r</text>
+<text x="232" y="105" fill="currentColor" font-size="15">h</text>
+</svg>
+<ol class="steps">
+<li>Define the variables. Let \(r\) be the radius of the can and \(h\) its height, both in centimeters.</li>
+<li>Write the objective, the surface area in square centimeters. \[S = 2\pi r^2 + 2\pi r h.\]</li>
+<li>Write the volume constraint and solve it for \(h\). \[\pi r^2 h = 16\pi, \qquad \text{so} \qquad h = \frac{16\pi}{\pi r^2} = \frac{16}{r^2}.\]</li>
+<li>Substitute to get \(S\) as a function of \(r\) alone. \[S(r) = 2\pi r^2 + 2\pi r\cdot\frac{16}{r^2} = 2\pi r^2 + \frac{32\pi}{r}.\]</li>
+<li>State the domain. The radius must be positive and we divide by \(r\), so the domain is \((0, \infty)\).</li>
+<li>Differentiate with the power rule and combine over a common denominator. \[S'(r) = 4\pi r - \frac{32\pi}{r^2} = \frac{4\pi r^3 - 32\pi}{r^2} = \frac{4\pi(r^3 - 8)}{r^2}.\]</li>
+<li>Find the critical number. \(S'(r) = 0\) when \(r^3 - 8 = 0\), so \(r^3 = 8\) and \(r = 2\). This is the only critical number in \((0, \infty)\).</li>
+<li>Use the first derivative test. The factors \(4\pi\) and \(r^2\) are positive, so the sign of \(S'(r)\) is the sign of \(r^3 - 8\). For \(0 \lt r \lt 2\), \(r^3 \lt 8\), so \(S'(r) \lt 0\). For \(r \gt 2\), \(r^3 \gt 8\), so \(S'(r) \gt 0\). Since \(S'\) changes from negative to positive at \(r = 2\), \(S\) has a local minimum there.</li>
+<li>Explain why this is the smallest surface area. \(S\) is continuous on \((0, \infty)\) with only one critical number, where it has a local minimum, so by the critical point theorem \(S(2)\) is the absolute minimum. Every other can with volume \(16\pi\) uses more material.</li>
+<li>Compute the height and the surface area. \[h = \frac{16}{2^2} = 4, \qquad S(2) = 2\pi(4) + \frac{32\pi}{2} = 8\pi + 16\pi = 24\pi.\]</li>
+</ol>
+<div class="plot" data-f="2*Math.PI*x**2+32*Math.PI/x" data-x="0.8,5" data-y="0,200" data-pts="2,75.398,min (2, 24π)" data-cap="S(r) = 2πr^2 + 32π/r decreases until r = 2 and increases after it."></div>
+<p class="final">Answer: The radius is 2 cm and the height is 4 cm. The smallest surface area is \(24\pi\) square centimeters.</p></div>
+<p>Notice that the best can has \(h = 4 = 2r\): its height equals its diameter. This happens for every volume, and it is a good way to check your answer, but on the exam you must derive the dimensions with the steps above.</p>
+
+<h3>Revenue and profit with a price-demand function</h3>
+<p>A <b>price-demand function</b> \(p(x)\) gives the price per unit at which exactly \(x\) units will sell. Lower prices sell more units, so \(p\) decreases. The <b>revenue</b> is the money taken in, \(R(x) = x\,p(x)\) (number of units times price per unit). If \(C(x)\) is the cost of making \(x\) units, the <b>profit</b> is \(P(x) = R(x) - C(x)\).</p>
+<div class="ex"><div class="et">Worked example 6</div><p class="p">A small shop can sell \(x\) desk lamps per week when the price is \(p(x) = 100 - 2x\) dollars per lamp. Making \(x\) lamps costs \(C(x) = 20x + 300\) dollars per week. How many lamps should the shop make and sell each week to maximize its profit? What price should it charge, and what is the largest weekly profit?</p>
+<ol class="steps">
+<li>Define the variable. Let \(x\) be the number of lamps made and sold per week.</li>
+<li>Write the revenue, units sold times price per unit, in dollars. \[R(x) = x(100 - 2x) = 100x - 2x^2.\]</li>
+<li>Write the profit as revenue minus cost. Put the whole cost in parentheses so that both of its terms are subtracted. \[P(x) = 100x - 2x^2 - (20x + 300) = 80x - 2x^2 - 300.\]</li>
+<li>State the domain. We need \(x \ge 0\) and a price that is not negative, \(100 - 2x \ge 0\), which gives \(x \le 50\). The domain is \([0, 50]\).</li>
+<li>Differentiate and find the critical number. \[P'(x) = 80 - 4x = 0 \quad \text{gives} \quad x = 20.\]</li>
+<li>Evaluate \(P\) at the critical number and at both endpoints. \[\begin{aligned} P(0) &= -300, \\ P(20) &= 80(20) - 2(400) - 300 = 1600 - 800 - 300 = 500, \\ P(50) &= 80(50) - 2(2500) - 300 = 4000 - 5000 - 300 = -1300. \end{aligned}\]</li>
+<li>Compare and find the price. The largest value is \(P(20) = 500\), so by the closed interval method 20 lamps per week gives the largest profit. The price is \(p(20) = 100 - 40 = 60\) dollars.</li>
+</ol><p class="final">Answer: Make and sell 20 lamps per week at $60 each. The largest weekly profit is $500.</p></div>
+
+<h3>Cable over land and water</h3>
+<p>When a cable or pipe runs partly along a shore and partly underwater, the underwater piece is the hypotenuse of a right triangle, so its length comes from the Pythagorean theorem and contains a square root. Differentiating it needs the chain rule: \(\dfrac{d}{dx}\sqrt{w} = \dfrac{w'}{2\sqrt{w}}\). This is the type of the professor's lecture example (6.2 #37).</p>
+<div class="ex"><div class="et">Worked example 7</div><p class="p">A power cable must run from a station \(A\) on a straight shore to an island \(B\). The point \(C\) is the point on the shore closest to \(B\), the island is 8 miles from \(C\), and \(A\) is 20 miles from \(C\) along the shore. Cable costs $300 per mile on land and $500 per mile underwater. The cable runs along the shore from \(A\) to a point \(P\) between \(A\) and \(C\), then straight underwater to \(B\). Where should \(P\) be to make the total cost as small as possible?</p>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="20" y1="160" x2="300" y2="160" stroke="currentColor"/>
+<line x1="40" y1="160" x2="194" y2="160" stroke="currentColor" stroke-width="4"/>
+<line x1="194" y1="160" x2="260" y2="40" stroke="currentColor" stroke-width="3"/>
+<line x1="260" y1="160" x2="260" y2="40" stroke="currentColor" stroke-dasharray="4 3"/>
+<circle cx="260" cy="40" r="4" stroke="currentColor" fill="none"/>
+<text x="40" y="180" text-anchor="middle" fill="currentColor" font-size="14">A</text>
+<text x="194" y="180" text-anchor="middle" fill="currentColor" font-size="14">P</text>
+<text x="260" y="180" text-anchor="middle" fill="currentColor" font-size="14">C</text>
+<text x="272" y="38" fill="currentColor" font-size="14">B</text>
+<text x="117" y="152" text-anchor="middle" fill="currentColor" font-size="14">x</text>
+<text x="227" y="176" text-anchor="middle" fill="currentColor" font-size="12">20 - x</text>
+<text x="270" y="105" fill="currentColor" font-size="14">8</text>
+<text x="100" y="80" text-anchor="middle" fill="currentColor" font-size="13">water</text>
+<text x="100" y="196" text-anchor="middle" fill="currentColor" font-size="13">land (shore)</text>
+</svg>
+<ol class="steps">
+<li>Define the variable. Let \(x\) be the distance, in miles, from \(A\) along the shore to \(P\). Since \(P\) lies between \(A\) and \(C\), \(0 \le x \le 20\), and the distance from \(P\) to \(C\) is \(20 - x\) miles.</li>
+<li>Find the underwater length. The points \(P\), \(C\), \(B\) form a right triangle with the right angle at \(C\), legs \(20 - x\) and 8, and hypotenuse \(PB\). By the Pythagorean theorem \[PB = \sqrt{(20 - x)^2 + 8^2} = \sqrt{(20 - x)^2 + 64}.\]</li>
+<li>Write the total cost in dollars, price per mile times miles for each part. \[C(x) = 300x + 500\sqrt{(20 - x)^2 + 64}, \qquad 0 \le x \le 20.\] The domain is closed and bounded, so we will use the closed interval method.</li>
+<li>Differentiate the square root with the chain rule. The inside is \(w = (20 - x)^2 + 64\), with \(w' = 2(20 - x)\cdot(-1) = -2(20 - x)\). \[\frac{d}{dx}\sqrt{w} = \frac{w'}{2\sqrt{w}} = \frac{-2(20 - x)}{2\sqrt{(20 - x)^2 + 64}} = \frac{-(20 - x)}{\sqrt{(20 - x)^2 + 64}}.\] So \[C'(x) = 300 - \frac{500(20 - x)}{\sqrt{(20 - x)^2 + 64}}.\]</li>
+<li>Set \(C'(x) = 0\) and clear the fraction. Write \(u = 20 - x\) to keep the algebra short. \[\frac{500u}{\sqrt{u^2 + 64}} = 300, \qquad 500u = 300\sqrt{u^2 + 64}, \qquad 5u = 3\sqrt{u^2 + 64}.\]</li>
+<li>Square both sides and solve. \[25u^2 = 9(u^2 + 64) = 9u^2 + 576, \qquad 16u^2 = 576, \qquad u^2 = 36.\] The equation \(5u = 3\sqrt{u^2 + 64}\) has a positive right side, so \(u\) must be positive: \(u = 6\). Then \(20 - x = 6\), so \(x = 14\). The square root in the denominator is never 0, so this is the only critical number.</li>
+<li>Evaluate \(C\) at the critical number and at both endpoints. \[\begin{aligned} C(0) &= 500\sqrt{400 + 64} = 500\sqrt{464} = 500\sqrt{16\cdot 29} = 2000\sqrt{29}, \\ C(14) &= 300(14) + 500\sqrt{36 + 64} = 4200 + 500(10) = 9200, \\ C(20) &= 300(20) + 500\sqrt{0 + 64} = 6000 + 4000 = 10000. \end{aligned}\]</li>
+<li>Compare without a calculator. Since \(\sqrt{29} \gt \sqrt{25} = 5\), we get \(2000\sqrt{29} \gt 10000\). So \(9200 \lt 10000 \lt 2000\sqrt{29}\), and the smallest value is \(C(14) = 9200\). By the closed interval method this is the smallest possible cost.</li>
+</ol><p class="final">Answer: Run the cable 14 miles along the shore from \(A\) (so \(P\) is 6 miles from \(C\)), then 10 miles underwater to \(B\). The smallest cost is $9200.</p></div>
+
+<h3>Common mistakes</h3>
+<div class="trap"><b>Common mistake.</b> Differentiating the objective while it still has two variables in it. Use the constraint to remove one variable before you differentiate.</div>
+<div class="trap"><b>Common mistake.</b> Skipping the domain. The domain decides which justification is allowed, and it is where you notice that a critical number lies outside the problem and must be thrown away. For example, a box cut from an 8-inch-wide sheet has \(0 \le x \le 4\), so a critical number \(x = 6\) is not a possible box.</div>
+<div class="trap"><b>Common mistake.</b> Forgetting the endpoints in the closed interval method. The extreme value can occur at an endpoint, as in the pipeline problems where the cheapest route can be the one that goes entirely underwater.</div>
+<div class="trap"><b>Common mistake.</b> Using the closed interval method on an open interval such as \((0, \infty)\). There are no endpoints to check, so use the critical point theorem with the first or second derivative test instead.</div>
+<div class="trap"><b>Common mistake.</b> Stopping at "\(f''(c) \gt 0\), so it is a minimum." That shows a local minimum only. Add that \(c\) is the only critical number in the domain, so the critical point theorem makes it the absolute minimum.</div>
+<div class="trap"><b>Common mistake.</b> Counting faces wrong. An open box has one base and four sides, with no top. A box with a square base has four side faces of area \(xh\) each, so the sides together have area \(4xh\). When the faces have different prices, multiply each face's area by its own price before adding.</div>
+<div class="trap"><b>Common mistake.</b> Writing the lateral area of a can as \(\pi r^2 h\) or \(\pi r h\). The unrolled side is a rectangle of width \(2\pi r\) and height \(h\), so its area is \(2\pi r h\).</div>
+<div class="trap"><b>Common mistake.</b> Answering only "\(x = 5\)". The question asks for the dimensions, so give every dimension (base and height, radius and height), and give the cost, area, or volume if it is asked for, with units.</div>
+<div class="trap"><b>Common mistake.</b> Writing profit as \(R(x) - 20x + 300\). The cost must be subtracted as a whole: \(R(x) - (20x + 300) = R(x) - 20x - 300\).</div>
+<div class="trap"><b>Common mistake.</b> In a closest point problem, giving the value of the squared distance as the distance. Minimizing \(D = d^2\) finds the right point, but the distance itself is \(\sqrt{D}\).</div>
+<div class="trap"><b>Common mistake.</b> Squaring an equation such as \(5u = 3\sqrt{u^2 + 64}\) and then keeping the negative solution \(u = -6\). Squaring can create solutions that do not satisfy the original equation, so check the sign.</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>The procedure: picture, variables with units, objective, constraint, one-variable function, domain, derivative, critical numbers, justification, answer in a sentence with units.</li>
+<li>The closed interval method for a closed, bounded domain \([a, b]\): compare the values at the critical numbers and at both endpoints.</li>
+<li>The critical point theorem for any interval with exactly one critical number, used with the first derivative test (sign change of \(f'\)) or the second derivative test (sign of \(f''(c)\)).</li>
+<li>Rectangle: area \(xy\), perimeter \(2x + 2y\). Box with base \(x\) by \(y\) and height \(h\): volume \(xyh\). Square base: volume \(x^2h\), closed surface \(2x^2 + 4xh\), open surface \(x^2 + 4xh\).</li>
+<li>Cylinder: volume \(\pi r^2 h\), closed surface \(2\pi r^2 + 2\pi r h\), open (no top) surface \(\pi r^2 + 2\pi r h\).</li>
+<li>Distance from \((x, y)\) to \((a, b)\): \(\sqrt{(x - a)^2 + (y - b)^2}\). Minimize its square to avoid the square root.</li>
+<li>Revenue \(R(x) = x\,p(x)\), profit \(P(x) = R(x) - C(x)\).</li>
+<li>The exam sentence: "\(C\) is continuous on the domain, \(x = c\) is its only critical number, and \(C\) has a local minimum there by the first (or second) derivative test, so by the critical point theorem \(C(c)\) is the smallest possible cost."</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u09-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Two positive numbers \(x\) and \(y\) have product \(xy = 100\). Find the two numbers whose sum \(x + y\) is as small as possible, and give that smallest sum.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Use the constraint to write the sum as a function of one variable. From \(xy = 100\) we get \(y = \tfrac{100}{x}\), so \[S(x) = x + \frac{100}{x}, \qquad \text{with domain } (0, \infty)\] because both numbers are positive.</li>
+<li>Differentiate with the power rule (\(\tfrac{100}{x} = 100x^{-1}\)) and combine over a common denominator. \[S'(x) = 1 - \frac{100}{x^2} = \frac{x^2 - 100}{x^2}.\]</li>
+<li>Find the critical number. \(S'(x) = 0\) when \(x^2 = 100\), so \(x = 10\) (we discard \(x = -10\) because it is not in the domain).</li>
+<li>Justify the minimum with the second derivative test and the critical point theorem. \[S''(x) = \frac{200}{x^3}, \qquad S''(10) = \frac{200}{1000} = \frac{1}{5} \gt 0.\] So \(S\) has a local minimum at \(x = 10\). It is the only critical number in \((0, \infty)\), so by the critical point theorem it gives the absolute minimum of \(S\).</li>
+<li>Find the other number and the sum. \(y = \tfrac{100}{10} = 10\), and \(S(10) = 10 + 10 = 20\).</li>
+</ol><p class="final">Answer: \(x = 10\) and \(y = 10\); the smallest possible sum is 20.</p></div></details></div>
+
+<div class="q" id="u09-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">A rectangular dog run is fenced on all four sides with 80 meters of fencing. What dimensions give the largest area, and what is that area?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="80" y="40" width="160" height="110" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="68" y="100" text-anchor="end" fill="currentColor" font-size="16">x</text>
+<text x="160" y="172" text-anchor="middle" fill="currentColor" font-size="16">y</text>
+</svg>
+<ol class="steps">
+<li>Define the variables and write the constraint. Let \(x\) and \(y\) be the side lengths in meters. The fence goes all the way around, so \[2x + 2y = 80, \qquad \text{so} \qquad y = 40 - x.\]</li>
+<li>Write the area as a function of \(x\) and state the domain. \[A(x) = x(40 - x) = 40x - x^2.\] We need \(x \ge 0\) and \(y = 40 - x \ge 0\), so the domain is \([0, 40]\).</li>
+<li>Differentiate and find the critical number. \[A'(x) = 40 - 2x = 0 \quad \text{gives} \quad x = 20.\]</li>
+<li>Use the closed interval method. \[A(0) = 0, \qquad A(20) = 800 - 400 = 400, \qquad A(40) = 1600 - 1600 = 0.\] The largest value is \(A(20) = 400\), and then \(y = 40 - 20 = 20\).</li>
+</ol><p class="final">Answer: The run should be a 20 m by 20 m square, with area 400 square meters.</p></div></details></div>
+
+<div class="q" id="u09-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">An open box is made from a 10-inch by 16-inch sheet of metal by cutting a square of side \(x\) inches from each corner and folding up the sides. Write the volume \(V\) of the box as a polynomial in \(x\) and state its domain. (Do not optimize.)</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the dimensions of the box. The height is \(x\). Each edge loses \(x\) at both ends, so the base is \(10 - 2x\) by \(16 - 2x\). The volume is \[V(x) = x(10 - 2x)(16 - 2x).\]</li>
+<li>Multiply out. First multiply the two binomials, then multiply by \(x\). \[\begin{aligned} (10 - 2x)(16 - 2x) &= 160 - 20x - 32x + 4x^2 = 4x^2 - 52x + 160, \\ V(x) &= x(4x^2 - 52x + 160) = 4x^3 - 52x^2 + 160x. \end{aligned}\]</li>
+<li>Find the domain. Every dimension must be nonnegative: \(x \ge 0\), \(10 - 2x \ge 0\) (so \(x \le 5\)), and \(16 - 2x \ge 0\) (so \(x \le 8\)). The short side wins, so the domain is \([0, 5]\).</li>
+</ol><p class="final">Answer: \(V(x) = 4x^3 - 52x^2 + 160x\) cubic inches, with domain \([0, 5]\).</p></div></details></div>
+
+<div class="q" id="u09-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">A closed box with a square base of side \(x\) feet must have a volume of 32 cubic feet. Write the total surface area \(S\) of the box as a function of \(x\) alone, and state its domain.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Solve the volume constraint for the height \(h\) (in feet). \[x^2 h = 32, \qquad \text{so} \qquad h = \frac{32}{x^2}.\]</li>
+<li>Add the areas of the six faces and substitute. The top and bottom each have area \(x^2\) and the four sides each have area \(xh\). \[S = 2x^2 + 4xh = 2x^2 + 4x\cdot\frac{32}{x^2} = 2x^2 + \frac{128}{x}.\]</li>
+<li>State the domain. The base side must be positive, and we divide by \(x\), so the domain is \((0, \infty)\).</li>
+</ol><p class="final">Answer: \(S(x) = 2x^2 + \dfrac{128}{x}\) square feet, with domain \((0, \infty)\).</p></div></details></div>
+
+<div class="q" id="u09-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">The surface area of a container is \(A(x) = x^2 + \dfrac{16}{x}\), where \(x \gt 0\). Find the critical number of \(A\) and use the second derivative test to show that it gives the absolute minimum of \(A\) on \((0, \infty)\). What is that minimum?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate with the power rule and combine over a common denominator. \[A'(x) = 2x - \frac{16}{x^2} = \frac{2x^3 - 16}{x^2}.\]</li>
+<li>Find the critical number. \(2x^3 - 16 = 0\) gives \(x^3 = 8\), so \(x = 2\). (\(A'\) does not exist at \(x = 0\), but 0 is not in the domain.)</li>
+<li>Apply the second derivative test. \[A''(x) = 2 + \frac{32}{x^3}, \qquad A''(2) = 2 + \frac{32}{8} = 6 \gt 0.\] So \(A\) has a local minimum at \(x = 2\).</li>
+<li>Conclude with the critical point theorem. \(A\) is continuous on \((0, \infty)\) and \(x = 2\) is its only critical number there, so the local minimum is the absolute minimum. Its value is \[A(2) = 4 + \frac{16}{2} = 4 + 8 = 12.\]</li>
+</ol><p class="final">Answer: The critical number is \(x = 2\), and the absolute minimum of \(A\) on \((0, \infty)\) is \(A(2) = 12\).</p></div></details></div>
+
+<div class="q" id="u09-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Find the point on the line \(y = 2x\) that is closest to the point \((5, 0)\), and find the distance.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write the square of the distance. A point on the line is \((x, 2x)\). Its distance to \((5, 0)\) is \(d = \sqrt{(x - 5)^2 + (2x)^2}\). The square root is smallest exactly when the quantity under it is smallest, so we minimize \[D(x) = (x - 5)^2 + 4x^2 = x^2 - 10x + 25 + 4x^2 = 5x^2 - 10x + 25\] on the domain \((-\infty, \infty)\).</li>
+<li>Find the critical number and justify the minimum. \[D'(x) = 10x - 10 = 0 \quad \text{gives} \quad x = 1, \qquad D''(x) = 10 \gt 0.\] So \(x = 1\) is a local minimum, and since it is the only critical number on \((-\infty, \infty)\), the critical point theorem makes it the absolute minimum. The point is \((1, 2(1)) = (1, 2)\), and the distance is \[d = \sqrt{D(1)} = \sqrt{5 - 10 + 25} = \sqrt{20} = 2\sqrt{5}.\]</li>
+</ol>
+<div class="plot" data-f="2*x;;-(x-5)/2" data-x="-1,6" data-y="-1,5" data-pts="1,2,closest point (1, 2)|5,0,(5, 0)" data-cap="The line y = 2x (blue) and the shortest segment to (5, 0), which lies on the perpendicular line y = -(x - 5)/2 (green)."></div>
+<p class="final">Answer: The closest point is \((1, 2)\), and the distance is \(2\sqrt{5}\).</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u09-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">A rancher has 600 meters of fencing. She wants to enclose a rectangular field and split it into two pens with one more fence across the middle, parallel to two of the sides. What dimensions give the largest total area, and what is that area?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="60" y="40" width="200" height="110" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="160" y1="40" x2="160" y2="150" stroke="currentColor" stroke-width="2"/>
+<text x="48" y="100" text-anchor="end" fill="currentColor" font-size="16">x</text>
+<text x="168" y="100" fill="currentColor" font-size="16">x</text>
+<text x="272" y="100" fill="currentColor" font-size="16">x</text>
+<text x="160" y="172" text-anchor="middle" fill="currentColor" font-size="16">y</text>
+<text x="160" y="30" text-anchor="middle" fill="currentColor" font-size="16">y</text>
+</svg>
+<ol class="steps">
+<li>Define the variables from the picture. Let \(x\) be the length in meters of each of the three parallel pieces (the two ends and the divider), and let \(y\) be the length in meters of each of the other two sides.</li>
+<li>Write the constraint and solve it for \(y\). There are three pieces of length \(x\) and two of length \(y\). \[3x + 2y = 600, \qquad 2y = 600 - 3x, \qquad y = 300 - \tfrac{3}{2}x.\]</li>
+<li>Write the total area as a function of \(x\). \[A(x) = xy = x\left(300 - \tfrac{3}{2}x\right) = 300x - \tfrac{3}{2}x^2.\]</li>
+<li>State the domain. We need \(x \ge 0\) and \(y = 300 - \tfrac{3}{2}x \ge 0\), which gives \(\tfrac{3}{2}x \le 300\), so \(x \le 200\). The domain is \([0, 200]\).</li>
+<li>Differentiate and find the critical number. \[A'(x) = 300 - 3x = 0 \quad \text{gives} \quad x = 100.\]</li>
+<li>Use the closed interval method. \[\begin{aligned} A(0) &= 0, \\ A(100) &= 300(100) - \tfrac{3}{2}(10000) = 30000 - 15000 = 15000, \\ A(200) &= 300(200) - \tfrac{3}{2}(40000) = 60000 - 60000 = 0. \end{aligned}\] The largest value is \(A(100) = 15000\).</li>
+<li>Find \(y\). \(y = 300 - \tfrac{3}{2}(100) = 300 - 150 = 150\). Check the fence: \(3(100) + 2(150) = 300 + 300 = 600\).</li>
+</ol><p class="final">Answer: The three parallel pieces (two ends and the divider) are 100 m each and the other two sides are 150 m each. The largest total area is 15000 square meters.</p></div></details></div>
+
+<div class="q" id="u09-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">An open box is made from an 8-inch by 15-inch sheet of cardboard by cutting equal squares from the corners and folding up the sides. Find the size of the square to cut so that the box has the largest possible volume, and find that volume.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Define the variable and write the volume. Let \(x\) be the side, in inches, of each cut square. The box has height \(x\) and base \(8 - 2x\) by \(15 - 2x\). \[V(x) = x(8 - 2x)(15 - 2x).\]</li>
+<li>Multiply out so the derivative is easy. \[\begin{aligned} (8 - 2x)(15 - 2x) &= 120 - 16x - 30x + 4x^2 = 4x^2 - 46x + 120, \\ V(x) &= 4x^3 - 46x^2 + 120x. \end{aligned}\]</li>
+<li>State the domain. We need \(x \ge 0\), \(8 - 2x \ge 0\) (so \(x \le 4\)), and \(15 - 2x \ge 0\) (so \(x \le 7.5\)). The domain is \([0, 4]\).</li>
+<li>Differentiate and factor. Factor out 4 first, then factor the quadratic: we need two numbers with product \(3 \cdot 30 = 90\) and sum \(-23\), which are \(-18\) and \(-5\). \[\begin{aligned} V'(x) &= 12x^2 - 92x + 120 = 4(3x^2 - 23x + 30) \\ &= 4(3x^2 - 18x - 5x + 30) = 4\big(3x(x - 6) - 5(x - 6)\big) = 4(3x - 5)(x - 6). \end{aligned}\]</li>
+<li>Find the critical numbers in the domain. \(3x - 5 = 0\) gives \(x = \tfrac{5}{3}\), which is in \((0, 4)\). \(x - 6 = 0\) gives \(x = 6\), which is not in \([0, 4]\), so we discard it.</li>
+<li>Use the closed interval method. \(V(0) = 0\) and \(V(4) = 4(0)(7) = 0\). At the critical number, \[V\!\left(\tfrac{5}{3}\right) = \tfrac{5}{3}\left(8 - \tfrac{10}{3}\right)\left(15 - \tfrac{10}{3}\right) = \tfrac{5}{3}\cdot\tfrac{14}{3}\cdot\tfrac{35}{3} = \tfrac{2450}{27}.\] The largest value is \(\tfrac{2450}{27}\), at \(x = \tfrac{5}{3}\).</li>
+</ol><p class="final">Answer: Cut squares of side \(\tfrac{5}{3}\) inches. The box is \(\tfrac{35}{3}\) in by \(\tfrac{14}{3}\) in by \(\tfrac{5}{3}\) in, with largest volume \(\tfrac{2450}{27}\) cubic inches.</p></div></details></div>
+
+<div class="q" id="u09-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">An open box (no top) with a square base is made from 300 square inches of material. Find the dimensions that give the largest possible volume, and find that volume.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<path d="M110 70 H190 V170 H110 Z M110 70 L150 40 H230 L190 70 M230 40 V140 L190 170" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="150" y="188" text-anchor="middle" fill="currentColor" font-size="15">x</text>
+<text x="220" y="168" fill="currentColor" font-size="15">x</text>
+<text x="98" y="125" text-anchor="end" fill="currentColor" font-size="15">h</text>
+<text x="170" y="30" text-anchor="middle" fill="currentColor" font-size="13">open top</text>
+</svg>
+<ol class="steps">
+<li>Define the variables. Let \(x\) be the side of the square base and \(h\) the height, both in inches.</li>
+<li>Write the constraint and solve it for \(h\). An open box has a bottom of area \(x^2\) and four sides of area \(xh\) each. \[x^2 + 4xh = 300, \qquad 4xh = 300 - x^2, \qquad h = \frac{300 - x^2}{4x}.\]</li>
+<li>Write the volume as a function of \(x\). \[V = x^2 h = x^2\cdot\frac{300 - x^2}{4x} = \frac{x(300 - x^2)}{4} = 75x - \frac{x^3}{4}.\]</li>
+<li>State the domain. We need \(x \gt 0\) (we divided by \(x\)) and \(h \ge 0\), which means \(300 - x^2 \ge 0\), so \(x \le \sqrt{300} = 10\sqrt{3}\). The domain is \((0, 10\sqrt{3}]\). It is not closed, so we use the critical point theorem.</li>
+<li>Differentiate and find the critical number. \[V'(x) = 75 - \frac{3x^2}{4} = 0, \qquad \frac{3x^2}{4} = 75, \qquad x^2 = 100, \qquad x = 10.\] (We discard \(x = -10\).) Note that \(10 \lt 10\sqrt{3}\), so 10 is in the domain.</li>
+<li>Justify the maximum. \(V''(x) = -\tfrac{3x}{2}\), so \(V''(10) = -15 \lt 0\) and \(V\) has a local maximum at \(x = 10\). Since \(V\) is continuous on \((0, 10\sqrt{3}]\) and \(x = 10\) is its only critical number there, the critical point theorem says \(V(10)\) is the absolute maximum.</li>
+<li>Compute the height and the volume. \[h = \frac{300 - 100}{40} = \frac{200}{40} = 5, \qquad V(10) = 750 - \frac{1000}{4} = 750 - 250 = 500.\] Check: \(10^2 \cdot 5 = 500\).</li>
+</ol><p class="final">Answer: The base is 10 in by 10 in and the height is 5 in. The largest volume is 500 cubic inches.</p></div></details></div>
+
+<div class="q" id="u09-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">A closed cylindrical can is made from \(54\pi\) square centimeters of metal. Find the radius and height that give the largest possible volume, and find that volume.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Define the variables. Let \(r\) be the radius and \(h\) the height, both in centimeters.</li>
+<li>Write the area constraint and solve it for \(h\). \[2\pi r^2 + 2\pi r h = 54\pi.\] Divide every term by \(2\pi\): \[r^2 + rh = 27, \qquad rh = 27 - r^2, \qquad h = \frac{27 - r^2}{r}.\]</li>
+<li>Write the volume as a function of \(r\). \[V = \pi r^2 h = \pi r^2\cdot\frac{27 - r^2}{r} = \pi r(27 - r^2) = \pi(27r - r^3).\]</li>
+<li>State the domain. We need \(r \gt 0\) and \(h \ge 0\), which means \(27 - r^2 \ge 0\), so \(r \le \sqrt{27} = 3\sqrt{3}\). The domain is \((0, 3\sqrt{3}]\).</li>
+<li>Differentiate and factor. \[V'(r) = \pi(27 - 3r^2) = 3\pi(9 - r^2) = 3\pi(3 - r)(3 + r).\] On the domain, \(V'(r) = 0\) only at \(r = 3\).</li>
+<li>Use the first derivative test. On the domain \(3\pi \gt 0\) and \(3 + r \gt 0\), so the sign of \(V'\) is the sign of \(3 - r\). For \(0 \lt r \lt 3\), \(V'(r) \gt 0\), and for \(3 \lt r \le 3\sqrt{3}\), \(V'(r) \lt 0\). So \(V\) increases and then decreases, which gives a local maximum at \(r = 3\). It is the only critical number, so by the critical point theorem \(V(3)\) is the absolute maximum.</li>
+<li>Compute the height and the volume. \[h = \frac{27 - 9}{3} = \frac{18}{3} = 6, \qquad V(3) = \pi(81 - 27) = 54\pi.\]</li>
+</ol><p class="final">Answer: The radius is 3 cm and the height is 6 cm. The largest volume is \(54\pi\) cubic centimeters.</p></div></details></div>
+
+<div class="q" id="u09-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">A small theater sells 600 tickets per show when a ticket costs $20. For every $1 increase in the price, it sells 20 fewer tickets (and for every $1 decrease, 20 more). What ticket price brings in the largest revenue, and what is that revenue?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Define the variable. Let \(x\) be the number of dollars added to the $20 price (a negative \(x\) means a price cut). Then the price is \(20 + x\) dollars and the number of tickets sold is \(600 - 20x\).</li>
+<li>Write the revenue, tickets times price, and multiply out. \[\begin{aligned} R(x) &= (20 + x)(600 - 20x) \\ &= 12000 - 400x + 600x - 20x^2 = 12000 + 200x - 20x^2. \end{aligned}\]</li>
+<li>State the domain. The price must not be negative, \(20 + x \ge 0\), so \(x \ge -20\). The number of tickets must not be negative, \(600 - 20x \ge 0\), so \(x \le 30\). The domain is \([-20, 30]\).</li>
+<li>Differentiate and find the critical number. \[R'(x) = 200 - 40x = 0 \quad \text{gives} \quad x = 5.\]</li>
+<li>Use the closed interval method. \[R(-20) = 0\cdot 1000 = 0, \qquad R(5) = 25 \cdot 500 = 12500, \qquad R(30) = 50 \cdot 0 = 0.\] The largest value is \(R(5) = 12500\).</li>
+<li>Translate back to the price. \(x = 5\) means a price of \(20 + 5 = 25\) dollars, with \(600 - 100 = 500\) tickets sold.</li>
+</ol><p class="final">Answer: Charge $25 per ticket. The theater sells 500 tickets and the largest revenue is $12,500.</p></div></details></div>
+
+<div class="q" id="u09-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Find the point on the curve \(y = \sqrt{x}\) that is closest to the point \((3, 0)\), and find the smallest distance.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write the square of the distance as a function of \(x\). A point on the curve is \((x, \sqrt{x})\). The square of its distance to \((3, 0)\) is \[D(x) = (x - 3)^2 + (\sqrt{x} - 0)^2 = x^2 - 6x + 9 + x = x^2 - 5x + 9.\] The distance \(\sqrt{D}\) is smallest exactly when \(D\) is smallest.</li>
+<li>State the domain. \(\sqrt{x}\) needs \(x \ge 0\), so the domain is \([0, \infty)\).</li>
+<li>Differentiate and find the critical number. \[D'(x) = 2x - 5 = 0 \quad \text{gives} \quad x = \tfrac{5}{2}.\]</li>
+<li>Justify the minimum. \(D''(x) = 2 \gt 0\), so \(D\) has a local minimum at \(x = \tfrac{5}{2}\). It is the only critical number in \([0, \infty)\), so by the critical point theorem it gives the absolute minimum of \(D\).</li>
+<li>Find the point and the distance. \(y = \sqrt{5/2} = \tfrac{\sqrt{10}}{2}\). \[D\!\left(\tfrac{5}{2}\right) = \tfrac{25}{4} - \tfrac{25}{2} + 9 = \tfrac{25}{4} - \tfrac{50}{4} + \tfrac{36}{4} = \tfrac{11}{4}, \qquad d = \sqrt{\tfrac{11}{4}} = \tfrac{\sqrt{11}}{2}.\]</li>
+</ol>
+<div class="plot" data-f="Math.sqrt(x);;-Math.sqrt(10)*(x-3)" data-x="0,5" data-y="-0.5,3" data-pts="2.5,1.5811,closest point (5/2, √10/2)|3,0,(3, 0)" data-cap="The curve y = √x (blue) and the line through (3, 0) and the closest point (green)."></div>
+<p class="final">Answer: The closest point is \(\left(\tfrac{5}{2}, \tfrac{\sqrt{10}}{2}\right)\), and the smallest distance is \(\tfrac{\sqrt{11}}{2}\).</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u09-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">A rectangular area of 1800 square meters is to be fenced along a straight river, with no fence on the river side. A fence perpendicular to the river will divide it into two pens. The fence parallel to the river costs $6 per meter, and the three fences perpendicular to the river cost $4 per meter. Find the dimensions that make the cost as small as possible, find that cost, and explain why it is the smallest.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<path d="M20 40 Q60 30 100 40 T180 40 T260 40 T300 40" stroke="currentColor" fill="none" stroke-width="3"/>
+<text x="160" y="25" text-anchor="middle" fill="currentColor" font-size="14">river (no fence)</text>
+<path d="M60 45 V160 H260 V45" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="160" y1="45" x2="160" y2="160" stroke="currentColor" stroke-width="2"/>
+<text x="48" y="105" text-anchor="end" fill="currentColor" font-size="16">x</text>
+<text x="168" y="105" fill="currentColor" font-size="16">x</text>
+<text x="272" y="105" fill="currentColor" font-size="16">x</text>
+<text x="160" y="182" text-anchor="middle" fill="currentColor" font-size="16">y</text>
+</svg>
+<ol class="steps">
+<li>Define the variables. Let \(x\) be the length in meters of each of the three fences perpendicular to the river, and let \(y\) be the length in meters of the fence parallel to the river.</li>
+<li>Write the cost in dollars. The three perpendicular pieces cost \(4 \cdot 3x = 12x\) and the parallel piece costs \(6y\). \[C = 12x + 6y.\]</li>
+<li>Use the area constraint to remove \(y\). \[xy = 1800, \qquad y = \frac{1800}{x}, \qquad C(x) = 12x + 6\cdot\frac{1800}{x} = 12x + \frac{10800}{x}.\]</li>
+<li>State the domain. We need \(x \gt 0\) because we divide by \(x\), and every \(x \gt 0\) gives a rectangle with \(y = \tfrac{1800}{x} \gt 0\). The domain is \((0, \infty)\).</li>
+<li>Differentiate and find the critical number. \[C'(x) = 12 - \frac{10800}{x^2} = \frac{12x^2 - 10800}{x^2} = \frac{12(x^2 - 900)}{x^2}.\] \(C'(x) = 0\) when \(x^2 = 900\), so \(x = 30\) (we discard \(-30\)).</li>
+<li>Use the second derivative test. \[C''(x) = \frac{21600}{x^3}, \qquad C''(30) = \frac{21600}{27000} = \frac{4}{5} \gt 0,\] so \(C\) has a local minimum at \(x = 30\).</li>
+<li>Explain why this is the smallest cost. \(C\) is continuous on \((0, \infty)\) and \(x = 30\) is its only critical number there, so by the critical point theorem the local minimum at \(x = 30\) is the absolute minimum. Every other layout with area 1800 square meters costs more.</li>
+<li>Find \(y\) and the cost. \[y = \frac{1800}{30} = 60, \qquad C(30) = 12(30) + \frac{10800}{30} = 360 + 360 = 720.\]</li>
+</ol><p class="final">Answer: Make each of the three perpendicular fences 30 m long and the fence parallel to the river 60 m long. The smallest cost is $720.</p></div></details></div>
+
+<div class="q" id="u09-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">A rectangle has its base on the \(x\)-axis and its two upper corners on the parabola \(y = 12 - x^2\). Find the dimensions of the rectangle with the largest area, and find that area.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variable from the picture. The parabola is symmetric about the \(y\)-axis, so the rectangle is too. Let its upper right corner be \((x, 12 - x^2)\) with \(x \ge 0\). Then the upper left corner is \((-x, 12 - x^2)\), the width is \(2x\), and the height is \(12 - x^2\).</li>
+<li>Write the area and multiply out. \[A(x) = 2x(12 - x^2) = 24x - 2x^3.\]</li>
+<li>State the domain. We need \(x \ge 0\) and height \(12 - x^2 \ge 0\), so \(x \le \sqrt{12} = 2\sqrt{3}\). The domain is \([0, 2\sqrt{3}]\), closed and bounded.</li>
+<li>Differentiate and find the critical number. \[A'(x) = 24 - 6x^2 = 6(4 - x^2) = 6(2 - x)(2 + x).\] In the domain, \(A'(x) = 0\) only at \(x = 2\).</li>
+<li>Use the closed interval method. \[\begin{aligned} A(0) &= 0, \\ A(2) &= 2(2)(12 - 4) = 4 \cdot 8 = 32, \\ A(2\sqrt{3}) &= 2(2\sqrt{3})(12 - 12) = 0. \end{aligned}\] The largest value is \(A(2) = 32\).</li>
+<li>Read off the dimensions. With \(x = 2\), the width is \(2x = 4\) and the height is \(12 - 4 = 8\).</li>
+</ol>
+<div class="plot" data-f="12-x**2" data-x="-4,4" data-y="-1,13" data-pts="2,8,(2, 8)|-2,8,(-2, 8)" data-v="-2,2" data-h="8" data-cap="The parabola y = 12 - x^2. The dashed lines x = -2, x = 2, and y = 8 outline the largest rectangle."></div>
+<p class="final">Answer: The rectangle is 4 units wide and 8 units tall, with largest area 32 square units.</p></div></details></div>
+
+<div class="q" id="u09-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">A company sells \(x\) thousand phone cases per month when the price is \(p(x) = 100 - x^2\) dollars per case. Its monthly cost of making \(x\) thousand cases is \(C(x) = 25x + 50\) thousand dollars. How many cases should it sell per month to maximize profit? At what price, and what is the largest profit?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write the revenue in thousands of dollars. Selling \(x\) thousand cases at \(p(x)\) dollars each brings in \(1000x \cdot p(x)\) dollars, which is \(x\,p(x)\) thousand dollars. \[R(x) = x(100 - x^2) = 100x - x^3.\]</li>
+<li>Write the profit, revenue minus the whole cost, in thousands of dollars. \[P(x) = 100x - x^3 - (25x + 50) = 75x - x^3 - 50.\]</li>
+<li>State the domain. We need \(x \ge 0\) and a price that is not negative: \(100 - x^2 \ge 0\), so \(x \le 10\). The domain is \([0, 10]\).</li>
+<li>Differentiate and find the critical number. \[P'(x) = 75 - 3x^2 = 3(25 - x^2) = 3(5 - x)(5 + x).\] In the domain, \(P'(x) = 0\) only at \(x = 5\).</li>
+<li>Use the closed interval method. \[\begin{aligned} P(0) &= -50, \\ P(5) &= 375 - 125 - 50 = 200, \\ P(10) &= 750 - 1000 - 50 = -300. \end{aligned}\] The largest value is \(P(5) = 200\) thousand dollars.</li>
+<li>Find the price. \(p(5) = 100 - 25 = 75\) dollars per case.</li>
+</ol><p class="final">Answer: Sell 5 thousand (5000) cases per month at $75 each. The largest monthly profit is 200 thousand dollars, that is, $200,000.</p></div></details></div>
+
+<div class="q" id="u09-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">An oil platform \(B\) is 3 miles offshore from a straight coastline, and \(C\) is the point on the coast closest to \(B\). A refinery \(A\) is on the coast, 12 miles from \(C\). A pipeline will run underwater in a straight line from \(B\) to a point \(P\) on the coast between \(C\) and \(A\), then along the coast to \(A\). Underwater pipe costs $50,000 per mile and pipe on land costs $40,000 per mile.<br>(a) Where should \(P\) be to make the cost as small as possible, and what is that cost?<br>(b) Answer the same question if the refinery is only 2 miles from \(C\).</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="20" y1="160" x2="300" y2="160" stroke="currentColor"/>
+<line x1="133" y1="160" x2="280" y2="160" stroke="currentColor" stroke-width="4"/>
+<line x1="60" y1="60" x2="133" y2="160" stroke="currentColor" stroke-width="3"/>
+<line x1="60" y1="60" x2="60" y2="160" stroke="currentColor" stroke-dasharray="4 3"/>
+<circle cx="60" cy="60" r="4" stroke="currentColor" fill="none"/>
+<text x="48" y="58" text-anchor="end" fill="currentColor" font-size="14">B</text>
+<text x="60" y="180" text-anchor="middle" fill="currentColor" font-size="14">C</text>
+<text x="133" y="180" text-anchor="middle" fill="currentColor" font-size="14">P</text>
+<text x="280" y="180" text-anchor="middle" fill="currentColor" font-size="14">A</text>
+<text x="48" y="115" text-anchor="end" fill="currentColor" font-size="14">3</text>
+<text x="96" y="176" text-anchor="middle" fill="currentColor" font-size="14">u</text>
+<text x="206" y="152" text-anchor="middle" fill="currentColor" font-size="13">12 - u</text>
+<text x="200" y="80" text-anchor="middle" fill="currentColor" font-size="13">water</text>
+<text x="200" y="196" text-anchor="middle" fill="currentColor" font-size="13">land</text>
+</svg>
+<ol class="steps">
+<li>(a) Define the variable. Let \(u\) be the distance in miles from \(C\) to \(P\), so \(0 \le u \le 12\). The land part \(PA\) is \(12 - u\) miles. The underwater part \(BP\) is the hypotenuse of the right triangle \(BCP\) with legs 3 and \(u\), so by the Pythagorean theorem it is \(\sqrt{u^2 + 9}\) miles.</li>
+<li>(a) Write the cost in thousands of dollars. \[K(u) = 50\sqrt{u^2 + 9} + 40(12 - u), \qquad 0 \le u \le 12.\] The domain is closed and bounded, so we use the closed interval method.</li>
+<li>(a) Differentiate, using the chain rule on the square root (inside \(w = u^2 + 9\), \(w' = 2u\)). \[K'(u) = 50\cdot\frac{2u}{2\sqrt{u^2 + 9}} - 40 = \frac{50u}{\sqrt{u^2 + 9}} - 40.\]</li>
+<li>(a) Solve \(K'(u) = 0\). \[\frac{50u}{\sqrt{u^2 + 9}} = 40, \qquad 50u = 40\sqrt{u^2 + 9}, \qquad 5u = 4\sqrt{u^2 + 9}.\] Square both sides: \[25u^2 = 16(u^2 + 9) = 16u^2 + 144, \qquad 9u^2 = 144, \qquad u^2 = 16.\] The right side \(4\sqrt{u^2 + 9}\) is positive, so \(u\) must be positive: \(u = 4\). The denominator is never 0, so this is the only critical number.</li>
+<li>(a) Evaluate \(K\) at the critical number and at both endpoints. \[\begin{aligned} K(0) &= 50\sqrt{9} + 40(12) = 150 + 480 = 630, \\ K(4) &= 50\sqrt{25} + 40(8) = 250 + 320 = 570, \\ K(12) &= 50\sqrt{153} + 0 = 50\sqrt{9 \cdot 17} = 150\sqrt{17}. \end{aligned}\]</li>
+<li>(a) Compare without a calculator. Since \(\sqrt{17} \gt \sqrt{16} = 4\), \(150\sqrt{17} \gt 600 \gt 570\). Also \(630 \gt 570\). So the smallest value is \(K(4) = 570\) thousand dollars, and by the closed interval method no other route is cheaper.</li>
+<li>(b) Set up the new problem. Now \(0 \le u \le 2\) and the land part is \(2 - u\), so \[K(u) = 50\sqrt{u^2 + 9} + 40(2 - u), \qquad K'(u) = \frac{50u}{\sqrt{u^2 + 9}} - 40.\] The derivative is the same as before, and its only zero is \(u = 4\), which is not in \([0, 2]\). So there are no critical numbers in \((0, 2)\).</li>
+<li>(b) Use the closed interval method with only the endpoints. \[K(0) = 150 + 80 = 230, \qquad K(2) = 50\sqrt{13} + 0 = 50\sqrt{13}.\] To compare, note \(50\sqrt{13} \lt 230\) exactly when \(\sqrt{13} \lt 4.6\), which is true because \(4.6^2 = 21.16 \gt 13\). So the smallest value is \(K(2) = 50\sqrt{13}\) thousand dollars. Here \(u = 2\) means \(P = A\): the whole pipe goes underwater straight to the refinery.</li>
+</ol><p class="final">Answer: (a) Put \(P\) 4 miles from \(C\) (8 miles from the refinery): 5 miles of underwater pipe and 8 miles on land, for a smallest cost of $570,000. (b) Run the whole pipeline underwater straight from the platform to the refinery, \(\sqrt{13}\) miles, for a smallest cost of \(50\sqrt{13}\) thousand dollars, that is, \(\$50{,}000\sqrt{13}\).</p></div></details></div>
+
+<div class="q" id="u09-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">Find the points on the parabola \(y = x^2\) that are closest to the point \((0, 2)\), and find the smallest distance.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write the square of the distance. A point on the parabola is \((x, x^2)\), and the square of its distance to \((0, 2)\) is \[D(x) = (x - 0)^2 + (x^2 - 2)^2 = x^2 + x^4 - 4x^2 + 4 = x^4 - 3x^2 + 4.\] The domain is \((-\infty, \infty)\).</li>
+<li>Differentiate and factor. \[D'(x) = 4x^3 - 6x = 2x(2x^2 - 3).\]</li>
+<li>Find the critical numbers. \(2x = 0\) gives \(x = 0\). \(2x^2 - 3 = 0\) gives \(x^2 = \tfrac{3}{2}\), so \(x = \pm\sqrt{\tfrac{3}{2}} = \pm\tfrac{\sqrt{6}}{2}\). There are three critical numbers, so the critical point theorem does not apply, and we use a sign chart and the behavior at the ends.</li>
+<li>Make a sign chart for \(D'(x) = 2x(2x^2 - 3)\), testing one number in each interval.
+<table class="t">
+<tr><th>interval</th><th>test \(x\)</th><th>\(D'(x)\)</th><th>\(D\) is</th></tr>
+<tr><td>\(x \lt -\tfrac{\sqrt{6}}{2}\)</td><td>\(-2\)</td><td>\(2(-2)(8 - 3) = -20\)</td><td>decreasing</td></tr>
+<tr><td>\(-\tfrac{\sqrt{6}}{2} \lt x \lt 0\)</td><td>\(-1\)</td><td>\(2(-1)(2 - 3) = 2\)</td><td>increasing</td></tr>
+<tr><td>\(0 \lt x \lt \tfrac{\sqrt{6}}{2}\)</td><td>\(1\)</td><td>\(2(1)(2 - 3) = -2\)</td><td>decreasing</td></tr>
+<tr><td>\(x \gt \tfrac{\sqrt{6}}{2}\)</td><td>\(2\)</td><td>\(2(2)(8 - 3) = 20\)</td><td>increasing</td></tr>
+</table>
+So \(D\) has local minima at \(x = \pm\tfrac{\sqrt{6}}{2}\) and a local maximum at \(x = 0\).</li>
+<li>Evaluate \(D\) at the critical numbers. At \(x = \pm\tfrac{\sqrt{6}}{2}\) we have \(x^2 = \tfrac{3}{2}\) and \(x^4 = \tfrac{9}{4}\). \[D(0) = 4, \qquad D\!\left(\pm\tfrac{\sqrt{6}}{2}\right) = \tfrac{9}{4} - \tfrac{9}{2} + 4 = \tfrac{9}{4} - \tfrac{18}{4} + \tfrac{16}{4} = \tfrac{7}{4}.\]</li>
+<li>Conclude using the sign chart and the behavior at the ends. To the left of \(-\tfrac{\sqrt{6}}{2}\), \(D\) is decreasing, so every value there is larger than \(D\!\left(-\tfrac{\sqrt{6}}{2}\right) = \tfrac{7}{4}\) (and \(D(x) \to \infty\) as \(x \to -\infty\)). Between \(-\tfrac{\sqrt{6}}{2}\) and \(\tfrac{\sqrt{6}}{2}\), \(D\) rises from \(\tfrac{7}{4}\) up to \(D(0) = 4\) and falls back to \(\tfrac{7}{4}\), so it never goes below \(\tfrac{7}{4}\). To the right of \(\tfrac{\sqrt{6}}{2}\), \(D\) is increasing, so every value there is larger than \(\tfrac{7}{4}\). So the absolute minimum of \(D\) is \(\tfrac{7}{4}\), attained at both \(x = \pm\tfrac{\sqrt{6}}{2}\). The \(y\)-coordinate there is \(x^2 = \tfrac{3}{2}\), and the distance is \(\sqrt{7/4} = \tfrac{\sqrt{7}}{2}\).</li>
+</ol>
+<div class="plot" data-f="x**2;;2+Math.sqrt(7/4-x**2);;2-Math.sqrt(7/4-x**2)" data-x="-2.5,2.5" data-y="-0.5,4" data-pts="1.2247,1.5,(√6/2, 3/2)|-1.2247,1.5,(-√6/2, 3/2)" data-cap="The parabola y = x^2 (blue) and the circle of radius √7/2 centered at (0, 2), drawn as its upper and lower halves. The circle touches the parabola exactly at the two closest points."></div>
+<p class="final">Answer: The closest points are \(\left(\tfrac{\sqrt{6}}{2}, \tfrac{3}{2}\right)\) and \(\left(-\tfrac{\sqrt{6}}{2}, \tfrac{3}{2}\right)\), and the smallest distance is \(\tfrac{\sqrt{7}}{2}\).</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u09-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">A planter box is built as an open rectangular box with a square base (open means that it has no top). It must hold 144 ft<sup>3</sup> of soil. The material for the base costs $4 per square foot, and the material for the sides costs $3 per square foot. Find the dimensions of the planter that minimize the total cost, and explain why your answer gives you the smallest possible cost.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<path d="M110 70 H190 V170 H110 Z M110 70 L150 40 H230 L190 70 M230 40 V140 L190 170" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="150" y="188" text-anchor="middle" fill="currentColor" font-size="15">x</text>
+<text x="220" y="168" fill="currentColor" font-size="15">x</text>
+<text x="98" y="125" text-anchor="end" fill="currentColor" font-size="15">h</text>
+<text x="170" y="30" text-anchor="middle" fill="currentColor" font-size="13">open top</text>
+</svg>
+<ol class="steps">
+<li>Define the variables. Let \(x\) be the side of the square base, in feet, and let \(h\) be the height of the box, in feet.</li>
+<li>Write the cost. The base has area \(x^2\) at $4 per square foot. The four sides each have area \(xh\) at $3 per square foot. There is no top. The total cost in dollars is \[C = 4x^2 + 3(4xh) = 4x^2 + 12xh.\]</li>
+<li>Use the volume constraint to remove \(h\). \[x^2 h = 144, \qquad h = \frac{144}{x^2}, \qquad C(x) = 4x^2 + 12x\cdot\frac{144}{x^2} = 4x^2 + \frac{1728}{x}.\]</li>
+<li>State the domain. The base side must be positive and we divide by \(x\), and every \(x \gt 0\) gives a box with \(h = \tfrac{144}{x^2}\). The domain is \((0, \infty)\).</li>
+<li>Differentiate with the power rule (\(\tfrac{1728}{x} = 1728x^{-1}\)) and combine over a common denominator. \[C'(x) = 8x - \frac{1728}{x^2} = \frac{8x^3 - 1728}{x^2} = \frac{8(x^3 - 216)}{x^2}.\]</li>
+<li>Find the critical numbers. \(C'\) does not exist at \(x = 0\), which is not in the domain. \(C'(x) = 0\) when \(x^3 = 216\), so \(x = 6\). This is the only critical number in \((0, \infty)\).</li>
+<li>Use the first derivative test. The factors \(8\) and \(x^2\) are positive, so the sign of \(C'(x)\) is the sign of \(x^3 - 216\). For \(0 \lt x \lt 6\), \(x^3 \lt 216\) and \(C'(x) \lt 0\). For \(x \gt 6\), \(x^3 \gt 216\) and \(C'(x) \gt 0\). So \(C\) is decreasing on \((0, 6)\) and increasing on \((6, \infty)\).</li>
+<li>Explain why this is the smallest possible cost. Since \(C\) decreases all the way up to \(x = 6\) and increases from then on, \(C(6) \lt C(x)\) for every other \(x \gt 0\). Equivalently, \(C\) is continuous on \((0, \infty)\) with exactly one critical number, at which it has a local minimum, so by the critical point theorem \(C(6)\) is the absolute minimum. No other container with volume 144 ft<sup>3</sup> costs less.</li>
+<li>Compute the height and the cost. \[h = \frac{144}{36} = 4, \qquad C(6) = 4(36) + \frac{1728}{6} = 144 + 288 = 432.\]</li>
+</ol><p class="final">Answer: The base is 6 ft by 6 ft and the height is 4 ft, for a smallest total cost of $432. It is the smallest because \(C'(x) \lt 0\) for \(0 \lt x \lt 6\) and \(C'(x) \gt 0\) for \(x \gt 6\), so \(x = 6\) is the absolute minimum of \(C\) on \((0, \infty)\).</p></div></details></div>
+
+<div class="q" id="u09-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">A company makes closed cylindrical cans that hold 500 cm<sup>3</sup> each. Find the radius and the height of the can that needs the least metal, that is, the can with the smallest possible surface area, and explain why your answer gives the smallest surface area. The surface of the can is made of a circular top, a circular bottom, and a side sheet that unrolls into a rectangle.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<ellipse cx="160" cy="40" rx="60" ry="15" stroke="currentColor" fill="none" stroke-width="2"/>
+<path d="M100 160 A60 15 0 0 0 220 160" stroke="currentColor" fill="none" stroke-width="2"/>
+<path d="M100 160 A60 15 0 0 1 220 160" stroke="currentColor" fill="none" stroke-dasharray="4 3"/>
+<line x1="100" y1="40" x2="100" y2="160" stroke="currentColor" stroke-width="2"/>
+<line x1="220" y1="40" x2="220" y2="160" stroke="currentColor" stroke-width="2"/>
+<line x1="160" y1="40" x2="220" y2="40" stroke="currentColor"/>
+<text x="190" y="34" text-anchor="middle" fill="currentColor" font-size="15">r</text>
+<text x="232" y="105" fill="currentColor" font-size="15">h</text>
+</svg>
+<ol class="steps">
+<li>Define the variables. Let \(r\) be the radius and \(h\) the height of the can, both in centimeters.</li>
+<li>Write the surface area. The top and bottom are disks of area \(\pi r^2\) each. The lateral sheet unfolds into a rectangle of width \(2\pi r\) (the circumference) and height \(h\). \[S = 2\pi r^2 + 2\pi r h.\]</li>
+<li>Use the volume constraint to remove \(h\). \[\pi r^2 h = 500, \qquad h = \frac{500}{\pi r^2}, \qquad S(r) = 2\pi r^2 + 2\pi r\cdot\frac{500}{\pi r^2} = 2\pi r^2 + \frac{1000}{r}.\]</li>
+<li>State the domain. The radius must be positive and we divide by \(r\), so the domain is \((0, \infty)\).</li>
+<li>Differentiate and combine over a common denominator. \[S'(r) = 4\pi r - \frac{1000}{r^2} = \frac{4\pi r^3 - 1000}{r^2}.\]</li>
+<li>Find the critical number. \(S'(r) = 0\) when \[4\pi r^3 = 1000, \qquad r^3 = \frac{250}{\pi}, \qquad r = \sqrt[3]{\frac{250}{\pi}}.\] This is the only critical number in \((0, \infty)\).</li>
+<li>Use the second derivative test. \[S''(r) = 4\pi + \frac{2000}{r^3}.\] Both terms are positive for every \(r \gt 0\), so \(S''\!\left(\sqrt[3]{250/\pi}\right) \gt 0\) and \(S\) has a local minimum there.</li>
+<li>Explain why this is the smallest surface area. \(S\) is continuous on \((0, \infty)\) and has exactly one critical number there, where it has a local minimum. By the critical point theorem, that is the absolute minimum, so every other can with volume 500 cm<sup>3</sup> uses more material.</li>
+<li>Find the height. Write \(h\) using \(r^3\), since we know \(\pi r^3 = 250\). \[h = \frac{500}{\pi r^2} = \frac{500\,r}{\pi r^3} = \frac{500\,r}{250} = 2r = 2\sqrt[3]{\frac{250}{\pi}}.\] Since \(250 = 125 \cdot 2\), this can also be written as \(r = 5\sqrt[3]{2/\pi}\) and \(h = 10\sqrt[3]{2/\pi}\).</li>
+</ol><p class="final">Answer: The radius is \(r = \sqrt[3]{250/\pi}\) cm and the height is \(h = 2\sqrt[3]{250/\pi}\) cm (the height equals the diameter). This is the smallest surface area because it is the only critical number of \(S\) on \((0, \infty)\) and \(S'' \gt 0\) there.</p></div></details></div>
+
+<div class="q" id="u09-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">A cylindrical bucket with a bottom but no top is made from \(300\pi\) cm<sup>2</sup> of plastic. Find the radius and height of the bucket with the largest possible volume, find that volume, and explain why your answer gives the largest possible volume.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Define the variables. Let \(r\) be the radius and \(h\) the height, both in centimeters.</li>
+<li>Write the area constraint and solve it for \(h\). The bucket has one disk (the bottom) of area \(\pi r^2\) and a lateral sheet of area \(2\pi r h\). \[\pi r^2 + 2\pi r h = 300\pi.\] Divide every term by \(\pi\): \[r^2 + 2rh = 300, \qquad 2rh = 300 - r^2, \qquad h = \frac{300 - r^2}{2r}.\]</li>
+<li>Write the volume as a function of \(r\). \[V = \pi r^2 h = \pi r^2\cdot\frac{300 - r^2}{2r} = \frac{\pi r(300 - r^2)}{2} = \frac{\pi}{2}\left(300r - r^3\right).\]</li>
+<li>State the domain. We need \(r \gt 0\) and \(h \ge 0\), which means \(300 - r^2 \ge 0\), so \(r \le \sqrt{300} = 10\sqrt{3}\). The domain is \((0, 10\sqrt{3}]\).</li>
+<li>Differentiate and factor. \[V'(r) = \frac{\pi}{2}\left(300 - 3r^2\right) = \frac{3\pi}{2}\left(100 - r^2\right) = \frac{3\pi}{2}(10 - r)(10 + r).\] On the domain, \(V'(r) = 0\) only at \(r = 10\), and \(10 \lt 10\sqrt{3}\).</li>
+<li>Use the second derivative test. \[V''(r) = \frac{\pi}{2}(-6r) = -3\pi r, \qquad V''(10) = -30\pi \lt 0,\] so \(V\) has a local maximum at \(r = 10\).</li>
+<li>Explain why this is the largest volume. \(V\) is continuous on \((0, 10\sqrt{3}]\) and \(r = 10\) is its only critical number there. By the critical point theorem, the local maximum at \(r = 10\) is the absolute maximum, so no other bucket made from \(300\pi\) cm<sup>2</sup> of plastic holds more.</li>
+<li>Compute the height and the volume. \[h = \frac{300 - 100}{20} = \frac{200}{20} = 10, \qquad V = \pi (10)^2 (10) = 1000\pi.\]</li>
+</ol><p class="final">Answer: The radius is 10 cm and the height is 10 cm. The largest volume is \(1000\pi\) cm<sup>3</sup>, and it is the largest because \(r = 10\) is the only critical number on \((0, 10\sqrt{3}]\) and \(V''(10) = -30\pi \lt 0\).</p></div></details></div>
+
+<div class="q" id="u09-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">A closed shipping crate with a square base must have a volume of 128 ft<sup>3</sup>. The material for the bottom costs $5 per square foot, the material for the top costs $3 per square foot, and the material for the four sides costs $2 per square foot. Find the dimensions of the crate with the smallest possible cost, find that cost, and explain why your answer gives you the smallest possible cost.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Define the variables. Let \(x\) be the side of the square base, in feet, and let \(h\) be the height, in feet.</li>
+<li>Write the cost face by face. The bottom costs \(5x^2\), the top costs \(3x^2\), and the four sides cost \(2 \cdot 4xh = 8xh\). \[C = 5x^2 + 3x^2 + 8xh = 8x^2 + 8xh.\]</li>
+<li>Use the volume constraint to remove \(h\). \[x^2 h = 128, \qquad h = \frac{128}{x^2}, \qquad C(x) = 8x^2 + 8x\cdot\frac{128}{x^2} = 8x^2 + \frac{1024}{x}.\]</li>
+<li>State the domain. The base side must be positive and we divide by \(x\), so the domain is \((0, \infty)\).</li>
+<li>Differentiate and combine over a common denominator. \[C'(x) = 16x - \frac{1024}{x^2} = \frac{16x^3 - 1024}{x^2} = \frac{16(x^3 - 64)}{x^2}.\]</li>
+<li>Find the critical number. \(C'(x) = 0\) when \(x^3 = 64\), so \(x = 4\). It is the only critical number in \((0, \infty)\).</li>
+<li>Use the second derivative test. \[C''(x) = 16 + \frac{2048}{x^3}, \qquad C''(4) = 16 + \frac{2048}{64} = 16 + 32 = 48 \gt 0,\] so \(C\) has a local minimum at \(x = 4\).</li>
+<li>Explain why this is the smallest possible cost. \(C\) is continuous on \((0, \infty)\), \(x = 4\) is its only critical number there, and it is a local minimum. By the critical point theorem, \(C(4)\) is the absolute minimum of \(C\), so every other crate with volume 128 ft<sup>3</sup> costs more.</li>
+<li>Compute the height and the cost. \[h = \frac{128}{16} = 8, \qquad C(4) = 8(16) + \frac{1024}{4} = 128 + 256 = 384.\]</li>
+</ol><p class="final">Answer: The base is 4 ft by 4 ft and the height is 8 ft, for a smallest cost of $384. It is the smallest because \(x = 4\) is the only critical number of \(C\) on \((0, \infty)\) and \(C''(4) = 48 \gt 0\).</p></div></details></div>
+</section><div class="pager"><a href="u08.html">Back: Absolute extrema</a><a href="u10.html">Next: Elasticity of demand and economic order quantity</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

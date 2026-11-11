@@ -1,0 +1,505 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Related rates | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 6.5</p><h1>Related rates</h1><p class="sub">Ladders, balloons, cones, shadows, rectangles: differentiate with respect to time.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 6.5: Related rates</h2>
+
+<h3>What a related rates problem is</h3>
+<p>Picture a ladder leaning against a wall while its bottom slides away from the wall. Two quantities are changing as time passes: the distance from the wall to the bottom of the ladder, and the height of the top of the ladder. They do not change independently. The ladder always has the same length, so the Pythagorean theorem ties the two distances together at every instant. When the bottom moves out, the top must move down.</p>
+<p>A <b>rate of change</b> of a quantity is its derivative with respect to time \(t\). If \(x\) is a distance in feet and \(t\) is time in seconds, then \(\dfrac{dx}{dt}\) is measured in feet per second and tells you how fast \(x\) is changing at that instant.</p>
+<p>The professor's description of the whole section: sometimes two (or more) quantities vary with time, and there is a relationship between them. You know the rate of change of one quantity with respect to time, and you want the rate of change of the other. The relationship between the quantities is an equation. Differentiating both sides of that equation with respect to time gives a new equation that relates the <b>rates</b>. That is why these are called <b>related rates</b>: the rates are tied together because the quantities are tied together. Once you have that new equation, you can find the unknown rate from the known one.</p>
+
+<h3>Why you differentiate with respect to t, and why the chain rule shows up</h3>
+<p>In this section every changing quantity is a function of time, even when the problem never writes \(x(t)\). So \(x\) really means \(x(t)\), and \(x^2\) really means \([x(t)]^2\). That is an outside function (squaring) applied to an inside function \(x(t)\). The chain rule says: differentiate the outside, keep the inside, and multiply by the derivative of the inside.</p>
+\[\frac{d}{dt}\left[x^2\right] = 2x \cdot \frac{dx}{dt}.\]
+<p>This is the same thing you did in Section 6.4 with implicit differentiation, where every \(y\) term picked up a factor of \(\dfrac{dy}{dx}\). The only difference now is that the variable you differentiate with respect to is \(t\), and <b>every</b> changing quantity (\(x\), \(y\), \(r\), \(h\), \(V\), and so on) picks up a factor of its own rate.</p>
+
+<div class="rule"><div class="rt">Differentiating with respect to time</div>
+<p>If \(x\), \(y\), \(r\), \(h\) are functions of \(t\) and \(n\) and \(k\) are constants, then</p>
+\[\begin{aligned}
+\frac{d}{dt}\left[x^n\right] &= n x^{n-1}\frac{dx}{dt}, &\qquad \frac{d}{dt}\left[k\right] &= 0,\\
+\frac{d}{dt}\left[xy\right] &= \frac{dx}{dt}\,y + x\,\frac{dy}{dt} \ \ \text{(product rule)}, &\qquad \frac{d}{dt}\left[e^{x}\right] &= e^{x}\frac{dx}{dt},\\
+\frac{d}{dt}\left[\pi r^2 h\right] &= \pi\left(2r\frac{dr}{dt}\,h + r^2\frac{dh}{dt}\right), &\qquad \frac{d}{dt}\left[\ln x\right] &= \frac{1}{x}\frac{dx}{dt}.
+\end{aligned}\]
+<p>A number that never changes in the problem (the length of a ladder, the height of a lamp post, the size of a tank) is a constant, and its derivative is 0.</p></div>
+
+<h3>The sign of a rate</h3>
+<p>The sign of a derivative tells you the direction of change. If a quantity is increasing, its rate is positive. If a quantity is decreasing, its rate is <b>negative</b>. When a problem says "water drains out of the tank at 2 cubic feet per minute," you must write \(\dfrac{dV}{dt} = -2\), not \(2\). When a problem says "the top of the ladder slides down," the height is decreasing, so its rate will come out negative.</p>
+<p>The same idea runs backwards at the end. If you get \(\dfrac{dy}{dt} = -\tfrac{5}{6}\) and the question asks "how fast is the top sliding down," you answer with the positive speed and the direction in words: "the top is sliding down at \(\tfrac{5}{6}\) feet per second."</p>
+
+<div class="recipe"><div class="rt">How to solve a related rates problem</div><ol>
+<li>Draw a picture if the problem has any geometry. Label the lengths that change with letters and the lengths that stay fixed with numbers.</li>
+<li>Name the variables with units. Write a sentence such as "Let \(x\) be the distance in feet from the wall to the bottom of the ladder at time \(t\), in seconds."</li>
+<li>Write what is given and what is wanted as derivatives. For example "Given: \(\dfrac{dx}{dt} = 2\) ft/s. Wanted: \(\dfrac{dy}{dt}\) at the instant when \(x = 5\)." Use a negative sign for anything that is decreasing.</li>
+<li>Find an equation that relates the variables and is true at <b>every</b> time, not only at the instant you care about. Use a geometry formula, the Pythagorean theorem, similar triangles, or a formula given in the problem. If the equation has an extra variable whose rate you do not know, use another relation (often similar triangles) to remove it now.</li>
+<li>Differentiate both sides with respect to \(t\), using the chain rule on every variable.</li>
+<li>Substitute the numbers for the instant you care about. If a needed value is missing (for example the height of the ladder), find it from the original equation first.</li>
+<li>Solve for the wanted rate.</li>
+<li>Answer the question in a sentence with units, saying whether the quantity is increasing or decreasing.</li>
+</ol></div>
+
+<div class="trap"><b>Common mistake: plugging in numbers before differentiating.</b> This is the most common error in the whole section. The numbers in the problem (such as "when the bottom is 5 ft from the wall") are true only at one instant. If you put \(x = 5\) into the equation before you differentiate, you have turned \(x\) into a constant, and its derivative becomes 0. That throws away the very rate you were given. Always differentiate the general equation first, then substitute the numbers. Constants that never change (the ladder's length, the lamp's height) may be put in at the start.</div>
+
+<p>The geometry formulas below come up again and again. On the exam there is no formula sheet, so they belong on your memorized list.</p>
+<table class="t">
+<tr><th>Shape</th><th>Formula</th></tr>
+<tr><td>Circle of radius \(r\)</td><td>Area \(A = \pi r^2\), circumference \(C = 2\pi r\)</td></tr>
+<tr><td>Sphere of radius \(r\)</td><td>Volume \(V = \tfrac{4}{3}\pi r^3\), surface area \(S = 4\pi r^2\)</td></tr>
+<tr><td>Cube with edge \(s\)</td><td>Volume \(V = s^3\), surface area \(S = 6s^2\)</td></tr>
+<tr><td>Rectangle with length \(l\) and width \(w\)</td><td>Area \(A = lw\), perimeter \(P = 2l + 2w\)</td></tr>
+<tr><td>Cylinder with radius \(r\) and height \(h\)</td><td>Volume \(V = \pi r^2 h\)</td></tr>
+<tr><td>Cone with base radius \(r\) and height \(h\)</td><td>Volume \(V = \tfrac{1}{3}\pi r^2 h\)</td></tr>
+<tr><td>Right triangle with legs \(a, b\) and hypotenuse \(c\)</td><td>Pythagorean theorem \(a^2 + b^2 = c^2\)</td></tr>
+<tr><td>Similar triangles</td><td>Corresponding sides are in the same ratio</td></tr>
+</table>
+
+<h3>An equation given directly</h3>
+<p>The simplest problems hand you the equation and the numbers. There is no picture to draw. You still differentiate first and substitute second.</p>
+<div class="ex"><div class="et">Worked example 1</div><p class="p">Assume \(x\) and \(y\) are functions of \(t\) with \(y = x^3 - 4x\). Find \(\dfrac{dy}{dt}\) when \(x = 3\) and \(\dfrac{dx}{dt} = 2\).</p>
+<ol class="steps">
+<li>Write what is given and what is wanted. Given: \(\dfrac{dx}{dt} = 2\) at the instant when \(x = 3\). Wanted: \(\dfrac{dy}{dt}\) at that instant.</li>
+<li>Differentiate both sides with respect to \(t\). By the chain rule, \(x^3\) becomes \(3x^2\dfrac{dx}{dt}\) and \(4x\) becomes \(4\dfrac{dx}{dt}\). \[\begin{aligned}\frac{dy}{dt} &= 3x^2\frac{dx}{dt} - 4\frac{dx}{dt}\\ &= (3x^2 - 4)\frac{dx}{dt}.\end{aligned}\]</li>
+<li>Substitute \(x = 3\) and \(\dfrac{dx}{dt} = 2\). \[\begin{aligned}\frac{dy}{dt} &= (3 \cdot 3^2 - 4)(2)\\ &= (27 - 4)(2)\\ &= 23 \cdot 2 = 46.\end{aligned}\]</li>
+</ol>
+<p class="final">Answer: \(\dfrac{dy}{dt} = 46\).</p></div>
+
+<h3>Circles: area and circumference</h3>
+<div class="ex"><div class="et">Worked example 2</div><p class="p">A pebble dropped into a pond makes a circular ripple whose radius increases at 3 feet per second. (a) How fast is the area inside the ripple increasing when the radius is 10 feet? (b) How fast is the circumference increasing at that instant?</p>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in seconds, \(r\) the radius of the ripple in feet, \(A\) the area inside it in square feet, and \(C\) its circumference in feet.</li>
+<li>Write what is given and what is wanted. Given: \(\dfrac{dr}{dt} = 3\) ft/s. Wanted: \(\dfrac{dA}{dt}\) and \(\dfrac{dC}{dt}\) when \(r = 10\).</li>
+<li>(a) The equation for the area of a circle is \(A = \pi r^2\). Differentiate both sides with respect to \(t\), using the chain rule on \(r^2\). \[\frac{dA}{dt} = \pi \cdot 2r\frac{dr}{dt} = 2\pi r\frac{dr}{dt}.\]</li>
+<li>Substitute \(r = 10\) and \(\dfrac{dr}{dt} = 3\). \[\frac{dA}{dt} = 2\pi(10)(3) = 60\pi.\] The units are square feet per second.</li>
+<li>(b) The equation for the circumference is \(C = 2\pi r\). Differentiate both sides with respect to \(t\). \[\frac{dC}{dt} = 2\pi\frac{dr}{dt}.\]</li>
+<li>Substitute \(\dfrac{dr}{dt} = 3\). \[\frac{dC}{dt} = 2\pi(3) = 6\pi.\] The units are feet per second. This rate does not depend on \(r\), so the circumference grows at the same speed at every instant, while the area grows faster as the circle gets bigger.</li>
+</ol>
+<p class="final">Answer: (a) The area is increasing at \(60\pi\) square feet per second. (b) The circumference is increasing at \(6\pi\) feet per second.</p></div>
+
+<h3>Spheres and balloons</h3>
+<div class="ex"><div class="et">Worked example 3</div><p class="p">Air is pumped into a spherical balloon at a rate of \(50\pi\) cubic centimeters per second. How fast is the radius of the balloon increasing when the radius is 5 cm?</p>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in seconds, \(r\) the radius of the balloon in cm, and \(V\) its volume in cubic cm.</li>
+<li>Write what is given and what is wanted. Air is going in, so the volume is increasing. Given: \(\dfrac{dV}{dt} = 50\pi\) cm\(^3\)/s. Wanted: \(\dfrac{dr}{dt}\) when \(r = 5\).</li>
+<li>Write the equation. The volume of a sphere is \[V = \frac{4}{3}\pi r^3.\]</li>
+<li>Differentiate both sides with respect to \(t\), using the chain rule on \(r^3\). \[\begin{aligned}\frac{dV}{dt} &= \frac{4}{3}\pi \cdot 3r^2\frac{dr}{dt}\\ &= 4\pi r^2\frac{dr}{dt}.\end{aligned}\]</li>
+<li>Substitute \(\dfrac{dV}{dt} = 50\pi\) and \(r = 5\). \[\begin{aligned}50\pi &= 4\pi(5)^2\frac{dr}{dt}\\ 50\pi &= 100\pi\frac{dr}{dt}.\end{aligned}\]</li>
+<li>Solve by dividing both sides by \(100\pi\). \[\frac{dr}{dt} = \frac{50\pi}{100\pi} = \frac{1}{2}.\]</li>
+</ol>
+<p class="final">Answer: The radius is increasing at \(\tfrac{1}{2}\) cm per second.</p></div>
+
+<h3>The sliding ladder: the Pythagorean theorem</h3>
+<div class="ex"><div class="et">Worked example 4</div><p class="p">A 13-foot ladder leans against a vertical wall. The bottom of the ladder is pulled away from the wall at 2 feet per second. How fast is the top of the ladder sliding down the wall when the bottom is 5 feet from the wall?</p>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="60" y1="20" x2="60" y2="180" stroke="currentColor" fill="none"/>
+<line x1="60" y1="180" x2="280" y2="180" stroke="currentColor" fill="none"/>
+<line x1="60" y1="40" x2="118" y2="180" stroke="currentColor" fill="none" stroke-width="3"/>
+<rect x="60" y="168" width="12" height="12" stroke="currentColor" fill="none"/>
+<text x="40" y="115" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="85" y="196" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="98" y="100" fill="currentColor" stroke="none" font-size="14">13</text>
+<text x="130" y="170" fill="currentColor" stroke="none" font-size="12">bottom moves away from wall</text>
+</svg>
+<ol class="steps">
+<li>Draw and name the variables with units. Let \(t\) be the time in seconds, \(x\) the distance in feet from the wall to the bottom of the ladder, and \(y\) the height in feet of the top of the ladder on the wall. The ladder's length, 13 feet, never changes, so it is a constant. Both \(x\) and \(y\) are positive.</li>
+<li>Write what is given and what is wanted. Given: \(\dfrac{dx}{dt} = 2\) ft/s. Wanted: \(\dfrac{dy}{dt}\) when \(x = 5\).</li>
+<li>Find an equation. The wall, the ground, and the ladder form a right triangle with legs \(x\) and \(y\) and hypotenuse 13. By the Pythagorean theorem, at every time \[x^2 + y^2 = 13^2 = 169.\]</li>
+<li>Differentiate both sides with respect to \(t\). The right side is a constant, so its derivative is 0. \[2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0.\]</li>
+<li>Find the missing value of \(y\) at the instant \(x = 5\), using the original equation. \[\begin{aligned}5^2 + y^2 &= 169\\ y^2 &= 169 - 25 = 144\\ y &= 12.\end{aligned}\] We take the positive root because \(y\) is a height.</li>
+<li>Substitute \(x = 5\), \(y = 12\), and \(\dfrac{dx}{dt} = 2\) into the differentiated equation. \[\begin{aligned}2(5)(2) + 2(12)\frac{dy}{dt} &= 0\\ 20 + 24\frac{dy}{dt} &= 0.\end{aligned}\]</li>
+<li>Solve for \(\dfrac{dy}{dt}\). \[\begin{aligned}24\frac{dy}{dt} &= -20\\ \frac{dy}{dt} &= -\frac{20}{24} = -\frac{5}{6}.\end{aligned}\] The rate is negative, so the height is decreasing: the top is moving down.</li>
+</ol>
+<p class="final">Answer: The top of the ladder is sliding down the wall at \(\tfrac{5}{6}\) feet per second.</p></div>
+
+<div class="trap"><b>Common mistake: the wrong-zero answer.</b> If you substitute \(x = 5\) before differentiating, the equation becomes \(25 + y^2 = 169\). Differentiating that gives \(2y\dfrac{dy}{dt} = 0\), so \(\dfrac{dy}{dt} = 0\), which says the ladder is not moving at all. The mistake is that \(x\) was treated as the constant 5, so the given rate \(\dfrac{dx}{dt} = 2\) never entered the calculation.</div>
+
+<h3>Two objects moving at right angles</h3>
+<div class="ex"><div class="et">Worked example 5</div><p class="p">At noon, car A leaves an intersection driving north at 60 miles per hour. At the same moment, car B leaves the same intersection driving east at 80 miles per hour. How fast is the distance between the cars increasing at 12:03 pm?</p>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="60" y1="170" x2="60" y2="20" stroke="currentColor" fill="none"/>
+<line x1="60" y1="170" x2="300" y2="170" stroke="currentColor" fill="none"/>
+<line x1="60" y1="60" x2="207" y2="170" stroke="currentColor" fill="none" stroke-dasharray="5,4"/>
+<circle cx="60" cy="60" r="5" stroke="currentColor" fill="none"/>
+<circle cx="207" cy="170" r="5" stroke="currentColor" fill="none"/>
+<text x="70" y="50" fill="currentColor" stroke="none" font-size="13">car A</text>
+<text x="213" y="160" fill="currentColor" stroke="none" font-size="13">car B</text>
+<text x="40" y="120" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="135" y="190" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="145" y="105" fill="currentColor" stroke="none" font-size="14">z</text>
+</svg>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in hours after noon, \(y\) the distance in miles that car A is north of the intersection, \(x\) the distance in miles that car B is east of it, and \(z\) the distance in miles between the cars.</li>
+<li>Write what is given and what is wanted. Given: \(\dfrac{dy}{dt} = 60\) mi/h and \(\dfrac{dx}{dt} = 80\) mi/h. Wanted: \(\dfrac{dz}{dt}\) at 12:03 pm. Three minutes is \(\tfrac{3}{60} = \tfrac{1}{20}\) of an hour, so the instant is \(t = \tfrac{1}{20}\).</li>
+<li>Find an equation. North and east are at right angles, so \(x\), \(y\), and \(z\) form a right triangle with hypotenuse \(z\). By the Pythagorean theorem, \[x^2 + y^2 = z^2.\]</li>
+<li>Differentiate both sides with respect to \(t\). \[2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 2z\frac{dz}{dt}.\] Divide every term by 2. \[x\frac{dx}{dt} + y\frac{dy}{dt} = z\frac{dz}{dt}.\]</li>
+<li>Find the values of \(x\), \(y\), and \(z\) at \(t = \tfrac{1}{20}\). Each car has driven at a constant speed for \(\tfrac{1}{20}\) hour. \[\begin{aligned}x &= 80 \cdot \tfrac{1}{20} = 4, \qquad y = 60 \cdot \tfrac{1}{20} = 3,\\ z^2 &= 4^2 + 3^2 = 16 + 9 = 25, \quad\text{so } z = 5.\end{aligned}\]</li>
+<li>Substitute everything into the differentiated equation. \[\begin{aligned}4(80) + 3(60) &= 5\frac{dz}{dt}\\ 320 + 180 &= 5\frac{dz}{dt}\\ 500 &= 5\frac{dz}{dt}.\end{aligned}\]</li>
+<li>Solve. \[\frac{dz}{dt} = \frac{500}{5} = 100.\] The rate is positive, so the distance is increasing.</li>
+</ol>
+<p class="final">Answer: At 12:03 pm the distance between the cars is increasing at 100 miles per hour.</p></div>
+
+<h3>Conical tanks: similar triangles remove a variable</h3>
+<p>The volume of a cone, \(V = \tfrac{1}{3}\pi r^2 h\), has two changing lengths. Usually the problem tells you about only one of them. When water sits in a cone-shaped tank, the water itself is a smaller cone with the same shape as the tank, so its radius and height are in the same ratio as the tank's radius and height. That fact (similar triangles) lets you write \(r\) in terms of \(h\) and remove \(r\) <b>before</b> you differentiate.</p>
+<div class="ex"><div class="et">Worked example 6</div><p class="p">A water tank is shaped like a cone with its vertex pointing down. The tank is 12 feet tall and the radius of its top is 4 feet. Water drains out of the tank at 2 cubic feet per minute. How fast is the water level falling when the water is 6 feet deep?</p>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="80" y1="20" x2="240" y2="20" stroke="currentColor" fill="none"/>
+<line x1="80" y1="20" x2="160" y2="185" stroke="currentColor" fill="none"/>
+<line x1="240" y1="20" x2="160" y2="185" stroke="currentColor" fill="none"/>
+<line x1="120" y1="102" x2="200" y2="102" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="160" y1="20" x2="160" y2="185" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<text x="185" y="15" fill="currentColor" stroke="none" font-size="13">4</text>
+<text x="250" y="105" fill="currentColor" stroke="none" font-size="13">12</text>
+<line x1="245" y1="20" x2="245" y2="185" stroke="currentColor" fill="none" stroke-dasharray="2,3"/>
+<text x="176" y="98" fill="currentColor" stroke="none" font-size="14">r</text>
+<text x="166" y="150" fill="currentColor" stroke="none" font-size="14">h</text>
+<text x="40" y="106" fill="currentColor" stroke="none" font-size="12">water level</text>
+</svg>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in minutes, \(h\) the depth of the water in feet, \(r\) the radius of the water's surface in feet, and \(V\) the volume of water in cubic feet. The tank's height 12 and top radius 4 are constants.</li>
+<li>Write what is given and what is wanted. Water drains out, so the volume is decreasing and its rate is negative. Given: \(\dfrac{dV}{dt} = -2\) ft\(^3\)/min. Wanted: \(\dfrac{dh}{dt}\) when \(h = 6\).</li>
+<li>Write the equation. The water forms a cone, so \[V = \frac{1}{3}\pi r^2 h.\]</li>
+<li>Remove \(r\) with similar triangles. The water cone and the whole tank have the same shape, so the ratio of radius to height is the same for both. \[\begin{aligned}\frac{r}{h} &= \frac{4}{12} = \frac{1}{3}\\ r &= \frac{h}{3}.\end{aligned}\]</li>
+<li>Substitute \(r = \tfrac{h}{3}\) into the volume formula, so that \(V\) depends on \(h\) only. \[\begin{aligned}V &= \frac{1}{3}\pi\left(\frac{h}{3}\right)^2 h\\ &= \frac{1}{3}\pi \cdot \frac{h^2}{9} \cdot h\\ &= \frac{\pi h^3}{27}.\end{aligned}\]</li>
+<li>Differentiate both sides with respect to \(t\), using the chain rule on \(h^3\). \[\begin{aligned}\frac{dV}{dt} &= \frac{\pi}{27} \cdot 3h^2\frac{dh}{dt}\\ &= \frac{\pi h^2}{9}\frac{dh}{dt}.\end{aligned}\]</li>
+<li>Substitute \(\dfrac{dV}{dt} = -2\) and \(h = 6\). \[\begin{aligned}-2 &= \frac{\pi (6)^2}{9}\frac{dh}{dt}\\ -2 &= \frac{36\pi}{9}\frac{dh}{dt}\\ -2 &= 4\pi\frac{dh}{dt}.\end{aligned}\]</li>
+<li>Solve by dividing both sides by \(4\pi\). \[\frac{dh}{dt} = -\frac{2}{4\pi} = -\frac{1}{2\pi}.\] The rate is negative, so the water level is going down.</li>
+</ol>
+<p class="final">Answer: The water level is falling at \(\dfrac{1}{2\pi}\) feet per minute.</p></div>
+
+<div class="trap"><b>Common mistake: treating \(r\) as a constant.</b> If you differentiate \(V = \tfrac{1}{3}\pi r^2 h\) as if \(r\) were fixed, you get \(\tfrac{1}{3}\pi r^2\dfrac{dh}{dt}\), which is wrong because the water's surface gets wider as the water rises. Either remove \(r\) with similar triangles first (the clean way), or use the product rule on \(r^2 h\) and also find \(\dfrac{dr}{dt}\). Also, do not use the tank's top radius 4 for the water's radius: at depth 6 the water's radius is \(\tfrac{6}{3} = 2\).</div>
+
+<h3>Business: revenue, cost, and profit changing with time</h3>
+<p>If a company's production \(x\) changes with time, then revenue \(R\), cost \(C\), and profit \(P = R - C\) change with time too. The method is the same: write each as a function of \(x\), differentiate with respect to \(t\) using the chain rule, then substitute.</p>
+<div class="ex"><div class="et">Worked example 7</div><p class="p">The daily demand function for a product is linear. At a price of $100 per item, 0 items are demanded, and at a price of $80, 40 items are demanded. The company's daily cost is \(C = 1500 + 20x\) dollars to make \(x\) items. Production (and sales) is increasing by 10 items per day. Find the rate of change of revenue and of profit with respect to time when daily production is 60 items.</p>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in days, \(x\) the number of items made and sold per day, \(p\) the price in dollars per item, and \(R\), \(C\), \(P\) the daily revenue, cost, and profit in dollars.</li>
+<li>Write what is given and what is wanted. Given: \(\dfrac{dx}{dt} = 10\) items per day. Wanted: \(\dfrac{dR}{dt}\) and \(\dfrac{dP}{dt}\) when \(x = 60\).</li>
+<li>Find the demand function. The line passes through the points \((x, p) = (0, 100)\) and \((40, 80)\). Its slope is \[\frac{80 - 100}{40 - 0} = \frac{-20}{40} = -\frac{1}{2},\] and its \(p\)-intercept is 100, so \[p = 100 - \frac{1}{2}x.\]</li>
+<li>Write revenue as a function of \(x\). Revenue is the number sold times the price. \[\begin{aligned}R &= xp = x\left(100 - \frac{1}{2}x\right)\\ &= 100x - \frac{1}{2}x^2.\end{aligned}\]</li>
+<li>Differentiate \(R\) with respect to \(t\), using the chain rule. \[\begin{aligned}\frac{dR}{dt} &= 100\frac{dx}{dt} - \frac{1}{2}\cdot 2x\frac{dx}{dt}\\ &= (100 - x)\frac{dx}{dt}.\end{aligned}\]</li>
+<li>Substitute \(x = 60\) and \(\dfrac{dx}{dt} = 10\). \[\frac{dR}{dt} = (100 - 60)(10) = 40 \cdot 10 = 400.\]</li>
+<li>Differentiate the cost with respect to \(t\) and substitute. \[\frac{dC}{dt} = 20\frac{dx}{dt} = 20(10) = 200.\]</li>
+<li>Profit is \(P = R - C\), so its rate is the difference of the two rates. \[\frac{dP}{dt} = \frac{dR}{dt} - \frac{dC}{dt} = 400 - 200 = 200.\]</li>
+</ol>
+<p class="final">Answer: Revenue is increasing at $400 per day and profit is increasing at $200 per day.</p></div>
+
+<h3>More families you will see in the practice levels</h3>
+<p>Cubes and rectangles come up often. A melting ice cube uses \(V = s^3\), so \(\dfrac{dV}{dt} = 3s^2\dfrac{ds}{dt}\). A rectangle uses \(A = lw\), and differentiating needs the product rule: \(\dfrac{dA}{dt} = \dfrac{dl}{dt}\,w + l\,\dfrac{dw}{dt}\). If the area is held constant, then \(\dfrac{dA}{dt} = 0\), and one side must shrink while the other grows.</p>
+<p>In a shadow problem, a person walking away from a lamp post forms a small right triangle (the person and the shadow) inside a big right triangle (the post and the ground out to the tip of the shadow). The two triangles share the angle at the tip of the shadow, so they are similar, and that gives an equation between the person's distance from the post and the length of the shadow.</p>
+<p>A cylindrical tank with a fixed radius has \(V = \pi r^2 h\) with \(r\) a constant, so \(\dfrac{dV}{dt} = \pi r^2\dfrac{dh}{dt}\).</p>
+
+<div class="trap"><b>More common mistakes.</b>
+<ul>
+<li>Forgetting the factor \(\dfrac{dx}{dt}\) when differentiating. Writing \(\dfrac{d}{dt}[x^2] = 2x\) is the Section 4.1 rule with respect to \(x\), not with respect to \(t\).</li>
+<li>Getting the sign wrong. Draining, melting, shrinking, falling, and "approaching" all mean a negative rate for the quantity that is getting smaller.</li>
+<li>Using the wrong formula, such as circumference instead of area, or diameter where the formula needs the radius. If a problem gives the diameter, divide by 2 first.</li>
+<li>Forgetting to find a missing value (such as \(y = 12\) in the ladder) before substituting.</li>
+<li>Answering with a bare number. The professor expects a sentence with units, and if a question asks "how fast is it decreasing," the answer is a positive speed with the word "decreasing."</li>
+</ul></div>
+
+<div class="say"><b>What to write on the exam.</b> Start with "Let \(x\) be ... (in feet) at time \(t\) (in seconds)." Then "We are given \(\dfrac{dx}{dt} = 2\) and we want \(\dfrac{dy}{dt}\) when \(x = 5\)." Write the equation that holds at all times, say "differentiating both sides with respect to \(t\)," and show the differentiated equation before any numbers go in. If you need a missing value, write "at this instant, \(y = 12\) because \(5^2 + y^2 = 169\)." Finish with a sentence such as "The top of the ladder is sliding down at \(\tfrac{5}{6}\) ft/s."</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>Every changing quantity is a function of \(t\). By the chain rule, \(\dfrac{d}{dt}[x^n] = nx^{n-1}\dfrac{dx}{dt}\), and constants have derivative 0.</li>
+<li>Products of variables need the product rule: \(\dfrac{d}{dt}[xy] = \dfrac{dx}{dt}\,y + x\,\dfrac{dy}{dt}\).</li>
+<li>Increasing means a positive rate, and decreasing means a negative rate.</li>
+<li>The recipe: draw, name variables with units, write given and wanted rates, find the equation, differentiate with respect to \(t\), substitute, solve, answer with units.</li>
+<li>Never substitute the changing values before differentiating.</li>
+<li>Circle: \(A = \pi r^2\), \(C = 2\pi r\). Sphere: \(V = \tfrac{4}{3}\pi r^3\), \(S = 4\pi r^2\). Cube: \(V = s^3\), \(S = 6s^2\). Rectangle: \(A = lw\), \(P = 2l + 2w\). Cylinder: \(V = \pi r^2 h\). Cone: \(V = \tfrac{1}{3}\pi r^2 h\).</li>
+<li>Pythagorean theorem \(a^2 + b^2 = c^2\) for ladders, two cars at right angles, and ropes on a dock.</li>
+<li>Similar triangles for cones and shadows: corresponding sides are in the same ratio. In a cone tank, use them to write \(r\) in terms of \(h\) before differentiating.</li>
+<li>Revenue \(R = xp\), profit \(P = R - C\), so \(\dfrac{dP}{dt} = \dfrac{dR}{dt} - \dfrac{dC}{dt}\).</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u12-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Assume \(x\) and \(y\) are functions of \(t\) with \(y = x^2 + 3x\). Find \(\dfrac{dy}{dt}\) when \(x = 2\) and \(\dfrac{dx}{dt} = 4\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write what is given and what is wanted. Given: \(\dfrac{dx}{dt} = 4\) at the instant when \(x = 2\). Wanted: \(\dfrac{dy}{dt}\) at that instant.</li>
+<li>Differentiate both sides with respect to \(t\). By the chain rule, \(x^2\) becomes \(2x\dfrac{dx}{dt}\) and \(3x\) becomes \(3\dfrac{dx}{dt}\). \[\begin{aligned}\frac{dy}{dt} &= 2x\frac{dx}{dt} + 3\frac{dx}{dt}\\ &= (2x + 3)\frac{dx}{dt}.\end{aligned}\]</li>
+<li>Substitute \(x = 2\) and \(\dfrac{dx}{dt} = 4\). \[\begin{aligned}\frac{dy}{dt} &= (2 \cdot 2 + 3)(4)\\ &= 7 \cdot 4 = 28.\end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dt} = 28\).</p></div></details></div>
+
+<div class="q" id="u12-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Assume \(x\) and \(y\) are functions of \(t\) related by \(x^3 + 2y^2 = 7\). Differentiate both sides with respect to \(t\), then solve for \(\dfrac{dy}{dt}\) in terms of \(x\), \(y\), and \(\dfrac{dx}{dt}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate each term with respect to \(t\). By the chain rule, \(x^3\) becomes \(3x^2\dfrac{dx}{dt}\) and \(2y^2\) becomes \(2 \cdot 2y\dfrac{dy}{dt} = 4y\dfrac{dy}{dt}\). The constant 7 has derivative 0. \[3x^2\frac{dx}{dt} + 4y\frac{dy}{dt} = 0.\]</li>
+<li>Move the \(x\) term to the right side. \[4y\frac{dy}{dt} = -3x^2\frac{dx}{dt}.\]</li>
+<li>Divide both sides by \(4y\). \[\frac{dy}{dt} = -\frac{3x^2}{4y}\frac{dx}{dt}.\]</li>
+</ol><p class="final">Answer: \(3x^2\dfrac{dx}{dt} + 4y\dfrac{dy}{dt} = 0\), so \(\dfrac{dy}{dt} = -\dfrac{3x^2}{4y}\dfrac{dx}{dt}\).</p></div></details></div>
+
+<div class="q" id="u12-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">The radius of a circle is increasing at 2 cm per second. How fast is the circumference of the circle increasing?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in seconds, \(r\) the radius in cm, and \(C\) the circumference in cm. Given: \(\dfrac{dr}{dt} = 2\) cm/s. Wanted: \(\dfrac{dC}{dt}\).</li>
+<li>Write the equation \(C = 2\pi r\) and differentiate both sides with respect to \(t\). \[\frac{dC}{dt} = 2\pi\frac{dr}{dt}.\]</li>
+<li>Substitute \(\dfrac{dr}{dt} = 2\). \[\frac{dC}{dt} = 2\pi(2) = 4\pi.\] The rate does not depend on the radius, so it is the same at every instant.</li>
+</ol><p class="final">Answer: The circumference is increasing at \(4\pi\) cm per second.</p></div></details></div>
+
+<div class="q" id="u12-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">The side of a square is increasing at 3 inches per minute. How fast is the area of the square increasing when the side is 5 inches long?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in minutes, \(s\) the side length in inches, and \(A\) the area in square inches. Given: \(\dfrac{ds}{dt} = 3\) in/min. Wanted: \(\dfrac{dA}{dt}\) when \(s = 5\).</li>
+<li>Write the equation \(A = s^2\) and differentiate both sides with respect to \(t\), using the chain rule. \[\frac{dA}{dt} = 2s\frac{ds}{dt}.\]</li>
+<li>Substitute \(s = 5\) and \(\dfrac{ds}{dt} = 3\). \[\frac{dA}{dt} = 2(5)(3) = 30.\]</li>
+</ol><p class="final">Answer: The area is increasing at 30 square inches per minute.</p></div></details></div>
+
+<div class="q" id="u12-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">An ice cube melts so that each edge shrinks at 2 cm per minute. How fast is the volume of the cube changing when each edge is 3 cm long?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in minutes, \(s\) the edge length in cm, and \(V\) the volume in cubic cm. The edge is shrinking, so its rate is negative. Given: \(\dfrac{ds}{dt} = -2\) cm/min. Wanted: \(\dfrac{dV}{dt}\) when \(s = 3\).</li>
+<li>Write the equation \(V = s^3\) and differentiate both sides with respect to \(t\), using the chain rule. \[\frac{dV}{dt} = 3s^2\frac{ds}{dt}.\]</li>
+<li>Substitute \(s = 3\) and \(\dfrac{ds}{dt} = -2\). \[\begin{aligned}\frac{dV}{dt} &= 3(3)^2(-2)\\ &= 3 \cdot 9 \cdot (-2) = -54.\end{aligned}\] The rate is negative, so the volume is decreasing.</li>
+</ol><p class="final">Answer: \(\dfrac{dV}{dt} = -54\), so the volume is decreasing at 54 cubic cm per minute.</p></div></details></div>
+
+<div class="q" id="u12-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Assume \(x\) and \(y\) are positive functions of \(t\) with \(xy = 12\). Find \(\dfrac{dy}{dt}\) when \(x = 4\) and \(\dfrac{dx}{dt} = 3\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the value of \(y\) at this instant from the original equation. \[4y = 12, \quad\text{so } y = 3.\]</li>
+<li>Differentiate both sides with respect to \(t\). The left side is a product, so use the product rule with \(u = x\), \(v = y\), \(u' = \dfrac{dx}{dt}\), \(v' = \dfrac{dy}{dt}\). The right side is a constant. \[\frac{dx}{dt}\,y + x\,\frac{dy}{dt} = 0.\]</li>
+<li>Substitute \(x = 4\), \(y = 3\), and \(\dfrac{dx}{dt} = 3\), then solve. \[\begin{aligned}3(3) + 4\frac{dy}{dt} &= 0\\ 9 + 4\frac{dy}{dt} &= 0\\ \frac{dy}{dt} &= -\frac{9}{4}.\end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dt} = -\dfrac{9}{4}\).</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u12-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Assume \(x\) and \(y\) are functions of \(t\) related by \(x^2 + xy + y^2 = 7\). Find \(\dfrac{dy}{dt}\) at the instant when \(x = 1\), \(y = 2\), and \(\dfrac{dx}{dt} = 3\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that the point is on the curve: \(1^2 + (1)(2) + 2^2 = 1 + 2 + 4 = 7\). It is.</li>
+<li>Write what is given and what is wanted. Given: \(\dfrac{dx}{dt} = 3\) when \(x = 1\), \(y = 2\). Wanted: \(\dfrac{dy}{dt}\) at that instant.</li>
+<li>Differentiate both sides with respect to \(t\). The term \(x^2\) gives \(2x\dfrac{dx}{dt}\) by the chain rule. The term \(xy\) is a product, so use the product rule with \(u = x\), \(v = y\), \(u' = \dfrac{dx}{dt}\), \(v' = \dfrac{dy}{dt}\), which gives \(\dfrac{dx}{dt}\,y + x\,\dfrac{dy}{dt}\). The term \(y^2\) gives \(2y\dfrac{dy}{dt}\). The constant 7 gives 0. \[2x\frac{dx}{dt} + \frac{dx}{dt}\,y + x\,\frac{dy}{dt} + 2y\frac{dy}{dt} = 0.\]</li>
+<li>Substitute \(x = 1\), \(y = 2\), and \(\dfrac{dx}{dt} = 3\). \[\begin{aligned}2(1)(3) + (3)(2) + (1)\frac{dy}{dt} + 2(2)\frac{dy}{dt} &= 0\\ 6 + 6 + \frac{dy}{dt} + 4\frac{dy}{dt} &= 0\\ 12 + 5\frac{dy}{dt} &= 0.\end{aligned}\]</li>
+<li>Solve for \(\dfrac{dy}{dt}\). \[\begin{aligned}5\frac{dy}{dt} &= -12\\ \frac{dy}{dt} &= -\frac{12}{5}.\end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dt} = -\dfrac{12}{5}\).</p></div></details></div>
+
+<div class="q" id="u12-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">A spherical balloon is being inflated so that its radius increases at 2 cm per second. (a) How fast is its volume increasing when the radius is 6 cm? (b) How fast is its surface area increasing at that instant?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in seconds, \(r\) the radius in cm, \(V\) the volume in cubic cm, and \(S\) the surface area in square cm. Given: \(\dfrac{dr}{dt} = 2\) cm/s. Wanted: \(\dfrac{dV}{dt}\) and \(\dfrac{dS}{dt}\) when \(r = 6\).</li>
+<li>(a) Write the volume equation \(V = \tfrac{4}{3}\pi r^3\) and differentiate both sides with respect to \(t\), using the chain rule. \[\begin{aligned}\frac{dV}{dt} &= \frac{4}{3}\pi \cdot 3r^2\frac{dr}{dt}\\ &= 4\pi r^2\frac{dr}{dt}.\end{aligned}\]</li>
+<li>Substitute \(r = 6\) and \(\dfrac{dr}{dt} = 2\). \[\begin{aligned}\frac{dV}{dt} &= 4\pi(6)^2(2)\\ &= 4\pi \cdot 36 \cdot 2 = 288\pi.\end{aligned}\]</li>
+<li>(b) Write the surface area equation \(S = 4\pi r^2\) and differentiate both sides with respect to \(t\). \[\begin{aligned}\frac{dS}{dt} &= 4\pi \cdot 2r\frac{dr}{dt}\\ &= 8\pi r\frac{dr}{dt}.\end{aligned}\]</li>
+<li>Substitute \(r = 6\) and \(\dfrac{dr}{dt} = 2\). \[\frac{dS}{dt} = 8\pi(6)(2) = 96\pi.\]</li>
+</ol><p class="final">Answer: (a) The volume is increasing at \(288\pi\) cubic cm per second. (b) The surface area is increasing at \(96\pi\) square cm per second.</p></div></details></div>
+
+<div class="q" id="u12-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">A light is at the top of a 20-foot lamp post. A person 5 feet tall walks away from the post at 6 feet per second. (a) How fast is the person's shadow getting longer when the person is 30 feet from the post? (b) How fast is the tip of the shadow moving away from the post at that instant?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="10" y1="180" x2="310" y2="180" stroke="currentColor" fill="none"/>
+<line x1="40" y1="20" x2="40" y2="180" stroke="currentColor" fill="none" stroke-width="3"/>
+<line x1="190" y1="140" x2="190" y2="180" stroke="currentColor" fill="none" stroke-width="3"/>
+<line x1="40" y1="20" x2="240" y2="180" stroke="currentColor" fill="none" stroke-dasharray="5,4"/>
+<circle cx="40" cy="20" r="5" stroke="currentColor" fill="none"/>
+<text x="16" y="105" fill="currentColor" stroke="none" font-size="13">20</text>
+<text x="196" y="165" fill="currentColor" stroke="none" font-size="13">5</text>
+<text x="110" y="195" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="210" y="195" fill="currentColor" stroke="none" font-size="14">s</text>
+<text x="244" y="170" fill="currentColor" stroke="none" font-size="12">tip of shadow</text>
+</svg>
+<ol class="steps">
+<li>Draw and name the variables with units. Let \(t\) be the time in seconds, \(x\) the distance in feet from the post to the person, and \(s\) the length in feet of the shadow (from the person's feet to the tip of the shadow). The tip of the shadow is \(x + s\) feet from the post. The heights 20 and 5 are constants.</li>
+<li>Write what is given and what is wanted. Given: \(\dfrac{dx}{dt} = 6\) ft/s. Wanted: (a) \(\dfrac{ds}{dt}\) and (b) \(\dfrac{d}{dt}(x + s)\) when \(x = 30\).</li>
+<li>Find an equation with similar triangles. The big right triangle has the post (height 20) and base \(x + s\). The small right triangle has the person (height 5) and base \(s\). They share the angle at the tip of the shadow, so they are similar and their height to base ratios are equal. \[\frac{20}{x + s} = \frac{5}{s}.\]</li>
+<li>Solve this equation for \(s\) by cross multiplying. \[\begin{aligned}20s &= 5(x + s)\\ 20s &= 5x + 5s\\ 15s &= 5x\\ s &= \frac{x}{3}.\end{aligned}\]</li>
+<li>(a) Differentiate \(s = \tfrac{1}{3}x\) with respect to \(t\) and substitute \(\dfrac{dx}{dt} = 6\). \[\frac{ds}{dt} = \frac{1}{3}\frac{dx}{dt} = \frac{1}{3}(6) = 2.\] This does not depend on \(x\), so it is also the rate at 30 feet.</li>
+<li>(b) Differentiate the position of the tip, \(x + s\), with respect to \(t\). \[\frac{d}{dt}(x + s) = \frac{dx}{dt} + \frac{ds}{dt} = 6 + 2 = 8.\]</li>
+</ol><p class="final">Answer: (a) The shadow is getting longer at 2 feet per second. (b) The tip of the shadow is moving away from the post at 8 feet per second.</p></div></details></div>
+
+<div class="q" id="u12-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">A 10-foot ladder leans against a vertical wall. The top of the ladder slides down the wall at 3 feet per second. How fast is the bottom of the ladder moving away from the wall when the top is 6 feet above the ground?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="60" y1="20" x2="60" y2="180" stroke="currentColor" fill="none"/>
+<line x1="60" y1="180" x2="280" y2="180" stroke="currentColor" fill="none"/>
+<line x1="60" y1="90" x2="180" y2="180" stroke="currentColor" fill="none" stroke-width="3"/>
+<rect x="60" y="168" width="12" height="12" stroke="currentColor" fill="none"/>
+<text x="40" y="140" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="115" y="196" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="125" y="125" fill="currentColor" stroke="none" font-size="14">10</text>
+</svg>
+<ol class="steps">
+<li>Draw and name the variables with units. Let \(t\) be the time in seconds, \(x\) the distance in feet from the wall to the bottom of the ladder, and \(y\) the height in feet of the top of the ladder. The length 10 is a constant.</li>
+<li>Write what is given and what is wanted. The top slides down, so \(y\) is decreasing. Given: \(\dfrac{dy}{dt} = -3\) ft/s. Wanted: \(\dfrac{dx}{dt}\) when \(y = 6\).</li>
+<li>Find an equation. By the Pythagorean theorem, at every time \[x^2 + y^2 = 100.\]</li>
+<li>Differentiate both sides with respect to \(t\). \[2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0.\]</li>
+<li>Find \(x\) at the instant \(y = 6\) from the original equation. \[\begin{aligned}x^2 + 36 &= 100\\ x^2 &= 64\\ x &= 8.\end{aligned}\] We take the positive root because \(x\) is a distance.</li>
+<li>Substitute \(x = 8\), \(y = 6\), and \(\dfrac{dy}{dt} = -3\). \[\begin{aligned}2(8)\frac{dx}{dt} + 2(6)(-3) &= 0\\ 16\frac{dx}{dt} - 36 &= 0.\end{aligned}\]</li>
+<li>Solve. \[\begin{aligned}16\frac{dx}{dt} &= 36\\ \frac{dx}{dt} &= \frac{36}{16} = \frac{9}{4}.\end{aligned}\] The rate is positive, so the bottom is moving away from the wall.</li>
+</ol><p class="final">Answer: The bottom of the ladder is moving away from the wall at \(\tfrac{9}{4}\) feet per second.</p></div></details></div>
+
+<div class="q" id="u12-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">A company's weekly revenue and cost, in dollars, for making and selling \(x\) items are \(R = 90x - \tfrac{1}{10}x^2\) and \(C = 2000 + 30x\). Production is increasing by 15 items per week. Find the rates of change of revenue, cost, and profit with respect to time when the company makes 200 items per week.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in weeks, \(x\) the number of items per week, and \(R\), \(C\), \(P\) the weekly revenue, cost, and profit in dollars. Given: \(\dfrac{dx}{dt} = 15\) items per week. Wanted: \(\dfrac{dR}{dt}\), \(\dfrac{dC}{dt}\), \(\dfrac{dP}{dt}\) when \(x = 200\).</li>
+<li>Differentiate the revenue with respect to \(t\), using the chain rule. \[\begin{aligned}\frac{dR}{dt} &= 90\frac{dx}{dt} - \frac{1}{10}\cdot 2x\frac{dx}{dt}\\ &= \left(90 - \frac{x}{5}\right)\frac{dx}{dt}.\end{aligned}\]</li>
+<li>Substitute \(x = 200\) and \(\dfrac{dx}{dt} = 15\). \[\begin{aligned}\frac{dR}{dt} &= \left(90 - \frac{200}{5}\right)(15)\\ &= (90 - 40)(15) = 50 \cdot 15 = 750.\end{aligned}\]</li>
+<li>Differentiate the cost with respect to \(t\) and substitute. \[\frac{dC}{dt} = 30\frac{dx}{dt} = 30(15) = 450.\]</li>
+<li>Profit is \(P = R - C\), so its rate is the difference of the two rates. \[\frac{dP}{dt} = \frac{dR}{dt} - \frac{dC}{dt} = 750 - 450 = 300.\]</li>
+</ol><p class="final">Answer: Revenue is increasing at $750 per week, cost is increasing at $450 per week, and profit is increasing at $300 per week.</p></div></details></div>
+
+<div class="q" id="u12-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">A cylindrical tank standing upright has radius 5 feet. Water is drained from the tank at \(10\pi\) cubic feet per minute. How fast is the water level dropping when the water is 8 feet deep?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in minutes, \(h\) the depth of the water in feet, and \(V\) the volume of water in cubic feet. The radius 5 is a constant, because the tank's walls are straight up and down.</li>
+<li>Write what is given and what is wanted. The water drains out, so the volume is decreasing. Given: \(\dfrac{dV}{dt} = -10\pi\) ft\(^3\)/min. Wanted: \(\dfrac{dh}{dt}\) when \(h = 8\).</li>
+<li>Write the equation. The water is a cylinder of radius 5 and height \(h\). \[V = \pi(5)^2 h = 25\pi h.\]</li>
+<li>Differentiate both sides with respect to \(t\). \[\frac{dV}{dt} = 25\pi\frac{dh}{dt}.\]</li>
+<li>Substitute \(\dfrac{dV}{dt} = -10\pi\) and solve. \[\begin{aligned}-10\pi &= 25\pi\frac{dh}{dt}\\ \frac{dh}{dt} &= -\frac{10\pi}{25\pi} = -\frac{2}{5}.\end{aligned}\] The depth \(h = 8\) never enters the calculation, so the level drops at this same speed at every depth.</li>
+</ol><p class="final">Answer: The water level is dropping at \(\tfrac{2}{5}\) feet per minute.</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u12-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">A tank is shaped like a cone with its vertex pointing down. It is 10 meters tall and the radius of its top is 5 meters. Water is pumped into the tank at a constant rate, and at the same time water leaks out of the bottom at 2 cubic meters per minute. At the instant the water is 4 meters deep, the water level is rising at \(\tfrac{1}{\pi}\) meters per minute. (a) At what rate is water being pumped in? (b) How fast is the radius of the water's surface increasing at that instant?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="80" y1="20" x2="240" y2="20" stroke="currentColor" fill="none"/>
+<line x1="80" y1="20" x2="160" y2="180" stroke="currentColor" fill="none"/>
+<line x1="240" y1="20" x2="160" y2="180" stroke="currentColor" fill="none"/>
+<line x1="128" y1="116" x2="192" y2="116" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="160" y1="20" x2="160" y2="180" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<text x="185" y="15" fill="currentColor" stroke="none" font-size="13">5</text>
+<text x="250" y="105" fill="currentColor" stroke="none" font-size="13">10</text>
+<line x1="245" y1="20" x2="245" y2="180" stroke="currentColor" fill="none" stroke-dasharray="2,3"/>
+<text x="172" y="111" fill="currentColor" stroke="none" font-size="14">r</text>
+<text x="166" y="155" fill="currentColor" stroke="none" font-size="14">h</text>
+</svg>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in minutes, \(h\) the depth of the water in meters, \(r\) the radius of the water's surface in meters, \(V\) the volume of water in cubic meters, and \(k\) the rate (in cubic meters per minute) at which water is pumped in. The tank's height 10 and top radius 5 are constants.</li>
+<li>Write what is given and what is wanted. Water comes in at \(k\) and goes out at 2, so the net rate of change of the volume is \[\frac{dV}{dt} = k - 2.\] Given: \(\dfrac{dh}{dt} = \tfrac{1}{\pi}\) m/min when \(h = 4\). Wanted: (a) \(k\) and (b) \(\dfrac{dr}{dt}\) at that instant.</li>
+<li>Remove \(r\) with similar triangles. The water cone has the same shape as the tank. \[\begin{aligned}\frac{r}{h} &= \frac{5}{10} = \frac{1}{2}\\ r &= \frac{h}{2}.\end{aligned}\]</li>
+<li>Write the volume of the water in terms of \(h\) only. \[\begin{aligned}V &= \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi\left(\frac{h}{2}\right)^2 h\\ &= \frac{1}{3}\pi \cdot \frac{h^2}{4} \cdot h = \frac{\pi h^3}{12}.\end{aligned}\]</li>
+<li>Differentiate both sides with respect to \(t\), using the chain rule. \[\begin{aligned}\frac{dV}{dt} &= \frac{\pi}{12}\cdot 3h^2\frac{dh}{dt}\\ &= \frac{\pi h^2}{4}\frac{dh}{dt}.\end{aligned}\]</li>
+<li>Substitute \(h = 4\) and \(\dfrac{dh}{dt} = \tfrac{1}{\pi}\) to find the net rate. \[\begin{aligned}\frac{dV}{dt} &= \frac{\pi (4)^2}{4}\cdot\frac{1}{\pi}\\ &= \frac{16\pi}{4\pi} = 4.\end{aligned}\]</li>
+<li>(a) Set the net rate equal to \(k - 2\) and solve. \[\begin{aligned}k - 2 &= 4\\ k &= 6.\end{aligned}\]</li>
+<li>(b) Differentiate \(r = \tfrac{1}{2}h\) with respect to \(t\) and substitute. \[\frac{dr}{dt} = \frac{1}{2}\frac{dh}{dt} = \frac{1}{2}\cdot\frac{1}{\pi} = \frac{1}{2\pi}.\]</li>
+</ol><p class="final">Answer: (a) Water is being pumped in at 6 cubic meters per minute. (b) The radius of the water's surface is increasing at \(\dfrac{1}{2\pi}\) meters per minute.</p></div></details></div>
+
+<div class="q" id="u12-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">At a certain instant, ship A is 6 miles east of a port and sailing west toward the port at 15 miles per hour, while ship B is 8 miles north of the port and sailing north at 20 miles per hour. Is the distance between the ships increasing or decreasing at that instant, and how fast?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="60" y1="170" x2="60" y2="10" stroke="currentColor" fill="none"/>
+<line x1="60" y1="170" x2="300" y2="170" stroke="currentColor" fill="none"/>
+<line x1="60" y1="26" x2="168" y2="170" stroke="currentColor" fill="none" stroke-dasharray="5,4"/>
+<circle cx="60" cy="170" r="4" stroke="currentColor" fill="none"/>
+<circle cx="60" cy="26" r="5" stroke="currentColor" fill="none"/>
+<circle cx="168" cy="170" r="5" stroke="currentColor" fill="none"/>
+<text x="20" y="188" fill="currentColor" stroke="none" font-size="12">port</text>
+<text x="70" y="22" fill="currentColor" stroke="none" font-size="13">ship B</text>
+<text x="176" y="162" fill="currentColor" stroke="none" font-size="13">ship A</text>
+<text x="40" y="100" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="110" y="190" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="122" y="92" fill="currentColor" stroke="none" font-size="14">z</text>
+</svg>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in hours, \(x\) the distance in miles from the port to ship A (east), \(y\) the distance in miles from the port to ship B (north), and \(z\) the distance in miles between the ships.</li>
+<li>Write what is given and what is wanted, with signs. Ship A moves toward the port, so \(x\) is decreasing. Ship B moves away from the port, so \(y\) is increasing. Given: \(\dfrac{dx}{dt} = -15\) and \(\dfrac{dy}{dt} = 20\), at the instant \(x = 6\), \(y = 8\). Wanted: \(\dfrac{dz}{dt}\) at that instant.</li>
+<li>Find an equation. East and north are at right angles, so by the Pythagorean theorem \[x^2 + y^2 = z^2.\]</li>
+<li>Find \(z\) at this instant. \[z^2 = 6^2 + 8^2 = 36 + 64 = 100, \quad\text{so } z = 10.\]</li>
+<li>Differentiate both sides with respect to \(t\), then divide every term by 2. \[\begin{aligned}2x\frac{dx}{dt} + 2y\frac{dy}{dt} &= 2z\frac{dz}{dt}\\ x\frac{dx}{dt} + y\frac{dy}{dt} &= z\frac{dz}{dt}.\end{aligned}\]</li>
+<li>Substitute \(x = 6\), \(y = 8\), \(z = 10\), \(\dfrac{dx}{dt} = -15\), \(\dfrac{dy}{dt} = 20\). \[\begin{aligned}6(-15) + 8(20) &= 10\frac{dz}{dt}\\ -90 + 160 &= 10\frac{dz}{dt}\\ 70 &= 10\frac{dz}{dt}.\end{aligned}\]</li>
+<li>Solve. \[\frac{dz}{dt} = \frac{70}{10} = 7.\] The rate is positive, so the distance is increasing even though ship A is coming closer to the port.</li>
+</ol><p class="final">Answer: The distance between the ships is increasing at 7 miles per hour.</p></div></details></div>
+
+<div class="q" id="u12-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">A boat is pulled toward a dock by a rope. The rope runs from the front of the boat (at water level) up to a pulley on the edge of the dock, 6 feet above the water. The rope is pulled in at 2 feet per second. How fast is the boat approaching the dock when it is 8 feet from the dock?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="10" y1="150" x2="310" y2="150" stroke="currentColor" fill="none" stroke-dasharray="6,4"/>
+<line x1="60" y1="60" x2="60" y2="150" stroke="currentColor" fill="none" stroke-width="3"/>
+<line x1="10" y1="60" x2="60" y2="60" stroke="currentColor" fill="none" stroke-width="3"/>
+<circle cx="60" cy="60" r="5" stroke="currentColor" fill="none"/>
+<line x1="60" y1="60" x2="180" y2="150" stroke="currentColor" fill="none"/>
+<path d="M175 150 L240 150 L230 165 L185 165 Z" stroke="currentColor" fill="none"/>
+<text x="66" y="110" fill="currentColor" stroke="none" font-size="13">6</text>
+<text x="115" y="170" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="125" y="95" fill="currentColor" stroke="none" font-size="14">L</text>
+<text x="70" y="50" fill="currentColor" stroke="none" font-size="12">pulley</text>
+</svg>
+<ol class="steps">
+<li>Draw and name the variables with units. Let \(t\) be the time in seconds, \(x\) the horizontal distance in feet from the boat to the dock, and \(L\) the length in feet of rope between the pulley and the boat. The height 6 is a constant.</li>
+<li>Write what is given and what is wanted. The rope is pulled in, so \(L\) is decreasing. Given: \(\dfrac{dL}{dt} = -2\) ft/s. Wanted: \(\dfrac{dx}{dt}\) when \(x = 8\).</li>
+<li>Find an equation. The rope, the dock wall, and the water surface form a right triangle with legs \(x\) and 6 and hypotenuse \(L\). By the Pythagorean theorem, \[x^2 + 36 = L^2.\]</li>
+<li>Differentiate both sides with respect to \(t\), then divide by 2. \[\begin{aligned}2x\frac{dx}{dt} &= 2L\frac{dL}{dt}\\ x\frac{dx}{dt} &= L\frac{dL}{dt}.\end{aligned}\]</li>
+<li>Find \(L\) at the instant \(x = 8\). \[L^2 = 64 + 36 = 100, \quad\text{so } L = 10.\]</li>
+<li>Substitute \(x = 8\), \(L = 10\), \(\dfrac{dL}{dt} = -2\), and solve. \[\begin{aligned}8\frac{dx}{dt} &= 10(-2) = -20\\ \frac{dx}{dt} &= -\frac{20}{8} = -\frac{5}{2}.\end{aligned}\] The rate is negative, so the distance to the dock is shrinking. The boat moves faster than the rope is pulled.</li>
+</ol><p class="final">Answer: The boat is approaching the dock at \(\tfrac{5}{2}\) feet per second.</p></div></details></div>
+
+<div class="q" id="u12-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">The weekly demand for a product is \(x = 500 - 10p\) items when the price is \(p\) dollars per item, and the weekly cost of making \(x\) items is \(C = 1000 + 5x\) dollars. The company raises the price by $2 per week, and it always makes exactly as many items as are demanded. Find the rates of change of revenue, cost, and profit with respect to time when the price is $20.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in weeks, \(p\) the price in dollars per item, \(x\) the number of items sold per week, and \(R\), \(C\), \(P\) the weekly revenue, cost, and profit in dollars. Given: \(\dfrac{dp}{dt} = 2\) dollars per week. Wanted: \(\dfrac{dR}{dt}\), \(\dfrac{dC}{dt}\), \(\dfrac{dP}{dt}\) when \(p = 20\).</li>
+<li>Find the demand at this instant. \[x = 500 - 10(20) = 500 - 200 = 300.\]</li>
+<li>Find the rate at which demand changes. Differentiate the demand equation with respect to \(t\). \[\frac{dx}{dt} = -10\frac{dp}{dt} = -10(2) = -20.\] Raising the price makes demand fall by 20 items per week.</li>
+<li>Revenue is \(R = px\), a product of two changing quantities. Use the product rule with \(u = p\), \(v = x\), \(u' = \dfrac{dp}{dt}\), \(v' = \dfrac{dx}{dt}\). \[\frac{dR}{dt} = \frac{dp}{dt}\,x + p\,\frac{dx}{dt}.\]</li>
+<li>Substitute \(\dfrac{dp}{dt} = 2\), \(x = 300\), \(p = 20\), \(\dfrac{dx}{dt} = -20\). \[\begin{aligned}\frac{dR}{dt} &= (2)(300) + (20)(-20)\\ &= 600 - 400 = 200.\end{aligned}\]</li>
+<li>Check the revenue rate a second way. Write \(R\) in terms of \(p\) only: \(R = p(500 - 10p) = 500p - 10p^2\). Then \[\begin{aligned}\frac{dR}{dt} &= (500 - 20p)\frac{dp}{dt}\\ &= (500 - 400)(2) = 200.\end{aligned}\] The two methods agree.</li>
+<li>Differentiate the cost with respect to \(t\) and substitute. \[\frac{dC}{dt} = 5\frac{dx}{dt} = 5(-20) = -100.\]</li>
+<li>Profit is \(P = R - C\). \[\begin{aligned}\frac{dP}{dt} &= \frac{dR}{dt} - \frac{dC}{dt}\\ &= 200 - (-100) = 300.\end{aligned}\]</li>
+</ol><p class="final">Answer: Revenue is increasing at $200 per week, cost is decreasing at $100 per week, and profit is increasing at $300 per week.</p></div></details></div>
+
+<div class="q" id="u12-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">A spherical snowball melts so that its surface area decreases at \(8\pi\) square centimeters per minute. How fast is its volume changing when its diameter is 10 cm?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in minutes, \(r\) the radius in cm, \(S\) the surface area in square cm, and \(V\) the volume in cubic cm. The formulas use the radius, so a diameter of 10 cm means \(r = 5\).</li>
+<li>Write what is given and what is wanted. The surface area is decreasing. Given: \(\dfrac{dS}{dt} = -8\pi\) cm\(^2\)/min. Wanted: \(\dfrac{dV}{dt}\) when \(r = 5\). The plan is to use the surface area to find \(\dfrac{dr}{dt}\), then use \(\dfrac{dr}{dt}\) in the volume formula.</li>
+<li>Differentiate the surface area \(S = 4\pi r^2\) with respect to \(t\). \[\frac{dS}{dt} = 8\pi r\frac{dr}{dt}.\]</li>
+<li>Substitute \(\dfrac{dS}{dt} = -8\pi\) and \(r = 5\), then solve for \(\dfrac{dr}{dt}\). \[\begin{aligned}-8\pi &= 8\pi(5)\frac{dr}{dt} = 40\pi\frac{dr}{dt}\\ \frac{dr}{dt} &= -\frac{8\pi}{40\pi} = -\frac{1}{5}.\end{aligned}\]</li>
+<li>Differentiate the volume \(V = \tfrac{4}{3}\pi r^3\) with respect to \(t\). \[\frac{dV}{dt} = 4\pi r^2\frac{dr}{dt}.\]</li>
+<li>Substitute \(r = 5\) and \(\dfrac{dr}{dt} = -\tfrac{1}{5}\). \[\begin{aligned}\frac{dV}{dt} &= 4\pi(25)\left(-\frac{1}{5}\right)\\ &= -\frac{100\pi}{5} = -20\pi.\end{aligned}\] The rate is negative, so the volume is decreasing.</li>
+</ol><p class="final">Answer: The volume is decreasing at \(20\pi\) cubic cm per minute.</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u12-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">The length and width of a rectangle change in such a way that its area is always 48 cm\(^2\). (a) How fast is the length changing at the instant when the width is 6 cm and the width is increasing at 2 cm per second? (b) At that instant, is the perimeter of the rectangle increasing or decreasing, and how fast?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in seconds, \(l\) the length in cm, \(w\) the width in cm, and \(P\) the perimeter in cm. All are positive.</li>
+<li>Write what is given and what is wanted. Given: \(\dfrac{dw}{dt} = 2\) cm/s at the instant \(w = 6\), and the area stays equal to 48. Wanted: (a) \(\dfrac{dl}{dt}\) and (b) \(\dfrac{dP}{dt}\) at that instant.</li>
+<li>Write the equation that holds at every time. \[lw = 48.\]</li>
+<li>Find \(l\) at this instant from the equation. \[\begin{aligned}6l &= 48\\ l &= 8.\end{aligned}\]</li>
+<li>Differentiate both sides of \(lw = 48\) with respect to \(t\). The left side is a product, so use the product rule with \(u = l\), \(v = w\), \(u' = \dfrac{dl}{dt}\), \(v' = \dfrac{dw}{dt}\). The right side is a constant, so its derivative is 0. \[\frac{dl}{dt}\,w + l\,\frac{dw}{dt} = 0.\]</li>
+<li>(a) Substitute \(w = 6\), \(l = 8\), and \(\dfrac{dw}{dt} = 2\), then solve. \[\begin{aligned}6\frac{dl}{dt} + 8(2) &= 0\\ 6\frac{dl}{dt} + 16 &= 0\\ 6\frac{dl}{dt} &= -16\\ \frac{dl}{dt} &= -\frac{16}{6} = -\frac{8}{3}.\end{aligned}\] The rate is negative, so the length is decreasing, which makes sense: the width grows, so the length must shrink to keep the area at 48.</li>
+<li>(b) The perimeter is \(P = 2l + 2w\). Differentiate both sides with respect to \(t\). \[\frac{dP}{dt} = 2\frac{dl}{dt} + 2\frac{dw}{dt}.\]</li>
+<li>Substitute \(\dfrac{dl}{dt} = -\tfrac{8}{3}\) and \(\dfrac{dw}{dt} = 2\). \[\begin{aligned}\frac{dP}{dt} &= 2\left(-\frac{8}{3}\right) + 2(2)\\ &= -\frac{16}{3} + 4 = -\frac{16}{3} + \frac{12}{3} = -\frac{4}{3}.\end{aligned}\] The rate is negative, so the perimeter is decreasing.</li>
+</ol><p class="final">Answer: (a) The length is decreasing at \(\tfrac{8}{3}\) cm per second. (b) The perimeter is decreasing at \(\tfrac{4}{3}\) cm per second.</p></div></details></div>
+
+<div class="q" id="u12-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Sand pours onto a pile at \(24\pi\) cubic feet per minute. The pile is always a cone whose base radius is twice its height. (a) How fast is the height of the pile increasing when the pile is 3 feet high? (b) How fast is the radius of the base increasing at that instant?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<path d="M40 170 L160 110 L280 170" stroke="currentColor" fill="none"/>
+<ellipse cx="160" cy="170" rx="120" ry="14" stroke="currentColor" fill="none"/>
+<line x1="160" y1="110" x2="160" y2="170" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<line x1="160" y1="170" x2="280" y2="170" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<text x="166" y="145" fill="currentColor" stroke="none" font-size="14">h</text>
+<text x="215" y="165" fill="currentColor" stroke="none" font-size="14">r = 2h</text>
+</svg>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in minutes, \(h\) the height of the pile in feet, \(r\) the radius of its base in feet, and \(V\) its volume in cubic feet.</li>
+<li>Write what is given and what is wanted. Sand is added, so the volume is increasing. Given: \(\dfrac{dV}{dt} = 24\pi\) ft\(^3\)/min and \(r = 2h\) at every time. Wanted: (a) \(\dfrac{dh}{dt}\) and (b) \(\dfrac{dr}{dt}\) when \(h = 3\).</li>
+<li>Write the volume equation and remove \(r\) using \(r = 2h\), so that \(V\) depends on \(h\) only. \[\begin{aligned}V &= \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi(2h)^2 h\\ &= \frac{1}{3}\pi \cdot 4h^2 \cdot h = \frac{4\pi h^3}{3}.\end{aligned}\]</li>
+<li>Differentiate both sides with respect to \(t\), using the chain rule on \(h^3\). \[\begin{aligned}\frac{dV}{dt} &= \frac{4\pi}{3}\cdot 3h^2\frac{dh}{dt}\\ &= 4\pi h^2\frac{dh}{dt}.\end{aligned}\]</li>
+<li>(a) Substitute \(\dfrac{dV}{dt} = 24\pi\) and \(h = 3\), then solve. \[\begin{aligned}24\pi &= 4\pi(3)^2\frac{dh}{dt}\\ 24\pi &= 36\pi\frac{dh}{dt}\\ \frac{dh}{dt} &= \frac{24\pi}{36\pi} = \frac{2}{3}.\end{aligned}\]</li>
+<li>(b) Differentiate \(r = 2h\) with respect to \(t\) and substitute. \[\frac{dr}{dt} = 2\frac{dh}{dt} = 2\cdot\frac{2}{3} = \frac{4}{3}.\]</li>
+</ol><p class="final">Answer: (a) The height is increasing at \(\tfrac{2}{3}\) feet per minute. (b) The radius of the base is increasing at \(\tfrac{4}{3}\) feet per minute.</p></div></details></div>
+
+<div class="q" id="u12-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">A water trough is 12 feet long. Its ends are isosceles triangles with the vertex pointing down, 4 feet across the top and 2 feet tall. Water is poured into the trough at 6 cubic feet per minute. How fast is the water level rising when the water is 1 foot deep?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<path d="M40 40 L120 120 L200 40 Z" stroke="currentColor" fill="none"/>
+<line x1="200" y1="40" x2="290" y2="20" stroke="currentColor" fill="none"/>
+<line x1="120" y1="120" x2="210" y2="100" stroke="currentColor" fill="none"/>
+<line x1="40" y1="40" x2="130" y2="20" stroke="currentColor" fill="none"/>
+<line x1="130" y1="20" x2="290" y2="20" stroke="currentColor" fill="none"/>
+<line x1="210" y1="100" x2="290" y2="20" stroke="currentColor" fill="none"/>
+<line x1="80" y1="80" x2="160" y2="80" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="120" y1="80" x2="120" y2="120" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<text x="112" y="34" fill="currentColor" stroke="none" font-size="13">4</text>
+<text x="16" y="85" fill="currentColor" stroke="none" font-size="13">2</text>
+<line x1="30" y1="40" x2="30" y2="120" stroke="currentColor" fill="none" stroke-dasharray="2,3"/>
+<text x="100" y="75" fill="currentColor" stroke="none" font-size="14">w</text>
+<text x="126" y="106" fill="currentColor" stroke="none" font-size="14">h</text>
+<text x="255" y="75" fill="currentColor" stroke="none" font-size="13">12</text>
+</svg>
+<ol class="steps">
+<li>Name the variables with units. Let \(t\) be the time in minutes, \(h\) the depth of the water in feet, \(w\) the width of the water's surface in feet, and \(V\) the volume of water in cubic feet. The length 12 and the triangle's top 4 and height 2 are constants.</li>
+<li>Write what is given and what is wanted. Water is poured in, so the volume is increasing. Given: \(\dfrac{dV}{dt} = 6\) ft\(^3\)/min. Wanted: \(\dfrac{dh}{dt}\) when \(h = 1\).</li>
+<li>Write the volume. The water fills a prism whose cross section is a triangle with base \(w\) and height \(h\), and whose length is 12. \[V = (\text{area of the triangle}) \times 12 = \frac{1}{2}wh \cdot 12 = 6wh.\]</li>
+<li>Remove \(w\) with similar triangles. The water's triangle has the same shape as the end of the trough. \[\begin{aligned}\frac{w}{h} &= \frac{4}{2} = 2\\ w &= 2h.\end{aligned}\]</li>
+<li>Substitute \(w = 2h\) into the volume. \[V = 6(2h)h = 12h^2.\]</li>
+<li>Differentiate both sides with respect to \(t\), using the chain rule. \[\frac{dV}{dt} = 24h\frac{dh}{dt}.\]</li>
+<li>Substitute \(\dfrac{dV}{dt} = 6\) and \(h = 1\), then solve. \[\begin{aligned}6 &= 24(1)\frac{dh}{dt}\\ \frac{dh}{dt} &= \frac{6}{24} = \frac{1}{4}.\end{aligned}\]</li>
+</ol><p class="final">Answer: The water level is rising at \(\tfrac{1}{4}\) foot per minute.</p></div></details></div>
+
+<div class="q" id="u12-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">A particle moves along the curve \(x^2 + 2xy - y^2 = 7\), where \(x\) and \(y\) are functions of time \(t\) in seconds. As the particle passes through the point \((2, 1)\), its \(x\)-coordinate is increasing at 3 units per second. (a) How fast is its \(y\)-coordinate changing at that instant? (b) Is the particle's distance from the origin increasing or decreasing at that instant, and how fast?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that the point is on the curve: \(2^2 + 2(2)(1) - 1^2 = 4 + 4 - 1 = 7\). It is.</li>
+<li>Write what is given and what is wanted. Given: \(\dfrac{dx}{dt} = 3\) when \(x = 2\), \(y = 1\). Wanted: (a) \(\dfrac{dy}{dt}\) and (b) \(\dfrac{dD}{dt}\), where \(D\) is the distance from the particle to the origin.</li>
+<li>(a) Differentiate both sides of the curve's equation with respect to \(t\). The term \(x^2\) gives \(2x\dfrac{dx}{dt}\). The term \(2xy\) is 2 times a product, so use the product rule with \(u = x\), \(v = y\), \(u' = \dfrac{dx}{dt}\), \(v' = \dfrac{dy}{dt}\), which gives \(2\left(\dfrac{dx}{dt}\,y + x\,\dfrac{dy}{dt}\right)\). The term \(y^2\) gives \(2y\dfrac{dy}{dt}\). \[2x\frac{dx}{dt} + 2\left(\frac{dx}{dt}\,y + x\,\frac{dy}{dt}\right) - 2y\frac{dy}{dt} = 0.\]</li>
+<li>Substitute \(x = 2\), \(y = 1\), and \(\dfrac{dx}{dt} = 3\). \[\begin{aligned}2(2)(3) + 2\left((3)(1) + 2\frac{dy}{dt}\right) - 2(1)\frac{dy}{dt} &= 0\\ 12 + 6 + 4\frac{dy}{dt} - 2\frac{dy}{dt} &= 0\\ 18 + 2\frac{dy}{dt} &= 0.\end{aligned}\]</li>
+<li>Solve for \(\dfrac{dy}{dt}\). \[\begin{aligned}2\frac{dy}{dt} &= -18\\ \frac{dy}{dt} &= -9.\end{aligned}\] The \(y\)-coordinate is decreasing.</li>
+<li>(b) The distance \(D\) from \((x, y)\) to the origin satisfies the Pythagorean theorem at every time. \[D^2 = x^2 + y^2.\] At this instant \(D^2 = 4 + 1 = 5\), so \(D = \sqrt{5}\).</li>
+<li>Differentiate \(D^2 = x^2 + y^2\) with respect to \(t\), then divide by 2. \[\begin{aligned}2D\frac{dD}{dt} &= 2x\frac{dx}{dt} + 2y\frac{dy}{dt}\\ D\frac{dD}{dt} &= x\frac{dx}{dt} + y\frac{dy}{dt}.\end{aligned}\]</li>
+<li>Substitute \(D = \sqrt{5}\), \(x = 2\), \(y = 1\), \(\dfrac{dx}{dt} = 3\), \(\dfrac{dy}{dt} = -9\), and solve. \[\begin{aligned}\sqrt{5}\,\frac{dD}{dt} &= 2(3) + 1(-9) = 6 - 9 = -3\\ \frac{dD}{dt} &= -\frac{3}{\sqrt{5}}.\end{aligned}\] The rate is negative, so the distance is decreasing.</li>
+</ol><p class="final">Answer: (a) \(\dfrac{dy}{dt} = -9\), so the \(y\)-coordinate is decreasing at 9 units per second. (b) The distance from the origin is decreasing at \(\dfrac{3}{\sqrt{5}}\) units per second.</p></div></details></div>
+</section><div class="pager"><a href="u11.html">Back: Implicit differentiation</a><a href="u13.html">Next: Differentials and linear approximation</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

@@ -1,0 +1,294 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Past Berkeley exam problems: derivatives, extrema, sketching | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Past exams</p><h1>Past Berkeley exam problems: derivatives, extrema, sketching</h1><p class="sub">Problems from past Math 16A midterms and finals (2004 to 2017), restated and fully solved.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Set 1</a><a href="#L2">Set 2</a><a href="#L3">Set 3</a></div><section id="learn"><h2>Past Berkeley exam problems: derivatives, extrema, sketching</h2>
+<p>The 18 problems in this unit are real questions from past UC Berkeley Math 16A midterms and finals, written by other instructors between 1995 and 2017. Each one is restated in new words, but the math is unchanged: the same function, the same numbers, and the same question. The small tag at the start of each problem names the instructor, the semester, and the exam it came from. These instructors used different textbooks and wrote their exams in their own style, so the wording will not match Prof. Gomez's exams exactly. The skills are the same ones he tests: derivative rules, implicit differentiation, L'Hospital's rule, relative and absolute extrema, concavity, and curve sketching.</p>
+<p>The problems are split into three sets by difficulty. Set 1 has short, one-idea questions. Set 2 has standard exam questions. Set 3 has the hardest ones: corners, cusps, asymptotes, and questions that ask you to explain why.</p>
+
+<h3>How to use these problems</h3>
+<ol>
+<li>Give yourself about 12 minutes per problem, written out on paper with no calculator and no notes. That is roughly the pace of a 5-question, 60-minute midterm.</li>
+<li>Write every step and every justification sentence, as if a grader were reading it. A correct number with no reasoning does not earn full credit.</li>
+<li>Only open the solution after the timer ends. If you went over 12 minutes, note which step slowed you down and redo that kind of problem from the matching unit.</li>
+</ol>
+
+<div class="trap"><b>Definitions differ between instructors.</b> Prof. Gomez defines an inflection point as a point \((c, f(c))\) where \(f\) is continuous and the concavity changes. At least one of the other instructors appears to have also required the derivative to exist there. Where that changes an answer, the solution here follows Prof. Gomez's definition and says what the original solution listed.</div>
+
+<h3>Where the problems come from</h3>
+<table class="t">
+<tr><th>Set</th><th>Problem</th><th>Exam</th><th>Topic</th></tr>
+<tr><td>1</td><td>1</td><td>Paulin, Fall 2017, Midterm 2</td><td>Product rule, chain rule, and log rules</td></tr>
+<tr><td>1</td><td>2</td><td>Coward, 2014, practice final</td><td>Implicit differentiation with a trig function</td></tr>
+<tr><td>1</td><td>3</td><td>Slaman, Fall 2010, Final</td><td>Limits of the form 0/0 with L'Hospital's rule</td></tr>
+<tr><td>1</td><td>4</td><td>Weinstein, Fall 1995, Midterm 2</td><td>Chain rule from a table of values, tangent line</td></tr>
+<tr><td>1</td><td>5</td><td>Paulin, Fall 2017, practice Midterm 2</td><td>Relative extrema of a cubic</td></tr>
+<tr><td>1</td><td>6</td><td>Woodin, Fall 2012, Midterm 2</td><td>Absolute minimum of a function with a logarithm</td></tr>
+<tr><td>2</td><td>1</td><td>Slaman, Fall 2010, Final</td><td>Logarithmic differentiation, generalized power rule</td></tr>
+<tr><td>2</td><td>2</td><td>Woodin, Fall 2012, Midterm 2</td><td>Implicit differentiation, tangent line</td></tr>
+<tr><td>2</td><td>3</td><td>Paulin, Fall 2017, Midterm 2</td><td>Relative extrema with fractional powers</td></tr>
+<tr><td>2</td><td>4</td><td>Paulin, Fall 2017, Midterm 2</td><td>Concavity and inflection points with fractional powers</td></tr>
+<tr><td>2</td><td>5</td><td>Demmel, Fall 2008, Midterm 2</td><td>Curve sketching and absolute extrema on a closed interval</td></tr>
+<tr><td>2</td><td>6</td><td>Weinstein, Fall 1995, Midterm 2</td><td>Sketching a graph from sign information</td></tr>
+<tr><td>3</td><td>1</td><td>Woodin, Fall 2012, Midterm 2 problem list</td><td>Logarithmic differentiation at a point</td></tr>
+<tr><td>3</td><td>2</td><td>Woodin, Fall 2012, Midterm 2</td><td>Extrema and inflection of a function with an absolute value</td></tr>
+<tr><td>3</td><td>3</td><td>Woodin, Fall 2012, Midterm 2</td><td>Minimum of the second derivative, deciding on inflection points</td></tr>
+<tr><td>3</td><td>4</td><td>Paulin, Fall 2017, Midterm 2</td><td>Curve sketching with a vertical asymptote</td></tr>
+<tr><td>3</td><td>5</td><td>Slaman, Fall 2010, sample Midterm 2</td><td>Curve sketching with an exponential</td></tr>
+<tr><td>3</td><td>6</td><td>Paulin, Fall 2017, practice Midterm 2</td><td>Relative versus absolute extrema</td></tr>
+</table>
+</section>
+<section id="L1"><div class="lvl"><h2>Set 1</h2><span>Older exams, warm up.</span></div><div class="q" id="u19-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Midterm 2</span> Find the derivative of each function. You do not have to simplify.<br>(a) \(f(x) = x e^{x^2}\)<br>(b) \(g(x) = \ln\left(\dfrac{e^x}{\sqrt{x^2 - 1}}\right)\)</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) The function is a product of \(x\) and \(e^{x^2}\), so use the product rule \((uv)' = u'v + uv'\). Name the pieces first. Let \(u = x\) and \(v = e^{x^2}\). Then \(u' = 1\). For \(v'\) use the chain rule for \(e^{g(x)}\), whose derivative is \(e^{g(x)} g'(x)\), with \(g(x) = x^2\) and \(g'(x) = 2x\): \[v' = e^{x^2}\cdot 2x = 2x e^{x^2}.\]</li>
+<li>Put the pieces into the product rule and factor out the common exponential. \[\begin{aligned} f'(x) &= u'v + uv'\\ &= 1\cdot e^{x^2} + x\cdot 2x e^{x^2}\\ &= e^{x^2} + 2x^2 e^{x^2}\\ &= \left(1 + 2x^2\right)e^{x^2}. \end{aligned}\]</li>
+<li>(b) Before differentiating, use the log rules \(\ln\frac{A}{B} = \ln A - \ln B\) and \(\ln A^k = k\ln A\) to break the logarithm apart. This is allowed because on the domain of \(g\) (where \(x^2 - 1 \gt 0\)) both \(e^x\) and \(\sqrt{x^2 - 1}\) are positive. Also \(\ln e^x = x\) because \(\ln\) and \(e^x\) are inverse functions. \[\begin{aligned} g(x) &= \ln e^x - \ln\left(x^2 - 1\right)^{1/2}\\ &= x - \tfrac{1}{2}\ln\left(x^2 - 1\right). \end{aligned}\]</li>
+<li>Differentiate term by term. The derivative of \(x\) is \(1\). For \(\ln\left(x^2 - 1\right)\) use the chain rule \(\dfrac{d}{dx}\ln h(x) = \dfrac{h'(x)}{h(x)}\) with \(h(x) = x^2 - 1\) and \(h'(x) = 2x\). \[\begin{aligned} g'(x) &= 1 - \frac{1}{2}\cdot\frac{2x}{x^2 - 1}\\ &= 1 - \frac{x}{x^2 - 1}. \end{aligned}\]</li>
+<li>The problem does not ask for simplification, but combining over the common denominator \(x^2 - 1\) gives a single fraction. \[\begin{aligned} g'(x) &= \frac{x^2 - 1}{x^2 - 1} - \frac{x}{x^2 - 1}\\ &= \frac{x^2 - x - 1}{x^2 - 1}. \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) \(f'(x) = e^{x^2} + 2x^2 e^{x^2} = (1 + 2x^2)e^{x^2}\). (b) \(g'(x) = 1 - \dfrac{x}{x^2 - 1} = \dfrac{x^2 - x - 1}{x^2 - 1}\).</p></div></details></div>
+
+<div class="q" id="u19-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Coward, 2014, practice final</span> The equation \(\sec(xy) = 5\) defines \(y\) implicitly as a function of \(x\). Find \(\dfrac{dy}{dx}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Implicit differentiation means differentiating both sides of the equation with respect to \(x\), treating \(y\) as a function of \(x\), so every time \(y\) is differentiated a factor \(\frac{dy}{dx}\) appears. The right side is the constant \(5\), whose derivative is \(0\). \[\frac{d}{dx}\left[\sec(xy)\right] = \frac{d}{dx}[5] = 0.\]</li>
+<li>Differentiate the left side with the chain rule. The outside function is \(\sec u\), whose derivative is \(\sec u\tan u\), and the inside is \(u = xy\). \[\frac{d}{dx}\left[\sec(xy)\right] = \sec(xy)\tan(xy)\cdot\frac{d}{dx}[xy].\]</li>
+<li>The inside \(xy\) is a product, so use the product rule with the pieces \(x\) (derivative \(1\)) and \(y\) (derivative \(\frac{dy}{dx}\)). \[\frac{d}{dx}[xy] = 1\cdot y + x\cdot\frac{dy}{dx} = y + x\frac{dy}{dx}.\]</li>
+<li>Put the two steps together and set the result equal to \(0\). \[\sec(xy)\tan(xy)\left(y + x\frac{dy}{dx}\right) = 0.\]</li>
+<li>Check that the factor \(\sec(xy)\tan(xy)\) is never zero on this curve, so it is safe to divide by it. On the curve \(\sec(xy) = 5 \ne 0\). If \(\tan(xy)\) were \(0\), then \(\sin(xy) = 0\), so \(\cos(xy) = \pm 1\) and \(\sec(xy) = \pm 1\), which contradicts \(\sec(xy) = 5\). So \(\tan(xy) \ne 0\) too. Divide both sides by \(\sec(xy)\tan(xy)\). \[y + x\frac{dy}{dx} = 0.\]</li>
+<li>Solve for \(\frac{dy}{dx}\). Dividing by \(x\) is allowed because \(x \ne 0\) on the curve: at \(x = 0\) the equation would read \(\sec 0 = 1 = 5\), which is false. \[\begin{aligned} x\frac{dy}{dx} &= -y\\ \frac{dy}{dx} &= -\frac{y}{x}. \end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = -\dfrac{y}{x}\).</p></div></details></div>
+
+<div class="q" id="u19-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Slaman, Fall 2010, Final</span> Evaluate each limit.<br>(a) \(\displaystyle\lim_{h\to 0}\frac{\ln(2 + h) - \ln 2}{h}\)<br>(b) \(\displaystyle\lim_{x\to 1}\frac{x^3 - x}{x - 1}\)</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) First plug in \(h = 0\) to see what form the limit has. The numerator becomes \(\ln 2 - \ln 2 = 0\) and the denominator becomes \(0\). This is the indeterminate form \(\frac{0}{0}\), so L'Hospital's rule applies: the limit equals the limit of the derivative of the top over the derivative of the bottom, both taken with respect to \(h\).</li>
+<li>Differentiate the top and bottom with respect to \(h\). The term \(\ln 2\) is a constant, so its derivative is \(0\). By the chain rule, \(\frac{d}{dh}\ln(2 + h) = \frac{1}{2 + h}\cdot 1\). The derivative of the bottom \(h\) is \(1\). \[\lim_{h\to 0}\frac{\ln(2 + h) - \ln 2}{h} = \lim_{h\to 0}\frac{\frac{1}{2 + h}}{1} = \frac{1}{2 + 0} = \frac{1}{2}.\]</li>
+<li>Check with a second method. The expression is the difference quotient \(\frac{f(2 + h) - f(2)}{h}\) for \(f(x) = \ln x\), so the limit is the definition of \(f'(2)\). Since \(f'(x) = \frac{1}{x}\), the limit is \(f'(2) = \frac{1}{2}\), the same answer.</li>
+<li>(b) Plug in \(x = 1\). The numerator is \(1 - 1 = 0\) and the denominator is \(1 - 1 = 0\), so this is again the form \(\frac{0}{0}\). Factor the numerator to cancel the factor that causes the zero. \[x^3 - x = x\left(x^2 - 1\right) = x(x - 1)(x + 1).\]</li>
+<li>Cancel \(x - 1\), which is allowed because \(x \ne 1\) while \(x\) approaches \(1\), and then plug in. \[\lim_{x\to 1}\frac{x(x - 1)(x + 1)}{x - 1} = \lim_{x\to 1}x(x + 1) = 1\cdot 2 = 2.\]</li>
+<li>Check with L'Hospital's rule. The derivative of the top is \(3x^2 - 1\) and the derivative of the bottom is \(1\). \[\lim_{x\to 1}\frac{3x^2 - 1}{1} = 3(1)^2 - 1 = 2.\] Both methods agree.</li>
+</ol><p class="final">Answer: (a) \(\dfrac{1}{2}\). (b) \(2\).</p></div></details></div>
+
+<div class="q" id="u19-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Weinstein, Fall 1995, Midterm 2</span> The tangent line to the graph of \(g\) at \(x = 2\) has slope \(5\). Let \(f(x) = 5x^2\). You are also told that \(g(6) = 4\), \(g(2) = 6\), \(g'(12) = 8\), and \(g'(6) = 14\). Find the equation of the tangent line to the graph of \(y = f(g(x))\) at \(x = 2\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the composite function and read off what the problem gives. Let \(h(x) = f(g(x))\). The slope of the tangent line to \(g\) at \(x = 2\) is \(g'(2)\), so \(g'(2) = 5\). A tangent line needs a point and a slope, so we need \(h(2)\) and \(h'(2)\).</li>
+<li>Find the point. Use \(g(2) = 6\) and then apply \(f\). \[h(2) = f(g(2)) = f(6) = 5\cdot 6^2 = 5\cdot 36 = 180.\] The tangent line passes through \((2, 180)\).</li>
+<li>Find the slope with the chain rule \(h'(x) = f'(g(x))\cdot g'(x)\). First differentiate \(f\): \(f'(x) = 10x\). Then evaluate at \(x = 2\), putting \(g(2) = 6\) inside \(f'\). \[\begin{aligned} h'(2) &= f'(g(2))\cdot g'(2)\\ &= f'(6)\cdot 5\\ &= (10\cdot 6)\cdot 5\\ &= 300. \end{aligned}\]</li>
+<li>The values \(g(6) = 4\), \(g'(12) = 8\), and \(g'(6) = 14\) are not needed. They are there to catch the mistake of plugging the wrong number into \(g'\). In \(f'(g(2))\cdot g'(2)\), both \(g\) and \(g'\) are evaluated at \(x = 2\) itself.</li>
+<li>Write the line in point-slope form \(y - y_1 = m(x - x_1)\) and simplify. \[\begin{aligned} y - 180 &= 300(x - 2)\\ y &= 300x - 600 + 180\\ y &= 300x - 420. \end{aligned}\]</li>
+</ol><p class="final">Answer: \(y = 300x - 420\).</p></div></details></div>
+
+<div class="q" id="u19-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, practice Midterm 2</span> Find and classify the relative extrema of \(f(x) = x^3 - 6x^2 + 9x + 1\). Justify your answer carefully.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Note the domain. \(f\) is a polynomial, so its domain is all real numbers and \(f'\) exists everywhere.</li>
+<li>Differentiate with the power rule and factor. \[\begin{aligned} f'(x) &= 3x^2 - 12x + 9\\ &= 3\left(x^2 - 4x + 3\right)\\ &= 3(x - 1)(x - 3). \end{aligned}\]</li>
+<li>Find the critical numbers, the numbers in the domain where \(f'(x) = 0\) or \(f'(x)\) does not exist. Here \(f'\) always exists, and \(3(x - 1)(x - 3) = 0\) gives \(x = 1\) and \(x = 3\).</li>
+<li>Make a sign chart for \(f'\) by testing one number in each interval. \[\begin{aligned} f'(0) &= 3(0 - 1)(0 - 3) = 3(-1)(-3) = 9 \gt 0,\\ f'(2) &= 3(2 - 1)(2 - 3) = 3(1)(-1) = -3 \lt 0,\\ f'(4) &= 3(4 - 1)(4 - 3) = 3(3)(1) = 9 \gt 0. \end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, 1)\)</th><th>\((1, 3)\)</th><th>\((3, \infty)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>\(f\) is</td><td>increasing</td><td>decreasing</td><td>increasing</td></tr>
+</table></li>
+<li>Classify with the first derivative test. Because \(f'\) changes from positive to negative at \(x = 1\), \(f\) has a relative maximum at \(x = 1\). Because \(f'\) changes from negative to positive at \(x = 3\), \(f\) has a relative minimum at \(x = 3\).</li>
+<li>Find the \(y\)-values. \[\begin{aligned} f(1) &= 1 - 6 + 9 + 1 = 5,\\ f(3) &= 27 - 54 + 27 + 1 = 1. \end{aligned}\]
+<div class="plot" data-f="x**3-6*x**2+9*x+1" data-x="-0.5,4.5" data-y="-3,9" data-pts="1,5,relative max (1, 5)|3,1,relative min (3, 1)" data-cap="Graph of f(x) = x^3 - 6x^2 + 9x + 1"></div></li>
+</ol><p class="final">Answer: relative maximum at \((1, 5)\) and relative minimum at \((3, 1)\).</p></div></details></div>
+
+<div class="q" id="u19-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Woodin, Fall 2012, Midterm 2</span> Find the minimum value of \(2a\ln a + a\) for \(a \gt 0\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Call the function \(f(a) = 2a\ln a + a\) with domain \(a \gt 0\). Differentiate. The term \(2a\ln a\) is a product, so use the product rule with \(u = 2a\), \(v = \ln a\), \(u' = 2\), \(v' = \frac{1}{a}\). \[\begin{aligned} f'(a) &= \left(2\ln a + 2a\cdot\frac{1}{a}\right) + 1\\ &= 2\ln a + 2 + 1\\ &= 2\ln a + 3. \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'(a)\) exists for every \(a \gt 0\), so solve \(f'(a) = 0\). \[\begin{aligned} 2\ln a + 3 &= 0\\ \ln a &= -\tfrac{3}{2}\\ a &= e^{-3/2}. \end{aligned}\] This is the only critical number.</li>
+<li>Show that this critical number gives the minimum of the whole function. The second derivative is \[f''(a) = \frac{2}{a},\] which is positive for every \(a \gt 0\). So \(f\) is concave up on its entire domain. A function that is concave up on an interval and has \(f' = 0\) at a point of that interval has its absolute minimum there. (Equivalently, \(f'(a) \lt 0\) for \(0 \lt a \lt e^{-3/2}\) because \(\ln a \lt -\frac{3}{2}\) there, and \(f'(a) \gt 0\) for \(a \gt e^{-3/2}\), so \(f\) decreases and then increases.)</li>
+<li>Compute the minimum value. Use \(\ln e^{-3/2} = -\frac{3}{2}\). \[\begin{aligned} f\left(e^{-3/2}\right) &= 2e^{-3/2}\cdot\left(-\tfrac{3}{2}\right) + e^{-3/2}\\ &= -3e^{-3/2} + e^{-3/2}\\ &= -2e^{-3/2}. \end{aligned}\]</li>
+</ol><p class="final">Answer: the minimum value is \(-2e^{-3/2} = -\dfrac{2}{e^{3/2}}\), reached at \(a = e^{-3/2}\).</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Set 2</h2><span>Standard exam questions.</span></div><div class="q" id="u19-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Slaman, Fall 2010, Final</span> Differentiate each function.<br>(a) \(f(x) = x^x\) for \(x \gt 0\)<br>(b) \(g(x) = \left(2\ln(x + 2) + 1\right)^{200}\)</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) The variable is in both the base and the exponent, so neither the power rule (which needs a constant exponent) nor the rule for \(a^x\) (which needs a constant base) applies. Use logarithmic differentiation: set \(y = x^x\) and take the natural log of both sides. This is allowed because \(x^x \gt 0\) for \(x \gt 0\). \[\ln y = \ln x^x = x\ln x.\]</li>
+<li>Differentiate both sides with respect to \(x\). The left side needs the chain rule, giving \(\frac{1}{y}\frac{dy}{dx}\). The right side is a product, so use the product rule with \(u = x\), \(v = \ln x\), \(u' = 1\), \(v' = \frac{1}{x}\). \[\begin{aligned} \frac{1}{y}\frac{dy}{dx} &= 1\cdot\ln x + x\cdot\frac{1}{x}\\ &= \ln x + 1. \end{aligned}\]</li>
+<li>Multiply both sides by \(y\) and replace \(y\) with \(x^x\). \[\frac{dy}{dx} = y(\ln x + 1) = x^x(\ln x + 1).\]</li>
+<li>(b) This is a function raised to the constant power \(200\), so use the generalized power rule \(\frac{d}{dx}[h(x)]^n = n[h(x)]^{n - 1}h'(x)\) with \(h(x) = 2\ln(x + 2) + 1\). First find \(h'(x)\). By the chain rule \(\frac{d}{dx}\ln(x + 2) = \frac{1}{x + 2}\cdot 1\), and the constant \(1\) has derivative \(0\). \[h'(x) = 2\cdot\frac{1}{x + 2} + 0 = \frac{2}{x + 2}.\]</li>
+<li>Put the pieces into the generalized power rule and simplify the constants. \[\begin{aligned} g'(x) &= 200\left(2\ln(x + 2) + 1\right)^{199}\cdot\frac{2}{x + 2}\\ &= \frac{400\left(2\ln(x + 2) + 1\right)^{199}}{x + 2}. \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) \(f'(x) = x^x(\ln x + 1)\). (b) \(g'(x) = \dfrac{400\left(2\ln(x + 2) + 1\right)^{199}}{x + 2}\).</p></div></details></div>
+
+<div class="q" id="u19-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Woodin, Fall 2012, Midterm 2</span> The curve \(x^4 + y^4 = 8xy\) passes through the point \((2, 2)\). Find the equation of the tangent line to the curve at that point.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that the point is on the curve. At \((2, 2)\) the left side is \(2^4 + 2^4 = 16 + 16 = 32\) and the right side is \(8\cdot 2\cdot 2 = 32\). They match.</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). On the left, the chain rule gives \(\frac{d}{dx}y^4 = 4y^3\frac{dy}{dx}\). On the right, \(8xy\) is a product, so use the product rule with \(u = 8x\), \(v = y\), \(u' = 8\), \(v' = \frac{dy}{dx}\). \[4x^3 + 4y^3\frac{dy}{dx} = 8y + 8x\frac{dy}{dx}.\]</li>
+<li>Collect the terms with \(\frac{dy}{dx}\) on the left and everything else on the right, then factor out \(\frac{dy}{dx}\). \[\begin{aligned} 4y^3\frac{dy}{dx} - 8x\frac{dy}{dx} &= 8y - 4x^3\\ \left(4y^3 - 8x\right)\frac{dy}{dx} &= 8y - 4x^3\\ \frac{dy}{dx} &= \frac{8y - 4x^3}{4y^3 - 8x} = \frac{2y - x^3}{y^3 - 2x}. \end{aligned}\]</li>
+<li>Substitute \(x = 2\) and \(y = 2\) to get the slope. \[m = \frac{2\cdot 2 - 2^3}{2^3 - 2\cdot 2} = \frac{4 - 8}{8 - 4} = \frac{-4}{4} = -1.\]</li>
+<li>Write the tangent line in point-slope form and simplify. \[\begin{aligned} y - 2 &= -1(x - 2)\\ y &= -x + 2 + 2\\ y &= -x + 4. \end{aligned}\]</li>
+</ol><p class="final">Answer: \(y = -x + 4\).</p></div></details></div>
+
+<div class="q" id="u19-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Midterm 2</span> Find and classify the relative extrema of \(f(x) = x^{2/3} - x^{5/3}\). Justify your answer carefully.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Note the domain. Cube roots exist for every real number, so \(x^{2/3} = \left(\sqrt[3]{x}\right)^2\) and \(x^{5/3} = \left(\sqrt[3]{x}\right)^5\) are defined everywhere. The domain is all real numbers.</li>
+<li>Differentiate with the power rule. \[f'(x) = \frac{2}{3}x^{-1/3} - \frac{5}{3}x^{2/3}.\]</li>
+<li>Factor so the sign is easy to read. Pull out \(\frac{1}{3}x^{-1/3}\), using \(x^{2/3} = x^{-1/3}\cdot x\). \[\begin{aligned} f'(x) &= \frac{1}{3}x^{-1/3}(2 - 5x)\\ &= \frac{2 - 5x}{3x^{1/3}}. \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'(x) = 0\) when the numerator is zero: \(2 - 5x = 0\), so \(x = \frac{2}{5}\). \(f'(x)\) does not exist when the denominator is zero: \(3x^{1/3} = 0\), so \(x = 0\). Since \(f(0) = 0\) is defined, \(x = 0\) is a critical number too. The critical numbers are \(0\) and \(\frac{2}{5}\).</li>
+<li>Make a sign chart for \(f'\) with one test value in each interval. Use \(x = -1\), \(x = \frac{1}{8}\) (because \(\sqrt[3]{1/8} = \frac{1}{2}\)), and \(x = 1\). \[\begin{aligned} f'(-1) &= \frac{2 - 5(-1)}{3(-1)} = \frac{7}{-3} \lt 0,\\ f'\left(\tfrac{1}{8}\right) &= \frac{2 - \frac{5}{8}}{3\cdot\frac{1}{2}} = \frac{\frac{11}{8}}{\frac{3}{2}} = \frac{11}{12} \gt 0,\\ f'(1) &= \frac{2 - 5}{3\cdot 1} = -1 \lt 0. \end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, 0)\)</th><th>\(\left(0, \frac{2}{5}\right)\)</th><th>\(\left(\frac{2}{5}, \infty\right)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td></tr>
+</table></li>
+<li>Classify with the first derivative test. Because \(f\) is continuous at \(0\) and \(f'\) changes from negative to positive there, \(f\) has a relative minimum at \(x = 0\). Because \(f'\) changes from positive to negative at \(x = \frac{2}{5}\), \(f\) has a relative maximum there.</li>
+<li>Find the \(y\)-values. At \(0\), \(f(0) = 0 - 0 = 0\). At \(\frac{2}{5}\), factor out \(\left(\frac{2}{5}\right)^{2/3}\), using \(\left(\frac{2}{5}\right)^{5/3} = \left(\frac{2}{5}\right)^{2/3}\cdot\frac{2}{5}\). \[\begin{aligned} f\left(\tfrac{2}{5}\right) &= \left(\tfrac{2}{5}\right)^{2/3} - \left(\tfrac{2}{5}\right)^{2/3}\cdot\tfrac{2}{5}\\ &= \left(\tfrac{2}{5}\right)^{2/3}\left(1 - \tfrac{2}{5}\right)\\ &= \tfrac{3}{5}\left(\tfrac{2}{5}\right)^{2/3}. \end{aligned}\] This is about \(0.33\). The graph has a sharp point (a cusp) at the origin because \(f'\) is undefined there.
+<div class="plot" data-f="Math.cbrt(x)**2-Math.cbrt(x)**5" data-x="-1,1.4" data-y="-1,2" data-pts="0,0,relative min (0, 0)|0.4,0.3257,relative max (2/5, (3/5)(2/5)^(2/3))" data-cap="Graph of f(x) = x^(2/3) - x^(5/3)"></div></li>
+</ol><p class="final">Answer: relative minimum at \((0, 0)\) and relative maximum at \(\left(\frac{2}{5}, \frac{3}{5}\left(\frac{2}{5}\right)^{2/3}\right)\).</p></div></details></div>
+
+<div class="q" id="u19-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Midterm 2</span> Find the intervals on which \(f(x) = 4x^{1/3} - x^{4/3}\) is concave up and the intervals on which it is concave down. Does the graph have any inflection points? Justify your answer carefully.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Note the domain. Cube roots exist for all real numbers, so the domain is all real numbers and \(f\) is continuous everywhere.</li>
+<li>Differentiate twice with the power rule. \[\begin{aligned} f'(x) &= \frac{4}{3}x^{-2/3} - \frac{4}{3}x^{1/3},\\ f''(x) &= -\frac{8}{9}x^{-5/3} - \frac{4}{9}x^{-2/3}. \end{aligned}\]</li>
+<li>Factor \(f''\) so its sign is easy to read. Pull out \(-\frac{4}{9}x^{-5/3}\), using \(x^{-2/3} = x^{-5/3}\cdot x\). \[\begin{aligned} f''(x) &= -\frac{4}{9}x^{-5/3}(2 + x)\\ &= -\frac{4(x + 2)}{9x^{5/3}}. \end{aligned}\]</li>
+<li>Find where \(f''\) is zero or undefined. The numerator is zero at \(x = -2\). The denominator is zero at \(x = 0\), where \(f''\) does not exist. These two numbers split the line into three intervals.</li>
+<li>Make a sign chart for \(f''\). Remember that \(x^{5/3} = \left(\sqrt[3]{x}\right)^5\) has the same sign as \(x\). \[\begin{aligned} f''(-3) &= -\frac{4(-1)}{9(-3)^{5/3}} = \frac{4}{(\text{negative})} \lt 0,\\ f''(-1) &= -\frac{4(1)}{9(-1)} = \frac{4}{9} \gt 0,\\ f''(1) &= -\frac{4(3)}{9(1)} = -\frac{4}{3} \lt 0. \end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -2)\)</th><th>\((-2, 0)\)</th><th>\((0, \infty)\)</th></tr>
+<tr><td>Sign of \(f''\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>concave down</td><td>concave up</td><td>concave down</td></tr>
+</table></li>
+<li>Find the inflection points. Our course defines an inflection point as a point \((c, f(c))\) where \(f\) is continuous and the concavity changes. At \(x = -2\) the concavity changes from down to up, so there is an inflection point. Its \(y\)-value uses \((-2)^{1/3} = -\sqrt[3]{2}\) and \((-2)^{4/3} = \left(-\sqrt[3]{2}\right)^4 = 2\sqrt[3]{2}\). \[\begin{aligned} f(-2) &= 4\left(-\sqrt[3]{2}\right) - 2\sqrt[3]{2}\\ &= -4\sqrt[3]{2} - 2\sqrt[3]{2}\\ &= -6\sqrt[3]{2}. \end{aligned}\]</li>
+<li>At \(x = 0\) the function is continuous, \(f(0) = 0\), and the concavity changes from up to down, so \((0, 0)\) is also an inflection point under our course's definition. The graph has a vertical tangent line there. Paulin's posted solution lists only \(x = -2\). Its margin notes point out that \(f'(0)\) does not exist, which suggests his course also required the derivative to exist at an inflection point. On Prof. Gomez's exam, list both points and say why.
+<div class="plot" data-f="4*Math.cbrt(x)-Math.cbrt(x)**4" data-x="-4,5" data-y="-13,5" data-pts="-2,-7.5595,inflection (-2, -6 cbrt 2)|0,0,inflection (0, 0)" data-cap="Graph of f(x) = 4x^(1/3) - x^(4/3)"></div></li>
+</ol><p class="final">Answer: concave down on \((-\infty, -2)\) and \((0, \infty)\), concave up on \((-2, 0)\). Inflection points at \(\left(-2, -6\sqrt[3]{2}\right)\) and \((0, 0)\).</p></div></details></div>
+
+<div class="q" id="u19-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Demmel, Fall 2008, Midterm 2</span> Let \(f(x) = -x^3 + 3x^2 + 9x - 5\).<br>(a) Sketch the graph of \(f\). You do not need the \(x\)-intercepts, but give the critical points, the relative maxima and minima, the intervals where \(f\) is increasing and decreasing, the inflection points, the intervals of concavity, and the \(y\)-intercept.<br>(b) On the closed interval \([-2, 5]\), find the absolute maximum and absolute minimum values of \(f\) and every point where each is reached.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate and factor. \[\begin{aligned} f'(x) &= -3x^2 + 6x + 9\\ &= -3\left(x^2 - 2x - 3\right)\\ &= -3(x + 1)(x - 3). \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'\) exists everywhere, and \(f'(x) = 0\) at \(x = -1\) and \(x = 3\). Their \(y\)-values are \[\begin{aligned} f(-1) &= -(-1)^3 + 3(-1)^2 + 9(-1) - 5 = 1 + 3 - 9 - 5 = -10,\\ f(3) &= -27 + 27 + 27 - 5 = 22. \end{aligned}\]</li>
+<li>Make a sign chart for \(f'\). \[\begin{aligned} f'(-2) &= -3(-1)(-5) = -15 \lt 0,\\ f'(0) &= -3(1)(-3) = 9 \gt 0,\\ f'(4) &= -3(5)(1) = -15 \lt 0. \end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -1)\)</th><th>\((-1, 3)\)</th><th>\((3, \infty)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td></tr>
+</table>
+Because \(f'\) changes from negative to positive at \(x = -1\), there is a relative minimum at \((-1, -10)\). Because \(f'\) changes from positive to negative at \(x = 3\), there is a relative maximum at \((3, 22)\).</li>
+<li>Find the concavity. \(f''(x) = -6x + 6 = -6(x - 1)\), which is zero only at \(x = 1\). Test each side: \(f''(0) = 6 \gt 0\) and \(f''(2) = -6 \lt 0\).
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, 1)\)</th><th>\((1, \infty)\)</th></tr>
+<tr><td>Sign of \(f''\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>concave up</td><td>concave down</td></tr>
+</table>
+The concavity changes at \(x = 1\), and \(f(1) = -1 + 3 + 9 - 5 = 6\), so \((1, 6)\) is the inflection point.</li>
+<li>Find the \(y\)-intercept and the end behavior. \(f(0) = -5\). The leading term is \(-x^3\), so \(f(x) \to \infty\) as \(x \to -\infty\) and \(f(x) \to -\infty\) as \(x \to \infty\). Plot the points and join them with the shapes from the two charts.
+<div class="plot" data-f="-(x**3)+3*x**2+9*x-5" data-x="-3,5.5" data-y="-15,25" data-v="-2,5" data-pts="-1,-10,relative min (-1, -10)|3,22,relative max (3, 22)|1,6,inflection (1, 6)|0,-5,y-intercept (0, -5)|-2,-3,endpoint (-2, -3)|5,-10,endpoint (5, -10)" data-cap="Graph of f(x) = -x^3 + 3x^2 + 9x - 5; dashed lines mark the interval [-2, 5] used in part (b)"></div></li>
+<li>(b) Use the closed interval method: on a closed interval a continuous function reaches its absolute extrema at critical numbers inside the interval or at the endpoints. Both critical numbers \(-1\) and \(3\) lie in \([-2, 5]\). Evaluate at the endpoints. \[\begin{aligned} f(-2) &= -(-8) + 3(4) + 9(-2) - 5 = 8 + 12 - 18 - 5 = -3,\\ f(5) &= -125 + 75 + 45 - 5 = -10. \end{aligned}\]</li>
+<li>Compare all four candidates: \(f(-2) = -3\), \(f(-1) = -10\), \(f(3) = 22\), \(f(5) = -10\). The largest is \(22\) and the smallest is \(-10\), and the smallest value occurs twice.</li>
+</ol><p class="final">Answer: (a) critical points \((-1, -10)\) and \((3, 22)\); relative minimum \((-1, -10)\); relative maximum \((3, 22)\); increasing on \((-1, 3)\); decreasing on \((-\infty, -1)\) and \((3, \infty)\); inflection point \((1, 6)\); concave up on \((-\infty, 1)\); concave down on \((1, \infty)\); \(y\)-intercept \(-5\). (b) On \([-2, 5]\) the absolute maximum is \(22\) at \(x = 3\), and the absolute minimum is \(-10\), reached at both \(x = -1\) and \(x = 5\).</p></div></details></div>
+
+<div class="q" id="u19-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Weinstein, Fall 1995, Midterm 2</span> Draw one graph of a function \(y = f(x)\) with all of these properties, and label the inflection point(s) and the local extreme point(s).<br>\(f(x)\) is positive for \(x \lt 2\) and negative for \(x \gt 2\).<br>\(f'(x)\) is positive for \(x \lt 1\) and negative for \(x \gt 1\).<br>\(f''(x)\) is positive for \(x \lt 0\) and negative for \(x \gt 0\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Read each condition as a statement about the shape. The sign of \(f\) says where the graph is above or below the \(x\)-axis: above for \(x \lt 2\), below for \(x \gt 2\), so it crosses the axis at \(x = 2\). The sign of \(f'\) says the graph rises for \(x \lt 1\) and falls for \(x \gt 1\). The sign of \(f''\) says the graph is concave up for \(x \lt 0\) and concave down for \(x \gt 0\).</li>
+<li>Find the special points. Since \(f'\) changes from positive to negative at \(x = 1\), there is a local maximum at \(x = 1\), and it is above the axis because \(1 \lt 2\). Since \(f''\) changes sign at \(x = 0\), there is an inflection point at \(x = 0\), also above the axis. There is no local minimum, because \(f'\) changes sign only once.</li>
+<li>Put the pieces in order from left to right.
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, 0)\)</th><th>\((0, 1)\)</th><th>\((1, 2)\)</th><th>\((2, \infty)\)</th></tr>
+<tr><td>Sign of \(f\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>Sign of \(f'\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td></tr>
+<tr><td>Sign of \(f''\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>\(-\)</td></tr>
+<tr><td>Shape</td><td>rising, concave up</td><td>rising, concave down</td><td>falling, concave down</td><td>falling, concave down</td></tr>
+</table></li>
+<li>Think about the far left. On \((-\infty, 0)\) the graph rises, stays above the axis, and is concave up. Moving left from \(x = 0\), the graph goes down but must stay positive, so it flattens out toward a height that is zero or positive. Drawing it leveling off toward the \(x\)-axis works.</li>
+<li>Draw the curve: start low and flat on the far left just above the axis, rise while bending upward until the inflection point at \(x = 0\), keep rising while bending downward to the peak at \(x = 1\), fall through the axis at \(x = 2\), and keep falling, concave down, to the right. Any graph with this shape earns full credit. One formula with exactly these properties is \(f(x) = (2 - x)e^x\): its derivative is \(f'(x) = (1 - x)e^x\) and its second derivative is \(f''(x) = -xe^x\), and you can check that the three sign conditions hold. The graph below is that function, with inflection point \((0, 2)\) and local maximum \((1, e)\).
+<div class="plot" data-f="(2-x)*Math.exp(x)" data-x="-5,3" data-y="-4,3.5" data-pts="0,2,inflection point (x = 0)|1,2.71828,local max (x = 1)|2,0,crosses axis (x = 2)" data-cap="One graph with the required signs: y = (2 - x)e^x"></div></li>
+</ol><p class="final">Answer: a graph that rises and is concave up for \(x \lt 0\), has an inflection point at \(x = 0\), keeps rising (concave down) to a local maximum at \(x = 1\), then falls, crossing the \(x\)-axis at \(x = 2\). Example: \(f(x) = (2 - x)e^x\), with inflection point \((0, 2)\) and local maximum \((1, e)\).</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Set 3</h2><span>The hardest ones.</span></div><div class="q" id="u19-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Woodin, Fall 2012, Midterm 2 problem list</span> Let \(y = \left((\ln x)^2\right)^x\) for \(x \gt 0\). Find \(y'\left(\frac{1}{e}\right)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The variable is in both the base \((\ln x)^2\) and the exponent \(x\), so use logarithmic differentiation. Near \(x = \frac{1}{e}\) the base is positive (it equals \(1\) at \(x = \frac{1}{e}\)), so we may take the natural log of both sides and use \(\ln A^k = k\ln A\). \[\ln y = \ln\left((\ln x)^2\right)^x = x\ln\left((\ln x)^2\right).\]</li>
+<li>Differentiate both sides with respect to \(x\). The left side gives \(\frac{1}{y}\frac{dy}{dx}\) by the chain rule. The right side is a product, so use the product rule with \(u = x\), \(v = \ln\left((\ln x)^2\right)\), \(u' = 1\), and \(v'\) found in the next step. \[\frac{1}{y}\frac{dy}{dx} = 1\cdot\ln\left((\ln x)^2\right) + x\cdot v'.\]</li>
+<li>Find \(v'\) with the chain rule twice. The derivative of \(\ln h\) is \(\frac{h'}{h}\) with \(h = (\ln x)^2\), and by the generalized power rule \(h' = 2\ln x\cdot\frac{1}{x}\). \[\begin{aligned} v' &= \frac{1}{(\ln x)^2}\cdot 2\ln x\cdot\frac{1}{x}\\ &= \frac{2}{x\ln x}. \end{aligned}\]</li>
+<li>Substitute \(v'\) back and simplify the second term, since \(x\cdot\frac{2}{x\ln x} = \frac{2}{\ln x}\). Then multiply by \(y\). \[\begin{aligned} \frac{1}{y}\frac{dy}{dx} &= \ln\left((\ln x)^2\right) + \frac{2}{\ln x},\\ \frac{dy}{dx} &= \left((\ln x)^2\right)^x\left[\ln\left((\ln x)^2\right) + \frac{2}{\ln x}\right]. \end{aligned}\]</li>
+<li>Evaluate at \(x = \frac{1}{e}\). There \(\ln\frac{1}{e} = -1\), so \((\ln x)^2 = 1\), \(\ln 1 = 0\), and \(y = 1^{1/e} = 1\). \[\begin{aligned} y'\left(\tfrac{1}{e}\right) &= 1\cdot\left[\ln 1 + \frac{2}{-1}\right]\\ &= 1\cdot[0 - 2]\\ &= -2. \end{aligned}\]</li>
+</ol><p class="final">Answer: \(y'\left(\frac{1}{e}\right) = -2\).</p></div></details></div>
+
+<div class="q" id="u19-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Woodin, Fall 2012, Midterm 2</span> Let \(h(x) = -|x| + x^5\).<br>(a) Does \(h\) have any relative maximum or relative minimum points? If so, find and identify them.<br>(b) Does \(h\) have any inflection points? If so, find them.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write \(h\) without the absolute value. Since \(|x| = x\) for \(x \ge 0\) and \(|x| = -x\) for \(x \lt 0\), \[h(x) = \begin{cases} -x + x^5, & x \ge 0,\\ x + x^5, & x \lt 0. \end{cases}\] Both pieces give \(h(0) = 0\), and \(h\) is continuous everywhere because \(|x|\) and \(x^5\) are.</li>
+<li>Differentiate each piece away from \(0\). \[h'(x) = \begin{cases} -1 + 5x^4, & x \gt 0,\\ 1 + 5x^4, & x \lt 0. \end{cases}\] As \(x\) approaches \(0\) from the right the slope approaches \(-1\), and from the left it approaches \(1\). The two one-sided slopes disagree, so the graph has a corner and \(h'(0)\) does not exist. Since \(h(0)\) is defined, \(x = 0\) is a critical number.</li>
+<li>Find where \(h'(x) = 0\). For \(x \lt 0\), \(1 + 5x^4 \ge 1 \gt 0\), so there are no zeros. For \(x \gt 0\), \[\begin{aligned} -1 + 5x^4 &= 0\\ x^4 &= \tfrac{1}{5}\\ x &= \left(\tfrac{1}{5}\right)^{1/4} = 5^{-1/4}, \end{aligned}\] taking the positive root because \(x \gt 0\). Call this number \(c = 5^{-1/4}\), about \(0.67\). The critical numbers are \(0\) and \(c\).</li>
+<li>Make a sign chart for \(h'\). For \(x \lt 0\), \(h'(x) = 1 + 5x^4 \gt 0\). For \(0 \lt x \lt c\), \(x^4 \lt \frac{1}{5}\), so \(h'(x) = 5x^4 - 1 \lt 0\). For \(x \gt c\), \(x^4 \gt \frac{1}{5}\), so \(h'(x) \gt 0\). (For example \(h'(1) = 4 \gt 0\).)
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, 0)\)</th><th>\((0, c)\)</th><th>\((c, \infty)\)</th></tr>
+<tr><td>Sign of \(h'\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>\(h\) is</td><td>increasing</td><td>decreasing</td><td>increasing</td></tr>
+</table></li>
+<li>Classify with the first derivative test, which works at a corner as long as \(h\) is continuous there. At \(x = 0\), \(h'\) changes from positive to negative, so \((0, 0)\) is a relative maximum. At \(x = c\), \(h'\) changes from negative to positive, so there is a relative minimum. Its \(y\)-value uses \(c^4 = \frac{1}{5}\), so \(c^5 = c\cdot c^4 = \frac{c}{5}\). \[h(c) = -c + c^5 = -c + \frac{c}{5} = -\frac{4}{5}c = -\frac{4}{5}\cdot 5^{-1/4}.\]</li>
+<li>(b) Find the second derivative away from \(0\). Both pieces give the same formula, since the derivatives of \(-1\) and \(1\) are \(0\). \[h''(x) = 20x^3 \quad\text{for } x \ne 0,\] and \(h''(0)\) does not exist because \(h'(0)\) does not exist.</li>
+<li>Read the concavity. \(20x^3 \lt 0\) for \(x \lt 0\), so \(h\) is concave down on \((-\infty, 0)\). \(20x^3 \gt 0\) for \(x \gt 0\), so \(h\) is concave up on \((0, \infty)\). The concavity changes at \(x = 0\), and \(h\) is continuous there, so \((0, 0)\) is an inflection point. It is the only one, because \(h''\) has no zeros other than at \(x = 0\) and the concavity changes nowhere else. The origin is both a relative maximum and an inflection point, which can happen at a corner.
+<div class="plot" data-f="-Math.abs(x)+x**5" data-x="-1.2,1.3" data-y="-1.5,1.5" data-pts="0,0,relative max and inflection (0, 0)|0.66874,-0.53499,relative min (5^(-1/4), -(4/5)5^(-1/4))" data-cap="Graph of h(x) = -|x| + x^5"></div></li>
+</ol><p class="final">Answer: (a) relative maximum at \((0, 0)\) and relative minimum at \(\left(5^{-1/4}, -\frac{4}{5}\cdot 5^{-1/4}\right)\). (b) One inflection point, at \((0, 0)\).</p></div></details></div>
+
+<div class="q" id="u19-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Woodin, Fall 2012, Midterm 2</span> Let \(f(x) = e^x - \dfrac{x^3}{6} + x^2 + 3x + 4\).<br>(a) Let \(g(x) = f''(x)\). Find the minimum value of \(g(x)\).<br>(b) Does \(f\) have an inflection point? Explain.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate \(f\) twice, term by term. \[\begin{aligned} f'(x) &= e^x - \frac{3x^2}{6} + 2x + 3 = e^x - \frac{x^2}{2} + 2x + 3,\\ g(x) = f''(x) &= e^x - x + 2. \end{aligned}\]</li>
+<li>Find the critical numbers of \(g\). \[\begin{aligned} g'(x) &= e^x - 1 = 0\\ e^x &= 1\\ x &= 0. \end{aligned}\]</li>
+<li>Show that \(x = 0\) gives the absolute minimum of \(g\). For \(x \lt 0\), \(e^x \lt 1\), so \(g'(x) \lt 0\) and \(g\) is decreasing. For \(x \gt 0\), \(e^x \gt 1\), so \(g'(x) \gt 0\) and \(g\) is increasing. A function that decreases all the way up to \(x = 0\) and increases from then on has its smallest value at \(x = 0\). (The second derivative test agrees: \(g''(x) = e^x\), so \(g''(0) = 1 \gt 0\).)</li>
+<li>Compute the minimum value. \[g(0) = e^0 - 0 + 2 = 1 + 2 = 3.\]</li>
+<li>(b) An inflection point requires the concavity to change, which means \(f''\) has to change sign. By part (a), \(f''(x) = g(x) \ge 3\) for every \(x\), so \(f''(x) \gt 0\) everywhere. The graph of \(f\) is concave up on all of \((-\infty, \infty)\), the concavity never changes, and \(f\) has no inflection point.</li>
+</ol><p class="final">Answer: (a) The minimum value of \(g(x) = f''(x) = e^x - x + 2\) is \(3\), at \(x = 0\). (b) No. \(f''(x) \ge 3 \gt 0\) for all \(x\), so \(f\) is concave up everywhere and its concavity never changes.</p></div></details></div>
+
+<div class="q" id="u19-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Midterm 2</span> Sketch the curve \(y = -x + \dfrac{1}{1 - x}\). Show the relative maxima and minima and the inflection points, if there are any.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the domain. The fraction is undefined when \(1 - x = 0\), so the domain is all \(x \ne 1\). (On the posted exam the minus sign in front of the first \(x\) was added by hand, and the posted solution works with \(-x + \frac{1}{1 - x}\), so that is the function used here.)</li>
+<li>Find the intercepts. At \(x = 0\), \(y = 0 + \frac{1}{1} = 1\), so the \(y\)-intercept is \((0, 1)\). For \(x\)-intercepts, set \(y = 0\) and multiply both sides by \(1 - x\). \[\begin{aligned} \frac{1}{1 - x} &= x\\ 1 &= x - x^2\\ x^2 - x + 1 &= 0. \end{aligned}\] The discriminant is \((-1)^2 - 4(1)(1) = -3 \lt 0\), so there are no \(x\)-intercepts.</li>
+<li>Find the asymptotes. As \(x \to 1^-\), \(1 - x\) is a small positive number, so \(\frac{1}{1 - x} \to \infty\) and \(y \to \infty\). As \(x \to 1^+\), \(1 - x\) is a small negative number, so \(y \to -\infty\). So \(x = 1\) is a vertical asymptote. As \(x \to \pm\infty\), \(\frac{1}{1 - x} \to 0\), so the graph gets close to the line \(y = -x\). There is no horizontal asymptote, because \(y \to -\infty\) as \(x \to \infty\) and \(y \to \infty\) as \(x \to -\infty\).</li>
+<li>Find \(f'\). Write \(\frac{1}{1 - x} = (1 - x)^{-1}\) and use the generalized power rule; the inside \(1 - x\) has derivative \(-1\). \[\frac{d}{dx}(1 - x)^{-1} = -1\cdot(1 - x)^{-2}\cdot(-1) = \frac{1}{(1 - x)^2}.\] So \[\begin{aligned} f'(x) &= -1 + \frac{1}{(1 - x)^2}\\ &= \frac{-(1 - x)^2 + 1}{(1 - x)^2}\\ &= \frac{-\left(1 - 2x + x^2\right) + 1}{(1 - x)^2}\\ &= \frac{2x - x^2}{(1 - x)^2} = \frac{x(2 - x)}{(1 - x)^2}. \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'(x) = 0\) when \(x(2 - x) = 0\), so \(x = 0\) or \(x = 2\). \(f'\) is undefined at \(x = 1\), but \(1\) is not in the domain, so it is not a critical number. It still splits the sign chart.</li>
+<li>Make a sign chart for \(f'\). The denominator \((1 - x)^2\) is positive, so the sign comes from \(x(2 - x)\). \[\begin{aligned} f'(-1) &= \frac{(-1)(3)}{4} = -\tfrac{3}{4} \lt 0, & f'\left(\tfrac{1}{2}\right) &= \frac{\frac{1}{2}\cdot\frac{3}{2}}{\frac{1}{4}} = 3 \gt 0,\\ f'\left(\tfrac{3}{2}\right) &= \frac{\frac{3}{2}\cdot\frac{1}{2}}{\frac{1}{4}} = 3 \gt 0, & f'(3) &= \frac{3(-1)}{4} = -\tfrac{3}{4} \lt 0. \end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, 0)\)</th><th>\((0, 1)\)</th><th>\((1, 2)\)</th><th>\((2, \infty)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>increasing</td><td>decreasing</td></tr>
+</table></li>
+<li>Classify. At \(x = 0\), \(f'\) changes from negative to positive, so \((0, 1)\) is a relative minimum. At \(x = 2\), \(f'\) changes from positive to negative, so there is a relative maximum, with \(f(2) = -2 + \frac{1}{1 - 2} = -2 - 1 = -3\). The relative maximum \((2, -3)\) sits below the relative minimum \((0, 1)\); this is possible because they are on different sides of the asymptote.</li>
+<li>Find the concavity. Differentiate \(f'(x) = -1 + (1 - x)^{-2}\) with the generalized power rule. \[f''(x) = -2(1 - x)^{-3}\cdot(-1) = \frac{2}{(1 - x)^3}.\] This is never zero. For \(x \lt 1\), \(1 - x \gt 0\), so \(f'' \gt 0\) and the graph is concave up. For \(x \gt 1\), \(1 - x \lt 0\), so \(f'' \lt 0\) and the graph is concave down.</li>
+<li>Look for inflection points. The concavity changes only across \(x = 1\), which is not in the domain, so there is no inflection point.
+<div class="plot" data-f="-x+1/(1-x);;-x" data-x="-4,6" data-y="-9,8" data-v="1" data-pts="0,1,relative min (0, 1)|2,-3,relative max (2, -3)" data-cap="Graph of y = -x + 1/(1 - x), with the line y = -x that it approaches and the vertical asymptote x = 1"></div></li>
+</ol><p class="final">Answer: domain \(x \ne 1\); vertical asymptote \(x = 1\); \(y\)-intercept \((0, 1)\), no \(x\)-intercepts; decreasing on \((-\infty, 0)\) and \((2, \infty)\), increasing on \((0, 1)\) and \((1, 2)\); relative minimum \((0, 1)\), relative maximum \((2, -3)\); concave up on \((-\infty, 1)\), concave down on \((1, \infty)\); no inflection points.</p></div></details></div>
+
+<div class="q" id="u19-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Slaman, Fall 2010, sample Midterm 2</span> Sketch the graph of \(y = (x + 2)^2 e^{-x}\). Show intercepts, asymptotes, relative extrema, and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the domain and the sign. Both factors are defined for every real \(x\), so the domain is all real numbers. Since \((x + 2)^2 \ge 0\) and \(e^{-x} \gt 0\), \(f(x) \ge 0\) everywhere, with \(f(x) = 0\) only at \(x = -2\).</li>
+<li>Find the intercepts. The \(x\)-intercept is \((-2, 0)\). The \(y\)-intercept is \(f(0) = 2^2\cdot e^0 = 4\), so \((0, 4)\).</li>
+<li>Find the behavior at the ends. As \(x \to -\infty\), \((x + 2)^2 \to \infty\) and \(e^{-x} \to \infty\), so \(f(x) \to \infty\). As \(x \to \infty\), write \(f(x) = \frac{(x + 2)^2}{e^x}\), which has the form \(\frac{\infty}{\infty}\), and use L'Hospital's rule twice. \[\lim_{x\to\infty}\frac{(x + 2)^2}{e^x} = \lim_{x\to\infty}\frac{2(x + 2)}{e^x} = \lim_{x\to\infty}\frac{2}{e^x} = 0.\] So \(y = 0\) is a horizontal asymptote on the right. There is no vertical asymptote.</li>
+<li>Find \(f'\) with the product rule. Let \(u = (x + 2)^2\) and \(v = e^{-x}\). Then \(u' = 2(x + 2)\) and \(v' = -e^{-x}\). Factor out \((x + 2)e^{-x}\). \[\begin{aligned} f'(x) &= 2(x + 2)e^{-x} + (x + 2)^2\left(-e^{-x}\right)\\ &= (x + 2)e^{-x}\left[2 - (x + 2)\right]\\ &= (x + 2)e^{-x}(-x)\\ &= -x(x + 2)e^{-x}. \end{aligned}\]</li>
+<li>Find the critical numbers and the sign chart. \(e^{-x}\) is never zero, so \(f'(x) = 0\) at \(x = 0\) and \(x = -2\). The sign of \(f'\) is the sign of \(-x(x + 2)\). \[\begin{aligned} -(-3)(-3 + 2) &= -3 \lt 0,\\ -(-1)(-1 + 2) &= 1 \gt 0,\\ -(1)(1 + 2) &= -3 \lt 0. \end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -2)\)</th><th>\((-2, 0)\)</th><th>\((0, \infty)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td></tr>
+</table>
+At \(x = -2\), \(f'\) changes from negative to positive, so \((-2, 0)\) is a relative minimum (in fact the absolute minimum, since \(f \ge 0\)). At \(x = 0\), \(f'\) changes from positive to negative, so \((0, 4)\) is a relative maximum.</li>
+<li>Find \(f''\). Write \(f'(x) = \left(-x^2 - 2x\right)e^{-x}\) and use the product rule with \(u = -x^2 - 2x\), \(v = e^{-x}\), \(u' = -2x - 2\), \(v' = -e^{-x}\). \[\begin{aligned} f''(x) &= (-2x - 2)e^{-x} + \left(-x^2 - 2x\right)\left(-e^{-x}\right)\\ &= e^{-x}\left(-2x - 2 + x^2 + 2x\right)\\ &= e^{-x}\left(x^2 - 2\right)\\ &= e^{-x}\left(x - \sqrt{2}\right)\left(x + \sqrt{2}\right). \end{aligned}\]</li>
+<li>Make a sign chart for \(f''\). Its sign is the sign of \(x^2 - 2\): at \(x = -2\) it is \(2 \gt 0\), at \(x = 0\) it is \(-2 \lt 0\), at \(x = 2\) it is \(2 \gt 0\).
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -\sqrt{2})\)</th><th>\((-\sqrt{2}, \sqrt{2})\)</th><th>\((\sqrt{2}, \infty)\)</th></tr>
+<tr><td>Sign of \(f''\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>\(f\) is</td><td>concave up</td><td>concave down</td><td>concave up</td></tr>
+</table></li>
+<li>The concavity changes at both \(x = -\sqrt{2}\) and \(x = \sqrt{2}\), so both are inflection points. Compute the heights, using \(\left(2 \mp \sqrt{2}\right)^2 = 4 \mp 4\sqrt{2} + 2 = 6 \mp 4\sqrt{2}\). \[\begin{aligned} f\left(-\sqrt{2}\right) &= \left(2 - \sqrt{2}\right)^2 e^{\sqrt{2}} = \left(6 - 4\sqrt{2}\right)e^{\sqrt{2}} \approx 1.41,\\ f\left(\sqrt{2}\right) &= \left(2 + \sqrt{2}\right)^2 e^{-\sqrt{2}} = \left(6 + 4\sqrt{2}\right)e^{-\sqrt{2}} \approx 2.83. \end{aligned}\]
+<div class="plot" data-f="(x+2)**2*Math.exp(-x)" data-x="-3.5,7" data-y="-1,7" data-h="0" data-pts="-2,0,relative min (-2, 0)|0,4,relative max (0, 4)|-1.41421,1.41144,inflection (-sqrt 2, (6 - 4 sqrt 2)e^(sqrt 2))|1.41421,2.83398,inflection (sqrt 2, (6 + 4 sqrt 2)e^(-sqrt 2))" data-cap="Graph of y = (x + 2)^2 e^(-x)"></div></li>
+</ol><p class="final">Answer: \(x\)-intercept \((-2, 0)\), \(y\)-intercept \((0, 4)\); horizontal asymptote \(y = 0\) as \(x \to \infty\); decreasing on \((-\infty, -2)\) and \((0, \infty)\), increasing on \((-2, 0)\); relative minimum \((-2, 0)\), relative maximum \((0, 4)\); concave up on \((-\infty, -\sqrt{2})\) and \((\sqrt{2}, \infty)\), concave down on \((-\sqrt{2}, \sqrt{2})\); inflection points \(\left(-\sqrt{2}, (6 - 4\sqrt{2})e^{\sqrt{2}}\right)\) and \(\left(\sqrt{2}, (6 + 4\sqrt{2})e^{-\sqrt{2}}\right)\).</p></div></details></div>
+
+<div class="q" id="u19-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, practice Midterm 2</span> Find and classify the relative extrema of \(f(x) = \dfrac{e^{2x}}{x}\). Are they absolute extrema? Justify your answer.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the domain. The denominator is zero at \(x = 0\), so the domain is all \(x \ne 0\).</li>
+<li>Differentiate with the quotient rule \(\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}\). Let \(u = e^{2x}\) and \(v = x\). By the chain rule \(u' = 2e^{2x}\), and \(v' = 1\). \[\begin{aligned} f'(x) &= \frac{2e^{2x}\cdot x - e^{2x}\cdot 1}{x^2}\\ &= \frac{e^{2x}(2x - 1)}{x^2}. \end{aligned}\]</li>
+<li>Find the critical numbers. \(e^{2x} \gt 0\) always, so \(f'(x) = 0\) only when \(2x - 1 = 0\), which gives \(x = \frac{1}{2}\). \(f'\) is undefined at \(x = 0\), but \(0\) is not in the domain, so it is not a critical number. It still splits the sign chart.</li>
+<li>Make a sign chart for \(f'\). Since \(e^{2x} \gt 0\) and \(x^2 \gt 0\) for \(x \ne 0\), the sign of \(f'\) is the sign of \(2x - 1\). \[\begin{aligned} f'(-1) &= \frac{e^{-2}(-3)}{1} \lt 0,\\ f'\left(\tfrac{1}{4}\right) &= \frac{e^{1/2}\left(-\frac{1}{2}\right)}{\frac{1}{16}} \lt 0,\\ f'(1) &= \frac{e^{2}(1)}{1} \gt 0. \end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, 0)\)</th><th>\(\left(0, \frac{1}{2}\right)\)</th><th>\(\left(\frac{1}{2}, \infty\right)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>decreasing</td><td>increasing</td></tr>
+</table></li>
+<li>Classify. Because \(f'\) changes from negative to positive at \(x = \frac{1}{2}\), \(f\) has a relative minimum there. Its value is \[f\left(\tfrac{1}{2}\right) = \frac{e^{2\cdot\frac{1}{2}}}{\frac{1}{2}} = \frac{e}{\frac{1}{2}} = 2e.\] This is the only relative extremum.</li>
+<li>Decide whether \(2e\) is an absolute minimum. It is not, because the function takes smaller values for negative \(x\). For example \[f(-1) = \frac{e^{-2}}{-1} = -e^{-2} \lt 0 \lt 2e.\] In fact there is no absolute minimum at all: as \(x \to 0^-\), the numerator approaches \(1\) and the denominator is a small negative number, so \(f(x) \to -\infty\).</li>
+<li>There is also no absolute maximum: as \(x \to 0^+\), the numerator approaches \(1\) and the denominator is a small positive number, so \(f(x) \to \infty\).
+<div class="plot" data-f="Math.exp(2*x)/x" data-x="-3,2" data-y="-10,15" data-v="0" data-pts="0.5,5.43656,relative min (1/2, 2e)" data-cap="Graph of f(x) = e^(2x)/x"></div></li>
+</ol><p class="final">Answer: the only relative extremum is a relative minimum at \(\left(\frac{1}{2}, 2e\right)\). It is not an absolute minimum, since \(f(-1) = -e^{-2} \lt 2e\) (and \(f(x) \to -\infty\) as \(x \to 0^-\)). The function has no absolute extrema.</p></div></details></div>
+</section><div class="pager"><a href="u14.html">Back: The professor&#x27;s two Midterm 2 exams, fully solved</a><a href="u20.html">Next: Past Berkeley exam problems: optimization, rates, elasticity, approximation</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

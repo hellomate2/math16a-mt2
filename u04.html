@@ -1,0 +1,407 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trig derivatives and L&#x27;Hospital&#x27;s rule | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 13.2, 12.7</p><h1>Trig derivatives and L&#x27;Hospital&#x27;s rule</h1><p class="sub">Derivatives of sin, cos, tan, sec, csc, cot with the chain rule. Indeterminate forms 0/0 and infinity/infinity.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 13.2: Derivatives of trigonometric functions</h2>
+
+<h3>Radians and the unit circle</h3>
+<p>In calculus every angle is measured in <b>radians</b>, never in degrees. One full turn is \(2\pi\) radians, so half a turn is \(\pi\) radians and</p>
+\[180^\circ = \pi \text{ radians}, \qquad 1^\circ = \frac{\pi}{180} \text{ radians}.\]
+<p>To turn degrees into radians, multiply by \(\tfrac{\pi}{180}\). For example \(60^\circ = 60 \cdot \tfrac{\pi}{180} = \tfrac{\pi}{3}\) and \(135^\circ = 135 \cdot \tfrac{\pi}{180} = \tfrac{3\pi}{4}\). Every derivative formula in this section is true only when \(x\) is in radians.</p>
+<p>The <b>unit circle</b> is the circle of radius 1 centered at the origin. Start at the point \((1, 0)\) and walk counterclockwise along the circle through an angle \(\theta\). The point where you stop has coordinates \((\cos\theta, \sin\theta)\). So \(\cos\theta\) is the \(x\)-coordinate, \(\sin\theta\) is the \(y\)-coordinate, and \(\tan\theta = \dfrac{\sin\theta}{\cos\theta}\) is the slope of the line from the origin to that point. Because the point is on a circle of radius 1, both \(\sin\theta\) and \(\cos\theta\) are always between \(-1\) and \(1\).</p>
+<p>You need the values at \(0, \tfrac{\pi}{6}, \tfrac{\pi}{4}, \tfrac{\pi}{3}, \tfrac{\pi}{2}\) cold. A pattern helps: the sines of \(0, \tfrac{\pi}{6}, \tfrac{\pi}{4}, \tfrac{\pi}{3}, \tfrac{\pi}{2}\) are \(\tfrac{\sqrt{0}}{2}, \tfrac{\sqrt{1}}{2}, \tfrac{\sqrt{2}}{2}, \tfrac{\sqrt{3}}{2}, \tfrac{\sqrt{4}}{2}\), and the cosines are the same list in reverse order.</p>
+<p>Every other angle you will see is a multiple of one of these. To evaluate it, find its <b>reference angle</b> (the acute angle between the stopping point's radius and the \(x\)-axis), take the value from the first quadrant, and attach the sign from the quadrant. In quadrant I everything is positive. In quadrant II (between \(\tfrac{\pi}{2}\) and \(\pi\)) only sine is positive. In quadrant III (between \(\pi\) and \(\tfrac{3\pi}{2}\)) only tangent is positive. In quadrant IV (between \(\tfrac{3\pi}{2}\) and \(2\pi\)) only cosine is positive. For example, \(\tfrac{5\pi}{6}\) is in quadrant II with reference angle \(\pi - \tfrac{5\pi}{6} = \tfrac{\pi}{6}\), so \(\sin\tfrac{5\pi}{6} = \tfrac{1}{2}\) and \(\cos\tfrac{5\pi}{6} = -\tfrac{\sqrt{3}}{2}\).</p>
+<table class="t">
+<tr><th>\(\theta\) (radians)</th><th>degrees</th><th>\(\sin\theta\)</th><th>\(\cos\theta\)</th><th>\(\tan\theta\)</th></tr>
+<tr><td>\(0\)</td><td>0°</td><td>\(0\)</td><td>\(1\)</td><td>\(0\)</td></tr>
+<tr><td>\(\frac{\pi}{6}\)</td><td>30°</td><td>\(\frac{1}{2}\)</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(\frac{\sqrt{3}}{3}\)</td></tr>
+<tr><td>\(\frac{\pi}{4}\)</td><td>45°</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(1\)</td></tr>
+<tr><td>\(\frac{\pi}{3}\)</td><td>60°</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(\frac{1}{2}\)</td><td>\(\sqrt{3}\)</td></tr>
+<tr><td>\(\frac{\pi}{2}\)</td><td>90°</td><td>\(1\)</td><td>\(0\)</td><td>undefined</td></tr>
+<tr><td>\(\frac{2 \pi}{3}\)</td><td>120°</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(- \frac{1}{2}\)</td><td>\(- \sqrt{3}\)</td></tr>
+<tr><td>\(\frac{3 \pi}{4}\)</td><td>135°</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(- \frac{\sqrt{2}}{2}\)</td><td>\(-1\)</td></tr>
+<tr><td>\(\frac{5 \pi}{6}\)</td><td>150°</td><td>\(\frac{1}{2}\)</td><td>\(- \frac{\sqrt{3}}{2}\)</td><td>\(- \frac{\sqrt{3}}{3}\)</td></tr>
+<tr><td>\(\pi\)</td><td>180°</td><td>\(0\)</td><td>\(-1\)</td><td>\(0\)</td></tr>
+<tr><td>\(\frac{7 \pi}{6}\)</td><td>210°</td><td>\(- \frac{1}{2}\)</td><td>\(- \frac{\sqrt{3}}{2}\)</td><td>\(\frac{\sqrt{3}}{3}\)</td></tr>
+<tr><td>\(\frac{5 \pi}{4}\)</td><td>225°</td><td>\(- \frac{\sqrt{2}}{2}\)</td><td>\(- \frac{\sqrt{2}}{2}\)</td><td>\(1\)</td></tr>
+<tr><td>\(\frac{4 \pi}{3}\)</td><td>240°</td><td>\(- \frac{\sqrt{3}}{2}\)</td><td>\(- \frac{1}{2}\)</td><td>\(\sqrt{3}\)</td></tr>
+<tr><td>\(\frac{3 \pi}{2}\)</td><td>270°</td><td>\(-1\)</td><td>\(0\)</td><td>undefined</td></tr>
+<tr><td>\(\frac{5 \pi}{3}\)</td><td>300°</td><td>\(- \frac{\sqrt{3}}{2}\)</td><td>\(\frac{1}{2}\)</td><td>\(- \sqrt{3}\)</td></tr>
+<tr><td>\(\frac{7 \pi}{4}\)</td><td>315°</td><td>\(- \frac{\sqrt{2}}{2}\)</td><td>\(\frac{\sqrt{2}}{2}\)</td><td>\(-1\)</td></tr>
+<tr><td>\(\frac{11 \pi}{6}\)</td><td>330°</td><td>\(- \frac{1}{2}\)</td><td>\(\frac{\sqrt{3}}{2}\)</td><td>\(- \frac{\sqrt{3}}{3}\)</td></tr>
+<tr><td>\(2 \pi\)</td><td>360°</td><td>\(0\)</td><td>\(1\)</td><td>\(0\)</td></tr>
+</table>
+<p>Adding \(2\pi\) to an angle brings you back to the same point on the circle, so sine and cosine repeat every \(2\pi\). For example \(\sin\tfrac{8\pi}{3} = \sin\left(\tfrac{8\pi}{3} - 2\pi\right) = \sin\tfrac{2\pi}{3} = \tfrac{\sqrt{3}}{2}\). A function that repeats like this is called <b>periodic</b>.</p>
+
+<h3>The other four functions and the identities from lecture</h3>
+<div class="rule"><div class="rt">Definitions and identities</div>
+\[\tan x = \frac{\sin x}{\cos x}, \qquad \csc x = \frac{1}{\sin x}, \qquad \sec x = \frac{1}{\cos x}, \qquad \cot x = \frac{\cos x}{\sin x}.\]
+\[\sin(-x) = -\sin x, \qquad \cos(-x) = \cos x, \qquad \sin^2 x + \cos^2 x = 1, \qquad 1 + \tan^2 x = \sec^2 x, \qquad 1 + \cot^2 x = \csc^2 x.\]
+\[\sin(2x) = 2\sin x\cos x, \qquad \cos(2x) = \cos^2 x - \sin^2 x = 2\cos^2 x - 1 = 1 - 2\sin^2 x.\]
+<p>The notation \(\sin^2 x\) means \((\sin x)^2\). It does not mean \(\sin(\sin x)\) and it does not mean \(\sin(x^2)\).</p></div>
+<p>The professor also gave two special limits that you should simply know (you do not need to derive them):</p>
+\[\lim_{h\to 0}\frac{\sin h}{h} = 1 \qquad\text{and}\qquad \lim_{h\to 0}\frac{\cos h - 1}{h} = 0.\]
+<p>Plugging these into the definition of the derivative \(f'(x) = \lim\limits_{h\to 0}\dfrac{f(x+h) - f(x)}{h}\), together with the addition formula \(\sin(x+h) = \sin x\cos h + \cos x \sin h\), gives \(\dfrac{d}{dx}\sin x = \cos x\). The other five derivatives follow from that one. For instance, \(\tan x = \dfrac{\sin x}{\cos x}\), so by the quotient rule</p>
+\[\frac{d}{dx}\tan x = \frac{(\cos x)(\cos x) - (\sin x)(-\sin x)}{\cos^2 x} = \frac{\cos^2 x + \sin^2 x}{\cos^2 x} = \frac{1}{\cos^2 x} = \sec^2 x.\]
+
+<h3>The six derivatives</h3>
+<div class="rule"><div class="rt">Derivatives of the trigonometric functions (x in radians)</div>
+\[\begin{aligned}
+\frac{d}{dx}\sin x &= \cos x, &\qquad \frac{d}{dx}\cos x &= -\sin x, &\qquad \frac{d}{dx}\tan x &= \sec^2 x,\\
+\frac{d}{dx}\csc x &= -\csc x\cot x, &\qquad \frac{d}{dx}\sec x &= \sec x\tan x, &\qquad \frac{d}{dx}\cot x &= -\csc^2 x.
+\end{aligned}\]</div>
+<p>How to remember them:</p>
+<ul>
+<li>The three functions whose names start with "co" (cosine, cotangent, cosecant) are exactly the three whose derivatives have a minus sign.</li>
+<li>Each "co" derivative is the matching plain derivative with every function swapped for its "co" partner and a minus sign added. Sine goes to cosine, so cosine goes to minus sine. Tangent goes to secant squared, so cotangent goes to minus cosecant squared. Secant goes to secant tangent, so cosecant goes to minus cosecant cotangent.</li>
+<li>Sign check with a graph: \(\cos x\) starts at its top value 1 at \(x = 0\) and then goes down, so its derivative \(-\sin x\) must be negative just after 0. It is, because \(\sin x \gt 0\) there.</li>
+</ul>
+
+<h3>The chain rule versions</h3>
+<p>Most exam problems have something other than plain \(x\) inside the trig function. The chain rule says: differentiate the outside function, leave the inside alone, then multiply by the derivative of the inside. If \(u = g(x)\), then</p>
+<div class="rule"><div class="rt">Trig derivatives with the chain rule</div>
+\[\begin{aligned}
+\frac{d}{dx}\sin u &= \cos u \cdot u', &\qquad \frac{d}{dx}\cos u &= -\sin u \cdot u', &\qquad \frac{d}{dx}\tan u &= \sec^2 u \cdot u',\\
+\frac{d}{dx}\csc u &= -\csc u\cot u \cdot u', &\qquad \frac{d}{dx}\sec u &= \sec u\tan u \cdot u', &\qquad \frac{d}{dx}\cot u &= -\csc^2 u \cdot u'.
+\end{aligned}\]
+<p>A power of a trig function is the generalized power rule: \(\dfrac{d}{dx}\sin^n x = \dfrac{d}{dx}(\sin x)^n = n(\sin x)^{n-1}\cdot\cos x\).</p></div>
+<p>Compare the two functions \(\sin^2 x\) and \(\sin(x^2)\). In \(\sin^2 x = (\sin x)^2\) the outside function is squaring and the inside is \(\sin x\), so the derivative is \(2\sin x \cdot \cos x\). In \(\sin(x^2)\) the outside function is sine and the inside is \(x^2\), so the derivative is \(\cos(x^2)\cdot 2x\). Before you differentiate, always say to yourself which function is on the outside.</p>
+
+<div class="recipe"><div class="rt">How to differentiate a function with trig in it</div><ol>
+<li>Rewrite powers so the outside function is visible: \(\cos^3(2x) = [\cos(2x)]^3\).</li>
+<li>Decide the last operation done when you evaluate the function: a sum, a product, a quotient, or a composition. That tells you which rule to use first (sum rule, product rule, quotient rule, or chain rule).</li>
+<li>For a product or quotient, write \(u\), \(v\), \(u'\), \(v'\) before assembling.</li>
+<li>For a composition, peel one layer at a time from the outside in, multiplying by the derivative of each inside.</li>
+<li>Simplify with the identities only if it makes the answer shorter. A correct unsimplified derivative is still correct.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 1</div><p class="p">Find the derivatives of (a) \(f(x) = \sin^2(3x)\) and (b) \(g(x) = \sin(3x^2)\).</p>
+<ol class="steps">
+<li>(a) Rewrite \(f\) so the outside function is visible: \(f(x) = [\sin(3x)]^2\). The outside function is squaring and the inside is \(\sin(3x)\). By the generalized power rule, \[f'(x) = 2[\sin(3x)]^1 \cdot \frac{d}{dx}\sin(3x).\]</li>
+<li>Differentiate the inside \(\sin(3x)\) with the chain rule. Its outside is sine and its inside is \(3x\), whose derivative is 3. \[\frac{d}{dx}\sin(3x) = \cos(3x)\cdot 3 = 3\cos(3x).\]</li>
+<li>Put the pieces together. \[f'(x) = 2\sin(3x)\cdot 3\cos(3x) = 6\sin(3x)\cos(3x).\] If you like, the double-angle formula \(2\sin\theta\cos\theta = \sin(2\theta)\) with \(\theta = 3x\) shortens this to \(3 \cdot 2\sin(3x)\cos(3x) = 3\sin(6x)\).</li>
+<li>(b) Here the outside function is sine and the inside is \(3x^2\), whose derivative is \(6x\). By the chain rule, \[g'(x) = \cos(3x^2)\cdot 6x = 6x\cos(3x^2).\]</li>
+</ol><p class="final">Answer: (a) \(f'(x) = 6\sin(3x)\cos(3x) = 3\sin(6x)\). (b) \(g'(x) = 6x\cos(3x^2)\).</p></div>
+
+<div class="ex"><div class="et">Worked example 2</div><p class="p">Find the derivatives of (a) \(y = x^3\cos x\) and (b) \(y = \dfrac{\cos x}{1 - \sin x}\). Simplify (b) as far as you can.</p>
+<ol class="steps">
+<li>(a) This is a product, so use the product rule \((uv)' = u'v + uv'\) with \[u = x^3,\quad v = \cos x,\quad u' = 3x^2,\quad v' = -\sin x.\]</li>
+<li>Assemble. \[y' = 3x^2\cos x + x^3(-\sin x) = 3x^2\cos x - x^3\sin x.\]</li>
+<li>(b) This is a quotient, so use the quotient rule \(\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^2}\) with \[u = \cos x,\quad v = 1 - \sin x,\quad u' = -\sin x,\quad v' = -\cos x.\]</li>
+<li>Assemble. \[y' = \frac{(-\sin x)(1 - \sin x) - (\cos x)(-\cos x)}{(1 - \sin x)^2}.\]</li>
+<li>Multiply out the numerator. \[(-\sin x)(1 - \sin x) - (\cos x)(-\cos x) = -\sin x + \sin^2 x + \cos^2 x.\]</li>
+<li>Use the identity \(\sin^2 x + \cos^2 x = 1\). \[-\sin x + \sin^2 x + \cos^2 x = -\sin x + 1 = 1 - \sin x.\]</li>
+<li>Cancel one factor of \(1 - \sin x\) from the top and bottom. \[y' = \frac{1 - \sin x}{(1 - \sin x)^2} = \frac{1}{1 - \sin x}.\]</li>
+</ol><p class="final">Answer: (a) \(y' = 3x^2\cos x - x^3\sin x\). (b) \(y' = \dfrac{1}{1 - \sin x}\).</p></div>
+
+<h3>Tangent lines at special angles</h3>
+<p>The tangent line to \(y = f(x)\) at \(x = a\) passes through the point \((a, f(a))\) and has slope \(f'(a)\). Its equation in point-slope form is \(y - f(a) = f'(a)(x - a)\). With trig functions the point \(a\) is usually one of the table angles, so both \(f(a)\) and \(f'(a)\) come out exact with no calculator.</p>
+
+<div class="ex"><div class="et">Worked example 3</div><p class="p">Find the equation of the tangent line to \(f(x) = x\tan x\) at \(x = \tfrac{\pi}{4}\).</p>
+<ol class="steps">
+<li>Find the point. Since \(\tan\tfrac{\pi}{4} = 1\), \[f\left(\tfrac{\pi}{4}\right) = \tfrac{\pi}{4}\cdot 1 = \tfrac{\pi}{4}.\] The point is \(\left(\tfrac{\pi}{4}, \tfrac{\pi}{4}\right)\).</li>
+<li>Differentiate with the product rule, using \[u = x,\quad v = \tan x,\quad u' = 1,\quad v' = \sec^2 x.\] \[f'(x) = 1\cdot\tan x + x\sec^2 x = \tan x + x\sec^2 x.\]</li>
+<li>Find the slope at \(x = \tfrac{\pi}{4}\). Since \(\cos\tfrac{\pi}{4} = \tfrac{\sqrt{2}}{2}\), \(\sec\tfrac{\pi}{4} = \tfrac{2}{\sqrt{2}} = \sqrt{2}\) and \(\sec^2\tfrac{\pi}{4} = 2\). \[f'\left(\tfrac{\pi}{4}\right) = 1 + \tfrac{\pi}{4}\cdot 2 = 1 + \tfrac{\pi}{2}.\]</li>
+<li>Write the line in point-slope form. \[y - \tfrac{\pi}{4} = \left(1 + \tfrac{\pi}{2}\right)\left(x - \tfrac{\pi}{4}\right).\]</li>
+<li>Solve for \(y\) to get slope-intercept form. Multiply out \(\left(1 + \tfrac{\pi}{2}\right)\left(-\tfrac{\pi}{4}\right) = -\tfrac{\pi}{4} - \tfrac{\pi^2}{8}\), then add \(\tfrac{\pi}{4}\) to both sides. \[\begin{aligned} y &= \left(1 + \tfrac{\pi}{2}\right)x - \tfrac{\pi}{4} - \tfrac{\pi^2}{8} + \tfrac{\pi}{4}\\ &= \left(1 + \tfrac{\pi}{2}\right)x - \tfrac{\pi^2}{8}.\end{aligned}\]</li>
+</ol>
+<div class="plot" data-f="x*Math.tan(x);;(1+Math.PI/2)*x-Math.PI**2/8" data-x="0,1.2" data-y="-1.5,3.5" data-pts="0.785398,0.785398,(π/4, π/4)" data-cap="Graph of f(x) = x tan x with its tangent line at x = π/4"></div>
+<p class="final">Answer: \(y = \left(1 + \tfrac{\pi}{2}\right)x - \tfrac{\pi^2}{8}\), which is the same line as \(y - \tfrac{\pi}{4} = \left(1 + \tfrac{\pi}{2}\right)\left(x - \tfrac{\pi}{4}\right)\).</p></div>
+
+<h3>Periodic models</h3>
+<p>Quantities that repeat on a cycle (temperature over a day, the depth of water as tides come in and out, seasonal sales) are modeled with sine or cosine. In a model such as \(T(t) = A + B\cos(kt)\), the number \(A\) is the average level, \(B\) is how far above and below the average it swings, and the period (time for one full cycle) is \(\tfrac{2\pi}{k}\). The derivative \(T'(t)\) is the rate of change. A positive value means the quantity is rising at that time and a negative value means it is falling. Always give units such as "degrees per hour."</p>
+
+<div class="ex"><div class="et">Worked example 4</div><p class="p">The temperature in a town \(t\) hours after midnight is modeled by \(T(t) = 60 - 10\cos\left(\tfrac{\pi t}{12}\right)\) degrees Fahrenheit, for \(0 \le t \le 24\). (a) Find \(T'(t)\). (b) How fast is the temperature changing at 8 am? (c) How fast is it changing at 6 pm?</p>
+<ol class="steps">
+<li>(a) Differentiate with the chain rule. The outside function is cosine and the inside is \(\tfrac{\pi t}{12}\), whose derivative is \(\tfrac{\pi}{12}\). The constant 60 has derivative 0. \[\begin{aligned} T'(t) &= 0 - 10\left(-\sin\left(\tfrac{\pi t}{12}\right)\right)\cdot\tfrac{\pi}{12}\\ &= \tfrac{10\pi}{12}\sin\left(\tfrac{\pi t}{12}\right) = \tfrac{5\pi}{6}\sin\left(\tfrac{\pi t}{12}\right).\end{aligned}\]</li>
+<li>(b) 8 am is \(t = 8\). The angle is \(\tfrac{8\pi}{12} = \tfrac{2\pi}{3}\), and \(\sin\tfrac{2\pi}{3} = \tfrac{\sqrt{3}}{2}\). \[T'(8) = \tfrac{5\pi}{6}\cdot\tfrac{\sqrt{3}}{2} = \tfrac{5\sqrt{3}\,\pi}{12}.\] This is positive, so the temperature is rising.</li>
+<li>(c) 6 pm is \(t = 18\). The angle is \(\tfrac{18\pi}{12} = \tfrac{3\pi}{2}\), and \(\sin\tfrac{3\pi}{2} = -1\). \[T'(18) = \tfrac{5\pi}{6}\cdot(-1) = -\tfrac{5\pi}{6}.\] This is negative, so the temperature is falling.</li>
+<li>Check against the graph. The temperature is lowest at midnight (\(T(0) = 60 - 10 = 50\)) and highest at noon (\(T(12) = 60 - 10\cos\pi = 70\)), so it should be rising at 8 am and falling at 6 pm. That matches the signs. The labeled values are \(T(8) = 60 - 10\left(-\tfrac{1}{2}\right) = 65\) and \(T(18) = 60 - 10(0) = 60\).</li>
+</ol>
+<div class="plot" data-f="60-10*Math.cos(Math.PI*x/12)" data-x="0,24" data-y="45,75" data-pts="8,65,8 am (8, 65)|18,60,6 pm (18, 60)|12,70,noon (12, 70)" data-cap="Graph of T(t) = 60 - 10 cos(πt/12)"></div>
+<p class="final">Answer: (a) \(T'(t) = \tfrac{5\pi}{6}\sin\left(\tfrac{\pi t}{12}\right)\). (b) At 8 am the temperature is rising at \(\tfrac{5\sqrt{3}\,\pi}{12}\) degrees per hour. (c) At 6 pm it is falling at \(\tfrac{5\pi}{6}\) degrees per hour.</p></div>
+
+<div class="trap"><b>Common mistake.</b> Getting the sign of \(\dfrac{d}{dx}\cos x\) wrong. It is \(-\sin x\). The same minus sign appears for \(\cot\) and \(\csc\), and nowhere else among the six.</div>
+<div class="trap"><b>Common mistake.</b> Forgetting the derivative of the inside. \(\dfrac{d}{dx}\sin(5x)\) is \(5\cos(5x)\), not \(\cos(5x)\). \(\dfrac{d}{dx}\tan(x^2)\) is \(2x\sec^2(x^2)\), not \(\sec^2(x^2)\).</div>
+<div class="trap"><b>Common mistake.</b> Mixing up \(\sin^2 x\) and \(\sin(x^2)\). The derivative of \(\sin^2 x\) is \(2\sin x\cos x\). The derivative of \(\sin(x^2)\) is \(2x\cos(x^2)\).</div>
+<div class="trap"><b>Common mistake.</b> Writing \(\dfrac{d}{dx}\sec x = \sec^2 x\) or \(\dfrac{d}{dx}\tan x = \sec x\tan x\). The squared one belongs to tangent. The product belongs to secant.</div>
+<div class="trap"><b>Common mistake.</b> Plugging degrees into a derivative formula. In \(T(t) = 60 - 10\cos\left(\tfrac{\pi t}{12}\right)\) the angle \(\tfrac{\pi t}{12}\) is in radians. At \(t = 8\) the angle is \(\tfrac{2\pi}{3}\) radians (the same as \(120^\circ\)), not 8 degrees. The formula \(\dfrac{d}{dx}\sin x = \cos x\) is false when \(x\) is measured in degrees.</div>
+<div class="trap"><b>Common mistake.</b> Treating \(\cos\tfrac{\pi}{6}\) (or any trig value at a fixed number) as something to differentiate. It is a constant, so its derivative is 0.</div>
+<div class="say"><b>What to write on the exam.</b> Name each rule as you use it: "By the chain rule with outside function \(\ln u\) and inside \(u = \sin(\dots)\)," or "By the product rule with \(u = x^3\), \(v = \cos x\)." For a rate problem, finish with a sentence that includes the sign in words and the units: "At 8 am the temperature is rising at \(\tfrac{5\sqrt{3}\,\pi}{12}\) degrees per hour."</div>
+
+<h2>Section 12.7: L'Hospital's rule</h2>
+
+<h3>Indeterminate forms</h3>
+<p>Suppose you want \(\lim\limits_{x\to a}\dfrac{f(x)}{g(x)}\) and both \(f(x)\to 0\) and \(g(x)\to 0\) as \(x\to a\). Substituting gives the symbol \(\tfrac{0}{0}\), which tells you nothing: the limit might be 5, or 0, or infinite, or might not exist. Such a limit is called an <b>indeterminate form of type \(\tfrac{0}{0}\)</b>. Likewise, if \(f(x)\to\pm\infty\) and \(g(x)\to\pm\infty\), the limit is an <b>indeterminate form of type \(\tfrac{\infty}{\infty}\)</b>.</p>
+<p>Sometimes algebra handles it. For instance \(\lim\limits_{x\to 3}\dfrac{x^2 - 3x}{x^2 - 9} = \lim\limits_{x\to 3}\dfrac{x(x - 3)}{(x - 3)(x + 3)} = \lim\limits_{x\to 3}\dfrac{x}{x + 3} = \tfrac{1}{2}\). But no algebra trick cancels anything in \(\lim\limits_{x\to 1}\dfrac{\ln x}{x - 1}\) or \(\lim\limits_{x\to\infty}\dfrac{e^x}{x^3}\). L'Hospital's rule handles these by comparing how fast the top and bottom are changing, which is what their derivatives measure.</p>
+<p>Forms that are <b>not</b> indeterminate: \(\tfrac{5}{2}\) is just \(\tfrac{5}{2}\). \(\tfrac{0}{3}\) is 0. \(\tfrac{\infty}{3}\) is infinite. A nonzero number over 0 (such as \(\tfrac{4}{0}\)) means the limit is infinite or does not exist; check the sign from each side. None of these allow L'Hospital's rule.</p>
+
+<div class="rule"><div class="rt">L'Hospital's rule</div>
+<p>Suppose \(f\) and \(g\) are differentiable on an open interval containing \(a\), and \(g'(x) \ne 0\) near \(a\) (except possibly at \(a\)). Suppose that either</p>
+<ul><li>\(\lim\limits_{x\to a}f(x) = 0\) and \(\lim\limits_{x\to a}g(x) = 0\) (type \(\tfrac{0}{0}\)), or</li>
+<li>\(\lim\limits_{x\to a}f(x) = \pm\infty\) and \(\lim\limits_{x\to a}g(x) = \pm\infty\) (type \(\tfrac{\infty}{\infty}\)).</li></ul>
+<p>Then \[\lim_{x\to a}\frac{f(x)}{g(x)} = \lim_{x\to a}\frac{f'(x)}{g'(x)}\] if the limit on the right exists or is \(\pm\infty\). The rule also holds for one-sided limits and limits at infinity: you may replace \(x\to a\) with \(x\to a^+\), \(x\to a^-\), \(x\to\infty\), or \(x\to-\infty\).</p></div>
+
+<div class="recipe"><div class="rt">How to use L'Hospital's rule</div><ol>
+<li>Check the form first by substituting \(x = a\) (or letting \(x\to\pm\infty\)) into the top and the bottom separately. Write down what each one approaches.</li>
+<li>If the form is \(\tfrac{0}{0}\) or \(\tfrac{\pm\infty}{\pm\infty}\), say so in words. If it is anything else, stop: the rule does not apply, and the limit comes from substitution.</li>
+<li>Differentiate the top and the bottom separately. Do not use the quotient rule. The new limit is \(\lim \dfrac{f'(x)}{g'(x)}\).</li>
+<li>Simplify the new quotient if any algebra is available, then try the limit again by substituting.</li>
+<li>If the new limit is still \(\tfrac{0}{0}\) or \(\tfrac{\infty}{\infty}\), go back to step 2 and apply the rule again. Check the form every time.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 5</div><p class="p">Find (a) \(\lim\limits_{x\to 1}\dfrac{\ln x}{x^2 - 1}\) and (b) \(\lim\limits_{x\to 0}\dfrac{e^{2x} - 1}{\sin(3x)}\).</p>
+<ol class="steps">
+<li>(a) Check the form. At \(x = 1\) the top is \(\ln 1 = 0\) and the bottom is \(1^2 - 1 = 0\). The limit has the form \(\tfrac{0}{0}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately: \(\dfrac{d}{dx}\ln x = \dfrac{1}{x}\) and \(\dfrac{d}{dx}(x^2 - 1) = 2x\). \[\lim_{x\to 1}\frac{\ln x}{x^2 - 1} = \lim_{x\to 1}\frac{1/x}{2x} = \lim_{x\to 1}\frac{1}{2x^2}.\]</li>
+<li>Substitute \(x = 1\). \[\frac{1}{2(1)^2} = \frac{1}{2}.\]</li>
+<li>(b) Check the form. At \(x = 0\) the top is \(e^0 - 1 = 1 - 1 = 0\) and the bottom is \(\sin 0 = 0\). The form is \(\tfrac{0}{0}\), so the rule applies.</li>
+<li>Differentiate the top and bottom separately, using the chain rule on each: \(\dfrac{d}{dx}(e^{2x} - 1) = 2e^{2x}\) and \(\dfrac{d}{dx}\sin(3x) = 3\cos(3x)\). \[\lim_{x\to 0}\frac{e^{2x} - 1}{\sin(3x)} = \lim_{x\to 0}\frac{2e^{2x}}{3\cos(3x)}.\]</li>
+<li>Substitute \(x = 0\). \[\frac{2e^0}{3\cos 0} = \frac{2\cdot 1}{3\cdot 1} = \frac{2}{3}.\]</li>
+</ol><p class="final">Answer: (a) \(\tfrac{1}{2}\). (b) \(\tfrac{2}{3}\).</p></div>
+
+<div class="trap"><b>Common mistake: using the rule on a form that is not indeterminate.</b> Consider \(\lim\limits_{x\to 0}\dfrac{3 + \sin x}{1 + x}\). Substituting gives \(\dfrac{3 + 0}{1 + 0} = 3\), and that is the answer. If you skip the form check and differentiate anyway, you get \[\lim_{x\to 0}\frac{\cos x}{1} = \cos 0 = 1,\] which is wrong. The rule is only a theorem when the form is \(\tfrac{0}{0}\) or \(\tfrac{\infty}{\infty}\). The same thing happens in the professor's example \(\lim\limits_{x\to 1}\dfrac{x^2 - 1}{x + 2}\): substitution gives \(\tfrac{0}{3} = 0\), while the illegal derivative step gives \(\lim\limits_{x\to 1}\dfrac{2x}{1} = 2\).</div>
+<div class="trap"><b>Common mistake.</b> Using the quotient rule on \(\dfrac{f}{g}\). L'Hospital's rule says to replace the top by \(f'\) and the bottom by \(g'\) as two separate derivatives. There is no \(g^2\) anywhere.</div>
+<div class="trap"><b>Common mistake.</b> Writing "\(= \tfrac{0}{0}\)" as if it were a value, or writing an equals sign between the original limit and the derivative limit before checking the form. Write the form check in words first.</div>
+
+<h3>Limits at infinity and the growth ranking</h3>
+<p>For limits as \(x\to\infty\), L'Hospital's rule settles a race between the top and the bottom. Three kinds of functions show up, and they always finish in the same order.</p>
+<div class="rule"><div class="rt">Growth ranking as x goes to infinity</div>
+<p>\(\ln x\) grows much more slowly than any positive power \(x^p\) (including \(\sqrt{x}\) and \(x^{1/3}\)), and every power \(x^n\) grows much more slowly than \(e^x\). In limits, for every \(p \gt 0\) and every \(n\),</p>
+\[\lim_{x\to\infty}\frac{\ln x}{x^p} = 0, \qquad \lim_{x\to\infty}\frac{x^n}{e^x} = 0, \qquad \lim_{x\to\infty}\frac{e^x}{x^n} = \infty.\]
+<p>The same holds with a polynomial \(p(x)\) with positive leading coefficient in place of \(x^n\): \(\lim\limits_{x\to\infty}\dfrac{e^x}{p(x)} = \infty\). Each use of L'Hospital's rule lowers the power of \(x\) by one while \(e^x\) stays \(e^x\), so after enough steps the power is gone and \(e^x\) wins.</p></div>
+<p>You still have to show the work with L'Hospital's rule on the exam. The ranking tells you what answer to expect, so you can spot an algebra slip.</p>
+
+<div class="ex"><div class="et">Worked example 6</div><p class="p">Find (a) \(\lim\limits_{x\to\infty}\dfrac{x^2 + 3x}{e^x}\) and (b) \(\lim\limits_{x\to\infty}\dfrac{\ln x}{x^{1/3}}\).</p>
+<ol class="steps">
+<li>(a) Check the form. As \(x\to\infty\), the top \(x^2 + 3x\to\infty\) and the bottom \(e^x\to\infty\). The form is \(\tfrac{\infty}{\infty}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately. \[\lim_{x\to\infty}\frac{x^2 + 3x}{e^x} = \lim_{x\to\infty}\frac{2x + 3}{e^x}.\]</li>
+<li>Check the form again. The top \(2x + 3\to\infty\) and the bottom \(e^x\to\infty\), so the form is still \(\tfrac{\infty}{\infty}\). Apply the rule a second time. \[\lim_{x\to\infty}\frac{2x + 3}{e^x} = \lim_{x\to\infty}\frac{2}{e^x}.\]</li>
+<li>Now the top is the constant 2 and the bottom goes to \(\infty\). A fixed number divided by something growing without bound goes to 0. \[\lim_{x\to\infty}\frac{2}{e^x} = 0.\]</li>
+<li>(b) Check the form. As \(x\to\infty\), \(\ln x\to\infty\) and \(x^{1/3}\to\infty\). The form is \(\tfrac{\infty}{\infty}\).</li>
+<li>Differentiate the top and bottom separately: \(\dfrac{d}{dx}\ln x = \dfrac{1}{x}\) and \(\dfrac{d}{dx}x^{1/3} = \tfrac{1}{3}x^{-2/3}\). \[\lim_{x\to\infty}\frac{\ln x}{x^{1/3}} = \lim_{x\to\infty}\frac{1/x}{\tfrac{1}{3}x^{-2/3}}.\]</li>
+<li>Simplify before taking the limit. Dividing by \(\tfrac{1}{3}x^{-2/3}\) is the same as multiplying by \(3x^{2/3}\). \[\frac{1/x}{\tfrac{1}{3}x^{-2/3}} = \frac{1}{x}\cdot 3x^{2/3} = 3x^{2/3 - 1} = 3x^{-1/3} = \frac{3}{x^{1/3}}.\]</li>
+<li>Take the limit. The bottom \(x^{1/3}\to\infty\), so \[\lim_{x\to\infty}\frac{3}{x^{1/3}} = 0.\] This agrees with the ranking: \(\ln x\) loses to every positive power of \(x\).</li>
+</ol><p class="final">Answer: (a) \(0\). (b) \(0\).</p></div>
+
+<h3>Other indeterminate forms: products and differences</h3>
+<p>L'Hospital's rule only works on quotients. Two other forms covered in lecture must first be rewritten as a quotient.</p>
+<p><b>Type \(0\cdot\infty\).</b> If \(f(x)\to 0\) and \(g(x)\to\pm\infty\), the product \(f(x)g(x)\) is indeterminate. Rewrite it as \[fg = \frac{f}{1/g} \qquad\text{or}\qquad fg = \frac{g}{1/f},\] which turns it into type \(\tfrac{0}{0}\) or \(\tfrac{\infty}{\infty}\). The professor's advice: pick the version that gives an easier expression after differentiating. Usually that means keeping \(\ln x\) on top, because its derivative \(\tfrac{1}{x}\) is simple, while \(\tfrac{1}{\ln x}\) has a messy derivative.</p>
+<p><b>Type \(\infty - \infty\).</b> If \(f(x)\to\infty\) and \(g(x)\to\infty\), the difference \(f(x) - g(x)\) is indeterminate. Combine it into one fraction (find a common denominator), or rationalize with a conjugate if there is a square root. Then check the new form. You may or may not need L'Hospital's rule after that.</p>
+
+<div class="ex"><div class="et">Worked example 7</div><p class="p">Find (a) \(\lim\limits_{x\to 0^+}x^2\ln x\) and (b) \(\lim\limits_{x\to 0^+}\left(\dfrac{1}{x} - \dfrac{1}{\sin x}\right)\).</p>
+<ol class="steps">
+<li>(a) Identify the form. As \(x\to 0^+\), \(x^2\to 0\) and \(\ln x\to-\infty\). The form is \(0\cdot(-\infty)\), which is indeterminate but not a quotient yet.</li>
+<li>Rewrite as a quotient, keeping \(\ln x\) on top. Since \(x^2 = \dfrac{1}{1/x^2}\), \[x^2\ln x = \frac{\ln x}{1/x^2} = \frac{\ln x}{x^{-2}}.\] Now the top goes to \(-\infty\) and the bottom \(x^{-2}\) goes to \(\infty\). The form is \(\tfrac{-\infty}{\infty}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately: \(\dfrac{d}{dx}\ln x = \dfrac{1}{x}\) and \(\dfrac{d}{dx}x^{-2} = -2x^{-3}\). \[\lim_{x\to 0^+}\frac{\ln x}{x^{-2}} = \lim_{x\to 0^+}\frac{1/x}{-2x^{-3}}.\]</li>
+<li>Simplify. Dividing by \(-2x^{-3}\) is multiplying by \(-\tfrac{x^3}{2}\). \[\frac{1/x}{-2x^{-3}} = \frac{1}{x}\cdot\left(-\frac{x^3}{2}\right) = -\frac{x^2}{2}.\]</li>
+<li>Take the limit. \[\lim_{x\to 0^+}\left(-\frac{x^2}{2}\right) = -\frac{0}{2} = 0.\]</li>
+<li>(b) Identify the form. As \(x\to 0^+\), \(\tfrac{1}{x}\to\infty\), and since \(\sin x\to 0\) through positive values, \(\tfrac{1}{\sin x}\to\infty\). The form is \(\infty - \infty\).</li>
+<li>Combine over the common denominator \(x\sin x\). \[\frac{1}{x} - \frac{1}{\sin x} = \frac{\sin x}{x\sin x} - \frac{x}{x\sin x} = \frac{\sin x - x}{x\sin x}.\] At \(x = 0\) the top is \(0 - 0 = 0\) and the bottom is \(0\cdot 0 = 0\). The form is \(\tfrac{0}{0}\).</li>
+<li>Apply L'Hospital's rule. The top has derivative \(\cos x - 1\). The bottom is a product, so use the product rule with \(u = x\), \(v = \sin x\), \(u' = 1\), \(v' = \cos x\): its derivative is \(\sin x + x\cos x\). \[\lim_{x\to 0^+}\frac{\sin x - x}{x\sin x} = \lim_{x\to 0^+}\frac{\cos x - 1}{\sin x + x\cos x}.\]</li>
+<li>Check the form again. At \(x = 0\) the top is \(1 - 1 = 0\) and the bottom is \(0 + 0\cdot 1 = 0\). Still \(\tfrac{0}{0}\), so apply the rule again. The top has derivative \(-\sin x\). The bottom has derivative \(\cos x + (1\cdot\cos x + x(-\sin x)) = 2\cos x - x\sin x\). \[\lim_{x\to 0^+}\frac{\cos x - 1}{\sin x + x\cos x} = \lim_{x\to 0^+}\frac{-\sin x}{2\cos x - x\sin x}.\]</li>
+<li>Substitute \(x = 0\). The bottom is no longer 0. \[\frac{-\sin 0}{2\cos 0 - 0\cdot\sin 0} = \frac{0}{2 - 0} = 0.\]</li>
+</ol><p class="final">Answer: (a) \(0\). (b) \(0\).</p></div>
+
+<div class="trap"><b>Common mistake.</b> Applying the rule directly to a product like \(x^2\ln x\) or a difference like \(\tfrac{1}{x} - \tfrac{1}{\sin x}\). Differentiate only after the expression is one fraction whose form is \(\tfrac{0}{0}\) or \(\tfrac{\infty}{\infty}\).</div>
+<div class="trap"><b>Common mistake.</b> Applying the rule a second time without rechecking. After each step, substitute again. If the new quotient gives a number, you are done. Applying the rule once more at that point can give a wrong answer, exactly like the example above.</div>
+<div class="say"><b>What to write on the exam.</b> Before each use of the rule, write one sentence such as "As \(x\to 0\), the numerator \(\to 0\) and the denominator \(\to 0\), so the limit has the form \(\tfrac{0}{0}\) and L'Hospital's rule applies." For a product or difference, write "This has the form \(0\cdot\infty\), so I rewrite it as a quotient" before rewriting. The grader is looking for the form check every time the rule is used.</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>\(\pi\) radians \(= 180^\circ\), and the sine, cosine, and tangent of \(0, \tfrac{\pi}{6}, \tfrac{\pi}{4}, \tfrac{\pi}{3}, \tfrac{\pi}{2}\), plus the quadrant signs for their multiples.</li>
+<li>\(\tan x = \tfrac{\sin x}{\cos x}\), \(\sec x = \tfrac{1}{\cos x}\), \(\csc x = \tfrac{1}{\sin x}\), \(\cot x = \tfrac{\cos x}{\sin x}\), \(\sin^2 x + \cos^2 x = 1\), \(1 + \tan^2 x = \sec^2 x\), \(\sin(2x) = 2\sin x\cos x\).</li>
+<li>\(\lim\limits_{h\to 0}\tfrac{\sin h}{h} = 1\) and \(\lim\limits_{h\to 0}\tfrac{\cos h - 1}{h} = 0\).</li>
+<li>\((\sin x)' = \cos x\), \((\cos x)' = -\sin x\), \((\tan x)' = \sec^2 x\), \((\csc x)' = -\csc x\cot x\), \((\sec x)' = \sec x\tan x\), \((\cot x)' = -\csc^2 x\). The "co" functions get the minus signs.</li>
+<li>Chain rule: \((\sin u)' = \cos u\cdot u'\), and so on for all six. \((\sin^n x)' = n\sin^{n-1}x\cos x\).</li>
+<li>L'Hospital's rule: for type \(\tfrac{0}{0}\) or \(\tfrac{\pm\infty}{\pm\infty}\) only, \(\lim\tfrac{f}{g} = \lim\tfrac{f'}{g'}\). Derivatives of top and bottom separately, no quotient rule. Check the form before every application.</li>
+<li>\(0\cdot\infty\): rewrite as \(\tfrac{f}{1/g}\) or \(\tfrac{g}{1/f}\). \(\infty - \infty\): combine into one fraction.</li>
+<li>Growth ranking as \(x\to\infty\): \(\ln x\) is much slower than \(x^p\) (\(p \gt 0\)), which is much slower than \(e^x\).</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u04-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Without a calculator, find the exact values of \(\sin\tfrac{2\pi}{3}\), \(\cos\tfrac{7\pi}{4}\), \(\tan\tfrac{5\pi}{6}\), and \(\sec\tfrac{\pi}{3}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>\(\tfrac{2\pi}{3}\) is in quadrant II (between \(\tfrac{\pi}{2}\) and \(\pi\)) with reference angle \(\pi - \tfrac{2\pi}{3} = \tfrac{\pi}{3}\). Sine is positive in quadrant II. \[\sin\tfrac{2\pi}{3} = \sin\tfrac{\pi}{3} = \tfrac{\sqrt{3}}{2}.\]</li>
+<li>\(\tfrac{7\pi}{4}\) is in quadrant IV (between \(\tfrac{3\pi}{2}\) and \(2\pi\)) with reference angle \(2\pi - \tfrac{7\pi}{4} = \tfrac{\pi}{4}\). Cosine is positive in quadrant IV. \[\cos\tfrac{7\pi}{4} = \cos\tfrac{\pi}{4} = \tfrac{\sqrt{2}}{2}.\]</li>
+<li>\(\tfrac{5\pi}{6}\) is in quadrant II with reference angle \(\pi - \tfrac{5\pi}{6} = \tfrac{\pi}{6}\), so \(\sin\tfrac{5\pi}{6} = \tfrac{1}{2}\) and \(\cos\tfrac{5\pi}{6} = -\tfrac{\sqrt{3}}{2}\). Divide. \[\tan\tfrac{5\pi}{6} = \frac{1/2}{-\sqrt{3}/2} = -\frac{1}{\sqrt{3}} = -\frac{\sqrt{3}}{3}.\]</li>
+<li>Secant is one over cosine, and \(\cos\tfrac{\pi}{3} = \tfrac{1}{2}\). \[\sec\tfrac{\pi}{3} = \frac{1}{1/2} = 2.\]</li>
+</ol><p class="final">Answer: \(\sin\tfrac{2\pi}{3} = \tfrac{\sqrt{3}}{2}\), \(\cos\tfrac{7\pi}{4} = \tfrac{\sqrt{2}}{2}\), \(\tan\tfrac{5\pi}{6} = -\tfrac{\sqrt{3}}{3}\), \(\sec\tfrac{\pi}{3} = 2\).</p></div></details></div>
+
+<div class="q" id="u04-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to 0}\dfrac{\sin(4x)}{x}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the form. At \(x = 0\) the top is \(\sin 0 = 0\) and the bottom is \(0\). The limit has the form \(\tfrac{0}{0}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately. By the chain rule \(\dfrac{d}{dx}\sin(4x) = 4\cos(4x)\), and \(\dfrac{d}{dx}x = 1\). \[\lim_{x\to 0}\frac{\sin(4x)}{x} = \lim_{x\to 0}\frac{4\cos(4x)}{1}.\]</li>
+<li>Substitute \(x = 0\). \[\frac{4\cos 0}{1} = \frac{4\cdot 1}{1} = 4.\]</li>
+</ol><p class="final">Answer: \(4\).</p></div></details></div>
+
+<div class="q" id="u04-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivatives of \(f(x) = \sin^2 x\) and \(g(x) = \sin(x^2)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Rewrite \(f(x) = (\sin x)^2\). The outside function is squaring and the inside is \(\sin x\). By the generalized power rule (the chain rule for powers), \[f'(x) = 2(\sin x)^1\cdot\frac{d}{dx}\sin x = 2\sin x\cos x.\]</li>
+<li>For \(g(x) = \sin(x^2)\) the outside function is sine and the inside is \(x^2\), whose derivative is \(2x\). By the chain rule, \[g'(x) = \cos(x^2)\cdot 2x = 2x\cos(x^2).\]</li>
+</ol><p class="final">Answer: \(f'(x) = 2\sin x\cos x\) (which also equals \(\sin(2x)\)) and \(g'(x) = 2x\cos(x^2)\).</p></div></details></div>
+
+<div class="q" id="u04-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to 0}\dfrac{x + 1}{\cos x}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the form by substituting \(x = 0\). The top is \(0 + 1 = 1\) and the bottom is \(\cos 0 = 1\). The form is \(\tfrac{1}{1}\), which is not indeterminate, so L'Hospital's rule does not apply.</li>
+<li>Because the bottom is not 0, the quotient is continuous at \(x = 0\) and the limit is the value from substitution. \[\lim_{x\to 0}\frac{x + 1}{\cos x} = \frac{1}{1} = 1.\]</li>
+<li>For comparison, differentiating anyway would give \(\lim\limits_{x\to 0}\dfrac{1}{-\sin x}\), which does not even exist. This is why the form check comes first.</li>
+</ol><p class="final">Answer: \(1\) (by substitution; L'Hospital's rule does not apply).</p></div></details></div>
+
+<div class="q" id="u04-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = 4\sin x - 3\cos x + \cot x\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate term by term with the sum rule, using \((\sin x)' = \cos x\), \((\cos x)' = -\sin x\), and \((\cot x)' = -\csc^2 x\). \[\frac{dy}{dx} = 4\cos x - 3(-\sin x) + (-\csc^2 x).\]</li>
+<li>Clean up the signs. \[\frac{dy}{dx} = 4\cos x + 3\sin x - \csc^2 x.\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = 4\cos x + 3\sin x - \csc^2 x\).</p></div></details></div>
+
+<div class="q" id="u04-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to\infty}\dfrac{e^x}{2x}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the form. As \(x\to\infty\), the top \(e^x\to\infty\) and the bottom \(2x\to\infty\). The form is \(\tfrac{\infty}{\infty}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately: \((e^x)' = e^x\) and \((2x)' = 2\). \[\lim_{x\to\infty}\frac{e^x}{2x} = \lim_{x\to\infty}\frac{e^x}{2}.\]</li>
+<li>Take the limit. Since \(e^x\to\infty\), half of it also goes to \(\infty\). \[\lim_{x\to\infty}\frac{e^x}{2} = \infty.\] This matches the growth ranking: \(e^x\) beats any power of \(x\).</li>
+</ol><p class="final">Answer: \(\infty\) (the limit does not exist as a number; the quotient grows without bound).</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u04-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = x^3\csc x\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>This is a product, so use the product rule \((uv)' = u'v + uv'\) with \[u = x^3,\quad v = \csc x,\quad u' = 3x^2,\quad v' = -\csc x\cot x.\]</li>
+<li>Assemble. \[\frac{dy}{dx} = 3x^2\csc x + x^3(-\csc x\cot x) = 3x^2\csc x - x^3\csc x\cot x.\]</li>
+<li>Factor out the common factor \(x^2\csc x\). \[\frac{dy}{dx} = x^2\csc x\,(3 - x\cot x).\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = 3x^2\csc x - x^3\csc x\cot x = x^2\csc x\,(3 - x\cot x)\).</p></div></details></div>
+
+<div class="q" id="u04-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to 0}\dfrac{e^{3x} - 1 - 3x}{x^2}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the form. At \(x = 0\) the top is \(e^0 - 1 - 0 = 1 - 1 = 0\) and the bottom is \(0^2 = 0\). The form is \(\tfrac{0}{0}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately. By the chain rule \((e^{3x})' = 3e^{3x}\), so the top has derivative \(3e^{3x} - 3\). The bottom has derivative \(2x\). \[\lim_{x\to 0}\frac{e^{3x} - 1 - 3x}{x^2} = \lim_{x\to 0}\frac{3e^{3x} - 3}{2x}.\]</li>
+<li>Check the form again. At \(x = 0\) the top is \(3\cdot 1 - 3 = 0\) and the bottom is \(0\). Still \(\tfrac{0}{0}\), so apply the rule a second time. The top has derivative \(9e^{3x}\) and the bottom has derivative \(2\). \[\lim_{x\to 0}\frac{3e^{3x} - 3}{2x} = \lim_{x\to 0}\frac{9e^{3x}}{2}.\]</li>
+<li>Substitute \(x = 0\). \[\frac{9e^0}{2} = \frac{9}{2}.\]</li>
+</ol><p class="final">Answer: \(\tfrac{9}{2}\).</p></div></details></div>
+
+<div class="q" id="u04-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = \ln\lvert\cos(3x)\rvert\) and simplify.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Use the rule \(\dfrac{d}{dx}\ln\lvert u\rvert = \dfrac{u'}{u}\) with the inside \(u = \cos(3x)\).</li>
+<li>Find \(u'\) with the chain rule. The outside of \(\cos(3x)\) is cosine and the inside is \(3x\), with derivative 3. \[u' = -\sin(3x)\cdot 3 = -3\sin(3x).\]</li>
+<li>Assemble. \[\frac{dy}{dx} = \frac{-3\sin(3x)}{\cos(3x)}.\]</li>
+<li>Simplify with \(\dfrac{\sin\theta}{\cos\theta} = \tan\theta\) for \(\theta = 3x\). \[\frac{dy}{dx} = -3\tan(3x).\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = -3\tan(3x)\).</p></div></details></div>
+
+<div class="q" id="u04-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to\infty}\dfrac{x^2 + 1}{e^{x/2}}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the form. As \(x\to\infty\), the top \(x^2 + 1\to\infty\) and the bottom \(e^{x/2}\to\infty\). The form is \(\tfrac{\infty}{\infty}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately. The top has derivative \(2x\). By the chain rule the bottom has derivative \(e^{x/2}\cdot\tfrac{1}{2} = \tfrac{1}{2}e^{x/2}\). \[\lim_{x\to\infty}\frac{x^2 + 1}{e^{x/2}} = \lim_{x\to\infty}\frac{2x}{\tfrac{1}{2}e^{x/2}} = \lim_{x\to\infty}\frac{4x}{e^{x/2}}.\]</li>
+<li>Check the form again. The top \(4x\to\infty\) and the bottom \(e^{x/2}\to\infty\), still \(\tfrac{\infty}{\infty}\). Apply the rule a second time. \[\lim_{x\to\infty}\frac{4x}{e^{x/2}} = \lim_{x\to\infty}\frac{4}{\tfrac{1}{2}e^{x/2}} = \lim_{x\to\infty}\frac{8}{e^{x/2}}.\]</li>
+<li>The top is the constant 8 and the bottom goes to \(\infty\), so the quotient goes to 0. \[\lim_{x\to\infty}\frac{8}{e^{x/2}} = 0.\]</li>
+</ol><p class="final">Answer: \(0\).</p></div></details></div>
+
+<div class="q" id="u04-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = \sin^4(2x)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Rewrite so the outside function is visible: \(y = [\sin(2x)]^4\). The outside function is the fourth power and the inside is \(\sin(2x)\).</li>
+<li>Apply the generalized power rule. \[\frac{dy}{dx} = 4[\sin(2x)]^3\cdot\frac{d}{dx}\sin(2x).\]</li>
+<li>Differentiate \(\sin(2x)\) with the chain rule: its inside \(2x\) has derivative 2. \[\frac{d}{dx}\sin(2x) = \cos(2x)\cdot 2 = 2\cos(2x).\]</li>
+<li>Put the pieces together. \[\frac{dy}{dx} = 4\sin^3(2x)\cdot 2\cos(2x) = 8\sin^3(2x)\cos(2x).\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = 8\sin^3(2x)\cos(2x)\).</p></div></details></div>
+
+<div class="q" id="u04-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to 0^+}\sqrt{x}\,\ln x\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Identify the form. As \(x\to 0^+\), \(\sqrt{x}\to 0\) and \(\ln x\to-\infty\). The form is \(0\cdot(-\infty)\), which must be rewritten as a quotient first.</li>
+<li>Keep \(\ln x\) on top and move \(\sqrt{x} = x^{1/2}\) to the bottom as \(x^{-1/2}\). \[\sqrt{x}\,\ln x = \frac{\ln x}{x^{-1/2}}.\] As \(x\to 0^+\), the top goes to \(-\infty\) and the bottom \(x^{-1/2} = \tfrac{1}{\sqrt{x}}\) goes to \(\infty\). The form is \(\tfrac{-\infty}{\infty}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately: \((\ln x)' = \tfrac{1}{x}\) and \((x^{-1/2})' = -\tfrac{1}{2}x^{-3/2}\). \[\lim_{x\to 0^+}\frac{\ln x}{x^{-1/2}} = \lim_{x\to 0^+}\frac{1/x}{-\tfrac{1}{2}x^{-3/2}}.\]</li>
+<li>Simplify. Dividing by \(-\tfrac{1}{2}x^{-3/2}\) is multiplying by \(-2x^{3/2}\). \[\frac{1}{x}\cdot\left(-2x^{3/2}\right) = -2x^{3/2 - 1} = -2x^{1/2} = -2\sqrt{x}.\]</li>
+<li>Take the limit. \[\lim_{x\to 0^+}\left(-2\sqrt{x}\right) = -2\cdot 0 = 0.\]</li>
+</ol><p class="final">Answer: \(0\).</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u04-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Find the equation of the tangent line to \(y = 2\sin x + \cos(2x)\) at \(x = \tfrac{\pi}{4}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the point. At \(x = \tfrac{\pi}{4}\), \(\sin\tfrac{\pi}{4} = \tfrac{\sqrt{2}}{2}\) and \(2x = \tfrac{\pi}{2}\), where \(\cos\tfrac{\pi}{2} = 0\). \[y\left(\tfrac{\pi}{4}\right) = 2\cdot\tfrac{\sqrt{2}}{2} + 0 = \sqrt{2}.\] The point is \(\left(\tfrac{\pi}{4}, \sqrt{2}\right)\).</li>
+<li>Differentiate term by term. The first term gives \(2\cos x\). For \(\cos(2x)\) use the chain rule with inside \(2x\), whose derivative is 2. \[y' = 2\cos x + \left(-\sin(2x)\right)\cdot 2 = 2\cos x - 2\sin(2x).\]</li>
+<li>Find the slope at \(x = \tfrac{\pi}{4}\), using \(\sin\tfrac{\pi}{2} = 1\). \[y'\left(\tfrac{\pi}{4}\right) = 2\cdot\tfrac{\sqrt{2}}{2} - 2\cdot 1 = \sqrt{2} - 2.\]</li>
+<li>Write the line in point-slope form. \[y - \sqrt{2} = \left(\sqrt{2} - 2\right)\left(x - \tfrac{\pi}{4}\right).\]</li>
+<li>Solve for \(y\). Multiply out \(\left(\sqrt{2} - 2\right)\left(-\tfrac{\pi}{4}\right) = \tfrac{(2 - \sqrt{2})\pi}{4}\), then add \(\sqrt{2}\) to both sides. \[y = \left(\sqrt{2} - 2\right)x + \sqrt{2} + \frac{(2 - \sqrt{2})\pi}{4}.\]</li>
+</ol>
+<div class="plot" data-f="2*Math.sin(x)+Math.cos(2*x);;(Math.SQRT2-2)*x+Math.SQRT2+(2-Math.SQRT2)*Math.PI/4" data-x="0,3.2" data-y="-0.5,2.5" data-pts="0.785398,1.414214,(π/4, √2)" data-cap="Graph of y = 2 sin x + cos(2x) with its tangent line at x = π/4"></div>
+<p class="final">Answer: \(y - \sqrt{2} = \left(\sqrt{2} - 2\right)\left(x - \tfrac{\pi}{4}\right)\), or \(y = \left(\sqrt{2} - 2\right)x + \sqrt{2} + \tfrac{(2 - \sqrt{2})\pi}{4}\).</p></div></details></div>
+
+<div class="q" id="u04-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to 0}\dfrac{x - \sin x}{x^3}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the form. At \(x = 0\) the top is \(0 - \sin 0 = 0\) and the bottom is \(0\). The form is \(\tfrac{0}{0}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately. \[\lim_{x\to 0}\frac{x - \sin x}{x^3} = \lim_{x\to 0}\frac{1 - \cos x}{3x^2}.\]</li>
+<li>Check the form again. At \(x = 0\) the top is \(1 - \cos 0 = 1 - 1 = 0\) and the bottom is \(0\). Still \(\tfrac{0}{0}\), so apply the rule a second time. \[\lim_{x\to 0}\frac{1 - \cos x}{3x^2} = \lim_{x\to 0}\frac{\sin x}{6x}.\]</li>
+<li>Check the form again. At \(x = 0\) the top is \(\sin 0 = 0\) and the bottom is \(0\). Still \(\tfrac{0}{0}\), so apply the rule a third time. \[\lim_{x\to 0}\frac{\sin x}{6x} = \lim_{x\to 0}\frac{\cos x}{6}.\] (You could also stop one step earlier and use the special limit \(\lim\limits_{x\to 0}\tfrac{\sin x}{x} = 1\), which gives \(\tfrac{1}{6}\cdot 1\).)</li>
+<li>Substitute \(x = 0\). The bottom is no longer 0. \[\frac{\cos 0}{6} = \frac{1}{6}.\]</li>
+</ol><p class="final">Answer: \(\tfrac{1}{6}\).</p></div></details></div>
+
+<div class="q" id="u04-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">Let \(g(x) = \dfrac{1 + \tan x}{\sec x}\). Find \(g'(x)\) with the quotient rule and simplify it to an expression in \(\sin x\) and \(\cos x\). Then check your answer by simplifying \(g(x)\) before differentiating.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Set up the quotient rule \(\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^2}\) with \[u = 1 + \tan x,\quad v = \sec x,\quad u' = \sec^2 x,\quad v' = \sec x\tan x.\]</li>
+<li>Assemble. \[g'(x) = \frac{(\sec^2 x)(\sec x) - (1 + \tan x)(\sec x\tan x)}{\sec^2 x}.\]</li>
+<li>Every term in the numerator has a factor \(\sec x\). Factor it out and cancel it with one \(\sec x\) in the denominator. \[g'(x) = \frac{\sec x\left[\sec^2 x - (1 + \tan x)\tan x\right]}{\sec^2 x} = \frac{\sec^2 x - \tan x - \tan^2 x}{\sec x}.\]</li>
+<li>Use the identity \(\sec^2 x = 1 + \tan^2 x\) in the numerator. \[\sec^2 x - \tan x - \tan^2 x = 1 + \tan^2 x - \tan x - \tan^2 x = 1 - \tan x.\]</li>
+<li>Dividing by \(\sec x\) is multiplying by \(\cos x\). Then use \(\tan x\cos x = \tfrac{\sin x}{\cos x}\cdot\cos x = \sin x\). \[g'(x) = (1 - \tan x)\cos x = \cos x - \tan x\cos x = \cos x - \sin x.\]</li>
+<li>Check by simplifying first. Dividing by \(\sec x\) is multiplying by \(\cos x\), so \[g(x) = (1 + \tan x)\cos x = \cos x + \sin x.\] Differentiating gives \(g'(x) = -\sin x + \cos x\), the same answer.</li>
+</ol><p class="final">Answer: \(g'(x) = \cos x - \sin x\).</p></div></details></div>
+
+<div class="q" id="u04-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to 1^+}\left(\dfrac{1}{\ln x} - \dfrac{1}{x - 1}\right)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Identify the form. As \(x\to 1^+\), \(\ln x\to 0\) through positive values, so \(\tfrac{1}{\ln x}\to\infty\). Also \(x - 1\to 0\) through positive values, so \(\tfrac{1}{x - 1}\to\infty\). The form is \(\infty - \infty\), so combine into one fraction first.</li>
+<li>Use the common denominator \((x - 1)\ln x\). \[\frac{1}{\ln x} - \frac{1}{x - 1} = \frac{x - 1}{(x - 1)\ln x} - \frac{\ln x}{(x - 1)\ln x} = \frac{x - 1 - \ln x}{(x - 1)\ln x}.\] At \(x = 1\) the top is \(0 - 0 = 0\) and the bottom is \(0\cdot 0 = 0\). The form is \(\tfrac{0}{0}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top: \((x - 1 - \ln x)' = 1 - \tfrac{1}{x}\). The bottom is a product, so use the product rule with \(u = x - 1\), \(v = \ln x\), \(u' = 1\), \(v' = \tfrac{1}{x}\): its derivative is \(\ln x + \tfrac{x - 1}{x}\). \[\lim_{x\to 1^+}\frac{x - 1 - \ln x}{(x - 1)\ln x} = \lim_{x\to 1^+}\frac{1 - \tfrac{1}{x}}{\ln x + \tfrac{x - 1}{x}}.\]</li>
+<li>Clear the small fractions by multiplying the top and bottom by \(x\). \[\frac{1 - \tfrac{1}{x}}{\ln x + \tfrac{x - 1}{x}}\cdot\frac{x}{x} = \frac{x - 1}{x\ln x + x - 1}.\]</li>
+<li>Check the form again. At \(x = 1\) the top is \(0\) and the bottom is \(1\cdot 0 + 1 - 1 = 0\). Still \(\tfrac{0}{0}\), so apply the rule again. The top has derivative 1. For the bottom, \(x\ln x\) has derivative \(1\cdot\ln x + x\cdot\tfrac{1}{x} = \ln x + 1\) by the product rule, so the whole bottom has derivative \(\ln x + 1 + 1 = \ln x + 2\). \[\lim_{x\to 1^+}\frac{x - 1}{x\ln x + x - 1} = \lim_{x\to 1^+}\frac{1}{\ln x + 2}.\]</li>
+<li>Substitute \(x = 1\). \[\frac{1}{\ln 1 + 2} = \frac{1}{0 + 2} = \frac{1}{2}.\]</li>
+</ol><p class="final">Answer: \(\tfrac{1}{2}\).</p></div></details></div>
+
+<div class="q" id="u04-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">The depth of water in a harbor \(t\) hours after midnight is \(D(t) = 8 + 3\sin\left(\tfrac{\pi t}{6}\right)\) meters. (a) Find \(D'(t)\). (b) How fast is the depth changing at 2 am? (c) How fast is it changing at 4 pm? (d) Between midnight and noon (\(0 \le t \le 12\)), at what time is the water level falling fastest, and how fast is it falling then?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate with the chain rule. The outside is sine and the inside is \(\tfrac{\pi t}{6}\), with derivative \(\tfrac{\pi}{6}\). The constant 8 has derivative 0. \[D'(t) = 3\cos\left(\tfrac{\pi t}{6}\right)\cdot\tfrac{\pi}{6} = \tfrac{\pi}{2}\cos\left(\tfrac{\pi t}{6}\right).\]</li>
+<li>(b) 2 am is \(t = 2\). The angle is \(\tfrac{2\pi}{6} = \tfrac{\pi}{3}\), and \(\cos\tfrac{\pi}{3} = \tfrac{1}{2}\). \[D'(2) = \tfrac{\pi}{2}\cdot\tfrac{1}{2} = \tfrac{\pi}{4}.\] This is positive, so the water is rising.</li>
+<li>(c) 4 pm is \(t = 16\). The angle is \(\tfrac{16\pi}{6} = \tfrac{8\pi}{3}\). Subtract \(2\pi\) to get the same point on the circle: \(\tfrac{8\pi}{3} - 2\pi = \tfrac{2\pi}{3}\), and \(\cos\tfrac{2\pi}{3} = -\tfrac{1}{2}\). \[D'(16) = \tfrac{\pi}{2}\cdot\left(-\tfrac{1}{2}\right) = -\tfrac{\pi}{4}.\] This is negative, so the water is falling.</li>
+<li>(d) The water falls fastest when \(D'(t)\) is as negative as possible. Since \(\cos\theta \ge -1\) for every \(\theta\), \[D'(t) = \tfrac{\pi}{2}\cos\left(\tfrac{\pi t}{6}\right) \ge \tfrac{\pi}{2}\cdot(-1) = -\tfrac{\pi}{2},\] with equality exactly when \(\cos\left(\tfrac{\pi t}{6}\right) = -1\).</li>
+<li>Solve \(\cos\left(\tfrac{\pi t}{6}\right) = -1\) on \(0 \le t \le 12\). Here the angle \(\tfrac{\pi t}{6}\) runs from 0 to \(2\pi\), and cosine equals \(-1\) only at angle \(\pi\). \[\frac{\pi t}{6} = \pi \quad\Longrightarrow\quad t = 6.\] At that time \(D'(6) = \tfrac{\pi}{2}\cos\pi = -\tfrac{\pi}{2}\).</li>
+<li>Check with the graph. At \(t = 6\) the depth is \(D(6) = 8 + 3\sin\pi = 8\), the average level, halfway between high tide (\(t = 3\), depth 11) and low tide (\(t = 9\), depth 5). A sine curve is steepest as it passes through its middle level, which agrees.</li>
+</ol>
+<div class="plot" data-f="8+3*Math.sin(Math.PI*x/6)" data-x="0,24" data-y="3,13" data-pts="2,10.598076,2 am|6,8,6 am (6, 8)|16,10.598076,4 pm" data-cap="Graph of D(t) = 8 + 3 sin(πt/6)"></div>
+<p class="final">Answer: (a) \(D'(t) = \tfrac{\pi}{2}\cos\left(\tfrac{\pi t}{6}\right)\). (b) At 2 am the depth is rising at \(\tfrac{\pi}{4}\) meters per hour. (c) At 4 pm it is falling at \(\tfrac{\pi}{4}\) meters per hour. (d) The water falls fastest at 6 am (\(t = 6\)), at \(\tfrac{\pi}{2}\) meters per hour.</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u04-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of the function \(f(x) = \ln\left[\sin\left(x^2 e^{3x}\right)\right]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Identify the layers from the outside in. The outside function is \(\ln u\). Inside it is \(u = \sin w\). Inside that is \(w = x^2 e^{3x}\), which is a product. The chain rule will be used twice and the product rule once.</li>
+<li>Differentiate the outside layer: \(\dfrac{d}{dx}\ln u = \dfrac{u'}{u}\) with \(u = \sin\left(x^2e^{3x}\right)\). \[f'(x) = \frac{\dfrac{d}{dx}\sin\left(x^2e^{3x}\right)}{\sin\left(x^2e^{3x}\right)}.\]</li>
+<li>Differentiate the middle layer with the chain rule: \(\dfrac{d}{dx}\sin w = \cos w\cdot w'\). \[\frac{d}{dx}\sin\left(x^2e^{3x}\right) = \cos\left(x^2e^{3x}\right)\cdot\frac{d}{dx}\left(x^2e^{3x}\right).\]</li>
+<li>Differentiate the inside \(w = x^2e^{3x}\) with the product rule, using \[p = x^2,\quad q = e^{3x},\quad p' = 2x,\quad q' = 3e^{3x}\] (the last one by the chain rule). \[w' = 2x\cdot e^{3x} + x^2\cdot 3e^{3x} = 2xe^{3x} + 3x^2e^{3x} = xe^{3x}(2 + 3x).\]</li>
+<li>Put the pieces together. \[f'(x) = \frac{\cos\left(x^2e^{3x}\right)\cdot xe^{3x}(2 + 3x)}{\sin\left(x^2e^{3x}\right)}.\]</li>
+<li>Simplify with \(\dfrac{\cos\theta}{\sin\theta} = \cot\theta\) for \(\theta = x^2e^{3x}\). \[f'(x) = xe^{3x}(2 + 3x)\cot\left(x^2e^{3x}\right).\]</li>
+</ol><p class="final">Answer: \(f'(x) = \left(2xe^{3x} + 3x^2e^{3x}\right)\cot\left(x^2e^{3x}\right) = xe^{3x}(2 + 3x)\cot\left(x^2e^{3x}\right)\).</p></div></details></div>
+
+<div class="q" id="u04-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\lim\limits_{x\to 0}\dfrac{e^{2x} - 1 - 2\sin x}{x^2}\). Justify each step.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the form. At \(x = 0\) the numerator is \(e^0 - 1 - 2\sin 0 = 1 - 1 - 0 = 0\) and the denominator is \(0^2 = 0\). The limit has the form \(\tfrac{0}{0}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the numerator and denominator separately. The numerator has derivative \(2e^{2x} - 2\cos x\) (chain rule on \(e^{2x}\)). The denominator has derivative \(2x\). \[\lim_{x\to 0}\frac{e^{2x} - 1 - 2\sin x}{x^2} = \lim_{x\to 0}\frac{2e^{2x} - 2\cos x}{2x}.\]</li>
+<li>Check the form again. At \(x = 0\) the numerator is \(2\cdot 1 - 2\cdot 1 = 0\) and the denominator is \(0\). Still \(\tfrac{0}{0}\), so L'Hospital's rule applies again. The numerator has derivative \(4e^{2x} - 2(-\sin x) = 4e^{2x} + 2\sin x\) and the denominator has derivative \(2\). \[\lim_{x\to 0}\frac{2e^{2x} - 2\cos x}{2x} = \lim_{x\to 0}\frac{4e^{2x} + 2\sin x}{2}.\]</li>
+<li>Substitute \(x = 0\). The denominator is the nonzero constant 2, so substitution is allowed. \[\frac{4e^0 + 2\sin 0}{2} = \frac{4 + 0}{2} = 2.\]</li>
+</ol><p class="final">Answer: \(2\).</p></div></details></div>
+
+<div class="q" id="u04-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">Find the equation of the tangent line to the graph of \(f(x) = e^{\tan x}\sin(2x)\) at the point where \(x = \tfrac{\pi}{4}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the point. At \(x = \tfrac{\pi}{4}\), \(\tan\tfrac{\pi}{4} = 1\) and \(\sin\left(2\cdot\tfrac{\pi}{4}\right) = \sin\tfrac{\pi}{2} = 1\). \[f\left(\tfrac{\pi}{4}\right) = e^1\cdot 1 = e.\] The point is \(\left(\tfrac{\pi}{4}, e\right)\).</li>
+<li>Differentiate with the product rule, using \[u = e^{\tan x},\quad v = \sin(2x),\quad u' = e^{\tan x}\sec^2 x,\quad v' = 2\cos(2x).\] Here \(u'\) comes from the chain rule with inside \(\tan x\), and \(v'\) from the chain rule with inside \(2x\). \[f'(x) = e^{\tan x}\sec^2 x\,\sin(2x) + 2e^{\tan x}\cos(2x).\]</li>
+<li>Find the slope at \(x = \tfrac{\pi}{4}\). Use \(e^{\tan(\pi/4)} = e\), \(\sec^2\tfrac{\pi}{4} = \left(\sqrt{2}\right)^2 = 2\), \(\sin\tfrac{\pi}{2} = 1\), and \(\cos\tfrac{\pi}{2} = 0\). \[f'\left(\tfrac{\pi}{4}\right) = e\cdot 2\cdot 1 + 2e\cdot 0 = 2e.\]</li>
+<li>Write the line in point-slope form. \[y - e = 2e\left(x - \tfrac{\pi}{4}\right).\]</li>
+<li>Solve for \(y\). Multiply out \(2e\left(-\tfrac{\pi}{4}\right) = -\tfrac{e\pi}{2}\), then add \(e\) to both sides. \[y = 2ex - \frac{e\pi}{2} + e.\]</li>
+</ol>
+<div class="plot" data-f="Math.exp(Math.tan(x))*Math.sin(2*x);;2*Math.E*x-Math.E*Math.PI/2+Math.E" data-x="0,1.3" data-y="-1,9" data-pts="0.785398,2.718282,(π/4, e)" data-cap="Graph of f(x) = e^(tan x) sin(2x) with its tangent line at x = π/4"></div>
+<p class="final">Answer: \(y - e = 2e\left(x - \tfrac{\pi}{4}\right)\), or \(y = 2ex + e - \tfrac{e\pi}{2}\).</p></div></details></div>
+
+<div class="q" id="u04-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">Evaluate each limit, if it exists. (a) \(\lim\limits_{x\to 0^+}(\sin x)(\ln x)\). (b) \(\lim\limits_{x\to 0}\left(\csc x - \cot x\right)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Identify the form. As \(x\to 0^+\), \(\sin x\to 0\) and \(\ln x\to-\infty\). The form is \(0\cdot(-\infty)\), which must be rewritten as a quotient before L'Hospital's rule can be used.</li>
+<li>Keep \(\ln x\) on top. Since \(\sin x = \dfrac{1}{\csc x}\), \[(\sin x)(\ln x) = \frac{\ln x}{\csc x}.\] As \(x\to 0^+\), the top goes to \(-\infty\) and the bottom \(\csc x = \tfrac{1}{\sin x}\) goes to \(\infty\) (because \(\sin x\to 0\) through positive values). The form is \(\tfrac{-\infty}{\infty}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately: \((\ln x)' = \tfrac{1}{x}\) and \((\csc x)' = -\csc x\cot x\). \[\lim_{x\to 0^+}\frac{\ln x}{\csc x} = \lim_{x\to 0^+}\frac{1/x}{-\csc x\cot x}.\]</li>
+<li>Simplify. Since \(\tfrac{1}{\csc x} = \sin x\) and \(\tfrac{1}{\cot x} = \tan x\), \[\frac{1/x}{-\csc x\cot x} = -\frac{1}{x}\cdot\frac{1}{\csc x}\cdot\frac{1}{\cot x} = -\frac{\sin x\tan x}{x} = -\frac{\sin x}{x}\cdot\tan x.\]</li>
+<li>Take the limit using the special limit \(\lim\limits_{x\to 0}\tfrac{\sin x}{x} = 1\) and \(\tan 0 = 0\). \[\lim_{x\to 0^+}\left(-\frac{\sin x}{x}\cdot\tan x\right) = -1\cdot 0 = 0.\]</li>
+<li>(b) Identify the form. As \(x\to 0^+\), \(\csc x\to\infty\) and \(\cot x = \tfrac{\cos x}{\sin x}\to\infty\). As \(x\to 0^-\), both go to \(-\infty\). Either way the form is a difference of two infinite quantities of the same sign, which is indeterminate. Combine into one fraction.</li>
+<li>Write both in terms of sine and cosine and use the common denominator \(\sin x\). \[\csc x - \cot x = \frac{1}{\sin x} - \frac{\cos x}{\sin x} = \frac{1 - \cos x}{\sin x}.\] At \(x = 0\) the top is \(1 - 1 = 0\) and the bottom is \(0\). The form is \(\tfrac{0}{0}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top and bottom separately: \((1 - \cos x)' = \sin x\) and \((\sin x)' = \cos x\). \[\lim_{x\to 0}\frac{1 - \cos x}{\sin x} = \lim_{x\to 0}\frac{\sin x}{\cos x}.\]</li>
+<li>Substitute \(x = 0\). The bottom is \(\cos 0 = 1\), not 0. \[\frac{\sin 0}{\cos 0} = \frac{0}{1} = 0.\]</li>
+</ol><p class="final">Answer: (a) \(0\). (b) \(0\).</p></div></details></div>
+</section><div class="pager"><a href="u03.html">Back: Derivatives of exponential and logarithmic functions</a><a href="u05.html">Next: Increasing, decreasing, and relative extrema</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

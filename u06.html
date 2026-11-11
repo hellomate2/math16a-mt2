@@ -1,0 +1,503 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Higher derivatives, concavity, second derivative test | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 5.3</p><h1>Higher derivatives, concavity, second derivative test</h1><p class="sub">f&#x27;&#x27;, concave up and down, inflection points, the second derivative test, velocity and acceleration, diminishing returns.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 5.3: Higher derivatives, concavity, and the second derivative test</h2>
+<p>In Section 5.2 you used the first derivative \(f'\) to find where a function goes up and where it goes down. This section takes one more derivative. The derivative of \(f'\) tells you how the graph of \(f\) bends, it gives a second way to decide whether a critical number is a local maximum or a local minimum, and in physics it is the acceleration of a moving object. Everything here is built from derivative rules you already know, applied twice or more.</p>
+
+<h3>Second and higher derivatives</h3>
+<p>The <b>second derivative</b> of a function \(f\) is the derivative of \(f'\). In other words, you differentiate \(f\), and then you differentiate the answer. Nothing new is needed: you use the same power, product, quotient, and chain rules again on \(f'\).</p>
+<div class="rule"><div class="rt">Notation for higher derivatives</div>
+<p>All of these mean the second derivative of \(y = f(x)\):</p>
+\[ f'' \qquad f''(x) \qquad \frac{d^2y}{dx^2} \qquad \frac{d^2}{dx^2}\left[f(x)\right] \qquad D_x^2\left[f(x)\right] \]
+<p>The <b>third derivative</b> is the derivative of \(f''\) and is written \(f'''\) or \(f'''(x)\). From the fourth derivative on, primes get hard to count, so you write the number in parentheses: \(f^{(4)}(x)\), \(f^{(5)}(x)\), and in general the <b>\(n\)th derivative</b> \(f^{(n)}(x)\), which is the derivative of the \((n-1)\)th derivative.</p>
+<p>The parentheses matter. \(f^{(4)}(x)\) is the fourth derivative of \(f\), while \(f^4(x)\) means \(\left[f(x)\right]^4\), the function raised to the fourth power.</p></div>
+<p>A useful fact about polynomials: each derivative lowers the degree by one. If \(f\) is a polynomial of degree \(m\), then \(f'\) has degree \(m-1\), \(f''\) has degree \(m-2\), and so on, until \(f^{(m)}\) has degree 0, which means it is a constant. Every derivative after that is 0.</p>
+<p>The symbol \(n!\) (read "\(n\) factorial") means the product \(1 \cdot 2 \cdot 3 \cdots n\). For example \(4! = 1 \cdot 2 \cdot 3 \cdot 4 = 24\). Factorials show up whenever you differentiate a power many times, because each step multiplies by the current exponent.</p>
+
+<div class="ex"><div class="et">Worked example 1</div><p class="p">Compute the first four derivatives of each function, and use the pattern to find the 100th derivative. (a) \(f(x) = x^4 - 2x^3 + 5x - 7\). (b) \(g(x) = e^{-3x}\). (c) For \(h(x) = \dfrac{1}{x+1}\), find the first four derivatives and a formula for \(h^{(n)}(x)\).</p>
+<ol class="steps">
+<li>For (a), differentiate term by term with the power rule, four times. \[\begin{aligned} f'(x) &= 4x^3 - 6x^2 + 5 \\ f''(x) &= 12x^2 - 12x \\ f'''(x) &= 24x - 12 \\ f^{(4)}(x) &= 24. \end{aligned}\]</li>
+<li>The fourth derivative is the constant 24, and the derivative of a constant is 0. So every derivative after the fourth is 0. \[ f^{(5)}(x) = 0, \qquad f^{(100)}(x) = 0. \]</li>
+<li>For (b), use the chain rule: the derivative of \(e^{kx}\) is \(k e^{kx}\). Here \(k = -3\), so each derivative multiplies by another factor of \(-3\). \[\begin{aligned} g'(x) &= -3e^{-3x} \\ g''(x) &= (-3)(-3)e^{-3x} = 9e^{-3x} \\ g'''(x) &= 9(-3)e^{-3x} = -27e^{-3x} \\ g^{(4)}(x) &= -27(-3)e^{-3x} = 81e^{-3x}. \end{aligned}\]</li>
+<li>After \(n\) derivatives there are \(n\) factors of \(-3\), so \(g^{(n)}(x) = (-3)^n e^{-3x}\). For \(n = 100\) the exponent is even, so the sign is positive. \[ g^{(100)}(x) = (-3)^{100}e^{-3x} = 3^{100}e^{-3x}. \]</li>
+<li>For (c), rewrite \(h\) as a power so the power rule and chain rule apply (the inside function \(x + 1\) has derivative 1). \[ h(x) = (x+1)^{-1}. \]</li>
+<li>Differentiate four times. Each time, bring down the exponent and lower it by one. \[\begin{aligned} h'(x) &= -1(x+1)^{-2} = -(x+1)^{-2} \\ h''(x) &= -1 \cdot (-2)(x+1)^{-3} = 2(x+1)^{-3} \\ h'''(x) &= 2 \cdot (-3)(x+1)^{-4} = -6(x+1)^{-4} \\ h^{(4)}(x) &= -6 \cdot (-4)(x+1)^{-5} = 24(x+1)^{-5}. \end{aligned}\]</li>
+<li>Read the pattern. The coefficients are \(1, 2, 6, 24\), which are \(1!, 2!, 3!, 4!\). The signs alternate, starting negative, which is \((-1)^n\). The exponent after \(n\) derivatives is \(-(n+1)\). \[ h^{(n)}(x) = (-1)^n\, n!\,(x+1)^{-(n+1)} = \frac{(-1)^n\, n!}{(x+1)^{n+1}}. \] Check with \(n = 2\): \(\dfrac{(-1)^2 \cdot 2!}{(x+1)^3} = \dfrac{2}{(x+1)^3}\), which matches \(h''(x)\).</li>
+</ol>
+<p class="final">Answer: (a) \(f' = 4x^3 - 6x^2 + 5\), \(f'' = 12x^2 - 12x\), \(f''' = 24x - 12\), \(f^{(4)} = 24\), and \(f^{(100)} = 0\). (b) \(g' = -3e^{-3x}\), \(g'' = 9e^{-3x}\), \(g''' = -27e^{-3x}\), \(g^{(4)} = 81e^{-3x}\), and \(g^{(100)} = 3^{100}e^{-3x}\). (c) \(h' = -(x+1)^{-2}\), \(h'' = 2(x+1)^{-3}\), \(h''' = -6(x+1)^{-4}\), \(h^{(4)} = 24(x+1)^{-5}\), and \(h^{(n)}(x) = \dfrac{(-1)^n\, n!}{(x+1)^{n+1}}\).</p></div>
+
+<p>For products, you use the product rule at every step. The trick that keeps the work short is to factor out the common exponential after each step, so the next product rule has simple pieces.</p>
+
+<div class="ex"><div class="et">Worked example 2</div><p class="p">Let \(f(x) = xe^{2x}\). Find \(f'(x)\), \(f''(x)\), and \(f'''(x)\), find \(f''(0)\), and guess a formula for \(f^{(n)}(x)\).</p>
+<ol class="steps">
+<li>First derivative by the product rule. Let \(u = x\) and \(v = e^{2x}\). Then \(u' = 1\), and by the chain rule \(v' = 2e^{2x}\). \[\begin{aligned} f'(x) &= u'v + uv' = 1 \cdot e^{2x} + x \cdot 2e^{2x} \\ &= (2x + 1)e^{2x}. \end{aligned}\]</li>
+<li>Second derivative by the product rule again. Now \(u = 2x + 1\) and \(v = e^{2x}\), so \(u' = 2\) and \(v' = 2e^{2x}\). \[\begin{aligned} f''(x) &= 2e^{2x} + (2x+1) \cdot 2e^{2x} \\ &= (2 + 4x + 2)e^{2x} \\ &= (4x + 4)e^{2x}. \end{aligned}\]</li>
+<li>Third derivative the same way, with \(u = 4x + 4\), \(u' = 4\), \(v = e^{2x}\), \(v' = 2e^{2x}\). \[\begin{aligned} f'''(x) &= 4e^{2x} + (4x+4) \cdot 2e^{2x} \\ &= (4 + 8x + 8)e^{2x} \\ &= (8x + 12)e^{2x}. \end{aligned}\]</li>
+<li>Evaluate the second derivative at 0, using \(e^0 = 1\). \[ f''(0) = (4 \cdot 0 + 4)e^{0} = 4. \]</li>
+<li>Look for the pattern. Write each answer with a factor pulled out: \(f' = 1 \cdot (2x + 1)e^{2x}\), \(f'' = 2(2x + 2)e^{2x}\), \(f''' = 4(2x + 3)e^{2x}\). The front factor doubles each time (\(1, 2, 4\) are \(2^0, 2^1, 2^2\)), and the number added to \(2x\) is the number of derivatives taken. \[ f^{(n)}(x) = 2^{n-1}(2x + n)e^{2x}. \] Check with \(n = 3\): \(2^2(2x + 3)e^{2x} = (8x + 12)e^{2x}\), which matches.</li>
+</ol>
+<p class="final">Answer: \(f'(x) = (2x+1)e^{2x}\), \(f''(x) = (4x+4)e^{2x}\), \(f'''(x) = (8x+12)e^{2x}\), \(f''(0) = 4\), and \(f^{(n)}(x) = 2^{n-1}(2x+n)e^{2x}\).</p></div>
+
+<div class="trap"><b>Common mistake.</b> For a quotient, using the quotient rule twice in a row creates a large numerator, and students often forget to cancel. After the first quotient rule, the denominator is \((\text{bottom})^2\). After the second, it is \((\text{bottom})^4\), and every term in the numerator has a factor of the bottom, so cancel one copy to get \((\text{bottom})^3\). Even better, rewrite first when you can: \(\dfrac{x}{x-3} = \dfrac{(x - 3) + 3}{x-3} = 1 + 3(x-3)^{-1}\), and then only the power rule and chain rule are needed.</div>
+
+<h3>Velocity and acceleration</h3>
+<p>Suppose an object moves along a straight line, and \(s(t)\) is its position at time \(t\). The <b>velocity</b> is \(v(t) = s'(t)\). Its sign tells you the direction: \(v(t) \gt 0\) means \(s\) is increasing, so the object moves in the positive direction, and \(v(t) \lt 0\) means it moves in the negative direction. The <b>speed</b> is \(|v(t)|\), the absolute value of the velocity. It says how fast the object moves, without the direction.</p>
+<p>The <b>acceleration</b> is the rate of change of the velocity: \(a(t) = v'(t) = s''(t)\). Its sign tells you whether the velocity is increasing or decreasing.</p>
+<p>An object is <b>speeding up</b> when its speed \(|v|\) is increasing, and <b>slowing down</b> when its speed is decreasing. The sign of \(a\) alone does not decide this. Suppose \(v = -5\) and then a moment later \(v = -3\). The velocity went up, so \(a \gt 0\), but the speed went from 5 down to 3, so the object slowed down. The rule is to compare the signs of \(v\) and \(a\).</p>
+<table class="t">
+<tr><th>Velocity \(v(t)\)</th><th>Acceleration \(a(t)\)</th><th>Direction of motion</th><th>Speed</th></tr>
+<tr><td>\(v \gt 0\)</td><td>\(a \gt 0\)</td><td>positive</td><td>speeding up</td></tr>
+<tr><td>\(v \gt 0\)</td><td>\(a \lt 0\)</td><td>positive</td><td>slowing down</td></tr>
+<tr><td>\(v \lt 0\)</td><td>\(a \gt 0\)</td><td>negative</td><td>slowing down</td></tr>
+<tr><td>\(v \lt 0\)</td><td>\(a \lt 0\)</td><td>negative</td><td>speeding up</td></tr>
+</table>
+<div class="rule"><div class="rt">Speeding up or slowing down</div><p>When \(v(t)\) and \(a(t)\) have the same sign, the object is speeding up. When they have opposite signs, the object is slowing down.</p></div>
+
+<div class="ex"><div class="et">Worked example 3</div><p class="p">A particle moves along a line so that its position after \(t\) seconds is \(s(t) = t^3 - 6t^2 + 9t\) meters, for \(t \ge 0\). (a) Find the velocity and the acceleration. (b) When is the particle at rest? (c) On which intervals is it speeding up, and on which is it slowing down?</p>
+<ol class="steps">
+<li>Differentiate the position to get the velocity, and differentiate again to get the acceleration. \[\begin{aligned} v(t) &= s'(t) = 3t^2 - 12t + 9 \ \text{m/s} \\ a(t) &= v'(t) = 6t - 12 \ \text{m/s}^2. \end{aligned}\]</li>
+<li>The particle is at rest when the velocity is 0. Factor out 3, then factor the quadratic. \[\begin{aligned} 3t^2 - 12t + 9 &= 0 \\ 3(t^2 - 4t + 3) &= 0 \\ 3(t - 1)(t - 3) &= 0 \end{aligned}\] So \(t = 1\) or \(t = 3\).</li>
+<li>Find where the acceleration is 0. \[ 6t - 12 = 0 \quad\Longrightarrow\quad t = 2. \]</li>
+<li>The numbers \(t = 1, 2, 3\) split \([0, \infty)\) into four intervals. Pick a test time in each and find the signs of \(v(t) = 3(t-1)(t-3)\) and \(a(t) = 6t - 12\).
+<table class="t">
+<tr><th>Interval</th><th>Test \(t\)</th><th>\(v(t)\)</th><th>\(a(t)\)</th><th>Signs</th><th>Conclusion</th></tr>
+<tr><td>\((0, 1)\)</td><td>\(\tfrac{1}{2}\)</td><td>\(3(-\tfrac{1}{2})(-\tfrac{5}{2}) = \tfrac{15}{4}\)</td><td>\(3 - 12 = -9\)</td><td>opposite</td><td>slowing down</td></tr>
+<tr><td>\((1, 2)\)</td><td>\(\tfrac{3}{2}\)</td><td>\(3(\tfrac{1}{2})(-\tfrac{3}{2}) = -\tfrac{9}{4}\)</td><td>\(9 - 12 = -3\)</td><td>same</td><td>speeding up</td></tr>
+<tr><td>\((2, 3)\)</td><td>\(\tfrac{5}{2}\)</td><td>\(3(\tfrac{3}{2})(-\tfrac{1}{2}) = -\tfrac{9}{4}\)</td><td>\(15 - 12 = 3\)</td><td>opposite</td><td>slowing down</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(4\)</td><td>\(3(3)(1) = 9\)</td><td>\(24 - 12 = 12\)</td><td>same</td><td>speeding up</td></tr>
+</table></li>
+<li>Read the table. On \((0,1)\) the particle moves forward while slowing to a stop at \(t = 1\). On \((1, 3)\) it moves backward: it speeds up until \(t = 2\), then slows to a stop at \(t = 3\). After \(t = 3\) it moves forward again and keeps speeding up.</li>
+</ol>
+<p class="final">Answer: \(v(t) = 3t^2 - 12t + 9\) m/s and \(a(t) = 6t - 12\) m/s\(^2\). The particle is at rest at \(t = 1\) and \(t = 3\) seconds. It is speeding up on \((1, 2)\) and \((3, \infty)\), and slowing down on \((0, 1)\) and \((2, 3)\).</p></div>
+
+<h3>Concavity: which way the graph bends</h3>
+<p>Two graphs can both be increasing and still look very different: one curves upward like the inside of a cup, the other curves downward like an upside-down cup. Concavity is the name for this bending. The professor defines it with tangent lines.</p>
+<div class="rule"><div class="rt">Concave up and concave down</div>
+<p>The graph of \(f\) is <b>concave upward</b> on an interval \(I\) if the graph lies above all of its tangent lines on \(I\). The professor writes this as "concave up" or C.U.</p>
+<p>The graph of \(f\) is <b>concave downward</b> on \(I\) if the graph lies below all of its tangent lines on \(I\). This is written "concave down" or C.D.</p></div>
+<div class="plot" data-f="x**2;;2*x-1" data-x="-2,3" data-y="-3,6" data-pts="1,1,tangent point (1, 1)" data-cap="Concave up: y = x^2 (blue) lies above its tangent line y = 2x - 1 (green) at (1, 1)"></div>
+<div class="plot" data-f="4-x**2;;-2*x+5" data-x="-2,3" data-y="-3,6" data-pts="1,3,tangent point (1, 3)" data-cap="Concave down: y = 4 - x^2 (blue) lies below its tangent line y = -2x + 5 (green) at (1, 3)"></div>
+<p>Now look at the slopes. On the concave up graph \(y = x^2\), the tangent lines get steeper as you move right: the slope is \(-4\) at \(x = -2\), \(0\) at \(x = 0\), and \(2\) at \(x = 1\). So the slope \(f'\) is increasing, which means its derivative \(f''\) is positive. On the concave down graph the slopes decrease as you move right, so \(f'' \lt 0\). Running this reasoning backward gives the test you will use every time.</p>
+<div class="rule"><div class="rt">Concavity test</div>
+<p>If \(f''(x) \gt 0\) for all \(x\) in an interval \(I\), then the graph of \(f\) is concave up on \(I\).</p>
+<p>If \(f''(x) \lt 0\) for all \(x\) in an interval \(I\), then the graph of \(f\) is concave down on \(I\).</p></div>
+<p>A straight line is neither concave up nor concave down. Its second derivative is 0 everywhere, and it lies on its own tangent line, so it is neither above nor below it.</p>
+<p>Two standard facts follow right away. For \(y = e^x\), \(y'' = e^x \gt 0\) for every \(x\), so the graph of \(e^x\) is concave up on all of \((-\infty, \infty)\). For \(y = \ln x\), \(y' = \tfrac{1}{x} = x^{-1}\) and \(y'' = -x^{-2} = -\tfrac{1}{x^2} \lt 0\) for every \(x\) in the domain \((0, \infty)\), so the graph of \(\ln x\) is concave down on \((0, \infty)\).</p>
+
+<h3>Inflection points</h3>
+<div class="rule"><div class="rt">Inflection point</div><p>A point \(P = (c, f(c))\) on the graph of \(y = f(x)\) is an <b>inflection point</b> if \(f\) is continuous at \(c\) and the graph changes concavity at \(P\): from concave up to concave down, or from concave down to concave up.</p>
+<p>At an inflection point, \(f''(c) = 0\) or \(f''(c)\) does not exist. If the graph has a tangent line there, the graph crosses that tangent line.</p></div>
+<p>Three things in this definition trip people up.</p>
+<ul>
+<li>An inflection point is a <b>point</b>, so the answer has two coordinates. Find \(c\), then compute \(f(c)\) from the original function \(f\).</li>
+<li>The point must be on the graph. The graph of \(f(x) = \tfrac{1}{x}\) is concave down for \(x \lt 0\) and concave up for \(x \gt 0\), yet it has no inflection point, because \(x = 0\) is not in the domain.</li>
+<li>Solving \(f''(x) = 0\) only gives <b>candidates</b>. The concavity has to actually change. The standard counterexample is \(f(x) = x^4\): here \(f''(x) = 12x^2\), so \(f''(0) = 0\), but \(12x^2 \gt 0\) on both sides of 0. The graph is concave up on both sides, so \((0, 0)\) is not an inflection point.</li>
+</ul>
+<div class="plot" data-f="x**4" data-x="-1.6,1.6" data-y="-1,5" data-pts="0,0,f''(0) = 0 but no inflection" data-cap="y = x^4 is concave up everywhere, even though its second derivative is 0 at x = 0"></div>
+<p>A candidate can also come from \(f''\) being undefined. For \(f(x) = x^{1/3}\), \(f''(x) = -\tfrac{2}{9}x^{-5/3}\) is undefined at \(x = 0\), it is positive for \(x \lt 0\) and negative for \(x \gt 0\), and \(f(0) = 0\) is defined. So \((0, 0)\) is an inflection point even though \(f''(0)\) does not exist.</p>
+
+<div class="recipe"><div class="rt">How to find the intervals of concavity and the inflection points</div><ol>
+<li>Find the domain of \(f\).</li>
+<li>Compute \(f''(x)\) and factor it completely. Write negative powers as fractions so you can see where it is undefined.</li>
+<li>List every \(x\) where \(f''(x) = 0\) or \(f''(x)\) is undefined. Also list any \(x\) not in the domain, since the concavity can change across a gap.</li>
+<li>Mark these numbers on a number line. In each interval between them, pick a test value and find the sign of \(f''\) there.</li>
+<li>Where \(f'' \gt 0\) the graph is concave up, and where \(f'' \lt 0\) it is concave down. Write the answer as open intervals.</li>
+<li>Each listed \(c\) that is in the domain and where the sign of \(f''\) changes gives an inflection point. Compute \(f(c)\) from the original \(f\) and write the point \((c, f(c))\).</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 4</div><p class="p">Find the open intervals where the graph of \(f(x) = x^4 - 2x^3\) is concave up and where it is concave down. Find all inflection points.</p>
+<ol class="steps">
+<li>The function is a polynomial, so its domain is all real numbers. Compute two derivatives with the power rule. \[\begin{aligned} f'(x) &= 4x^3 - 6x^2 \\ f''(x) &= 12x^2 - 12x. \end{aligned}\]</li>
+<li>Factor the second derivative by pulling out the common factor \(12x\). \[ f''(x) = 12x(x - 1). \]</li>
+<li>Find the candidates. A polynomial is defined everywhere, so the only candidates come from \(f''(x) = 0\). \[ 12x(x-1) = 0 \quad\Longrightarrow\quad x = 0 \ \text{or}\ x = 1. \]</li>
+<li>Make a sign chart for \(f''(x) = 12x(x-1)\) using one test value in each interval.
+<table class="t">
+<tr><th>Interval</th><th>Test \(x\)</th><th>\(f''(x) = 12x(x-1)\)</th><th>Sign</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(12(-1)(-2) = 24\)</td><td>\(+\)</td><td>concave up</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(\tfrac{1}{2}\)</td><td>\(12(\tfrac{1}{2})(-\tfrac{1}{2}) = -3\)</td><td>\(-\)</td><td>concave down</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(12(2)(1) = 24\)</td><td>\(+\)</td><td>concave up</td></tr>
+</table></li>
+<li>The sign of \(f''\) changes at both \(x = 0\) and \(x = 1\), and both are in the domain, so both give inflection points. Compute the \(y\)-coordinates from the original function. \[\begin{aligned} f(0) &= 0^4 - 2(0)^3 = 0 \\ f(1) &= 1^4 - 2(1)^3 = 1 - 2 = -1. \end{aligned}\]</li>
+<li>The graph below shows the two inflection points. The local minimum at \(x = \tfrac{3}{2}\) comes from Worked example 5.
+<div class="plot" data-f="x**4-2*x**3" data-x="-1,2.4" data-y="-2.5,3" data-pts="0,0,inflection (0, 0)|1,-1,inflection (1, -1)|1.5,-1.6875,local min (3/2, -27/16)" data-cap="Graph of f(x) = x^4 - 2x^3"></div></li>
+</ol>
+<p class="final">Answer: Concave up on \((-\infty, 0)\) and \((1, \infty)\). Concave down on \((0, 1)\). Inflection points \((0, 0)\) and \((1, -1)\).</p></div>
+
+<div class="say"><b>What to write on the exam.</b> "The graph of \(f\) is concave up on \((1, \infty)\) because \(f''(x) \gt 0\) there." For an inflection point: "\((1, -1)\) is an inflection point because \(f\) is continuous at 1 and \(f''\) changes sign from negative to positive at \(x = 1\)." Show the sign chart; a list of \(x\)-values with no chart does not justify the answer.</div>
+
+<h3>The second derivative test</h3>
+<p>The first derivative test (Section 5.2) decides whether a critical number \(c\) gives a local maximum or minimum by checking whether \(f'\) changes sign at \(c\). The second derivative test does the same job by looking at concavity. Here is the idea. If \(f'(c) = 0\), the tangent line at \(c\) is horizontal. If the graph is concave up near \(c\), it lies above that horizontal tangent line, so \(f(c)\) is lower than the nearby values: a local minimum. If the graph is concave down near \(c\), it lies below the horizontal tangent line, so \(f(c)\) is a local maximum.</p>
+<div class="rule"><div class="rt">Second derivative test</div>
+<p>Suppose that \(f'(c) = 0\) and \(f''\) is continuous near \(c\) (on some open interval containing \(c\)).</p>
+<ul>
+<li>If \(f''(c) \gt 0\), then \(f\) has a local minimum at \(x = c\).</li>
+<li>If \(f''(c) \lt 0\), then \(f\) has a local maximum at \(x = c\).</li>
+<li>If \(f''(c) = 0\), this test is useless: try the first derivative test instead.</li>
+</ul></div>
+<p>A memory aid: concave up holds water like a cup, and the bottom of a cup is a minimum. So positive second derivative goes with minimum.</p>
+<div class="recipe"><div class="rt">How to use the second derivative test</div><ol>
+<li>Compute \(f'(x)\) and solve \(f'(x) = 0\) to get the critical numbers \(c\) where the tangent is horizontal.</li>
+<li>Compute \(f''(x)\).</li>
+<li>Substitute each critical number into \(f''\) and find the sign of \(f''(c)\).</li>
+<li>If \(f''(c) \gt 0\), write "local minimum at \(x = c\)". If \(f''(c) \lt 0\), write "local maximum at \(x = c\)".</li>
+<li>If \(f''(c) = 0\), say the test is inconclusive and use the first derivative test at that \(c\): check the sign of \(f'\) just to the left and just to the right of \(c\).</li>
+<li>Critical numbers where \(f'(c)\) does not exist are outside this test. Use the first derivative test for them too.</li>
+<li>Give the local extreme values by computing \(f(c)\) from the original function.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 5</div><p class="p">Find the local extrema of \(f(x) = x^4 - 2x^3\). Use the second derivative test whenever it gives an answer.</p>
+<ol class="steps">
+<li>Find the critical numbers. Factor \(f'\) by pulling out \(2x^2\). \[\begin{aligned} f'(x) &= 4x^3 - 6x^2 \\ &= 2x^2(2x - 3). \end{aligned}\] Setting this equal to 0 gives \(x = 0\) or \(x = \tfrac{3}{2}\). The derivative is a polynomial, so it exists everywhere and there are no other critical numbers.</li>
+<li>From Worked example 4, the second derivative is \[ f''(x) = 12x^2 - 12x = 12x(x-1). \]</li>
+<li>Test \(x = \tfrac{3}{2}\). \[ f''\!\left(\tfrac{3}{2}\right) = 12\left(\tfrac{3}{2}\right)\left(\tfrac{3}{2} - 1\right) = 12 \cdot \tfrac{3}{2} \cdot \tfrac{1}{2} = 9 \gt 0. \] By the second derivative test, \(f\) has a local minimum at \(x = \tfrac{3}{2}\). Its value is \[\begin{aligned} f\!\left(\tfrac{3}{2}\right) &= \tfrac{81}{16} - 2 \cdot \tfrac{27}{8} \\ &= \tfrac{81}{16} - \tfrac{108}{16} = -\tfrac{27}{16}. \end{aligned}\]</li>
+<li>Test \(x = 0\). \[ f''(0) = 12(0)(0 - 1) = 0. \] The second derivative test is inconclusive at \(x = 0\), so switch to the first derivative test.</li>
+<li>Check the sign of \(f'(x) = 2x^2(2x - 3)\) on each side of 0, using test values \(-1\) and \(1\). \[\begin{aligned} f'(-1) &= 2(1)(-2 - 3) = -10 \lt 0 \\ f'(1) &= 2(1)(2 - 3) = -2 \lt 0. \end{aligned}\] The factor \(2x^2\) is never negative and \(2x - 3\) is negative for all \(x\) near 0, so \(f'\) is negative on both sides of 0. Since \(f'\) does not change sign at 0, there is no local extremum at \(x = 0\). The graph in Worked example 4 shows a flat point there, which is also an inflection point.</li>
+</ol>
+<p class="final">Answer: Local minimum value \(f\!\left(\tfrac{3}{2}\right) = -\tfrac{27}{16}\) at \(x = \tfrac{3}{2}\). There is no local maximum, and there is no local extremum at the critical number \(x = 0\).</p></div>
+
+<div class="trap"><b>Common mistake.</b> Reading "\(f''(c) = 0\)" as "no extremum at \(c\)". The test only says it cannot decide. All three functions \(x^4\), \(-x^4\), and \(x^3\) have \(f'(0) = 0\) and \(f''(0) = 0\), yet \(x^4\) has a local minimum at 0, \(-x^4\) has a local maximum at 0, and \(x^3\) has neither. You must go back to the first derivative test.</div>
+<div class="say"><b>What to write on the exam.</b> "Since \(f'(\tfrac{3}{2}) = 0\) and \(f''(\tfrac{3}{2}) = 9 \gt 0\), by the second derivative test \(f\) has a local minimum at \(x = \tfrac{3}{2}\)." When the test fails: "\(f''(0) = 0\), so the second derivative test is inconclusive. By the first derivative test, \(f'\) is negative on both sides of 0, so \(f\) has no local extremum at 0."</div>
+
+<h3>How many inflection points can a polynomial have</h3>
+<p>The lecture notes ask two questions of this kind. The first is about cubics. If \(f(x) = ax^3 + bx^2 + cx + d\) with \(a \ne 0\), then \(f''(x) = 6ax + 2b\), a line with nonzero slope. It has exactly one zero, \(x = -\tfrac{b}{3a}\), and a line with nonzero slope changes sign at its zero. So the graph of every cubic has exactly one inflection point. The second question, about degree 4, is less obvious than it looks.</p>
+
+<div class="ex"><div class="et">Worked example 6</div><p class="p">How many inflection points can the graph of a polynomial of degree 4 have? Give an example of each possibility.</p>
+<ol class="steps">
+<li>Write a general quartic and take two derivatives. Let \(f(x) = ax^4 + bx^3 + cx^2 + dx + e\) with \(a \ne 0\). \[\begin{aligned} f'(x) &= 4ax^3 + 3bx^2 + 2cx + d \\ f''(x) &= 12ax^2 + 6bx + 2c. \end{aligned}\] So \(f''\) is a quadratic with leading coefficient \(12a \ne 0\). Inflection points can only happen where \(f''\) changes sign, and a polynomial changes sign only at its roots.</li>
+<li>Case 1: \(f''\) has two different real roots \(r_1 \lt r_2\). Then \(f''(x) = 12a(x - r_1)(x - r_2)\). As \(x\) passes \(r_1\), the factor \(x - r_1\) changes sign and the factor \(x - r_2\) does not, so \(f''\) changes sign at \(r_1\). The same happens at \(r_2\). This gives exactly 2 inflection points.</li>
+<li>Case 2: \(f''\) has one repeated root \(r\) (a double root). Then \(f''(x) = 12a(x - r)^2\). The square \((x - r)^2\) is positive on both sides of \(r\), so \(f''\) has the sign of \(a\) on both sides. The concavity does not change, so there are 0 inflection points, even though \(f''(r) = 0\).</li>
+<li>Case 3: \(f''\) has no real roots. Then \(f''\) is never 0, and since it is continuous it can never switch sign. There are 0 inflection points.</li>
+<li>A quadratic has at most two real roots, so there can never be 3 or more. And the only way to get exactly one root is the double root of Case 2, which gives no sign change, so there can never be exactly 1.</li>
+<li>Example with two: \(f(x) = x^4 - 6x^2\). Here \(f''(x) = 12x^2 - 12 = 12(x-1)(x+1)\), which changes sign at \(x = \pm 1\), and \(f(\pm 1) = 1 - 6 = -5\). The inflection points are \((-1, -5)\) and \((1, -5)\).
+<div class="plot" data-f="x**4-6*x**2" data-x="-3,3" data-y="-11,6" data-pts="-1,-5,inflection (-1, -5)|1,-5,inflection (1, -5)" data-cap="Graph of f(x) = x^4 - 6x^2: two inflection points"></div></li>
+<li>Example with none because \(f''\) has no roots: \(f(x) = x^4 + 3x^2\). Here \(f''(x) = 12x^2 + 6 \ge 6 \gt 0\) for every \(x\), so the graph is concave up everywhere.</li>
+<li>Example with none even though \(f'' = 0\) somewhere: \(f(x) = x^4 - 4x^3 + 6x^2\). Here \[\begin{aligned} f''(x) &= 12x^2 - 24x + 12 \\ &= 12(x^2 - 2x + 1) \\ &= 12(x-1)^2. \end{aligned}\] So \(f''(1) = 0\), but \(f'' \gt 0\) on both sides of 1. The graph is concave up everywhere, and \((1, f(1)) = (1, 3)\) is not an inflection point.
+<div class="plot" data-f="x**4-4*x**3+6*x**2" data-x="-0.8,2.6" data-y="-1,12" data-pts="1,3,f''(1) = 0 but no inflection" data-cap="Graph of f(x) = x^4 - 4x^3 + 6x^2: concave up everywhere"></div></li>
+</ol>
+<p class="final">Answer: A degree 4 polynomial has either 0 or 2 inflection points, never 1 and never 3 or more, because \(f''\) is a quadratic and a double root of \(f''\) does not produce a sign change. Examples: \(x^4 - 6x^2\) has 2, while \(x^4 + 3x^2\) and \(x^4 - 4x^3 + 6x^2\) have 0.</p></div>
+
+<h3>Reading concavity from a graph of \(f\) or of \(f'\)</h3>
+<p>On a graph of \(f\) itself, look at the bending. A cup shape (like the bottom of a valley) is concave up, a cap shape (like the top of a hill) is concave down, and the inflection points are where the bending switches. Near a local minimum the graph is usually concave up, and near a local maximum it is usually concave down.</p>
+<p>When you are given the graph of the derivative \(f'\) instead, you have to read it differently, because \(f''\) is the slope of that graph.</p>
+<table class="t">
+<tr><th>What you see on the graph of \(f'\)</th><th>What it says about \(f\)</th></tr>
+<tr><td>the graph of \(f'\) is above the \(x\)-axis</td><td>\(f\) is increasing</td></tr>
+<tr><td>the graph of \(f'\) is below the \(x\)-axis</td><td>\(f\) is decreasing</td></tr>
+<tr><td>\(f'\) crosses the \(x\)-axis from above to below</td><td>\(f\) has a local maximum</td></tr>
+<tr><td>\(f'\) crosses the \(x\)-axis from below to above</td><td>\(f\) has a local minimum</td></tr>
+<tr><td>the graph of \(f'\) is rising</td><td>\(f'' \gt 0\), so \(f\) is concave up</td></tr>
+<tr><td>the graph of \(f'\) is falling</td><td>\(f'' \lt 0\), so \(f\) is concave down</td></tr>
+<tr><td>\(f'\) has a local maximum or local minimum</td><td>\(f\) has an inflection point there</td></tr>
+</table>
+<p>For example, suppose the graph below is the graph of \(f'\), the derivative of some function \(f\). The graph of \(f'\) is above the axis for \(x \lt 1\) and \(x \gt 3\) and below it on \((1, 3)\), so \(f\) increases, then decreases, then increases, with a local maximum at \(x = 1\) and a local minimum at \(x = 3\). The graph of \(f'\) falls until \(x = 2\) and rises after, so \(f\) is concave down on \((-\infty, 2)\), concave up on \((2, \infty)\), and has an inflection point at \(x = 2\). Notice that the inflection point of \(f\) is at the lowest point of the graph of \(f'\), which is not where \(f'\) crosses the axis.</p>
+<div class="plot" data-f="x**2-4*x+3" data-x="-0.5,4.5" data-y="-2,4" data-pts="1,0,f' crosses 0: max of f|3,0,f' crosses 0: min of f|2,-1,lowest point of f': inflection of f" data-cap="This is the graph of y = f'(x) = x^2 - 4x + 3, not of f"></div>
+<div class="trap"><b>Common mistake.</b> Reading a graph of \(f'\) as if it were a graph of \(f\). Before you answer, check the label on the axis or in the caption. Zeros of \(f'\) give candidates for extrema of \(f\), and turning points of \(f'\) give inflection points of \(f\).</div>
+
+<h3>The point of diminishing returns</h3>
+<p>Suppose \(R(x)\) is the revenue earned when \(x\) dollars are spent on advertising (or on investment or production). Often the graph of \(R\) is concave up at first and concave down later. The inflection point \((c, R(c))\) where the concavity changes from up to down is called the <b>point of diminishing returns</b>.</p>
+<p>For \(x \lt c\) the graph is concave up, so \(R'\) is increasing: each additional dollar spent brings in more extra revenue than the dollar before. For \(x \gt c\) the graph is concave down, so \(R'\) is decreasing: revenue still grows, but each additional dollar brings in less than the one before. The slope \(R'\) is largest at \(x = c\).</p>
+
+<div class="ex"><div class="et">Worked example 7</div><p class="p">A company's revenue is \(R(x) = -x^3 + 30x^2 + 100x\) thousand dollars when it spends \(x\) thousand dollars on advertising, for \(0 \le x \le 20\). Find the point of diminishing returns.</p>
+<ol class="steps">
+<li>The point of diminishing returns is the inflection point where the graph changes from concave up to concave down, so compute two derivatives. \[\begin{aligned} R'(x) &= -3x^2 + 60x + 100 \\ R''(x) &= -6x + 60. \end{aligned}\]</li>
+<li>Solve \(R''(x) = 0\). \[ -6x + 60 = 0 \quad\Longrightarrow\quad x = 10. \]</li>
+<li>Check that the concavity really changes from up to down at 10, using test values 5 and 15. \[\begin{aligned} R''(5) &= -30 + 60 = 30 \gt 0 \quad \text{(concave up on } (0, 10)) \\ R''(15) &= -90 + 60 = -30 \lt 0 \quad \text{(concave down on } (10, 20)). \end{aligned}\]</li>
+<li>Compute the revenue at \(x = 10\). \[\begin{aligned} R(10) &= -(10)^3 + 30(10)^2 + 100(10) \\ &= -1000 + 3000 + 1000 = 3000. \end{aligned}\]</li>
+<li>For interpretation, the marginal revenue there is \(R'(10) = -300 + 600 + 100 = 400\), the largest value of \(R'\) on \([0, 20]\).
+<div class="plot" data-f="-x**3+30*x**2+100*x" data-x="0,20" data-y="0,6500" data-pts="10,3000,diminishing returns (10, 3000)" data-cap="Revenue R(x) = -x^3 + 30x^2 + 100x (thousands of dollars)"></div></li>
+</ol>
+<p class="final">Answer: The point of diminishing returns is \((10, 3000)\). After \$10,000 is spent on advertising (revenue \$3,000,000), each additional advertising dollar brings in less extra revenue than the one before.</p></div>
+
+<h3>More common mistakes</h3>
+<div class="trap"><b>Common mistake.</b> Mixing up increasing and concave up. A function can be increasing and concave down (like \(\ln x\)), or decreasing and concave up (like \(e^{-x}\)). Increasing and decreasing come from the sign of \(f'\). Concavity comes from the sign of \(f''\).</div>
+<div class="trap"><b>Common mistake.</b> Forgetting the places where \(f''\) is undefined. With fractional powers, such as \(f''(x) = \dfrac{10(x+1)}{9x^{4/3}}\), the denominator is 0 at \(x = 0\), and that number must go on the sign chart along with \(x = -1\).</div>
+<div class="trap"><b>Common mistake.</b> Computing the \(y\)-coordinate of an inflection point by plugging \(c\) into \(f''\) or \(f'\). Plugging into \(f''\) always gives 0 and tells you nothing. The point is \((c, f(c))\), using the original function.</div>
+<div class="trap"><b>Common mistake.</b> Saying an object speeds up because \(a \gt 0\). Speeding up means \(v\) and \(a\) have the same sign. If \(v \lt 0\) and \(a \gt 0\), the object is slowing down.</div>
+<div class="trap"><b>Common mistake.</b> Writing \(f^4(x)\) or \(f^{4}\) for the fourth derivative. Use \(f^{(4)}(x)\) with parentheses.</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>\(f''\) is the derivative of \(f'\). Notation: \(f''(x)\), \(\dfrac{d^2y}{dx^2}\), \(f'''(x)\), \(f^{(4)}(x)\), \(f^{(n)}(x)\).</li>
+<li>Each derivative of a degree \(m\) polynomial lowers the degree by one, so \(f^{(m)}\) is a constant and \(f^{(m+1)} = 0\).</li>
+<li>Patterns: the \(n\)th derivative of \(e^{kx}\) is \(k^n e^{kx}\), and the \(n\)th derivative of \((x + b)^{-1}\) is \(\dfrac{(-1)^n n!}{(x+b)^{n+1}}\).</li>
+<li>\(v(t) = s'(t)\), \(a(t) = v'(t) = s''(t)\), speed \(= |v(t)|\). Same signs of \(v\) and \(a\) means speeding up, opposite signs means slowing down.</li>
+<li>Concave up: graph above its tangent lines, \(f'\) increasing, \(f'' \gt 0\). Concave down: graph below its tangent lines, \(f'\) decreasing, \(f'' \lt 0\).</li>
+<li>Inflection point: a point \((c, f(c))\) on the graph, with \(f\) continuous at \(c\), where the concavity changes. \(f''(c) = 0\) is not enough (\(x^4\) at 0).</li>
+<li>Second derivative test: if \(f'(c) = 0\) and \(f''(c) \gt 0\), local min. If \(f'(c) = 0\) and \(f''(c) \lt 0\), local max. If \(f''(c) = 0\), use the first derivative test.</li>
+<li>A cubic always has exactly one inflection point. A quartic has 0 or 2.</li>
+<li>Point of diminishing returns: the inflection point of a revenue curve where the concavity changes from up to down. It is where \(R'\) is largest.</li>
+<li>\(e^x\) is concave up on \((-\infty, \infty)\), and \(\ln x\) is concave down on \((0, \infty)\).</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u06-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = 4x^3 - 5x^2 + 7x - 2\). Find \(f''(x)\), and decide whether the graph of \(f\) is concave up or concave down at \(x = 1\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate once with the power rule, term by term. \[ f'(x) = 12x^2 - 10x + 7. \]</li>
+<li>Differentiate again to get the second derivative. The constant 7 has derivative 0. \[ f''(x) = 24x - 10. \]</li>
+<li>Substitute \(x = 1\) and look at the sign. \[ f''(1) = 24(1) - 10 = 14 \gt 0. \] A positive second derivative means the graph is concave up there, by the concavity test.</li>
+</ol><p class="final">Answer: \(f''(x) = 24x - 10\). Since \(f''(1) = 14 \gt 0\), the graph is concave up at \(x = 1\).</p></div></details></div>
+
+<div class="q" id="u06-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Let \(y = \sqrt{x}\). Find \(\dfrac{d^2y}{dx^2}\), and evaluate it at \(x = 4\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write the square root as a power so the power rule applies. \[ y = x^{1/2}. \]</li>
+<li>First derivative: bring down \(\tfrac{1}{2}\) and subtract 1 from the exponent. \[ \frac{dy}{dx} = \tfrac{1}{2}x^{1/2 - 1} = \tfrac{1}{2}x^{-1/2}. \]</li>
+<li>Second derivative: bring down \(-\tfrac{1}{2}\) and subtract 1 again. \[\begin{aligned} \frac{d^2y}{dx^2} &= \tfrac{1}{2} \cdot \left(-\tfrac{1}{2}\right)x^{-1/2 - 1} \\ &= -\tfrac{1}{4}x^{-3/2} = -\frac{1}{4x^{3/2}}. \end{aligned}\]</li>
+<li>Substitute \(x = 4\). Since \(4^{3/2} = (\sqrt{4})^3 = 2^3 = 8\), \[ \frac{d^2y}{dx^2}\bigg|_{x=4} = -\frac{1}{4 \cdot 8} = -\frac{1}{32}. \]</li>
+</ol><p class="final">Answer: \(\dfrac{d^2y}{dx^2} = -\dfrac{1}{4x^{3/2}}\), and at \(x = 4\) its value is \(-\tfrac{1}{32}\).</p></div></details></div>
+
+<div class="q" id="u06-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = e^{-2x}\). Find \(f'(x)\), \(f''(x)\), \(f'''(x)\), and \(f^{(4)}(x)\), then write a formula for \(f^{(n)}(x)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>By the chain rule, the derivative of \(e^{-2x}\) is \(e^{-2x}\) times the derivative of the exponent, which is \(-2\). Each derivative multiplies by another \(-2\). \[\begin{aligned} f'(x) &= -2e^{-2x} \\ f''(x) &= (-2)(-2)e^{-2x} = 4e^{-2x} \\ f'''(x) &= 4(-2)e^{-2x} = -8e^{-2x} \\ f^{(4)}(x) &= -8(-2)e^{-2x} = 16e^{-2x}. \end{aligned}\]</li>
+<li>The coefficients are \(-2, 4, -8, 16\), which are \((-2)^1, (-2)^2, (-2)^3, (-2)^4\). After \(n\) derivatives there are \(n\) factors of \(-2\). \[ f^{(n)}(x) = (-2)^n e^{-2x}. \]</li>
+</ol><p class="final">Answer: \(f' = -2e^{-2x}\), \(f'' = 4e^{-2x}\), \(f''' = -8e^{-2x}\), \(f^{(4)} = 16e^{-2x}\), and \(f^{(n)}(x) = (-2)^n e^{-2x}\).</p></div></details></div>
+
+<div class="q" id="u06-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">The graph of a function \(f\) is shown below. Using only the picture, give the open intervals where \(f\) is concave up and concave down, and the inflection point.
+<div class="plot" data-f="-x**3+3*x**2+1" data-x="-1.5,3.5" data-y="-3,7" data-pts="0,1,(0, 1)|2,5,(2, 5)|1,3,(1, 3)" data-cap="Graph of y = f(x)"></div></div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Look at the left part of the graph, up to the point \((1, 3)\). It bends like a cup, with its low point at \((0, 1)\), and the tangent lines lie below the curve. So the graph is concave up on \((-\infty, 1)\).</li>
+<li>Look at the right part, after \((1, 3)\). It bends like an upside-down cup, with its high point at \((2, 5)\), and the tangent lines lie above the curve. So the graph is concave down on \((1, \infty)\).</li>
+<li>The bending switches from up to down at \((1, 3)\), and that point is on the graph, so it is the inflection point. The points \((0, 1)\) and \((2, 5)\) are a local minimum and a local maximum, which are a different thing.</li>
+<li>Check with the formula behind the picture, \(f(x) = -x^3 + 3x^2 + 1\): \(f''(x) = -6x + 6\), which is positive for \(x \lt 1\) and negative for \(x \gt 1\), and \(f(1) = -1 + 3 + 1 = 3\).</li>
+</ol><p class="final">Answer: Concave up on \((-\infty, 1)\), concave down on \((1, \infty)\), and the inflection point is \((1, 3)\).</p></div></details></div>
+
+<div class="q" id="u06-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = 2x^3 - 6x\). Find the critical numbers and use the second derivative test to classify each one.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the critical numbers by solving \(f'(x) = 0\). \[\begin{aligned} f'(x) &= 6x^2 - 6 = 6(x^2 - 1) \\ &= 6(x - 1)(x + 1) = 0. \end{aligned}\] So \(x = 1\) or \(x = -1\). Since \(f'\) is a polynomial, there are no other critical numbers.</li>
+<li>Compute the second derivative. \[ f''(x) = 12x. \]</li>
+<li>Test \(x = 1\): \(f''(1) = 12 \gt 0\), so by the second derivative test \(f\) has a local minimum at \(x = 1\). Its value is \(f(1) = 2 - 6 = -4\).</li>
+<li>Test \(x = -1\): \(f''(-1) = -12 \lt 0\), so by the second derivative test \(f\) has a local maximum at \(x = -1\). Its value is \(f(-1) = 2(-1) - 6(-1) = -2 + 6 = 4\).</li>
+</ol><p class="final">Answer: Local maximum \(f(-1) = 4\) at \(x = -1\), and local minimum \(f(1) = -4\) at \(x = 1\).</p></div></details></div>
+
+<div class="q" id="u06-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">An object moves along a line with position \(s(t) = 2t^3 - 9t^2 + 4\) feet after \(t\) seconds. Find its velocity and acceleration at \(t = 2\), and say whether it is speeding up or slowing down at that moment.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Velocity is the derivative of position, and acceleration is the derivative of velocity. \[\begin{aligned} v(t) &= s'(t) = 6t^2 - 18t \\ a(t) &= v'(t) = 12t - 18. \end{aligned}\]</li>
+<li>Substitute \(t = 2\). \[\begin{aligned} v(2) &= 6(4) - 18(2) = 24 - 36 = -12 \ \text{ft/s} \\ a(2) &= 12(2) - 18 = 24 - 18 = 6 \ \text{ft/s}^2. \end{aligned}\]</li>
+<li>Compare signs. The velocity is negative and the acceleration is positive. Opposite signs mean the speed is decreasing, so the object is slowing down. (It is moving in the negative direction at 12 ft/s, and the positive acceleration is pulling the velocity up toward 0.)</li>
+</ol><p class="final">Answer: \(v(2) = -12\) ft/s and \(a(2) = 6\) ft/s\(^2\). They have opposite signs, so the object is slowing down at \(t = 2\).</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u06-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Find the open intervals where the graph of \(f(x) = x^4 - 6x^2 + 4x\) is concave up and concave down, and find all inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The domain is all real numbers because \(f\) is a polynomial. Differentiate twice with the power rule. \[\begin{aligned} f'(x) &= 4x^3 - 12x + 4 \\ f''(x) &= 12x^2 - 12. \end{aligned}\]</li>
+<li>Factor the second derivative: pull out 12, then use the difference of squares. \[ f''(x) = 12(x^2 - 1) = 12(x - 1)(x + 1). \]</li>
+<li>Solve \(f''(x) = 0\) to get the candidates \(x = -1\) and \(x = 1\). There are no numbers where \(f''\) is undefined.</li>
+<li>Make a sign chart for \(f''\).
+<table class="t">
+<tr><th>Interval</th><th>Test \(x\)</th><th>\(f''(x) = 12(x-1)(x+1)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-2\)</td><td>\(12(-3)(-1) = 36 \gt 0\)</td><td>concave up</td></tr>
+<tr><td>\((-1, 1)\)</td><td>\(0\)</td><td>\(12(-1)(1) = -12 \lt 0\)</td><td>concave down</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(12(1)(3) = 36 \gt 0\)</td><td>concave up</td></tr>
+</table></li>
+<li>The sign of \(f''\) changes at \(x = -1\) and at \(x = 1\), so both give inflection points. Find the \(y\)-coordinates from \(f\). \[\begin{aligned} f(-1) &= 1 - 6 - 4 = -9 \\ f(1) &= 1 - 6 + 4 = -1. \end{aligned}\]
+<div class="plot" data-f="x**4-6*x**2+4*x" data-x="-3,3" data-y="-20,15" data-pts="-1,-9,inflection (-1, -9)|1,-1,inflection (1, -1)" data-cap="Graph of f(x) = x^4 - 6x^2 + 4x"></div></li>
+</ol><p class="final">Answer: Concave up on \((-\infty, -1)\) and \((1, \infty)\). Concave down on \((-1, 1)\). Inflection points \((-1, -9)\) and \((1, -1)\).</p></div></details></div>
+
+<div class="q" id="u06-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Find the open intervals where the graph of \(f(x) = \dfrac{12}{x^2 + 3}\) is concave up and concave down, and find all inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The denominator \(x^2 + 3\) is at least 3, so it is never 0 and the domain is all real numbers. Rewrite \(f\) as a power to avoid the quotient rule. \[ f(x) = 12(x^2 + 3)^{-1}. \]</li>
+<li>First derivative by the chain rule (the inside \(x^2 + 3\) has derivative \(2x\)). \[\begin{aligned} f'(x) &= 12 \cdot (-1)(x^2+3)^{-2} \cdot 2x \\ &= -24x(x^2+3)^{-2}. \end{aligned}\]</li>
+<li>Second derivative by the product rule. Let \(u = -24x\) and \(v = (x^2+3)^{-2}\). Then \(u' = -24\), and by the chain rule \(v' = -2(x^2+3)^{-3} \cdot 2x = -4x(x^2+3)^{-3}\). \[\begin{aligned} f''(x) &= u'v + uv' \\ &= -24(x^2+3)^{-2} + (-24x)(-4x)(x^2+3)^{-3} \\ &= -24(x^2+3)^{-2} + 96x^2(x^2+3)^{-3}. \end{aligned}\]</li>
+<li>Factor out the smallest power, \((x^2+3)^{-3}\). Taking it out of \((x^2+3)^{-2}\) leaves one factor of \((x^2+3)\). \[\begin{aligned} f''(x) &= (x^2+3)^{-3}\left[-24(x^2+3) + 96x^2\right] \\ &= (x^2+3)^{-3}\left[-24x^2 - 72 + 96x^2\right] \\ &= \frac{72x^2 - 72}{(x^2+3)^3} = \frac{72(x-1)(x+1)}{(x^2+3)^3}. \end{aligned}\]</li>
+<li>The denominator \((x^2+3)^3\) is always positive, so \(f''\) is never undefined and its sign is the sign of \(72(x-1)(x+1)\). It is 0 at \(x = -1\) and \(x = 1\).
+<table class="t">
+<tr><th>Interval</th><th>Test \(x\)</th><th>Sign of \(72(x-1)(x+1)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-2\)</td><td>\(72(-3)(-1) = 216 \gt 0\)</td><td>concave up</td></tr>
+<tr><td>\((-1, 1)\)</td><td>\(0\)</td><td>\(72(-1)(1) = -72 \lt 0\)</td><td>concave down</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(72(1)(3) = 216 \gt 0\)</td><td>concave up</td></tr>
+</table></li>
+<li>The sign changes at both \(x = -1\) and \(x = 1\). Compute the \(y\)-coordinates. \[ f(-1) = \frac{12}{1 + 3} = 3, \qquad f(1) = \frac{12}{1 + 3} = 3. \]
+<div class="plot" data-f="12/(x**2+3)" data-x="-5,5" data-y="-0.5,5" data-pts="-1,3,inflection (-1, 3)|1,3,inflection (1, 3)|0,4,max (0, 4)" data-h="0" data-cap="Graph of f(x) = 12/(x^2 + 3)"></div></li>
+</ol><p class="final">Answer: Concave up on \((-\infty, -1)\) and \((1, \infty)\). Concave down on \((-1, 1)\). Inflection points \((-1, 3)\) and \((1, 3)\).</p></div></details></div>
+
+<div class="q" id="u06-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = xe^{-x}\). Find \(f''(x)\), the open intervals where the graph is concave up and concave down, and the inflection point.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>First derivative by the product rule. Let \(u = x\) and \(v = e^{-x}\). Then \(u' = 1\), and by the chain rule \(v' = -e^{-x}\). \[\begin{aligned} f'(x) &= 1 \cdot e^{-x} + x(-e^{-x}) \\ &= (1 - x)e^{-x}. \end{aligned}\]</li>
+<li>Second derivative by the product rule again, with \(u = 1 - x\), \(u' = -1\), \(v = e^{-x}\), \(v' = -e^{-x}\). \[\begin{aligned} f''(x) &= (-1)e^{-x} + (1 - x)(-e^{-x}) \\ &= (-1 - 1 + x)e^{-x} \\ &= (x - 2)e^{-x}. \end{aligned}\]</li>
+<li>The factor \(e^{-x}\) is positive for every \(x\), so the sign of \(f''\) is the sign of \(x - 2\). That is negative for \(x \lt 2\) and positive for \(x \gt 2\). For example, \(f''(0) = -2 \lt 0\) and \(f''(3) = e^{-3} \gt 0\).</li>
+<li>The concavity changes from down to up at \(x = 2\), so there is an inflection point there. Its \(y\)-coordinate is \[ f(2) = 2e^{-2} = \frac{2}{e^2}. \]
+<div class="plot" data-f="x*Math.exp(-x)" data-x="-1,7" data-y="-1,0.6" data-pts="1,0.36787944117,max (1, 1/e)|2,0.27067056647,inflection (2, 2/e^2)" data-cap="Graph of f(x) = x e^(-x)"></div></li>
+</ol><p class="final">Answer: \(f''(x) = (x - 2)e^{-x}\). Concave down on \((-\infty, 2)\), concave up on \((2, \infty)\). Inflection point \(\left(2, \tfrac{2}{e^2}\right)\).</p></div></details></div>
+
+<div class="q" id="u06-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Find the open intervals where the graph of \(f(x) = \ln(x^2 + 4)\) is concave up and concave down, and find all inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Since \(x^2 + 4 \gt 0\) for every \(x\), the domain is all real numbers. First derivative by the chain rule for \(\ln\): the derivative of \(\ln g(x)\) is \(\dfrac{g'(x)}{g(x)}\). \[ f'(x) = \frac{2x}{x^2 + 4}. \]</li>
+<li>Second derivative by the quotient rule. Let the top be \(u = 2x\) and the bottom \(v = x^2 + 4\), so \(u' = 2\) and \(v' = 2x\). \[\begin{aligned} f''(x) &= \frac{u'v - uv'}{v^2} = \frac{2(x^2 + 4) - 2x \cdot 2x}{(x^2 + 4)^2} \\ &= \frac{2x^2 + 8 - 4x^2}{(x^2+4)^2} \\ &= \frac{8 - 2x^2}{(x^2+4)^2} = \frac{2(2 - x)(2 + x)}{(x^2+4)^2}. \end{aligned}\]</li>
+<li>The denominator is always positive, so \(f''\) is defined everywhere and has the sign of \(8 - 2x^2\). It is 0 when \(x^2 = 4\), that is \(x = -2\) or \(x = 2\).
+<table class="t">
+<tr><th>Interval</th><th>Test \(x\)</th><th>\(8 - 2x^2\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>\(-3\)</td><td>\(8 - 18 = -10 \lt 0\)</td><td>concave down</td></tr>
+<tr><td>\((-2, 2)\)</td><td>\(0\)</td><td>\(8 \gt 0\)</td><td>concave up</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(3\)</td><td>\(8 - 18 = -10 \lt 0\)</td><td>concave down</td></tr>
+</table></li>
+<li>The concavity changes at both \(x = -2\) and \(x = 2\). The \(y\)-coordinates are \[ f(\pm 2) = \ln(4 + 4) = \ln 8. \]
+<div class="plot" data-f="Math.log(x**2+4)" data-x="-7,7" data-y="0,4.5" data-pts="-2,2.0794415417,inflection (-2, ln 8)|2,2.0794415417,inflection (2, ln 8)|0,1.3862943611,min (0, ln 4)" data-cap="Graph of f(x) = ln(x^2 + 4)"></div></li>
+</ol><p class="final">Answer: Concave down on \((-\infty, -2)\) and \((2, \infty)\). Concave up on \((-2, 2)\). Inflection points \((-2, \ln 8)\) and \((2, \ln 8)\).</p></div></details></div>
+
+<div class="q" id="u06-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{x}{x - 3}\). (a) Find \(f'(x)\) with the quotient rule. (b) Find \(f''(x)\), \(f'''(x)\), and \(f^{(4)}(x)\), and give a formula for \(f^{(n)}(x)\). (c) Find the intervals of concavity. Does the graph have an inflection point?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>For (a), use the quotient rule with top \(u = x\) and bottom \(v = x - 3\), so \(u' = 1\) and \(v' = 1\). \[\begin{aligned} f'(x) &= \frac{u'v - uv'}{v^2} = \frac{1 \cdot (x - 3) - x \cdot 1}{(x-3)^2} \\ &= \frac{-3}{(x-3)^2}. \end{aligned}\]</li>
+<li>For (b), write \(f'\) as a power so each later derivative is the power rule with the chain rule (the inside \(x - 3\) has derivative 1). \[ f'(x) = -3(x-3)^{-2}. \]</li>
+<li>Differentiate three more times. \[\begin{aligned} f''(x) &= -3 \cdot (-2)(x-3)^{-3} = 6(x-3)^{-3} \\ f'''(x) &= 6 \cdot (-3)(x-3)^{-4} = -18(x-3)^{-4} \\ f^{(4)}(x) &= -18 \cdot (-4)(x-3)^{-5} = 72(x-3)^{-5}. \end{aligned}\]</li>
+<li>Find the pattern. The coefficients are \(-3, 6, -18, 72\). Divide each by 3 to get \(-1, 2, -6, 24\), which are the factorials \(1!, 2!, 3!, 4!\) with signs that alternate, starting negative. So the \(n\)th coefficient is \((-1)^n \cdot 3 \cdot n!\), and the exponent is \(-(n+1)\). \[ f^{(n)}(x) = \frac{(-1)^n \cdot 3 \cdot n!}{(x - 3)^{n+1}}. \] Check with \(n = 3\): \(\dfrac{(-1)^3 \cdot 3 \cdot 6}{(x-3)^4} = \dfrac{-18}{(x-3)^4}\), which matches.</li>
+<li>For (c), the domain is all \(x \ne 3\), and \(f''(x) = \dfrac{6}{(x-3)^3}\) is never 0. The only number to put on the sign chart is \(x = 3\), where \(f\) is undefined. For \(x \gt 3\), \((x-3)^3 \gt 0\) so \(f'' \gt 0\). For \(x \lt 3\), \((x-3)^3 \lt 0\) so \(f'' \lt 0\). For instance \(f''(4) = 6\) and \(f''(2) = -6\).</li>
+<li>The concavity does change across \(x = 3\), but 3 is not in the domain, so there is no point \((3, f(3))\) on the graph. There is no inflection point.</li>
+</ol><p class="final">Answer: (a) \(f'(x) = \dfrac{-3}{(x-3)^2}\). (b) \(f''(x) = \dfrac{6}{(x-3)^3}\), \(f'''(x) = \dfrac{-18}{(x-3)^4}\), \(f^{(4)}(x) = \dfrac{72}{(x-3)^5}\), and \(f^{(n)}(x) = \dfrac{(-1)^n \cdot 3 \cdot n!}{(x-3)^{n+1}}\). (c) Concave down on \((-\infty, 3)\), concave up on \((3, \infty)\), and no inflection point because \(x = 3\) is not in the domain.</p></div></details></div>
+
+<div class="q" id="u06-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">A particle moves along a line with position \(s(t) = t^3 - 9t^2 + 24t\) meters after \(t\) seconds, for \(t \ge 0\). (a) Find \(v(t)\) and \(a(t)\). (b) Find the intervals where the particle is speeding up and where it is slowing down. (c) Find the total distance the particle travels from \(t = 0\) to \(t = 4\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>For (a), differentiate the position once and then again. \[\begin{aligned} v(t) &= s'(t) = 3t^2 - 18t + 24 \ \text{m/s} \\ a(t) &= v'(t) = 6t - 18 \ \text{m/s}^2. \end{aligned}\]</li>
+<li>Factor the velocity to find when it is 0. \[ v(t) = 3(t^2 - 6t + 8) = 3(t - 2)(t - 4). \] So \(v = 0\) at \(t = 2\) and \(t = 4\). The acceleration \(6t - 18\) is 0 at \(t = 3\).</li>
+<li>For (b), the times 2, 3, 4 split \([0, \infty)\) into four intervals. Test each one.
+<table class="t">
+<tr><th>Interval</th><th>Test \(t\)</th><th>\(v(t) = 3(t-2)(t-4)\)</th><th>\(a(t) = 6t - 18\)</th><th>Conclusion</th></tr>
+<tr><td>\((0, 2)\)</td><td>\(1\)</td><td>\(3(-1)(-3) = 9 \gt 0\)</td><td>\(-12 \lt 0\)</td><td>opposite signs: slowing down</td></tr>
+<tr><td>\((2, 3)\)</td><td>\(\tfrac{5}{2}\)</td><td>\(3(\tfrac{1}{2})(-\tfrac{3}{2}) = -\tfrac{9}{4} \lt 0\)</td><td>\(-3 \lt 0\)</td><td>same signs: speeding up</td></tr>
+<tr><td>\((3, 4)\)</td><td>\(\tfrac{7}{2}\)</td><td>\(3(\tfrac{3}{2})(-\tfrac{1}{2}) = -\tfrac{9}{4} \lt 0\)</td><td>\(3 \gt 0\)</td><td>opposite signs: slowing down</td></tr>
+<tr><td>\((4, \infty)\)</td><td>\(5\)</td><td>\(3(3)(1) = 9 \gt 0\)</td><td>\(12 \gt 0\)</td><td>same signs: speeding up</td></tr>
+</table></li>
+<li>For (c), the particle changes direction at \(t = 2\), so add the distance on each piece separately. Compute the positions. \[\begin{aligned} s(0) &= 0 \\ s(2) &= 8 - 36 + 48 = 20 \\ s(4) &= 64 - 144 + 96 = 16. \end{aligned}\]</li>
+<li>From \(t = 0\) to \(t = 2\) it moves forward \(20 - 0 = 20\) m. From \(t = 2\) to \(t = 4\) it moves backward \(|16 - 20| = 4\) m. The total distance is \(20 + 4 = 24\) m. (The change in position, \(s(4) - s(0) = 16\), is smaller because of the backward part.)</li>
+</ol><p class="final">Answer: (a) \(v(t) = 3t^2 - 18t + 24\) m/s and \(a(t) = 6t - 18\) m/s\(^2\). (b) Speeding up on \((2, 3)\) and \((4, \infty)\), slowing down on \((0, 2)\) and \((3, 4)\). (c) The particle travels 24 meters.</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u06-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^{5/3} - 5x^{2/3}\). (a) Find the open intervals where the graph is concave up and concave down, and find all inflection points. (b) Find and classify the local extrema, using the second derivative test where it applies.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The powers \(x^{5/3}\) and \(x^{2/3}\) are cube roots raised to a power, so they are defined for every real \(x\). The domain is all real numbers. Differentiate with the power rule. \[ f'(x) = \tfrac{5}{3}x^{2/3} - \tfrac{10}{3}x^{-1/3}. \]</li>
+<li>Differentiate again. For the second term, \(-\tfrac{10}{3} \cdot \left(-\tfrac{1}{3}\right) = \tfrac{10}{9}\) and the exponent becomes \(-\tfrac{4}{3}\). \[ f''(x) = \tfrac{10}{9}x^{-1/3} + \tfrac{10}{9}x^{-4/3}. \]</li>
+<li>Factor out the smallest power, \(\tfrac{10}{9}x^{-4/3}\). Since \(x^{-1/3} = x^{-4/3} \cdot x\), what is left is \(x + 1\). \[ f''(x) = \tfrac{10}{9}x^{-4/3}(x + 1) = \frac{10(x + 1)}{9x^{4/3}}. \]</li>
+<li>Find the candidates. The numerator is 0 at \(x = -1\). The denominator is 0 at \(x = 0\), so \(f''(0)\) is undefined, while \(f(0) = 0\) is defined. Also \(x^{4/3} = \left(x^{1/3}\right)^4 \gt 0\) for every \(x \ne 0\), so the denominator never affects the sign.</li>
+<li>Sign chart for \(f''\). The test values \(-8\), \(-\tfrac{1}{8}\), and \(1\) are chosen because their cube roots are easy: \((-8)^{4/3} = (-2)^4 = 16\) and \(\left(-\tfrac{1}{8}\right)^{4/3} = \left(-\tfrac{1}{2}\right)^4 = \tfrac{1}{16}\).
+<table class="t">
+<tr><th>Interval</th><th>Test \(x\)</th><th>\(f''(x) = \dfrac{10(x+1)}{9x^{4/3}}\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-8\)</td><td>\(\dfrac{10(-7)}{9 \cdot 16} = -\dfrac{35}{72} \lt 0\)</td><td>concave down</td></tr>
+<tr><td>\((-1, 0)\)</td><td>\(-\tfrac{1}{8}\)</td><td>\(\dfrac{10 \cdot \tfrac{7}{8}}{9 \cdot \tfrac{1}{16}} = \dfrac{35}{4} \cdot \dfrac{16}{9} = \dfrac{140}{9} \gt 0\)</td><td>concave up</td></tr>
+<tr><td>\((0, \infty)\)</td><td>\(1\)</td><td>\(\dfrac{10(2)}{9 \cdot 1} = \dfrac{20}{9} \gt 0\)</td><td>concave up</td></tr>
+</table></li>
+<li>The concavity changes at \(x = -1\), so there is an inflection point there. Using \((-1)^{1/3} = -1\): \[ f(-1) = (-1)^5 - 5(-1)^2 = -1 - 5 = -6. \] At \(x = 0\), \(f''\) is undefined but positive on both sides, so the concavity does not change and \((0, 0)\) is not an inflection point.</li>
+<li>For (b), factor \(f'\) to find the critical numbers. Pull out \(\tfrac{5}{3}x^{-1/3}\), using \(x^{2/3} = x^{-1/3} \cdot x\). \[ f'(x) = \tfrac{5}{3}x^{-1/3}(x - 2) = \frac{5(x - 2)}{3x^{1/3}}. \] So \(f'(2) = 0\), and \(f'(0)\) is undefined. Both \(x = 0\) and \(x = 2\) are critical numbers.</li>
+<li>Second derivative test at \(x = 2\). The numerator of \(f''(2)\) is \(10 \cdot 3 = 30 \gt 0\) and the denominator \(9 \cdot 2^{4/3}\) is positive, so \(f''(2) \gt 0\) and \(f\) has a local minimum at \(x = 2\). Its value, using \(2^{5/3} = 2 \cdot 2^{2/3}\), is \[\begin{aligned} f(2) &= 2^{5/3} - 5 \cdot 2^{2/3} = 2 \cdot 2^{2/3} - 5 \cdot 2^{2/3} \\ &= -3 \cdot 2^{2/3} = -3\sqrt[3]{4}. \end{aligned}\]</li>
+<li>At \(x = 0\) the second derivative test does not apply, because \(f'(0)\) does not exist (the test requires \(f'(c) = 0\)). Use the first derivative test with test values \(-1\) and \(1\). \[\begin{aligned} f'(-1) &= \frac{5(-3)}{3(-1)} = 5 \gt 0 \\ f'(1) &= \frac{5(-1)}{3(1)} = -\tfrac{5}{3} \lt 0. \end{aligned}\] Since \(f'\) changes from positive to negative at 0, \(f\) has a local maximum \(f(0) = 0\) there.
+<div class="plot" data-f="Math.cbrt(x)**5-5*Math.cbrt(x)**2" data-x="-3,6" data-y="-9,2" data-pts="-1,-6,inflection (-1, -6)|0,0,local max (0, 0)|2,-4.7622031559,local min (2, -3 cbrt 4)" data-cap="Graph of f(x) = x^(5/3) - 5x^(2/3)"></div></li>
+</ol><p class="final">Answer: (a) Concave down on \((-\infty, -1)\), concave up on \((-1, 0)\) and \((0, \infty)\). The only inflection point is \((-1, -6)\). (b) Local maximum \(f(0) = 0\) at \(x = 0\) (by the first derivative test) and local minimum \(f(2) = -3\sqrt[3]{4}\) at \(x = 2\) (by the second derivative test).</p></div></details></div>
+
+<div class="q" id="u06-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^2e^x\). (a) Find the local extrema, using the second derivative test. (b) Find the open intervals of concavity and the \(x\)-coordinates of the inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>First derivative by the product rule. Let \(u = x^2\) and \(v = e^x\), so \(u' = 2x\) and \(v' = e^x\). \[\begin{aligned} f'(x) &= 2xe^x + x^2e^x \\ &= (x^2 + 2x)e^x = x(x + 2)e^x. \end{aligned}\]</li>
+<li>Find the critical numbers. Since \(e^x \gt 0\) for every \(x\), \(f'(x) = 0\) exactly when \(x(x+2) = 0\), so \(x = 0\) or \(x = -2\).</li>
+<li>Second derivative by the product rule. Now \(u = x^2 + 2x\) with \(u' = 2x + 2\), and \(v = e^x\) with \(v' = e^x\). \[\begin{aligned} f''(x) &= (2x + 2)e^x + (x^2 + 2x)e^x \\ &= (x^2 + 4x + 2)e^x. \end{aligned}\]</li>
+<li>Test \(x = 0\). \[ f''(0) = (0 + 0 + 2)e^0 = 2 \gt 0, \] so by the second derivative test \(f\) has a local minimum at \(x = 0\), with value \(f(0) = 0\).</li>
+<li>Test \(x = -2\). \[ f''(-2) = (4 - 8 + 2)e^{-2} = -2e^{-2} \lt 0, \] so \(f\) has a local maximum at \(x = -2\), with value \(f(-2) = 4e^{-2} = \dfrac{4}{e^2}\).</li>
+<li>For (b), the sign of \(f''\) is the sign of \(x^2 + 4x + 2\), since \(e^x \gt 0\). Solve \(x^2 + 4x + 2 = 0\) with the quadratic formula. \[ x = \frac{-4 \pm \sqrt{16 - 8}}{2} = \frac{-4 \pm 2\sqrt{2}}{2} = -2 \pm \sqrt{2}. \]</li>
+<li>Sign chart. Note \(-2 - \sqrt{2} \approx -3.4\) and \(-2 + \sqrt{2} \approx -0.6\), so the test values \(-4\), \(-2\), \(0\) land in the three intervals.
+<table class="t">
+<tr><th>Interval</th><th>Test \(x\)</th><th>\(x^2 + 4x + 2\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -2 - \sqrt{2})\)</td><td>\(-4\)</td><td>\(16 - 16 + 2 = 2 \gt 0\)</td><td>concave up</td></tr>
+<tr><td>\((-2 - \sqrt{2}, -2 + \sqrt{2})\)</td><td>\(-2\)</td><td>\(4 - 8 + 2 = -2 \lt 0\)</td><td>concave down</td></tr>
+<tr><td>\((-2 + \sqrt{2}, \infty)\)</td><td>\(0\)</td><td>\(2 \gt 0\)</td><td>concave up</td></tr>
+</table></li>
+<li>The concavity changes at both roots, so both are \(x\)-coordinates of inflection points.
+<div class="plot" data-f="x**2*Math.exp(x)" data-x="-6,1.2" data-y="-0.3,1.6" data-pts="-2,0.541341132946,local max (-2, 4/e^2)|0,0,local min (0, 0)|-3.41421356237,0.383536990513,inflection|-0.585786437627,0.191018226057,inflection" data-cap="Graph of f(x) = x^2 e^x"></div></li>
+</ol><p class="final">Answer: (a) Local maximum \(f(-2) = \dfrac{4}{e^2}\) at \(x = -2\), and local minimum \(f(0) = 0\) at \(x = 0\). (b) Concave up on \((-\infty, -2 - \sqrt{2})\) and \((-2 + \sqrt{2}, \infty)\), concave down on \((-2 - \sqrt{2}, -2 + \sqrt{2})\). The inflection points are at \(x = -2 - \sqrt{2}\) and \(x = -2 + \sqrt{2}\).</p></div></details></div>
+
+<div class="q" id="u06-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">A small business finds that when it spends \(x\) thousand dollars on online ads, its revenue is \(R(x) = -\tfrac{1}{3}x^3 + 6x^2 + 20x\) thousand dollars, for \(0 \le x \le 12\). (a) Find the point of diminishing returns. (b) Find the marginal revenue \(R'(x)\) at that point, and show that it is the largest value of \(R'\) on \([0, 12]\). (c) Explain in a sentence what the point means for the business.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Define the quantities. \(x\) is the ad spending in thousands of dollars, and \(R(x)\) is the revenue in thousands of dollars. The point of diminishing returns is the inflection point where the graph of \(R\) changes from concave up to concave down. Compute the derivatives. \[\begin{aligned} R'(x) &= -x^2 + 12x + 20 \\ R''(x) &= -2x + 12. \end{aligned}\]</li>
+<li>Solve \(R''(x) = 0\). \[ -2x + 12 = 0 \quad\Longrightarrow\quad x = 6. \]</li>
+<li>Check the sign change with test values 0 and 12. \[\begin{aligned} R''(0) &= 12 \gt 0 \quad \text{(concave up on } (0, 6)) \\ R''(12) &= -24 + 12 = -12 \lt 0 \quad \text{(concave down on } (6, 12)). \end{aligned}\] So the concavity changes from up to down at \(x = 6\).</li>
+<li>Compute the revenue at \(x = 6\). \[\begin{aligned} R(6) &= -\tfrac{1}{3}(216) + 6(36) + 20(6) \\ &= -72 + 216 + 120 = 264. \end{aligned}\] The point of diminishing returns is \((6, 264)\).</li>
+<li>For (b), the marginal revenue at \(x = 6\) is \[ R'(6) = -36 + 72 + 20 = 56. \]</li>
+<li>To show this is the largest value of \(R'\), treat \(R'\) as the function to maximize. Its derivative is \(R''\), which is 0 only at \(x = 6\). Apply the second derivative test to \(R'\): the derivative of \(R''\) is \(R'''(x) = -2 \lt 0\), so \(R'\) has a local maximum at 6. Compare with the endpoints, as in the closed interval method: \[ R'(0) = 20, \qquad R'(6) = 56, \qquad R'(12) = -144 + 144 + 20 = 20. \] The largest of these is 56, so \(R'\) is largest at \(x = 6\).
+<div class="plot" data-f="-x**3/3+6*x**2+20*x" data-x="0,12" data-y="0,600" data-pts="6,264,diminishing returns (6, 264)" data-cap="Revenue R(x) = -x^3/3 + 6x^2 + 20x (thousands of dollars)"></div></li>
+<li>For (c), interpret. Up to \$6,000 of ad spending, each extra dollar brings in more extra revenue than the dollar before. After \$6,000, revenue keeps rising, since \(R'(x) \gt 0\) on \([0, 12]\), but each extra dollar brings in less than the one before.</li>
+</ol><p class="final">Answer: (a) The point of diminishing returns is \((6, 264)\): \$6,000 of ads gives \$264,000 of revenue. (b) \(R'(6) = 56\), meaning about \$56 of extra revenue per extra dollar of ads, and this is the largest marginal revenue on \([0, 12]\). (c) Beyond \$6,000 of ad spending, each additional dollar still raises revenue but by less and less.</p></div></details></div>
+
+<div class="q" id="u06-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">The graph below is the graph of the <b>derivative</b> \(f'\) of a function \(f\) that is defined for all real numbers. Using the graph, answer: (a) Where is \(f\) increasing and where is it decreasing? (b) At which \(x\) does \(f\) have a local maximum or local minimum? (c) Where is the graph of \(f\) concave up and where is it concave down? (d) At which \(x\) does \(f\) have inflection points?
+<div class="plot" data-f="x**3-6*x**2+9*x" data-x="-1,4.5" data-y="-6,8" data-pts="0,0,(0, 0)|1,4,(1, 4)|3,0,(3, 0)" data-cap="Graph of y = f'(x), the derivative of f"></div></div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>For (a), read the sign of \(f'\) from where the graph sits relative to the \(x\)-axis. The graph is below the axis for \(x \lt 0\), so \(f' \lt 0\) and \(f\) is decreasing on \((-\infty, 0)\). It is above the axis on \((0, 3)\) and on \((3, \infty)\), touching the axis only at \(x = 3\), so \(f\) is increasing on \((0, 3)\) and \((3, \infty)\).</li>
+<li>For (b), use the first derivative test. At \(x = 0\), \(f'\) changes from negative to positive, so \(f\) has a local minimum at \(x = 0\). At \(x = 3\), \(f'(3) = 0\) but the graph only touches the axis and stays above it on both sides, so \(f'\) does not change sign and there is no local extremum at \(x = 3\).</li>
+<li>For (c), the slope of the graph of \(f'\) is \(f''\). The graph of \(f'\) rises on \((-\infty, 1)\), falls on \((1, 3)\), and rises again on \((3, \infty)\). Where \(f'\) rises, \(f'' \gt 0\) and \(f\) is concave up. Where \(f'\) falls, \(f'' \lt 0\) and \(f\) is concave down.</li>
+<li>For (d), the concavity of \(f\) changes where \(f'\) switches between rising and falling, which is at the local maximum of \(f'\) at \(x = 1\) and the local minimum of \(f'\) at \(x = 3\). So \(f\) has inflection points at \(x = 1\) and \(x = 3\). At \(x = 3\) the graph of \(f\) has a horizontal tangent and is an inflection point at the same time, like \(y = x^3\) at 0.</li>
+<li>Check with the formula behind the picture, \(f'(x) = x^3 - 6x^2 + 9x = x(x - 3)^2\). Then \(f''(x) = 3x^2 - 12x + 9 = 3(x - 1)(x - 3)\), which is positive on \((-\infty, 1)\), negative on \((1, 3)\), and positive on \((3, \infty)\), agreeing with (c) and (d).</li>
+</ol><p class="final">Answer: (a) \(f\) is decreasing on \((-\infty, 0)\) and increasing on \((0, 3)\) and \((3, \infty)\). (b) Local minimum at \(x = 0\), and no local extremum at \(x = 3\) (and no local maximum anywhere). (c) Concave up on \((-\infty, 1)\) and \((3, \infty)\), concave down on \((1, 3)\). (d) Inflection points at \(x = 1\) and \(x = 3\).</p></div></details></div>
+
+<div class="q" id="u06-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \sin x + \cos x\) on the open interval \((0, 2\pi)\). (a) Find the local extrema using the second derivative test. (b) Find the open intervals of concavity and the inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate twice, using \(\dfrac{d}{dx}\sin x = \cos x\) and \(\dfrac{d}{dx}\cos x = -\sin x\). \[\begin{aligned} f'(x) &= \cos x - \sin x \\ f''(x) &= -\sin x - \cos x = -(\sin x + \cos x). \end{aligned}\] Notice that \(f''(x) = -f(x)\).</li>
+<li>Critical numbers: solve \(\cos x - \sin x = 0\), that is \(\sin x = \cos x\). At a solution \(\cos x \ne 0\) (if \(\cos x = 0\) then \(\sin x = \pm 1\), not equal), so divide by \(\cos x\) to get \(\tan x = 1\). In \((0, 2\pi)\) this gives \(x = \tfrac{\pi}{4}\) and \(x = \tfrac{5\pi}{4}\).</li>
+<li>Test \(x = \tfrac{\pi}{4}\), where \(\sin\tfrac{\pi}{4} = \cos\tfrac{\pi}{4} = \tfrac{\sqrt{2}}{2}\). \[ f''\!\left(\tfrac{\pi}{4}\right) = -\left(\tfrac{\sqrt{2}}{2} + \tfrac{\sqrt{2}}{2}\right) = -\sqrt{2} \lt 0, \] so there is a local maximum, with value \(f\!\left(\tfrac{\pi}{4}\right) = \sqrt{2}\).</li>
+<li>Test \(x = \tfrac{5\pi}{4}\), where \(\sin\tfrac{5\pi}{4} = \cos\tfrac{5\pi}{4} = -\tfrac{\sqrt{2}}{2}\). \[ f''\!\left(\tfrac{5\pi}{4}\right) = -\left(-\tfrac{\sqrt{2}}{2} - \tfrac{\sqrt{2}}{2}\right) = \sqrt{2} \gt 0, \] so there is a local minimum, with value \(f\!\left(\tfrac{5\pi}{4}\right) = -\sqrt{2}\).</li>
+<li>For (b), solve \(f''(x) = 0\), which means \(\sin x = -\cos x\). As before \(\cos x \ne 0\) at a solution, so \(\tan x = -1\). In \((0, 2\pi)\) this gives \(x = \tfrac{3\pi}{4}\) and \(x = \tfrac{7\pi}{4}\).</li>
+<li>Sign chart for \(f''(x) = -(\sin x + \cos x)\), with test values whose sine and cosine you know.
+<table class="t">
+<tr><th>Interval</th><th>Test \(x\)</th><th>\(-(\sin x + \cos x)\)</th><th>Concavity</th></tr>
+<tr><td>\((0, \tfrac{3\pi}{4})\)</td><td>\(\tfrac{\pi}{2}\)</td><td>\(-(1 + 0) = -1 \lt 0\)</td><td>concave down</td></tr>
+<tr><td>\((\tfrac{3\pi}{4}, \tfrac{7\pi}{4})\)</td><td>\(\pi\)</td><td>\(-(0 - 1) = 1 \gt 0\)</td><td>concave up</td></tr>
+<tr><td>\((\tfrac{7\pi}{4}, 2\pi)\)</td><td>\(\tfrac{11\pi}{6}\)</td><td>\(-\left(-\tfrac{1}{2} + \tfrac{\sqrt{3}}{2}\right) = \tfrac{1 - \sqrt{3}}{2} \lt 0\)</td><td>concave down</td></tr>
+</table></li>
+<li>The concavity changes at both numbers. The \(y\)-coordinates are \[\begin{aligned} f\!\left(\tfrac{3\pi}{4}\right) &= \tfrac{\sqrt{2}}{2} + \left(-\tfrac{\sqrt{2}}{2}\right) = 0 \\ f\!\left(\tfrac{7\pi}{4}\right) &= -\tfrac{\sqrt{2}}{2} + \tfrac{\sqrt{2}}{2} = 0. \end{aligned}\]
+<div class="plot" data-f="Math.sin(x)+Math.cos(x)" data-x="0,6.283185307" data-y="-2,2" data-pts="0.785398163397,1.41421356237,max (pi/4, sqrt 2)|3.92699081699,-1.41421356237,min (5pi/4, -sqrt 2)|2.35619449019,0,inflection (3pi/4, 0)|5.49778714378,0,inflection (7pi/4, 0)" data-cap="Graph of f(x) = sin x + cos x on (0, 2 pi)"></div></li>
+</ol><p class="final">Answer: (a) Local maximum \(f\!\left(\tfrac{\pi}{4}\right) = \sqrt{2}\) and local minimum \(f\!\left(\tfrac{5\pi}{4}\right) = -\sqrt{2}\). (b) Concave down on \(\left(0, \tfrac{3\pi}{4}\right)\) and \(\left(\tfrac{7\pi}{4}, 2\pi\right)\), concave up on \(\left(\tfrac{3\pi}{4}, \tfrac{7\pi}{4}\right)\). Inflection points \(\left(\tfrac{3\pi}{4}, 0\right)\) and \(\left(\tfrac{7\pi}{4}, 0\right)\).</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u06-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Draw a rough sketch of the graph of \(f(x) = 2x^3 - 3x^2 - 12x + 4\). Use the second derivative test to classify the local extrema, and label all local extrema and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The domain is all real numbers. Compute the first derivative and factor it. \[\begin{aligned} f'(x) &= 6x^2 - 6x - 12 \\ &= 6(x^2 - x - 2) \\ &= 6(x - 2)(x + 1). \end{aligned}\] Setting \(f'(x) = 0\) gives the critical numbers \(x = -1\) and \(x = 2\).</li>
+<li>Compute the second derivative. \[ f''(x) = 12x - 6. \]</li>
+<li>Second derivative test at \(x = -1\): \(f''(-1) = -12 - 6 = -18 \lt 0\), so \(f\) has a local maximum at \(x = -1\). Its value is \[ f(-1) = 2(-1) - 3(1) - 12(-1) + 4 = -2 - 3 + 12 + 4 = 11. \]</li>
+<li>Second derivative test at \(x = 2\): \(f''(2) = 24 - 6 = 18 \gt 0\), so \(f\) has a local minimum at \(x = 2\). Its value is \[ f(2) = 2(8) - 3(4) - 12(2) + 4 = 16 - 12 - 24 + 4 = -16. \]</li>
+<li>Increasing and decreasing, for the sketch. Test the sign of \(f'(x) = 6(x-2)(x+1)\): \(f'(-2) = 6(-4)(-1) = 24 \gt 0\), \(f'(0) = 6(-2)(1) = -12 \lt 0\), \(f'(3) = 6(1)(4) = 24 \gt 0\). So \(f\) increases on \((-\infty, -1)\), decreases on \((-1, 2)\), and increases on \((2, \infty)\).</li>
+<li>Concavity. \(f''(x) = 12x - 6 = 0\) gives \(x = \tfrac{1}{2}\). For \(x \lt \tfrac{1}{2}\), say \(x = 0\), \(f''(0) = -6 \lt 0\), so the graph is concave down on \((-\infty, \tfrac{1}{2})\). For \(x \gt \tfrac{1}{2}\), say \(x = 1\), \(f''(1) = 6 \gt 0\), so it is concave up on \((\tfrac{1}{2}, \infty)\).</li>
+<li>The concavity changes at \(x = \tfrac{1}{2}\), so there is an inflection point there. \[\begin{aligned} f\!\left(\tfrac{1}{2}\right) &= 2 \cdot \tfrac{1}{8} - 3 \cdot \tfrac{1}{4} - 12 \cdot \tfrac{1}{2} + 4 \\ &= \tfrac{1}{4} - \tfrac{3}{4} - 6 + 4 = -\tfrac{5}{2}. \end{aligned}\] As a check, \(-\tfrac{5}{2}\) is the average of the local max value 11 and the local min value \(-16\), which always happens for a cubic.</li>
+<li>Other features for the sketch: the \(y\)-intercept is \(f(0) = 4\). The leading term \(2x^3\) controls the ends, so \(f(x) \to \infty\) as \(x \to \infty\) and \(f(x) \to -\infty\) as \(x \to -\infty\). Plot the three labeled points and join them with the shapes found above.
+<div class="plot" data-f="2*x**3-3*x**2-12*x+4" data-x="-3,4" data-y="-22,16" data-pts="-1,11,local max (-1, 11)|2,-16,local min (2, -16)|0.5,-2.5,inflection (1/2, -5/2)|0,4,y-intercept (0, 4)" data-cap="Graph of f(x) = 2x^3 - 3x^2 - 12x + 4"></div></li>
+</ol><p class="final">Answer: Local maximum \((-1, 11)\) and local minimum \((2, -16)\), both by the second derivative test. Inflection point \(\left(\tfrac{1}{2}, -\tfrac{5}{2}\right)\). The graph rises to \((-1, 11)\), falls to \((2, -16)\), then rises, and is concave down on \((-\infty, \tfrac{1}{2})\) and concave up on \((\tfrac{1}{2}, \infty)\).</p></div></details></div>
+
+<div class="q" id="u06-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = xe^{-x^2/2}\). (a) Find \(f'(x)\) and \(f''(x)\). (b) Find the local extrema and classify them with the second derivative test. (c) Find the intervals of concavity and the coordinates of all inflection points. (d) Find \(\displaystyle\lim_{x \to \infty} f(x)\) and \(\displaystyle\lim_{x \to -\infty} f(x)\), and sketch the graph with the extrema and inflection points labeled.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>For (a), use the product rule. Let \(u = x\) and \(v = e^{-x^2/2}\). Then \(u' = 1\), and by the chain rule \(v' = e^{-x^2/2} \cdot \left(-\tfrac{2x}{2}\right) = -xe^{-x^2/2}\). \[\begin{aligned} f'(x) &= 1 \cdot e^{-x^2/2} + x\left(-xe^{-x^2/2}\right) \\ &= (1 - x^2)e^{-x^2/2}. \end{aligned}\]</li>
+<li>Product rule again, with \(u = 1 - x^2\), \(u' = -2x\), \(v = e^{-x^2/2}\), \(v' = -xe^{-x^2/2}\). \[\begin{aligned} f''(x) &= -2xe^{-x^2/2} + (1 - x^2)\left(-xe^{-x^2/2}\right) \\ &= \left(-2x - x + x^3\right)e^{-x^2/2} \\ &= (x^3 - 3x)e^{-x^2/2} = x(x^2 - 3)e^{-x^2/2}. \end{aligned}\]</li>
+<li>For (b), since \(e^{-x^2/2} \gt 0\), \(f'(x) = 0\) exactly when \(1 - x^2 = 0\), so the critical numbers are \(x = 1\) and \(x = -1\).</li>
+<li>Test \(x = 1\). \[ f''(1) = 1(1 - 3)e^{-1/2} = -2e^{-1/2} \lt 0, \] so \(f\) has a local maximum at \(x = 1\), with value \(f(1) = e^{-1/2} = \dfrac{1}{\sqrt{e}}\).</li>
+<li>Test \(x = -1\). \[ f''(-1) = (-1)(1 - 3)e^{-1/2} = 2e^{-1/2} \gt 0, \] so \(f\) has a local minimum at \(x = -1\), with value \(f(-1) = -e^{-1/2} = -\dfrac{1}{\sqrt{e}}\).</li>
+<li>For (c), the sign of \(f''\) is the sign of \(x(x^2 - 3) = x(x - \sqrt{3})(x + \sqrt{3})\). It is 0 at \(x = -\sqrt{3}, 0, \sqrt{3}\) and is defined everywhere.
+<table class="t">
+<tr><th>Interval</th><th>Test \(x\)</th><th>\(x(x^2 - 3)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -\sqrt{3})\)</td><td>\(-2\)</td><td>\(-2(4 - 3) = -2 \lt 0\)</td><td>concave down</td></tr>
+<tr><td>\((-\sqrt{3}, 0)\)</td><td>\(-1\)</td><td>\(-1(1 - 3) = 2 \gt 0\)</td><td>concave up</td></tr>
+<tr><td>\((0, \sqrt{3})\)</td><td>\(1\)</td><td>\(1(1 - 3) = -2 \lt 0\)</td><td>concave down</td></tr>
+<tr><td>\((\sqrt{3}, \infty)\)</td><td>\(2\)</td><td>\(2(4 - 3) = 2 \gt 0\)</td><td>concave up</td></tr>
+</table></li>
+<li>The concavity changes at all three numbers, so there are three inflection points. Compute the \(y\)-coordinates. \[\begin{aligned} f(0) &= 0 \cdot e^0 = 0 \\ f(\sqrt{3}) &= \sqrt{3}\,e^{-3/2} \\ f(-\sqrt{3}) &= -\sqrt{3}\,e^{-3/2}. \end{aligned}\]</li>
+<li>For (d), write \(f(x) = \dfrac{x}{e^{x^2/2}}\). As \(x \to \infty\), the top and bottom both go to \(\infty\), so L'Hospital's rule applies. Differentiate the top and the bottom separately. \[ \lim_{x \to \infty} \frac{x}{e^{x^2/2}} = \lim_{x \to \infty} \frac{1}{xe^{x^2/2}} = 0, \] because the new denominator goes to \(\infty\). As \(x \to -\infty\), the top goes to \(-\infty\) and the bottom to \(\infty\), and the same computation gives 0. So the \(x\)-axis is a horizontal asymptote on both sides.</li>
+<li>Sketch: the graph comes in from the left just below the \(x\)-axis, falls to the minimum \((-1, -\tfrac{1}{\sqrt{e}})\), rises through the inflection point at the origin to the maximum \((1, \tfrac{1}{\sqrt{e}})\), then falls back toward the \(x\)-axis. The outer inflection points are where the tails flatten out.
+<div class="plot" data-f="x*Math.exp(-x*x/2)" data-x="-4.5,4.5" data-y="-0.9,0.9" data-h="0" data-pts="1,0.606530659713,max (1, 1/sqrt e)|-1,-0.606530659713,min (-1, -1/sqrt e)|0,0,inflection (0, 0)|1.73205080757,0.386472774078,inflection|-1.73205080757,-0.386472774078,inflection" data-cap="Graph of f(x) = x e^(-x^2/2)"></div></li>
+</ol><p class="final">Answer: (a) \(f'(x) = (1 - x^2)e^{-x^2/2}\) and \(f''(x) = (x^3 - 3x)e^{-x^2/2}\). (b) Local maximum \(f(1) = \tfrac{1}{\sqrt{e}}\) and local minimum \(f(-1) = -\tfrac{1}{\sqrt{e}}\). (c) Concave down on \((-\infty, -\sqrt{3})\) and \((0, \sqrt{3})\), concave up on \((-\sqrt{3}, 0)\) and \((\sqrt{3}, \infty)\). Inflection points \((-\sqrt{3}, -\sqrt{3}e^{-3/2})\), \((0, 0)\), and \((\sqrt{3}, \sqrt{3}e^{-3/2})\). (d) Both limits are 0.</p></div></details></div>
+
+<div class="q" id="u06-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">(a) Let \(f(x) = x^4 + 8x^3 + 24x^2 - 5x\). Show that \(f''(-2) = 0\), but the graph of \(f\) has no inflection points. (b) Let \(g(x) = x^4 + cx^2\), where \(c\) is a constant. For which values of \(c\) does the graph of \(g\) have exactly two inflection points, and for which values does it have none? (c) Find the inflection points of \(g\) when \(c = -24\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>For (a), differentiate twice with the power rule. \[\begin{aligned} f'(x) &= 4x^3 + 24x^2 + 48x - 5 \\ f''(x) &= 12x^2 + 48x + 48. \end{aligned}\]</li>
+<li>Factor \(f''\). Pull out 12, then recognize a perfect square. \[\begin{aligned} f''(x) &= 12(x^2 + 4x + 4) \\ &= 12(x + 2)^2. \end{aligned}\] So \(f''(-2) = 12(0)^2 = 0\).</li>
+<li>Check the sign on each side of \(-2\). The square \((x + 2)^2\) is positive for every \(x \ne -2\), so \(f''(x) \gt 0\) on \((-\infty, -2)\) and on \((-2, \infty)\). For example \(f''(-3) = 12\) and \(f''(0) = 48\). The graph is concave up on both sides, so the concavity never changes. Since \(x = -2\) was the only candidate, the graph has no inflection points.</li>
+<li>For (b), differentiate \(g\) twice. \[\begin{aligned} g'(x) &= 4x^3 + 2cx \\ g''(x) &= 12x^2 + 2c. \end{aligned}\]</li>
+<li>Case \(c \lt 0\). Solve \(12x^2 + 2c = 0\): \(x^2 = -\tfrac{c}{6}\), and \(-\tfrac{c}{6} \gt 0\), so there are two roots \(x = \pm\sqrt{-c/6}\). Then \(g''(x) = 12\left(x - \sqrt{-c/6}\right)\left(x + \sqrt{-c/6}\right)\) changes sign at each root (one factor changes sign, the other does not). That gives exactly two inflection points.</li>
+<li>Case \(c = 0\). Then \(g''(x) = 12x^2\), which is 0 at \(x = 0\) but positive on both sides. There is no sign change, so there are no inflection points. This is the \(x^4\) example.</li>
+<li>Case \(c \gt 0\). Then \(g''(x) = 12x^2 + 2c \ge 2c \gt 0\) for every \(x\), so the graph is concave up everywhere and there are no inflection points.</li>
+<li>For (c), set \(c = -24\). Then \[\begin{aligned} g''(x) &= 12x^2 - 48 = 12(x^2 - 4) \\ &= 12(x - 2)(x + 2), \end{aligned}\] which changes sign at \(x = \pm 2\) (for example \(g''(-3) = 60\), \(g''(0) = -48\), \(g''(3) = 60\)). The \(y\)-coordinates are \[ g(\pm 2) = 16 - 24(4) = 16 - 96 = -80. \]</li>
+</ol><p class="final">Answer: (a) \(f''(x) = 12(x + 2)^2\), so \(f''(-2) = 0\), but \(f'' \gt 0\) on both sides of \(-2\), so the graph is concave up everywhere and has no inflection points. (b) Exactly two inflection points when \(c \lt 0\), and none when \(c \ge 0\). (c) For \(c = -24\) the inflection points are \((-2, -80)\) and \((2, -80)\).</p></div></details></div>
+
+<div class="q" id="u06-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">A particle moves along a line so that its position at time \(t\) seconds is \(s(t) = t^4 - 8t^3 + 18t^2\) centimeters, for \(t \ge 0\). (a) Find the velocity and acceleration. (b) When is the particle at rest, and in which direction does it move the rest of the time? (c) Find the time intervals on which the particle is speeding up and on which it is slowing down. (d) What is the greatest velocity of the particle during \(0 \le t \le 3\)?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>For (a), differentiate the position twice. \[\begin{aligned} v(t) &= s'(t) = 4t^3 - 24t^2 + 36t \ \text{cm/s} \\ a(t) &= v'(t) = 12t^2 - 48t + 36 \ \text{cm/s}^2. \end{aligned}\]</li>
+<li>Factor both. For \(v\), pull out \(4t\) and recognize a perfect square. For \(a\), pull out 12 and factor the quadratic. \[\begin{aligned} v(t) &= 4t(t^2 - 6t + 9) = 4t(t - 3)^2 \\ a(t) &= 12(t^2 - 4t + 3) = 12(t - 1)(t - 3). \end{aligned}\]</li>
+<li>For (b), the particle is at rest when \(v(t) = 0\), which is at \(t = 0\) and \(t = 3\). For every other \(t \gt 0\), both \(4t\) and \((t-3)^2\) are positive, so \(v(t) \gt 0\). The particle always moves in the positive direction. At \(t = 3\) it stops for an instant and then keeps going forward without turning around.</li>
+<li>For (c), the acceleration is 0 at \(t = 1\) and \(t = 3\), and the velocity is 0 at \(t = 3\). These numbers split \((0, \infty)\) into three intervals.
+<table class="t">
+<tr><th>Interval</th><th>Test \(t\)</th><th>\(v(t) = 4t(t-3)^2\)</th><th>\(a(t) = 12(t-1)(t-3)\)</th><th>Conclusion</th></tr>
+<tr><td>\((0, 1)\)</td><td>\(\tfrac{1}{2}\)</td><td>\(4 \cdot \tfrac{1}{2} \cdot \tfrac{25}{4} = \tfrac{25}{2} \gt 0\)</td><td>\(12(-\tfrac{1}{2})(-\tfrac{5}{2}) = 15 \gt 0\)</td><td>same signs: speeding up</td></tr>
+<tr><td>\((1, 3)\)</td><td>\(2\)</td><td>\(4 \cdot 2 \cdot 1 = 8 \gt 0\)</td><td>\(12(1)(-1) = -12 \lt 0\)</td><td>opposite signs: slowing down</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(4\)</td><td>\(4 \cdot 4 \cdot 1 = 16 \gt 0\)</td><td>\(12(3)(1) = 36 \gt 0\)</td><td>same signs: speeding up</td></tr>
+</table></li>
+<li>For (d), maximize \(v(t)\) on the closed interval \([0, 3]\). The critical numbers of \(v\) are where \(v'(t) = a(t) = 0\), which are \(t = 1\) and \(t = 3\), both in \([0, 3]\). Evaluate \(v\) at the critical numbers and the endpoints. \[\begin{aligned} v(0) &= 0 \\ v(1) &= 4(1)(1 - 3)^2 = 4 \cdot 4 = 16 \\ v(3) &= 4(3)(0)^2 = 0. \end{aligned}\] The largest value is 16. This agrees with (c): \(v\) increases on \((0, 1)\) and decreases on \((1, 3)\).</li>
+</ol><p class="final">Answer: (a) \(v(t) = 4t^3 - 24t^2 + 36t = 4t(t-3)^2\) cm/s and \(a(t) = 12t^2 - 48t + 36 = 12(t-1)(t-3)\) cm/s\(^2\). (b) At rest at \(t = 0\) and \(t = 3\) seconds; at all other times it moves in the positive direction. (c) Speeding up on \((0, 1)\) and \((3, \infty)\), slowing down on \((1, 3)\). (d) The greatest velocity on \([0, 3]\) is 16 cm/s, at \(t = 1\) second.</p></div></details></div>
+</section><div class="pager"><a href="u05.html">Back: Increasing, decreasing, and relative extrema</a><a href="u07.html">Next: Curve sketching</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

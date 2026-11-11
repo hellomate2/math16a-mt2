@@ -1,0 +1,1064 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Curve sketching | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 5.4</p><h1>Curve sketching</h1><p class="sub">The full checklist: domain, intercepts, asymptotes, f&#x27; and f&#x27;&#x27; sign charts, then the sketch with labeled points.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 5.4: Curve sketching</h2>
+
+<h3>What curve sketching is</h3>
+<p>Curve sketching means drawing the graph of a function by hand, with no calculator, so that the picture has the right shape: where the graph rises and falls, where it bends up or down, where it crosses the axes, and what it does near asymptotes and far out to the left and right. Nothing in this section is a new derivative rule. It puts together everything from Sections 5.1 to 5.3 (critical numbers, the first derivative test, concavity, inflection points) with intercepts and limits, and turns all of it into one picture.</p>
+<p>On the professor's practice Midterm 2 the first question was: "Draw a rough sketch of the graph of the function \(f(x) = x^3 + 3x^2\). Label any local extrema and inflection points." A <b>rough sketch</b> does not need to be drawn to an exact scale. It does need the special points plotted at their correct coordinates, written next to them, and the curve between them must rise or fall and bend the correct way. The grade comes from the written work (the derivatives, the sign charts, the conclusions), so the work matters as much as the picture.</p>
+
+<h3>The facts from Sections 5.1 to 5.3 that you will use</h3>
+<div class="rule"><div class="rt">Increasing, decreasing, and critical numbers</div>
+<p>If \(f'(x) \gt 0\) for every \(x\) in an open interval, then \(f\) is <b>increasing</b> there (the graph rises as you move to the right). If \(f'(x) \lt 0\) on an open interval, then \(f\) is <b>decreasing</b> there.</p>
+<p>A <b>critical number</b> of \(f\) is a number \(c\) <b>in the domain of \(f\)</b> where \(f'(c) = 0\) or \(f'(c)\) does not exist. A number that is not in the domain (for example \(x = 0\) for \(f(x) = x + \frac{1}{x}\)) is never a critical number, even though \(f'\) is undefined there.</p></div>
+
+<div class="rule"><div class="rt">First derivative test</div>
+<p>Let \(c\) be a critical number of a function \(f\) that is continuous at \(c\).</p>
+<ul><li>If \(f'\) changes from positive to negative at \(c\), then \(f\) has a local (relative) maximum at \(c\).</li>
+<li>If \(f'\) changes from negative to positive at \(c\), then \(f\) has a local (relative) minimum at \(c\).</li>
+<li>If \(f'\) has the same sign on both sides of \(c\), then \(f\) has no local extremum at \(c\).</li></ul></div>
+
+<div class="rule"><div class="rt">Concavity and inflection points (the professor's definitions)</div>
+<p>If the graph of \(f\) lies above all of its tangent lines on an interval, it is <b>concave up</b> there. The professor abbreviates this as C.U. If the graph lies below all of its tangent lines on an interval, it is <b>concave down</b>, written C.D.</p>
+<p><b>Concavity test.</b> If \(f''(x) \gt 0\) for all \(x\) in an interval, the graph is C.U. there. If \(f''(x) \lt 0\) for all \(x\) in an interval, the graph is C.D. there.</p>
+<p>A point \(P = (c, f(c))\) on the graph is an <b>inflection point</b> if \(f\) is continuous at \(c\) and the graph changes concavity at \(P\), from C.U. to C.D. or from C.D. to C.U. At an inflection point, \(f''(c)\) is either 0 or does not exist. The reverse is false: \(f''(c) = 0\) does not by itself make \((c, f(c))\) an inflection point.</p></div>
+
+<div class="rule"><div class="rt">Second derivative test</div>
+<p>Suppose \(f'(c) = 0\) and \(f''\) is continuous on an open interval containing \(c\). If \(f''(c) \gt 0\), then \(f\) has a local minimum at \(c\). If \(f''(c) \lt 0\), then \(f\) has a local maximum at \(c\). If \(f''(c) = 0\), the test gives no information, and you use the first derivative test instead.</p></div>
+
+<h3>How to make a sign chart</h3>
+<p>Almost every step of a sketch needs the sign (positive or negative) of some expression on different intervals: the sign of \(f'\) tells you rising or falling, and the sign of \(f''\) tells you the bending. A <b>sign chart</b> is a small table that records those signs.</p>
+<p>It works because of one fact: an expression built from continuous pieces can only switch from positive to negative (or back) at a number where it equals 0 or where it is undefined. Between two such numbers it keeps one sign the whole way. So you only need to find the "break numbers," cut the number line at them, and test <b>one</b> value inside each piece.</p>
+<p>The professor builds the chart with one column for each factor. Each row is an interval. He writes the sign of every factor in that row and then multiplies the signs to get the sign of the whole expression. This is faster and safer than plugging the test value into the whole expression, because each factor's sign is easy to see.</p>
+
+<div class="recipe"><div class="rt">How to make a sign chart</div><ol>
+<li>Factor the expression completely. Write it as a product (and quotient) of simple factors such as \(x - 3\), \(x^2\), \(e^{-x}\), or \(x^2 + 1\).</li>
+<li>Find the break numbers: every \(x\) where a factor in the numerator is 0, and every \(x\) where a factor in the denominator is 0 (the expression is undefined there). Put them in order on a number line.</li>
+<li>Write the open intervals between consecutive break numbers, including \((-\infty, \text{smallest})\) and \((\text{largest}, \infty)\). If the function has a restricted domain, such as \(x \gt 0\), only use intervals inside the domain.</li>
+<li>Make a table with one row per interval and one column per factor. In each row, pick a test value strictly inside the interval and write the sign of each factor at that value.</li>
+<li>Multiply the signs across the row. An even number of minus signs gives \(+\), an odd number gives \(-\). Write the result in the last column, and then write what it means (increasing or decreasing for \(f'\), C.U. or C.D. for \(f''\)).</li>
+</ol></div>
+
+<p>Some factors never change sign, and you can say so once instead of testing them: \(e^{\text{anything}} \gt 0\), \(x^2 + 1 \gt 0\), and a square like \((x - 1)^2\) is positive except at \(x = 1\), where it is 0. A squared factor is the reason an expression can touch 0 without changing sign.</p>
+
+<div class="ex"><div class="et">Worked example 1 (a sign chart with a squared factor)</div><p class="p">The derivative of a function \(f\) that is defined and differentiable for all \(x\) is \(f'(x) = (x + 2)(x - 1)^2(x - 4)\). Make a sign chart for \(f'\). On which intervals is \(f\) increasing or decreasing, and where does \(f\) have local extrema?</p>
+<ol class="steps">
+<li>The expression is already factored. Set each factor equal to 0 to find the break numbers.
+\[x + 2 = 0 \;\Rightarrow\; x = -2, \qquad (x - 1)^2 = 0 \;\Rightarrow\; x = 1, \qquad x - 4 = 0 \;\Rightarrow\; x = 4.\]
+These are the critical numbers of \(f\), and they cut the number line into the intervals \((-\infty, -2)\), \((-2, 1)\), \((1, 4)\), and \((4, \infty)\).</li>
+<li>Pick one test value inside each interval: \(-3\), \(0\), \(2\), and \(5\). Find the sign of each factor at the test value. For example at \(x = 0\): \(x + 2 = 2 \gt 0\), \((x - 1)^2 = 1 \gt 0\), and \(x - 4 = -4 \lt 0\). Then multiply the signs.
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(x + 2\)</th><th>\((x - 1)^2\)</th><th>\(x - 4\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>\(-3\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((-2, 1)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((1, 4)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((4, \infty)\)</td><td>\(5\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table></li>
+<li>Check one row with actual numbers to catch sign slips. At \(x = 0\):
+\[f'(0) = (0 + 2)(0 - 1)^2(0 - 4) = (2)(1)(-4) = -8 \lt 0.\]
+This agrees with the minus sign in the second row.</li>
+<li>Apply the first derivative test at each critical number. At \(x = -2\), \(f'\) changes from positive to negative, so \(f\) has a local maximum there. At \(x = 4\), \(f'\) changes from negative to positive, so \(f\) has a local minimum there. At \(x = 1\), \(f'\) is negative on both sides (the squared factor touches 0 without changing sign), so there is no local extremum at \(x = 1\). The graph only flattens out for a moment with a horizontal tangent line.</li>
+</ol><p class="final">Answer: \(f\) is increasing on \((-\infty, -2)\) and \((4, \infty)\) and decreasing on \((-2, 1)\) and \((1, 4)\). It has a local maximum at \(x = -2\), a local minimum at \(x = 4\), and no local extremum at \(x = 1\).</p></div>
+
+<h3>Asymptotes and end behavior</h3>
+<p>An <b>asymptote</b> is a line that the graph gets closer and closer to. You draw asymptotes as dashed lines before drawing the curve.</p>
+<div class="rule"><div class="rt">Vertical asymptotes</div>
+<p>The line \(x = a\) is a <b>vertical asymptote</b> if \(f(x)\) goes to \(\infty\) or \(-\infty\) as \(x\) approaches \(a\) from the left or from the right. Where to look:</p>
+<ul><li>For a rational function (a polynomial divided by a polynomial), first cancel any common factor of the numerator and the denominator. Then each number that still makes the denominator 0 gives a vertical asymptote. A number whose factor cancelled gives a <b>hole</b> in the graph, not an asymptote.</li>
+<li>For \(\ln x\) and expressions like \(\frac{\ln x}{x}\), check the edge of the domain, \(x \to 0^+\).</li></ul>
+<p><b>One-sided behavior.</b> For each vertical asymptote, find whether the graph goes up to \(\infty\) or down to \(-\infty\) on each side. Do it by signs: as \(x \to a^+\) the numerator approaches some nonzero number, and the denominator approaches 0 through positive or through negative values. A nonzero number divided by a tiny positive number is huge with the same sign. Divided by a tiny negative number, it is huge with the opposite sign.</p></div>
+
+<div class="rule"><div class="rt">Horizontal asymptotes and end behavior</div>
+<p>The line \(y = L\) is a <b>horizontal asymptote</b> if \(\displaystyle\lim_{x\to\infty} f(x) = L\) or \(\displaystyle\lim_{x\to-\infty} f(x) = L\). Always compute both limits, because the two ends can behave differently.</p>
+<ul><li>Rational functions: divide the numerator and the denominator by the highest power of \(x\) in the denominator. If the numerator has smaller degree, the limit is 0. If the degrees are equal, the limit is the ratio of the leading coefficients. If the numerator has larger degree, there is no horizontal asymptote.</li>
+<li>Polynomials have no asymptotes at all. Their end behavior comes from the leading term: for example \(x^3 \to \infty\) as \(x \to \infty\) and \(x^3 \to -\infty\) as \(x \to -\infty\).</li>
+<li>Products like \(x e^{-x}\) or \(x \ln x\) give the indeterminate form \(0 \cdot \infty\) or \(\infty \cdot 0\). Rewrite the product as a quotient, for example \(x e^{-x} = \dfrac{x}{e^{x}}\), check that it is now of the form \(\frac{\infty}{\infty}\) or \(\frac{0}{0}\), and use L'Hospital's rule: differentiate the top and the bottom separately.</li>
+<li>The useful fact behind these: \(e^{x}\) grows faster than any power of \(x\), and \(\ln x\) grows slower than any positive power of \(x\). So \(\dfrac{x^2}{e^x} \to 0\) and \(\dfrac{\ln x}{x} \to 0\) as \(x \to \infty\). On the exam, show the L'Hospital work rather than quoting this fact.</li></ul></div>
+
+<h3>Symmetry</h3>
+<div class="rule"><div class="rt">Even and odd functions</div>
+<p>Compute \(f(-x)\) and simplify.</p>
+<ul><li>If \(f(-x) = f(x)\) for every \(x\) in the domain, \(f\) is <b>even</b>. The graph is symmetric about the \(y\)-axis: the left half is the mirror reflection of the right half. Example: \(x^4 - 6x^2 + 5\).</li>
+<li>If \(f(-x) = -f(x)\) for every \(x\) in the domain, \(f\) is <b>odd</b>. The graph is symmetric about the origin: the left half is the right half rotated \(180^\circ\) around the origin. Example: \(x + \frac{1}{x}\).</li>
+<li>Most functions are neither. Say so in one line: "\(f(-x) = \ldots\), which is neither \(f(x)\) nor \(-f(x)\), so \(f\) is neither even nor odd."</li></ul>
+<p>Symmetry saves work: once you know the right half of an even or odd graph, the left half is determined.</p></div>
+
+<h3>The summary table and the four shapes</h3>
+<p>After you have the sign chart of \(f'\) and the sign chart of \(f''\), you combine them. Put every break number from both charts on one number line. On each small interval, \(f'\) and \(f''\) each have one sign, and the pair of signs fixes the shape of the graph on that piece. The textbook and the professor use this table:</p>
+<table class="t">
+<tr><th></th><th>\(f' \gt 0\) (increasing)</th><th>\(f' \lt 0\) (decreasing)</th></tr>
+<tr><th>\(f'' \gt 0\) (C.U.)</th><td>rising and bending upward, getting steeper: the right half of a cup \(\cup\)</td><td>falling and bending upward, leveling off: the left half of a cup \(\cup\)</td></tr>
+<tr><th>\(f'' \lt 0\) (C.D.)</th><td>rising and bending downward, leveling off: the left half of a cap \(\cap\)</td><td>falling and bending downward, getting steeper: the right half of a cap \(\cap\)</td></tr>
+</table>
+<p>The graph is then a chain of these four pieces glued together at the special points. A local maximum is where a rising C.D. piece meets a falling C.D. piece (the top of a cap). A local minimum is where a falling C.U. piece meets a rising C.U. piece (the bottom of a cup). An inflection point is where the bending flips.</p>
+
+<div class="recipe"><div class="rt">The curve sketching checklist</div><ol>
+<li><b>Domain.</b> Exclude every \(x\) that gives division by 0, an even root of a negative number, or the logarithm of 0 or of a negative number.</li>
+<li><b>Intercepts.</b> The \(y\)-intercept is \((0, f(0))\), if 0 is in the domain. The \(x\)-intercepts come from solving \(f(x) = 0\). If that equation is too hard, you may skip it. If you can factor \(f\), a quick sign chart of \(f\) itself shows where the graph is above or below the \(x\)-axis.</li>
+<li><b>Symmetry.</b> Compute \(f(-x)\) and decide whether \(f\) is even, odd, or neither.</li>
+<li><b>Vertical asymptotes.</b> Find them, and for each one find the one-sided limits \(x \to a^-\) and \(x \to a^+\).</li>
+<li><b>Horizontal asymptotes or end behavior.</b> Compute \(\displaystyle\lim_{x\to\infty} f(x)\) and \(\displaystyle\lim_{x\to-\infty} f(x)\) (only the ends that are in the domain).</li>
+<li><b>First derivative.</b> Compute \(f'\), factor it, and find the critical numbers (where \(f' = 0\) or \(f'\) does not exist, inside the domain). Make a sign chart of \(f'\). Write the intervals where \(f\) is increasing and decreasing, and use the first derivative test to find the local maxima and minima. Compute \(f\) at each one to get the point.</li>
+<li><b>Second derivative.</b> Compute \(f''\), factor it, find where \(f'' = 0\) or does not exist, and make a sign chart of \(f''\). Write the intervals where \(f\) is C.U. and C.D. An inflection point is a point of the graph where the sign of \(f''\) actually changes. Compute \(f\) there to get the point.</li>
+<li><b>Summary table.</b> Put all the break numbers from steps 6 and 7 on one number line. For each interval, write the sign of \(f'\), the sign of \(f''\), and the shape.</li>
+<li><b>Plot and draw.</b> Draw the asymptotes as dashed lines. Plot the intercepts, the local extrema, the inflection points, and one or two extra points if a stretch is long. Connect them with a smooth curve that follows the shapes in the table. Do not connect across a vertical asymptote or across a number that is not in the domain. Label every local extremum and inflection point with its coordinates.</li>
+</ol>
+<p>The textbook's list in the professor's notes has one more step, "check your graph using a graphing calculator." That is for homework only, since calculators are not allowed on the exam. The textbook also lists asymptotes before symmetry. The order of steps 1 to 5 does not matter. What matters is that every step appears in your work.</p></div>
+
+<h3>Cubic polynomials</h3>
+<p>A cubic \(f(x) = ax^3 + bx^2 + cx + d\) has no asymptotes, and \(f''\) is a linear function, so every cubic has exactly one inflection point. A cubic has either two local extrema (one max and one min) or none.</p>
+
+<div class="ex"><div class="et">Worked example 2 (a cubic)</div><p class="p">Sketch the graph of \(f(x) = x^3 - 3x^2 - 9x + 27\). Label any local extrema and inflection points.</p>
+<ol class="steps">
+<li>Domain. \(f\) is a polynomial, so its domain is all real numbers, \((-\infty, \infty)\).</li>
+<li>Intercepts. For the \(y\)-intercept, substitute \(x = 0\): \(f(0) = 27\), so the point is \((0, 27)\). For the \(x\)-intercepts, factor by grouping. Take \(x^2\) out of the first two terms and \(-9\) out of the last two.
+\[\begin{aligned} f(x) &= x^2(x - 3) - 9(x - 3) \\ &= (x - 3)(x^2 - 9) \\ &= (x - 3)(x - 3)(x + 3) \\ &= (x - 3)^2(x + 3). \end{aligned}\]
+So \(f(x) = 0\) when \(x = 3\) or \(x = -3\). The \(x\)-intercepts are \((-3, 0)\) and \((3, 0)\). Since \((x - 3)^2 \ge 0\), the sign of \(f\) is the sign of \(x + 3\): the graph is below the \(x\)-axis for \(x \lt -3\) and above it for \(x \gt -3\), touching the axis at \(x = 3\).</li>
+<li>Symmetry. Substitute \(-x\) for \(x\).
+\[f(-x) = (-x)^3 - 3(-x)^2 - 9(-x) + 27 = -x^3 - 3x^2 + 9x + 27.\]
+This is not \(f(x)\), and it is not \(-f(x) = -x^3 + 3x^2 + 9x - 27\). So \(f\) is neither even nor odd.</li>
+<li>Asymptotes and end behavior. A polynomial has no vertical or horizontal asymptotes. The leading term is \(x^3\), so
+\[\lim_{x\to\infty} f(x) = \infty, \qquad \lim_{x\to-\infty} f(x) = -\infty.\]</li>
+<li>First derivative. Use the power rule term by term, then factor out 3 and factor the quadratic.
+\[\begin{aligned} f'(x) &= 3x^2 - 6x - 9 \\ &= 3(x^2 - 2x - 3) \\ &= 3(x - 3)(x + 1). \end{aligned}\]
+\(f'\) exists everywhere, and \(f'(x) = 0\) when \(x = 3\) or \(x = -1\). The critical numbers are \(-1\) and \(3\).</li>
+<li>Sign chart for \(f'\), with test values \(-2\), \(0\), \(4\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(3\)</th><th>\(x - 3\)</th><th>\(x + 1\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-2\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((-1, 3)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(4\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+For example, \(f'(0) = 3(-3)(1) = -9 \lt 0\).</li>
+<li>Local extrema. \(f'\) changes from positive to negative at \(x = -1\), so there is a local maximum there. \(f'\) changes from negative to positive at \(x = 3\), so there is a local minimum there. Compute the heights with the factored form \(f(x) = (x - 3)^2(x + 3)\).
+\[f(-1) = (-4)^2(2) = 16 \cdot 2 = 32, \qquad f(3) = (0)^2(6) = 0.\]
+Local maximum \((-1, 32)\), local minimum \((3, 0)\).</li>
+<li>Second derivative. Differentiate \(f'(x) = 3x^2 - 6x - 9\).
+\[f''(x) = 6x - 6 = 6(x - 1).\]
+\(f''(x) = 0\) when \(x = 1\). Test \(x = 0\): \(f''(0) = -6 \lt 0\). Test \(x = 2\): \(f''(2) = 6 \gt 0\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(6\)</th><th>\(x - 1\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 1)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table>
+The concavity changes at \(x = 1\), and \(f(1) = (1 - 3)^2(1 + 3) = 4 \cdot 4 = 16\). The inflection point is \((1, 16)\).</li>
+<li>Summary table. The break numbers from both charts are \(-1\), \(1\), \(3\).
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((-1, 1)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((1, 3)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Plot and draw. Plot \((-3, 0)\), \((0, 27)\), \((-1, 32)\), \((1, 16)\), and \((3, 0)\). Come up from \(-\infty\) on the left through \((-3, 0)\), bend over the top of the cap at \((-1, 32)\), fall through \((0, 27)\) and the inflection point \((1, 16)\), bottom out at \((3, 0)\) where the graph touches the \(x\)-axis, and rise to \(\infty\).
+<div class="plot" data-f="x**3-3*x**2-9*x+27" data-x="-4.5,5.5" data-y="-15,40" data-pts="-1,32,local max (-1, 32)|3,0,local min (3, 0)|1,16,inflection (1, 16)" data-cap="Graph of f(x) = x^3 - 3x^2 - 9x + 27"></div></li>
+</ol><p class="final">Answer: local maximum \((-1, 32)\), local minimum \((3, 0)\), inflection point \((1, 16)\). The graph is increasing on \((-\infty, -1)\) and \((3, \infty)\), decreasing on \((-1, 3)\), C.D. on \((-\infty, 1)\), and C.U. on \((1, \infty)\), with intercepts \((-3, 0)\), \((3, 0)\), \((0, 27)\).</p></div>
+
+<h3>Quartic polynomials</h3>
+<p>A quartic (degree 4) polynomial has \(f''\) of degree 2, so it can have zero, one, or two inflection points. Two things often happen with quartics and are tested often: a critical number where \(f'\) does not change sign (so it is not an extremum), and a zero of \(f''\) where \(f''\) does not change sign (so it is not an inflection point).</p>
+
+<div class="ex"><div class="et">Worked example 3 (a quartic with a flat inflection point)</div><p class="p">Sketch the graph of \(f(x) = 3x^4 - 4x^3\). Label any local extrema and inflection points.</p>
+<ol class="steps">
+<li>Domain. A polynomial, so \((-\infty, \infty)\).</li>
+<li>Intercepts. \(f(0) = 0\), so the \(y\)-intercept is \((0, 0)\). Factor out \(x^3\) to find the \(x\)-intercepts.
+\[3x^4 - 4x^3 = x^3(3x - 4) = 0 \;\Rightarrow\; x = 0 \text{ or } x = \tfrac{4}{3}.\]
+The \(x\)-intercepts are \((0, 0)\) and \(\left(\tfrac{4}{3}, 0\right)\).</li>
+<li>Symmetry. \(f(-x) = 3(-x)^4 - 4(-x)^3 = 3x^4 + 4x^3\). This is neither \(f(x)\) nor \(-f(x) = -3x^4 + 4x^3\), so \(f\) is neither even nor odd.</li>
+<li>Asymptotes and end behavior. No asymptotes (polynomial). The leading term \(3x^4\) is positive for large \(|x|\), so \(f(x) \to \infty\) as \(x \to \infty\) and as \(x \to -\infty\).</li>
+<li>First derivative. Power rule, then factor out the greatest common factor \(12x^2\).
+\[f'(x) = 12x^3 - 12x^2 = 12x^2(x - 1).\]
+\(f'(x) = 0\) when \(x = 0\) or \(x = 1\). The critical numbers are \(0\) and \(1\).</li>
+<li>Sign chart for \(f'\). The factor \(12x^2\) is positive except at \(x = 0\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(12x^2\)</th><th>\(x - 1\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(\tfrac{1}{2}\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+For example, \(f'(-1) = 12(1)(-2) = -24\) and \(f'(2) = 12(4)(1) = 48\).</li>
+<li>Local extrema. At \(x = 0\), \(f'\) is negative on both sides, so there is no local extremum there, only a horizontal tangent line. At \(x = 1\), \(f'\) changes from negative to positive, so there is a local minimum.
+\[f(1) = 3(1)^4 - 4(1)^3 = 3 - 4 = -1.\]
+Local minimum \((1, -1)\).</li>
+<li>Second derivative. Differentiate \(f'(x) = 12x^3 - 12x^2\) and factor out \(12x\).
+\[f''(x) = 36x^2 - 24x = 12x(3x - 2).\]
+\(f''(x) = 0\) when \(x = 0\) or \(x = \tfrac{2}{3}\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(12x\)</th><th>\(3x - 2\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>C.U.</td></tr>
+<tr><td>\((0, \tfrac{2}{3})\)</td><td>\(\tfrac{1}{3}\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((\tfrac{2}{3}, \infty)\)</td><td>\(1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table>
+For example, \(f''\left(\tfrac{1}{3}\right) = 12\cdot\tfrac{1}{3}\cdot(1 - 2) = 4(-1) = -4\).</li>
+<li>Inflection points. The concavity changes at \(x = 0\) and at \(x = \tfrac{2}{3}\). Compute the heights.
+\[f(0) = 0, \qquad f\!\left(\tfrac{2}{3}\right) = 3\cdot\tfrac{16}{81} - 4\cdot\tfrac{8}{27} = \tfrac{48}{81} - \tfrac{96}{81} = -\tfrac{48}{81} = -\tfrac{16}{27}.\]
+The inflection points are \((0, 0)\) and \(\left(\tfrac{2}{3}, -\tfrac{16}{27}\right)\). The point \((0, 0)\) is an inflection point with a horizontal tangent line.</li>
+<li>Summary table with break numbers \(0\), \(\tfrac{2}{3}\), \(1\).
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((0, \tfrac{2}{3})\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((\tfrac{2}{3}, 1)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Plot and draw. Come down from \(\infty\) on the left bending upward, flatten to a horizontal tangent at \((0, 0)\) while switching to C.D., keep falling through \(\left(\tfrac{2}{3}, -\tfrac{16}{27}\right)\) where the bending switches back to C.U., reach the bottom at \((1, -1)\), and rise through \(\left(\tfrac{4}{3}, 0\right)\) to \(\infty\).
+<div class="plot" data-f="3*x**4-4*x**3" data-x="-0.8,1.6" data-y="-1.4,1.6" data-pts="1,-1,local min (1, -1)|0,0,inflection (0, 0)|0.666667,-0.592593,inflection (2/3, -16/27)" data-cap="Graph of f(x) = 3x^4 - 4x^3"></div></li>
+</ol><p class="final">Answer: local minimum \((1, -1)\); no local maximum (the critical number \(x = 0\) is not an extremum); inflection points \((0, 0)\) and \(\left(\tfrac{2}{3}, -\tfrac{16}{27}\right)\). Decreasing on \((-\infty, 0)\) and \((0, 1)\), increasing on \((1, \infty)\), C.U. on \((-\infty, 0)\) and \((\tfrac{2}{3}, \infty)\), C.D. on \((0, \tfrac{2}{3})\).</p></div>
+
+<div class="trap"><b>Common mistake: \(f''(c) = 0\) does not mean inflection point.</b> For \(f(x) = x^4\), \(f''(x) = 12x^2\), so \(f''(0) = 0\). But \(12x^2 \gt 0\) on both sides of 0, so the graph is C.U. on both sides and \((0, 0)\) is not an inflection point. It is the bottom of a cup. You must show the sign change in a sign chart before you call a point an inflection point. The same goes for \(f'(c) = 0\): it gives a critical number, and only a sign change of \(f'\) makes it a local extremum, as \(x = 0\) in Worked example 3 shows.</div>
+
+<h3>Rational functions</h3>
+<p>Rational functions bring in vertical and horizontal asymptotes. The concavity can change at a vertical asymptote, but that never gives an inflection point, because the function is not defined (so not continuous) there.</p>
+
+<div class="ex"><div class="et">Worked example 4 (vertical and horizontal asymptotes)</div><p class="p">Sketch the graph of \(f(x) = \dfrac{2x^2}{x^2 - 1}\). Label any local extrema and inflection points, and show the asymptotes.</p>
+<ol class="steps">
+<li>Domain. The denominator \(x^2 - 1 = (x - 1)(x + 1)\) is 0 at \(x = 1\) and \(x = -1\). The domain is all \(x\) except \(\pm 1\): \((-\infty, -1) \cup (-1, 1) \cup (1, \infty)\).</li>
+<li>Intercepts. \(f(0) = \dfrac{0}{-1} = 0\), so the \(y\)-intercept is \((0, 0)\). Setting \(f(x) = 0\) means the numerator \(2x^2 = 0\), so \(x = 0\). The only intercept is \((0, 0)\).</li>
+<li>Symmetry. Substitute \(-x\).
+\[f(-x) = \frac{2(-x)^2}{(-x)^2 - 1} = \frac{2x^2}{x^2 - 1} = f(x).\]
+So \(f\) is even, and the graph is symmetric about the \(y\)-axis.</li>
+<li>Vertical asymptotes. No factor cancels (the numerator \(2x^2\) is not 0 at \(\pm 1\)), so \(x = 1\) and \(x = -1\) are vertical asymptotes. Find the one-sided behavior at \(x = 1\). The numerator approaches \(2 \gt 0\). Write the denominator as \((x - 1)(x + 1)\), where \(x + 1 \to 2\).
+<ul><li>As \(x \to 1^+\), \(x - 1\) is a small positive number, so the denominator is a small positive number and \(f(x) \to \infty\).</li>
+<li>As \(x \to 1^-\), \(x - 1\) is a small negative number, so the denominator is a small negative number and \(f(x) \to -\infty\).</li></ul>
+By the \(y\)-axis symmetry, \(f(x) \to -\infty\) as \(x \to -1^+\) and \(f(x) \to \infty\) as \(x \to -1^-\).</li>
+<li>Horizontal asymptote. Divide the top and the bottom by \(x^2\).
+\[\lim_{x\to\pm\infty} \frac{2x^2}{x^2 - 1} = \lim_{x\to\pm\infty} \frac{2}{1 - \frac{1}{x^2}} = \frac{2}{1 - 0} = 2.\]
+The line \(y = 2\) is a horizontal asymptote at both ends.</li>
+<li>First derivative. Use the quotient rule with \(u = 2x^2\), \(u' = 4x\), \(v = x^2 - 1\), \(v' = 2x\).
+\[\begin{aligned} f'(x) &= \frac{u'v - uv'}{v^2} = \frac{4x(x^2 - 1) - 2x^2(2x)}{(x^2 - 1)^2} \\ &= \frac{4x^3 - 4x - 4x^3}{(x^2 - 1)^2} = \frac{-4x}{(x^2 - 1)^2}. \end{aligned}\]
+\(f'(x) = 0\) when \(x = 0\). \(f'\) is undefined at \(x = \pm 1\), but those are not in the domain. The only critical number is \(0\).</li>
+<li>Sign chart for \(f'\). The denominator \((x^2 - 1)^2\) is positive on the whole domain, so the sign of \(f'\) is the sign of \(-4x\). Use \(-1\), \(0\), \(1\) as break numbers, since the asymptotes also split the line.
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(-4x\)</th><th>\((x^2 - 1)^2\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((-1, 0)\)</td><td>\(-\tfrac{1}{2}\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(\tfrac{1}{2}\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+</table>
+\(f'\) changes from positive to negative at \(x = 0\), so \(f\) has a local maximum there, at the point \((0, f(0)) = (0, 0)\).</li>
+<li>Second derivative. Use the quotient rule on \(f'(x) = \dfrac{-4x}{(x^2 - 1)^2}\) with \(u = -4x\), \(u' = -4\), \(v = (x^2 - 1)^2\), and \(v' = 2(x^2 - 1)\cdot 2x = 4x(x^2 - 1)\) by the chain rule.
+\[\begin{aligned} f''(x) &= \frac{-4(x^2 - 1)^2 - (-4x)\cdot 4x(x^2 - 1)}{(x^2 - 1)^4} \\ &= \frac{(x^2 - 1)\left[-4(x^2 - 1) + 16x^2\right]}{(x^2 - 1)^4} \\ &= \frac{-4x^2 + 4 + 16x^2}{(x^2 - 1)^3} = \frac{12x^2 + 4}{(x^2 - 1)^3} = \frac{4(3x^2 + 1)}{(x^2 - 1)^3}. \end{aligned}\]
+In the second line, the common factor \(x^2 - 1\) was pulled out of the numerator and cancelled against one factor of the denominator.</li>
+<li>Sign chart for \(f''\). The numerator \(4(3x^2 + 1)\) is always positive, so \(f''\) is never 0. The sign of \(f''\) is the sign of \((x^2 - 1)^3\), which is the sign of \(x^2 - 1\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(4(3x^2 + 1)\)</th><th>\((x^2 - 1)^3\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+<tr><td>\((-1, 1)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table>
+The concavity changes only at \(x = \pm 1\), which are not in the domain. So there are no inflection points.</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+<tr><td>\((-1, 0)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+</table></li>
+<li>Plot and draw. Draw dashed lines \(x = -1\), \(x = 1\), and \(y = 2\). Extra points: \(f(2) = \frac{8}{3}\) and \(f\!\left(\tfrac{1}{2}\right) = \dfrac{\frac{1}{2}}{-\frac{3}{4}} = -\tfrac{2}{3}\). The right branch comes down from \(\infty\) next to \(x = 1\) and flattens toward \(y = 2\) from above. The middle branch rises from \(-\infty\) at \(x = -1\), tops out at \((0, 0)\), and falls to \(-\infty\) at \(x = 1\). The left branch is the mirror image of the right one.
+<div class="plot" data-f="2*x**2/(x**2-1)" data-x="-4,4" data-y="-6,8" data-v="-1,1" data-h="2" data-pts="0,0,local max (0, 0)" data-cap="Graph of f(x) = 2x^2/(x^2 - 1) with asymptotes x = -1, x = 1, y = 2"></div></li>
+</ol><p class="final">Answer: vertical asymptotes \(x = -1\) and \(x = 1\), horizontal asymptote \(y = 2\), local maximum \((0, 0)\), no inflection points. Increasing on \((-\infty, -1)\) and \((-1, 0)\), decreasing on \((0, 1)\) and \((1, \infty)\), C.U. on \((-\infty, -1)\) and \((1, \infty)\), C.D. on \((-1, 1)\).</p></div>
+
+<div class="trap"><b>Common mistake: inflection points at asymptotes.</b> In Worked example 4 the sign of \(f''\) changes at \(x = 1\), but \(f(1)\) does not exist, so there is no point of the graph there. An inflection point must be a point \((c, f(c))\) on the graph. Also, when a factor cancels, such as in \(\frac{(x - 2)(x + 2)}{(x - 2)(x - 3)}\), the number \(x = 2\) gives a hole, not a vertical asymptote.</div>
+
+<h3>Exponential and logarithm products: L'Hospital at the ends</h3>
+<p>Functions like \(x e^{-x}\), \(x^2 e^{-x}\), \(x \ln x\), and \(\frac{\ln x}{x}\) need L'Hospital's rule to find what happens at the ends of the domain. The derivatives use the product rule or the quotient rule, and the factor \(e^{-x}\) is always positive, so it drops out of every sign chart.</p>
+
+<div class="ex"><div class="et">Worked example 5 (x times e to the minus x)</div><p class="p">Sketch the graph of \(f(x) = x e^{-x}\). Label any local extrema and inflection points.</p>
+<ol class="steps">
+<li>Domain. Both \(x\) and \(e^{-x}\) are defined for every \(x\), so the domain is \((-\infty, \infty)\).</li>
+<li>Intercepts. \(f(0) = 0 \cdot e^0 = 0\). Since \(e^{-x} \gt 0\), \(f(x) = 0\) only when \(x = 0\). The only intercept is \((0, 0)\). Also, \(f\) has the sign of \(x\): negative for \(x \lt 0\), positive for \(x \gt 0\).</li>
+<li>Symmetry. \(f(-x) = -x e^{x}\). This is neither \(f(x) = x e^{-x}\) nor \(-f(x) = -x e^{-x}\), so \(f\) is neither even nor odd.</li>
+<li>Vertical asymptotes. None, because \(f\) is continuous everywhere.</li>
+<li>End behavior. As \(x \to \infty\), the product \(x e^{-x}\) has the form \(\infty \cdot 0\). Rewrite it as a quotient, which has the form \(\frac{\infty}{\infty}\), and use L'Hospital's rule.
+\[\lim_{x\to\infty} x e^{-x} = \lim_{x\to\infty} \frac{x}{e^{x}} \;\overset{\text{L'H}}{=}\; \lim_{x\to\infty} \frac{1}{e^{x}} = 0.\]
+So \(y = 0\) is a horizontal asymptote on the right. As \(x \to -\infty\), \(x \to -\infty\) and \(e^{-x} \to \infty\), which is not an indeterminate form: the product goes to \(-\infty\). There is no horizontal asymptote on the left.</li>
+<li>First derivative. Use the product rule with \(u = x\), \(u' = 1\), \(v = e^{-x}\), \(v' = -e^{-x}\) (chain rule).
+\[f'(x) = u'v + uv' = e^{-x} - x e^{-x} = e^{-x}(1 - x).\]
+Since \(e^{-x} \gt 0\), \(f'(x) = 0\) only when \(1 - x = 0\), so the critical number is \(x = 1\).</li>
+<li>Sign chart for \(f'\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(e^{-x}\)</th><th>\(1 - x\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, 1)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+</table>
+\(f'\) changes from positive to negative at \(x = 1\), so there is a local maximum, and \(f(1) = 1 \cdot e^{-1} = \frac{1}{e}\). Local maximum \(\left(1, \frac{1}{e}\right)\), about \((1, 0.37)\).</li>
+<li>Second derivative. Use the product rule on \(f'(x) = e^{-x}(1 - x)\) with \(u = e^{-x}\), \(u' = -e^{-x}\), \(v = 1 - x\), \(v' = -1\).
+\[\begin{aligned} f''(x) &= -e^{-x}(1 - x) + e^{-x}(-1) \\ &= e^{-x}\left[-(1 - x) - 1\right] \\ &= e^{-x}(x - 2). \end{aligned}\]
+\(f''(x) = 0\) only when \(x = 2\).</li>
+<li>Sign chart for \(f''\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(e^{-x}\)</th><th>\(x - 2\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 2)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(3\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table>
+The concavity changes at \(x = 2\), and \(f(2) = 2e^{-2} = \frac{2}{e^2}\). Inflection point \(\left(2, \frac{2}{e^2}\right)\), about \((2, 0.27)\).</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, 1)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((1, 2)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+</table></li>
+<li>Plot and draw. The graph comes up from \(-\infty\) on the left, passes through the origin, reaches its top at \(\left(1, \frac{1}{e}\right)\), falls through the inflection point \(\left(2, \frac{2}{e^2}\right)\), and then flattens out toward the \(x\)-axis from above without ever reaching it.
+<div class="plot" data-f="x*Math.exp(-x)" data-x="-1,6" data-y="-0.8,0.5" data-h="0" data-pts="1,0.367879,local max (1, 1/e)|2,0.270671,inflection (2, 2/e^2)" data-cap="Graph of f(x) = x e^(-x); the x-axis is a horizontal asymptote on the right"></div></li>
+</ol><p class="final">Answer: local maximum \(\left(1, \frac{1}{e}\right)\), inflection point \(\left(2, \frac{2}{e^2}\right)\), horizontal asymptote \(y = 0\) as \(x \to \infty\), and \(f(x) \to -\infty\) as \(x \to -\infty\). Increasing on \((-\infty, 1)\), decreasing on \((1, \infty)\), C.D. on \((-\infty, 2)\), C.U. on \((2, \infty)\).</p></div>
+
+<div class="trap"><b>Common mistake: using L'Hospital on a product.</b> L'Hospital's rule only applies to a quotient of the form \(\frac{0}{0}\) or \(\frac{\infty}{\infty}\). First rewrite \(x e^{-x}\) as \(\frac{x}{e^x}\), or \(x \ln x\) as \(\frac{\ln x}{1/x}\). Also check the form before using it: as \(x \to -\infty\), \(x e^{-x}\) is \((-\infty)\cdot(\infty)\), which is not indeterminate, so you just read off \(-\infty\).</div>
+
+<h3>Corners and cusps: when f' does not exist</h3>
+<p>Functions with fractional powers, such as \(x^{2/3}\), are defined for every \(x\) (the cube root of a negative number is fine), but their derivatives can blow up at \(x = 0\). Then \(x = 0\) is a critical number because \(f'(0)\) does not exist, and the graph can have a <b>cusp</b> there: a sharp point where the tangent line becomes vertical. A <b>corner</b> is a sharp point where the slopes from the left and from the right are different finite numbers, like \(|x|\) at 0.</p>
+
+<div class="ex"><div class="et">Worked example 6 (a cusp)</div><p class="p">Sketch the graph of \(f(x) = 3x^{2/3} - 2x\). Label any local extrema and inflection points.</p>
+<ol class="steps">
+<li>Domain. \(x^{2/3} = \left(\sqrt[3]{x}\right)^2\), and the cube root is defined for every real number. The domain is \((-\infty, \infty)\).</li>
+<li>Intercepts. \(f(0) = 0\), so the \(y\)-intercept is \((0, 0)\). For the \(x\)-intercepts, write \(x = x^{1/3}\cdot x^{2/3}\) and factor out \(x^{2/3}\).
+\[f(x) = 3x^{2/3} - 2x^{1/3}x^{2/3} = x^{2/3}\left(3 - 2x^{1/3}\right).\]
+This is 0 when \(x^{2/3} = 0\), so \(x = 0\), or when \(3 - 2x^{1/3} = 0\), so \(x^{1/3} = \frac{3}{2}\) and \(x = \left(\frac{3}{2}\right)^3 = \frac{27}{8}\). The \(x\)-intercepts are \((0, 0)\) and \(\left(\frac{27}{8}, 0\right)\).</li>
+<li>Symmetry. \(f(-x) = 3(-x)^{2/3} + 2x = 3x^{2/3} + 2x\), since \((-x)^{2/3} = \left(\sqrt[3]{-x}\right)^2 = \left(-\sqrt[3]{x}\right)^2 = x^{2/3}\). This is neither \(f(x)\) nor \(-f(x)\). Neither even nor odd.</li>
+<li>Asymptotes and end behavior. No vertical asymptotes (\(f\) is continuous everywhere). Use the factored form \(x^{2/3}(3 - 2x^{1/3})\). As \(x \to \infty\), \(x^{2/3} \to \infty\) and \(3 - 2x^{1/3} \to -\infty\), so \(f(x) \to -\infty\). As \(x \to -\infty\), \(x^{2/3} \to \infty\) and \(3 - 2x^{1/3} \to \infty\), so \(f(x) \to \infty\). No horizontal asymptotes.</li>
+<li>First derivative. Power rule: \(\frac{d}{dx}\left[3x^{2/3}\right] = 3\cdot\frac{2}{3}x^{-1/3} = 2x^{-1/3}\). Then write over a common denominator.
+\[f'(x) = 2x^{-1/3} - 2 = \frac{2}{x^{1/3}} - \frac{2x^{1/3}}{x^{1/3}} = \frac{2\left(1 - x^{1/3}\right)}{x^{1/3}}.\]
+\(f'(x) = 0\) when \(x^{1/3} = 1\), so \(x = 1\). \(f'(x)\) does not exist when \(x^{1/3} = 0\), so \(x = 0\), and 0 is in the domain. The critical numbers are \(0\) and \(1\).</li>
+<li>Sign chart for \(f'\), with factors \(1 - x^{1/3}\) and \(x^{1/3}\). Test values \(-1\), \(\frac{1}{8}\), \(8\) make the cube roots easy: \(\sqrt[3]{-1} = -1\), \(\sqrt[3]{1/8} = \frac{1}{2}\), \(\sqrt[3]{8} = 2\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(1 - x^{1/3}\)</th><th>\(x^{1/3}\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(+\) (it is 2)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(\tfrac{1}{8}\)</td><td>\(+\) (it is \(\tfrac{1}{2}\))</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(8\)</td><td>\(-\) (it is \(-1\))</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+</table>
+For example, \(f'(-1) = \dfrac{2(2)}{-1} = -4\) and \(f'(8) = \dfrac{2(-1)}{2} = -1\).</li>
+<li>Local extrema. At \(x = 0\), \(f'\) changes from negative to positive, so there is a local minimum at \((0, f(0)) = (0, 0)\). As \(x \to 0^-\), \(f'(x) = \frac{2(1 - x^{1/3})}{x^{1/3}}\) has numerator near 2 and a tiny negative denominator, so \(f'(x) \to -\infty\). As \(x \to 0^+\), \(f'(x) \to \infty\). The tangent lines become vertical from both sides, so the minimum is a cusp pointing down. At \(x = 1\), \(f'\) changes from positive to negative, so there is a local maximum: \(f(1) = 3(1) - 2(1) = 1\). Local maximum \((1, 1)\).</li>
+<li>Second derivative. Differentiate \(f'(x) = 2x^{-1/3} - 2\) with the power rule.
+\[f''(x) = 2\cdot\left(-\tfrac{1}{3}\right)x^{-4/3} = -\frac{2}{3x^{4/3}}.\]
+\(f''\) is never 0, and it does not exist at \(x = 0\). Since \(x^{4/3} = \left(x^{1/3}\right)^4 \gt 0\) for every \(x \ne 0\), \(f''(x) \lt 0\) for all \(x \ne 0\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(-\tfrac{2}{3}\)</th><th>\(x^{4/3}\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((0, \infty)\)</td><td>\(1\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>C.D.</td></tr>
+</table>
+The concavity does not change at \(x = 0\), so there are no inflection points.</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+</table></li>
+<li>Plot and draw. Plot \((0, 0)\), \((1, 1)\), \(\left(\frac{27}{8}, 0\right)\), and an extra point \(f(-1) = 3(1) + 2 = 5\). Come down from \(\infty\) on the left, bending downward, into the sharp cusp at the origin, rise to the cap at \((1, 1)\), and fall through \(\left(\frac{27}{8}, 0\right)\) toward \(-\infty\).
+<div class="plot" data-f="3*Math.cbrt(x)**2-2*x" data-x="-1.5,4.5" data-y="-2.5,7" data-pts="0,0,local min, cusp (0, 0)|1,1,local max (1, 1)" data-cap="Graph of f(x) = 3x^(2/3) - 2x"></div></li>
+</ol><p class="final">Answer: local minimum \((0, 0)\), which is a cusp; local maximum \((1, 1)\); no inflection points. Decreasing on \((-\infty, 0)\) and \((1, \infty)\), increasing on \((0, 1)\), C.D. on \((-\infty, 0)\) and \((0, \infty)\).</p></div>
+
+<div class="trap"><b>Common mistake: missing the critical number where f' does not exist.</b> If you only solve \(f'(x) = 0\) in Worked example 6, you find \(x = 1\) and miss the local minimum at \(x = 0\). Always look at the denominator of \(f'\) too. If it is 0 at a number in the domain of \(f\), that number is a critical number.</div>
+
+<h3>The reverse task: sketch a graph from conditions</h3>
+<p>Some problems give no formula. They list facts about \(f\), \(f'\), and \(f''\), and ask for a graph of any function with all of those facts. In lecture the professor did one whose graph has a sharp local minimum with a vertical tangent line. Translate each condition into a picture, using the four shapes, then draw one curve that does all of it.</p>
+<table class="t">
+<tr><th>Condition</th><th>What it means for the picture</th></tr>
+<tr><td>\(f(a) = b\)</td><td>the point \((a, b)\) is on the graph</td></tr>
+<tr><td>\(f'(a) = 0\)</td><td>horizontal tangent line at \(x = a\)</td></tr>
+<tr><td>\(f' \gt 0\) or \(f' \lt 0\) on an interval</td><td>the graph rises or falls there</td></tr>
+<tr><td>\(f'' \gt 0\) or \(f'' \lt 0\) on an interval</td><td>the graph is C.U. (cup) or C.D. (cap) there</td></tr>
+<tr><td>\(f'(a)\) does not exist, \(f\) continuous at \(a\)</td><td>a corner or a cusp at \(x = a\), with no break in the graph</td></tr>
+<tr><td>\(\lim_{x\to a} f'(x) = \pm\infty\)</td><td>the tangent line becomes vertical at \(x = a\)</td></tr>
+<tr><td>\(\lim_{x\to\infty} f(x) = L\)</td><td>the graph levels off toward the dashed line \(y = L\) on the right</td></tr>
+</table>
+
+<div class="ex"><div class="et">Worked example 7 (graph from conditions)</div><p class="p">Sketch the graph of a function \(f\) with all of these properties.<br>
+(a) \(f\) is continuous and differentiable on \((-\infty, \infty)\).<br>
+(b) \(f(0) = 2\), \(f(-2) = \frac{3}{2}\), and \(f(2) = \frac{3}{2}\).<br>
+(c) \(f'(0) = 0\), \(f'(x) \gt 0\) on \((-\infty, 0)\), and \(f'(x) \lt 0\) on \((0, \infty)\).<br>
+(d) \(f''(x) \gt 0\) on \((-\infty, -2)\) and \((2, \infty)\), and \(f''(x) \lt 0\) on \((-2, 2)\).<br>
+(e) \(\displaystyle\lim_{x\to\infty} f(x) = 0\) and \(\displaystyle\lim_{x\to-\infty} f(x) = 0\).</p>
+<ol class="steps">
+<li>Draw the asymptote from (e). Both limits are 0, so the \(x\)-axis, \(y = 0\), is a horizontal asymptote at both ends.</li>
+<li>Read the rising and falling from (c). The graph rises on \((-\infty, 0)\) and falls on \((0, \infty)\). By the first derivative test, \(f\) has a local maximum at \(x = 0\), and by (b) that point is \((0, 2)\). Since \(f'(0) = 0\), the top is smooth with a horizontal tangent line, not a sharp point.</li>
+<li>Read the bending from (d). The graph is C.U. on \((-\infty, -2)\), C.D. on \((-2, 2)\), and C.U. on \((2, \infty)\). The concavity changes at \(x = -2\) and \(x = 2\), and \(f\) is continuous there, so \(\left(-2, \frac{3}{2}\right)\) and \(\left(2, \frac{3}{2}\right)\) are inflection points.</li>
+<li>Combine the signs into a summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+<tr><td>\((-2, 0)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((0, 2)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+</table></li>
+<li>Draw. Start just above the \(x\)-axis on the far left (the graph rises toward the right, and it levels off at height 0, so it must be above 0). Rise while bending upward to \(\left(-2, \frac{3}{2}\right)\), switch to bending downward, round over the top at \((0, 2)\), fall to \(\left(2, \frac{3}{2}\right)\), switch back to bending upward, and level off toward the \(x\)-axis on the right. The result is a bell-shaped curve. One function with all of these properties is \(f(x) = \dfrac{24}{x^2 + 12}\), drawn below. Any graph with the same features is a correct answer.
+<div class="plot" data-f="24/(x**2+12)" data-x="-5,6.5" data-y="-0.5,2.5" data-h="0" data-pts="0,2,local max (0, 2)|-2,1.5,inflection (-2, 3/2)|2,1.5,inflection (2, 3/2)" data-cap="One graph with all the listed properties"></div></li>
+</ol><p class="final">Answer: a bell-shaped curve above the \(x\)-axis with horizontal asymptote \(y = 0\) at both ends, local maximum \((0, 2)\), and inflection points \(\left(-2, \frac{3}{2}\right)\) and \(\left(2, \frac{3}{2}\right)\), as drawn above.</p></div>
+
+<div class="say"><b>What to write on the exam.</b> Write each conclusion as a sentence that names the reason. For example: "Since \(f'\) changes from positive to negative at \(x = -1\), \(f\) has a local maximum at \((-1, 32)\)." "Since \(f''\) changes from negative to positive at \(x = 1\) and \(f\) is continuous there, \((1, 16)\) is an inflection point." "There is no local extremum at \(x = 0\) because \(f'\) is negative on both sides of 0." "\(f''(1) = 0\), but \(f''\) does not change sign at 1, so there is no inflection point there." Then draw the graph with the points plotted and labeled by their coordinates, the asymptotes dashed, and the behavior at the ends visible.</div>
+
+<div class="trap"><b>More mistakes to avoid.</b>
+<ul>
+<li>Computing the \(y\)-coordinate of a point with \(f'\) or \(f''\) instead of \(f\). The heights of extrema and inflection points always come from the original \(f\).</li>
+<li>Giving an inflection point as just an \(x\)-value. By the professor's definition an inflection point is a point of the graph, so write \((1, 16)\), not "\(x = 1\)."</li>
+<li>Testing a sign chart at a break number. Test values must be strictly inside the intervals; at a break number the expression is 0 or undefined.</li>
+<li>Forgetting that a vertical asymptote or an excluded number also splits the sign chart, even though it is not a critical number.</li>
+<li>Expecting a local maximum value to be larger than a local minimum value. For \(f(x) = x + \frac{1}{x}\), the local maximum \((-1, -2)\) is lower than the local minimum \((1, 2)\), because the two points are on different branches.</li>
+<li>Connecting the curve across a vertical asymptote, or drawing the graph to the left of \(x = 0\) for \(x \ln x\) or \(\frac{\ln x}{x}\).</li>
+<li>Drawing a cup where the table says cap. Before drawing each piece, read its row of the summary table.</li>
+</ul></div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>The checklist: domain, intercepts, symmetry, vertical asymptotes with one-sided limits, horizontal asymptotes or end behavior, \(f'\) with critical numbers and a sign chart, \(f''\) with a sign chart, the summary table, then plot and label.</li>
+<li>A critical number is a number in the domain where \(f' = 0\) or \(f'\) does not exist.</li>
+<li>First derivative test: \(f'\) from \(+\) to \(-\) gives a local max, from \(-\) to \(+\) gives a local min, no sign change gives neither.</li>
+<li>\(f'' \gt 0\) means C.U. (above the tangent lines), \(f'' \lt 0\) means C.D. An inflection point is a point of the graph where \(f\) is continuous and the concavity changes.</li>
+<li>The four shapes: \(+\,+\) rising cup, \(+\,-\) rising cap, \(-\,+\) falling cup, \(-\,-\) falling cap.</li>
+<li>Sign chart: factor, find break numbers (zeros and undefined points), one test value per interval, multiply the signs of the factors.</li>
+<li>Even: \(f(-x) = f(x)\), symmetric about the \(y\)-axis. Odd: \(f(-x) = -f(x)\), symmetric about the origin.</li>
+<li>Rational functions: vertical asymptotes where the denominator is 0 after cancelling; horizontal asymptote from the degrees (smaller on top gives \(y = 0\), equal degrees give the ratio of the leading coefficients).</li>
+<li>\(\displaystyle\lim_{x\to\infty} \frac{x^n}{e^x} = 0\) and \(\displaystyle\lim_{x\to 0^+} x \ln x = 0\), both by L'Hospital after writing the expression as a quotient.</li>
+<li>Every cubic has exactly one inflection point. A polynomial has no asymptotes.</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u07-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">A function \(f\) is differentiable for all \(x\), and its derivative is \(f'(x) = x^2(x + 4)(x - 2)\). Make a sign chart for \(f'\). Then state the intervals where \(f\) is increasing and decreasing, and the \(x\)-values of all local maxima and minima.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the break numbers by setting each factor equal to 0.
+\[x^2 = 0 \;\Rightarrow\; x = 0, \qquad x + 4 = 0 \;\Rightarrow\; x = -4, \qquad x - 2 = 0 \;\Rightarrow\; x = 2.\]
+In order, the critical numbers are \(-4\), \(0\), \(2\). They split the line into \((-\infty, -4)\), \((-4, 0)\), \((0, 2)\), \((2, \infty)\).</li>
+<li>Test one value in each interval (\(-5\), \(-1\), \(1\), \(3\)) and write the sign of each factor.
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(x^2\)</th><th>\(x + 4\)</th><th>\(x - 2\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, -4)\)</td><td>\(-5\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((-4, 0)\)</td><td>\(-1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((0, 2)\)</td><td>\(1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(3\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+As a check with numbers: \(f'(-1) = (1)(3)(-3) = -9 \lt 0\) and \(f'(3) = (9)(7)(1) = 63 \gt 0\).</li>
+<li>Apply the first derivative test. At \(x = -4\), \(f'\) changes from \(+\) to \(-\): local maximum. At \(x = 2\), \(f'\) changes from \(-\) to \(+\): local minimum. At \(x = 0\), \(f'\) is negative on both sides because \(x^2\) does not change sign: no local extremum.</li>
+</ol><p class="final">Answer: \(f\) is increasing on \((-\infty, -4)\) and \((2, \infty)\), decreasing on \((-4, 0)\) and \((0, 2)\). Local maximum at \(x = -4\), local minimum at \(x = 2\), and no extremum at \(x = 0\).</p></div></details></div>
+
+<div class="q" id="u07-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x^4 - 2x^3\). Find the intervals where the graph of \(f\) is concave up and concave down, and find all inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate twice with the power rule.
+\[f'(x) = 4x^3 - 6x^2, \qquad f''(x) = 12x^2 - 12x = 12x(x - 1).\]</li>
+<li>\(f''(x) = 0\) when \(x = 0\) or \(x = 1\). Make a sign chart with test values \(-1\), \(\tfrac{1}{2}\), \(2\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(12x\)</th><th>\(x - 1\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>C.U.</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(\tfrac{1}{2}\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table></li>
+<li>The concavity changes at \(x = 0\) and at \(x = 1\), and \(f\) is continuous there, so both give inflection points. Compute the heights with \(f\), not with \(f''\).
+\[f(0) = 0 - 0 = 0, \qquad f(1) = 1 - 2 = -1.\]</li>
+<li>The graph, for reference. The local minimum at \(x = \tfrac{3}{2}\) comes from \(f'(x) = 2x^2(2x - 3)\), and \(f\!\left(\tfrac{3}{2}\right) = \tfrac{81}{16} - \tfrac{108}{16} = -\tfrac{27}{16}\).
+<div class="plot" data-f="x**4-2*x**3" data-x="-1.2,2.4" data-y="-2,4" data-pts="0,0,inflection (0, 0)|1,-1,inflection (1, -1)|1.5,-1.6875,local min (3/2, -27/16)" data-cap="Graph of f(x) = x^4 - 2x^3"></div></li>
+</ol><p class="final">Answer: concave up on \((-\infty, 0)\) and \((1, \infty)\), concave down on \((0, 1)\). Inflection points \((0, 0)\) and \((1, -1)\).</p></div></details></div>
+
+<div class="q" id="u07-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">A function \(f\) is continuous on \((-\infty, \infty)\). Its summary table is below. Describe the shape of the graph on each interval, and give the \(x\)-values of all local maxima, local minima, and inflection points.
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -2)\)</th><th>\((-2, 0)\)</th><th>\((0, 3)\)</th><th>\((3, 5)\)</th><th>\((5, \infty)\)</th></tr>
+<tr><th>sign of \(f'\)</th><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td></tr>
+<tr><th>sign of \(f''\)</th><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+</table></div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Translate each column with the four shapes: \(f' \gt 0\) means increasing, \(f' \lt 0\) decreasing, \(f'' \gt 0\) C.U., \(f'' \lt 0\) C.D.
+<table class="t">
+<tr><th>Interval</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>increasing, C.D. (rising cap)</td></tr>
+<tr><td>\((-2, 0)\)</td><td>decreasing, C.D. (falling cap)</td></tr>
+<tr><td>\((0, 3)\)</td><td>decreasing, C.U. (falling cup)</td></tr>
+<tr><td>\((3, 5)\)</td><td>increasing, C.U. (rising cup)</td></tr>
+<tr><td>\((5, \infty)\)</td><td>increasing, C.D. (rising cap)</td></tr>
+</table></li>
+<li>Find the local extrema from the \(f'\) row with the first derivative test. At \(x = -2\), \(f'\) changes from \(+\) to \(-\): local maximum. At \(x = 3\), \(f'\) changes from \(-\) to \(+\): local minimum. At \(x = 0\) and \(x = 5\), \(f'\) keeps its sign, so those are not extrema.</li>
+<li>Find the inflection points from the \(f''\) row. \(f''\) changes from \(-\) to \(+\) at \(x = 0\) and from \(+\) to \(-\) at \(x = 5\), and \(f\) is continuous, so the concavity changes there. At \(x = -2\) and \(x = 3\), \(f''\) keeps its sign, so those are not inflection points.</li>
+</ol><p class="final">Answer: local maximum at \(x = -2\), local minimum at \(x = 3\), inflection points at \(x = 0\) and \(x = 5\). The shapes are listed in the table in step 1.</p></div></details></div>
+
+<div class="q" id="u07-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">Find all vertical and horizontal asymptotes of \(f(x) = \dfrac{2x^2 - 8}{x^2 - 5x + 6}\). For each vertical asymptote, give the limits from the left and from the right.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Factor the numerator and the denominator.
+\[f(x) = \frac{2(x^2 - 4)}{(x - 2)(x - 3)} = \frac{2(x - 2)(x + 2)}{(x - 2)(x - 3)}.\]
+The domain is all \(x\) except \(2\) and \(3\).</li>
+<li>Cancel the common factor \(x - 2\). For \(x \ne 2\),
+\[f(x) = \frac{2(x + 2)}{x - 3}.\]
+After cancelling, only \(x = 3\) makes the denominator 0, so \(x = 3\) is the only vertical asymptote. At \(x = 2\) the graph has a hole at height \(\frac{2(4)}{-1} = -8\), not an asymptote.</li>
+<li>One-sided limits at \(x = 3\). The numerator \(2(x + 2) \to 10 \gt 0\). As \(x \to 3^+\), \(x - 3\) is a small positive number, so \(f(x) \to \infty\). As \(x \to 3^-\), \(x - 3\) is a small negative number, so \(f(x) \to -\infty\).</li>
+<li>Horizontal asymptote. The degrees are equal, so divide the top and the bottom of the original fraction by \(x^2\).
+\[\lim_{x\to\pm\infty} \frac{2x^2 - 8}{x^2 - 5x + 6} = \lim_{x\to\pm\infty} \frac{2 - \frac{8}{x^2}}{1 - \frac{5}{x} + \frac{6}{x^2}} = \frac{2 - 0}{1 - 0 + 0} = 2.\]
+<div class="plot" data-f="(2*x**2-8)/(x**2-5*x+6)" data-x="-6,10" data-y="-15,15" data-v="3" data-h="2" data-cap="Graph of f(x) = (2x^2 - 8)/(x^2 - 5x + 6); the hole at (2, -8) is not visible at this scale"></div></li>
+</ol><p class="final">Answer: vertical asymptote \(x = 3\), with \(f(x) \to -\infty\) as \(x \to 3^-\) and \(f(x) \to \infty\) as \(x \to 3^+\). Horizontal asymptote \(y = 2\) at both ends. The graph has a hole at \((2, -8)\), not a vertical asymptote.</p></div></details></div>
+
+<div class="q" id="u07-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Decide whether each function is even, odd, or neither, and say what that means for its graph: (a) \(f(x) = x^3 - 5x\), (b) \(g(x) = \dfrac{6}{x^2 + 2}\), (c) \(h(x) = x^4 + x\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Substitute \(-x\) and simplify.
+\[f(-x) = (-x)^3 - 5(-x) = -x^3 + 5x = -(x^3 - 5x) = -f(x).\]
+So \(f\) is odd, and its graph is symmetric about the origin (a \(180^\circ\) rotation).</li>
+<li>(b) Substitute \(-x\).
+\[g(-x) = \frac{6}{(-x)^2 + 2} = \frac{6}{x^2 + 2} = g(x).\]
+So \(g\) is even, and its graph is symmetric about the \(y\)-axis (a mirror reflection).</li>
+<li>(c) Substitute \(-x\).
+\[h(-x) = (-x)^4 + (-x) = x^4 - x.\]
+This is not \(h(x) = x^4 + x\). It is also not \(-h(x) = -x^4 - x\). For example \(h(1) = 2\) while \(h(-1) = 0\), which is neither \(2\) nor \(-2\). So \(h\) is neither even nor odd.</li>
+</ol><p class="final">Answer: (a) odd, symmetric about the origin; (b) even, symmetric about the \(y\)-axis; (c) neither.</p></div></details></div>
+
+<div class="q" id="u07-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = (x + 2)e^{-x}\). Find \(\displaystyle\lim_{x\to\infty} f(x)\) and \(\displaystyle\lim_{x\to-\infty} f(x)\), and state any horizontal asymptote. Then find \(\displaystyle\lim_{x\to 0^+} x^2\ln x\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>As \(x \to \infty\), \(x + 2 \to \infty\) and \(e^{-x} \to 0\), the indeterminate form \(\infty \cdot 0\). Rewrite as a quotient of the form \(\frac{\infty}{\infty}\) and use L'Hospital's rule.
+\[\lim_{x\to\infty} (x + 2)e^{-x} = \lim_{x\to\infty} \frac{x + 2}{e^{x}} \;\overset{\text{L'H}}{=}\; \lim_{x\to\infty} \frac{1}{e^{x}} = 0.\]</li>
+<li>As \(x \to -\infty\), \(x + 2 \to -\infty\) and \(e^{-x} \to \infty\). This is not an indeterminate form: a huge negative number times a huge positive number gives \(-\infty\).
+\[\lim_{x\to-\infty} (x + 2)e^{-x} = -\infty.\]
+So \(y = 0\) is a horizontal asymptote on the right only.</li>
+<li>As \(x \to 0^+\), \(x^2 \to 0\) and \(\ln x \to -\infty\), the form \(0 \cdot (-\infty)\). Rewrite as \(\dfrac{\ln x}{x^{-2}}\), which has the form \(\frac{-\infty}{\infty}\), and use L'Hospital's rule. The derivative of \(x^{-2}\) is \(-2x^{-3}\).
+\[\lim_{x\to 0^+} \frac{\ln x}{x^{-2}} \;\overset{\text{L'H}}{=}\; \lim_{x\to 0^+} \frac{\frac{1}{x}}{-2x^{-3}} = \lim_{x\to 0^+} \frac{1}{x}\cdot\frac{x^3}{-2} = \lim_{x\to 0^+} \left(-\frac{x^2}{2}\right) = 0.\]</li>
+</ol><p class="final">Answer: \(\displaystyle\lim_{x\to\infty} (x + 2)e^{-x} = 0\) and \(\displaystyle\lim_{x\to-\infty} (x + 2)e^{-x} = -\infty\), so \(y = 0\) is a horizontal asymptote on the right only. \(\displaystyle\lim_{x\to 0^+} x^2\ln x = 0\).</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u07-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = x^3 - 6x^2 + 9x\). Label any local extrema and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain: \(f\) is a polynomial, so the domain is \((-\infty, \infty)\). There are no asymptotes.</li>
+<li>Intercepts. \(f(0) = 0\), so the \(y\)-intercept is \((0, 0)\). Factor out \(x\), then recognize a perfect square.
+\[f(x) = x(x^2 - 6x + 9) = x(x - 3)^2.\]
+So \(f(x) = 0\) at \(x = 0\) and \(x = 3\). The \(x\)-intercepts are \((0, 0)\) and \((3, 0)\).</li>
+<li>Symmetry. \(f(-x) = -x^3 - 6x^2 - 9x\), which is neither \(f(x)\) nor \(-f(x) = -x^3 + 6x^2 - 9x\). Neither even nor odd.</li>
+<li>End behavior from the leading term \(x^3\): \(f(x) \to \infty\) as \(x \to \infty\), and \(f(x) \to -\infty\) as \(x \to -\infty\).</li>
+<li>First derivative. Power rule, factor out 3, factor the quadratic.
+\[f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x - 1)(x - 3).\]
+Critical numbers: \(x = 1\) and \(x = 3\).</li>
+<li>Sign chart for \(f'\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(x - 1\)</th><th>\(x - 3\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, 1)\)</td><td>\(0\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((1, 3)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(4\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+For example \(f'(2) = 3(1)(-1) = -3\).</li>
+<li>Local extrema. \(f'\) changes from \(+\) to \(-\) at \(x = 1\): local maximum, with \(f(1) = 1(1 - 3)^2 = 4\). \(f'\) changes from \(-\) to \(+\) at \(x = 3\): local minimum, with \(f(3) = 3(0)^2 = 0\).</li>
+<li>Second derivative.
+\[f''(x) = 6x - 12 = 6(x - 2).\]
+\(f''(x) \lt 0\) for \(x \lt 2\) (test \(f''(0) = -12\)) and \(f''(x) \gt 0\) for \(x \gt 2\) (test \(f''(3) = 6\)). The concavity changes at \(x = 2\), and \(f(2) = 2(2 - 3)^2 = 2\). Inflection point \((2, 2)\).</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, 1)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((1, 2)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((2, 3)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Plot \((0, 0)\), \((1, 4)\), \((2, 2)\), \((3, 0)\) and connect them following the table: rise from \(-\infty\) through the origin to the cap at \((1, 4)\), fall through \((2, 2)\), touch the \(x\)-axis at the bottom of the cup \((3, 0)\), and rise.
+<div class="plot" data-f="x**3-6*x**2+9*x" data-x="-1,4.6" data-y="-3,7" data-pts="1,4,local max (1, 4)|3,0,local min (3, 0)|2,2,inflection (2, 2)" data-cap="Graph of f(x) = x^3 - 6x^2 + 9x"></div></li>
+</ol><p class="final">Answer: local maximum \((1, 4)\), local minimum \((3, 0)\), inflection point \((2, 2)\). Increasing on \((-\infty, 1)\) and \((3, \infty)\), decreasing on \((1, 3)\), C.D. on \((-\infty, 2)\), C.U. on \((2, \infty)\).</p></div></details></div>
+
+<div class="q" id="u07-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = x^4 - 4x^3 + 6x^2\). Label any local extrema and inflection points. Explain what happens at the number where \(f''(x) = 0\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain \((-\infty, \infty)\), no asymptotes, since \(f\) is a polynomial.</li>
+<li>Intercepts. \(f(0) = 0\). Factor out \(x^2\): \(f(x) = x^2(x^2 - 4x + 6)\). The quadratic has discriminant \((-4)^2 - 4(1)(6) = 16 - 24 = -8 \lt 0\), so it has no real zeros. Completing the square shows it is always positive.
+\[x^2 - 4x + 6 = (x^2 - 4x + 4) + 2 = (x - 2)^2 + 2 \gt 0.\]
+So the only intercept is \((0, 0)\), and \(f(x) \ge 0\) for every \(x\).</li>
+<li>Symmetry. \(f(-x) = x^4 + 4x^3 + 6x^2\), which is neither \(f(x)\) nor \(-f(x)\). Neither even nor odd.</li>
+<li>End behavior: the leading term \(x^4\) gives \(f(x) \to \infty\) as \(x \to \pm\infty\).</li>
+<li>First derivative. Factor out \(4x\).
+\[f'(x) = 4x^3 - 12x^2 + 12x = 4x(x^2 - 3x + 3).\]
+The quadratic \(x^2 - 3x + 3\) has discriminant \(9 - 12 = -3 \lt 0\) and positive leading coefficient, so it is positive for every \(x\). (Completing the square: \(x^2 - 3x + 3 = \left(x - \tfrac{3}{2}\right)^2 + \tfrac{3}{4}\).) So \(f'(x) = 0\) only at \(x = 0\), and the sign of \(f'\) is the sign of \(4x\).</li>
+<li>Sign chart for \(f'\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(4x\)</th><th>\(x^2 - 3x + 3\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(-\)</td><td>\(+\) (it is 7)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((0, \infty)\)</td><td>\(1\)</td><td>\(+\)</td><td>\(+\) (it is 1)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+\(f'\) changes from \(-\) to \(+\) at \(x = 0\): local minimum \((0, 0)\). There is no local maximum.</li>
+<li>Second derivative. Factor out 12 and recognize a perfect square.
+\[f''(x) = 12x^2 - 24x + 12 = 12(x^2 - 2x + 1) = 12(x - 1)^2.\]
+\(f''(1) = 0\). But \((x - 1)^2 \gt 0\) for every \(x \ne 1\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(12(x - 1)^2\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 1)\)</td><td>\(0\)</td><td>\(+\) (it is 12)</td><td>C.U.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(+\) (it is 12)</td><td>C.U.</td></tr>
+</table>
+The graph is C.U. on both sides of \(x = 1\). Since the concavity does not change, the point \((1, f(1)) = (1, 1 - 4 + 6) = (1, 3)\) is not an inflection point. The graph has no inflection points, and it is C.U. on \((-\infty, 1)\) and \((1, \infty)\).</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Plot \((0, 0)\) and \((1, 3)\), plus \(f(-1) = 1 + 4 + 6 = 11\) and \(f(2) = 16 - 32 + 24 = 8\). The graph is one cup: down to the minimum at the origin, then up. Near \(x = 1\) it bends only slightly, but it never switches to C.D.
+<div class="plot" data-f="x**4-4*x**3+6*x**2" data-x="-1.2,2.6" data-y="-1,12" data-pts="0,0,local min (0, 0)|1,3,(1, 3) not an inflection point" data-cap="Graph of f(x) = x^4 - 4x^3 + 6x^2"></div></li>
+</ol><p class="final">Answer: local minimum \((0, 0)\), no local maximum, no inflection points. Decreasing on \((-\infty, 0)\), increasing on \((0, \infty)\), and C.U. on \((-\infty, 1)\) and \((1, \infty)\). At \(x = 1\), \(f''(1) = 0\) but \(f''\) does not change sign, so \((1, 3)\) is not an inflection point.</p></div></details></div>
+
+<div class="q" id="u07-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = x + \dfrac{1}{x}\). Label any local extrema and inflection points, and show the asymptotes.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain: division by \(x\) needs \(x \ne 0\). The domain is \((-\infty, 0) \cup (0, \infty)\).</li>
+<li>Intercepts. There is no \(y\)-intercept since 0 is not in the domain. Setting \(f(x) = 0\) and multiplying by \(x\) gives \(x^2 + 1 = 0\), which has no real solution. No \(x\)-intercepts.</li>
+<li>Symmetry. \(f(-x) = -x + \dfrac{1}{-x} = -\left(x + \dfrac{1}{x}\right) = -f(x)\). So \(f\) is odd and the graph is symmetric about the origin.</li>
+<li>Vertical asymptote \(x = 0\). As \(x \to 0^+\), \(\frac{1}{x} \to \infty\) and \(x \to 0\), so \(f(x) \to \infty\). As \(x \to 0^-\), \(\frac{1}{x} \to -\infty\), so \(f(x) \to -\infty\).</li>
+<li>End behavior. As \(x \to \infty\), \(x \to \infty\) and \(\frac{1}{x} \to 0\), so \(f(x) \to \infty\). As \(x \to -\infty\), \(f(x) \to -\infty\). No horizontal asymptote. Since \(f(x) - x = \frac{1}{x} \to 0\), the graph gets close to the slanted line \(y = x\) at both ends.</li>
+<li>First derivative. Write \(\frac{1}{x} = x^{-1}\), so its derivative is \(-x^{-2}\). Then use a common denominator and factor.
+\[f'(x) = 1 - \frac{1}{x^2} = \frac{x^2 - 1}{x^2} = \frac{(x - 1)(x + 1)}{x^2}.\]
+\(f'(x) = 0\) at \(x = \pm 1\). \(f'\) is undefined at \(x = 0\), which is not in the domain, so it is not a critical number. Critical numbers: \(-1\) and \(1\).</li>
+<li>Sign chart for \(f'\). The break numbers are \(-1\), \(0\), \(1\) (0 splits the line because of the asymptote).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(x - 1\)</th><th>\(x + 1\)</th><th>\(x^2\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-2\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((-1, 0)\)</td><td>\(-\tfrac{1}{2}\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(\tfrac{1}{2}\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+For example \(f'(2) = 1 - \frac{1}{4} = \frac{3}{4}\) and \(f'\!\left(\frac{1}{2}\right) = 1 - 4 = -3\).</li>
+<li>Local extrema. At \(x = -1\), \(f'\) changes from \(+\) to \(-\): local maximum, \(f(-1) = -1 + \frac{1}{-1} = -2\). At \(x = 1\), \(f'\) changes from \(-\) to \(+\): local minimum, \(f(1) = 1 + 1 = 2\). The local maximum value \(-2\) is smaller than the local minimum value \(2\), which is possible because they are on different branches.</li>
+<li>Second derivative. Differentiate \(f'(x) = 1 - x^{-2}\).
+\[f''(x) = 0 - (-2)x^{-3} = \frac{2}{x^3}.\]
+\(f''\) is never 0. For \(x \lt 0\), \(x^3 \lt 0\), so \(f'' \lt 0\): C.D. on \((-\infty, 0)\). For \(x \gt 0\), \(f'' \gt 0\): C.U. on \((0, \infty)\). The concavity changes only at \(x = 0\), which is not in the domain, so there are no inflection points.</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((-1, 0)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Draw the dashed line \(x = 0\). The right branch comes down from \(\infty\) next to the \(y\)-axis, bottoms out at \((1, 2)\), and rises along \(y = x\). The left branch is the right branch rotated \(180^\circ\) about the origin, with its top at \((-1, -2)\).
+<div class="plot" data-f="x+1/x" data-x="-5,5" data-y="-8,8" data-v="0" data-pts="-1,-2,local max (-1, -2)|1,2,local min (1, 2)" data-cap="Graph of f(x) = x + 1/x; the y-axis is a vertical asymptote"></div></li>
+</ol><p class="final">Answer: vertical asymptote \(x = 0\), no horizontal asymptote; local maximum \((-1, -2)\), local minimum \((1, 2)\), no inflection points. Increasing on \((-\infty, -1)\) and \((1, \infty)\), decreasing on \((-1, 0)\) and \((0, 1)\), C.D. on \((-\infty, 0)\), C.U. on \((0, \infty)\).</p></div></details></div>
+
+<div class="q" id="u07-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = x\ln x\). Label any local extrema and inflection points, and describe what happens as \(x \to 0^+\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain: \(\ln x\) needs \(x \gt 0\). The domain is \((0, \infty)\). Since the domain is only positive numbers, \(f\) is neither even nor odd.</li>
+<li>Intercepts. 0 is not in the domain, so there is no \(y\)-intercept. \(x\ln x = 0\) needs \(x = 0\) (not allowed) or \(\ln x = 0\), so \(x = 1\). The \(x\)-intercept is \((1, 0)\). For \(0 \lt x \lt 1\), \(\ln x \lt 0\), so \(f \lt 0\). For \(x \gt 1\), \(f \gt 0\).</li>
+<li>Behavior as \(x \to 0^+\). The product has the form \(0 \cdot (-\infty)\). Rewrite as a quotient of the form \(\frac{-\infty}{\infty}\) and use L'Hospital's rule.
+\[\lim_{x\to 0^+} x\ln x = \lim_{x\to 0^+} \frac{\ln x}{\frac{1}{x}} \;\overset{\text{L'H}}{=}\; \lim_{x\to 0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} = \lim_{x\to 0^+} \left(-\frac{x^2}{x}\right) = \lim_{x\to 0^+} (-x) = 0.\]
+So there is no vertical asymptote. The graph starts next to the origin (an open circle at \((0, 0)\), since 0 is not in the domain).</li>
+<li>End behavior. As \(x \to \infty\), \(x \to \infty\) and \(\ln x \to \infty\), so \(f(x) \to \infty\). No horizontal asymptote.</li>
+<li>First derivative. Product rule with \(u = x\), \(u' = 1\), \(v = \ln x\), \(v' = \frac{1}{x}\).
+\[f'(x) = 1\cdot\ln x + x\cdot\frac{1}{x} = \ln x + 1.\]
+\(f'(x) = 0\) when \(\ln x = -1\), so \(x = e^{-1} = \frac{1}{e}\). Critical number: \(\frac{1}{e}\).</li>
+<li>Sign chart for \(f'\). Pick test values whose logarithms are easy: \(e^{-2}\) and \(1\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(f'(x) = \ln x + 1\)</th><th>\(f\)</th></tr>
+<tr><td>\((0, \tfrac{1}{e})\)</td><td>\(e^{-2}\)</td><td>\(-2 + 1 = -1\), so \(-\)</td><td>decreasing</td></tr>
+<tr><td>\((\tfrac{1}{e}, \infty)\)</td><td>\(1\)</td><td>\(0 + 1 = 1\), so \(+\)</td><td>increasing</td></tr>
+</table>
+\(f'\) changes from \(-\) to \(+\) at \(x = \frac{1}{e}\): local minimum, with
+\[f\!\left(\tfrac{1}{e}\right) = \tfrac{1}{e}\ln\!\left(e^{-1}\right) = \tfrac{1}{e}\cdot(-1) = -\tfrac{1}{e}.\]</li>
+<li>Second derivative. Differentiate \(\ln x + 1\): \(f''(x) = \frac{1}{x}\). For every \(x\) in the domain \(x \gt 0\), so \(f''(x) \gt 0\). The graph is C.U. on \((0, \infty)\), and there are no inflection points.</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((0, \tfrac{1}{e})\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((\tfrac{1}{e}, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Draw: start at the open circle at the origin, dip down to \(\left(\frac{1}{e}, -\frac{1}{e}\right) \approx (0.37, -0.37)\), rise through \((1, 0)\), and keep rising, always bending upward. Extra point: \(f(e) = e\ln e = e\).
+<div class="plot" data-f="x*Math.log(x)" data-x="0,2.6" data-y="-0.8,2.5" data-pts="0.367879,-0.367879,local min (1/e, -1/e)|1,0,x-intercept (1, 0)" data-cap="Graph of f(x) = x ln x on its domain x > 0"></div></li>
+</ol><p class="final">Answer: domain \((0, \infty)\); \(f(x) \to 0\) as \(x \to 0^+\) (no vertical asymptote); local minimum \(\left(\frac{1}{e}, -\frac{1}{e}\right)\); no inflection points. Decreasing on \(\left(0, \frac{1}{e}\right)\), increasing on \(\left(\frac{1}{e}, \infty\right)\), C.U. on \((0, \infty)\), \(x\)-intercept \((1, 0)\).</p></div></details></div>
+
+<div class="q" id="u07-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = xe^{x}\). Label any local extrema and inflection points, and find any horizontal asymptote.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain \((-\infty, \infty)\). Intercept: \(f(0) = 0\), and since \(e^x \gt 0\), \(f(x) = 0\) only at \(x = 0\). The only intercept is \((0, 0)\). \(f\) has the sign of \(x\).</li>
+<li>Symmetry. \(f(-x) = -xe^{-x}\), which is neither \(xe^{x}\) nor \(-xe^{x}\). Neither even nor odd. No vertical asymptotes.</li>
+<li>Limits at the ends. As \(x \to \infty\), both factors go to \(\infty\), so \(f(x) \to \infty\). As \(x \to -\infty\), the form is \((-\infty)\cdot 0\). Rewrite with \(e^{x} = \frac{1}{e^{-x}}\) to get the form \(\frac{-\infty}{\infty}\), and use L'Hospital's rule. The derivative of \(e^{-x}\) is \(-e^{-x}\).
+\[\lim_{x\to-\infty} xe^{x} = \lim_{x\to-\infty} \frac{x}{e^{-x}} \;\overset{\text{L'H}}{=}\; \lim_{x\to-\infty} \frac{1}{-e^{-x}} = 0.\]
+As \(x \to -\infty\), \(e^{-x} \to \infty\), so the last fraction goes to 0. The line \(y = 0\) is a horizontal asymptote on the left.</li>
+<li>First derivative. Product rule with \(u = x\), \(u' = 1\), \(v = e^{x}\), \(v' = e^{x}\).
+\[f'(x) = e^{x} + xe^{x} = e^{x}(x + 1).\]
+Since \(e^{x} \gt 0\), the only critical number is \(x = -1\). Test \(x = -2\): \(e^{-2}(-1) \lt 0\). Test \(x = 0\): \(e^{0}(1) = 1 \gt 0\). So \(f\) is decreasing on \((-\infty, -1)\) and increasing on \((-1, \infty)\). By the first derivative test there is a local minimum at \(x = -1\), with \(f(-1) = -e^{-1} = -\frac{1}{e}\).</li>
+<li>Second derivative. Product rule on \(e^{x}(x + 1)\) with \(u = e^{x}\), \(u' = e^{x}\), \(v = x + 1\), \(v' = 1\).
+\[f''(x) = e^{x}(x + 1) + e^{x}\cdot 1 = e^{x}(x + 2).\]
+\(f''(x) = 0\) only at \(x = -2\). Test \(x = -3\): \(e^{-3}(-1) \lt 0\), so C.D. on \((-\infty, -2)\). Test \(x = 0\): \(e^{0}(2) = 2 \gt 0\), so C.U. on \((-2, \infty)\). The concavity changes at \(x = -2\), and \(f(-2) = -2e^{-2} = -\frac{2}{e^2}\). Inflection point \(\left(-2, -\frac{2}{e^2}\right)\).</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((-2, -1)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((-1, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Draw: on the far left the graph is just below the \(x\)-axis, then it falls, bending downward, to the inflection point \(\left(-2, -\frac{2}{e^2}\right) \approx (-2, -0.27)\), bends upward to the minimum \(\left(-1, -\frac{1}{e}\right) \approx (-1, -0.37)\), and rises through the origin to \(\infty\).
+<div class="plot" data-f="x*Math.exp(x)" data-x="-6,1.2" data-y="-0.6,0.6" data-h="0" data-pts="-1,-0.367879,local min (-1, -1/e)|-2,-0.270671,inflection (-2, -2/e^2)" data-cap="Graph of f(x) = x e^x; the x-axis is a horizontal asymptote on the left"></div></li>
+</ol><p class="final">Answer: horizontal asymptote \(y = 0\) as \(x \to -\infty\); local minimum \(\left(-1, -\frac{1}{e}\right)\); inflection point \(\left(-2, -\frac{2}{e^2}\right)\). Decreasing on \((-\infty, -1)\), increasing on \((-1, \infty)\), C.D. on \((-\infty, -2)\), C.U. on \((-2, \infty)\).</p></div></details></div>
+
+<div class="q" id="u07-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of a function \(f\) with all of these properties.<br>
+(a) \(f\) is continuous and differentiable on \((-\infty, \infty)\).<br>
+(b) \(f(-1) = 4\), \(f(0) = 2\), and \(f(1) = 0\).<br>
+(c) \(f'(-1) = 0\) and \(f'(1) = 0\).<br>
+(d) \(f'(x) \gt 0\) on \((-\infty, -1)\) and \((1, \infty)\), and \(f'(x) \lt 0\) on \((-1, 1)\).<br>
+(e) \(f''(x) \lt 0\) on \((-\infty, 0)\) and \(f''(x) \gt 0\) on \((0, \infty)\).<br>
+(f) \(\displaystyle\lim_{x\to\infty} f(x) = \infty\) and \(\displaystyle\lim_{x\to-\infty} f(x) = -\infty\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Plot the three points from (b): \((-1, 4)\), \((0, 2)\), \((1, 0)\).</li>
+<li>Read (c) and (d) with the first derivative test. \(f'\) changes from \(+\) to \(-\) at \(x = -1\), so \((-1, 4)\) is a local maximum. \(f'\) changes from \(-\) to \(+\) at \(x = 1\), so \((1, 0)\) is a local minimum. By (c), both have horizontal tangent lines, so they are smooth (no sharp points, which also agrees with (a)).</li>
+<li>Read (e). The concavity changes from C.D. to C.U. at \(x = 0\), and \(f\) is continuous there, so \((0, 2)\) is an inflection point.</li>
+<li>Combine into a summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((-1, 0)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Draw: come up from \(-\infty\) on the left (property f), round over the cap at \((-1, 4)\), fall through \((0, 2)\) where the bending switches, round out the cup at \((1, 0)\), and rise to \(\infty\). One function with all of these properties is \(f(x) = x^3 - 3x + 2\), drawn below. Any graph with the same features is correct.
+<div class="plot" data-f="x**3-3*x+2" data-x="-2.5,2.5" data-y="-3,7" data-pts="-1,4,local max (-1, 4)|1,0,local min (1, 0)|0,2,inflection (0, 2)" data-cap="One graph with all the listed properties"></div></li>
+</ol><p class="final">Answer: a graph with local maximum \((-1, 4)\), inflection point \((0, 2)\), and local minimum \((1, 0)\), rising from \(-\infty\) and rising to \(\infty\), as drawn above.</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u07-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = \dfrac{x}{(x - 1)^2}\). Find the asymptotes with the one-sided behavior, and label any local extrema and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain: the denominator is 0 at \(x = 1\). The domain is \((-\infty, 1) \cup (1, \infty)\).</li>
+<li>Intercepts. \(f(0) = \frac{0}{1} = 0\), and \(f(x) = 0\) only when the numerator \(x = 0\). The only intercept is \((0, 0)\). Since \((x - 1)^2 \gt 0\) on the domain, \(f\) has the sign of \(x\).</li>
+<li>Symmetry. \(f(-x) = \dfrac{-x}{(-x - 1)^2} = \dfrac{-x}{(x + 1)^2}\). This is neither \(f(x)\) nor \(-f(x) = \dfrac{-x}{(x - 1)^2}\). Neither even nor odd.</li>
+<li>Vertical asymptote \(x = 1\). The numerator approaches \(1 \gt 0\), and the denominator \((x - 1)^2\) approaches 0 through positive values from both sides. So
+\[\lim_{x\to 1^-} f(x) = \infty, \qquad \lim_{x\to 1^+} f(x) = \infty.\]</li>
+<li>Horizontal asymptote. Expand the denominator, \((x - 1)^2 = x^2 - 2x + 1\), and divide the top and the bottom by \(x^2\).
+\[\lim_{x\to\pm\infty} \frac{x}{x^2 - 2x + 1} = \lim_{x\to\pm\infty} \frac{\frac{1}{x}}{1 - \frac{2}{x} + \frac{1}{x^2}} = \frac{0}{1} = 0.\]
+So \(y = 0\) is a horizontal asymptote at both ends. The graph approaches it from below on the left (where \(f \lt 0\)) and from above on the right.</li>
+<li>First derivative. Quotient rule with \(u = x\), \(u' = 1\), \(v = (x - 1)^2\), \(v' = 2(x - 1)\).
+\[\begin{aligned} f'(x) &= \frac{1\cdot(x - 1)^2 - x\cdot 2(x - 1)}{(x - 1)^4} = \frac{(x - 1)\left[(x - 1) - 2x\right]}{(x - 1)^4} \\ &= \frac{-x - 1}{(x - 1)^3} = \frac{-(x + 1)}{(x - 1)^3}. \end{aligned}\]
+In the first line the factor \(x - 1\) was pulled out of both terms of the numerator and cancelled against one factor of the denominator. \(f'(x) = 0\) at \(x = -1\). Critical number: \(-1\).</li>
+<li>Sign chart for \(f'\), with break numbers \(-1\) and \(1\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(-(x + 1)\)</th><th>\((x - 1)^3\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-2\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((-1, 1)\)</td><td>\(0\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+</table>
+For example \(f'(0) = \frac{-1}{-1} = 1\). \(f'\) changes from \(-\) to \(+\) at \(x = -1\): local minimum, with \(f(-1) = \frac{-1}{(-2)^2} = -\frac{1}{4}\).</li>
+<li>Second derivative. Write \(f'(x) = -(x + 1)(x - 1)^{-3}\) and use the product rule with \(u = -(x + 1)\), \(u' = -1\), \(v = (x - 1)^{-3}\), \(v' = -3(x - 1)^{-4}\).
+\[\begin{aligned} f''(x) &= -(x - 1)^{-3} + 3(x + 1)(x - 1)^{-4} \\ &= \frac{-(x - 1)}{(x - 1)^4} + \frac{3(x + 1)}{(x - 1)^4} \\ &= \frac{-x + 1 + 3x + 3}{(x - 1)^4} = \frac{2x + 4}{(x - 1)^4} = \frac{2(x + 2)}{(x - 1)^4}. \end{aligned}\]</li>
+<li>Sign chart for \(f''\). The denominator \((x - 1)^4\) is positive on the domain, so the sign is the sign of \(x + 2\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(2(x + 2)\)</th><th>\((x - 1)^4\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>\(-3\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((-2, 1)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(2\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table>
+The concavity changes at \(x = -2\), and \(f(-2) = \frac{-2}{(-3)^2} = -\frac{2}{9}\). Inflection point \(\left(-2, -\frac{2}{9}\right)\). At \(x = 1\) there is no change and no point of the graph anyway.</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((-2, -1)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((-1, 1)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+</table></li>
+<li>Draw the dashed lines \(x = 1\) and \(y = 0\). Extra points: \(f\!\left(\frac{1}{2}\right) = \frac{1/2}{1/4} = 2\), \(f(2) = 2\), \(f(3) = \frac{3}{4}\). Left of the asymptote the graph comes in just below the \(x\)-axis, falls through the inflection point \(\left(-2, -\frac{2}{9}\right)\), bottoms out at \(\left(-1, -\frac{1}{4}\right)\), and climbs through the origin up to \(\infty\) at \(x = 1\). Right of the asymptote it comes down from \(\infty\) and flattens toward the \(x\)-axis from above.
+<div class="plot" data-f="x/(x-1)**2" data-x="-6,5" data-y="-0.6,3" data-v="1" data-h="0" data-pts="-1,-0.25,local min (-1, -1/4)" data-cap="Graph of f(x) = x/(x - 1)^2 with asymptotes x = 1 and y = 0"></div>
+The dip on the left is shallow, because \(-\frac{1}{4}\) and \(-\frac{2}{9}\) differ by only \(\frac{1}{36}\). A close-up of that part of the graph shows the minimum and the inflection point:
+<div class="plot" data-f="x/(x-1)**2" data-x="-7,0.5" data-y="-0.3,0.1" data-h="0" data-pts="-1,-0.25,local min (-1, -1/4)|-2,-0.222222,inflection (-2, -2/9)" data-cap="Close-up of f(x) = x/(x - 1)^2 for -7 < x < 0.5"></div></li>
+</ol><p class="final">Answer: vertical asymptote \(x = 1\) with \(f(x) \to \infty\) from both sides; horizontal asymptote \(y = 0\) at both ends; local minimum \(\left(-1, -\frac{1}{4}\right)\); inflection point \(\left(-2, -\frac{2}{9}\right)\). Decreasing on \((-\infty, -1)\) and \((1, \infty)\), increasing on \((-1, 1)\), C.D. on \((-\infty, -2)\), C.U. on \((-2, 1)\) and \((1, \infty)\).</p></div></details></div>
+
+<div class="q" id="u07-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = x^{2/3}(x - 5)\). Label any local extrema and inflection points, and describe the graph at \(x = 0\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain: the cube root is defined for every real number, so the domain is \((-\infty, \infty)\). Expand to prepare for differentiating: \(f(x) = x^{5/3} - 5x^{2/3}\), using \(x^{2/3}\cdot x = x^{5/3}\).</li>
+<li>Intercepts. \(f(0) = 0\). \(f(x) = 0\) when \(x^{2/3} = 0\) or \(x - 5 = 0\), so the \(x\)-intercepts are \((0, 0)\) and \((5, 0)\). Since \(x^{2/3} \ge 0\), \(f\) has the sign of \(x - 5\): negative for \(x \lt 5\) (except \(f(0) = 0\)) and positive for \(x \gt 5\).</li>
+<li>Symmetry. \(f(-x) = (-x)^{2/3}(-x - 5) = x^{2/3}(-x - 5)\). This is neither \(f(x)\) nor \(-f(x) = x^{2/3}(5 - x)\). Neither even nor odd.</li>
+<li>Asymptotes and end behavior. No vertical asymptotes, since \(f\) is continuous everywhere. As \(x \to \infty\), \(x^{2/3} \to \infty\) and \(x - 5 \to \infty\), so \(f(x) \to \infty\). As \(x \to -\infty\), \(x^{2/3} \to \infty\) and \(x - 5 \to -\infty\), so \(f(x) \to -\infty\).</li>
+<li>First derivative. Power rule on each term, then a common denominator \(3x^{1/3}\), using \(\frac{5}{3}x^{2/3} = \frac{5x}{3x^{1/3}}\).
+\[\begin{aligned} f'(x) &= \tfrac{5}{3}x^{2/3} - 5\cdot\tfrac{2}{3}x^{-1/3} = \tfrac{5}{3}x^{2/3} - \frac{10}{3x^{1/3}} \\ &= \frac{5x}{3x^{1/3}} - \frac{10}{3x^{1/3}} = \frac{5x - 10}{3x^{1/3}} = \frac{5(x - 2)}{3x^{1/3}}. \end{aligned}\]
+\(f'(x) = 0\) at \(x = 2\). \(f'(x)\) does not exist at \(x = 0\), which is in the domain. Critical numbers: \(0\) and \(2\).</li>
+<li>Sign chart for \(f'\). Test values \(-1\), \(1\), \(8\) have easy cube roots.
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(5(x - 2)\)</th><th>\(3x^{1/3}\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((0, 2)\)</td><td>\(1\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(8\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+For example \(f'(-1) = \frac{5(-3)}{3(-1)} = 5\) and \(f'(1) = \frac{5(-1)}{3(1)} = -\frac{5}{3}\).</li>
+<li>Local extrema. At \(x = 0\), \(f'\) changes from \(+\) to \(-\): local maximum \((0, 0)\). Near 0, the numerator of \(f'\) is close to \(-10\) and the denominator \(3x^{1/3}\) is close to 0, so \(f'(x) \to \infty\) as \(x \to 0^-\) and \(f'(x) \to -\infty\) as \(x \to 0^+\). The tangent line becomes vertical, so the maximum is a cusp pointing up. At \(x = 2\), \(f'\) changes from \(-\) to \(+\): local minimum, with
+\[f(2) = 2^{2/3}(2 - 5) = -3\cdot 2^{2/3} = -3\sqrt[3]{4} \approx -4.76.\]</li>
+<li>Second derivative. Differentiate \(f'(x) = \frac{5}{3}x^{2/3} - \frac{10}{3}x^{-1/3}\) with the power rule, then factor out \(\frac{10}{9}x^{-4/3}\), using \(x^{-1/3} = x^{-4/3}\cdot x\).
+\[\begin{aligned} f''(x) &= \tfrac{5}{3}\cdot\tfrac{2}{3}x^{-1/3} - \tfrac{10}{3}\cdot\left(-\tfrac{1}{3}\right)x^{-4/3} = \tfrac{10}{9}x^{-1/3} + \tfrac{10}{9}x^{-4/3} \\ &= \tfrac{10}{9}x^{-4/3}(x + 1) = \frac{10(x + 1)}{9x^{4/3}}. \end{aligned}\]
+\(f''(x) = 0\) at \(x = -1\), and \(f''\) does not exist at \(x = 0\).</li>
+<li>Sign chart for \(f''\). Since \(x^{4/3} = \left(x^{1/3}\right)^4 \gt 0\) for \(x \ne 0\), the sign is the sign of \(x + 1\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(10(x + 1)\)</th><th>\(9x^{4/3}\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(-8\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((-1, 0)\)</td><td>\(-\tfrac{1}{8}\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+<tr><td>\((0, \infty)\)</td><td>\(1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table>
+The concavity changes at \(x = -1\): \(f(-1) = (-1)^{2/3}(-6) = 1\cdot(-6) = -6\). Inflection point \((-1, -6)\). At \(x = 0\) the graph is C.U. on both sides, so \((0, 0)\) is not an inflection point.</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -1)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((-1, 0)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+<tr><td>\((0, 2)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Draw: rise from \(-\infty\) bending downward to \((-1, -6)\), switch to bending upward and climb steeply into the cusp at the origin, drop steeply out of it to the minimum \(\left(2, -3\sqrt[3]{4}\right)\), and rise through \((5, 0)\).
+<div class="plot" data-f="Math.cbrt(x)**2*(x-5)" data-x="-2.5,6.5" data-y="-10,6" data-pts="0,0,local max, cusp (0, 0)|2,-4.762203,local min (2, -3∛4)|-1,-6,inflection (-1, -6)" data-cap="Graph of f(x) = x^(2/3)(x - 5)"></div></li>
+</ol><p class="final">Answer: local maximum \((0, 0)\), which is a cusp with a vertical tangent line; local minimum \(\left(2, -3\sqrt[3]{4}\right)\); inflection point \((-1, -6)\). Increasing on \((-\infty, 0)\) and \((2, \infty)\), decreasing on \((0, 2)\), C.D. on \((-\infty, -1)\), C.U. on \((-1, 0)\) and \((0, \infty)\).</p></div></details></div>
+
+<div class="q" id="u07-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = x^2e^{-x}\). Find the horizontal asymptote, and label all local extrema and inflection points with exact coordinates.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain \((-\infty, \infty)\). Intercept: \(f(0) = 0\), and since \(e^{-x} \gt 0\), \(f(x) = 0\) only at \(x = 0\). Also \(x^2 \ge 0\), so \(f(x) \ge 0\) everywhere.</li>
+<li>Symmetry. \(f(-x) = x^2e^{x}\), which is neither \(f(x)\) nor \(-f(x)\). Neither even nor odd. No vertical asymptotes.</li>
+<li>Limits at the ends. As \(x \to \infty\) the form is \(\infty\cdot 0\). Write it as \(\frac{x^2}{e^x}\), the form \(\frac{\infty}{\infty}\), and use L'Hospital's rule twice (after the first use it is still \(\frac{\infty}{\infty}\)).
+\[\lim_{x\to\infty} \frac{x^2}{e^{x}} \;\overset{\text{L'H}}{=}\; \lim_{x\to\infty} \frac{2x}{e^{x}} \;\overset{\text{L'H}}{=}\; \lim_{x\to\infty} \frac{2}{e^{x}} = 0.\]
+So \(y = 0\) is a horizontal asymptote on the right. As \(x \to -\infty\), \(x^2 \to \infty\) and \(e^{-x} \to \infty\), so \(f(x) \to \infty\).</li>
+<li>First derivative. Product rule with \(u = x^2\), \(u' = 2x\), \(v = e^{-x}\), \(v' = -e^{-x}\).
+\[f'(x) = 2xe^{-x} - x^2e^{-x} = e^{-x}(2x - x^2) = x(2 - x)e^{-x}.\]
+Critical numbers: \(x = 0\) and \(x = 2\).</li>
+<li>Sign chart for \(f'\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(x\)</th><th>\(2 - x\)</th><th>\(e^{-x}\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((0, 2)\)</td><td>\(1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(3\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+</table>
+Local minimum at \(x = 0\) (\(-\) to \(+\)): \(f(0) = 0\). Local maximum at \(x = 2\) (\(+\) to \(-\)): \(f(2) = 4e^{-2} = \frac{4}{e^2} \approx 0.54\).</li>
+<li>Second derivative. Product rule on \(e^{-x}(2x - x^2)\) with \(u = e^{-x}\), \(u' = -e^{-x}\), \(v = 2x - x^2\), \(v' = 2 - 2x\).
+\[\begin{aligned} f''(x) &= -e^{-x}(2x - x^2) + e^{-x}(2 - 2x) \\ &= e^{-x}\left(-2x + x^2 + 2 - 2x\right) = e^{-x}(x^2 - 4x + 2). \end{aligned}\]</li>
+<li>Solve \(x^2 - 4x + 2 = 0\) with the quadratic formula.
+\[x = \frac{4 \pm \sqrt{16 - 8}}{2} = \frac{4 \pm 2\sqrt{2}}{2} = 2 \pm \sqrt{2}.\]
+So \(x^2 - 4x + 2 = \left(x - (2 - \sqrt{2})\right)\left(x - (2 + \sqrt{2})\right)\), with \(2 - \sqrt{2} \approx 0.59\) and \(2 + \sqrt{2} \approx 3.41\).</li>
+<li>Sign chart for \(f''\). The parabola \(x^2 - 4x + 2\) opens upward, so it is positive outside its roots and negative between them. Check: at \(0\) it is \(2\), at \(2\) it is \(4 - 8 + 2 = -2\), at \(4\) it is \(16 - 16 + 2 = 2\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(x^2 - 4x + 2\)</th><th>\(e^{-x}\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 2 - \sqrt{2})\)</td><td>\(0\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+<tr><td>\((2 - \sqrt{2}, 2 + \sqrt{2})\)</td><td>\(2\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((2 + \sqrt{2}, \infty)\)</td><td>\(4\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table></li>
+<li>Inflection points. The concavity changes at both roots. Compute \(f\) there, using \((2 \pm \sqrt{2})^2 = 4 \pm 4\sqrt{2} + 2 = 6 \pm 4\sqrt{2}\).
+\[f(2 - \sqrt{2}) = (6 - 4\sqrt{2})e^{-(2 - \sqrt{2})} \approx 0.19, \qquad f(2 + \sqrt{2}) = (6 + 4\sqrt{2})e^{-(2 + \sqrt{2})} \approx 0.38.\]</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((0, 2 - \sqrt{2})\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+<tr><td>\((2 - \sqrt{2}, 2)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((2, 2 + \sqrt{2})\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((2 + \sqrt{2}, \infty)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+</table></li>
+<li>Draw: come down from \(\infty\) on the left to the cup bottom at the origin, rise through the first inflection point to the cap at \(\left(2, \frac{4}{e^2}\right)\), fall through the second inflection point, and flatten toward the \(x\)-axis from above.
+<div class="plot" data-f="x**2*Math.exp(-x)" data-x="-1,8" data-y="-0.2,0.8" data-h="0" data-pts="0,0,local min (0, 0)|2,0.541341,local max (2, 4/e^2)|0.585786,0.191018,inflection (2-√2, 0.19)|3.414214,0.383537,inflection (2+√2, 0.38)" data-cap="Graph of f(x) = x^2 e^(-x)"></div></li>
+</ol><p class="final">Answer: horizontal asymptote \(y = 0\) as \(x \to \infty\), and \(f(x) \to \infty\) as \(x \to -\infty\); local minimum \((0, 0)\); local maximum \(\left(2, \frac{4}{e^2}\right)\); inflection points \(\left(2 - \sqrt{2}, (6 - 4\sqrt{2})e^{\sqrt{2} - 2}\right)\) and \(\left(2 + \sqrt{2}, (6 + 4\sqrt{2})e^{-2 - \sqrt{2}}\right)\). Decreasing on \((-\infty, 0)\) and \((2, \infty)\), increasing on \((0, 2)\), C.U. on \((-\infty, 2 - \sqrt{2})\) and \((2 + \sqrt{2}, \infty)\), C.D. on \((2 - \sqrt{2}, 2 + \sqrt{2})\).</p></div></details></div>
+
+<div class="q" id="u07-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of \(f(x) = \dfrac{\ln x}{x}\). Find the asymptotes, and label any local extrema and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain: \(\ln x\) needs \(x \gt 0\), and then \(x \ne 0\) is automatic. The domain is \((0, \infty)\), so \(f\) is neither even nor odd.</li>
+<li>Intercepts. No \(y\)-intercept. \(f(x) = 0\) when \(\ln x = 0\), so \(x = 1\): the \(x\)-intercept is \((1, 0)\). For \(0 \lt x \lt 1\), \(\ln x \lt 0\) and \(f \lt 0\). For \(x \gt 1\), \(f \gt 0\).</li>
+<li>Vertical asymptote. As \(x \to 0^+\), \(\ln x \to -\infty\) and \(\frac{1}{x} \to \infty\). The quotient has the form \(\frac{-\infty}{0^+}\), which is not indeterminate: a huge negative number divided by a tiny positive number.
+\[\lim_{x\to 0^+} \frac{\ln x}{x} = -\infty.\]
+So \(x = 0\) is a vertical asymptote, with the graph going down to \(-\infty\).</li>
+<li>Horizontal asymptote. As \(x \to \infty\) the form is \(\frac{\infty}{\infty}\), so use L'Hospital's rule.
+\[\lim_{x\to\infty} \frac{\ln x}{x} \;\overset{\text{L'H}}{=}\; \lim_{x\to\infty} \frac{\frac{1}{x}}{1} = 0.\]
+So \(y = 0\) is a horizontal asymptote on the right, approached from above.</li>
+<li>First derivative. Quotient rule with \(u = \ln x\), \(u' = \frac{1}{x}\), \(v = x\), \(v' = 1\).
+\[f'(x) = \frac{\frac{1}{x}\cdot x - \ln x\cdot 1}{x^2} = \frac{1 - \ln x}{x^2}.\]
+\(f'(x) = 0\) when \(\ln x = 1\), so \(x = e\). Critical number: \(e\).</li>
+<li>Sign chart for \(f'\). The denominator \(x^2 \gt 0\). Test values \(1\) and \(e^2\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(1 - \ln x\)</th><th>\(x^2\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((0, e)\)</td><td>\(1\)</td><td>\(+\) (it is 1)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((e, \infty)\)</td><td>\(e^2\)</td><td>\(-\) (it is \(-1\))</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+</table>
+Local maximum at \(x = e\): \(f(e) = \frac{\ln e}{e} = \frac{1}{e}\).</li>
+<li>Second derivative. Quotient rule on \(\frac{1 - \ln x}{x^2}\) with \(u = 1 - \ln x\), \(u' = -\frac{1}{x}\), \(v = x^2\), \(v' = 2x\).
+\[\begin{aligned} f''(x) &= \frac{-\frac{1}{x}\cdot x^2 - (1 - \ln x)\cdot 2x}{x^4} = \frac{-x - 2x + 2x\ln x}{x^4} \\ &= \frac{x(2\ln x - 3)}{x^4} = \frac{2\ln x - 3}{x^3}. \end{aligned}\]
+\(f''(x) = 0\) when \(\ln x = \frac{3}{2}\), so \(x = e^{3/2}\).</li>
+<li>Sign chart for \(f''\). For \(x \gt 0\), \(x^3 \gt 0\). Test values \(1\) and \(e^2\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(2\ln x - 3\)</th><th>\(x^3\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((0, e^{3/2})\)</td><td>\(1\)</td><td>\(-\) (it is \(-3\))</td><td>\(+\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((e^{3/2}, \infty)\)</td><td>\(e^2\)</td><td>\(+\) (it is 1)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table>
+Inflection point at \(x = e^{3/2}\), where \(f\left(e^{3/2}\right) = \dfrac{\frac{3}{2}}{e^{3/2}} = \dfrac{3}{2e^{3/2}}\).</li>
+<li>Summary table. Note \(e \approx 2.72 \lt e^{3/2} \approx 4.48\).
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((0, e)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((e, e^{3/2})\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((e^{3/2}, \infty)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+</table></li>
+<li>Draw: rise out of \(-\infty\) next to the \(y\)-axis, cross the \(x\)-axis at \((1, 0)\), round over the cap at \(\left(e, \frac{1}{e}\right) \approx (2.72, 0.37)\), fall through the inflection point \(\approx (4.48, 0.33)\), and flatten toward the \(x\)-axis from above.
+<div class="plot" data-f="Math.log(x)/x" data-x="0,10" data-y="-0.2,0.4" data-v="0" data-h="0" data-pts="2.718282,0.367879,local max (e, 1/e)|4.481689,0.334695,inflection (e^1.5, 3/(2e^1.5))" data-cap="Graph of f(x) = ln(x)/x; the y-axis and the x-axis are asymptotes"></div></li>
+</ol><p class="final">Answer: vertical asymptote \(x = 0\) with \(f(x) \to -\infty\) as \(x \to 0^+\); horizontal asymptote \(y = 0\) as \(x \to \infty\); local maximum \(\left(e, \frac{1}{e}\right)\); inflection point \(\left(e^{3/2}, \frac{3}{2e^{3/2}}\right)\). Increasing on \((0, e)\), decreasing on \((e, \infty)\), C.D. on \((0, e^{3/2})\), C.U. on \((e^{3/2}, \infty)\).</p></div></details></div>
+
+<div class="q" id="u07-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">Sketch the graph of a function \(f\) with all of these properties, and label every local extremum and inflection point you can locate.<br>
+(a) \(f\) is continuous on \((-\infty, \infty)\) and differentiable everywhere except at \(x = 0\).<br>
+(b) \(f(0) = 0\), \(f(1) = -3\), and \(f(4) = 0\).<br>
+(c) \(f'(1) = 0\).<br>
+(d) \(f'(x) \lt 0\) on \((-\infty, 0)\) and \((0, 1)\), and \(f'(x) \gt 0\) on \((1, \infty)\).<br>
+(e) \(\displaystyle\lim_{x\to 0} f'(x) = -\infty\).<br>
+(f) \(f''(x) \gt 0\) on \((-\infty, -2)\) and \((0, \infty)\), and \(f''(x) \lt 0\) on \((-2, 0)\).<br>
+(g) \(\displaystyle\lim_{x\to\infty} f(x) = \infty\) and \(\displaystyle\lim_{x\to-\infty} f(x) = \infty\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Plot the points from (b): \((0, 0)\), \((1, -3)\), \((4, 0)\).</li>
+<li>Rising and falling from (c) and (d). \(f\) falls on \((-\infty, 0)\), keeps falling on \((0, 1)\), and rises on \((1, \infty)\). By the first derivative test, \(f\) has a local minimum at \(x = 1\), the point \((1, -3)\), with a horizontal tangent line by (c). At \(x = 0\) the sign of \(f'\) does not change (negative on both sides), so \(x = 0\) is not a local extremum, even though \(f'(0)\) does not exist.</li>
+<li>What happens at \(x = 0\). By (a) the graph has no break there, and by (e) the slopes on both sides become very steep and negative. So the graph passes through the origin going straight down, with a vertical tangent line.</li>
+<li>Concavity from (f). The graph is C.U. on \((-\infty, -2)\), C.D. on \((-2, 0)\), and C.U. on \((0, \infty)\). The concavity changes at \(x = -2\) and at \(x = 0\), and \(f\) is continuous at both, so both are inflection points. The point at \(x = 0\) is \((0, 0)\). The height at \(x = -2\) is not given. Because \(f\) is decreasing on \((-\infty, 0)\) and \(f(0) = 0\), it must satisfy \(f(-2) \gt 0\).</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((-2, 0)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((0, 1)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Draw: come down from \(\infty\) on the far left (property g) bending upward, switch to bending downward at the inflection point over \(x = -2\), plunge vertically through the origin while switching back to C.U., level off into the cup at \((1, -3)\), and rise through \((4, 0)\) to \(\infty\). One function with all of these properties is \(f(x) = x^{1/3}(x - 4)\), whose inflection point at \(x = -2\) has height \(6\sqrt[3]{2} \approx 7.56\). Any graph with the same features is correct.
+<div class="plot" data-f="Math.cbrt(x)*(x-4)" data-x="-4,6" data-y="-5,12" data-pts="1,-3,local min (1, -3)|0,0,inflection, vertical tangent (0, 0)|-2,7.559526,inflection at x = -2" data-cap="One graph with all the listed properties"></div></li>
+</ol><p class="final">Answer: a graph with a local minimum at \((1, -3)\), an inflection point with a vertical tangent line at \((0, 0)\), and an inflection point at \(x = -2\) (at some height above 0), decreasing on \((-\infty, 1)\), increasing on \((1, \infty)\), and going to \(\infty\) at both ends, as drawn above.</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u07-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Draw a rough sketch of the graph of the function \(f(x) = 4x^3 - x^4\). Label any local extrema and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain: \(f\) is a polynomial, so the domain is \((-\infty, \infty)\) and there are no asymptotes.</li>
+<li>Intercepts. \(f(0) = 0\), so the \(y\)-intercept is \((0, 0)\). Factor out \(x^3\).
+\[f(x) = x^3(4 - x) = 0 \;\Rightarrow\; x = 0 \text{ or } x = 4.\]
+The \(x\)-intercepts are \((0, 0)\) and \((4, 0)\). From the factors, \(f \lt 0\) for \(x \lt 0\), \(f \gt 0\) for \(0 \lt x \lt 4\), and \(f \lt 0\) for \(x \gt 4\).</li>
+<li>Symmetry. \(f(-x) = 4(-x)^3 - (-x)^4 = -4x^3 - x^4\). This is neither \(f(x)\) nor \(-f(x) = -4x^3 + x^4\). Neither even nor odd.</li>
+<li>End behavior. The leading term is \(-x^4\), which is very negative for large \(|x|\). So \(f(x) \to -\infty\) as \(x \to \infty\) and as \(x \to -\infty\).</li>
+<li>First derivative. Power rule, then factor out \(4x^2\).
+\[f'(x) = 12x^2 - 4x^3 = 4x^2(3 - x).\]
+\(f'(x) = 0\) at \(x = 0\) and \(x = 3\). These are the critical numbers.</li>
+<li>Sign chart for \(f'\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(4x^2\)</th><th>\(3 - x\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((0, 3)\)</td><td>\(1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(4\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+</table>
+For example \(f'(-1) = 4(1)(4) = 16\) and \(f'(4) = 4(16)(-1) = -64\).</li>
+<li>Local extrema. \(f'\) changes from \(+\) to \(-\) at \(x = 3\), so \(f\) has a local maximum there:
+\[f(3) = 4(27) - 81 = 108 - 81 = 27.\]
+At \(x = 0\), \(f'\) is positive on both sides, so there is no local extremum at \(x = 0\) (only a horizontal tangent line). Local maximum \((3, 27)\), and no local minimum.</li>
+<li>Second derivative. Differentiate \(f'(x) = 12x^2 - 4x^3\) and factor out \(12x\).
+\[f''(x) = 24x - 12x^2 = 12x(2 - x).\]
+\(f''(x) = 0\) at \(x = 0\) and \(x = 2\).</li>
+<li>Sign chart for \(f''\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(12x\)</th><th>\(2 - x\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(-1\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((0, 2)\)</td><td>\(1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>C.U.</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(3\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>C.D.</td></tr>
+</table>
+For example \(f''(-1) = 12(-1)(3) = -36\) and \(f''(1) = 12(1)(1) = 12\).</li>
+<li>Inflection points. The concavity changes at \(x = 0\) and at \(x = 2\), and \(f\) is continuous, so both give inflection points.
+\[f(0) = 0, \qquad f(2) = 4(8) - 16 = 32 - 16 = 16.\]
+Inflection points \((0, 0)\) and \((2, 16)\). The one at the origin has a horizontal tangent line.</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, 0)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((0, 2)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+<tr><td>\((2, 3)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+</table></li>
+<li>Draw: rise from \(-\infty\) bending downward, flatten to a horizontal tangent at the origin where the bending switches to upward, climb through \((2, 16)\) where it switches back to downward, round over the top at \((3, 27)\), and fall through \((4, 0)\) to \(-\infty\).
+<div class="plot" data-f="4*x**3-x**4" data-x="-1.5,4.8" data-y="-12,32" data-pts="3,27,local max (3, 27)|0,0,inflection (0, 0)|2,16,inflection (2, 16)" data-cap="Graph of f(x) = 4x^3 - x^4"></div></li>
+</ol><p class="final">Answer: local maximum \((3, 27)\), no local minimum; inflection points \((0, 0)\) and \((2, 16)\). Increasing on \((-\infty, 0)\) and \((0, 3)\), decreasing on \((3, \infty)\), C.D. on \((-\infty, 0)\) and \((2, \infty)\), C.U. on \((0, 2)\). Intercepts \((0, 0)\) and \((4, 0)\).</p></div></details></div>
+
+<div class="q" id="u07-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Draw a rough sketch of the graph of the function \(f(x) = x^3 + 6x^2 + 9x\). Label any local extrema and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain \((-\infty, \infty)\), no asymptotes, since \(f\) is a polynomial.</li>
+<li>Intercepts. \(f(0) = 0\). Factor out \(x\), then recognize a perfect square.
+\[f(x) = x(x^2 + 6x + 9) = x(x + 3)^2.\]
+The \(x\)-intercepts are \((-3, 0)\) and \((0, 0)\). Since \((x + 3)^2 \ge 0\), \(f\) has the sign of \(x\).</li>
+<li>Symmetry. \(f(-x) = -x^3 + 6x^2 - 9x\), which is neither \(f(x)\) nor \(-f(x) = -x^3 - 6x^2 - 9x\). Neither even nor odd.</li>
+<li>End behavior from \(x^3\): \(f(x) \to \infty\) as \(x \to \infty\), and \(f(x) \to -\infty\) as \(x \to -\infty\).</li>
+<li>First derivative. Power rule, factor out 3, factor the quadratic.
+\[f'(x) = 3x^2 + 12x + 9 = 3(x^2 + 4x + 3) = 3(x + 1)(x + 3).\]
+Critical numbers: \(x = -3\) and \(x = -1\).</li>
+<li>Sign chart for \(f'\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(x + 3\)</th><th>\(x + 1\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, -3)\)</td><td>\(-4\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((-3, -1)\)</td><td>\(-2\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((-1, \infty)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+For example \(f'(-2) = 3(-1)(1) = -3\).</li>
+<li>Local extrema. At \(x = -3\), \(f'\) changes from \(+\) to \(-\): local maximum, \(f(-3) = -3(0)^2 = 0\). At \(x = -1\), \(f'\) changes from \(-\) to \(+\): local minimum, \(f(-1) = -1(2)^2 = -4\). Local maximum \((-3, 0)\), local minimum \((-1, -4)\).</li>
+<li>Second derivative.
+\[f''(x) = 6x + 12 = 6(x + 2).\]
+\(f''(-3) = -6 \lt 0\) and \(f''(0) = 12 \gt 0\), so the graph is C.D. on \((-\infty, -2)\) and C.U. on \((-2, \infty)\). The concavity changes at \(x = -2\), and \(f(-2) = -2(1)^2 = -2\). Inflection point \((-2, -2)\).</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -3)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((-3, -2)\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((-2, -1)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((-1, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Draw: rise from \(-\infty\) to the cap at \((-3, 0)\), which touches the \(x\)-axis, fall through \((-2, -2)\), bottom out at \((-1, -4)\), and rise through the origin to \(\infty\).
+<div class="plot" data-f="x**3+6*x**2+9*x" data-x="-5,1" data-y="-7,5" data-pts="-3,0,local max (-3, 0)|-1,-4,local min (-1, -4)|-2,-2,inflection (-2, -2)" data-cap="Graph of f(x) = x^3 + 6x^2 + 9x"></div></li>
+</ol><p class="final">Answer: local maximum \((-3, 0)\), local minimum \((-1, -4)\), inflection point \((-2, -2)\). Increasing on \((-\infty, -3)\) and \((-1, \infty)\), decreasing on \((-3, -1)\), C.D. on \((-\infty, -2)\), C.U. on \((-2, \infty)\).</p></div></details></div>
+
+<div class="q" id="u07-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">Draw a rough sketch of the graph of the function \(f(x) = \dfrac{4x}{x^2 + 4}\). Find any asymptotes, and label all local extrema and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain. \(x^2 + 4 \ge 4 \gt 0\), so the denominator is never 0. The domain is \((-\infty, \infty)\), and there are no vertical asymptotes.</li>
+<li>Intercepts. \(f(0) = 0\), and \(f(x) = 0\) only when \(4x = 0\). The only intercept is \((0, 0)\). \(f\) has the sign of \(x\).</li>
+<li>Symmetry. \(f(-x) = \dfrac{4(-x)}{(-x)^2 + 4} = -\dfrac{4x}{x^2 + 4} = -f(x)\). So \(f\) is odd and the graph is symmetric about the origin.</li>
+<li>Horizontal asymptote. Divide the top and the bottom by \(x^2\).
+\[\lim_{x\to\pm\infty} \frac{4x}{x^2 + 4} = \lim_{x\to\pm\infty} \frac{\frac{4}{x}}{1 + \frac{4}{x^2}} = \frac{0}{1} = 0.\]
+\(y = 0\) is a horizontal asymptote at both ends: approached from above on the right and from below on the left.</li>
+<li>First derivative. Quotient rule with \(u = 4x\), \(u' = 4\), \(v = x^2 + 4\), \(v' = 2x\).
+\[f'(x) = \frac{4(x^2 + 4) - 4x(2x)}{(x^2 + 4)^2} = \frac{4x^2 + 16 - 8x^2}{(x^2 + 4)^2} = \frac{16 - 4x^2}{(x^2 + 4)^2} = \frac{4(2 - x)(2 + x)}{(x^2 + 4)^2}.\]
+Critical numbers: \(x = -2\) and \(x = 2\).</li>
+<li>Sign chart for \(f'\). The denominator is positive.
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(2 - x\)</th><th>\(2 + x\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((-\infty, -2)\)</td><td>\(-3\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((-2, 2)\)</td><td>\(0\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((2, \infty)\)</td><td>\(3\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+</table>
+Local minimum at \(x = -2\) (\(-\) to \(+\)): \(f(-2) = \frac{-8}{8} = -1\). Local maximum at \(x = 2\) (\(+\) to \(-\)): \(f(2) = \frac{8}{8} = 1\).</li>
+<li>Second derivative. Quotient rule on \(\dfrac{16 - 4x^2}{(x^2 + 4)^2}\) with \(u = 16 - 4x^2\), \(u' = -8x\), \(v = (x^2 + 4)^2\), \(v' = 2(x^2 + 4)(2x) = 4x(x^2 + 4)\) by the chain rule.
+\[\begin{aligned} f''(x) &= \frac{-8x(x^2 + 4)^2 - (16 - 4x^2)\cdot 4x(x^2 + 4)}{(x^2 + 4)^4} \\ &= \frac{(x^2 + 4)\left[-8x(x^2 + 4) - 4x(16 - 4x^2)\right]}{(x^2 + 4)^4} \\ &= \frac{-8x^3 - 32x - 64x + 16x^3}{(x^2 + 4)^3} = \frac{8x^3 - 96x}{(x^2 + 4)^3} = \frac{8x(x^2 - 12)}{(x^2 + 4)^3}. \end{aligned}\]
+\(f''(x) = 0\) at \(x = 0\) and at \(x^2 = 12\), that is \(x = \pm\sqrt{12} = \pm 2\sqrt{3} \approx \pm 3.46\).</li>
+<li>Sign chart for \(f''\). Write \(x^2 - 12 = (x - 2\sqrt{3})(x + 2\sqrt{3})\). The denominator is positive.
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(8x\)</th><th>\(x^2 - 12\)</th><th>\(f''(x)\)</th><th>Concavity</th></tr>
+<tr><td>\((-\infty, -2\sqrt{3})\)</td><td>\(-4\)</td><td>\(-\)</td><td>\(+\) (it is 4)</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((-2\sqrt{3}, 0)\)</td><td>\(-1\)</td><td>\(-\)</td><td>\(-\) (it is \(-11\))</td><td>\(+\)</td><td>C.U.</td></tr>
+<tr><td>\((0, 2\sqrt{3})\)</td><td>\(1\)</td><td>\(+\)</td><td>\(-\) (it is \(-11\))</td><td>\(-\)</td><td>C.D.</td></tr>
+<tr><td>\((2\sqrt{3}, \infty)\)</td><td>\(4\)</td><td>\(+\)</td><td>\(+\) (it is 4)</td><td>\(+\)</td><td>C.U.</td></tr>
+</table></li>
+<li>Inflection points. The concavity changes at all three numbers. Compute \(f\) there.
+\[f(0) = 0, \qquad f(2\sqrt{3}) = \frac{8\sqrt{3}}{12 + 4} = \frac{8\sqrt{3}}{16} = \frac{\sqrt{3}}{2}, \qquad f(-2\sqrt{3}) = -\frac{\sqrt{3}}{2}.\]
+Inflection points \(\left(-2\sqrt{3}, -\frac{\sqrt{3}}{2}\right)\), \((0, 0)\), \(\left(2\sqrt{3}, \frac{\sqrt{3}}{2}\right)\).</li>
+<li>Summary table.
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((-\infty, -2\sqrt{3})\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((-2\sqrt{3}, -2)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((-2, 0)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+<tr><td>\((0, 2)\)</td><td>\(+\)</td><td>\(-\)</td><td>increasing, C.D.</td></tr>
+<tr><td>\((2, 2\sqrt{3})\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((2\sqrt{3}, \infty)\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+</table></li>
+<li>Draw: from just below the \(x\)-axis on the far left, fall through \(\left(-2\sqrt{3}, -\frac{\sqrt{3}}{2}\right)\) to the bottom at \((-2, -1)\), rise through the origin to the top at \((2, 1)\), fall through \(\left(2\sqrt{3}, \frac{\sqrt{3}}{2}\right)\), and flatten toward the \(x\)-axis from above. The two halves match under a \(180^\circ\) rotation about the origin.
+<div class="plot" data-f="4*x/(x**2+4)" data-x="-10,10" data-y="-1.1,1.1" data-h="0" data-pts="2,1,local max (2, 1)|-2,-1,local min (-2, -1)|0,0,inflection (0, 0)|3.464102,0.866025,inflection (2√3, √3/2)|-3.464102,-0.866025,inflection (-2√3, -√3/2)" data-cap="Graph of f(x) = 4x/(x^2 + 4)"></div></li>
+</ol><p class="final">Answer: horizontal asymptote \(y = 0\), no vertical asymptotes; local maximum \((2, 1)\), local minimum \((-2, -1)\); inflection points \(\left(-2\sqrt{3}, -\frac{\sqrt{3}}{2}\right)\), \((0, 0)\), \(\left(2\sqrt{3}, \frac{\sqrt{3}}{2}\right)\). Decreasing on \((-\infty, -2)\) and \((2, \infty)\), increasing on \((-2, 2)\), C.D. on \((-\infty, -2\sqrt{3})\) and \((0, 2\sqrt{3})\), C.U. on \((-2\sqrt{3}, 0)\) and \((2\sqrt{3}, \infty)\).</p></div></details></div>
+
+<div class="q" id="u07-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">Draw a rough sketch of the graph of the function \(f(x) = x^2\ln x\). Label any local extrema and inflection points, and describe the graph near \(x = 0\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Domain: \(\ln x\) needs \(x \gt 0\). The domain is \((0, \infty)\), so \(f\) is neither even nor odd.</li>
+<li>Intercepts. No \(y\)-intercept. \(x^2\ln x = 0\) with \(x \gt 0\) means \(\ln x = 0\), so \(x = 1\). The \(x\)-intercept is \((1, 0)\). \(f \lt 0\) on \((0, 1)\) and \(f \gt 0\) on \((1, \infty)\).</li>
+<li>Behavior as \(x \to 0^+\). The form is \(0\cdot(-\infty)\). Rewrite as \(\dfrac{\ln x}{x^{-2}}\), the form \(\frac{-\infty}{\infty}\), and use L'Hospital's rule.
+\[\lim_{x\to 0^+} \frac{\ln x}{x^{-2}} \;\overset{\text{L'H}}{=}\; \lim_{x\to 0^+} \frac{\frac{1}{x}}{-2x^{-3}} = \lim_{x\to 0^+} \frac{x^3}{-2x} = \lim_{x\to 0^+} \left(-\frac{x^2}{2}\right) = 0.\]
+So there is no vertical asymptote. The graph starts at an open circle at the origin.</li>
+<li>End behavior. As \(x \to \infty\), \(x^2 \to \infty\) and \(\ln x \to \infty\), so \(f(x) \to \infty\). No horizontal asymptote.</li>
+<li>First derivative. Product rule with \(u = x^2\), \(u' = 2x\), \(v = \ln x\), \(v' = \frac{1}{x}\).
+\[f'(x) = 2x\ln x + x^2\cdot\frac{1}{x} = 2x\ln x + x = x(2\ln x + 1).\]
+Since \(x \gt 0\), \(f'(x) = 0\) only when \(2\ln x + 1 = 0\), that is \(\ln x = -\frac{1}{2}\), so \(x = e^{-1/2} = \frac{1}{\sqrt{e}} \approx 0.61\).</li>
+<li>Sign chart for \(f'\). Test values with easy logarithms: \(e^{-1}\) and \(1\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(x\)</th><th>\(2\ln x + 1\)</th><th>\(f'(x)\)</th><th>\(f\)</th></tr>
+<tr><td>\((0, e^{-1/2})\)</td><td>\(e^{-1}\)</td><td>\(+\)</td><td>\(-\) (it is \(-1\))</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((e^{-1/2}, \infty)\)</td><td>\(1\)</td><td>\(+\)</td><td>\(+\) (it is 1)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+Local minimum at \(x = e^{-1/2}\):
+\[f\!\left(e^{-1/2}\right) = \left(e^{-1/2}\right)^2\ln\!\left(e^{-1/2}\right) = e^{-1}\cdot\left(-\tfrac{1}{2}\right) = -\frac{1}{2e} \approx -0.18.\]</li>
+<li>Second derivative. Differentiate \(2x\ln x + x\). The term \(2x\ln x\) needs the product rule with \(u = 2x\), \(u' = 2\), \(v = \ln x\), \(v' = \frac{1}{x}\).
+\[f''(x) = \left(2\ln x + 2x\cdot\frac{1}{x}\right) + 1 = 2\ln x + 2 + 1 = 2\ln x + 3.\]
+\(f''(x) = 0\) when \(\ln x = -\frac{3}{2}\), so \(x = e^{-3/2} \approx 0.22\).</li>
+<li>Sign chart for \(f''\). Test values \(e^{-2}\) and \(1\).
+<table class="t">
+<tr><th>Interval</th><th>Test value</th><th>\(f''(x) = 2\ln x + 3\)</th><th>Concavity</th></tr>
+<tr><td>\((0, e^{-3/2})\)</td><td>\(e^{-2}\)</td><td>\(-4 + 3 = -1\), so \(-\)</td><td>C.D.</td></tr>
+<tr><td>\((e^{-3/2}, \infty)\)</td><td>\(1\)</td><td>\(0 + 3 = 3\), so \(+\)</td><td>C.U.</td></tr>
+</table>
+Inflection point at \(x = e^{-3/2}\):
+\[f\!\left(e^{-3/2}\right) = \left(e^{-3/2}\right)^2\ln\!\left(e^{-3/2}\right) = e^{-3}\cdot\left(-\tfrac{3}{2}\right) = -\frac{3}{2e^3} \approx -0.07.\]</li>
+<li>Summary table. Since \(-\frac{3}{2} \lt -\frac{1}{2}\), \(e^{-3/2} \lt e^{-1/2}\).
+<table class="t">
+<tr><th>Interval</th><th>\(f'\)</th><th>\(f''\)</th><th>Shape</th></tr>
+<tr><td>\((0, e^{-3/2})\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing, C.D.</td></tr>
+<tr><td>\((e^{-3/2}, e^{-1/2})\)</td><td>\(-\)</td><td>\(+\)</td><td>decreasing, C.U.</td></tr>
+<tr><td>\((e^{-1/2}, \infty)\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing, C.U.</td></tr>
+</table></li>
+<li>Draw: start at the open circle at the origin, fall while bending downward to the inflection point \(\left(e^{-3/2}, -\frac{3}{2e^3}\right)\), bend upward into the bottom at \(\left(e^{-1/2}, -\frac{1}{2e}\right)\), and rise through \((1, 0)\) to \(\infty\).
+<div class="plot" data-f="x**2*Math.log(x)" data-x="0,1.6" data-y="-0.3,0.8" data-pts="0.606531,-0.18394,local min (e^-1/2, -1/(2e))|0.22313,-0.074681,inflection (e^-3/2, -3/(2e^3))|1,0,x-intercept (1, 0)" data-cap="Graph of f(x) = x^2 ln x on its domain x > 0"></div></li>
+</ol><p class="final">Answer: domain \((0, \infty)\) with \(f(x) \to 0\) as \(x \to 0^+\) (no vertical asymptote); local minimum \(\left(e^{-1/2}, -\frac{1}{2e}\right)\); inflection point \(\left(e^{-3/2}, -\frac{3}{2e^3}\right)\). Decreasing on \(\left(0, e^{-1/2}\right)\), increasing on \(\left(e^{-1/2}, \infty\right)\), C.D. on \(\left(0, e^{-3/2}\right)\), C.U. on \(\left(e^{-3/2}, \infty\right)\). \(x\)-intercept \((1, 0)\).</p></div></details></div>
+</section><div class="pager"><a href="u06.html">Back: Higher derivatives, concavity, second derivative test</a><a href="u08.html">Next: Absolute extrema</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

@@ -1,0 +1,581 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Implicit differentiation | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 6.4</p><h1>Implicit differentiation</h1><p class="sub">Find dy/dx without solving for y. Slopes and tangent lines to curves.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 6.4: Implicit differentiation</h2>
+
+<h3>Explicit functions and implicit functions</h3>
+<p>Every function you have differentiated so far was written as \(y = f(x)\), with \(y\) alone on one side. That is an <b>explicit</b> function: the formula hands you \(y\) as soon as you know \(x\). Sometimes the relation between \(x\) and \(y\) is an equation that mixes the two variables, and \(y\) is not alone on one side. The professor's three examples are</p>
+\[x^2 + y^2 = 25, \qquad x^3 + y^3 = 6xy, \qquad y^5 + 3x^2y^2 + 5x^4 = 9.\]
+<p>The <b>graph of an equation</b> in \(x\) and \(y\) is the curve made of all points \((x, y)\) that make the equation a true statement. The point \((3, 4)\) is on the graph of \(x^2 + y^2 = 25\) because \(3^2 + 4^2 = 9 + 16 = 25\). The point \((1, 2)\) is not on it because \(1^2 + 2^2 = 5\), and 5 is not 25. The graph of \(x^2 + y^2 = 25\) is the circle of radius 5 centered at the origin.</p>
+<p>A circle fails the vertical line test, so the whole circle is not the graph of one function of \(x\). It is made of two smaller curves that each pass the test. Solving \(x^2 + y^2 = 25\) for \(y\) gives</p>
+\[y = \sqrt{25 - x^2} \quad \text{(the upper semicircle)} \qquad \text{and} \qquad y = -\sqrt{25 - x^2} \quad \text{(the lower semicircle)}.\]
+<div class="plot" data-f="Math.sqrt(25-x**2);;-Math.sqrt(25-x**2)" data-x="-10,10" data-y="-6.875,6.875"
+     data-pts="3,4,(3, 4)|3,-4,(3, -4)"
+     data-cap="The circle x^2 + y^2 = 25 is two graphs of functions: the upper semicircle (blue) and the lower semicircle (green)."></div>
+<p>We say that the equation \(x^2 + y^2 = 25\) <b>implicitly defines</b> \(y\) as a function of \(x\). The word implicitly means that the equation does not display a formula for \(y\), but a function is hidden in it anyway. To say that an equation implicitly defines a function \(y = f(x)\) means that the equation stays true when you replace \(y\) by \(f(x)\). For the circle, that says \(x^2 + [f(x)]^2 = 25\) for every \(x\) in the domain of \(f\).</p>
+<p>For the circle it is easy to solve for \(y\). For \(x^3 + y^3 = 6xy\) it can be done, but the formulas are long and messy (the professor's advice is not to try). For \(y^5 + 3x^2y^2 + 5x^4 = 9\) it is impossible to solve for \(y\) with algebra. <b>Implicit differentiation</b> is a method that finds \(\dfrac{dy}{dx}\) straight from the equation, without ever solving for \(y\).</p>
+
+<h3>Why every y term picks up a factor of dy/dx</h3>
+<p>The whole method rests on one fact: \(y\) is a function of \(x\). It is not a constant, and it is not a second independent variable. Its formula is hidden, but you can still think of \(y\) as \(f(x)\). Then \(y^3\) means \([f(x)]^3\), which is an outside function (cubing) applied to an inside function \(f(x)\). The chain rule says to differentiate the outside function, keep the inside, and multiply by the derivative of the inside:</p>
+\[\frac{d}{dx}\left[y^3\right] = \frac{d}{dx}\,[f(x)]^3 = 3[f(x)]^2 \cdot f'(x) = 3y^2\,\frac{dy}{dx}.\]
+<p>Compare this with \(\dfrac{d}{dx}\left[x^3\right] = 3x^2\). The \(x\) term has no extra factor because the derivative of \(x\) with respect to \(x\) is 1. The \(y\) term has the extra factor \(\dfrac{dy}{dx}\) because the derivative of \(y\) with respect to \(x\) is \(\dfrac{dy}{dx}\), and nobody has told you what that is yet. Finding it is the goal.</p>
+<div class="rule"><div class="rt">Chain rule for an expression in y</div>
+<p>If \(y\) is a function of \(x\) and \(g\) is any differentiable function, then</p>
+\[\frac{d}{dx}\,[g(y)] = g'(y)\cdot\frac{dy}{dx}.\]
+<p>In words: differentiate the expression the usual way, as if \(y\) were the variable, and then multiply by \(\dfrac{dy}{dx}\).</p></div>
+<p>A term like \(xy\) is a product of two functions of \(x\), namely \(x\) and \(y = f(x)\). It needs the product rule. With \(u = x\), \(v = y\), \(u' = 1\), and \(v' = \dfrac{dy}{dx}\),</p>
+\[\frac{d}{dx}\,[xy] = u'v + uv' = 1\cdot y + x\cdot\frac{dy}{dx} = y + x\,\frac{dy}{dx}.\]
+<p>The symbols \(y'\) and \(\dfrac{dy}{dx}\) mean the same thing. The professor uses both, and the short form \(y'\) keeps long lines readable. Here are the derivatives with respect to \(x\) of the terms that show up most often.</p>
+<table class="t">
+<tr><th>Term</th><th>Derivative with respect to \(x\)</th><th>Rule used</th></tr>
+<tr><td>\(x^3\)</td><td>\(3x^2\)</td><td>power rule</td></tr>
+<tr><td>\(y^3\)</td><td>\(3y^2\,y'\)</td><td>chain rule</td></tr>
+<tr><td>\(y\)</td><td>\(y'\)</td><td>definition of \(y'\)</td></tr>
+<tr><td>\(25\)</td><td>\(0\)</td><td>derivative of a constant</td></tr>
+<tr><td>\(xy\)</td><td>\(y + x\,y'\)</td><td>product rule</td></tr>
+<tr><td>\(x^2y^3\)</td><td>\(2xy^3 + 3x^2y^2\,y'\)</td><td>product rule, then chain rule on \(y^3\)</td></tr>
+<tr><td>\(\sqrt{y} = y^{1/2}\)</td><td>\(\dfrac{y'}{2\sqrt{y}}\)</td><td>chain rule</td></tr>
+<tr><td>\(e^{y}\)</td><td>\(e^{y}\,y'\)</td><td>chain rule</td></tr>
+<tr><td>\(e^{xy}\)</td><td>\(e^{xy}\,(y + x\,y')\)</td><td>chain rule, and the inside \(xy\) needs the product rule</td></tr>
+<tr><td>\(\ln y\)</td><td>\(\dfrac{y'}{y}\)</td><td>chain rule</td></tr>
+<tr><td>\(\ln(x + y)\)</td><td>\(\dfrac{1 + y'}{x + y}\)</td><td>chain rule, and the inside \(x + y\) has derivative \(1 + y'\)</td></tr>
+<tr><td>\(\sin y\)</td><td>\(\cos y \cdot y'\)</td><td>chain rule</td></tr>
+<tr><td>\(\sin(xy)\)</td><td>\(\cos(xy)\,(y + x\,y')\)</td><td>chain rule, then product rule on the inside</td></tr>
+<tr><td>\(\cos(x + y)\)</td><td>\(-\sin(x + y)\,(1 + y')\)</td><td>chain rule</td></tr>
+</table>
+
+<h3>The method</h3>
+<div class="recipe"><div class="rt">How to find dy/dx by implicit differentiation</div><ol>
+<li>Differentiate both sides of the equation with respect to \(x\), term by term. Treat \(y\) as a function of \(x\): each time you differentiate an expression that contains \(y\), the chain rule produces a factor of \(\dfrac{dy}{dx}\). Use the product rule on products such as \(xy\) and the quotient rule on quotients. The derivative of a constant is 0.</li>
+<li>Collect. Move every term that contains \(\dfrac{dy}{dx}\) to one side of the equation and every term that does not contain it to the other side. A term changes sign when it crosses the equals sign.</li>
+<li>Factor \(\dfrac{dy}{dx}\) out of the side that contains it.</li>
+<li>Divide both sides by the expression that multiplies \(\dfrac{dy}{dx}\).</li>
+</ol>
+<p>The answer usually contains both \(x\) and \(y\). That is expected, and it is a complete answer. You do not need to remove \(y\) from it.</p></div>
+
+<div class="ex"><div class="et">Worked example 1</div><p class="p">Find \(\dfrac{dy}{dx}\) if \(x^2 + y^2 = 25\).</p>
+<ol class="steps">
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The power rule gives \(\frac{d}{dx}[x^2] = 2x\). The chain rule gives \(\frac{d}{dx}[y^2] = 2y\,y'\). The right side is a constant, so its derivative is 0.
+\[2x + 2y\,y' = 0\]</li>
+<li>Collect. Only one term contains \(y'\), so keep it on the left and move \(2x\) to the right by subtracting \(2x\) from both sides.
+\[2y\,y' = -2x\]</li>
+<li>Divide both sides by \(2y\), the expression that multiplies \(y'\). Then cancel the common factor 2.
+\[y' = \frac{-2x}{2y} = -\frac{x}{y}\]</li>
+<li>Check the answer against the explicit formulas, which is possible here because the circle can be solved for \(y\). On the upper semicircle \(y = (25 - x^2)^{1/2}\), and the chain rule gives
+\[\frac{dy}{dx} = \frac{1}{2}(25 - x^2)^{-1/2}\cdot(-2x) = -\frac{x}{\sqrt{25 - x^2}} = -\frac{x}{y},\]
+because \(\sqrt{25 - x^2}\) is \(y\) on the upper semicircle. On the lower semicircle \(y = -(25 - x^2)^{1/2}\), and
+\[\frac{dy}{dx} = -\frac{1}{2}(25 - x^2)^{-1/2}\cdot(-2x) = \frac{x}{\sqrt{25 - x^2}} = -\frac{x}{-\sqrt{25 - x^2}} = -\frac{x}{y},\]
+because \(-\sqrt{25 - x^2}\) is \(y\) on the lower semicircle. The single implicit answer covers both semicircles.</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = -\dfrac{x}{y}\)</p></div>
+
+<div class="trap"><b>Common mistake: forgetting dy/dx on a y term.</b> Writing \(\frac{d}{dx}[y^2] = 2y\) treats \(y\) as if it were \(x\). The correct derivative is \(2y\,y'\). If your differentiated equation has no \(y'\) in it, there is nothing to solve for, and that is the sign that you forgot the chain rule.</div>
+<div class="trap"><b>Common mistake: differentiating a constant to itself.</b> The derivative of the right side of \(x^2 + y^2 = 25\) is 0. Writing \(2x + 2y\,y' = 25\) is wrong. Both sides of the equation get differentiated, including a side that is only a number.</div>
+
+<h3>Slope and tangent line at a point</h3>
+<p>The slope of the tangent line to a curve at a point \((a, b)\) on the curve is the value of \(\dfrac{dy}{dx}\) at \(x = a\), \(y = b\). The formula for \(\dfrac{dy}{dx}\) contains both letters, so you substitute both coordinates. Before doing anything else, check that the point is on the curve by substituting it into the original equation. The professor does this check first in his own examples.</p>
+<div class="recipe"><div class="rt">How to find the tangent line to a curve at a point (a, b)</div><ol>
+<li>Check that \((a, b)\) is on the curve: substitute \(x = a\) and \(y = b\) into the equation and confirm that both sides are equal.</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\).</li>
+<li>Find the slope \(m\). You can solve for \(y'\) first and then substitute \(x = a\), \(y = b\), or you can substitute the numbers right after differentiating and then solve for the number \(y'\). Both ways give the same slope.</li>
+<li>Write the line in point-slope form \(y - b = m(x - a)\) and simplify to \(y = mx + c\).</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 2</div><p class="p">Find the slope of the tangent line to the circle \(x^2 + y^2 = 25\) at the point \((3, 4)\) and at the point \((3, -4)\). Then find an equation of the tangent line at \((3, 4)\).</p>
+<ol class="steps">
+<li>Check that both points are on the circle by substituting them into the equation.
+\[3^2 + 4^2 = 9 + 16 = 25 \qquad\text{and}\qquad 3^2 + (-4)^2 = 9 + 16 = 25\]</li>
+<li>Use the derivative found in Worked example 1.
+\[y' = -\frac{x}{y}\]</li>
+<li>Substitute \(x = 3\), \(y = 4\) to get the slope at \((3, 4)\).
+\[y' = -\frac{3}{4}\]</li>
+<li>Substitute \(x = 3\), \(y = -4\) to get the slope at \((3, -4)\). The two negative signs cancel.
+\[y' = -\frac{3}{-4} = \frac{3}{4}\]</li>
+<li>Write the tangent line at \((3, 4)\) in point-slope form with \(m = -\tfrac{3}{4}\), then solve for \(y\).
+\[\begin{aligned} y - 4 &= -\frac{3}{4}(x - 3) \\ y - 4 &= -\frac{3}{4}x + \frac{9}{4} \\ y &= -\frac{3}{4}x + \frac{9}{4} + \frac{16}{4} \\ y &= -\frac{3}{4}x + \frac{25}{4} \end{aligned}\]</li>
+<li>Check with geometry, as the professor does. A tangent line to a circle is perpendicular to the radius at the point of tangency. The radius from \((0, 0)\) to \((3, 4)\) has slope \(\tfrac{4}{3}\), so the tangent line has the negative reciprocal slope \(-\tfrac{3}{4}\). This matches.</li>
+</ol>
+<div class="plot" data-f="Math.sqrt(25-x**2);;-Math.sqrt(25-x**2);;-0.75*x+6.25" data-x="-10,10" data-y="-6.875,6.875"
+     data-pts="3,4,(3, 4)|3,-4,(3, -4)"
+     data-cap="The tangent line y = -(3/4)x + 25/4 touches the circle at (3, 4)."></div>
+<p class="final">Answer: the slope is \(-\dfrac{3}{4}\) at \((3, 4)\) and \(\dfrac{3}{4}\) at \((3, -4)\). The tangent line at \((3, 4)\) is \(y = -\dfrac{3}{4}x + \dfrac{25}{4}\).</p></div>
+
+<div class="ex"><div class="et">Worked example 3</div><p class="p">Find \(y'\) if \(x^3 + y^3 = 6xy\). Then find an equation of the tangent line to this curve at the point \((3, 3)\).</p>
+<ol class="steps">
+<li>Check that \((3, 3)\) is on the curve. The left side is \(3^3 + 3^3 = 27 + 27 = 54\). The right side is \(6\cdot 3\cdot 3 = 54\). Both sides are equal, so the point is on the curve.</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). On the left, \(\frac{d}{dx}[x^3] = 3x^2\) and \(\frac{d}{dx}[y^3] = 3y^2\,y'\) by the chain rule. On the right, \(6xy\) is a product, so use the product rule with \(u = 6x\), \(v = y\), \(u' = 6\), \(v' = y'\).
+\[\begin{aligned} 3x^2 + 3y^2\,y' &= u'v + uv' \\ 3x^2 + 3y^2\,y' &= 6y + 6x\,y' \end{aligned}\]</li>
+<li>Divide both sides by 3 to make the numbers smaller.
+\[x^2 + y^2\,y' = 2y + 2x\,y'\]</li>
+<li>Collect the \(y'\) terms on the left. Subtract \(2x\,y'\) from both sides and subtract \(x^2\) from both sides.
+\[y^2\,y' - 2x\,y' = 2y - x^2\]</li>
+<li>Factor \(y'\) out of the left side.
+\[y'\,(y^2 - 2x) = 2y - x^2\]</li>
+<li>Divide both sides by \(y^2 - 2x\).
+\[y' = \frac{2y - x^2}{y^2 - 2x}\]</li>
+<li>Substitute \(x = 3\), \(y = 3\) to get the slope at \((3, 3)\).
+\[y' = \frac{2(3) - 3^2}{3^2 - 2(3)} = \frac{6 - 9}{9 - 6} = \frac{-3}{3} = -1\]</li>
+<li>Write the tangent line in point-slope form with \(m = -1\), then solve for \(y\).
+\[\begin{aligned} y - 3 &= -1(x - 3) \\ y - 3 &= -x + 3 \\ y &= -x + 6 \end{aligned}\]</li>
+</ol><p class="final">Answer: \(y' = \dfrac{2y - x^2}{y^2 - 2x}\), and the tangent line at \((3, 3)\) is \(y = -x + 6\).</p></div>
+
+<div class="trap"><b>Common mistake: forgetting the product rule on xy.</b> The derivative of \(6xy\) is \(6y + 6x\,y'\). It is not \(6y'\), and it is not \(6\). Any term where \(x\) and \(y\) are multiplied together is a product of two functions of \(x\), so write \(u\), \(v\), \(u'\), \(v'\) and use \(u'v + uv'\).</div>
+<div class="trap"><b>Common mistake: sign errors when moving terms.</b> The collecting step is where sign errors happen. Write one line for each move, and change the sign of every term that crosses the equals sign. Be extra careful when a product has a minus sign in front of it: \(\frac{d}{dx}[-xy] = -(y + x\,y') = -y - x\,y'\). The minus sign applies to both pieces of the product rule.</div>
+
+<h3>Two ways to get a slope at a point</h3>
+<p>When a question asks only for the slope at one point, you have a choice after differentiating. The first way is to solve for \(y'\) as a formula and then substitute the point. The second way is to substitute the point into the differentiated equation right away, which leaves a short equation where the only unknown is the number \(y'\). The second way usually has less algebra. The next example does both so you can see that they agree.</p>
+
+<div class="ex"><div class="et">Worked example 4</div><p class="p">Find \(y'\) if \(y^5 + 3x^2y^2 + 5x^4 = 9\). Then find the slope of the tangent line to this curve at the point \((1, 1)\).</p>
+<ol class="steps">
+<li>Check that \((1, 1)\) is on the curve by substituting \(x = 1\), \(y = 1\) into the left side.
+\[1^5 + 3(1)^2(1)^2 + 5(1)^4 = 1 + 3 + 5 = 9\]
+This equals the right side, so the point is on the curve.</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The chain rule gives \(\frac{d}{dx}[y^5] = 5y^4\,y'\). The term \(3x^2y^2\) is a product: \(u = 3x^2\), \(v = y^2\), \(u' = 6x\), \(v' = 2y\,y'\), so its derivative is \(u'v + uv' = 6x\,y^2 + 3x^2\cdot 2y\,y' = 6xy^2 + 6x^2y\,y'\). The power rule gives \(\frac{d}{dx}[5x^4] = 20x^3\). The derivative of 9 is 0.
+\[5y^4\,y' + 6xy^2 + 6x^2y\,y' + 20x^3 = 0\]</li>
+<li>First way: solve for \(y'\) in general. Keep the two \(y'\) terms on the left and move the other two terms to the right by subtracting them from both sides.
+\[5y^4\,y' + 6x^2y\,y' = -6xy^2 - 20x^3\]</li>
+<li>Factor \(y'\) out of the left side, then divide both sides by \(5y^4 + 6x^2y\).
+\[\begin{aligned} y'\,(5y^4 + 6x^2y) &= -(6xy^2 + 20x^3) \\ y' &= -\frac{6xy^2 + 20x^3}{5y^4 + 6x^2y} \end{aligned}\]</li>
+<li>Substitute \(x = 1\), \(y = 1\) into the formula.
+\[y' = -\frac{6(1)(1)^2 + 20(1)^3}{5(1)^4 + 6(1)^2(1)} = -\frac{6 + 20}{5 + 6} = -\frac{26}{11}\]</li>
+<li>Second way: go back to the differentiated equation in step 2 and substitute \(x = 1\), \(y = 1\) before solving. Every power of 1 is 1, so the equation becomes short.
+\[\begin{aligned} 5(1)^4\,y' + 6(1)(1)^2 + 6(1)^2(1)\,y' + 20(1)^3 &= 0 \\ 5y' + 6 + 6y' + 20 &= 0 \\ 11y' + 26 &= 0 \\ y' &= -\frac{26}{11} \end{aligned}\]
+Both ways give the same slope.</li>
+</ol><p class="final">Answer: \(y' = -\dfrac{6xy^2 + 20x^3}{5y^4 + 6x^2y}\), and the slope at \((1, 1)\) is \(-\dfrac{26}{11}\).</p></div>
+
+<div class="trap"><b>Common mistake: substituting the point before differentiating.</b> If you put \(x = 1\), \(y = 1\) into the original equation first, you get \(9 = 9\), and the derivative of that is \(0 = 0\), which tells you nothing. Differentiate first. Substitute the numbers only after the derivative has been taken.</div>
+
+<h3>Horizontal and vertical tangent lines</h3>
+<p>After you solve for \(y'\), it is usually a fraction. The tangent line is <b>horizontal</b> where the slope is 0, which is where the numerator is 0 and the denominator is not 0. The tangent line is <b>vertical</b> where the slope is undefined because the denominator is 0 and the numerator is not 0. Each condition is one equation in \(x\) and \(y\). The point also has to be on the curve, so it must satisfy the original equation as well. You find the point by solving the two equations together.</p>
+<div class="recipe"><div class="rt">How to find the points where the tangent line is horizontal or vertical</div><ol>
+<li>Find \(y'\) by implicit differentiation and write it as one fraction.</li>
+<li>For horizontal tangent lines, set the numerator equal to 0 and solve that equation for one variable in terms of the other.</li>
+<li>Substitute the result into the original equation of the curve and solve. Then find the other coordinate of each point.</li>
+<li>Check that the denominator of \(y'\) is not 0 at each point you found.</li>
+<li>For vertical tangent lines, repeat steps 2 to 4 with the denominator set equal to 0, and check that the numerator is not 0.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 5</div><p class="p">At what point in the first quadrant is the tangent line to the curve \(x^3 + y^3 = 6xy\) horizontal?</p>
+<ol class="steps">
+<li>Start from the derivative found in Worked example 3.
+\[y' = \frac{2y - x^2}{y^2 - 2x}\]</li>
+<li>A horizontal tangent line has slope 0, so set the numerator equal to 0 and solve for \(y\).
+\[\begin{aligned} 2y - x^2 &= 0 \\ 2y &= x^2 \\ y &= \frac{x^2}{2} \end{aligned}\]</li>
+<li>The point must also be on the curve. Substitute \(y = \dfrac{x^2}{2}\) into \(x^3 + y^3 = 6xy\) and simplify each side.
+\[\begin{aligned} x^3 + \left(\frac{x^2}{2}\right)^3 &= 6x\cdot\frac{x^2}{2} \\ x^3 + \frac{x^6}{8} &= 3x^3 \end{aligned}\]</li>
+<li>Solve for \(x\). Subtract \(x^3\) from both sides, multiply both sides by 8, move everything to the left, and factor.
+\[\begin{aligned} \frac{x^6}{8} &= 2x^3 \\ x^6 &= 16x^3 \\ x^6 - 16x^3 &= 0 \\ x^3\,(x^3 - 16) &= 0 \end{aligned}\]
+So \(x = 0\) or \(x^3 = 16\).</li>
+<li>Discard \(x = 0\). It gives \(y = \frac{0^2}{2} = 0\), which is the origin. The origin is not in the first quadrant, where both coordinates are positive. Also, at the origin the denominator \(y^2 - 2x\) is 0 as well, so the formula gives \(\frac{0}{0}\) and does not show a slope of 0.</li>
+<li>Use \(x^3 = 16\). Write 16 as \(2^4\) and take the cube root.
+\[x = 16^{1/3} = (2^4)^{1/3} = 2^{4/3}\]</li>
+<li>Find \(y\) from \(y = \dfrac{x^2}{2}\).
+\[y = \frac{(2^{4/3})^2}{2} = \frac{2^{8/3}}{2^1} = 2^{8/3 - 1} = 2^{5/3}\]</li>
+<li>Check that the denominator of \(y'\) is not 0 at this point.
+\[y^2 - 2x = (2^{5/3})^2 - 2\cdot 2^{4/3} = 2^{10/3} - 2^{7/3}\]
+These are two different powers of 2, so the difference is not 0. The slope at this point is 0 divided by a nonzero number, which is 0.</li>
+</ol><p class="final">Answer: the tangent line is horizontal at \(\left(2^{4/3},\, 2^{5/3}\right)\), which is approximately \((2.52,\, 3.17)\).</p></div>
+
+<h3>Exponentials, logarithms, and trig functions</h3>
+<p>Equations with \(e\), \(\ln\), \(\sin\), or \(\cos\) use the same four steps. The only extra care is the chain rule: when the inside of an exponential, a logarithm, or a trig function contains \(y\), the derivative of the inside contains \(y'\).</p>
+
+<div class="ex"><div class="et">Worked example 6</div><p class="p">Find \(\dfrac{dy}{dx}\) if \(e^{xy} + \ln y = x^2\).</p>
+<ol class="steps">
+<li>Differentiate \(e^{xy}\) with the chain rule. The outside function is \(e^u\) and the inside is \(u = xy\). The inside is a product, and the product rule gives \(\frac{d}{dx}[xy] = y + x\,y'\).
+\[\frac{d}{dx}\left[e^{xy}\right] = e^{xy}\cdot\frac{d}{dx}[xy] = e^{xy}\,(y + x\,y')\]</li>
+<li>Differentiate \(\ln y\) with the chain rule, and differentiate \(x^2\) with the power rule.
+\[\frac{d}{dx}[\ln y] = \frac{1}{y}\cdot y' = \frac{y'}{y}, \qquad \frac{d}{dx}\left[x^2\right] = 2x\]</li>
+<li>Put the pieces together. This is the result of differentiating both sides of the equation with respect to \(x\).
+\[e^{xy}\,(y + x\,y') + \frac{y'}{y} = 2x\]</li>
+<li>Distribute \(e^{xy}\) so that each term either contains \(y'\) or does not.
+\[y\,e^{xy} + x\,e^{xy}\,y' + \frac{1}{y}\,y' = 2x\]</li>
+<li>Collect. Keep the two \(y'\) terms on the left and subtract \(y\,e^{xy}\) from both sides.
+\[x\,e^{xy}\,y' + \frac{1}{y}\,y' = 2x - y\,e^{xy}\]</li>
+<li>Factor \(y'\) out of the left side, then divide both sides by the expression in parentheses.
+\[\begin{aligned} y'\left(x\,e^{xy} + \frac{1}{y}\right) &= 2x - y\,e^{xy} \\ y' &= \frac{2x - y\,e^{xy}}{x\,e^{xy} + \dfrac{1}{y}} \end{aligned}\]</li>
+<li>Remove the small fraction \(\frac{1}{y}\) by multiplying the numerator and the denominator by \(y\).
+\[y' = \frac{y\,(2x - y\,e^{xy})}{y\left(x\,e^{xy} + \dfrac{1}{y}\right)} = \frac{y\,(2x - y\,e^{xy})}{xy\,e^{xy} + 1}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{y\,(2x - y\,e^{xy})}{xy\,e^{xy} + 1}\)</p></div>
+
+<div class="trap"><b>Common mistake: a wrong derivative of the inside.</b> The derivative of \(e^{xy}\) is not \(e^{xy}\,y'\) and it is not \(y\,e^{xy}\). The inside \(xy\) is a product, so its derivative is \(y + x\,y'\), and the full derivative is \(e^{xy}(y + x\,y')\). The same thing happens with \(\sin(xy)\), \(\cos(xy)\), and \(\ln(xy)\).</div>
+
+<h3>The second derivative</h3>
+<p>The second derivative \(y''\) is the derivative of \(y'\) with respect to \(x\). To find it implicitly, differentiate your formula for \(y'\) (usually with the quotient rule), again treating \(y\) as a function of \(x\). The result contains \(y'\). Replace \(y'\) by its formula, simplify, and then look for the left side of the original equation inside your answer, because you can replace it by the constant it equals.</p>
+
+<div class="ex"><div class="et">Worked example 7</div><p class="p">Find \(y''\) if \(x^2 + y^2 = 25\).</p>
+<ol class="steps">
+<li>Start from the first derivative found in Worked example 1.
+\[y' = -\frac{x}{y}\]</li>
+<li>Differentiate \(y'\) with respect to \(x\) using the quotient rule on \(\dfrac{x}{y}\), keeping the minus sign in front. The pieces are \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\).
+\[y'' = -\frac{u'v - uv'}{v^2} = -\frac{1\cdot y - x\cdot y'}{y^2} = -\frac{y - x\,y'}{y^2}\]</li>
+<li>Replace \(y'\) by \(-\dfrac{x}{y}\). The two minus signs in the numerator make a plus.
+\[y'' = -\frac{y - x\left(-\dfrac{x}{y}\right)}{y^2} = -\frac{y + \dfrac{x^2}{y}}{y^2}\]</li>
+<li>Remove the small fraction by multiplying the numerator and the denominator by \(y\).
+\[y'' = -\frac{y\left(y + \dfrac{x^2}{y}\right)}{y\cdot y^2} = -\frac{y^2 + x^2}{y^3}\]</li>
+<li>Use the original equation. The numerator \(y^2 + x^2\) is the left side of \(x^2 + y^2 = 25\), so it equals 25.
+\[y'' = -\frac{25}{y^3}\]</li>
+<li>Check the sign against the picture. On the upper semicircle \(y\) is positive, so \(y''\) is negative and the curve is concave down. On the lower semicircle \(y\) is negative, so \(y''\) is positive and the curve is concave up. Both match the shape of a circle.</li>
+</ol><p class="final">Answer: \(y'' = -\dfrac{25}{y^3}\)</p></div>
+
+<h3>Other letters: demand equations</h3>
+<p>The variables do not have to be called \(x\) and \(y\). In business problems a demand equation relates the price \(p\) and the quantity demanded \(q\), and the question asks for \(\dfrac{dq}{dp}\). Then \(q\) plays the role of \(y\): treat \(q\) as a function of \(p\), differentiate both sides with respect to \(p\), and attach \(\dfrac{dq}{dp}\) to every derivative of a \(q\) term. For example, differentiating \(p^2 + q^2 = 100\) with respect to \(p\) gives \(2p + 2q\,\dfrac{dq}{dp} = 0\), so \(\dfrac{dq}{dp} = -\dfrac{p}{q}\). Level 3 has a full demand problem.</p>
+
+<div class="say"><b>What to write on the exam.</b> Begin with the sentence "Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\)." Show the pieces \(u\), \(v\), \(u'\), \(v'\) for each product. Then show three separate lines: the line where all the \(y'\) terms are on one side, the line where \(y'\) is factored out, and the final fraction. If the question gives a point, first write the check that the point satisfies the equation, show the substitution with the numbers visible, and finish with a sentence such as "The slope of the tangent line at \((2, 1)\) is \(\tfrac{3}{4}\)."</div>
+
+<div class="trap"><b>Common mistake: writing "y' =" at the start of the differentiated equation.</b> After differentiating \(x^2 + y^2 = 25\), the correct line is \(2x + 2y\,y' = 0\). Students who write \(y' = 2x + 2y\,y' = 0\) out of habit have written a false statement, and they often end up solving the wrong equation. The symbol \(y'\) appears inside the equation, and you isolate it at the end.</div>
+<div class="trap"><b>Common mistake: stopping with y' on both sides.</b> An answer such as \(y' = \dfrac{2y + 2x\,y' - x^2}{y^2}\) is not finished, because \(y'\) still appears on the right. Every \(y'\) term must be collected on one side and factored before you divide.</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>\(y\) is a function of \(x\), so \(\dfrac{d}{dx}[g(y)] = g'(y)\,\dfrac{dy}{dx}\). Examples: \(\dfrac{d}{dx}[y^n] = n\,y^{n-1}\,y'\), \(\dfrac{d}{dx}[e^y] = e^y\,y'\), \(\dfrac{d}{dx}[\ln y] = \dfrac{y'}{y}\), \(\dfrac{d}{dx}[\sin y] = \cos y\cdot y'\), \(\dfrac{d}{dx}[\cos y] = -\sin y\cdot y'\).</li>
+<li>\(\dfrac{d}{dx}[xy] = y + x\,y'\) by the product rule.</li>
+<li>The derivative of a constant is 0, on either side of the equation.</li>
+<li>The four steps: differentiate both sides, collect the \(y'\) terms on one side, factor out \(y'\), divide.</li>
+<li>The answer normally contains both \(x\) and \(y\).</li>
+<li>For a slope at a point: check that the point is on the curve, differentiate, then substitute both coordinates. Substituting right after differentiating is allowed and is often faster.</li>
+<li>Tangent line at \((a, b)\) with slope \(m\): \(y - b = m(x - a)\).</li>
+<li>Horizontal tangent line: numerator of \(y'\) equals 0 and denominator does not. Vertical tangent line: denominator of \(y'\) equals 0 and numerator does not. In both cases combine the condition with the original equation to find the points.</li>
+<li>For \(y''\): differentiate \(y'\), replace \(y'\) by its formula, simplify, and use the original equation.</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u11-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) by implicit differentiation if \(4x^2 + 9y^2 = 36\). (The graph of this equation is an ellipse.)</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The power rule gives \(\frac{d}{dx}[4x^2] = 8x\). The chain rule gives \(\frac{d}{dx}[9y^2] = 9\cdot 2y\,y' = 18y\,y'\). The right side is the constant 36, so its derivative is 0.
+\[8x + 18y\,y' = 0\]</li>
+<li>Collect. The only term with \(y'\) is \(18y\,y'\), so keep it on the left and subtract \(8x\) from both sides.
+\[18y\,y' = -8x\]</li>
+<li>Divide both sides by \(18y\), then cancel the common factor 2 from the numerator and the denominator.
+\[y' = \frac{-8x}{18y} = -\frac{4x}{9y}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = -\dfrac{4x}{9y}\)</p></div></details></div>
+
+<div class="q" id="u11-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(y^3 + y = x^2\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The chain rule gives \(\frac{d}{dx}[y^3] = 3y^2\,y'\), the derivative of \(y\) is \(y'\), and the power rule gives \(\frac{d}{dx}[x^2] = 2x\).
+\[3y^2\,y' + y' = 2x\]</li>
+<li>Both terms on the left already contain \(y'\), so factor \(y'\) out of the left side.
+\[y'\,(3y^2 + 1) = 2x\]</li>
+<li>Divide both sides by \(3y^2 + 1\). This is allowed for every \(y\), because \(3y^2 + 1\) is at least 1 and is never 0.
+\[y' = \frac{2x}{3y^2 + 1}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{2x}{3y^2 + 1}\)</p></div></details></div>
+
+<div class="q" id="u11-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) by implicit differentiation if \(xy = 12\). Then check your answer by solving for \(y\) first.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The left side \(xy\) is a product of two functions of \(x\), so use the product rule with \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\). The right side is a constant, so its derivative is 0.
+\[\begin{aligned} u'v + uv' &= 0 \\ 1\cdot y + x\cdot y' &= 0 \\ y + x\,y' &= 0 \end{aligned}\]</li>
+<li>Subtract \(y\) from both sides, then divide both sides by \(x\).
+\[\begin{aligned} x\,y' &= -y \\ y' &= -\frac{y}{x} \end{aligned}\]</li>
+<li>Check by solving for \(y\). Dividing \(xy = 12\) by \(x\) gives \(y = \dfrac{12}{x} = 12x^{-1}\). The power rule gives
+\[y' = -12x^{-2} = -\frac{12}{x^2} = -\frac{12/x}{x} = -\frac{y}{x},\]
+because \(\dfrac{12}{x}\) is \(y\). The two methods agree.</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = -\dfrac{y}{x}\)</p></div></details></div>
+
+<div class="q" id="u11-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(e^{y} = x^2 + 1\). Write your answer in terms of \(y\), and then in terms of \(x\) only.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The chain rule gives \(\frac{d}{dx}\left[e^{y}\right] = e^{y}\,y'\). On the right, \(\frac{d}{dx}[x^2 + 1] = 2x + 0 = 2x\).
+\[e^{y}\,y' = 2x\]</li>
+<li>Divide both sides by \(e^{y}\), which is never 0.
+\[y' = \frac{2x}{e^{y}}\]</li>
+<li>The original equation says that \(e^{y}\) equals \(x^2 + 1\). Replace \(e^{y}\) by \(x^2 + 1\) to write the answer with \(x\) only.
+\[y' = \frac{2x}{x^2 + 1}\]
+This matches the explicit method: taking \(\ln\) of both sides gives \(y = \ln(x^2 + 1)\), and the chain rule gives \(y' = \dfrac{2x}{x^2 + 1}\).</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{2x}{e^{y}} = \dfrac{2x}{x^2 + 1}\)</p></div></details></div>
+
+<div class="q" id="u11-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Show that the point \((2, -3)\) lies on the circle \(x^2 + y^2 = 13\), and find the slope of the tangent line to the circle at that point.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that the point is on the circle by substituting \(x = 2\), \(y = -3\) into the left side.
+\[2^2 + (-3)^2 = 4 + 9 = 13\]
+This equals the right side, so \((2, -3)\) is on the circle.</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The power rule gives \(2x\), the chain rule gives \(2y\,y'\), and the derivative of 13 is 0.
+\[2x + 2y\,y' = 0\]</li>
+<li>Subtract \(2x\) from both sides, then divide by \(2y\).
+\[\begin{aligned} 2y\,y' &= -2x \\ y' &= -\frac{2x}{2y} = -\frac{x}{y} \end{aligned}\]</li>
+<li>Substitute \(x = 2\), \(y = -3\). The two negative signs cancel.
+\[y' = -\frac{2}{-3} = \frac{2}{3}\]</li>
+</ol><p class="final">Answer: the point is on the circle because \(4 + 9 = 13\), and the slope of the tangent line at \((2, -3)\) is \(\dfrac{2}{3}\).</p></div></details></div>
+
+<div class="q" id="u11-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(\sqrt{x} + \sqrt{y} = 5\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Rewrite the square roots as powers so the power rule applies.
+\[x^{1/2} + y^{1/2} = 5\]</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The power rule gives \(\frac{d}{dx}\left[x^{1/2}\right] = \frac{1}{2}x^{-1/2}\). The chain rule gives \(\frac{d}{dx}\left[y^{1/2}\right] = \frac{1}{2}y^{-1/2}\,y'\). The derivative of 5 is 0.
+\[\frac{1}{2}x^{-1/2} + \frac{1}{2}y^{-1/2}\,y' = 0\]</li>
+<li>Write the negative powers as fractions with square roots.
+\[\frac{1}{2\sqrt{x}} + \frac{y'}{2\sqrt{y}} = 0\]</li>
+<li>Subtract \(\dfrac{1}{2\sqrt{x}}\) from both sides, then multiply both sides by \(2\sqrt{y}\) to isolate \(y'\).
+\[\begin{aligned} \frac{y'}{2\sqrt{y}} &= -\frac{1}{2\sqrt{x}} \\ y' &= -\frac{2\sqrt{y}}{2\sqrt{x}} = -\frac{\sqrt{y}}{\sqrt{x}} \end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = -\dfrac{\sqrt{y}}{\sqrt{x}}\)</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u11-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(x^2y^3 - 3y = 4x\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The term \(x^2y^3\) is a product of two functions of \(x\), so use the product rule. The pieces are \(u = x^2\), \(v = y^3\), \(u' = 2x\), and \(v' = 3y^2\,y'\) (the chain rule on \(y^3\)).
+\[\frac{d}{dx}\left[x^2y^3\right] = u'v + uv' = 2x\cdot y^3 + x^2\cdot 3y^2\,y' = 2xy^3 + 3x^2y^2\,y'\]</li>
+<li>Differentiate the remaining terms. The derivative of \(-3y\) is \(-3y'\), and the derivative of \(4x\) is 4. Put everything together.
+\[2xy^3 + 3x^2y^2\,y' - 3y' = 4\]</li>
+<li>Collect. Keep the two \(y'\) terms on the left and subtract \(2xy^3\) from both sides.
+\[3x^2y^2\,y' - 3y' = 4 - 2xy^3\]</li>
+<li>Factor \(y'\) out of the left side.
+\[y'\,(3x^2y^2 - 3) = 4 - 2xy^3\]</li>
+<li>Divide both sides by \(3x^2y^2 - 3\).
+\[y' = \frac{4 - 2xy^3}{3x^2y^2 - 3}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{4 - 2xy^3}{3x^2y^2 - 3}\)</p></div></details></div>
+
+<div class="q" id="u11-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(\dfrac{x}{y} = x^2 + y\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The left side is a quotient, so use the quotient rule. The pieces are \(u = x\), \(v = y\), \(u' = 1\), and \(v' = y'\).
+\[\frac{d}{dx}\left[\frac{x}{y}\right] = \frac{u'v - uv'}{v^2} = \frac{1\cdot y - x\cdot y'}{y^2} = \frac{y - x\,y'}{y^2}\]</li>
+<li>Differentiate the right side: \(\frac{d}{dx}[x^2 + y] = 2x + y'\). Set the two derivatives equal.
+\[\frac{y - x\,y'}{y^2} = 2x + y'\]</li>
+<li>Clear the fraction by multiplying both sides by \(y^2\).
+\[y - x\,y' = 2xy^2 + y^2\,y'\]</li>
+<li>Collect. Subtract \(y^2\,y'\) from both sides and subtract \(y\) from both sides, so the \(y'\) terms are on the left.
+\[-x\,y' - y^2\,y' = 2xy^2 - y\]</li>
+<li>Factor \(y'\) out of the left side.
+\[y'\,(-x - y^2) = 2xy^2 - y\]</li>
+<li>Divide both sides by \(-x - y^2\). Then multiply the numerator and the denominator by \(-1\) so the denominator has no leading minus sign.
+\[y' = \frac{2xy^2 - y}{-x - y^2} = \frac{y - 2xy^2}{x + y^2}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{y - 2xy^2}{x + y^2}\)</p></div></details></div>
+
+<div class="q" id="u11-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(e^{xy} = 2x + y\). Then find the slope of the tangent line to this curve at the point \((0, 1)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that \((0, 1)\) is on the curve. The left side is \(e^{0\cdot 1} = e^0 = 1\). The right side is \(2(0) + 1 = 1\). Both sides are equal, so the point is on the curve.</li>
+<li>Differentiate the left side with the chain rule. The outside function is the exponential and the inside is \(xy\). The inside is a product, and the product rule with \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\) gives \(\frac{d}{dx}[xy] = y + x\,y'\).
+\[\frac{d}{dx}\left[e^{xy}\right] = e^{xy}\cdot\frac{d}{dx}[xy] = e^{xy}\,(y + x\,y')\]</li>
+<li>Differentiate the right side, \(\frac{d}{dx}[2x + y] = 2 + y'\), and set the two derivatives equal.
+\[e^{xy}\,(y + x\,y') = 2 + y'\]</li>
+<li>Distribute \(e^{xy}\) so that each term either contains \(y'\) or does not.
+\[y\,e^{xy} + x\,e^{xy}\,y' = 2 + y'\]</li>
+<li>Collect. Subtract \(y'\) from both sides and subtract \(y\,e^{xy}\) from both sides.
+\[x\,e^{xy}\,y' - y' = 2 - y\,e^{xy}\]</li>
+<li>Factor \(y'\) out of the left side and divide by the expression in parentheses.
+\[\begin{aligned} y'\,(x\,e^{xy} - 1) &= 2 - y\,e^{xy} \\ y' &= \frac{2 - y\,e^{xy}}{x\,e^{xy} - 1} \end{aligned}\]</li>
+<li>Substitute \(x = 0\), \(y = 1\). Since \(e^{0\cdot 1} = 1\),
+\[y' = \frac{2 - 1\cdot 1}{0\cdot 1 - 1} = \frac{1}{-1} = -1\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{2 - y\,e^{xy}}{x\,e^{xy} - 1}\), and the slope at \((0, 1)\) is \(-1\).</p></div></details></div>
+
+<div class="q" id="u11-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(\ln(xy) = x + y\), where \(x \gt 0\) and \(y \gt 0\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Simplify before differentiating. Because \(x\) and \(y\) are positive, the property \(\ln(ab) = \ln a + \ln b\) applies.
+\[\ln x + \ln y = x + y\]</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The derivative of \(\ln x\) is \(\frac{1}{x}\), and the chain rule gives \(\frac{d}{dx}[\ln y] = \frac{1}{y}\,y'\). On the right, the derivative is \(1 + y'\).
+\[\frac{1}{x} + \frac{1}{y}\,y' = 1 + y'\]
+If you skip the logarithm property, the chain rule gives \(\frac{d}{dx}[\ln(xy)] = \frac{y + x\,y'}{xy} = \frac{1}{x} + \frac{1}{y}\,y'\), which is the same left side.</li>
+<li>Collect. Subtract \(y'\) from both sides and subtract \(\frac{1}{x}\) from both sides.
+\[\frac{1}{y}\,y' - y' = 1 - \frac{1}{x}\]</li>
+<li>Factor \(y'\) out of the left side.
+\[y'\left(\frac{1}{y} - 1\right) = 1 - \frac{1}{x}\]</li>
+<li>Write each parenthesis as a single fraction: \(\frac{1}{y} - 1 = \frac{1 - y}{y}\) and \(1 - \frac{1}{x} = \frac{x - 1}{x}\).
+\[y'\cdot\frac{1 - y}{y} = \frac{x - 1}{x}\]</li>
+<li>Multiply both sides by \(\dfrac{y}{1 - y}\) to isolate \(y'\).
+\[y' = \frac{x - 1}{x}\cdot\frac{y}{1 - y} = \frac{y\,(x - 1)}{x\,(1 - y)}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{y\,(x - 1)}{x\,(1 - y)}\)</p></div></details></div>
+
+<div class="q" id="u11-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(\sin(xy) = x\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate the left side with the chain rule. The outside function is sine, whose derivative is cosine, and the inside is \(xy\). The product rule with \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\) gives \(\frac{d}{dx}[xy] = y + x\,y'\).
+\[\frac{d}{dx}[\sin(xy)] = \cos(xy)\cdot(y + x\,y')\]</li>
+<li>The derivative of the right side \(x\) is 1. Set the two derivatives equal.
+\[\cos(xy)\,(y + x\,y') = 1\]</li>
+<li>Distribute \(\cos(xy)\).
+\[y\cos(xy) + x\cos(xy)\,y' = 1\]</li>
+<li>Collect. Subtract \(y\cos(xy)\) from both sides.
+\[x\cos(xy)\,y' = 1 - y\cos(xy)\]</li>
+<li>Divide both sides by \(x\cos(xy)\).
+\[y' = \frac{1 - y\cos(xy)}{x\cos(xy)}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{1 - y\cos(xy)}{x\cos(xy)}\)</p></div></details></div>
+
+<div class="q" id="u11-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Find an equation of the tangent line to the curve \(x^3 + y^3 = 9xy\) at the point \((2, 4)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that \((2, 4)\) is on the curve. The left side is \(2^3 + 4^3 = 8 + 64 = 72\). The right side is \(9\cdot 2\cdot 4 = 72\). Both sides are equal, so the point is on the curve.</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). On the left, the power rule gives \(3x^2\) and the chain rule gives \(3y^2\,y'\). On the right, \(9xy\) is a product: \(u = 9x\), \(v = y\), \(u' = 9\), \(v' = y'\), so its derivative is \(u'v + uv' = 9y + 9x\,y'\).
+\[3x^2 + 3y^2\,y' = 9y + 9x\,y'\]</li>
+<li>Divide every term by 3 to make the numbers smaller.
+\[x^2 + y^2\,y' = 3y + 3x\,y'\]</li>
+<li>Collect. Subtract \(3x\,y'\) from both sides and subtract \(x^2\) from both sides.
+\[y^2\,y' - 3x\,y' = 3y - x^2\]</li>
+<li>Factor \(y'\) out of the left side and divide by \(y^2 - 3x\).
+\[\begin{aligned} y'\,(y^2 - 3x) &= 3y - x^2 \\ y' &= \frac{3y - x^2}{y^2 - 3x} \end{aligned}\]</li>
+<li>Substitute \(x = 2\), \(y = 4\) to get the slope.
+\[m = \frac{3(4) - 2^2}{4^2 - 3(2)} = \frac{12 - 4}{16 - 6} = \frac{8}{10} = \frac{4}{5}\]</li>
+<li>Write the tangent line in point-slope form, \(y - b = m(x - a)\) with \((a, b) = (2, 4)\), then solve for \(y\).
+\[\begin{aligned} y - 4 &= \frac{4}{5}(x - 2) \\ y - 4 &= \frac{4}{5}x - \frac{8}{5} \\ y &= \frac{4}{5}x - \frac{8}{5} + \frac{20}{5} \\ y &= \frac{4}{5}x + \frac{12}{5} \end{aligned}\]</li>
+</ol><p class="final">Answer: the tangent line at \((2, 4)\) is \(y = \dfrac{4}{5}x + \dfrac{12}{5}\).</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u11-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Find all points on the curve \(x^2 + xy + y^2 = 27\) where the tangent line is horizontal, and all points where the tangent line is vertical.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The middle term \(xy\) needs the product rule with \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\), which gives \(y + x\,y'\). The chain rule gives \(\frac{d}{dx}[y^2] = 2y\,y'\).
+\[2x + y + x\,y' + 2y\,y' = 0\]</li>
+<li>Collect. Keep the \(y'\) terms on the left and subtract \(2x\) and \(y\) from both sides.
+\[x\,y' + 2y\,y' = -2x - y\]</li>
+<li>Factor \(y'\) out of the left side and divide by \(x + 2y\).
+\[\begin{aligned} y'\,(x + 2y) &= -(2x + y) \\ y' &= -\frac{2x + y}{x + 2y} \end{aligned}\]</li>
+<li>Horizontal tangent lines. The slope is 0 where the numerator is 0 and the denominator is not. Set the numerator equal to 0 and solve for \(y\).
+\[\begin{aligned} 2x + y &= 0 \\ y &= -2x \end{aligned}\]</li>
+<li>The point must also be on the curve. Substitute \(y = -2x\) into \(x^2 + xy + y^2 = 27\) and solve.
+\[\begin{aligned} x^2 + x(-2x) + (-2x)^2 &= 27 \\ x^2 - 2x^2 + 4x^2 &= 27 \\ 3x^2 &= 27 \\ x^2 &= 9 \\ x &= 3 \quad\text{or}\quad x = -3 \end{aligned}\]
+From \(y = -2x\), the point with \(x = 3\) has \(y = -6\), and the point with \(x = -3\) has \(y = 6\).</li>
+<li>Check that the denominator \(x + 2y\) is not 0 at these points. At \((3, -6)\) it is \(3 + 2(-6) = 3 - 12 = -9\). At \((-3, 6)\) it is \(-3 + 2(6) = -3 + 12 = 9\). Neither is 0, so both tangent lines are horizontal.</li>
+<li>Vertical tangent lines. The slope is undefined where the denominator is 0 and the numerator is not. Set the denominator equal to 0 and solve for \(x\).
+\[\begin{aligned} x + 2y &= 0 \\ x &= -2y \end{aligned}\]</li>
+<li>Substitute \(x = -2y\) into the equation of the curve and solve.
+\[\begin{aligned} (-2y)^2 + (-2y)y + y^2 &= 27 \\ 4y^2 - 2y^2 + y^2 &= 27 \\ 3y^2 &= 27 \\ y^2 &= 9 \\ y &= 3 \quad\text{or}\quad y = -3 \end{aligned}\]
+From \(x = -2y\), the point with \(y = 3\) has \(x = -6\), and the point with \(y = -3\) has \(x = 6\).</li>
+<li>Check that the numerator \(2x + y\) is not 0 at these points. At \((-6, 3)\) it is \(2(-6) + 3 = -12 + 3 = -9\). At \((6, -3)\) it is \(2(6) - 3 = 12 - 3 = 9\). Neither is 0, so both tangent lines are vertical.</li>
+<li>Draw the picture. Think of the equation as a quadratic in \(y\): \(y^2 + x\,y + (x^2 - 27) = 0\). The quadratic formula gives \(y = \dfrac{-x \pm \sqrt{x^2 - 4(x^2 - 27)}}{2} = \dfrac{-x \pm \sqrt{108 - 3x^2}}{2}\), which is the upper half and the lower half of a tilted ellipse.
+<div class="plot" data-f="(-x+Math.sqrt(108-3*x**2))/2;;(-x-Math.sqrt(108-3*x**2))/2" data-x="-12,12" data-y="-8.25,8.25"
+     data-pts="3,-6,(3, -6)|-3,6,(-3, 6)|-6,3,(-6, 3)|6,-3,(6, -3)"
+     data-cap="The curve x^2 + xy + y^2 = 27. The tangent line is horizontal at (-3, 6) and (3, -6) and vertical at (-6, 3) and (6, -3)."></div></li>
+</ol><p class="final">Answer: the tangent line is horizontal at \((3, -6)\) and \((-3, 6)\), and vertical at \((-6, 3)\) and \((6, -3)\).</p></div></details></div>
+
+<div class="q" id="u11-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">For the hyperbola \(x^2 - y^2 = 16\), find \(y'\) and \(y''\) by implicit differentiation. Write \(y''\) as simply as you can. Then find \(y''\) at the point \((5, 3)\) and say whether the curve is concave up or concave down there.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The chain rule gives \(\frac{d}{dx}[y^2] = 2y\,y'\), and the derivative of 16 is 0.
+\[2x - 2y\,y' = 0\]</li>
+<li>Subtract \(2x\) from both sides, then divide by \(-2y\).
+\[\begin{aligned} -2y\,y' &= -2x \\ y' &= \frac{-2x}{-2y} = \frac{x}{y} \end{aligned}\]</li>
+<li>Differentiate \(y' = \dfrac{x}{y}\) with respect to \(x\) using the quotient rule. The pieces are \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\).
+\[y'' = \frac{u'v - uv'}{v^2} = \frac{1\cdot y - x\cdot y'}{y^2} = \frac{y - x\,y'}{y^2}\]</li>
+<li>Replace \(y'\) by its formula \(\dfrac{x}{y}\).
+\[y'' = \frac{y - x\cdot\dfrac{x}{y}}{y^2} = \frac{y - \dfrac{x^2}{y}}{y^2}\]</li>
+<li>Remove the small fraction by multiplying the numerator and the denominator by \(y\).
+\[y'' = \frac{y\left(y - \dfrac{x^2}{y}\right)}{y\cdot y^2} = \frac{y^2 - x^2}{y^3}\]</li>
+<li>Use the original equation. Since \(x^2 - y^2 = 16\), the numerator is \(y^2 - x^2 = -(x^2 - y^2) = -16\).
+\[y'' = \frac{-16}{y^3} = -\frac{16}{y^3}\]</li>
+<li>Check that \((5, 3)\) is on the hyperbola: \(5^2 - 3^2 = 25 - 9 = 16\). Then substitute \(y = 3\).
+\[y'' = -\frac{16}{3^3} = -\frac{16}{27}\]</li>
+<li>The second derivative is negative at \((5, 3)\), so the curve is concave down there.</li>
+</ol><p class="final">Answer: \(y' = \dfrac{x}{y}\) and \(y'' = -\dfrac{16}{y^3}\). At \((5, 3)\), \(y'' = -\dfrac{16}{27}\), which is negative, so the curve is concave down there.</p></div></details></div>
+
+<div class="q" id="u11-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">The price \(p\) (in dollars) and the weekly demand \(q\) (in units) for a product are related by the demand equation \(2p^2 + pq + q^2 = 2200\).<br>
+(a) Find the quantity demanded when the price is $10.<br>
+(b) Find \(\dfrac{dq}{dp}\) when the price is $10, and explain what the number means.<br>
+(c) The elasticity of demand is \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\). Find \(E\) when the price is $10. Is demand elastic or inelastic there?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Part (a). Substitute \(p = 10\) into the demand equation and simplify to a quadratic equation in \(q\).
+\[\begin{aligned} 2(10)^2 + 10q + q^2 &= 2200 \\ 200 + 10q + q^2 &= 2200 \\ q^2 + 10q - 2000 &= 0 \end{aligned}\]</li>
+<li>Factor. Two numbers with product \(-2000\) and sum \(10\) are \(50\) and \(-40\).
+\[(q + 50)(q - 40) = 0\]
+So \(q = -50\) or \(q = 40\). A quantity cannot be negative, so \(q = 40\).</li>
+<li>Part (b). Treat \(q\) as a function of \(p\) and differentiate both sides with respect to \(p\). The term \(pq\) is a product with \(u = p\), \(v = q\), \(u' = 1\), \(v' = \dfrac{dq}{dp}\). The chain rule gives \(\frac{d}{dp}[q^2] = 2q\,\dfrac{dq}{dp}\).
+\[4p + q + p\,\frac{dq}{dp} + 2q\,\frac{dq}{dp} = 0\]</li>
+<li>Collect. Subtract \(4p\) and \(q\) from both sides, factor \(\dfrac{dq}{dp}\) out, and divide.
+\[\begin{aligned} p\,\frac{dq}{dp} + 2q\,\frac{dq}{dp} &= -4p - q \\ \frac{dq}{dp}\,(p + 2q) &= -(4p + q) \\ \frac{dq}{dp} &= -\frac{4p + q}{p + 2q} \end{aligned}\]</li>
+<li>Substitute \(p = 10\) and \(q = 40\).
+\[\frac{dq}{dp} = -\frac{4(10) + 40}{10 + 2(40)} = -\frac{40 + 40}{10 + 80} = -\frac{80}{90} = -\frac{8}{9}\]
+Meaning: when the price is $10, a $1 increase in price lowers the weekly demand by about \(\tfrac{8}{9}\) of a unit.</li>
+<li>Part (c). Substitute \(p = 10\), \(q = 40\), and \(\dfrac{dq}{dp} = -\dfrac{8}{9}\) into the elasticity formula.
+\[E = -\frac{10}{40}\cdot\left(-\frac{8}{9}\right) = \frac{1}{4}\cdot\frac{8}{9} = \frac{8}{36} = \frac{2}{9}\]</li>
+<li>Compare with 1. Since \(E = \tfrac{2}{9} \lt 1\), demand is inelastic at a price of $10. For inelastic demand, a small price increase raises revenue.</li>
+</ol><p class="final">Answer: (a) \(q = 40\) units. (b) \(\dfrac{dq}{dp} = -\dfrac{8}{9}\): at $10, each $1 increase in price lowers weekly demand by about \(\tfrac{8}{9}\) of a unit. (c) \(E = \dfrac{2}{9}\), so demand is inelastic at $10.</p></div></details></div>
+
+<div class="q" id="u11-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">Find an equation of the tangent line to the curve \(x^{2/3} + y^{2/3} = 5\) at the point \((8, 1)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that \((8, 1)\) is on the curve. The cube root of 8 is 2, so \(8^{2/3} = \left(8^{1/3}\right)^2 = 2^2 = 4\). Also \(1^{2/3} = 1\). The left side is \(4 + 1 = 5\), which equals the right side.</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The power rule gives \(\frac{d}{dx}\left[x^{2/3}\right] = \frac{2}{3}x^{-1/3}\). The chain rule gives \(\frac{d}{dx}\left[y^{2/3}\right] = \frac{2}{3}y^{-1/3}\,y'\). The derivative of 5 is 0.
+\[\frac{2}{3}x^{-1/3} + \frac{2}{3}y^{-1/3}\,y' = 0\]</li>
+<li>Subtract \(\frac{2}{3}x^{-1/3}\) from both sides, then divide both sides by \(\frac{2}{3}y^{-1/3}\). The factors \(\frac{2}{3}\) cancel.
+\[\begin{aligned} \frac{2}{3}y^{-1/3}\,y' &= -\frac{2}{3}x^{-1/3} \\ y' &= -\frac{x^{-1/3}}{y^{-1/3}} \end{aligned}\]</li>
+<li>Rewrite without negative exponents. Dividing by \(y^{-1/3}\) is the same as multiplying by \(y^{1/3}\), and \(x^{-1/3} = \frac{1}{x^{1/3}}\).
+\[y' = -\frac{y^{1/3}}{x^{1/3}}\]</li>
+<li>Substitute \(x = 8\), \(y = 1\). The cube root of 1 is 1 and the cube root of 8 is 2.
+\[m = -\frac{1^{1/3}}{8^{1/3}} = -\frac{1}{2}\]</li>
+<li>Write the tangent line in point-slope form and solve for \(y\).
+\[\begin{aligned} y - 1 &= -\frac{1}{2}(x - 8) \\ y - 1 &= -\frac{1}{2}x + 4 \\ y &= -\frac{1}{2}x + 5 \end{aligned}\]</li>
+<li>Picture. Solving for \(y\) gives \(y = \pm\left(5 - x^{2/3}\right)^{3/2}\). The tangent line touches the upper half of the curve at \((8, 1)\).
+<div class="plot" data-f="(5-Math.abs(x)**(2/3))**1.5;;-((5-Math.abs(x)**(2/3))**1.5);;-x/2+5" data-x="-18,18" data-y="-12.375,12.375"
+     data-pts="8,1,(8, 1)"
+     data-cap="The curve x^(2/3) + y^(2/3) = 5 and its tangent line y = -x/2 + 5 at (8, 1)."></div></li>
+</ol><p class="final">Answer: the tangent line at \((8, 1)\) is \(y = -\dfrac{1}{2}x + 5\).</p></div></details></div>
+
+<div class="q" id="u11-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) if \(\cos(x + y) = y\). Then find an equation of the tangent line to this curve at the point \(\left(\dfrac{\pi}{2}, 0\right)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that the point is on the curve. The left side is \(\cos\left(\frac{\pi}{2} + 0\right) = \cos\frac{\pi}{2} = 0\), and the right side is \(y = 0\). Both sides are equal.</li>
+<li>Differentiate both sides with respect to \(x\). On the left use the chain rule: the outside function is cosine, whose derivative is \(-\sin\), and the inside is \(x + y\), whose derivative is \(1 + y'\). The right side has derivative \(y'\).
+\[-\sin(x + y)\,(1 + y') = y'\]</li>
+<li>Distribute \(-\sin(x + y)\).
+\[-\sin(x + y) - \sin(x + y)\,y' = y'\]</li>
+<li>Collect. Add \(\sin(x + y)\,y'\) to both sides, so all the \(y'\) terms are on the right.
+\[-\sin(x + y) = y' + \sin(x + y)\,y'\]</li>
+<li>Factor \(y'\) out of the right side and divide by \(1 + \sin(x + y)\).
+\[\begin{aligned} -\sin(x + y) &= y'\,\big(1 + \sin(x + y)\big) \\ y' &= -\frac{\sin(x + y)}{1 + \sin(x + y)} \end{aligned}\]</li>
+<li>Substitute \(x = \frac{\pi}{2}\), \(y = 0\). Then \(\sin(x + y) = \sin\frac{\pi}{2} = 1\).
+\[m = -\frac{1}{1 + 1} = -\frac{1}{2}\]</li>
+<li>Write the tangent line in point-slope form with \((a, b) = \left(\frac{\pi}{2}, 0\right)\) and solve for \(y\).
+\[\begin{aligned} y - 0 &= -\frac{1}{2}\left(x - \frac{\pi}{2}\right) \\ y &= -\frac{1}{2}x + \frac{\pi}{4} \end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = -\dfrac{\sin(x + y)}{1 + \sin(x + y)}\), and the tangent line at \(\left(\frac{\pi}{2}, 0\right)\) is \(y = -\dfrac{1}{2}x + \dfrac{\pi}{4}\).</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u11-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">If \(e^{y}\cos x = y + xy\), use implicit differentiation to find \(y' = \dfrac{dy}{dx}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate the left side with the product rule, treating \(y\) as a function of \(x\). The pieces are \(u = e^{y}\), \(v = \cos x\), \(u' = e^{y}\,y'\) (the chain rule on \(e^{y}\)), and \(v' = -\sin x\).
+\[\frac{d}{dx}\left[e^{y}\cos x\right] = u'v + uv' = e^{y}\,y'\cos x + e^{y}(-\sin x) = e^{y}\cos x\;y' - e^{y}\sin x\]</li>
+<li>Differentiate the right side. The derivative of \(y\) is \(y'\). The term \(xy\) is a product with \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\), so its derivative is \(y + x\,y'\).
+\[\frac{d}{dx}[y + xy] = y' + y + x\,y'\]</li>
+<li>Set the two derivatives equal.
+\[e^{y}\cos x\;y' - e^{y}\sin x = y' + y + x\,y'\]</li>
+<li>Collect. Subtract \(y'\) and \(x\,y'\) from both sides so the \(y'\) terms are on the left, and add \(e^{y}\sin x\) to both sides so the other terms are on the right.
+\[e^{y}\cos x\;y' - y' - x\,y' = y + e^{y}\sin x\]</li>
+<li>Factor \(y'\) out of the left side.
+\[y'\,\left(e^{y}\cos x - 1 - x\right) = y + e^{y}\sin x\]</li>
+<li>Divide both sides by \(e^{y}\cos x - 1 - x\).
+\[y' = \frac{y + e^{y}\sin x}{e^{y}\cos x - 1 - x}\]</li>
+</ol><p class="final">Answer: \(y' = \dfrac{y + e^{y}\sin x}{e^{y}\cos x - 1 - x}\)</p></div></details></div>
+
+<div class="q" id="u11-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Use implicit differentiation to find the slope of the tangent line to the curve \(x^2 + 3xy - 2y^2 = -1\) at the point \((1, 2)\). Then write an equation of that tangent line.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that \((1, 2)\) is on the curve by substituting \(x = 1\), \(y = 2\) into the left side.
+\[1^2 + 3(1)(2) - 2(2)^2 = 1 + 6 - 8 = -1\]
+This equals the right side, so the point is on the curve.</li>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). The term \(3xy\) is a product with \(u = 3x\), \(v = y\), \(u' = 3\), \(v' = y'\), so its derivative is \(3y + 3x\,y'\). The chain rule gives \(\frac{d}{dx}[-2y^2] = -4y\,y'\). The derivative of \(-1\) is 0.
+\[2x + 3y + 3x\,y' - 4y\,y' = 0\]</li>
+<li>Collect. Subtract \(2x\) and \(3y\) from both sides.
+\[3x\,y' - 4y\,y' = -2x - 3y\]</li>
+<li>Factor \(y'\) out of the left side and divide by \(3x - 4y\). Then multiply the numerator and the denominator by \(-1\).
+\[\begin{aligned} y'\,(3x - 4y) &= -2x - 3y \\ y' &= \frac{-2x - 3y}{3x - 4y} = \frac{2x + 3y}{4y - 3x} \end{aligned}\]</li>
+<li>Substitute \(x = 1\), \(y = 2\).
+\[m = \frac{2(1) + 3(2)}{4(2) - 3(1)} = \frac{2 + 6}{8 - 3} = \frac{8}{5}\]
+As a check, substitute the point into the differentiated equation from step 2 instead: \(2 + 6 + 3y' - 8y' = 0\), so \(8 - 5y' = 0\) and \(y' = \frac{8}{5}\). Both ways agree.</li>
+<li>Write the tangent line in point-slope form and solve for \(y\).
+\[\begin{aligned} y - 2 &= \frac{8}{5}(x - 1) \\ y - 2 &= \frac{8}{5}x - \frac{8}{5} \\ y &= \frac{8}{5}x - \frac{8}{5} + \frac{10}{5} \\ y &= \frac{8}{5}x + \frac{2}{5} \end{aligned}\]</li>
+</ol><p class="final">Answer: the slope of the tangent line at \((1, 2)\) is \(\dfrac{8}{5}\), and the tangent line is \(y = \dfrac{8}{5}x + \dfrac{2}{5}\).</p></div></details></div>
+
+<div class="q" id="u11-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">Use implicit differentiation to find \(\dfrac{dy}{dx}\) if \(\ln(x + y) = x^2y + 2x\). Then find an equation of the tangent line to the curve at the point \((0, 1)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that \((0, 1)\) is on the curve. The left side is \(\ln(0 + 1) = \ln 1 = 0\). The right side is \(0^2\cdot 1 + 2\cdot 0 = 0\). Both sides are equal.</li>
+<li>Differentiate the left side with the chain rule. The outside function is \(\ln\), whose derivative is \(\frac{1}{\text{inside}}\), and the inside is \(x + y\), whose derivative is \(1 + y'\).
+\[\frac{d}{dx}[\ln(x + y)] = \frac{1}{x + y}\cdot(1 + y') = \frac{1 + y'}{x + y}\]</li>
+<li>Differentiate the right side. The term \(x^2y\) is a product with \(u = x^2\), \(v = y\), \(u' = 2x\), \(v' = y'\), so its derivative is \(2xy + x^2\,y'\). The derivative of \(2x\) is 2. Set the two derivatives equal.
+\[\frac{1 + y'}{x + y} = 2xy + x^2\,y' + 2\]</li>
+<li>Clear the fraction by multiplying both sides by \(x + y\). On the right, group the terms without \(y'\) as \(2xy + 2\).
+\[1 + y' = (x + y)(2xy + 2) + x^2(x + y)\,y'\]</li>
+<li>Collect. Subtract \(x^2(x + y)\,y'\) from both sides and subtract 1 from both sides.
+\[y' - x^2(x + y)\,y' = (x + y)(2xy + 2) - 1\]</li>
+<li>Factor \(y'\) out of the left side and divide.
+\[\begin{aligned} y'\,\big(1 - x^2(x + y)\big) &= (x + y)(2xy + 2) - 1 \\ y' &= \frac{(x + y)(2xy + 2) - 1}{1 - x^2(x + y)} \end{aligned}\]</li>
+<li>Substitute \(x = 0\), \(y = 1\). Then \(x + y = 1\) and \(2xy + 2 = 0 + 2 = 2\).
+\[m = \frac{(1)(2) - 1}{1 - 0^2\cdot 1} = \frac{2 - 1}{1 - 0} = 1\]</li>
+<li>Write the tangent line in point-slope form and solve for \(y\).
+\[\begin{aligned} y - 1 &= 1\cdot(x - 0) \\ y &= x + 1 \end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{(x + y)(2xy + 2) - 1}{1 - x^2(x + y)}\), and the tangent line at \((0, 1)\) is \(y = x + 1\).</p></div></details></div>
+
+<div class="q" id="u11-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">Use implicit differentiation to find the slope of the tangent line to the curve \(\sin(\pi xy) + x^2 = y^3\) at the point \((1, 1)\). Then write an equation of that tangent line.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that \((1, 1)\) is on the curve. The left side is \(\sin(\pi\cdot 1\cdot 1) + 1^2 = \sin\pi + 1 = 0 + 1 = 1\). The right side is \(1^3 = 1\). Both sides are equal.</li>
+<li>Differentiate \(\sin(\pi xy)\) with the chain rule. The outside function is sine, with derivative cosine, and the inside is \(\pi xy\). The inside is a product with \(u = \pi x\), \(v = y\), \(u' = \pi\), \(v' = y'\), so its derivative is \(\pi y + \pi x\,y'\).
+\[\frac{d}{dx}[\sin(\pi xy)] = \cos(\pi xy)\,(\pi y + \pi x\,y')\]</li>
+<li>Differentiate the other terms: \(\frac{d}{dx}[x^2] = 2x\), and the chain rule gives \(\frac{d}{dx}[y^3] = 3y^2\,y'\). Put the whole equation together.
+\[\cos(\pi xy)\,(\pi y + \pi x\,y') + 2x = 3y^2\,y'\]</li>
+<li>Only the slope at one point is asked, so substitute \(x = 1\), \(y = 1\) now. Then \(\cos(\pi xy) = \cos\pi = -1\), \(\pi y + \pi x\,y' = \pi + \pi y'\), \(2x = 2\), and \(3y^2 = 3\).
+\[\begin{aligned} (-1)(\pi + \pi y') + 2 &= 3y' \\ -\pi - \pi y' + 2 &= 3y' \end{aligned}\]</li>
+<li>Collect. Add \(\pi y'\) to both sides so the \(y'\) terms are on the right.
+\[2 - \pi = 3y' + \pi y'\]</li>
+<li>Factor \(y'\) out of the right side and divide by \(3 + \pi\).
+\[\begin{aligned} 2 - \pi &= y'\,(3 + \pi) \\ y' &= \frac{2 - \pi}{3 + \pi} \end{aligned}\]
+Since \(\pi \gt 2\), the slope is negative.</li>
+<li>Write the tangent line in point-slope form with \(m = \dfrac{2 - \pi}{3 + \pi}\).
+\[y - 1 = \frac{2 - \pi}{3 + \pi}(x - 1)\]</li>
+<li>Solve for \(y\). Distribute \(m\), then combine the constants over the common denominator \(3 + \pi\).
+\[\begin{aligned} y &= \frac{2 - \pi}{3 + \pi}\,x - \frac{2 - \pi}{3 + \pi} + 1 \\ y &= \frac{2 - \pi}{3 + \pi}\,x + \frac{-(2 - \pi) + (3 + \pi)}{3 + \pi} \\ y &= \frac{2 - \pi}{3 + \pi}\,x + \frac{1 + 2\pi}{3 + \pi} \end{aligned}\]</li>
+</ol><p class="final">Answer: the slope of the tangent line at \((1, 1)\) is \(\dfrac{2 - \pi}{3 + \pi}\), and the tangent line is \(y = \dfrac{2 - \pi}{3 + \pi}\,x + \dfrac{1 + 2\pi}{3 + \pi}\).</p></div></details></div>
+</section><div class="pager"><a href="u10.html">Back: Elasticity of demand and economic order quantity</a><a href="u12.html">Next: Related rates</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

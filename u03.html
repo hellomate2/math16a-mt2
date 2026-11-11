@@ -1,0 +1,513 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Derivatives of exponential and logarithmic functions | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 4.4, 4.5</p><h1>Derivatives of exponential and logarithmic functions</h1><p class="sub">e^x, a^x, e^g(x), ln x, log_a x, ln g(x), and logarithm properties used before differentiating.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 4.4: Derivatives of exponential functions</h2>
+
+<h3>Exponential functions and power functions</h3>
+<p>An <b>exponential function</b> is a function of the form \(f(x) = a^x\), where the base \(a\) is a positive constant and the variable \(x\) sits in the exponent. Examples are \(2^x\), \(10^x\), \(\left(\tfrac{1}{2}\right)^x\), and \(e^x\). The number \(e\) is the special base \(e \approx 2.71828\) that you met as \(e = \lim_{n \to \infty}\left(1 + \tfrac{1}{n}\right)^n\).</p>
+<p>A <b>power function</b> is the opposite arrangement: the variable is the base and the exponent is a constant, as in \(x^2\), \(x^{-1}\), or \(x^{e}\). The professor's caution is to never mix these up. The power rule \(\frac{d}{dx}(x^r) = r x^{r-1}\) is only for power functions. It does not apply to \(a^x\).</p>
+
+<h3>Why the derivative of e<sup>x</sup> is e<sup>x</sup></h3>
+<p>Start with any base \(a \gt 0\) and \(f(x) = a^x\). Use the definition of the derivative and the exponent rule \(a^{x+h} = a^x \cdot a^h\):</p>
+\[\begin{aligned} f'(x) &= \lim_{h \to 0} \frac{a^{x+h} - a^x}{h} \\ &= \lim_{h \to 0} \frac{a^x a^h - a^x}{h} \\ &= \lim_{h \to 0} \frac{a^x\left(a^h - 1\right)}{h} \\ &= a^x \lim_{h \to 0} \frac{a^h - 1}{h}. \end{aligned}\]
+<p>The factor \(a^x\) came out of the limit because it does not depend on \(h\). The limit that is left over is a plain number that depends only on the base \(a\). That number is exactly \(f'(0)\), because putting \(x = 0\) in the first line gives \(f'(0) = \lim_{h \to 0} \frac{a^h - 1}{h}\). So</p>
+\[\frac{d}{dx}\left(a^x\right) = f'(0) \cdot a^x,\]
+<p>where \(f'(0)\) is the slope of the tangent line to \(y = a^x\) at the point \((0, 1)\). The number \(e\) can be defined as the one base for which this slope is exactly 1:</p>
+\[\lim_{h \to 0} \frac{e^h - 1}{h} = 1.\]
+<p>Put \(a = e\) into the boxed formula and the constant becomes 1. That is the whole reason \(e\) is the favorite base in calculus.</p>
+<div class="rule"><div class="rt">The derivative of e<sup>x</sup></div><p>\[\frac{d}{dx}\left(e^x\right) = e^x.\]
+The function \(e^x\) is its own derivative. At every point \(x_0\), the slope of the tangent line to \(y = e^x\) equals the height \(e^{x_0}\) of the graph there. The graphs of \(f\) and \(f'\) are the same curve.</p></div>
+<div class="plot" data-f="Math.exp(x);;x+1" data-x="-3,2" data-y="-1,5"
+     data-pts="0,1,(0, 1)"
+     data-cap="The graph of y = e^x and its tangent line y = x + 1 at (0, 1). The slope there is exactly 1, which is how e is chosen."></div>
+
+<h3>The derivative of a<sup>x</sup> for any base</h3>
+<p>To handle any base \(a \gt 0\), rewrite \(a\) as a power of \(e\). Since \(e^{\ln a} = a\), we have \(a^x = \left(e^{\ln a}\right)^x = e^{(\ln a)x}\). This is \(e^u\) with the inside function \(u = (\ln a)x\), whose derivative is the constant \(\ln a\). The chain rule (derivative of the outside, evaluated at the inside, times the derivative of the inside) gives</p>
+\[\frac{d}{dx}\left(a^x\right) = e^{(\ln a)x} \cdot \ln a = (\ln a) \cdot a^x.\]
+<p>Comparing this with \(\frac{d}{dx}(a^x) = a^x \lim_{h \to 0} \frac{a^h - 1}{h}\) from above tells you the value of that mystery limit: \(\lim_{h \to 0} \frac{a^h - 1}{h} = \ln a\). It is the slope of \(y = a^x\) at \((0, 1)\). For \(a = e\) this gives \(\ln e = 1\), which agrees with the special case.</p>
+<div class="rule"><div class="rt">The derivative of a<sup>x</sup></div><p>For any constant \(a \gt 0\),
+\[\frac{d}{dx}\left(a^x\right) = (\ln a) \cdot a^x.\]
+Do NOT write \(\frac{d}{dx}(a^x) = x a^{x-1}\). That is the power rule used on a function that is not a power function.</p></div>
+
+<h3>Exponentials with the chain rule</h3>
+<p>When the exponent is a function \(g(x)\) instead of just \(x\), the function \(e^{g(x)}\) is a composition: the outside function is \(e^u\) and the inside function is \(u = g(x)\). The outside function is its own derivative, so the chain rule says: copy \(e^{g(x)}\) exactly as it is, then multiply by the derivative of the exponent. The same reasoning with the outside function \(a^u\) gives the second rule.</p>
+<div class="rule"><div class="rt">Chain rule for exponentials</div><p>\[\frac{d}{dx}\left[e^{g(x)}\right] = e^{g(x)} \cdot g'(x), \qquad \frac{d}{dx}\left[a^{g(x)}\right] = (\ln a) \cdot a^{g(x)} \cdot g'(x).\]
+The second formula is the most general one. The other three exponential rules are special cases: \(a = e\) gives the first (because \(\ln e = 1\)), \(g(x) = x\) gives \(\frac{d}{dx}(a^x) = (\ln a)a^x\), and both together give \(\frac{d}{dx}(e^x) = e^x\).</p></div>
+
+<div class="ex"><div class="et">Worked example 1</div><p class="p">Find the derivative of each function. (a) \(f(x) = e^{x^3 - 2x}\) (b) \(y = 7^{1/x}\) (c) \(y = 2^{\sqrt{x}}\) (d) \(f(x) = x^{\pi} + \pi^{x}\)</p>
+<ol class="steps">
+<li>(a) This is \(e^{g(x)}\) with exponent \(g(x) = x^3 - 2x\). Its derivative is \(g'(x) = 3x^2 - 2\) by the power rule. Copy \(e^{g(x)}\) and multiply by \(g'(x)\).
+\[f'(x) = e^{x^3 - 2x} \cdot (3x^2 - 2) = (3x^2 - 2)\,e^{x^3 - 2x}\]</li>
+<li>(b) This is \(a^{g(x)}\) with base \(a = 7\) and exponent \(g(x) = \frac{1}{x} = x^{-1}\). The power rule gives \(g'(x) = -x^{-2} = -\frac{1}{x^2}\). Use the rule for \(a^{g(x)}\).
+\[\frac{dy}{dx} = (\ln 7) \cdot 7^{1/x} \cdot \left(-\frac{1}{x^2}\right) = -\frac{(\ln 7)\, 7^{1/x}}{x^2}\]</li>
+<li>(c) This is \(a^{g(x)}\) with \(a = 2\) and \(g(x) = \sqrt{x} = x^{1/2}\), so \(g'(x) = \frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}\).
+\[\frac{dy}{dx} = (\ln 2) \cdot 2^{\sqrt{x}} \cdot \frac{1}{2\sqrt{x}} = \frac{(\ln 2)\, 2^{\sqrt{x}}}{2\sqrt{x}}\]</li>
+<li>(d) The first term \(x^{\pi}\) has the variable in the base and the constant \(\pi\) in the exponent, so it is a power function and the power rule applies. The second term \(\pi^x\) has the constant \(\pi\) in the base and the variable in the exponent, so it is an exponential function with \(a = \pi\).
+\[f'(x) = \pi x^{\pi - 1} + (\ln \pi)\, \pi^{x}\]</li>
+</ol><p class="final">Answer: (a) \((3x^2 - 2)e^{x^3 - 2x}\) (b) \(-\dfrac{(\ln 7)\,7^{1/x}}{x^2}\) (c) \(\dfrac{(\ln 2)\,2^{\sqrt{x}}}{2\sqrt{x}}\) (d) \(\pi x^{\pi - 1} + (\ln \pi)\,\pi^{x}\)</p></div>
+
+<div class="ex"><div class="et">Worked example 2</div><p class="p">Find the derivative of each function and simplify. (a) \(f(x) = x^3 e^{-2x}\) (b) \(g(x) = \dfrac{6}{2 + e^{-3x}}\)</p>
+<ol class="steps">
+<li>(a) This is a product, so use the product rule \((uv)' = u'v + uv'\). Name the pieces first. The derivative of \(e^{-2x}\) comes from the chain rule with exponent \(-2x\), whose derivative is \(-2\).
+\[u = x^3, \qquad v = e^{-2x}, \qquad u' = 3x^2, \qquad v' = e^{-2x} \cdot (-2) = -2e^{-2x}\]</li>
+<li>(a) Assemble the product rule.
+\[f'(x) = 3x^2 \cdot e^{-2x} + x^3 \cdot \left(-2e^{-2x}\right) = 3x^2 e^{-2x} - 2x^3 e^{-2x}\]</li>
+<li>(a) Factor out the common factor \(x^2 e^{-2x}\) from both terms.
+\[f'(x) = x^2 e^{-2x}(3 - 2x)\]</li>
+<li>(b) The numerator is a constant, so the quotient rule is more work than needed. Rewrite \(g\) as a power and use the generalized power rule (the chain rule with outside function \(u^{-1}\)).
+\[g(x) = 6\left(2 + e^{-3x}\right)^{-1}\]</li>
+<li>(b) The inside function is \(2 + e^{-3x}\). Its derivative is \(0 + e^{-3x} \cdot (-3) = -3e^{-3x}\), by the chain rule on \(e^{-3x}\).
+\[g'(x) = 6 \cdot (-1)\left(2 + e^{-3x}\right)^{-2} \cdot \left(-3e^{-3x}\right)\]</li>
+<li>(b) Multiply the constants: \(6 \cdot (-1) \cdot (-3) = 18\). Move the negative power to the denominator.
+\[g'(x) = 18e^{-3x}\left(2 + e^{-3x}\right)^{-2} = \frac{18e^{-3x}}{\left(2 + e^{-3x}\right)^2}\]</li>
+</ol><p class="final">Answer: (a) \(f'(x) = x^2 e^{-2x}(3 - 2x)\) (b) \(g'(x) = \dfrac{18e^{-3x}}{\left(2 + e^{-3x}\right)^2}\)</p></div>
+
+<h3>Logistic functions</h3>
+<p>The function \(g\) in Worked example 2(b) is a <b>logistic function</b>. Logistic functions model populations or product sales that grow slowly at first, then quickly, and finally level off at a limiting value. The professor writes them as</p>
+\[P(t) = \frac{m P_0}{P_0 + (m - P_0)e^{-kmt}},\]
+<p>where \(P_0 = P(0)\) is the initial population (or sales quantity), \(m\) is the maximum possible population (the <b>carrying capacity</b>), and \(k\) is a positive constant. Dividing the numerator and the denominator by \(P_0\) gives</p>
+\[P(t) = \frac{m}{1 + \left(\frac{m}{P_0} - 1\right)e^{-kmt}}.\]
+<p>Since \(e^{-kmt} \to 0\) as \(t \to \infty\), the denominator goes to 1 and \(P(t) \to m\). With \(m = 3\), \(P_0 = 2\), and \(k = 1\), the first formula is \(\frac{6}{2 + e^{-3t}}\), which is the function from Worked example 2(b). Its derivative is always positive, so the function always increases, and it approaches 3.</p>
+
+<h3>Rates of change of growth and decay</h3>
+<p>A quantity that grows or decays continuously is modeled by \(A(t) = A_0 e^{kt}\), where \(A_0 = A(0)\) is the starting amount and \(k\) is a constant (positive for growth, negative for decay). By the chain rule, \(A'(t) = A_0 e^{kt} \cdot k = k\,A(t)\). In words: the rate of change is always proportional to the current amount, with \(k\) as the constant of proportionality. A colony twice as big grows twice as fast.</p>
+<p>In business, if \(R(x)\) is the revenue from selling \(x\) units, the <b>marginal revenue</b> \(R'(x)\) approximates the extra revenue from selling one more unit (unit number \(x + 1\)). Revenue is price times quantity, \(R(x) = x \cdot p\), where the <b>demand function</b> \(p\) gives the price at which \(x\) units can be sold.</p>
+
+<div class="ex"><div class="et">Worked example 3</div><p class="p">(a) A bacteria population is \(P(t) = 800e^{0.05t}\) after \(t\) hours. How fast is the population growing after 20 hours? (b) The demand for a product is \(p = 40e^{-x/20}\), where \(p\) is the price per unit in dollars and \(x\) is the number of units sold. Find the marginal revenue and evaluate it at \(x = 10\). Interpret the answer.</p>
+<ol class="steps">
+<li>(a) Differentiate with the chain rule. The exponent is \(0.05t\), whose derivative is \(0.05\).
+\[P'(t) = 800e^{0.05t} \cdot 0.05 = 40e^{0.05t}\]</li>
+<li>(a) Substitute \(t = 20\). The exponent becomes \(0.05 \cdot 20 = 1\).
+\[P'(20) = 40e^{0.05 \cdot 20} = 40e^{1} = 40e\]
+The units of \(P'\) are bacteria per hour. As a check, \(P(20) = 800e\) and \(0.05 \cdot 800e = 40e\), which matches \(P'(t) = 0.05\,P(t)\).</li>
+<li>(b) Write the revenue function. Revenue is the number of units times the price per unit.
+\[R(x) = x \cdot p = 40x\,e^{-x/20}\]</li>
+<li>(b) Differentiate with the product rule. The pieces are below. The chain rule on \(e^{-x/20}\) multiplies by the derivative of \(-\frac{x}{20}\), which is \(-\frac{1}{20}\).
+\[u = 40x, \qquad v = e^{-x/20}, \qquad u' = 40, \qquad v' = -\frac{1}{20}e^{-x/20}\]</li>
+<li>(b) Assemble \(u'v + uv'\) and factor out \(e^{-x/20}\).
+\[\begin{aligned} R'(x) &= 40e^{-x/20} + 40x\left(-\frac{1}{20}e^{-x/20}\right) \\ &= 40e^{-x/20} - 2x\,e^{-x/20} \\ &= e^{-x/20}(40 - 2x) \end{aligned}\]</li>
+<li>(b) Substitute \(x = 10\). The exponent is \(-\frac{10}{20} = -\frac{1}{2}\), and \(e^{-1/2} = \frac{1}{\sqrt{e}}\).
+\[R'(10) = e^{-1/2}(40 - 20) = 20e^{-1/2} = \frac{20}{\sqrt{e}}\]</li>
+</ol><p class="final">Answer: (a) \(P'(20) = 40e\) bacteria per hour (a little under 109). (b) \(R'(x) = e^{-x/20}(40 - 2x)\) and \(R'(10) = \dfrac{20}{\sqrt{e}}\) dollars per unit: selling the 11th unit brings in about \(\dfrac{20}{\sqrt{e}}\) dollars (about 12 dollars) of extra revenue.</p></div>
+
+<div class="trap"><b>Common mistake.</b> Writing \(\frac{d}{dx}(5^x) = x \cdot 5^{x-1}\). The power rule is only for a variable base and a constant exponent. The correct derivative is \((\ln 5)\,5^x\).</div>
+<div class="trap"><b>Common mistake.</b> Forgetting the derivative of the exponent: \(\frac{d}{dx}\left(e^{-2x}\right)\) is \(-2e^{-2x}\), not \(e^{-2x}\), and \(\frac{d}{dx}\left(e^{x^2}\right)\) is \(2x\,e^{x^2}\). Also, never lower the exponent: \(\frac{d}{dx}\left(e^{x^2}\right)\) is not \(x^2 e^{x^2 - 1}\).</div>
+<div class="trap"><b>Common mistake.</b> Treating \(e^2\) or \(\ln 3\) as a function. They are constants, so \(\frac{d}{dx}\left(e^2\right) = 0\) and \(\frac{d}{dx}(\ln 3) = 0\). In \(\frac{d}{dx}\left(e^2 x\right)\) the answer is the constant \(e^2\).</div>
+<div class="trap"><b>Common mistake.</b> Combining exponents wrongly. \(e^x \cdot e^{x} = e^{2x}\), not \(e^{x^2}\), and \(\left(e^{x}\right)^3 = e^{3x}\). Simplify with these exponent rules before differentiating whenever they help, as in \(\frac{e^{5x}}{e^{2x}} = e^{3x}\).</div>
+
+<h2>Section 4.5: Derivatives of logarithmic functions</h2>
+
+<h3>What a logarithm is, and its properties</h3>
+<p>For a base \(a \gt 0\) with \(a \neq 1\), the <b>logarithm</b> \(\log_a x\) is the exponent you put on \(a\) to get \(x\). So \(y = \log_a x\) means exactly the same thing as \(a^y = x\). For example, \(\log_2 8 = 3\) because \(2^3 = 8\). The <b>natural logarithm</b> is the logarithm with base \(e\), written \(\ln x = \log_e x\). The logarithm is only defined for \(x \gt 0\).</p>
+<p>Because \(\log_a\) undoes \(a^x\) (they are <b>inverse functions</b>), you have \(e^{\ln x} = x\) for \(x \gt 0\) and \(\ln\left(e^{x}\right) = x\) for every \(x\). Also \(\ln 1 = 0\) and \(\ln e = 1\).</p>
+<div class="rule"><div class="rt">Properties of logarithms</div><p>For \(x \gt 0\), \(y \gt 0\), and any real number \(r\):
+\[\begin{aligned} &\text{Product rule:} && \ln(xy) = \ln x + \ln y \\ &\text{Quotient rule:} && \ln\left(\frac{x}{y}\right) = \ln x - \ln y \\ &\text{Power rule:} && \ln\left(x^r\right) = r\ln x \\ &\text{Change of base:} && \log_a x = \frac{\ln x}{\ln a} \end{aligned}\]
+The same properties hold for \(\log_a\) with any base. There is no rule for \(\ln(x + y)\): it does not split.</p></div>
+
+<h3>Why the derivative of ln x is 1/x</h3>
+<p>The professor finds this derivative from the fact that \(\ln x\) is the inverse of \(e^x\). Let \(y = \ln x\). Then \(e^y = x\). Differentiate both sides with respect to \(x\), using the chain rule on the left (the exponent \(y\) is a function of \(x\), so the derivative of \(e^y\) is \(e^y \cdot \frac{dy}{dx}\)):</p>
+\[\begin{aligned} \frac{d}{dx}\left(e^{y}\right) &= \frac{d}{dx}(x) \\ e^{y}\,\frac{dy}{dx} &= 1 \\ x\,\frac{dy}{dx} &= 1 \qquad (\text{because } e^{y} = x) \\ \frac{dy}{dx} &= \frac{1}{x}. \end{aligned}\]
+<p>The same steps with \(a^y = x\) give \((\ln a)\,a^y \frac{dy}{dx} = 1\), so \((\ln a)\,x\,\frac{dy}{dx} = 1\) and \(\frac{dy}{dx} = \frac{1}{\ln a} \cdot \frac{1}{x}\). You can also see this from the change of base formula: \(\log_a x = \frac{1}{\ln a} \cdot \ln x\) is a constant times \(\ln x\).</p>
+<p>The professor's remark is that this trick works for the inverse \(g\) of any function \(f\) whose derivative you know: differentiate \(f(g(x)) = x\) to get \(f'(g(x)) \cdot g'(x) = 1\), so \(g'(x) = \dfrac{1}{f'(g(x))}\).</p>
+<div class="rule"><div class="rt">Derivatives of logarithms</div><p>\[\frac{d}{dx}(\ln x) = \frac{1}{x}, \qquad \frac{d}{dx}\left(\log_a x\right) = \frac{1}{\ln a} \cdot \frac{1}{x}.\]</p></div>
+
+<h3>Logarithms with the chain rule, and absolute values</h3>
+<p>For \(\ln g(x)\), the outside function is \(\ln u\) with derivative \(\frac{1}{u}\), and the inside function is \(u = g(x)\). The chain rule gives \(\frac{1}{g(x)} \cdot g'(x)\): the derivative of the inside divided by the inside.</p>
+<p>The formula \(\frac{d}{dx}(\ln x) = \frac{1}{x}\) holds for \(x \gt 0\). For \(x \lt 0\), the function \(\ln(-x)\) makes sense, and it equals \(\ln|x|\) because \(-x = |x|\) when \(x \lt 0\). The chain rule with inside function \(-x\) gives \(\frac{d}{dx}[\ln(-x)] = \frac{-1}{-x} = \frac{1}{x}\). So the same formula works on both sides of 0, and \(\frac{d}{dx}\ln|x| = \frac{1}{x}\) for all \(x \neq 0\).</p>
+<div class="rule"><div class="rt">Chain rule for logarithms</div><p>\[\frac{d}{dx}\left[\ln|g(x)|\right] = \frac{g'(x)}{g(x)}, \qquad \frac{d}{dx}\left[\log_a|g(x)|\right] = \frac{1}{\ln a} \cdot \frac{g'(x)}{g(x)},\]
+valid wherever \(g(x) \neq 0\). The same formulas hold without the absolute value bars wherever \(g(x) \gt 0\). The last formula is the most general of the four log rules: \(a = e\) gives the first, and \(g(x) = x\) gives \(\frac{d}{dx}\ln|x| = \frac{1}{x}\) and \(\frac{d}{dx}\log_a|x| = \frac{1}{\ln a} \cdot \frac{1}{x}\).</p></div>
+
+<div class="ex"><div class="et">Worked example 4</div><p class="p">Find the derivative of each function. (a) \(y = \ln(6x)\), \(x \gt 0\) (b) \(f(x) = \log_3\left|x^2 - 5x + 2\right|\) (c) \(y = \dfrac{\ln x}{x^2}\) (d) \(f(x) = 5^x \log_5 x\)</p>
+<ol class="steps">
+<li>(a) Use the chain rule for \(\ln g(x)\) with inside \(g(x) = 6x\) and \(g'(x) = 6\), then cancel the 6.
+\[\frac{dy}{dx} = \frac{6}{6x} = \frac{1}{x}\]
+This makes sense. The product property gives \(\ln(6x) = \ln 6 + \ln x\), and \(\ln 6\) is a constant with derivative 0, so the derivative is \(\frac{1}{x}\) either way.</li>
+<li>(b) Use the rule for \(\log_a|g(x)|\) with \(a = 3\) and \(g(x) = x^2 - 5x + 2\), so \(g'(x) = 2x - 5\).
+\[f'(x) = \frac{1}{\ln 3} \cdot \frac{2x - 5}{x^2 - 5x + 2} = \frac{2x - 5}{(\ln 3)\left(x^2 - 5x + 2\right)}\]</li>
+<li>(c) This is a quotient. For the quotient rule \(\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}\), name the pieces.
+\[u = \ln x, \qquad v = x^2, \qquad u' = \frac{1}{x}, \qquad v' = 2x\]</li>
+<li>(c) Assemble the quotient rule. In the numerator, \(\frac{1}{x} \cdot x^2 = x\).
+\[\frac{dy}{dx} = \frac{\frac{1}{x} \cdot x^2 - \ln x \cdot 2x}{\left(x^2\right)^2} = \frac{x - 2x\ln x}{x^4}\]</li>
+<li>(c) Factor \(x\) out of the numerator and cancel it with one factor of \(x\) in the denominator.
+\[\frac{dy}{dx} = \frac{x(1 - 2\ln x)}{x^4} = \frac{1 - 2\ln x}{x^3}\]</li>
+<li>(d) This is a product. Name the pieces for the product rule.
+\[u = 5^x, \qquad v = \log_5 x, \qquad u' = (\ln 5)\,5^x, \qquad v' = \frac{1}{(\ln 5)\,x}\]</li>
+<li>(d) Assemble \(u'v + uv'\).
+\[f'(x) = (\ln 5)\,5^x \log_5 x + 5^x \cdot \frac{1}{(\ln 5)\,x} = (\ln 5)\,5^x \log_5 x + \frac{5^x}{(\ln 5)\,x}\]</li>
+</ol><p class="final">Answer: (a) \(\dfrac{1}{x}\) (b) \(\dfrac{2x - 5}{(\ln 3)(x^2 - 5x + 2)}\) (c) \(\dfrac{1 - 2\ln x}{x^3}\) (d) \((\ln 5)\,5^x\log_5 x + \dfrac{5^x}{(\ln 5)\,x}\)</p></div>
+
+<h3>Simplify the logarithm first</h3>
+<p>When a logarithm contains products, quotients, powers, or roots, use the log properties to break it into simple pieces before you differentiate. The professor says this directly about \(\ln\sqrt{x^2 + x}\): use the rules of logarithms before computing the derivative. Each piece then needs only the rule \(\frac{g'}{g}\) on a small \(g\), and you avoid the product and quotient rules completely. The next example does one problem both ways so you can see the difference.</p>
+
+<div class="ex"><div class="et">Worked example 5 (the same problem two ways)</div><p class="p">Find \(f'(x)\) for \(f(x) = \ln\left[\dfrac{\left(x^2 + 1\right)^3}{(2x - 1)^2}\right]\), where \(x \neq \tfrac{1}{2}\).</p>
+<ol class="steps">
+<li>Method 1, without simplifying. Write \(f(x) = \ln g(x)\) with \(g(x) = \frac{(x^2+1)^3}{(2x-1)^2}\), so \(f'(x) = \frac{g'(x)}{g(x)}\). To find \(g'\) with the quotient rule, name the pieces. Both \(u'\) and \(v'\) need the generalized power rule.
+\[u = \left(x^2 + 1\right)^3, \quad v = (2x - 1)^2, \quad u' = 3\left(x^2+1\right)^2 \cdot 2x = 6x\left(x^2+1\right)^2, \quad v' = 2(2x - 1) \cdot 2 = 4(2x - 1)\]</li>
+<li>Method 1, continued. Assemble \(\frac{u'v - uv'}{v^2}\).
+\[g'(x) = \frac{6x\left(x^2+1\right)^2(2x - 1)^2 - \left(x^2+1\right)^3 \cdot 4(2x - 1)}{(2x - 1)^4}\]</li>
+<li>Method 1, continued. Factor \(\left(x^2+1\right)^2(2x - 1)\) out of the numerator, then cancel one factor of \(2x - 1\).
+\[\begin{aligned} g'(x) &= \frac{\left(x^2+1\right)^2(2x - 1)\left[6x(2x - 1) - 4\left(x^2+1\right)\right]}{(2x - 1)^4} \\ &= \frac{\left(x^2+1\right)^2\left[12x^2 - 6x - 4x^2 - 4\right]}{(2x - 1)^3} \\ &= \frac{\left(x^2+1\right)^2\left(8x^2 - 6x - 4\right)}{(2x - 1)^3} \end{aligned}\]</li>
+<li>Method 1, continued. Divide by \(g(x)\), which means multiplying by its reciprocal \(\frac{(2x-1)^2}{(x^2+1)^3}\), and cancel.
+\[f'(x) = \frac{\left(x^2+1\right)^2\left(8x^2 - 6x - 4\right)}{(2x - 1)^3} \cdot \frac{(2x - 1)^2}{\left(x^2+1\right)^3} = \frac{8x^2 - 6x - 4}{\left(x^2+1\right)(2x - 1)}\]</li>
+<li>Method 2, simplifying first. Use the quotient property, then the power property. For the power on \(2x - 1\), use \(\ln\left(u^2\right) = 2\ln|u|\): the square is positive even when \(2x - 1\) is negative, so the absolute value keeps the logarithm defined. The power on \(x^2 + 1\) needs no bars because \(x^2 + 1 \gt 0\).
+\[f(x) = \ln\left(x^2 + 1\right)^3 - \ln(2x - 1)^2 = 3\ln\left(x^2 + 1\right) - 2\ln|2x - 1|\]</li>
+<li>Method 2, continued. Differentiate each piece with \(\frac{d}{dx}\ln|g| = \frac{g'}{g}\). The inside derivatives are \(2x\) and \(2\).
+\[f'(x) = 3 \cdot \frac{2x}{x^2 + 1} - 2 \cdot \frac{2}{2x - 1} = \frac{6x}{x^2 + 1} - \frac{4}{2x - 1}\]
+This is already a correct final answer.</li>
+<li>Check that the two methods agree by combining the Method 2 answer over the common denominator \(\left(x^2 + 1\right)(2x - 1)\).
+\[\frac{6x(2x - 1) - 4\left(x^2 + 1\right)}{\left(x^2 + 1\right)(2x - 1)} = \frac{12x^2 - 6x - 4x^2 - 4}{\left(x^2 + 1\right)(2x - 1)} = \frac{8x^2 - 6x - 4}{\left(x^2 + 1\right)(2x - 1)}\]
+This is the Method 1 answer.</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{6x}{x^2 + 1} - \dfrac{4}{2x - 1} = \dfrac{8x^2 - 6x - 4}{\left(x^2 + 1\right)(2x - 1)}\)</p></div>
+<table class="t">
+<tr><th></th><th>Method 1: differentiate directly</th><th>Method 2: simplify first</th></tr>
+<tr><td>Rules needed</td><td>chain rule, quotient rule, generalized power rule twice</td><td>log properties, then \(\frac{g'}{g}\) twice</td></tr>
+<tr><td>Algebra</td><td>factor a long numerator, then cancel against \(g(x)\)</td><td>none</td></tr>
+<tr><td>Steps above</td><td>4</td><td>2</td></tr>
+</table>
+
+<h3>Logarithmic differentiation</h3>
+<p>A function like \(h(x) = x^x\) or \(h(x) = (x^2 + 1)^{3x}\) has the variable in the base and in the exponent at the same time. It is not a power function (the exponent is not constant), and it is not an exponential function (the base is not constant), so neither rule applies. The method for \(h(x) = u(x)^{v(x)}\) is called <b>logarithmic differentiation</b>. Taking \(\ln\) of both sides turns the exponent into a factor, by the power property:</p>
+\[\ln h(x) = \ln\left[u(x)^{v(x)}\right] = v(x)\ln u(x).\]
+<p>Differentiate both sides. The left side is \(\frac{h'(x)}{h(x)}\) by the chain rule, and the right side needs the product rule:</p>
+\[\frac{h'(x)}{h(x)} = v'(x)\ln u(x) + \frac{v(x)\,u'(x)}{u(x)}.\]
+<p>Multiply both sides by \(h(x) = u(x)^{v(x)}\) to get \(h'(x)\). The professor's advice is to remember these steps rather than memorize the final formula.</p>
+<div class="recipe"><div class="rt">How to do logarithmic differentiation of h(x) = u(x)<sup>v(x)</sup></div><ol>
+<li>Take the natural logarithm of both sides and use the power property: \(\ln h(x) = v(x)\ln u(x)\).</li>
+<li>Differentiate both sides with respect to \(x\). The left side becomes \(\frac{h'(x)}{h(x)}\). Use the product rule on the right side.</li>
+<li>Multiply both sides by \(h(x)\), and replace \(h(x)\) by its original formula \(u(x)^{v(x)}\).</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 6</div><p class="p">Let \(h(x) = \left(x^2 + 4\right)^{x}\). Find \(h'(x)\) and \(h'(0)\).</p>
+<ol class="steps">
+<li>Take the natural logarithm of both sides, then use the power property to bring the exponent \(x\) down in front.
+\[\ln h(x) = \ln\left[\left(x^2 + 4\right)^{x}\right] = x\ln\left(x^2 + 4\right)\]</li>
+<li>Differentiate the left side with the chain rule: \(\frac{d}{dx}[\ln h(x)] = \frac{h'(x)}{h(x)}\). The right side is a product. Name its pieces. The derivative of \(\ln(x^2+4)\) is \(\frac{2x}{x^2 + 4}\) by the rule \(\frac{g'}{g}\).
+\[u = x, \qquad v = \ln\left(x^2 + 4\right), \qquad u' = 1, \qquad v' = \frac{2x}{x^2 + 4}\]</li>
+<li>Assemble the product rule on the right side and set the two sides equal.
+\[\frac{h'(x)}{h(x)} = 1 \cdot \ln\left(x^2 + 4\right) + x \cdot \frac{2x}{x^2 + 4} = \ln\left(x^2 + 4\right) + \frac{2x^2}{x^2 + 4}\]</li>
+<li>Multiply both sides by \(h(x) = \left(x^2 + 4\right)^{x}\).
+\[h'(x) = \left(x^2 + 4\right)^{x}\left[\ln\left(x^2 + 4\right) + \frac{2x^2}{x^2 + 4}\right]\]</li>
+<li>Substitute \(x = 0\). The base is \(0^2 + 4 = 4\), and \(4^0 = 1\). The fraction is \(\frac{0}{4} = 0\). Finally \(\ln 4 = \ln\left(2^2\right) = 2\ln 2\) by the power property.
+\[h'(0) = 4^{0}\left[\ln 4 + \frac{0}{4}\right] = 1 \cdot \ln 4 = 2\ln 2\]</li>
+</ol><p class="final">Answer: \(h'(x) = \left(x^2 + 4\right)^{x}\left[\ln\left(x^2 + 4\right) + \dfrac{2x^2}{x^2 + 4}\right]\) and \(h'(0) = \ln 4 = 2\ln 2\).</p></div>
+<p>A second way to do the same problem: write \(u^{v} = e^{v\ln u}\) (because \(e^{\ln u} = u\)) and use the chain rule for \(e^{g(x)}\). For \(x^x = e^{x\ln x}\), the exponent \(x\ln x\) has derivative \(\ln x + 1\) by the product rule, so \(\frac{d}{dx}\left(x^x\right) = e^{x\ln x}(\ln x + 1) = x^x(\ln x + 1)\). Both methods always give the same answer.</p>
+
+<div class="recipe"><div class="rt">How to differentiate a function with exponentials and logarithms</div><ol>
+<li>Simplify first. Split logarithms of products, quotients, powers, and roots with the log properties. Combine exponentials with the exponent rules (for example \(\frac{e^{5x}}{e^{2x}} = e^{3x}\)). Rewrite roots as fractional powers.</li>
+<li>If the variable is in both the base and the exponent, use logarithmic differentiation.</li>
+<li>Find the outermost operation. If the function is a sum, differentiate term by term. If it is a product or quotient, write down \(u\), \(v\), \(u'\), \(v'\) and use the product or quotient rule.</li>
+<li>For each \(e^{g(x)}\), \(a^{g(x)}\), \(\ln g(x)\), or \(\log_a g(x)\), use the chain rule version of the rule, and multiply by \(g'(x)\).</li>
+<li>Factor out common factors (especially exponentials) to simplify the answer.</li>
+</ol></div>
+
+<h3>Tangent lines</h3>
+<p>The tangent line to \(y = f(x)\) at \(x = x_0\) is the line through the point \((x_0, f(x_0))\) with slope \(m = f'(x_0)\). In point-slope form it is \(y - f(x_0) = f'(x_0)(x - x_0)\). Remember that \(e^0 = 1\) and \(\ln 1 = 0\): problem writers love to pick an \(x_0\) that makes the exponent 0 or the inside of the logarithm 1, because then the numbers come out clean without a calculator.</p>
+<div class="recipe"><div class="rt">How to find the tangent line at x = x<sub>0</sub></div><ol>
+<li>Find the point: compute \(y_0 = f(x_0)\).</li>
+<li>Find \(f'(x)\) with the rules, then the slope \(m = f'(x_0)\).</li>
+<li>Write \(y - y_0 = m(x - x_0)\) and solve for \(y\).</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 7</div><p class="p">(a) Find an equation of the tangent line to \(y = (x + 2)e^{-x}\) at \(x = 0\). (b) Find an equation of the tangent line to \(y = \ln\left(x^2 - 8\right)\) at \(x = 3\).</p>
+<ol class="steps">
+<li>(a) Find the point. Substitute \(x = 0\) and use \(e^0 = 1\).
+\[y_0 = (0 + 2)e^{0} = 2 \cdot 1 = 2\]</li>
+<li>(a) Differentiate with the product rule. The pieces are below, with the chain rule giving \(\frac{d}{dx}\left(e^{-x}\right) = -e^{-x}\).
+\[u = x + 2, \qquad v = e^{-x}, \qquad u' = 1, \qquad v' = -e^{-x}\]
+\[y' = 1 \cdot e^{-x} + (x + 2)\left(-e^{-x}\right) = e^{-x}\left[1 - (x + 2)\right] = -(x + 1)e^{-x}\]</li>
+<li>(a) Find the slope at \(x = 0\).
+\[m = -(0 + 1)e^{0} = -1\]</li>
+<li>(a) Write the line in point-slope form and solve for \(y\).
+\[\begin{aligned} y - 2 &= -1(x - 0) \\ y &= -x + 2 \end{aligned}\]</li>
+<li>(b) Find the point. The inside of the logarithm is \(3^2 - 8 = 9 - 8 = 1\), and \(\ln 1 = 0\).
+\[y_0 = \ln\left(3^2 - 8\right) = \ln 1 = 0\]</li>
+<li>(b) Differentiate with the rule \(\frac{d}{dx}\ln g(x) = \frac{g'(x)}{g(x)}\), where \(g(x) = x^2 - 8\) and \(g'(x) = 2x\). Then substitute \(x = 3\).
+\[y' = \frac{2x}{x^2 - 8}, \qquad m = \frac{2 \cdot 3}{9 - 8} = \frac{6}{1} = 6\]</li>
+<li>(b) Write the line in point-slope form and solve for \(y\).
+\[\begin{aligned} y - 0 &= 6(x - 3) \\ y &= 6x - 18 \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) \(y = -x + 2\) (b) \(y = 6x - 18\)</p>
+<div class="plot" data-f="(x+2)*Math.exp(-x);;-x+2" data-x="-2,4" data-y="-1,3.5"
+     data-pts="0,2,(0, 2)"
+     data-cap="Part (a): y = (x + 2)e^(-x) and its tangent line y = -x + 2 at (0, 2)."></div>
+<div class="plot" data-f="Math.log(x**2-8);;6*x-18" data-x="2.85,5" data-y="-3,3"
+     data-pts="3,0,(3, 0)"
+     data-cap="Part (b): y = ln(x^2 - 8) and its tangent line y = 6x - 18 at (3, 0)."></div>
+</div>
+
+<div class="trap"><b>Common mistake.</b> Splitting a logarithm of a sum. \(\ln\left(x^2 + 5\right)\) is not \(\ln x^2 + \ln 5\). The product property is for \(\ln(xy)\), a logarithm of a product.</div>
+<div class="trap"><b>Common mistake.</b> Confusing \((\ln x)^4\) with \(\ln\left(x^4\right)\). The first is a power of a logarithm: by the generalized power rule its derivative is \(4(\ln x)^3 \cdot \frac{1}{x} = \frac{4(\ln x)^3}{x}\). The second simplifies to \(4\ln x\) for \(x \gt 0\), with derivative \(\frac{4}{x}\).</div>
+<div class="trap"><b>Common mistake.</b> Writing \(\frac{d}{dx}\ln(5x) = \frac{1}{5x}\). The chain rule puts the inside derivative 5 on top: \(\frac{5}{5x} = \frac{1}{x}\). In general, forgetting \(g'(x)\) in \(\frac{g'(x)}{g(x)}\) is the most common error in this section.</div>
+<div class="trap"><b>Common mistake.</b> Dropping the \(\ln a\) in the base-\(a\) rules. \(\frac{d}{dx}\left(\log_2 x\right) = \frac{1}{(\ln 2)x}\), not \(\frac{1}{x}\), and \(\frac{d}{dx}\left(2^x\right) = (\ln 2)2^x\), not \(2^x\). Notice where \(\ln a\) goes: it multiplies for \(a^x\) and divides for \(\log_a x\).</div>
+<div class="trap"><b>Common mistake.</b> Using the power rule or the exponential rule on \(x^x\). Neither \(x \cdot x^{x-1}\) nor \(x^x\ln x\) is correct. Use logarithmic differentiation, which gives \(x^x(\ln x + 1)\).</div>
+
+<div class="say"><b>What to write on the exam.</b> Name each rule as you use it and show the inside function. For example: "By the chain rule, \(\frac{d}{dx}\left[e^{g(x)}\right] = e^{g(x)}g'(x)\) with \(g(x) = x^2 + x\), so \(g'(x) = 2x + 1\)." For a logarithm you simplified, write the simplified form on its own line first: "By the properties of logarithms, \(f(x) = 3\ln(x^2+1) - 2\ln|2x-1|\)." For logarithmic differentiation, write the three steps in order: "Taking ln of both sides, \(\ln h = \ldots\). Differentiating both sides, \(\frac{h'}{h} = \ldots\). Multiplying by \(h\), \(h' = \ldots\)." Do not plug in decimals: leave \(e\), \(\ln 2\), and \(\sqrt{e}\) in your answer.</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>\(\frac{d}{dx}\left(e^x\right) = e^x\) and \(\frac{d}{dx}\left(a^x\right) = (\ln a)\,a^x\), and why: \(\frac{d}{dx}\left(a^x\right) = a^x \lim_{h \to 0}\frac{a^h - 1}{h}\), and \(e\) is the base where that limit is 1.</li>
+<li>\(\frac{d}{dx}\left[e^{g(x)}\right] = e^{g(x)}g'(x)\) and \(\frac{d}{dx}\left[a^{g(x)}\right] = (\ln a)\,a^{g(x)}g'(x)\).</li>
+<li>\(\frac{d}{dx}\ln|x| = \frac{1}{x}\) and \(\frac{d}{dx}\log_a|x| = \frac{1}{\ln a} \cdot \frac{1}{x}\).</li>
+<li>\(\frac{d}{dx}\ln|g(x)| = \frac{g'(x)}{g(x)}\) and \(\frac{d}{dx}\log_a|g(x)| = \frac{1}{\ln a} \cdot \frac{g'(x)}{g(x)}\).</li>
+<li>Log properties: \(\ln(xy) = \ln x + \ln y\), \(\ln\frac{x}{y} = \ln x - \ln y\), \(\ln x^r = r\ln x\), \(\log_a x = \frac{\ln x}{\ln a}\). Also \(\ln 1 = 0\), \(\ln e = 1\), \(e^{\ln x} = x\), \(\ln e^x = x\).</li>
+<li>Simplify a logarithm with the properties before differentiating.</li>
+<li>Logarithmic differentiation for \(u(x)^{v(x)}\): take ln, differentiate both sides, multiply by \(h(x)\).</li>
+<li>Continuous growth or decay \(A(t) = A_0e^{kt}\) has rate \(A'(t) = kA(t)\). Revenue is \(R = x \cdot p\), and marginal revenue is \(R'(x)\).</li>
+<li>Logistic function: \(P(t) = \dfrac{mP_0}{P_0 + (m - P_0)e^{-kmt}}\), which approaches the carrying capacity \(m\).</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u03-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(f(x) = 5e^x - 3x^2\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate term by term. The constant multiple 5 stays in front of \(e^x\), and \(\frac{d}{dx}\left(e^x\right) = e^x\). The power rule gives \(\frac{d}{dx}\left(3x^2\right) = 3 \cdot 2x = 6x\).
+\[f'(x) = 5 \cdot e^x - 3 \cdot 2x = 5e^x - 6x\]</li>
+</ol><p class="final">Answer: \(f'(x) = 5e^x - 6x\)</p></div></details></div>
+
+<div class="q" id="u03-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = e^{4x - 7}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>This is \(e^{g(x)}\) with exponent \(g(x) = 4x - 7\). The derivative of the exponent is \(g'(x) = 4\).</li>
+<li>By the chain rule, \(\frac{d}{dx}\left[e^{g(x)}\right] = e^{g(x)} \cdot g'(x)\). Copy the exponential and multiply by 4.
+\[\frac{dy}{dx} = e^{4x - 7} \cdot 4 = 4e^{4x - 7}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = 4e^{4x - 7}\)</p></div></details></div>
+
+<div class="q" id="u03-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(f(x) = 6^x + x^6\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Decide which rule each term needs. In \(6^x\) the base is the constant 6 and the variable is in the exponent, so it is an exponential function and \(\frac{d}{dx}\left(a^x\right) = (\ln a)\,a^x\) applies with \(a = 6\). In \(x^6\) the variable is the base and the exponent is the constant 6, so it is a power function and the power rule applies.</li>
+<li>Differentiate each term.
+\[f'(x) = (\ln 6)\,6^x + 6x^5\]</li>
+</ol><p class="final">Answer: \(f'(x) = (\ln 6)\,6^x + 6x^5\)</p></div></details></div>
+
+<div class="q" id="u03-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = \ln(7x - 2)\), where \(x \gt \tfrac{2}{7}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>This is \(\ln g(x)\) with inside function \(g(x) = 7x - 2\), so \(g'(x) = 7\).</li>
+<li>By the chain rule for logarithms, \(\frac{d}{dx}\left[\ln g(x)\right] = \frac{g'(x)}{g(x)}\).
+\[\frac{dy}{dx} = \frac{7}{7x - 2}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{7}{7x - 2}\)</p></div></details></div>
+
+<div class="q" id="u03-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(f(x) = 3\log_2 x\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The constant 3 stays in front. The rule for a logarithm with base \(a\) is \(\frac{d}{dx}\left(\log_a x\right) = \frac{1}{\ln a} \cdot \frac{1}{x}\), here with \(a = 2\).
+\[f'(x) = 3 \cdot \frac{1}{\ln 2} \cdot \frac{1}{x} = \frac{3}{(\ln 2)\,x}\]</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{3}{(\ln 2)\,x}\)</p></div></details></div>
+
+<div class="q" id="u03-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Use a property of logarithms to simplify \(f(x) = \ln\left(x^5\right)\), where \(x \gt 0\), and then find \(f'(x)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Use the power property \(\ln\left(x^r\right) = r\ln x\) with \(r = 5\).
+\[f(x) = \ln\left(x^5\right) = 5\ln x\]</li>
+<li>Differentiate, using \(\frac{d}{dx}(\ln x) = \frac{1}{x}\).
+\[f'(x) = 5 \cdot \frac{1}{x} = \frac{5}{x}\]
+As a check, the chain rule without simplifying gives \(\frac{5x^4}{x^5} = \frac{5}{x}\), the same answer.</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{5}{x}\)</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u03-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(f(x) = x^4 e^{-x}\) and factor your answer.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>This is a product, so use the product rule \((uv)' = u'v + uv'\). Name the pieces. The chain rule gives \(\frac{d}{dx}\left(e^{-x}\right) = e^{-x} \cdot (-1) = -e^{-x}\).
+\[u = x^4, \qquad v = e^{-x}, \qquad u' = 4x^3, \qquad v' = -e^{-x}\]</li>
+<li>Assemble the product rule.
+\[f'(x) = 4x^3 \cdot e^{-x} + x^4 \cdot \left(-e^{-x}\right) = 4x^3e^{-x} - x^4e^{-x}\]</li>
+<li>Factor out the common factor \(x^3e^{-x}\).
+\[f'(x) = x^3e^{-x}(4 - x)\]</li>
+</ol><p class="final">Answer: \(f'(x) = x^3e^{-x}(4 - x)\)</p></div></details></div>
+
+<div class="q" id="u03-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = 5 \cdot 3^{x^2 - 1}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>This is a constant times \(a^{g(x)}\), with base \(a = 3\) and exponent \(g(x) = x^2 - 1\). The derivative of the exponent is \(g'(x) = 2x\).</li>
+<li>Use the rule \(\frac{d}{dx}\left[a^{g(x)}\right] = (\ln a)\,a^{g(x)} \cdot g'(x)\), keeping the constant 5 in front.
+\[\frac{dy}{dx} = 5 \cdot (\ln 3) \cdot 3^{x^2 - 1} \cdot 2x\]</li>
+<li>Collect the constants: \(5 \cdot 2x = 10x\).
+\[\frac{dy}{dx} = 10x\,(\ln 3)\,3^{x^2 - 1}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = 10x\,(\ln 3)\,3^{x^2 - 1}\)</p></div></details></div>
+
+<div class="q" id="u03-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(f(x) = \dfrac{e^{2x}}{x^2 + 3}\) and simplify.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>This is a quotient, so use the quotient rule \(\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}\). Name the pieces. The chain rule gives \(\frac{d}{dx}\left(e^{2x}\right) = 2e^{2x}\).
+\[u = e^{2x}, \qquad v = x^2 + 3, \qquad u' = 2e^{2x}, \qquad v' = 2x\]</li>
+<li>Assemble the quotient rule.
+\[f'(x) = \frac{2e^{2x}\left(x^2 + 3\right) - e^{2x} \cdot 2x}{\left(x^2 + 3\right)^2}\]</li>
+<li>Factor \(2e^{2x}\) out of the numerator. Inside the bracket, \(\left(x^2 + 3\right) - x = x^2 - x + 3\).
+\[f'(x) = \frac{2e^{2x}\left(x^2 + 3 - x\right)}{\left(x^2 + 3\right)^2} = \frac{2e^{2x}\left(x^2 - x + 3\right)}{\left(x^2 + 3\right)^2}\]</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{2e^{2x}\left(x^2 - x + 3\right)}{\left(x^2 + 3\right)^2}\)</p></div></details></div>
+
+<div class="q" id="u03-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = \ln\left|x^3 - 4x\right|\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>This is \(\ln|g(x)|\) with inside function \(g(x) = x^3 - 4x\). The power rule gives \(g'(x) = 3x^2 - 4\).</li>
+<li>Use the rule \(\frac{d}{dx}\ln|g(x)| = \frac{g'(x)}{g(x)}\), valid wherever \(g(x) \neq 0\).
+\[\frac{dy}{dx} = \frac{3x^2 - 4}{x^3 - 4x}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{3x^2 - 4}{x^3 - 4x}\) (for \(x \neq 0, \pm 2\))</p></div></details></div>
+
+<div class="q" id="u03-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of \(f(x) = \log_5\left(2x^2 + 1\right)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>This is \(\log_a g(x)\) with base \(a = 5\) and inside function \(g(x) = 2x^2 + 1\), so \(g'(x) = 4x\). The inside is always positive, so no absolute value is needed.</li>
+<li>Use the rule \(\frac{d}{dx}\left[\log_a g(x)\right] = \frac{1}{\ln a} \cdot \frac{g'(x)}{g(x)}\).
+\[f'(x) = \frac{1}{\ln 5} \cdot \frac{4x}{2x^2 + 1} = \frac{4x}{(\ln 5)\left(2x^2 + 1\right)}\]</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{4x}{(\ln 5)\left(2x^2 + 1\right)}\)</p></div></details></div>
+
+<div class="q" id="u03-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Find an equation of the tangent line to the graph of \(y = x\ln x\) at the point where \(x = e\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the point. Substitute \(x = e\) and use \(\ln e = 1\).
+\[y_0 = e\ln e = e \cdot 1 = e\]
+So the point is \((e, e)\).</li>
+<li>Differentiate with the product rule. Name the pieces.
+\[u = x, \qquad v = \ln x, \qquad u' = 1, \qquad v' = \frac{1}{x}\]
+\[y' = 1 \cdot \ln x + x \cdot \frac{1}{x} = \ln x + 1\]</li>
+<li>Find the slope at \(x = e\).
+\[m = \ln e + 1 = 1 + 1 = 2\]</li>
+<li>Write the line in point-slope form and solve for \(y\).
+\[\begin{aligned} y - e &= 2(x - e) \\ y - e &= 2x - 2e \\ y &= 2x - e \end{aligned}\]</li>
+</ol><p class="final">Answer: \(y = 2x - e\)</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u03-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \ln\left[\dfrac{\left(x^2 + 4\right)^3\sqrt{2x + 1}}{x^5}\right]\) for \(x \gt 0\). Simplify \(f\) with the properties of logarithms, find \(f'(x)\), and evaluate \(f'(2)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Rewrite the square root as a power: \(\sqrt{2x + 1} = (2x + 1)^{1/2}\). Then use the quotient property and the product property to split the logarithm. Every piece is positive for \(x \gt 0\), so no absolute values are needed.
+\[f(x) = \ln\left(x^2 + 4\right)^3 + \ln(2x + 1)^{1/2} - \ln x^5\]</li>
+<li>Use the power property \(\ln u^r = r\ln u\) on each piece.
+\[f(x) = 3\ln\left(x^2 + 4\right) + \frac{1}{2}\ln(2x + 1) - 5\ln x\]</li>
+<li>Differentiate each piece with \(\frac{d}{dx}\ln g(x) = \frac{g'(x)}{g(x)}\). The inside derivatives are \(2x\), \(2\), and \(1\).
+\[f'(x) = 3 \cdot \frac{2x}{x^2 + 4} + \frac{1}{2} \cdot \frac{2}{2x + 1} - 5 \cdot \frac{1}{x} = \frac{6x}{x^2 + 4} + \frac{1}{2x + 1} - \frac{5}{x}\]</li>
+<li>Substitute \(x = 2\). The denominators are \(2^2 + 4 = 8\), \(2(2) + 1 = 5\), and \(2\).
+\[f'(2) = \frac{6 \cdot 2}{8} + \frac{1}{5} - \frac{5}{2} = \frac{3}{2} + \frac{1}{5} - \frac{5}{2}\]</li>
+<li>Combine. First \(\frac{3}{2} - \frac{5}{2} = -1\), then \(-1 + \frac{1}{5} = -\frac{5}{5} + \frac{1}{5}\).
+\[f'(2) = -1 + \frac{1}{5} = -\frac{4}{5}\]</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{6x}{x^2 + 4} + \dfrac{1}{2x + 1} - \dfrac{5}{x}\) and \(f'(2) = -\dfrac{4}{5}\)</p></div></details></div>
+
+<div class="q" id="u03-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">Let \(h(x) = \left(1 + \dfrac{1}{x}\right)^{x}\) for \(x \gt 0\). Use logarithmic differentiation to find \(h'(x)\), and then find \(h'(1)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The variable is in both the base and the exponent, so use logarithmic differentiation. Take the natural logarithm of both sides and use the power property.
+\[\ln h(x) = x\ln\left(1 + \frac{1}{x}\right)\]</li>
+<li>Simplify the logarithm before differentiating. Write \(1 + \frac{1}{x} = \frac{x + 1}{x}\) and use the quotient property.
+\[\ln h(x) = x\ln\left(\frac{x + 1}{x}\right) = x\left[\ln(x + 1) - \ln x\right]\]</li>
+<li>Differentiate both sides. The left side is \(\frac{h'(x)}{h(x)}\) by the chain rule. The right side is a product with the pieces below.
+\[u = x, \qquad v = \ln(x + 1) - \ln x, \qquad u' = 1, \qquad v' = \frac{1}{x + 1} - \frac{1}{x}\]
+\[\frac{h'(x)}{h(x)} = 1 \cdot \left[\ln(x + 1) - \ln x\right] + x\left[\frac{1}{x + 1} - \frac{1}{x}\right]\]</li>
+<li>Simplify the second term: \(x \cdot \frac{1}{x + 1} = \frac{x}{x + 1}\) and \(x \cdot \frac{1}{x} = 1\). Then \(\frac{x}{x + 1} - 1 = \frac{x - (x + 1)}{x + 1} = -\frac{1}{x + 1}\). Also put the first term back together as \(\ln\left(1 + \frac{1}{x}\right)\).
+\[\frac{h'(x)}{h(x)} = \ln\left(1 + \frac{1}{x}\right) + \frac{x}{x + 1} - 1 = \ln\left(1 + \frac{1}{x}\right) - \frac{1}{x + 1}\]</li>
+<li>Multiply both sides by \(h(x) = \left(1 + \frac{1}{x}\right)^{x}\).
+\[h'(x) = \left(1 + \frac{1}{x}\right)^{x}\left[\ln\left(1 + \frac{1}{x}\right) - \frac{1}{x + 1}\right]\]</li>
+<li>Substitute \(x = 1\). The base is \(1 + 1 = 2\), so \(h(1) = 2^1 = 2\), and \(\frac{1}{x + 1} = \frac{1}{2}\).
+\[h'(1) = 2\left[\ln 2 - \frac{1}{2}\right] = 2\ln 2 - 1\]</li>
+</ol><p class="final">Answer: \(h'(x) = \left(1 + \dfrac{1}{x}\right)^{x}\left[\ln\left(1 + \dfrac{1}{x}\right) - \dfrac{1}{x + 1}\right]\) and \(h'(1) = 2\ln 2 - 1\)</p></div></details></div>
+
+<div class="q" id="u03-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">A patient receives a 200 mg dose of a drug. The amount left in the bloodstream after \(t\) hours is \(A(t) = 200e^{-kt}\) milligrams, and the drug has a half-life of 4 hours (after 4 hours, half of the dose is left). Find \(k\) exactly, and find the rate at which the amount of drug is changing after 8 hours.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Use the half-life to find \(k\). After 4 hours the amount is half of 200, which is 100.
+\[200e^{-4k} = 100\]</li>
+<li>Divide both sides by 200, then take the natural logarithm of both sides. Use \(\ln\left(e^{u}\right) = u\) on the left and \(\ln\frac{1}{2} = \ln 1 - \ln 2 = -\ln 2\) on the right.
+\[\begin{aligned} e^{-4k} &= \frac{1}{2} \\ -4k &= \ln\frac{1}{2} = -\ln 2 \\ k &= \frac{\ln 2}{4} \end{aligned}\]</li>
+<li>Differentiate \(A(t) = 200e^{-kt}\) with the chain rule. The exponent \(-kt\) has derivative \(-k\).
+\[A'(t) = 200e^{-kt} \cdot (-k) = -k \cdot 200e^{-kt} = -k\,A(t)\]</li>
+<li>Find the amount at \(t = 8\). With \(k = \frac{\ln 2}{4}\), the exponent is \(-8k = -2\ln 2 = \ln\left(2^{-2}\right) = \ln\frac{1}{4}\), so \(e^{-8k} = \frac{1}{4}\). This agrees with the half-life: two half-lives leave one quarter.
+\[A(8) = 200 \cdot \frac{1}{4} = 50\]</li>
+<li>Find the rate at \(t = 8\) using \(A'(t) = -k\,A(t)\).
+\[A'(8) = -\frac{\ln 2}{4} \cdot 50 = -\frac{50\ln 2}{4} = -\frac{25\ln 2}{2}\]</li>
+<li>Interpret. The derivative is negative, so the amount is decreasing. The units are milligrams per hour.</li>
+</ol><p class="final">Answer: \(k = \dfrac{\ln 2}{4}\) per hour, and \(A'(8) = -\dfrac{25\ln 2}{2}\) mg per hour: after 8 hours the amount of drug is decreasing at \(\dfrac{25\ln 2}{2}\) milligrams per hour (about 8.7 mg per hour).</p></div></details></div>
+
+<div class="q" id="u03-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">Sales of a new phone (in thousands of units) \(t\) years after launch are modeled by the logistic function \(S(t) = \dfrac{12}{1 + 3e^{-t}}\). (a) Find \(S'(t)\). (b) Find the sales and the rate of change of sales at \(t = \ln 3\). (c) What happens to \(S(t)\) in the long run?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Rewrite \(S\) as a power so the generalized power rule applies.
+\[S(t) = 12\left(1 + 3e^{-t}\right)^{-1}\]</li>
+<li>(a) The inside function is \(1 + 3e^{-t}\). By the chain rule on \(e^{-t}\), its derivative is \(0 + 3e^{-t} \cdot (-1) = -3e^{-t}\).
+\[S'(t) = 12 \cdot (-1)\left(1 + 3e^{-t}\right)^{-2} \cdot \left(-3e^{-t}\right)\]</li>
+<li>(a) Multiply the constants, \(12 \cdot (-1) \cdot (-3) = 36\), and move the negative power to the denominator.
+\[S'(t) = \frac{36e^{-t}}{\left(1 + 3e^{-t}\right)^2}\]</li>
+<li>(b) Evaluate the exponential at \(t = \ln 3\). By the power property, \(-\ln 3 = \ln\left(3^{-1}\right)\), so \(e^{-\ln 3} = 3^{-1} = \frac{1}{3}\). Then \(3e^{-\ln 3} = 1\).
+\[1 + 3e^{-\ln 3} = 1 + 1 = 2\]</li>
+<li>(b) Substitute into \(S\) and \(S'\).
+\[S(\ln 3) = \frac{12}{2} = 6, \qquad S'(\ln 3) = \frac{36 \cdot \frac{1}{3}}{2^2} = \frac{12}{4} = 3\]</li>
+<li>(c) As \(t \to \infty\), \(e^{-t} \to 0\), so the denominator goes to \(1 + 0 = 1\).
+\[\lim_{t \to \infty} S(t) = \frac{12}{1} = 12\]</li>
+</ol><p class="final">Answer: (a) \(S'(t) = \dfrac{36e^{-t}}{\left(1 + 3e^{-t}\right)^2}\). (b) At \(t = \ln 3\) years, sales are 6 thousand units and are increasing at 3 thousand units per year. (c) Sales level off and approach 12 thousand units.</p></div></details></div>
+
+<div class="q" id="u03-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">Find every point on the graph of \(f(x) = x^2e^{-x}\) where the tangent line is horizontal.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>A tangent line is horizontal exactly where its slope is 0, so solve \(f'(x) = 0\). First find \(f'\) with the product rule. Name the pieces.
+\[u = x^2, \qquad v = e^{-x}, \qquad u' = 2x, \qquad v' = -e^{-x}\]</li>
+<li>Assemble \(u'v + uv'\) and factor out \(xe^{-x}\).
+\[f'(x) = 2xe^{-x} + x^2\left(-e^{-x}\right) = 2xe^{-x} - x^2e^{-x} = xe^{-x}(2 - x)\]</li>
+<li>Set \(f'(x) = 0\). A product is zero only when one of its factors is zero. The factor \(e^{-x}\) is never zero, because an exponential is always positive. So \(x = 0\) or \(2 - x = 0\).
+\[xe^{-x}(2 - x) = 0 \quad \Longrightarrow \quad x = 0 \quad \text{or} \quad x = 2\]</li>
+<li>Find the \(y\) coordinates by substituting into \(f\).
+\[f(0) = 0^2e^{0} = 0, \qquad f(2) = 2^2e^{-2} = \frac{4}{e^2}\]</li>
+</ol><p class="final">Answer: the tangent line is horizontal at \((0, 0)\) and at \(\left(2, \dfrac{4}{e^2}\right)\).</p>
+<div class="plot" data-f="x**2*Math.exp(-x)" data-x="-0.8,7" data-y="-0.3,1.5"
+     data-pts="0,0,(0, 0)|2,0.5413411329464508,(2, 4/e^2)"
+     data-cap="Graph of f(x) = x^2 e^(-x). The tangent line is horizontal at the two labeled points."></div></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u03-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Find the derivative of the function \(f(x) = \ln\left[\cos\left(e^{x^2 - 3x}\right)\right]\). (Use \(\frac{d}{dx}(\cos x) = -\sin x\) from Section 13.2.)</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Identify the layers from the outside in. The outermost function is \(\ln\), its inside is \(\cos\left(e^{x^2 - 3x}\right)\), the inside of the cosine is \(e^{x^2 - 3x}\), and the innermost function is the exponent \(x^2 - 3x\). Each layer contributes one factor through the chain rule.</li>
+<li>Apply the rule \(\frac{d}{dx}\ln g(x) = \frac{g'(x)}{g(x)}\) with \(g(x) = \cos\left(e^{x^2 - 3x}\right)\).
+\[f'(x) = \frac{\frac{d}{dx}\left[\cos\left(e^{x^2 - 3x}\right)\right]}{\cos\left(e^{x^2 - 3x}\right)}\]</li>
+<li>Differentiate the cosine with the chain rule: \(\frac{d}{dx}[\cos u] = -\sin u \cdot u'\), where \(u = e^{x^2 - 3x}\).
+\[\frac{d}{dx}\left[\cos\left(e^{x^2 - 3x}\right)\right] = -\sin\left(e^{x^2 - 3x}\right) \cdot \frac{d}{dx}\left[e^{x^2 - 3x}\right]\]</li>
+<li>Differentiate the exponential with the chain rule: \(\frac{d}{dx}\left[e^{g(x)}\right] = e^{g(x)}g'(x)\), where \(g(x) = x^2 - 3x\) and \(g'(x) = 2x - 3\).
+\[\frac{d}{dx}\left[e^{x^2 - 3x}\right] = e^{x^2 - 3x}(2x - 3)\]</li>
+<li>Put the pieces together.
+\[f'(x) = \frac{-\sin\left(e^{x^2 - 3x}\right) \cdot e^{x^2 - 3x}(2x - 3)}{\cos\left(e^{x^2 - 3x}\right)}\]</li>
+<li>Simplify with \(\frac{\sin u}{\cos u} = \tan u\), and absorb the minus sign into \(2x - 3\): \(-(2x - 3) = 3 - 2x\).
+\[f'(x) = -(2x - 3)\,e^{x^2 - 3x}\,\tan\left(e^{x^2 - 3x}\right) = (3 - 2x)\,e^{x^2 - 3x}\,\tan\left(e^{x^2 - 3x}\right)\]</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{-(2x - 3)\,e^{x^2 - 3x}\sin\left(e^{x^2 - 3x}\right)}{\cos\left(e^{x^2 - 3x}\right)} = (3 - 2x)\,e^{x^2 - 3x}\tan\left(e^{x^2 - 3x}\right)\)</p></div></details></div>
+
+<div class="q" id="u03-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \ln\left[\dfrac{x^2e^{3x}}{\left(x^2 + 1\right)^2}\right]\) for \(x \gt 0\). Find an equation of the tangent line to the graph of \(f\) at \(x = 1\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Simplify with the properties of logarithms before differentiating. Use the quotient property, then the product property. All pieces are positive for \(x \gt 0\).
+\[f(x) = \ln x^2 + \ln e^{3x} - \ln\left(x^2 + 1\right)^2\]</li>
+<li>Use the power property on the first and last pieces, and \(\ln e^{u} = u\) on the middle piece.
+\[f(x) = 2\ln x + 3x - 2\ln\left(x^2 + 1\right)\]</li>
+<li>Find the point. Substitute \(x = 1\), using \(\ln 1 = 0\) and \(\ln 2\) for the last piece.
+\[f(1) = 2\ln 1 + 3(1) - 2\ln(1 + 1) = 0 + 3 - 2\ln 2 = 3 - 2\ln 2\]</li>
+<li>Differentiate term by term, using \(\frac{d}{dx}\ln g(x) = \frac{g'(x)}{g(x)}\) on the last term with \(g(x) = x^2 + 1\) and \(g'(x) = 2x\).
+\[f'(x) = \frac{2}{x} + 3 - 2 \cdot \frac{2x}{x^2 + 1} = \frac{2}{x} + 3 - \frac{4x}{x^2 + 1}\]</li>
+<li>Find the slope at \(x = 1\).
+\[m = f'(1) = \frac{2}{1} + 3 - \frac{4}{2} = 2 + 3 - 2 = 3\]</li>
+<li>Write the line in point-slope form and solve for \(y\).
+\[\begin{aligned} y - (3 - 2\ln 2) &= 3(x - 1) \\ y &= 3x - 3 + 3 - 2\ln 2 \\ y &= 3x - 2\ln 2 \end{aligned}\]</li>
+</ol><p class="final">Answer: the tangent line at \(x = 1\) is \(y = 3x - 2\ln 2\).</p>
+<div class="plot" data-f="Math.log(x**2*Math.exp(3*x)/(x**2+1)**2);;3*x-2*Math.log(2)" data-x="0.2,2.5" data-y="-2,6"
+     data-pts="1,1.6137056388801094,(1, 3 - 2 ln 2)"
+     data-cap="The graph of f and its tangent line y = 3x - 2 ln 2 at x = 1."></div></div></details></div>
+
+<div class="q" id="u03-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">Let \(y = x^{\ln x}\) for \(x \gt 0\). Find \(\dfrac{dy}{dx}\), and then find an equation of the tangent line to the curve at \(x = e\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The variable is in both the base and the exponent, so use logarithmic differentiation. Take the natural logarithm of both sides and use the power property.
+\[\ln y = \ln\left(x^{\ln x}\right) = (\ln x)(\ln x) = (\ln x)^2\]</li>
+<li>Differentiate both sides with respect to \(x\). The left side is \(\frac{1}{y}\frac{dy}{dx}\) by the chain rule. The right side needs the generalized power rule: \(\frac{d}{dx}(\ln x)^2 = 2(\ln x) \cdot \frac{1}{x}\).
+\[\frac{1}{y}\,\frac{dy}{dx} = \frac{2\ln x}{x}\]</li>
+<li>Multiply both sides by \(y = x^{\ln x}\).
+\[\frac{dy}{dx} = x^{\ln x} \cdot \frac{2\ln x}{x} = \frac{2(\ln x)\,x^{\ln x}}{x}\]</li>
+<li>Find the point at \(x = e\). Since \(\ln e = 1\), the exponent is 1.
+\[y_0 = e^{\ln e} = e^{1} = e\]</li>
+<li>Find the slope at \(x = e\).
+\[m = \frac{2(\ln e)\,e^{\ln e}}{e} = \frac{2 \cdot 1 \cdot e}{e} = 2\]</li>
+<li>Write the line in point-slope form and solve for \(y\).
+\[\begin{aligned} y - e &= 2(x - e) \\ y &= 2x - 2e + e \\ y &= 2x - e \end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{2(\ln x)\,x^{\ln x}}{x}\), and the tangent line at \(x = e\) is \(y = 2x - e\).</p></div></details></div>
+
+<div class="q" id="u03-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">The demand for a product is \(p = 50e^{-x/100}\), where \(p\) is the price per unit in dollars and \(x\) is the number of units sold. The cost of producing \(x\) units is \(C(x) = 1000 + 10x\) dollars. (a) Find the marginal revenue \(R'(x)\). (b) How many units should be sold to maximize revenue? Explain why your answer gives a maximum, and find the price and the maximum revenue. (c) Find the marginal profit at \(x = 100\) and interpret it in a sentence.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Define the variables. \(x\) is the number of units sold (\(x \geq 0\)), \(p\) is the price per unit in dollars, \(R(x)\) is the revenue in dollars, and \(P(x)\) is the profit in dollars. Revenue is units times price.
+\[R(x) = x \cdot p = 50x\,e^{-x/100}\]</li>
+<li>(a) Differentiate with the product rule. Name the pieces. The chain rule on \(e^{-x/100}\) multiplies by \(-\frac{1}{100}\).
+\[u = 50x, \qquad v = e^{-x/100}, \qquad u' = 50, \qquad v' = -\frac{1}{100}e^{-x/100}\]</li>
+<li>(a) Assemble \(u'v + uv'\) and factor. Note \(50x \cdot \frac{1}{100} = \frac{x}{2}\), and \(50 - \frac{x}{2} = \frac{100 - x}{2}\).
+\[\begin{aligned} R'(x) &= 50e^{-x/100} + 50x\left(-\frac{1}{100}e^{-x/100}\right) \\ &= 50e^{-x/100} - \frac{x}{2}e^{-x/100} \\ &= \frac{1}{2}e^{-x/100}(100 - x) \end{aligned}\]</li>
+<li>(b) Find the critical numbers by setting \(R'(x) = 0\). The factor \(\frac{1}{2}e^{-x/100}\) is always positive and never zero, so the only solution is \(100 - x = 0\).
+\[x = 100\]</li>
+<li>(b) Justify the maximum with the first derivative test. The sign of \(R'(x)\) is the sign of \(100 - x\), because the other factor is positive.
+<table class="t">
+<tr><th>Interval</th><th>\(0 \le x \lt 100\)</th><th>\(x \gt 100\)</th></tr>
+<tr><td>Test value</td><td>\(x = 0\): \(100 - 0 = 100 \gt 0\)</td><td>\(x = 200\): \(100 - 200 = -100 \lt 0\)</td></tr>
+<tr><td>Sign of \(R'\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(R\) is</td><td>increasing</td><td>decreasing</td></tr>
+</table>
+Because \(R'\) changes from positive to negative at \(x = 100\), and \(R\) increases on the whole interval before 100 and decreases on the whole interval after it, \(R\) has its absolute maximum on \(x \geq 0\) at \(x = 100\).</li>
+<li>(b) Find the price and the revenue at \(x = 100\). The exponent is \(-\frac{100}{100} = -1\).
+\[p = 50e^{-1} = \frac{50}{e}, \qquad R(100) = 100 \cdot \frac{50}{e} = \frac{5000}{e}\]</li>
+<li>(c) Write the profit, revenue minus cost, and differentiate. The derivative of \(C(x) = 1000 + 10x\) is \(C'(x) = 10\).
+\[P(x) = R(x) - C(x), \qquad P'(x) = R'(x) - C'(x) = \frac{1}{2}e^{-x/100}(100 - x) - 10\]</li>
+<li>(c) Substitute \(x = 100\). The first term has the factor \(100 - 100 = 0\).
+\[P'(100) = \frac{1}{2}e^{-1}(0) - 10 = -10\]</li>
+</ol><p class="final">Answer: (a) \(R'(x) = \dfrac{1}{2}e^{-x/100}(100 - x)\). (b) Revenue is maximized by selling 100 units, because \(R'\) changes from positive to negative at \(x = 100\); the price is \(\dfrac{50}{e}\) dollars per unit and the maximum revenue is \(\dfrac{5000}{e}\) dollars. (c) \(P'(100) = -10\): producing and selling the 101st unit lowers the profit by about 10 dollars.</p></div></details></div>
+</section><div class="pager"><a href="u02.html">Back: The chain rule</a><a href="u04.html">Next: Trig derivatives and L&#x27;Hospital&#x27;s rule</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

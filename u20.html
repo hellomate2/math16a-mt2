@@ -1,0 +1,358 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Past Berkeley exam problems: optimization, rates, elasticity, approximation | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Past exams</p><h1>Past Berkeley exam problems: optimization, rates, elasticity, approximation</h1><p class="sub">Word problems from past Math 16A midterms and finals (2004 to 2017), restated and fully solved.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Set 1</a><a href="#L2">Set 2</a><a href="#L3">Set 3</a></div><section id="learn"><h2>Past Berkeley exams: optimization, rates, elasticity, approximation</h2>
+<p>Every problem in this unit appeared on a real Math 16A exam at Berkeley, written by an instructor other than Professor Gomez. They come from midterms, practice midterms, and finals given between 2004 and 2017. Each one is restated in new words, but the math is unchanged: the same numbers, the same functions, and the same question. A small tag at the start of each problem names the instructor, the semester, and the exam.</p>
+<p>The older courses used other textbooks, so the section numbers in those exams do not match Lial. The topics do match: optimization word problems (6.2), marginal revenue and profit (4.1), elasticity of demand (6.3), related rates (6.5), and linear approximation (6.6). Elasticity is defined the same way everywhere here, as \(E = -\tfrac{p}{q}\cdot\tfrac{dq}{dp}\), and marginal revenue always means the derivative of revenue with respect to the number of units \(q\).</p>
+
+<div class="rule"><div class="rt">How to use this unit</div><p>Treat each problem as one exam question. Set a timer for about 12 minutes, write a full solution on paper the way you would on the exam, and only then open the solution and compare it line by line. Professor Gomez's Midterm 2 has 5 questions, so 12 minutes each is the pace you need. If a problem takes you much longer, redo it two days later without looking.</p></div>
+
+<p>Set 1 holds the shorter problems, Set 2 the standard ones, and Set 3 the ones that combine ideas or hide a trap (an endpoint maximum, an implicit demand equation, a market equilibrium, a two-variable distance).</p>
+
+<table class="t">
+<tr><th>Set</th><th>Problem</th><th>Source exam</th><th>Topic</th></tr>
+<tr><td>1</td><td>1</td><td>Paulin, Fall 2017, Practice Midterm 2 (version 3), Problem 4</td><td>Optimization: two numbers with a fixed sum</td></tr>
+<tr><td>1</td><td>2</td><td>Slaman, Fall 2010, Midterm 2, Problem 3</td><td>Optimization: fence against a house</td></tr>
+<tr><td>1</td><td>3</td><td>Paulin, Fall 2017, Midterm 2 (lecture 001), Problem 2</td><td>Elasticity of demand, unit elasticity, raise or lower the price</td></tr>
+<tr><td>1</td><td>4</td><td>Slaman, Fall 2010, Final, Problem 5</td><td>Linear approximation of a cube root</td></tr>
+<tr><td>1</td><td>5</td><td>Lam, Fall 2004, Sample Midterm 2, Problem 2(a)</td><td>Tangent line as the best linear approximation</td></tr>
+<tr><td>1</td><td>6</td><td>Slaman, Fall 2010, Final, Problem 4</td><td>Related rates: watching a launch</td></tr>
+<tr><td>2</td><td>1</td><td>Paulin, Fall 2017, Practice Midterm 2 (version 1), Problem 4</td><td>Optimization: open box with a fixed volume</td></tr>
+<tr><td>2</td><td>2</td><td>Paulin, Fall 2017, Midterm 2 (lecture 002), Problem 4</td><td>Optimization: cylinder open at one end</td></tr>
+<tr><td>2</td><td>3</td><td>Paulin, Fall 2017, Midterm 2 (lecture 002), Problem 2</td><td>Marginal revenue from a demand equation</td></tr>
+<tr><td>2</td><td>4</td><td>Paulin, Fall 2017, Practice Midterm 2 (version 2), Problem 2</td><td>Marginal profit and estimating a change</td></tr>
+<tr><td>2</td><td>5</td><td>Paulin, Fall 2017, Practice Midterm 2 (version 3), Problem 2</td><td>Elasticity with an exponential demand equation</td></tr>
+<tr><td>2</td><td>6</td><td>Slaman, Fall 2010, Midterm 2, Problem 4</td><td>Related rates: area and diagonal of a rectangle</td></tr>
+<tr><td>3</td><td>1</td><td>Paulin, Fall 2017, Midterm 2 (lecture 001), Problem 4</td><td>Optimization with a constraint, maximum at an endpoint</td></tr>
+<tr><td>3</td><td>2</td><td>Woodin, Fall 2012, Midterm 2, Problem 6</td><td>Optimization: shortest distance to a parabola</td></tr>
+<tr><td>3</td><td>3</td><td>Paulin, Fall 2017, Practice Final (version 3), Problem 7</td><td>Optimization: cheapest can with two material costs</td></tr>
+<tr><td>3</td><td>4</td><td>Paulin, Fall 2017, Practice Final (version 2), Problem 4</td><td>Elasticity with an implicit demand equation</td></tr>
+<tr><td>3</td><td>5</td><td>Paulin, Fall 2017, Practice Final (version 3), Problem 4(a)</td><td>Elasticity at the supply and demand equilibrium</td></tr>
+<tr><td>3</td><td>6</td><td>Demmel, Fall 2008, Midterm 2, Problem 3(c)</td><td>Related rates: box with a fixed surface area</td></tr>
+</table>
+
+<div class="say"><b>What these graders looked for.</b> The official solutions to the optimization problems all follow the same pattern: name the objective (the quantity to make largest or smallest), write the constraint, solve the constraint for one variable, state the domain, differentiate, find the critical numbers, and then justify the maximum or minimum with a sign chart or the closed interval method. For elasticity, they end with one sentence that says whether demand is elastic or inelastic and what that means for the price. Write those sentences on your exam too.</div>
+
+<div class="trap"><b>Common mistake.</b> Finding the critical number and stopping. On every one of these exams the justification (sign chart, second derivative, or endpoint comparison) was part of the grade, and in Set 3 Problem 1 the critical number is not even in the domain.</div>
+</section>
+<section id="L1"><div class="lvl"><h2>Set 1</h2><span>Older exams, warm up.</span></div><div class="q" id="u20-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Practice Midterm 2</span> Two numbers are both non-negative and add up to 10. What is the smallest possible value of the sum of their squares?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables and the objective. Let \(x\) and \(y\) be the two numbers (they have no units). The objective is to minimize the sum of squares \(x^2 + y^2\).</li>
+<li>Write the constraint and solve it for \(y\). \[x + y = 10 \quad\Longrightarrow\quad y = 10 - x.\]</li>
+<li>Substitute into the objective to get a function of one variable. \[S(x) = x^2 + (10 - x)^2 = x^2 + 100 - 20x + x^2 = 2x^2 - 20x + 100.\]</li>
+<li>State the domain. We need \(x \ge 0\) and \(y = 10 - x \ge 0\), which gives \(x \le 10\). The domain is the closed interval \([0, 10]\).</li>
+<li>Differentiate with the power rule and find the critical numbers. \(S'(x)\) is defined everywhere, so the only critical numbers are where it equals zero. \[S'(x) = 4x - 20 = 0 \quad\Longrightarrow\quad 4x = 20 \quad\Longrightarrow\quad x = 5.\] The critical number \(x = 5\) is inside \([0, 10]\).</li>
+<li>Use the closed interval method: evaluate \(S\) at the critical number and at both endpoints. \[\begin{aligned} S(0) &= 0 + 100 = 100, \\ S(5) &= 2(25) - 20(5) + 100 = 50 - 100 + 100 = 50, \\ S(10) &= 2(100) - 200 + 100 = 100. \end{aligned}\] The smallest of these values is \(S(5) = 50\), so 50 is the absolute minimum of \(S\) on \([0, 10]\).</li>
+<li>Find the other number. When \(x = 5\), \(y = 10 - 5 = 5\).</li>
+</ol><p class="final">Answer: The minimum possible value of the sum of the squares is 50, reached when both numbers equal 5.</p></div></details></div>
+
+<div class="q" id="u20-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Slaman, Fall 2010, Midterm 2</span> A farmer has 40 feet of fencing and wants to fence in a rectangular area for his chickens. One side of the rectangle is the wall of his house, so that side needs no fence. What is the largest area he can enclose?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="40" y1="40" x2="280" y2="40" stroke="currentColor" stroke-width="4"/>
+<text x="160" y="28" text-anchor="middle" fill="currentColor" font-size="15">house wall (no fence)</text>
+<path d="M90 40 L90 150 L230 150 L230 40" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="78" y="100" text-anchor="end" fill="currentColor" font-size="16">x</text>
+<text x="242" y="100" fill="currentColor" font-size="16">x</text>
+<text x="160" y="172" text-anchor="middle" fill="currentColor" font-size="16">y</text>
+</svg>
+<ol class="steps">
+<li>Define the variables from the picture. Let \(x\) be the length in feet of each of the two sides that run away from the house, and let \(y\) be the length in feet of the side parallel to the house. Let \(A\) be the enclosed area in square feet. The objective is to maximize \(A = xy\).</li>
+<li>Write the constraint. The fence covers two sides of length \(x\) and one side of length \(y\). \[2x + y = 40 \quad\Longrightarrow\quad y = 40 - 2x.\]</li>
+<li>Write the area as a function of \(x\). \[A(x) = x(40 - 2x) = 40x - 2x^2.\]</li>
+<li>State the domain. We need \(x \ge 0\) and \(y = 40 - 2x \ge 0\), so \(x \le 20\). The domain is \([0, 20]\).</li>
+<li>Differentiate and find the critical number. \[A'(x) = 40 - 4x = 0 \quad\Longrightarrow\quad x = 10.\]</li>
+<li>Use the closed interval method. \[\begin{aligned} A(0) &= 0, \\ A(10) &= 400 - 200 = 200, \\ A(20) &= 800 - 800 = 0. \end{aligned}\] The largest value is \(A(10) = 200\), so the absolute maximum on \([0, 20]\) is at \(x = 10\).</li>
+<li>Find \(y\) and check the fence length. \(y = 40 - 2(10) = 20\), and \(2(10) + 20 = 40\) feet of fence, as required.</li>
+</ol><p class="final">Answer: The largest area is 200 square feet, from a pen 20 feet along the house and 10 feet deep.</p></div></details></div>
+
+<div class="q" id="u20-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Midterm 2</span> The demand equation for a product is \(p = 169 - q^2\), where \(p\) is the price per unit and \(q\) is the number of units sold. (a) Find the elasticity of demand \(E(p)\), and find the price at which demand has unit elasticity. (b) If the company is selling 12 units, should it raise or lower the price to increase revenue? Justify your answer.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Recall the definition. The elasticity of demand is \[E = -\frac{p}{q}\cdot\frac{dq}{dp},\] so we need \(q\) as a function of \(p\).</li>
+<li>Solve the demand equation for \(q\). Since \(q \ge 0\) we take the positive square root. \[q^2 = 169 - p \quad\Longrightarrow\quad q = \sqrt{169 - p} = (169 - p)^{1/2}.\]</li>
+<li>Differentiate with the chain rule. The outside function is \(u^{1/2}\) and the inside is \(u = 169 - p\), with \(u' = -1\). \[\frac{dq}{dp} = \tfrac{1}{2}(169 - p)^{-1/2}\cdot(-1) = -\frac{1}{2\sqrt{169 - p}}.\]</li>
+<li>Substitute into the elasticity formula and simplify. \[\begin{aligned} E(p) &= -\frac{p}{\sqrt{169 - p}}\cdot\left(-\frac{1}{2\sqrt{169 - p}}\right) \\ &= \frac{p}{2\sqrt{169 - p}\,\sqrt{169 - p}} = \frac{p}{2(169 - p)}. \end{aligned}\] This holds for \(0 \lt p \lt 169\).</li>
+<li>Find the price of unit elasticity by setting \(E(p) = 1\). \[\frac{p}{2(169 - p)} = 1 \quad\Longrightarrow\quad p = 338 - 2p \quad\Longrightarrow\quad 3p = 338 \quad\Longrightarrow\quad p = \frac{338}{3}.\]</li>
+<li>(b) Find the price when 12 units are sold. \[p = 169 - 12^2 = 169 - 144 = 25.\]</li>
+<li>Evaluate the elasticity at \(p = 25\). \[E(25) = \frac{25}{2(169 - 25)} = \frac{25}{2(144)} = \frac{25}{288}.\] Since \(25 \lt 288\), we have \(E(25) \lt 1\).</li>
+<li>Interpret. Demand is inelastic at \(p = 25\) because \(E \lt 1\). When demand is inelastic, a price increase lowers the quantity sold by a smaller percentage than the price goes up, so revenue rises with the price.</li>
+</ol><p class="final">Answer: (a) \(E(p) = \dfrac{p}{2(169 - p)}\), and demand has unit elasticity at the price \(p = \tfrac{338}{3}\). (b) At 12 units the price is 25 and \(E(25) = \tfrac{25}{288} \lt 1\), so demand is inelastic and the company should raise the price to increase revenue.</p></div></details></div>
+
+<div class="q" id="u20-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Slaman, Fall 2010, Final</span> Use a linear approximation to estimate \(1001^{1/3}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Choose the function and a nearby point where it is easy to evaluate. Let \(f(x) = x^{1/3}\). The number 1000 is close to 1001 and \(1000^{1/3} = 10\) exactly, so take \(a = 1000\) and \(\Delta x = 1001 - 1000 = 1\).</li>
+<li>Recall the linear approximation (the tangent line at \(a\)). \[f(a + \Delta x) \approx f(a) + f'(a)\,\Delta x.\]</li>
+<li>Differentiate with the power rule. \[f'(x) = \tfrac{1}{3}x^{-2/3} = \frac{1}{3x^{2/3}}.\]</li>
+<li>Evaluate at \(a = 1000\). Since \(1000^{1/3} = 10\), we get \(1000^{2/3} = 10^2 = 100\). \[f'(1000) = \frac{1}{3(100)} = \frac{1}{300}.\]</li>
+<li>Substitute into the approximation. \[1001^{1/3} \approx 10 + \frac{1}{300}(1) = \frac{3000}{300} + \frac{1}{300} = \frac{3001}{300} \approx 10.0033.\]</li>
+<li>Decide whether this is too big or too small. \(f''(x) = -\tfrac{2}{9}x^{-5/3} \lt 0\) for \(x \gt 0\), so the graph is concave down and the tangent line lies above it. The estimate is slightly larger than the true value.</li>
+</ol><p class="final">Answer: \(1001^{1/3} \approx 10 + \tfrac{1}{300} = \tfrac{3001}{300} \approx 10.0033\), a slight overestimate.</p></div></details></div>
+
+<div class="q" id="u20-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Lam, Fall 2004, Sample Midterm 2</span> Find the equation of the tangent line to the graph of \(y = \dfrac{3 - 2x}{3 + 2x}\) at the point where \(x = -1\). What is the linear function \(mx + b\) that best approximates the given function at \(x = -1\)?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the point on the graph. At \(x = -1\), \[y = \frac{3 - 2(-1)}{3 + 2(-1)} = \frac{3 + 2}{3 - 2} = \frac{5}{1} = 5.\] The point is \((-1, 5)\).</li>
+<li>Set up the quotient rule. Let \(u = 3 - 2x\) and \(v = 3 + 2x\), so \(u' = -2\) and \(v' = 2\). The quotient rule says \(y' = \dfrac{u'v - uv'}{v^2}\).</li>
+<li>Apply it and simplify the numerator. \[\begin{aligned} y' &= \frac{(-2)(3 + 2x) - (3 - 2x)(2)}{(3 + 2x)^2} \\ &= \frac{-6 - 4x - 6 + 4x}{(3 + 2x)^2} = \frac{-12}{(3 + 2x)^2}. \end{aligned}\]</li>
+<li>Evaluate the slope at \(x = -1\). \[y'(-1) = \frac{-12}{(3 - 2)^2} = \frac{-12}{1} = -12.\]</li>
+<li>Write the tangent line with point-slope form and solve for \(y\). \[y - 5 = -12(x + 1) \quad\Longrightarrow\quad y = -12x - 12 + 5 = -12x - 7.\]</li>
+<li>Answer the second question. The linear function that best approximates a differentiable function near a point is its tangent line at that point, so the best linear approximation at \(x = -1\) is \(L(x) = -12x - 7\), with \(m = -12\) and \(b = -7\).</li>
+</ol><p class="final">Answer: The tangent line is \(y = -12x - 7\), and the best linear approximation at \(x = -1\) is \(L(x) = -12x - 7\).</p></div></details></div>
+
+<div class="q" id="u20-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Slaman, Fall 2010, Final</span> You are watching a space shuttle launch from a safe distance of 3 miles from the launch pad. Find the vertical speed of the shuttle at the instant when the distance between you and the shuttle is 5 miles and that distance is increasing at 5,000 miles per hour.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="40" y1="170" x2="280" y2="170" stroke="currentColor"/>
+<line x1="230" y1="170" x2="230" y2="30" stroke="currentColor" stroke-width="2"/>
+<line x1="60" y1="170" x2="230" y2="30" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4"/>
+<circle cx="60" cy="170" r="4" stroke="currentColor" fill="none"/>
+<circle cx="230" cy="30" r="5" stroke="currentColor" fill="none"/>
+<text x="56" y="190" fill="currentColor" font-size="14">you</text>
+<text x="200" y="190" fill="currentColor" font-size="14">launch pad</text>
+<text x="145" y="186" text-anchor="middle" fill="currentColor" font-size="16">3</text>
+<text x="240" y="105" fill="currentColor" font-size="16">h</text>
+<text x="130" y="92" fill="currentColor" font-size="16">D</text>
+</svg>
+<ol class="steps">
+<li>Define the variables with units. Let \(t\) be time in hours, \(h\) the height of the shuttle above the pad in miles, and \(D\) the distance from you to the shuttle in miles. Your distance to the pad stays 3 miles.</li>
+<li>Write what is given and what is asked. At the instant we care about, \(D = 5\) and \(\dfrac{dD}{dt} = 5000\) miles per hour. We want \(\dfrac{dh}{dt}\), the vertical speed.</li>
+<li>Write the equation that links the variables. The pad, you, and the shuttle form a right triangle with legs 3 and \(h\) and hypotenuse \(D\), so by the Pythagorean theorem \[D^2 = 3^2 + h^2 = 9 + h^2.\]</li>
+<li>Find \(h\) at the instant. With \(D = 5\), \(25 = 9 + h^2\), so \(h^2 = 16\) and \(h = 4\) miles (height is positive).</li>
+<li>Differentiate both sides with respect to \(t\), using the chain rule on \(D^2\) and \(h^2\). The 9 is constant, so its derivative is 0. \[2D\frac{dD}{dt} = 2h\frac{dh}{dt}.\]</li>
+<li>Substitute the values at the instant and solve. \[\begin{aligned} 2(5)(5000) &= 2(4)\frac{dh}{dt} \\ 50000 &= 8\frac{dh}{dt} \\ \frac{dh}{dt} &= \frac{50000}{8} = 6250. \end{aligned}\]</li>
+</ol><p class="final">Answer: At that instant the shuttle is rising at 6,250 miles per hour.</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Set 2</h2><span>Standard exam questions.</span></div><div class="q" id="u20-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Practice Midterm 2</span> A company wants to make a box with no top that has volume 36 cubic feet and is twice as long as it is wide. Find the dimensions of the box that minimize its surface area. Justify your answer.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="50" y="80" width="180" height="80" stroke="currentColor" fill="none" stroke-width="2"/>
+<path d="M50 80 L100 45 L280 45 L230 80" stroke="currentColor" fill="none" stroke-width="2"/>
+<path d="M280 45 L280 125 L230 160" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="140" y="180" text-anchor="middle" fill="currentColor" font-size="16">2x</text>
+<text x="264" y="158" fill="currentColor" font-size="16">x</text>
+<text x="38" y="125" text-anchor="end" fill="currentColor" font-size="16">y</text>
+<text x="165" y="38" text-anchor="middle" fill="currentColor" font-size="13">open top</text>
+</svg>
+<ol class="steps">
+<li>Define the variables with units. Let \(x\) be the width in feet, so the length is \(2x\) feet, and let \(y\) be the height in feet. The objective is to minimize the surface area \(S\) in square feet.</li>
+<li>Write the surface area. There is a bottom (\(2x\) by \(x\)), two long sides (\(2x\) by \(y\)), and two short sides (\(x\) by \(y\)), and no top. \[S = 2x^2 + 2(2xy) + 2(xy) = 2x^2 + 4xy + 2xy = 2x^2 + 6xy.\]</li>
+<li>Write the constraint and solve it for \(y\). The volume is length times width times height. \[(2x)(x)(y) = 36 \quad\Longrightarrow\quad 2x^2y = 36 \quad\Longrightarrow\quad y = \frac{18}{x^2}.\]</li>
+<li>Substitute to get \(S\) as a function of \(x\) alone. \[S(x) = 2x^2 + 6x\cdot\frac{18}{x^2} = 2x^2 + \frac{108}{x}.\]</li>
+<li>State the domain. The width must be positive, and any positive \(x\) gives a positive \(y\), so the domain is the open interval \((0, \infty)\).</li>
+<li>Differentiate with the power rule, writing \(\tfrac{108}{x} = 108x^{-1}\). \[S'(x) = 4x - 108x^{-2} = 4x - \frac{108}{x^2}.\]</li>
+<li>Find the critical numbers. \(S'\) is defined on all of \((0, \infty)\), so set it equal to zero. \[4x - \frac{108}{x^2} = 0 \quad\Longrightarrow\quad 4x^3 = 108 \quad\Longrightarrow\quad x^3 = 27 \quad\Longrightarrow\quad x = 3.\]</li>
+<li>Justify the minimum with a sign chart for \(S'\) on \((0, \infty)\).
+<table class="t">
+<tr><th>Interval</th><th>Test point</th><th>\(S'\)</th><th>\(S\)</th></tr>
+<tr><td>\((0, 3)\)</td><td>\(x = 1\): \(4 - 108 = -104\)</td><td>negative</td><td>decreasing</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(x = 4\): \(16 - \tfrac{108}{16} = 16 - 6.75 = 9.25\)</td><td>positive</td><td>increasing</td></tr>
+</table>
+\(S\) decreases on \((0, 3)\) and increases on \((3, \infty)\), and \(x = 3\) is the only critical number in the domain, so \(S(3)\) is the absolute minimum on \((0, \infty)\).</li>
+<li>Find the other dimensions and the area. The length is \(2(3) = 6\) feet and the height is \(y = \tfrac{18}{9} = 2\) feet. Check the volume: \(6 \cdot 3 \cdot 2 = 36\). The minimum area is \(S(3) = 2(9) + \tfrac{108}{3} = 18 + 36 = 54\) square feet.</li>
+</ol><p class="final">Answer: The box should be 6 feet long, 3 feet wide, and 2 feet high, which gives the smallest surface area, 54 square feet.</p></div></details></div>
+
+<div class="q" id="u20-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Midterm 2</span> A company will package its product in a cylinder that is open at one end. The cylinder must have volume \(27\pi\) cubic centimeters. What radius minimizes the surface area?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<ellipse cx="160" cy="40" rx="60" ry="14" stroke="currentColor" fill="none" stroke-dasharray="5 4"/>
+<line x1="100" y1="40" x2="100" y2="160" stroke="currentColor" stroke-width="2"/>
+<line x1="220" y1="40" x2="220" y2="160" stroke="currentColor" stroke-width="2"/>
+<ellipse cx="160" cy="160" rx="60" ry="14" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="160" y1="160" x2="220" y2="160" stroke="currentColor"/>
+<text x="186" y="154" fill="currentColor" font-size="16">r</text>
+<text x="232" y="105" fill="currentColor" font-size="16">h</text>
+<text x="160" y="18" text-anchor="middle" fill="currentColor" font-size="13">open end</text>
+</svg>
+<ol class="steps">
+<li>Define the variables with units. Let \(r\) be the radius in cm and \(h\) the height in cm. The objective is to minimize the surface area \(S\) in square cm.</li>
+<li>Write the surface area. There is one circular end (the other is open) with area \(\pi r^2\), and the side, which unrolls to a rectangle of width \(2\pi r\) and height \(h\). \[S = \pi r^2 + 2\pi r h.\]</li>
+<li>Write the constraint and solve it for \(h\). \[\pi r^2 h = 27\pi \quad\Longrightarrow\quad h = \frac{27}{r^2}.\]</li>
+<li>Substitute to get \(S\) as a function of \(r\) alone. \[S(r) = \pi r^2 + 2\pi r\cdot\frac{27}{r^2} = \pi r^2 + \frac{54\pi}{r}.\]</li>
+<li>State the domain. The radius must be positive, so the domain is \((0, \infty)\).</li>
+<li>Differentiate with the power rule, writing \(\tfrac{54\pi}{r} = 54\pi r^{-1}\). \[S'(r) = 2\pi r - 54\pi r^{-2} = 2\pi r - \frac{54\pi}{r^2}.\]</li>
+<li>Find the critical numbers. \(S'\) is defined on \((0, \infty)\), so set it equal to zero and divide by \(2\pi\). \[2\pi r = \frac{54\pi}{r^2} \quad\Longrightarrow\quad r^3 = \frac{54\pi}{2\pi} = 27 \quad\Longrightarrow\quad r = 3.\]</li>
+<li>Justify the minimum with a sign chart for \(S'\).
+<table class="t">
+<tr><th>Interval</th><th>Test point</th><th>\(S'\)</th><th>\(S\)</th></tr>
+<tr><td>\((0, 3)\)</td><td>\(r = 1\): \(2\pi - 54\pi = -52\pi\)</td><td>negative</td><td>decreasing</td></tr>
+<tr><td>\((3, \infty)\)</td><td>\(r = 6\): \(12\pi - \tfrac{54\pi}{36} = 12\pi - 1.5\pi = 10.5\pi\)</td><td>positive</td><td>increasing</td></tr>
+</table>
+\(S\) decreases and then increases, and \(r = 3\) is the only critical number in \((0, \infty)\), so \(S(3)\) is the absolute minimum.</li>
+<li>Find the height and the minimum area. \(h = \tfrac{27}{9} = 3\) cm, and \(S(3) = 9\pi + \tfrac{54\pi}{3} = 9\pi + 18\pi = 27\pi\) square cm.</li>
+</ol><p class="final">Answer: The radius should be 3 cm (the height is then also 3 cm), giving the smallest surface area, \(27\pi\) square cm.</p></div></details></div>
+
+<div class="q" id="u20-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Midterm 2</span> The demand equation for a product is \(q = 25 - p^2\), where \(p\) is the price per unit and \(q\) is the number of units sold. (a) Find the marginal revenue when \(p = 2\). (b) Should the company try to sell more units or fewer units to increase revenue?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Recall what marginal revenue means. Revenue is \(R = pq\), and marginal revenue is \(R'(q) = \dfrac{dR}{dq}\), the rate of change of revenue per extra unit sold. So we need \(R\) as a function of \(q\).</li>
+<li>Solve the demand equation for \(p\). The price is positive, so take the positive root. \[p^2 = 25 - q \quad\Longrightarrow\quad p = \sqrt{25 - q}.\]</li>
+<li>Write revenue as a function of \(q\). \[R(q) = pq = q\sqrt{25 - q} = q(25 - q)^{1/2}.\]</li>
+<li>Set up the product rule. Let \(u = q\) and \(v = (25 - q)^{1/2}\). Then \(u' = 1\), and by the chain rule \(v' = \tfrac{1}{2}(25 - q)^{-1/2}\cdot(-1) = -\dfrac{1}{2\sqrt{25 - q}}\).</li>
+<li>Apply \(R' = u'v + uv'\) and combine over a common denominator. \[\begin{aligned} R'(q) &= \sqrt{25 - q} - \frac{q}{2\sqrt{25 - q}} \\ &= \frac{2(25 - q)}{2\sqrt{25 - q}} - \frac{q}{2\sqrt{25 - q}} = \frac{50 - 2q - q}{2\sqrt{25 - q}} = \frac{50 - 3q}{2\sqrt{25 - q}}. \end{aligned}\]</li>
+<li>Find \(q\) when \(p = 2\). \[q = 25 - 2^2 = 25 - 4 = 21.\]</li>
+<li>Evaluate the marginal revenue at \(q = 21\). \[R'(21) = \frac{50 - 63}{2\sqrt{25 - 21}} = \frac{-13}{2\sqrt{4}} = \frac{-13}{4}.\]</li>
+<li>Check with the chain rule in the form \(\dfrac{dR}{dq} = \dfrac{dR/dp}{dq/dp}\). Here \(R = p(25 - p^2) = 25p - p^3\), so \(\dfrac{dR}{dp} = 25 - 3p^2\), and \(\dfrac{dq}{dp} = -2p\). At \(p = 2\) this gives \(\dfrac{25 - 12}{-4} = -\dfrac{13}{4}\), the same value.</li>
+<li>(b) Interpret the sign. \(R'(21) \lt 0\), so revenue is decreasing as \(q\) increases at this sales level. Selling fewer units (by charging a higher price) increases revenue.</li>
+<li>A note on the source. The printed exam says \(p = 3\), and the instructor's posted solution changes it to \(p = 2\) and adds part (b). With \(p = 3\) the same formula gives \(q = 16\) and \(R'(16) = \tfrac{50 - 48}{2\sqrt{9}} = \tfrac{2}{6} = \tfrac{1}{3}\).</li>
+</ol><p class="final">Answer: (a) The marginal revenue at \(p = 2\) (so \(q = 21\)) is \(R'(21) = -\tfrac{13}{4}\) (money per extra unit sold). (b) Since it is negative, the company should sell fewer units to increase revenue.</p></div></details></div>
+
+<div class="q" id="u20-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Practice Midterm 2</span> A company makes and sells a product with demand equation \(q = 60 - 3p\), where \(p\) is the price per unit and \(q\) is the number of units sold. The cost of making \(q\) units is \(10 + q^3\). (a) Find the marginal profit function. (b) The company is making and selling 2 units. Use the marginal profit to estimate how much extra profit it will make by making and selling 3 units instead.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Solve the demand equation for \(p\) so that revenue can be written in terms of \(q\). \[3p = 60 - q \quad\Longrightarrow\quad p = 20 - \frac{q}{3}.\]</li>
+<li>Write the revenue function. \[R(q) = pq = \left(20 - \frac{q}{3}\right)q = 20q - \frac{q^2}{3}.\]</li>
+<li>Write the profit function as revenue minus cost. \[P(q) = R(q) - C(q) = 20q - \frac{q^2}{3} - (10 + q^3) = 20q - \frac{q^2}{3} - 10 - q^3.\]</li>
+<li>Differentiate term by term with the power rule to get the marginal profit. \[P'(q) = 20 - \frac{2q}{3} - 3q^2.\]</li>
+<li>(b) Recall what the marginal profit estimates. For one more unit, \(P(q + 1) - P(q) \approx P'(q)\). Going from 2 to 3 units, the extra profit is about \(P'(2)\).</li>
+<li>Evaluate. \[P'(2) = 20 - \frac{4}{3} - 3(4) = 20 - 12 - \frac{4}{3} = 8 - \frac{4}{3} = \frac{20}{3}.\]</li>
+<li>For comparison (this was not asked), the exact change is \(P(3) - P(2)\). \[\begin{aligned} P(3) &= 60 - 3 - 10 - 27 = 20, \\ P(2) &= 40 - \tfrac{4}{3} - 10 - 8 = 22 - \tfrac{4}{3} = \tfrac{62}{3}, \\ P(3) - P(2) &= 20 - \tfrac{62}{3} = -\tfrac{2}{3}. \end{aligned}\] The estimate is rough here because \(P'\) falls fast between 2 and 3 (\(P'(3) = 20 - 2 - 27 = -9\)). The exam asks for the marginal estimate, which is \(\tfrac{20}{3}\).</li>
+</ol><p class="final">Answer: (a) \(P'(q) = 20 - \tfrac{2q}{3} - 3q^2\). (b) The marginal profit estimates the extra profit from the third unit as \(P'(2) = \tfrac{20}{3} \approx 6.67\), in the same money units as the price.</p></div></details></div>
+
+<div class="q" id="u20-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Practice Midterm 2</span> The demand equation for a product is \(p = 200e^{-0.1q}\), where \(p\) is the price per unit and \(q\) is the number of units sold. (a) Find the elasticity of demand \(E(p)\). (b) If the company is selling 5 units, should it raise or lower the price to increase revenue? Justify your answer.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Recall the definition \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\). We need \(q\) as a function of \(p\), so solve the demand equation for \(q\).</li>
+<li>Divide by 200 and take the natural log of both sides. \[\frac{p}{200} = e^{-0.1q} \quad\Longrightarrow\quad \ln\!\left(\frac{p}{200}\right) = -0.1q.\]</li>
+<li>Divide by \(-0.1\), which is the same as multiplying by \(-10\), and use \(\ln\tfrac{a}{b} = \ln a - \ln b\). \[q = -10\ln\!\left(\frac{p}{200}\right) = -10(\ln p - \ln 200) = 10\ln 200 - 10\ln p.\]</li>
+<li>Differentiate. \(10\ln 200\) is a constant, and the derivative of \(\ln p\) is \(\tfrac{1}{p}\). \[\frac{dq}{dp} = -\frac{10}{p}.\]</li>
+<li>Substitute into the elasticity formula. \[E = -\frac{p}{q}\cdot\left(-\frac{10}{p}\right) = \frac{10}{q}.\]</li>
+<li>Write it in terms of \(p\) by substituting \(q = 10\ln 200 - 10\ln p\) and cancelling the 10. \[E(p) = \frac{10}{10(\ln 200 - \ln p)} = \frac{1}{\ln 200 - \ln p} = \frac{1}{\ln(200/p)},\] valid for \(0 \lt p \lt 200\) (where \(q \gt 0\)).</li>
+<li>(b) Evaluate the elasticity at 5 units using \(E = \tfrac{10}{q}\). \[E = \frac{10}{5} = 2.\]</li>
+<li>Interpret. \(E = 2 \gt 1\), so demand is elastic. When demand is elastic, a price cut raises the quantity sold by a larger percentage than the price falls, so revenue goes up when the price goes down.</li>
+</ol><p class="final">Answer: (a) \(E(p) = \dfrac{1}{\ln 200 - \ln p}\), which equals \(\dfrac{10}{q}\). (b) At 5 units, \(E = 2 \gt 1\), so demand is elastic and the company should lower the price to increase revenue.</p></div></details></div>
+
+<div class="q" id="u20-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Slaman, Fall 2010, Midterm 2</span> The length \(\ell\) of a rectangle is decreasing at 1 cm per second and the width \(w\) is increasing at 2 cm per second. Find how fast the area and the length of the diagonal are changing when \(\ell = 5\) and \(w = 12\). Say whether each one is increasing or decreasing.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="70" y="40" width="180" height="120" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="70" y1="160" x2="250" y2="40" stroke="currentColor" stroke-dasharray="6 4"/>
+<text x="160" y="182" text-anchor="middle" fill="currentColor" font-size="16">ℓ</text>
+<text x="262" y="105" fill="currentColor" font-size="16">w</text>
+<text x="150" y="92" fill="currentColor" font-size="16">D</text>
+</svg>
+<ol class="steps">
+<li>Define the variables with units. Let \(t\) be time in seconds, \(\ell\) the length in cm, \(w\) the width in cm, \(A\) the area in square cm, and \(D\) the diagonal in cm.</li>
+<li>Write what is given. The length is decreasing, so its rate is negative: \(\dfrac{d\ell}{dt} = -1\) cm/s and \(\dfrac{dw}{dt} = 2\) cm/s. At the instant, \(\ell = 5\) and \(w = 12\). We want \(\dfrac{dA}{dt}\) and \(\dfrac{dD}{dt}\).</li>
+<li>Area: write the equation and differentiate with respect to \(t\) using the product rule. \[A = \ell w \quad\Longrightarrow\quad \frac{dA}{dt} = \frac{d\ell}{dt}\,w + \ell\,\frac{dw}{dt}.\]</li>
+<li>Substitute the values. \[\frac{dA}{dt} = (-1)(12) + (5)(2) = -12 + 10 = -2.\] The rate is negative, so the area is decreasing.</li>
+<li>Diagonal: write the Pythagorean theorem and find \(D\) at the instant. \[D^2 = \ell^2 + w^2, \qquad D = \sqrt{25 + 144} = \sqrt{169} = 13.\]</li>
+<li>Differentiate both sides with respect to \(t\) (chain rule on each square) and divide by 2. \[2D\frac{dD}{dt} = 2\ell\frac{d\ell}{dt} + 2w\frac{dw}{dt} \quad\Longrightarrow\quad D\frac{dD}{dt} = \ell\frac{d\ell}{dt} + w\frac{dw}{dt}.\]</li>
+<li>Substitute and solve. \[13\frac{dD}{dt} = (5)(-1) + (12)(2) = -5 + 24 = 19 \quad\Longrightarrow\quad \frac{dD}{dt} = \frac{19}{13}.\] The rate is positive, so the diagonal is increasing.</li>
+</ol><p class="final">Answer: The area is decreasing at 2 square cm per second, and the diagonal is increasing at \(\tfrac{19}{13}\) cm per second.</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Set 3</h2><span>The hardest ones.</span></div><div class="q" id="u20-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Midterm 2</span> The numbers \(x\) and \(y\) are non-negative and satisfy \(x + y^2 = 4\). What is the largest possible value of \(x + 6y\)?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the objective and the constraint. The objective is to maximize \(x + 6y\). The constraint is \(x + y^2 = 4\) with \(x \ge 0\) and \(y \ge 0\). The variables are pure numbers with no units.</li>
+<li>Solve the constraint for the variable that is easy to isolate. \[x = 4 - y^2.\]</li>
+<li>Substitute to get the objective as a function of \(y\) alone. \[f(y) = (4 - y^2) + 6y = -y^2 + 6y + 4.\]</li>
+<li>State the domain carefully. We need \(y \ge 0\), and we also need \(x = 4 - y^2 \ge 0\), which means \(y^2 \le 4\), so \(y \le 2\) (because \(y \ge 0\)). The domain is the closed interval \([0, 2]\).</li>
+<li>Differentiate and find the critical numbers. \[f'(y) = -2y + 6 = 0 \quad\Longrightarrow\quad y = 3.\] But \(y = 3\) is not in \([0, 2]\) (it would make \(x = 4 - 9 = -5\), which is not allowed), so we discard it. \(f'\) is defined everywhere, so there are no critical numbers inside the domain.</li>
+<li>Use the closed interval method. With no critical numbers inside \([0, 2]\), the maximum must be at an endpoint. \[\begin{aligned} f(0) &= 0 + 0 + 4 = 4, \\ f(2) &= -4 + 12 + 4 = 12. \end{aligned}\] The larger value is \(f(2) = 12\). This also matches the sign of \(f'\): for \(0 \le y \le 2\), \(f'(y) = 6 - 2y \ge 6 - 4 = 2 \gt 0\), so \(f\) is increasing on the whole domain and is largest at the right endpoint.</li>
+<li>Find \(x\) at the maximum. When \(y = 2\), \(x = 4 - 4 = 0\). Check: \(x + 6y = 0 + 12 = 12\).</li>
+</ol><p class="final">Answer: The largest possible value of \(x + 6y\) is 12, reached at \(x = 0\), \(y = 2\).</p></div></details></div>
+
+<div class="q" id="u20-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Woodin, Fall 2012, Midterm 2</span> Find the shortest possible distance from a point on the graph of \(y = x^2\) to the point \((0, 1)\).</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="40" y1="170" x2="280" y2="170" stroke="currentColor"/>
+<line x1="160" y1="20" x2="160" y2="190" stroke="currentColor"/>
+<path d="M70 35 Q160 305 250 35" stroke="currentColor" fill="none" stroke-width="2"/>
+<circle cx="160" cy="110" r="4" stroke="currentColor" fill="none"/>
+<circle cx="202.4" cy="140" r="4" stroke="currentColor" fill="none"/>
+<line x1="160" y1="110" x2="202.4" y2="140" stroke="currentColor" stroke-dasharray="5 3"/>
+<text x="130" y="106" fill="currentColor" font-size="14">(0, 1)</text>
+<text x="210" y="150" fill="currentColor" font-size="14">(x, x²)</text>
+<text x="186" y="118" fill="currentColor" font-size="14">d</text>
+<text x="256" y="40" fill="currentColor" font-size="14">y = x²</text>
+</svg>
+<ol class="steps">
+<li>Define the variables. A point on the parabola is \((x, x^2)\). Let \(d\) be its distance to \((0, 1)\). The objective is to minimize \(d\).</li>
+<li>Write the distance with the distance formula and simplify inside the root. \[\begin{aligned} d &= \sqrt{(x - 0)^2 + (x^2 - 1)^2} \\ &= \sqrt{x^2 + x^4 - 2x^2 + 1} = \sqrt{x^4 - x^2 + 1}. \end{aligned}\]</li>
+<li>Minimize the square instead. The square root is an increasing function, so \(d\) is smallest exactly where \(d^2\) is smallest. Let \[f(x) = d^2 = x^4 - x^2 + 1,\] with domain all real numbers.</li>
+<li>Differentiate and factor. \[f'(x) = 4x^3 - 2x = 2x(2x^2 - 1).\]</li>
+<li>Find the critical numbers. \(2x = 0\) gives \(x = 0\), and \(2x^2 - 1 = 0\) gives \(x^2 = \tfrac{1}{2}\), so \(x = \pm\tfrac{1}{\sqrt{2}}\).</li>
+<li>Make a sign chart for \(f'(x) = 2x(2x^2 - 1)\).
+<table class="t">
+<tr><th>Interval</th><th>Test point</th><th>\(2x\)</th><th>\(2x^2 - 1\)</th><th>\(f'\)</th><th>\(f\)</th></tr>
+<tr><td>\(\left(-\infty, -\tfrac{1}{\sqrt{2}}\right)\)</td><td>\(x = -1\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\(\left(-\tfrac{1}{\sqrt{2}}, 0\right)\)</td><td>\(x = -\tfrac{1}{2}\)</td><td>\(-\)</td><td>\(-\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\(\left(0, \tfrac{1}{\sqrt{2}}\right)\)</td><td>\(x = \tfrac{1}{2}\)</td><td>\(+\)</td><td>\(-\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\(\left(\tfrac{1}{\sqrt{2}}, \infty\right)\)</td><td>\(x = 1\)</td><td>\(+\)</td><td>\(+\)</td><td>\(+\)</td><td>increasing</td></tr>
+</table>
+At \(x = -\tfrac{1}{2}\), \(2x^2 - 1 = \tfrac{1}{2} - 1 = -\tfrac{1}{2}\), and at \(x = -1\), \(2x^2 - 1 = 1\); the other rows work the same way.</li>
+<li>Evaluate \(f\) at the critical numbers. \[\begin{aligned} f\!\left(\pm\tfrac{1}{\sqrt{2}}\right) &= \tfrac{1}{4} - \tfrac{1}{2} + 1 = \tfrac{3}{4}, \\ f(0) &= 1. \end{aligned}\]</li>
+<li>Justify that \(\tfrac{3}{4}\) is the absolute minimum. From the chart, \(f\) decreases all the way to \(x = -\tfrac{1}{\sqrt{2}}\), so \(f(x) \ge \tfrac{3}{4}\) for \(x \le -\tfrac{1}{\sqrt{2}}\). On \(\left[-\tfrac{1}{\sqrt{2}}, \tfrac{1}{\sqrt{2}}\right]\), \(f\) rises to 1 at \(x = 0\) and falls back to \(\tfrac{3}{4}\), so it stays at least \(\tfrac{3}{4}\). For \(x \ge \tfrac{1}{\sqrt{2}}\), \(f\) increases from \(\tfrac{3}{4}\). So the smallest value of \(f\) on the whole line is \(\tfrac{3}{4}\), at \(x = \pm\tfrac{1}{\sqrt{2}}\).</li>
+<li>Convert back to the distance. \[d = \sqrt{\tfrac{3}{4}} = \frac{\sqrt{3}}{2}.\] The closest points are \(\left(\pm\tfrac{1}{\sqrt{2}}, \tfrac{1}{2}\right)\).</li>
+</ol><p class="final">Answer: The shortest distance is \(\dfrac{\sqrt{3}}{2}\), reached at the points \(\left(\tfrac{1}{\sqrt{2}}, \tfrac{1}{2}\right)\) and \(\left(-\tfrac{1}{\sqrt{2}}, \tfrac{1}{2}\right)\).</p></div></details></div>
+
+<div class="q" id="u20-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Practice Final</span> A drink will be sold in cylindrical cans with volume 40 cubic inches. The material for the top and bottom costs 4 cents per square inch, and the material for the side costs 3 cents per square inch. Find the dimensions of the can that minimize the cost.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<ellipse cx="160" cy="40" rx="60" ry="14" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="100" y1="40" x2="100" y2="160" stroke="currentColor" stroke-width="2"/>
+<line x1="220" y1="40" x2="220" y2="160" stroke="currentColor" stroke-width="2"/>
+<ellipse cx="160" cy="160" rx="60" ry="14" stroke="currentColor" fill="none" stroke-width="2"/>
+<line x1="160" y1="40" x2="220" y2="40" stroke="currentColor"/>
+<text x="186" y="34" fill="currentColor" font-size="16">r</text>
+<text x="232" y="105" fill="currentColor" font-size="16">h</text>
+<text x="160" y="105" text-anchor="middle" fill="currentColor" font-size="13">side: 3 cents/in²</text>
+<text x="160" y="196" text-anchor="middle" fill="currentColor" font-size="13">top and bottom: 4 cents/in²</text>
+</svg>
+<ol class="steps">
+<li>Define the variables with units. Let \(r\) be the radius in inches, \(h\) the height in inches, and \(C\) the cost of the material in cents. The objective is to minimize \(C\).</li>
+<li>Write the cost. The top and bottom are two circles with total area \(2\pi r^2\) at 4 cents each square inch. The side has area \(2\pi r h\) at 3 cents each square inch. \[C = 4(2\pi r^2) + 3(2\pi r h) = 8\pi r^2 + 6\pi r h.\]</li>
+<li>Write the constraint and solve it for \(h\). \[\pi r^2 h = 40 \quad\Longrightarrow\quad h = \frac{40}{\pi r^2}.\]</li>
+<li>Substitute to get \(C\) as a function of \(r\) alone. \[C(r) = 8\pi r^2 + 6\pi r\cdot\frac{40}{\pi r^2} = 8\pi r^2 + \frac{240}{r}.\]</li>
+<li>State the domain. The radius must be positive, so the domain is \((0, \infty)\).</li>
+<li>Differentiate with the power rule, writing \(\tfrac{240}{r} = 240r^{-1}\). \[C'(r) = 16\pi r - \frac{240}{r^2}.\]</li>
+<li>Find the critical numbers. \(C'\) is defined on \((0, \infty)\), so set it equal to zero. \[16\pi r = \frac{240}{r^2} \quad\Longrightarrow\quad 16\pi r^3 = 240 \quad\Longrightarrow\quad r^3 = \frac{240}{16\pi} = \frac{15}{\pi} \quad\Longrightarrow\quad r = \sqrt[3]{\frac{15}{\pi}}.\]</li>
+<li>Justify the minimum. Over a common denominator, \[C'(r) = \frac{16\pi r^3 - 240}{r^2}.\] The denominator is positive. The numerator is negative when \(r^3 \lt \tfrac{15}{\pi}\) and positive when \(r^3 \gt \tfrac{15}{\pi}\). For example, \(C'(1) = 16\pi - 240 \lt 0\) because \(16\pi \lt 16(4) = 64\), and \(C'(10) = 160\pi - 2.4 \gt 0\). So \(C\) decreases on \(\left(0, \sqrt[3]{15/\pi}\right)\) and increases after it, and since this is the only critical number, it gives the absolute minimum cost.</li>
+<li>Find the height. Use \(\pi r^3 = 15\) to simplify: \[h = \frac{40}{\pi r^2} = \frac{40r}{\pi r^3} = \frac{40r}{15} = \frac{8}{3}r = \frac{8}{3}\sqrt[3]{\frac{15}{\pi}}.\] This agrees with the posted solution, which leaves the height as \(\dfrac{40}{\pi(15/\pi)^{2/3}}\).</li>
+</ol><p class="final">Answer: The cheapest can has radius \(r = \sqrt[3]{15/\pi}\) inches (about 1.68 in) and height \(h = \tfrac{8}{3}\sqrt[3]{15/\pi}\) inches (about 4.49 in), so the height is \(\tfrac{8}{3}\) times the radius.</p></div></details></div>
+
+<div class="q" id="u20-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Practice Final</span> The demand equation for a product is \(q^2 + qp + 4p^2 = 10\), where \(p\) is the price per unit and \(q\) is the number of units sold. (a) Find the elasticity of demand. Your answer should involve both \(p\) and \(q\). (b) If \(q = 3\), should the company raise or lower the price to increase revenue?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Plan. The elasticity is \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\). Solving the demand equation for \(q\) would be messy, so find \(\dfrac{dq}{dp}\) by implicit differentiation, treating \(q\) as a function of \(p\).</li>
+<li>Differentiate both sides with respect to \(p\). For \(q^2\) use the chain rule, for \(qp\) use the product rule with \(u = q\), \(v = p\), \(u' = \tfrac{dq}{dp}\), \(v' = 1\), and the right side is a constant. \[2q\frac{dq}{dp} + \left(\frac{dq}{dp}\,p + q\right) + 8p = 0.\]</li>
+<li>Collect the \(\tfrac{dq}{dp}\) terms and solve. \[\begin{aligned} \frac{dq}{dp}(2q + p) &= -q - 8p \\ \frac{dq}{dp} &= -\frac{q + 8p}{2q + p}. \end{aligned}\]</li>
+<li>Substitute into the elasticity formula. The two minus signs cancel. \[E = -\frac{p}{q}\cdot\left(-\frac{q + 8p}{2q + p}\right) = \frac{p(q + 8p)}{q(2q + p)} = \frac{8p^2 + pq}{2q^2 + pq}.\]</li>
+<li>(b) Find the price when \(q = 3\) by substituting into the demand equation. \[9 + 3p + 4p^2 = 10 \quad\Longrightarrow\quad 4p^2 + 3p - 1 = 0.\]</li>
+<li>Factor and keep the positive root. We need two numbers with product \(4(-1) = -4\) and sum 3, which are 4 and \(-1\). \[4p^2 + 4p - p - 1 = 4p(p + 1) - (p + 1) = (4p - 1)(p + 1) = 0.\] So \(p = \tfrac{1}{4}\) or \(p = -1\). A price must be positive, so \(p = \tfrac{1}{4}\).</li>
+<li>Evaluate the elasticity at \(p = \tfrac{1}{4}\), \(q = 3\). \[\begin{aligned} 8p^2 + pq &= 8\cdot\tfrac{1}{16} + \tfrac{3}{4} = \tfrac{1}{2} + \tfrac{3}{4} = \tfrac{5}{4}, \\ 2q^2 + pq &= 18 + \tfrac{3}{4} = \tfrac{75}{4}, \\ E &= \frac{5/4}{75/4} = \frac{5}{75} = \frac{1}{15}. \end{aligned}\]</li>
+<li>Interpret. \(E = \tfrac{1}{15} \lt 1\), so demand is inelastic. With inelastic demand, raising the price lowers sales by a smaller percentage than the price rises, so revenue increases.</li>
+</ol><p class="final">Answer: (a) \(E = \dfrac{8p^2 + pq}{2q^2 + pq}\). (b) At \(q = 3\) the price is \(\tfrac{1}{4}\) and \(E = \tfrac{1}{15} \lt 1\), so demand is inelastic and the company should raise the price.</p></div></details></div>
+
+<div class="q" id="u20-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Paulin, Fall 2017, Practice Final</span> A product has supply equation \(p = q^2 + 2q + 1\) and demand equation \(p = \dfrac{1000}{q + 1}\), where \(p\) is the price per unit and \(q\) is the number of units. Find the elasticity of demand at the equilibrium.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Recall what equilibrium means. It is the point where the supply price equals the demand price, so we set the two expressions for \(p\) equal.</li>
+<li>Factor the supply expression first. It is a perfect square: \(q^2 + 2q + 1 = (q + 1)^2\). Set it equal to the demand expression. \[(q + 1)^2 = \frac{1000}{q + 1}.\]</li>
+<li>Multiply both sides by \(q + 1\) and take the cube root. \[(q + 1)^3 = 1000 \quad\Longrightarrow\quad q + 1 = 10 \quad\Longrightarrow\quad q = 9.\]</li>
+<li>Find the equilibrium price. \[p = (9 + 1)^2 = 100, \qquad \text{and as a check} \quad \frac{1000}{9 + 1} = 100.\]
+<div class="plot" data-f="x**2+2*x+1;;1000/(x+1)" data-x="0,15" data-y="0,300" data-pts="9,100,equilibrium (9, 100)" data-cap="Supply p = (q + 1)^2 and demand p = 1000/(q + 1), with q on the horizontal axis"></div></li>
+<li>Solve the demand equation for \(q\) as a function of \(p\). \[q + 1 = \frac{1000}{p} \quad\Longrightarrow\quad q = \frac{1000}{p} - 1 = 1000p^{-1} - 1.\]</li>
+<li>Differentiate with the power rule. \[\frac{dq}{dp} = -1000p^{-2} = -\frac{1000}{p^2}.\]</li>
+<li>Substitute into the elasticity formula. \[E = -\frac{p}{q}\cdot\left(-\frac{1000}{p^2}\right) = \frac{1000}{pq}.\]</li>
+<li>Evaluate at the equilibrium \(q = 9\), \(p = 100\). \[E = \frac{1000}{100\cdot 9} = \frac{1000}{900} = \frac{10}{9}.\]</li>
+<li>Interpret (not asked, but worth one sentence on an exam). \(E = \tfrac{10}{9} \gt 1\), so demand is elastic at the equilibrium: a small price increase there would lower revenue.</li>
+</ol><p class="final">Answer: The equilibrium is \(q = 9\) units at \(p = 100\), and the elasticity of demand there is \(E = \tfrac{10}{9}\) (elastic).</p></div></details></div>
+
+<div class="q" id="u20-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p"><span class="badge">Demmel, Fall 2008, Midterm 2</span> A rectangular box has edges of length \(x\), \(2x\), and \(y\), so its surface area is \(6xy + 4x^2\). The surface area is held fixed at 28 square units while \(x\) and \(y\) change with time \(t\) (in seconds). How fast is \(y\) changing when \(y = 1\), \(x = 2\), and \(x\) is increasing at 6 units per second?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="50" y="80" width="180" height="80" stroke="currentColor" fill="none" stroke-width="2"/>
+<path d="M50 80 L100 45 L280 45 L230 80" stroke="currentColor" fill="none" stroke-width="2"/>
+<path d="M280 45 L280 125 L230 160" stroke="currentColor" fill="none" stroke-width="2"/>
+<text x="140" y="180" text-anchor="middle" fill="currentColor" font-size="16">2x</text>
+<text x="264" y="158" fill="currentColor" font-size="16">x</text>
+<text x="38" y="125" text-anchor="end" fill="currentColor" font-size="16">y</text>
+</svg>
+<ol class="steps">
+<li>Check the surface area formula from the picture. A closed box has two faces of each kind: two \(x\) by \(2x\) faces (\(4x^2\) in total), two \(x\) by \(y\) faces (\(2xy\)), and two \(2x\) by \(y\) faces (\(4xy\)). The total is \(4x^2 + 6xy\), as stated.</li>
+<li>Define the variables and write what is given. \(x\) and \(y\) are lengths in units and \(t\) is time in seconds. At the instant, \(x = 2\), \(y = 1\), and \(\dfrac{dx}{dt} = 6\) units per second. We want \(\dfrac{dy}{dt}\). As a check, the point fits the constraint: \(6(2)(1) + 4(4) = 12 + 16 = 28\).</li>
+<li>Write the equation that holds at every time. \[6xy + 4x^2 = 28.\]</li>
+<li>Differentiate both sides with respect to \(t\). Use the product rule on \(xy\) (with \(u = x\), \(v = y\), \(u' = \tfrac{dx}{dt}\), \(v' = \tfrac{dy}{dt}\)) and the chain rule on \(x^2\). The right side is constant. \[6\left(\frac{dx}{dt}\,y + x\,\frac{dy}{dt}\right) + 8x\frac{dx}{dt} = 0.\]</li>
+<li>Substitute \(x = 2\), \(y = 1\), \(\tfrac{dx}{dt} = 6\). \[\begin{aligned} 6\left(6\cdot 1 + 2\frac{dy}{dt}\right) + 8\cdot 2\cdot 6 &= 0 \\ 36 + 12\frac{dy}{dt} + 96 &= 0 \\ 12\frac{dy}{dt} &= -132 \\ \frac{dy}{dt} &= -11. \end{aligned}\]</li>
+<li>Interpret the sign. The rate is negative, so \(y\) is shrinking. This makes sense: as \(x\) grows the box would gain area, so \(y\) must drop to keep the area at 28.</li>
+</ol><p class="final">Answer: \(y\) is decreasing at 11 units per second, that is, \(\dfrac{dy}{dt} = -11\).</p></div></details></div>
+</section><div class="pager"><a href="u19.html">Back: Past Berkeley exam problems: derivatives, extrema, sketching</a><a href="u15.html">Next: Mock Midterm A</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

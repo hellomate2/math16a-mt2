@@ -1,0 +1,147 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mock Midterm C (harder) | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Mock</p><h1>Mock Midterm C (harder)</h1><p class="sub">5 questions, 10 points each, 60 minutes, no calculator.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">The exam</a></div><section id="learn"><h2>Mock Midterm C (harder)</h2>
+<p>This is the third practice exam, and it is deliberately harder than the professor's two Midterm 2 exams. The topics are the same kinds he tests, but the algebra is messier, most questions have two or more parts, and some setups are less common than the textbook versions. If you can finish this one in 60 minutes with clean written work, the real exam should feel comfortable. Take it in one sitting with a timer and nothing on the desk but paper and a pencil.</p>
+
+<div class="rule"><div class="rt">Instructions (as they appear on the exam)</div>
+<p>There are 5 questions on this exam. Each question is worth 10 points.</p>
+<p>Write complete, clear, legible solutions.</p>
+<p>Calculators are not allowed.</p>
+<p>Time: 60 minutes. No notes, no formula sheet, no textbook.</p>
+</div>
+
+<h3>How to take this mock</h3>
+<ol>
+<li>Open the exam page, start a 60 minute timer, and work the five questions on paper in any order you like. Read every part of a question before starting it, because later parts often reuse earlier results.</li>
+<li>Do not open any solution until the timer ends. If a part stops you, assume a result for it, say so in writing, and use it in the next part. On the real exam that still earns the later points.</li>
+<li>When time is up, grade yourself with the solutions and the scoring guide below.</li>
+</ol>
+
+<details><summary>Show which topics are on this mock</summary>
+<ul>
+<li>Curve sketching of a rational function with a vertical and a horizontal asymptote (Section 5.4).</li>
+<li>L'Hospital's rule for a 0/0 limit that needs the rule twice and an infinity/infinity limit with an exponential inside a logarithm (Section 12.7).</li>
+<li>Implicit differentiation with a square root, the tangent line, and using the tangent line to estimate a nearby point on the curve (Sections 6.4 and 6.6).</li>
+<li>Related rates: a conical tank that is filled and leaking at the same time (Section 6.5).</li>
+<li>Optimization: a closed box with a fixed volume, a base twice as long as it is wide, and three different material prices (Section 6.2).</li>
+</ul>
+</details>
+
+<h3>Scoring guide</h3>
+<p>Each solution ends with a line called "Where the points are." It gives a reasonable way to split the 10 points among the parts and steps. It is general advice for self-grading and is not the professor's rubric. Award a step's points only if the work is written down and correct. When a part depends on an earlier part that you got wrong, give yourself the later points if the later work is correct for your earlier answer, since that is how partial credit usually works on multi-part questions. Because this mock is harder than the real exam, a score of 40 or more out of 50 is a strong result. From 30 to 39, redo the questions you lost points on and work the Level 4 problems in those units. Below 30, retake Mock Midterms A and B first, then come back to this one.</p>
+</section>
+<section id="L1"><div class="lvl"><h2>The exam</h2><span>Set a 60 minute timer. Closed book, no calculator.</span></div><div class="q" id="u17-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{x}{(x - 1)^2}\).<br>(a) (2 points) Find the domain, the intercepts, and all vertical and horizontal asymptotes of \(f\).<br>(b) (3 points) Find the intervals where \(f\) is increasing and decreasing, and find all local extrema.<br>(c) (3 points) Find the intervals where \(f\) is concave up and concave down, and find all inflection points.<br>(d) (2 points) Sketch the graph of \(f\). Label any local extrema, inflection points, and asymptotes.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Find the domain. The denominator \((x - 1)^2\) is 0 only at \(x = 1\), so the domain is all real numbers except 1: \((-\infty, 1) \cup (1, \infty)\).</li>
+<li>Find the intercepts. \(f(0) = \tfrac{0}{1} = 0\), so the \(y\)-intercept is \((0, 0)\). A fraction is 0 only when its numerator is 0, so \(x = 0\) is the only \(x\)-intercept. The only intercept is the origin.</li>
+<li>Find the vertical asymptote. As \(x \to 1\), the numerator approaches 1, which is not 0, and the denominator \((x - 1)^2\) approaches 0 through positive values (a square is never negative). So \[\lim_{x \to 1^-} f(x) = \infty \quad\text{and}\quad \lim_{x \to 1^+} f(x) = \infty,\] and the line \(x = 1\) is a vertical asymptote, with the graph going up on both sides.</li>
+<li>Find the horizontal asymptote. Expand the denominator and divide the top and bottom by \(x^2\), the highest power in the denominator. \[\lim_{x \to \pm\infty}\frac{x}{x^2 - 2x + 1} = \lim_{x \to \pm\infty}\frac{\tfrac{1}{x}}{1 - \tfrac{2}{x} + \tfrac{1}{x^2}} = \frac{0}{1 - 0 + 0} = 0.\] So the line \(y = 0\) is a horizontal asymptote in both directions. For large positive \(x\) the values are positive (the graph is above the axis), and for large negative \(x\) they are negative (below the axis).</li>
+<li>(b) Differentiate with the quotient rule. Let \(u = x\) and \(v = (x - 1)^2\). Then \(u' = 1\) and, by the chain rule, \(v' = 2(x - 1)\). \[\begin{aligned}f'(x) &= \frac{u'v - uv'}{v^2} = \frac{1\cdot(x - 1)^2 - x\cdot 2(x - 1)}{(x - 1)^4}.\end{aligned}\]</li>
+<li>Simplify by factoring \((x - 1)\) out of the numerator and canceling one factor with the denominator. \[\begin{aligned}f'(x) &= \frac{(x - 1)\left[(x - 1) - 2x\right]}{(x - 1)^4}\\ &= \frac{(x - 1)(-x - 1)}{(x - 1)^4}\\ &= \frac{-x - 1}{(x - 1)^3} = -\frac{x + 1}{(x - 1)^3}.\end{aligned}\]</li>
+<li>Find the critical numbers. \(f'(x) = 0\) when \(x + 1 = 0\), so \(x = -1\). The derivative is undefined at \(x = 1\), but 1 is not in the domain, so it is not a critical number. It still goes in the sign chart, because \(f'\) can change sign there.</li>
+<li>Make a sign chart for \(f'\) by testing one number in each interval. \[\begin{aligned}f'(-2) &= -\frac{-1}{(-3)^3} = -\frac{-1}{-27} = -\frac{1}{27} \lt 0,\\ f'(0) &= -\frac{1}{(-1)^3} = -\frac{1}{-1} = 1 \gt 0,\\ f'(2) &= -\frac{3}{1^3} = -3 \lt 0.\end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -1)\)</th><th>\((-1, 1)\)</th><th>\((1, \infty)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td></tr>
+</table></li>
+<li>Classify the critical number. Because \(f'\) changes from negative to positive at \(x = -1\), \(f\) has a local minimum there. \[f(-1) = \frac{-1}{(-2)^2} = -\frac{1}{4}.\] There is no local maximum: the sign change at \(x = 1\) happens at a vertical asymptote, not at a point of the graph.</li>
+<li>(c) Find the second derivative. Write \(f'(x) = -(x + 1)(x - 1)^{-3}\) and use the product rule with \(u = -(x + 1)\), \(v = (x - 1)^{-3}\), \(u' = -1\), \(v' = -3(x - 1)^{-4}\). \[\begin{aligned}f''(x) &= u'v + uv'\\ &= -(x - 1)^{-3} + 3(x + 1)(x - 1)^{-4}.\end{aligned}\]</li>
+<li>Combine over the common denominator \((x - 1)^4\). The first term is \(-\dfrac{x - 1}{(x - 1)^4}\). \[\begin{aligned}f''(x) &= \frac{-(x - 1) + 3(x + 1)}{(x - 1)^4}\\ &= \frac{-x + 1 + 3x + 3}{(x - 1)^4}\\ &= \frac{2x + 4}{(x - 1)^4} = \frac{2(x + 2)}{(x - 1)^4}.\end{aligned}\]</li>
+<li>Make a sign chart for \(f''\). The denominator \((x - 1)^4\) is positive for every \(x \ne 1\), so the sign of \(f''\) is the sign of \(x + 2\). Testing: \(f''(-3) = \tfrac{-2}{256} \lt 0\), \(f''(0) = \tfrac{4}{1} \gt 0\), \(f''(2) = \tfrac{8}{1} \gt 0\).
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -2)\)</th><th>\((-2, 1)\)</th><th>\((1, \infty)\)</th></tr>
+<tr><td>Sign of \(f''\)</td><td>\(-\)</td><td>\(+\)</td><td>\(+\)</td></tr>
+<tr><td>\(f\) is</td><td>concave down</td><td>concave up</td><td>concave up</td></tr>
+</table></li>
+<li>Name the inflection point. The concavity changes at \(x = -2\), and \(f(-2)\) is defined, so there is an inflection point there. \[f(-2) = \frac{-2}{(-3)^2} = -\frac{2}{9}.\] The concavity does not change at \(x = 1\), and 1 is not in the domain anyway.</li>
+<li>(d) Sketch. From the far left the graph comes up from just below the \(x\)-axis while concave down, bends at the inflection point \(\left(-2, -\tfrac{2}{9}\right)\), keeps falling to the minimum \(\left(-1, -\tfrac{1}{4}\right)\), rises through the origin, and shoots up along the asymptote \(x = 1\). To the right of \(x = 1\) it comes down from \(+\infty\), concave up, and flattens toward \(y = 0\) from above.
+<div class="plot" data-f="x/(x-1)**2" data-x="-6,4" data-y="-0.4,1.2" data-v="1" data-h="0" data-pts="-1,-0.25,A|-2,-0.2222,B|0,0,(0, 0)" data-cap="Graph of f(x) = x/(x - 1)^2 with vertical asymptote x = 1 and horizontal asymptote y = 0 (dashed). A is the local minimum (-1, -1/4) and B is the inflection point (-2, -2/9)."></div></li>
+</ol><p class="final">Answer: (a) Domain \(x \ne 1\); the only intercept is \((0, 0)\); vertical asymptote \(x = 1\) and horizontal asymptote \(y = 0\). (b) Decreasing on \((-\infty, -1)\) and \((1, \infty)\), increasing on \((-1, 1)\); local minimum \(\left(-1, -\tfrac{1}{4}\right)\) and no local maximum. (c) Concave down on \((-\infty, -2)\), concave up on \((-2, 1)\) and \((1, \infty)\); inflection point \(\left(-2, -\tfrac{2}{9}\right)\). (d) The graph is shown above.</p>
+<p class="say"><b>Where the points are.</b> In (a), 1 point for the vertical asymptote with its reason and 1 for the horizontal asymptote. In (b), 2 points for a correct, simplified \(f'\) and 1 for the sign chart and the local minimum. In (c), 2 points for \(f''\) and 1 for the concavity intervals and the inflection point. In (d), 2 points for a sketch whose shape matches the charts, with the asymptotes drawn and the points labeled. Forgetting to put \(x = 1\) in the sign charts, or calling \(x = 1\) a critical number, are the usual losses.</p></div></details></div>
+
+<div class="q" id="u17-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Evaluate each limit. Show that L'Hospital's rule applies each time you use it.<br>(a) (6 points) \(\displaystyle\lim_{x \to 0}\frac{e^{2x} - 1 - 2x}{1 - \cos x}\)<br>(b) (4 points) \(\displaystyle\lim_{x \to \infty}\frac{\ln\left(1 + e^{3x}\right)}{x}\)</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Check the form at \(x = 0\). The numerator is \(e^0 - 1 - 0 = 1 - 1 = 0\) and the denominator is \(1 - \cos 0 = 1 - 1 = 0\). This is the indeterminate form \(\tfrac{0}{0}\), so L'Hospital's rule applies: replace the numerator and the denominator by their derivatives (separately, not with the quotient rule).</li>
+<li>Differentiate the top and the bottom. By the chain rule \(\tfrac{d}{dx}e^{2x} = 2e^{2x}\), and \(\tfrac{d}{dx}(1 - \cos x) = \sin x\). \[\lim_{x \to 0}\frac{e^{2x} - 1 - 2x}{1 - \cos x} = \lim_{x \to 0}\frac{2e^{2x} - 2}{\sin x}.\]</li>
+<li>Check the form again. At \(x = 0\) the new numerator is \(2e^0 - 2 = 0\) and the new denominator is \(\sin 0 = 0\). It is \(\tfrac{0}{0}\) again, so apply L'Hospital's rule a second time. \[\lim_{x \to 0}\frac{2e^{2x} - 2}{\sin x} = \lim_{x \to 0}\frac{4e^{2x}}{\cos x}.\]</li>
+<li>Now substitute, since the denominator is no longer 0. \[\lim_{x \to 0}\frac{4e^{2x}}{\cos x} = \frac{4e^0}{\cos 0} = \frac{4}{1} = 4.\]</li>
+<li>(b) Check the form as \(x \to \infty\). Since \(e^{3x} \to \infty\), we have \(1 + e^{3x} \to \infty\) and so \(\ln\left(1 + e^{3x}\right) \to \infty\). The denominator \(x \to \infty\) too. This is the indeterminate form \(\tfrac{\infty}{\infty}\), so L'Hospital's rule applies.</li>
+<li>Differentiate the top with the chain rule: \(\dfrac{d}{dx}\ln\left(1 + e^{3x}\right) = \dfrac{1}{1 + e^{3x}}\cdot 3e^{3x}\). The derivative of the bottom is 1. \[\lim_{x \to \infty}\frac{\ln\left(1 + e^{3x}\right)}{x} = \lim_{x \to \infty}\frac{3e^{3x}}{1 + e^{3x}}.\]</li>
+<li>This is still \(\tfrac{\infty}{\infty}\), but algebra finishes it faster than another round of L'Hospital's rule. Divide the top and the bottom by \(e^{3x}\), and use \(e^{-3x} \to 0\) as \(x \to \infty\). \[\lim_{x \to \infty}\frac{3e^{3x}}{1 + e^{3x}} = \lim_{x \to \infty}\frac{3}{e^{-3x} + 1} = \frac{3}{0 + 1} = 3.\] (Applying L'Hospital's rule again gives \(\dfrac{9e^{3x}}{3e^{3x}} = 3\), the same answer.)</li>
+</ol><p class="final">Answer: (a) The limit is 4. (b) The limit is 3.</p>
+<p class="say"><b>Where the points are.</b> In (a), about 1 point for checking \(\tfrac{0}{0}\) the first time, 2 for the first derivatives, 1 for checking \(\tfrac{0}{0}\) again, and 2 for the second round and the value 4. In (b), 1 point for checking \(\tfrac{\infty}{\infty}\), 2 for differentiating \(\ln(1 + e^{3x})\) with the chain rule, and 1 for the value 3. Using the quotient rule on the fraction instead of differentiating top and bottom separately loses most of the points.</p></div></details></div>
+
+<div class="q" id="u17-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Consider the curve \(\sqrt{x + y} + xy^2 = 5\).<br>(a) (5 points) Use implicit differentiation to find \(\dfrac{dy}{dx}\).<br>(b) (3 points) Show that the point \((3, 1)\) is on the curve, and find an equation of the tangent line to the curve at \((3, 1)\).<br>(c) (2 points) There is a point on the curve near \((3, 1)\) whose \(x\)-coordinate is 2.9. Use the tangent line from (b) to estimate its \(y\)-coordinate.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). Each derivative of an expression in \(y\) picks up a factor of \(\dfrac{dy}{dx}\), which we write \(y'\).</li>
+<li>Differentiate the square root with the chain rule. Write \(\sqrt{x + y} = (x + y)^{1/2}\). The outside derivative is \(\tfrac{1}{2}(x + y)^{-1/2}\) and the derivative of the inside \(x + y\) is \(1 + y'\). \[\frac{d}{dx}\sqrt{x + y} = \frac{1 + y'}{2\sqrt{x + y}}.\]</li>
+<li>Differentiate \(xy^2\) with the product rule, with \(u = x\), \(v = y^2\), \(u' = 1\), \(v' = 2y\,y'\). \[\frac{d}{dx}\left(xy^2\right) = y^2 + 2xy\,y'.\] The right side is the constant 5, with derivative 0.</li>
+<li>Write the differentiated equation. \[\frac{1 + y'}{2\sqrt{x + y}} + y^2 + 2xy\,y' = 0.\]</li>
+<li>Clear the fraction by multiplying every term by \(2\sqrt{x + y}\). \[1 + y' + 2y^2\sqrt{x + y} + 4xy\sqrt{x + y}\,y' = 0.\]</li>
+<li>Collect the \(y'\) terms on the left, move the rest to the right, and factor. \[\begin{aligned}y' + 4xy\sqrt{x + y}\,y' &= -1 - 2y^2\sqrt{x + y}\\ y'\left(1 + 4xy\sqrt{x + y}\right) &= -\left(1 + 2y^2\sqrt{x + y}\right)\\ y' &= -\frac{1 + 2y^2\sqrt{x + y}}{1 + 4xy\sqrt{x + y}}.\end{aligned}\]</li>
+<li>(b) Check the point. With \(x = 3\), \(y = 1\): \(\sqrt{3 + 1} + 3(1)^2 = 2 + 3 = 5\), which is the right side. So \((3, 1)\) is on the curve. Note that \(\sqrt{x + y} = 2\) there.</li>
+<li>Find the slope by substituting \(x = 3\), \(y = 1\), \(\sqrt{x + y} = 2\). \[\begin{aligned}y' &= -\frac{1 + 2(1)^2(2)}{1 + 4(3)(1)(2)}\\ &= -\frac{1 + 4}{1 + 24} = -\frac{5}{25} = -\frac{1}{5}.\end{aligned}\]</li>
+<li>Write the tangent line with the point-slope formula and simplify. \[\begin{aligned}y - 1 &= -\frac{1}{5}(x - 3)\\ y &= -\frac{1}{5}x + \frac{3}{5} + 1\\ y &= -\frac{1}{5}x + \frac{8}{5}.\end{aligned}\]</li>
+<li>(c) Near the point of tangency, the curve and its tangent line are close, so the tangent line gives a linear approximation of the curve. Substitute \(x = 2.9\) into the tangent line. \[y \approx -\frac{2.9}{5} + \frac{8}{5} = \frac{8 - 2.9}{5} = \frac{5.1}{5} = 1.02.\] The same estimate in differential notation: \(dx = 2.9 - 3 = -0.1\), so \(dy = y'\,dx = \left(-\tfrac{1}{5}\right)(-0.1) = 0.02\) and \(y \approx 1 + 0.02 = 1.02\).</li>
+</ol><p class="final">Answer: (a) \(\dfrac{dy}{dx} = -\dfrac{1 + 2y^2\sqrt{x + y}}{1 + 4xy\sqrt{x + y}}\). (b) The slope at \((3, 1)\) is \(-\tfrac{1}{5}\), and the tangent line is \(y = -\tfrac{1}{5}x + \tfrac{8}{5}\). (c) \(y \approx 1.02\).</p>
+<p class="say"><b>Where the points are.</b> In (a), about 2 points for the chain rule on the square root (including the \(1 + y'\) factor, which is the step most people miss), 1 for the product rule on \(xy^2\), and 2 for solving for \(y'\). In (b), 1 point for checking the point, 1 for the slope, and 1 for the line. In (c), 1 point for using the tangent line (or \(dy = y'\,dx\)) and 1 for the value 1.02.</p></div></details></div>
+
+<div class="q" id="u17-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">A water tank has the shape of an inverted cone (vertex at the bottom) that is 10 feet tall, with a radius of 5 feet at the top. Water is pumped into the tank at a rate of 6 cubic feet per minute, but at the same time water leaks out through a hole at the bottom. At the instant when the water is 4 feet deep, the water level is falling at \(\tfrac{1}{4}\) foot per minute.<br>(a) (7 points) At what rate is water leaking out of the tank at that instant?<br>(b) (3 points) At that instant, how fast is the area of the water's surface changing?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<ellipse cx="160" cy="30" rx="100" ry="12" stroke="currentColor" fill="none"/>
+<line x1="60" y1="30" x2="160" y2="180" stroke="currentColor" fill="none"/>
+<line x1="260" y1="30" x2="160" y2="180" stroke="currentColor" fill="none"/>
+<ellipse cx="160" cy="120" rx="40" ry="6" stroke="currentColor" fill="none"/>
+<line x1="160" y1="30" x2="260" y2="30" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<line x1="160" y1="120" x2="200" y2="120" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<line x1="160" y1="120" x2="160" y2="180" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<line x1="285" y1="30" x2="285" y2="180" stroke="currentColor" fill="none" stroke-dasharray="2,3"/>
+<text x="205" y="24" fill="currentColor" stroke="none" font-size="14">5</text>
+<text x="292" y="110" fill="currentColor" stroke="none" font-size="14">10</text>
+<text x="176" y="115" fill="currentColor" stroke="none" font-size="14">r</text>
+<text x="166" y="158" fill="currentColor" stroke="none" font-size="14">h</text>
+</svg>
+<ol class="steps">
+<li>(a) Name the variables with units. Let \(t\) be time in minutes, \(h\) the depth of the water in feet, \(r\) the radius of the water's surface in feet, \(V\) the volume of water in cubic feet, and \(L\) the rate in cubic feet per minute at which water leaks out (the unknown).</li>
+<li>Write what is given and what is wanted. The level is falling, so \(\dfrac{dh}{dt} = -\tfrac{1}{4}\) ft/min when \(h = 4\). The volume changes at the rate in minus the rate out: \[\frac{dV}{dt} = 6 - L.\] Wanted: \(L\) at that instant.</li>
+<li>Relate \(r\) to \(h\) with similar triangles. The water forms a smaller cone with the same shape as the tank, so the ratio of radius to height is the same as for the full tank. \[\frac{r}{h} = \frac{5}{10}, \quad\text{so}\quad r = \frac{h}{2}.\]</li>
+<li>Write the volume in terms of \(h\) alone. \[\begin{aligned}V &= \frac{1}{3}\pi r^2 h = \frac{1}{3}\pi\left(\frac{h}{2}\right)^2 h\\ &= \frac{1}{3}\pi\cdot\frac{h^2}{4}\cdot h = \frac{\pi h^3}{12}.\end{aligned}\]</li>
+<li>Differentiate both sides with respect to \(t\), using the chain rule on \(h^3\). \[\frac{dV}{dt} = \frac{\pi}{12}\cdot 3h^2\frac{dh}{dt} = \frac{\pi h^2}{4}\frac{dh}{dt}.\]</li>
+<li>Substitute \(h = 4\) and \(\dfrac{dh}{dt} = -\tfrac{1}{4}\). \[\frac{dV}{dt} = \frac{\pi (4)^2}{4}\cdot\left(-\frac{1}{4}\right) = 4\pi\cdot\left(-\frac{1}{4}\right) = -\pi.\] So the volume is decreasing at \(\pi\) cubic feet per minute.</li>
+<li>Solve for the leak rate. \[\begin{aligned}6 - L &= -\pi\\ L &= 6 + \pi.\end{aligned}\] This is positive and larger than the inflow, which matches the falling water level.</li>
+<li>(b) Write the area of the water's surface in terms of \(h\). The surface is a circle of radius \(r = \tfrac{h}{2}\). \[A = \pi r^2 = \pi\left(\frac{h}{2}\right)^2 = \frac{\pi h^2}{4}.\]</li>
+<li>Differentiate with respect to \(t\) and substitute. \[\begin{aligned}\frac{dA}{dt} &= \frac{\pi}{4}\cdot 2h\frac{dh}{dt} = \frac{\pi h}{2}\frac{dh}{dt}\\ &= \frac{\pi (4)}{2}\cdot\left(-\frac{1}{4}\right) = 2\pi\cdot\left(-\frac{1}{4}\right) = -\frac{\pi}{2}.\end{aligned}\]</li>
+</ol><p class="final">Answer: (a) Water is leaking out at \(6 + \pi\) cubic feet per minute. (b) The area of the water's surface is decreasing at \(\tfrac{\pi}{2}\) square feet per minute (\(\tfrac{dA}{dt} = -\tfrac{\pi}{2}\)).</p>
+<p class="say"><b>Where the points are.</b> In (a), about 1 point for variables and a labeled picture, 2 for \(r = \tfrac{h}{2}\) and \(V = \tfrac{\pi h^3}{12}\), 2 for differentiating with respect to \(t\), 1 for \(\tfrac{dV}{dt} = 6 - L\) with the correct sign on \(\tfrac{dh}{dt}\), and 1 for \(6 + \pi\) with units. In (b), 1 point for \(A = \tfrac{\pi h^2}{4}\), 1 for \(\tfrac{dA}{dt}\), and 1 for the value with the word "decreasing."</p></div></details></div>
+
+<div class="q" id="u17-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">A closed rectangular box must have a volume of 144 cubic feet, and the length of its base must be twice the width of its base. The material for the bottom costs $5 per square foot, the material for the top costs $3 per square foot, and the material for the four sides costs $2 per square foot.<br>(a) (4 points) Write the total cost of the material as a function of the width of the base, and state its domain.<br>(b) (6 points) Find the dimensions of the box that minimize the total cost, find the minimum cost, and explain why your answer gives the smallest possible cost.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="60" y="80" width="160" height="90" stroke="currentColor" fill="none"/>
+<path d="M60 80 L110 40 L270 40 L220 80" stroke="currentColor" fill="none"/>
+<path d="M270 40 L270 130 L220 170" stroke="currentColor" fill="none"/>
+<text x="132" y="188" fill="currentColor" stroke="none" font-size="14">2x</text>
+<text x="250" y="166" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="44" y="130" fill="currentColor" stroke="none" font-size="14">h</text>
+</svg>
+<ol class="steps">
+<li>(a) Name the variables with units. Let \(x\) be the width of the base in feet, so the length of the base is \(2x\) feet, let \(h\) be the height in feet, and let \(C\) be the total cost in dollars.</li>
+<li>Write the constraint and solve it for \(h\). The volume is length times width times height. \[\begin{aligned}(2x)(x)h &= 144\\ 2x^2 h &= 144\\ h &= \frac{72}{x^2}.\end{aligned}\]</li>
+<li>Find the area of each kind of surface. The bottom and the top are each \(2x\) by \(x\), with area \(2x^2\). Two of the sides are \(x\) by \(h\) and the other two are \(2x\) by \(h\), so the four sides together have area \[2(xh) + 2(2xh) = 2xh + 4xh = 6xh.\]</li>
+<li>Multiply each area by its price and add. \[\begin{aligned}C &= 5\left(2x^2\right) + 3\left(2x^2\right) + 2\left(6xh\right)\\ &= 10x^2 + 6x^2 + 12xh\\ &= 16x^2 + 12xh.\end{aligned}\]</li>
+<li>Substitute \(h = \tfrac{72}{x^2}\) to get a function of \(x\) alone. \[C(x) = 16x^2 + 12x\cdot\frac{72}{x^2} = 16x^2 + \frac{864}{x}.\] The width must be positive and \(x\) is in a denominator, so the domain is \(x \gt 0\), the interval \((0, \infty)\).</li>
+<li>(b) Differentiate, writing \(\tfrac{864}{x} = 864x^{-1}\). \[C'(x) = 32x - 864x^{-2} = 32x - \frac{864}{x^2}.\]</li>
+<li>Find the critical numbers. \(C'\) is undefined only at \(x = 0\), which is not in the domain, so solve \(C'(x) = 0\). \[\begin{aligned}32x - \frac{864}{x^2} &= 0\\ 32x &= \frac{864}{x^2}\\ 32x^3 &= 864\\ x^3 &= 27\\ x &= 3.\end{aligned}\] (To divide without a calculator: \(864 = 32\cdot 27\), since \(32\cdot 27 = 32\cdot 25 + 32\cdot 2 = 800 + 64\).)</li>
+<li>Justify that this is the smallest cost. The second derivative is \[C''(x) = 32 + 1728x^{-3} = 32 + \frac{1728}{x^3},\] which is positive for every \(x \gt 0\). So \(C\) is concave up on all of \((0, \infty)\), and \(x = 3\) is its only critical number there. Therefore \(C(3)\) is the absolute minimum of \(C\) on its domain: no other box that meets the requirements costs less.</li>
+<li>Find the other dimensions and the cost. \[\begin{aligned}\text{length} &= 2(3) = 6,\\ h &= \frac{72}{3^2} = \frac{72}{9} = 8,\\ C(3) &= 16(9) + \frac{864}{3} = 144 + 288 = 432.\end{aligned}\] As a check on the volume: \(6\cdot 3\cdot 8 = 144\).</li>
+</ol><p class="final">Answer: (a) \(C(x) = 16x^2 + \dfrac{864}{x}\) dollars, with domain \(x \gt 0\), where \(x\) is the width of the base in feet. (b) The base should be 3 feet wide and 6 feet long, and the box 8 feet tall. The minimum cost is $432. This is the smallest possible cost because \(C''(x) = 32 + \tfrac{1728}{x^3} \gt 0\) on \((0, \infty)\) and \(x = 3\) is the only critical number.</p>
+<p class="say"><b>Where the points are.</b> In (a), about 1 point for the variables, 2 for the cost \(16x^2 + 12xh\) (each surface with its own price), and 1 for substituting \(h\) and giving the domain. In (b), 2 points for \(C'\) and \(x = 3\), 2 for the justification sentence, and 2 for all three dimensions and the minimum cost with units. Charging the top and bottom the same price, or counting only two sides, are the setup errors that cost the most.</p></div></details></div>
+</section><div class="pager"><a href="u16.html">Back: Mock Midterm B</a><a href="u18.html">Next: Everything to memorize</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

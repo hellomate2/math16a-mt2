@@ -1,0 +1,604 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Derivative rules: power, sum, product, quotient | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 4.1, 4.2</p><h1>Derivative rules: power, sum, product, quotient</h1><p class="sub">Constant, power, constant multiple, sum and difference, product, and quotient rules. Marginal cost, revenue, profit.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 4.1: Techniques for finding derivatives</h2>
+
+<h3>Why we need rules</h3>
+<p>The <b>derivative</b> of a function \(f\) at \(x\) is the slope of the tangent line to the graph of \(f\) at that point, and it is also the instantaneous rate of change of \(f\). Until now you found it with the limit definition</p>
+\[f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}.\]
+<p>That works, but it is slow, and for a function like \(\dfrac{\sqrt{x} + 1}{x^2 + 3}\) the algebra would be painful. Chapter 4 replaces the limit with a short list of rules. Each rule was proved once with the limit definition (the professor does the proofs in lecture), so you can now use the rules directly. Some rules are general and tell you how to handle sums, differences, constant multiples, products, and quotients. Others are specific and give the derivative of one kind of function, like a power of \(x\).</p>
+
+<h3>Notation</h3>
+<p>There are four common ways to write the derivative of \(y = f(x)\). They all mean the same thing:</p>
+\[f'(x), \qquad \frac{dy}{dx}, \qquad \frac{d}{dx}\big[f(x)\big], \qquad D_x\big[f(x)\big].\]
+<p>The symbol \(\dfrac{d}{dx}\) is an instruction that says "take the derivative with respect to \(x\) of whatever comes next." The symbol \(D_x\) is the same instruction written differently. The form \(\dfrac{dy}{dx}\) is used when the function is named \(y\). For example, if \(y = x^2\), then \(f'(x) = 2x\), \(\dfrac{dy}{dx} = 2x\), \(\dfrac{d}{dx}\big[x^2\big] = 2x\), and \(D_x\big[x^2\big] = 2x\) are four ways of writing one fact. On the exam you may see any of them.</p>
+
+<h3>The constant rule</h3>
+<p>The graph of a constant function \(f(x) = k\) is a horizontal line. At every point, the tangent line is that same horizontal line, and a horizontal line has slope 0. In the language of rates, a constant never changes, so its rate of change is 0.</p>
+<div class="rule"><div class="rt">Constant rule</div>
+<p>If \(f(x) = k\), where \(k\) is any real number, then \(f'(x) = 0\). In short form, \(k' = 0\).</p></div>
+<p>For example, \(\dfrac{d}{dx}[7] = 0\), \(\dfrac{d}{dx}[-12] = 0\), and \(\dfrac{d}{dx}\big[\pi^2\big] = 0\). The last one catches people: \(\pi^2\) is about 9.87, a fixed number, so its derivative is 0. It is not \(2\pi\), because \(\pi\) is not the variable.</p>
+
+<h3>The power rule</h3>
+<p>From the limit definition you already found that the derivative of \(x\) is 1, the derivative of \(x^2\) is \(2x\), the derivative of \(x^3\) is \(3x^2\), the derivative of \(\dfrac{1}{x}\) is \(-\dfrac{1}{x^2}\), and the derivative of \(\sqrt{x}\) is \(\dfrac{1}{2\sqrt{x}}\). All of these are cases of one formula. Bring the exponent down in front as a multiplier, then lower the exponent by 1.</p>
+<div class="rule"><div class="rt">Power rule</div>
+<p>If \(r\) is any real number, then</p>
+\[\frac{d}{dx}\big[x^r\big] = r\,x^{r-1}.\]
+<p>This holds for positive, negative, and fractional exponents, and even for exponents like \(\pi\).</p></div>
+<p>The power rule only applies to something written in the form \(x^r\). A fraction with \(x\) in the denominator or a root of \(x\) has to be rewritten as a power first. These are the rewriting facts you need:</p>
+\[\frac{1}{x^n} = x^{-n}, \qquad \sqrt{x} = x^{1/2}, \qquad \sqrt[3]{x} = x^{1/3}, \qquad \sqrt[n]{x^m} = x^{m/n}, \qquad \frac{1}{\sqrt{x}} = x^{-1/2}.\]
+<p>After you differentiate, it is good practice (and what the textbook does) to rewrite negative and fractional exponents back as fractions and roots in the final answer. Either form is correct.</p>
+
+<div class="ex"><div class="et">Worked example 1</div><p class="p">Find the derivative of each function: (a) \(y = x^8\), (b) \(f(x) = \dfrac{1}{x^3}\), (c) \(g(x) = \sqrt[3]{x}\), (d) \(h(x) = \dfrac{1}{\sqrt{x}}\), (e) \(k(x) = x^{\pi}\).</p>
+<ol class="steps">
+<li>Part (a) is already a power of \(x\) with \(r = 8\). Apply the power rule: bring down the 8 and lower the exponent to \(8 - 1 = 7\).
+\[\frac{dy}{dx} = 8x^{8-1} = 8x^7\]</li>
+<li>For part (b), rewrite the fraction as a power. A power in the denominator moves to the numerator with the sign of the exponent flipped.
+\[f(x) = \frac{1}{x^3} = x^{-3}\]</li>
+<li>Apply the power rule with \(r = -3\). The new exponent is \(-3 - 1 = -4\), which is more negative, not \(-2\).
+\[f'(x) = -3x^{-3-1} = -3x^{-4} = -\frac{3}{x^4}\]</li>
+<li>For part (c), rewrite the cube root as a power: the cube root of \(x\) is \(x\) to the one third.
+\[g(x) = \sqrt[3]{x} = x^{1/3}\]</li>
+<li>Apply the power rule with \(r = \tfrac{1}{3}\). The new exponent is \(\tfrac{1}{3} - 1 = \tfrac{1}{3} - \tfrac{3}{3} = -\tfrac{2}{3}\). Then move the negative power to the denominator and turn it back into a root, using \(x^{2/3} = \sqrt[3]{x^2}\).
+\[g'(x) = \frac{1}{3}x^{1/3 - 1} = \frac{1}{3}x^{-2/3} = \frac{1}{3x^{2/3}} = \frac{1}{3\sqrt[3]{x^2}}\]</li>
+<li>For part (d), rewrite the square root as the power \(\tfrac{1}{2}\), and then move it up from the denominator.
+\[h(x) = \frac{1}{\sqrt{x}} = \frac{1}{x^{1/2}} = x^{-1/2}\]</li>
+<li>Apply the power rule with \(r = -\tfrac{1}{2}\). The new exponent is \(-\tfrac{1}{2} - 1 = -\tfrac{3}{2}\). Since \(x^{3/2} = x^1 \cdot x^{1/2} = x\sqrt{x}\), the answer can be written with a root.
+\[h'(x) = -\frac{1}{2}x^{-1/2 - 1} = -\frac{1}{2}x^{-3/2} = -\frac{1}{2x^{3/2}} = -\frac{1}{2x\sqrt{x}}\]</li>
+<li>For part (e), the exponent \(\pi\) is just a real number, so the power rule applies with \(r = \pi\).
+\[k'(x) = \pi x^{\pi - 1}\]</li>
+</ol><p class="final">Answer: (a) \(8x^7\); (b) \(-3x^{-4} = -\dfrac{3}{x^4}\); (c) \(\dfrac{1}{3}x^{-2/3} = \dfrac{1}{3\sqrt[3]{x^2}}\); (d) \(-\dfrac{1}{2}x^{-3/2} = -\dfrac{1}{2x\sqrt{x}}\); (e) \(\pi x^{\pi-1}\).</p></div>
+
+<div class="trap"><b>Common mistake: differentiating a root or a fraction without rewriting it.</b> The power rule needs the form \(x^r\). Writing \(\dfrac{d}{dx}\left[\dfrac{1}{x^3}\right] = \dfrac{1}{3x^2}\) is wrong: that treats the denominator as if it could be differentiated by itself. Rewrite \(\dfrac{1}{x^3} = x^{-3}\) first. The same goes for roots: \(\sqrt[3]{x}\) must become \(x^{1/3}\) before anything else happens.</div>
+<div class="trap"><b>Common mistake: subtracting 1 from a negative exponent in the wrong direction.</b> For \(x^{-3}\), the new exponent is \(-3 - 1 = -4\). Students often write \(-2\) because they move toward zero. Subtracting 1 always moves the exponent one step to the left on the number line.</div>
+<div class="trap"><b>Common mistake: a coefficient in the denominator.</b> \(\dfrac{5}{x^2} = 5x^{-2}\), but \(\dfrac{1}{5x^2} = \dfrac{1}{5}x^{-2}\). Only the power of \(x\) moves up. The 5 in \(\dfrac{1}{5x^2}\) stays in the denominator as \(\tfrac{1}{5}\).</div>
+
+<h3>The constant multiple rule and the sum and difference rule</h3>
+<p>If you stretch a graph vertically by a factor of \(k\), every slope gets multiplied by \(k\) too. That is the constant multiple rule: a constant factor just waits outside while you differentiate the rest. And the rate of change of a sum is the sum of the rates of change, so you can differentiate a sum or difference one term at a time.</p>
+<div class="rule"><div class="rt">Constant multiple rule</div>
+<p>If \(k\) is a constant and \(g\) is differentiable, then</p>
+\[\frac{d}{dx}\big[k\,g(x)\big] = k\,g'(x). \qquad \text{In short form, } (kg)' = k\,g'.\]</div>
+<div class="rule"><div class="rt">Sum and difference rule</div>
+<p>If \(f\) and \(g\) are differentiable, then</p>
+\[\frac{d}{dx}\big[f(x) \pm g(x)\big] = f'(x) \pm g'(x). \qquad \text{In short form, } (f \pm g)' = f' \pm g'.\]</div>
+<p>For example, \(\dfrac{d}{dx}\big[6x^5\big] = 6 \cdot 5x^4 = 30x^4\), and \(\dfrac{d}{dx}\big[x^2 + x^3\big] = 2x + 3x^2\). Together with the constant rule and the power rule, these let you differentiate any polynomial and any sum of powers of \(x\) term by term.</p>
+
+<div class="ex"><div class="et">Worked example 2</div><p class="p">Find \(f'(x)\) for \(f(x) = 5x^4 - \dfrac{8}{x^2} + 6\sqrt[3]{x} - 9\).</p>
+<ol class="steps">
+<li>Rewrite every term as a constant times a power of \(x\). The fraction becomes \(\dfrac{8}{x^2} = 8x^{-2}\) and the cube root becomes \(6\sqrt[3]{x} = 6x^{1/3}\).
+\[f(x) = 5x^4 - 8x^{-2} + 6x^{1/3} - 9\]</li>
+<li>By the sum and difference rule, differentiate each of the four terms separately and keep the signs between them.
+\[f'(x) = \frac{d}{dx}\big[5x^4\big] - \frac{d}{dx}\big[8x^{-2}\big] + \frac{d}{dx}\big[6x^{1/3}\big] - \frac{d}{dx}[9]\]</li>
+<li>Use the constant multiple rule and the power rule on each term. The new exponents are \(4 - 1 = 3\), \(-2 - 1 = -3\), and \(\tfrac{1}{3} - 1 = -\tfrac{2}{3}\). The constant rule gives \(\dfrac{d}{dx}[9] = 0\).
+\[f'(x) = 5 \cdot 4x^{3} - 8 \cdot (-2)x^{-3} + 6 \cdot \frac{1}{3}x^{-2/3} - 0\]</li>
+<li>Multiply out the coefficients. Note that \(-8 \cdot (-2) = +16\), so the middle sign changes from minus to plus.
+\[f'(x) = 20x^3 + 16x^{-3} + 2x^{-2/3}\]</li>
+<li>Rewrite with positive exponents, using \(x^{-2/3} = \dfrac{1}{\sqrt[3]{x^2}}\).
+\[f'(x) = 20x^3 + \frac{16}{x^3} + \frac{2}{\sqrt[3]{x^2}}\]</li>
+</ol><p class="final">Answer: \(f'(x) = 20x^3 + 16x^{-3} + 2x^{-2/3} = 20x^3 + \dfrac{16}{x^3} + \dfrac{2}{\sqrt[3]{x^2}}\)</p></div>
+
+<div class="recipe"><div class="rt">How to differentiate a sum of powers of x</div><ol>
+<li>Rewrite every root as a fractional power and every \(\dfrac{1}{x^n}\) as \(x^{-n}\). Keep each coefficient with its term.</li>
+<li>Differentiate term by term (sum and difference rule), keeping each constant multiplier out front (constant multiple rule).</li>
+<li>On each power, bring the exponent down and subtract 1 from it (power rule). A constant term becomes 0 (constant rule).</li>
+<li>Multiply coefficients carefully, watching for a negative times a negative.</li>
+<li>Rewrite the answer with positive exponents and roots if you like.</li>
+</ol></div>
+
+<h3>Marginal cost, marginal revenue, and marginal profit</h3>
+<p>In economics, three functions of \(x\), the number of units produced and sold, come up constantly. The <b>cost function</b> \(C(x)\) is the total cost of producing \(x\) units. The <b>revenue function</b> \(R(x)\) is the total money taken in from selling \(x\) units. If each unit sells for price \(p\), then \(R(x) = x \cdot p\). The <b>profit function</b> is \(P(x) = R(x) - C(x)\).</p>
+<p>The word <b>marginal</b> means derivative. The marginal cost is \(C'(x)\), the marginal revenue is \(R'(x)\), and the marginal profit is \(P'(x)\). Because a derivative is a rate of change, \(C'(x)\) measures how fast cost grows per additional unit. When \(x\) increases by 1, the cost changes by approximately \(C'(x)\). So \(C'(100)\) is approximately \(C(101) - C(100)\), the cost of making the 101st unit.</p>
+<div class="say"><b>What to write on the exam.</b> To interpret \(C'(100) = 40\), write: "When 100 units have been produced, the cost of producing one more unit (the 101st) is approximately $40." Use the same sentence for revenue and profit with the words changed: "selling one more unit increases revenue by about ..." or "increases profit by about ...". A negative marginal profit means one more unit decreases profit.</div>
+
+<div class="ex"><div class="et">Worked example 3</div><p class="p">A company's cost of producing \(x\) units is \(C(x) = 1500 + 20x + 0.1x^2\) dollars, and the demand function is \(p = 100 - 0.2x\), where \(p\) is the price in dollars at which \(x\) units can be sold. (a) Find the marginal cost function and \(C'(100)\), interpret it, and compare with the exact cost of the 101st unit. (b) Find the revenue function and the marginal revenue at \(x = 100\). (c) Find the marginal profit function and \(P'(100)\), and interpret it.</p>
+<ol class="steps">
+<li>(a) Differentiate \(C\) term by term with the constant, constant multiple, and power rules.
+\[C'(x) = 0 + 20 + 0.1 \cdot 2x = 20 + 0.2x\]</li>
+<li>(a) Substitute \(x = 100\).
+\[C'(100) = 20 + 0.2(100) = 20 + 20 = 40\]
+When 100 units have been produced, the cost of producing the 101st unit is approximately $40.</li>
+<li>(a) Compute the exact cost of the 101st unit, \(C(101) - C(100)\), to see how good the approximation is.
+\[\begin{aligned} C(101) &= 1500 + 20(101) + 0.1(101)^2 = 1500 + 2020 + 0.1(10201) = 1500 + 2020 + 1020.1 = 4540.1 \\ C(100) &= 1500 + 20(100) + 0.1(100)^2 = 1500 + 2000 + 1000 = 4500 \\ C(101) - C(100) &= 4540.1 - 4500 = 40.1 \end{aligned}\]
+The exact cost is $40.10, very close to the marginal cost of $40.</li>
+<li>(b) Revenue is the number of units times the price per unit. Substitute the demand function for \(p\) and distribute.
+\[R(x) = x \cdot p = x(100 - 0.2x) = 100x - 0.2x^2\]</li>
+<li>(b) Differentiate with the power rule and substitute \(x = 100\).
+\[\begin{aligned} R'(x) &= 100 - 0.4x \\ R'(100) &= 100 - 0.4(100) = 100 - 40 = 60 \end{aligned}\]
+Selling the 101st unit increases revenue by approximately $60.</li>
+<li>(c) Profit is revenue minus cost. Put the whole cost function in parentheses so the minus sign reaches every term, then combine like terms.
+\[\begin{aligned} P(x) &= (100x - 0.2x^2) - (1500 + 20x + 0.1x^2) \\ &= 100x - 0.2x^2 - 1500 - 20x - 0.1x^2 \\ &= -0.3x^2 + 80x - 1500 \end{aligned}\]</li>
+<li>(c) Differentiate and substitute \(x = 100\).
+\[\begin{aligned} P'(x) &= -0.6x + 80 \\ P'(100) &= -0.6(100) + 80 = -60 + 80 = 20 \end{aligned}\]
+As a check, \(P'(100) = R'(100) - C'(100) = 60 - 40 = 20\), the same number. When 100 units have been sold, selling one more unit increases profit by approximately $20.</li>
+</ol><p class="final">Answer: (a) \(C'(x) = 20 + 0.2x\), \(C'(100) = 40\): the 101st unit costs about $40 (exactly $40.10). (b) \(R(x) = 100x - 0.2x^2\), \(R'(100) = 60\). (c) \(P'(x) = 80 - 0.6x\), \(P'(100) = 20\): the 101st unit adds about $20 of profit.</p></div>
+
+<h3>Tangent lines and horizontal tangents</h3>
+<p>The derivative \(f'(a)\) is the slope of the tangent line to \(y = f(x)\) at the point \((a, f(a))\). A line through the point \((x_1, y_1)\) with slope \(m\) has <b>point-slope form</b> \(y - y_1 = m(x - x_1)\). Putting these together gives the tangent line.</p>
+<div class="rule"><div class="rt">Tangent line at x = a</div>
+\[y - f(a) = f'(a)\,(x - a)\]</div>
+<p>A tangent line is <b>horizontal</b> exactly when its slope is 0. So the graph of \(f\) has a horizontal tangent at every \(x\) where \(f'(x) = 0\).</p>
+<div class="recipe"><div class="rt">How to find the tangent line at x = a</div><ol>
+<li>Find the point: compute \(y_1 = f(a)\) with the original function \(f\).</li>
+<li>Find the slope: compute \(f'(x)\), then \(m = f'(a)\).</li>
+<li>Write \(y - y_1 = m(x - a)\) and, if asked, solve for \(y\) to get \(y = mx + b\).</li>
+<li>Check: substitute \(x = a\) into your line. You should get \(f(a)\).</li>
+</ol></div>
+<div class="recipe"><div class="rt">How to find where the tangent line is horizontal</div><ol>
+<li>Compute \(f'(x)\) and simplify it as far as possible (factor it if you can).</li>
+<li>Solve \(f'(x) = 0\). For a fraction, set the numerator equal to 0 and make sure the denominator is not 0 there.</li>
+<li>For each solution, compute the \(y\)-coordinate with \(f\), not with \(f'\), and report the points.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 4</div><p class="p">Let \(f(x) = x^3 - 3x^2 - 9x + 2\). (a) Find an equation of the tangent line to the graph of \(f\) at \(x = 1\). (b) Find all points on the graph where the tangent line is horizontal.</p>
+<ol class="steps">
+<li>(a) Find the point of tangency by substituting \(x = 1\) into \(f\).
+\[f(1) = 1^3 - 3(1)^2 - 9(1) + 2 = 1 - 3 - 9 + 2 = -9\]
+The point is \((1, -9)\).</li>
+<li>(a) Differentiate with the power rule term by term.
+\[f'(x) = 3x^2 - 6x - 9\]</li>
+<li>(a) The slope is \(f'(1)\).
+\[f'(1) = 3(1)^2 - 6(1) - 9 = 3 - 6 - 9 = -12\]</li>
+<li>(a) Write the point-slope form with \((x_1, y_1) = (1, -9)\) and \(m = -12\), then solve for \(y\).
+\[\begin{aligned} y - (-9) &= -12(x - 1) \\ y + 9 &= -12x + 12 \\ y &= -12x + 3 \end{aligned}\]
+Check: at \(x = 1\) the line gives \(-12 + 3 = -9 = f(1)\).</li>
+<li>(b) Set \(f'(x) = 0\) and factor. First factor out the common 3, then factor the quadratic.
+\[\begin{aligned} 3x^2 - 6x - 9 &= 0 \\ 3(x^2 - 2x - 3) &= 0 \\ 3(x - 3)(x + 1) &= 0 \end{aligned}\]
+So \(x = 3\) or \(x = -1\).</li>
+<li>(b) Find the \(y\)-coordinates with the original function \(f\).
+\[\begin{aligned} f(3) &= 27 - 3(9) - 9(3) + 2 = 27 - 27 - 27 + 2 = -25 \\ f(-1) &= -1 - 3(1) - 9(-1) + 2 = -1 - 3 + 9 + 2 = 7 \end{aligned}\]</li>
+</ol>
+<div class="plot" data-f="x**3-3*x**2-9*x+2;;-12*x+3" data-x="-3,5" data-y="-30,15"
+     data-pts="1,-9,tangent point (1, -9)|-1,7,horizontal tangent (-1, 7)|3,-25,horizontal tangent (3, -25)"
+     data-h="7,-25" data-cap="Graph of f(x) = x^3 - 3x^2 - 9x + 2 with its tangent line y = -12x + 3 at x = 1. The dashed lines are the two horizontal tangents."></div>
+<p class="final">Answer: (a) \(y = -12x + 3\). (b) The tangent line is horizontal at \((-1, 7)\) and \((3, -25)\).</p></div>
+
+<div class="trap"><b>Common mistake: using f' for the y-coordinate.</b> The slope comes from \(f'\), but the point comes from \(f\). In Worked example 4, \(f'(1) = -12\) is the slope. The point is \((1, f(1)) = (1, -9)\), not \((1, -12)\).</div>
+
+<h2>Section 4.2: Derivatives of products and quotients</h2>
+
+<h3>The product rule</h3>
+<p>The derivative of a sum is the sum of the derivatives, so it is tempting to guess that the derivative of a product is the product of the derivatives. That guess is false, and one tiny example proves it. Take \(u = x\) and \(v = x\). Their product is \(x \cdot x = x^2\), whose derivative is \(2x\). But \(u' \cdot v' = 1 \cdot 1 = 1\), and \(1\) is not \(2x\). The correct rule has two terms.</p>
+<div class="rule"><div class="rt">Product rule</div>
+<p>If \(u\) and \(v\) are differentiable functions of \(x\), then</p>
+\[(uv)' = u'v + uv'. \qquad \text{Equivalently, } \frac{d}{dx}\big[f(x)g(x)\big] = f'(x)g(x) + f(x)g'(x).\]
+<p>In words: the derivative of the first times the second, plus the first times the derivative of the second.</p></div>
+<p>Check it on \(x \cdot x\): \(u'v + uv' = 1 \cdot x + x \cdot 1 = 2x\), which is correct. The professor's habit, and the clean way to avoid errors, is to write down the four pieces \(u\), \(v\), \(u'\), and \(v'\) before you assemble anything.</p>
+
+<div class="ex"><div class="et">Worked example 5</div><p class="p">Use the product rule to find \(f'(x)\) for \(f(x) = (x^2 + 5)(\sqrt{x} - 2)\). Then check by multiplying out first.</p>
+<ol class="steps">
+<li>Name the two factors and rewrite the root as a power: \(\sqrt{x} = x^{1/2}\). Then differentiate each factor with the power rule.
+\[u = x^2 + 5, \qquad v = x^{1/2} - 2, \qquad u' = 2x, \qquad v' = \frac{1}{2}x^{-1/2}\]</li>
+<li>Assemble the product rule \(f' = u'v + uv'\).
+\[f'(x) = 2x\left(x^{1/2} - 2\right) + \left(x^2 + 5\right)\cdot\frac{1}{2}x^{-1/2}\]</li>
+<li>Distribute both products. Add exponents when multiplying powers: \(x \cdot x^{1/2} = x^{3/2}\) and \(x^2 \cdot x^{-1/2} = x^{3/2}\).
+\[f'(x) = 2x^{3/2} - 4x + \frac{1}{2}x^{3/2} + \frac{5}{2}x^{-1/2}\]</li>
+<li>Combine the two \(x^{3/2}\) terms: \(2 + \tfrac{1}{2} = \tfrac{5}{2}\).
+\[f'(x) = \frac{5}{2}x^{3/2} - 4x + \frac{5}{2}x^{-1/2}\]</li>
+<li>Check by multiplying out first. Expand \(f\), using \(x^2 \cdot x^{1/2} = x^{5/2}\).
+\[f(x) = x^2 \cdot x^{1/2} - 2x^2 + 5x^{1/2} - 10 = x^{5/2} - 2x^2 + 5x^{1/2} - 10\]</li>
+<li>Differentiate term by term with the power rule. The result matches.
+\[f'(x) = \frac{5}{2}x^{3/2} - 4x + \frac{5}{2}x^{-1/2}\]</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{5}{2}x^{3/2} - 4x + \dfrac{5}{2}x^{-1/2} = \dfrac{5}{2}x\sqrt{x} - 4x + \dfrac{5}{2\sqrt{x}}\)</p></div>
+
+<div class="trap"><b>Common mistake: \((uv)' = u'v'\).</b> This is wrong. For \(f(x) = (x^2 + 5)(\sqrt{x} - 2)\) it would give \(2x \cdot \tfrac{1}{2}x^{-1/2} = x^{1/2}\), which is not the derivative. Always use two terms, \(u'v + uv'\).</div>
+
+<h3>The quotient rule</h3>
+<p>The same warning applies to quotients: the derivative of \(\dfrac{u}{v}\) is not \(\dfrac{u'}{v'}\). Take \(u = x\) and \(v = x\). Then \(\dfrac{u}{v} = 1\), whose derivative is 0, but \(\dfrac{u'}{v'} = \dfrac{1}{1} = 1\).</p>
+<div class="rule"><div class="rt">Quotient rule</div>
+<p>If \(u\) and \(v\) are differentiable functions of \(x\) and \(v \neq 0\), then</p>
+\[\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}. \qquad \text{Equivalently, } \frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}.\]
+<p>Memory line, with "high" meaning the numerator and "low" meaning the denominator: <b>low d-high minus high d-low, over low squared</b>. Here "d-high" means the derivative of the top. So the numerator is (bottom)(derivative of top) minus (top)(derivative of bottom).</p></div>
+<p>The order of subtraction matters. In the product rule the two terms are added, so their order does not matter. In the quotient rule they are subtracted, and \(a - b = -(b - a)\). If you write \(uv' - u'v\) instead of \(u'v - uv'\), every term of your answer has the wrong sign. The numerator must start with the derivative of the top.</p>
+
+<div class="ex"><div class="et">Worked example 6</div><p class="p">Use the quotient rule to find \(f'(x)\) for \(f(x) = \dfrac{2x + 3}{x^2 + 1}\).</p>
+<ol class="steps">
+<li>Name the top and bottom and differentiate each.
+\[u = 2x + 3, \qquad v = x^2 + 1, \qquad u' = 2, \qquad v' = 2x\]</li>
+<li>Assemble the quotient rule \(\dfrac{u'v - uv'}{v^2}\): low d-high minus high d-low, over low squared.
+\[f'(x) = \frac{2\left(x^2 + 1\right) - (2x + 3)(2x)}{\left(x^2 + 1\right)^2}\]</li>
+<li>Expand each product in the numerator separately. Keep the second product in parentheses, because the minus sign in front applies to all of it.
+\[2\left(x^2 + 1\right) = 2x^2 + 2, \qquad (2x + 3)(2x) = 4x^2 + 6x\]</li>
+<li>Subtract. The minus sign changes the sign of both \(4x^2\) and \(6x\).
+\[\begin{aligned} 2x^2 + 2 - \left(4x^2 + 6x\right) &= 2x^2 + 2 - 4x^2 - 6x \\ &= -2x^2 - 6x + 2 \end{aligned}\]</li>
+<li>Put the simplified numerator over the denominator. Leave the denominator in factored form; expanding it only makes the answer longer.
+\[f'(x) = \frac{-2x^2 - 6x + 2}{\left(x^2 + 1\right)^2}\]</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{-2x^2 - 6x + 2}{\left(x^2 + 1\right)^2}\)</p></div>
+
+<div class="trap"><b>Common mistake: dropping the minus sign or flipping the order.</b> Writing \(\dfrac{(2x + 3)(2x) - 2(x^2 + 1)}{(x^2 + 1)^2}\) gives \(\dfrac{2x^2 + 6x - 2}{(x^2+1)^2}\), the exact negative of the right answer. Writing a plus sign instead of a minus gives something unrelated. Say "low d-high minus high d-low" in your head every time.</div>
+<div class="trap"><b>Common mistake: simplifying signs wrong.</b> In \(2x^2 + 2 - (4x^2 + 6x)\), the minus sign must reach every term inside the parentheses. Writing \(2x^2 + 2 - 4x^2 + 6x\) is the most common sign error on this topic. Always expand the second product inside parentheses first, then distribute the minus sign as its own step.</div>
+<div class="say"><b>What to write on the exam.</b> Name the rule and show its pieces: "By the quotient rule with \(u = 2x + 3\), \(v = x^2 + 1\), \(u' = 2\), \(v' = 2x\), ..." The written work is graded, and listing the pieces earns credit even if an arithmetic slip happens later.</div>
+
+<h3>When to simplify instead of using the quotient rule</h3>
+<p>If the denominator is a single term (a <b>monomial</b>, such as \(x^2\), \(5x\), or \(\sqrt{x}\)), you can divide each term of the numerator by it and use the power rule. This is faster and gives fewer chances for sign errors. For example,</p>
+\[f(x) = \frac{6x^3 - 4x + 2}{x^2} = \frac{6x^3}{x^2} - \frac{4x}{x^2} + \frac{2}{x^2} = 6x - 4x^{-1} + 2x^{-2},\]
+<p>so by the power rule</p>
+\[f'(x) = 6 - 4(-1)x^{-2} + 2(-2)x^{-3} = 6 + 4x^{-2} - 4x^{-3} = 6 + \frac{4}{x^2} - \frac{4}{x^3}.\]
+<p>The quotient rule would give the same answer after more work. When the denominator has two or more terms, like \(x^2 + 1\), you cannot split the fraction this way, because \(\dfrac{a}{b + c}\) is not \(\dfrac{a}{b} + \dfrac{a}{c}\). Then you use the quotient rule.</p>
+<div class="recipe"><div class="rt">Which rule to use</div><ol>
+<li>A sum of terms that are constants times powers of \(x\): rewrite roots and fractions as powers, then use the power rule term by term.</li>
+<li>A fraction whose denominator is one term: divide each numerator term by the denominator, then use the power rule.</li>
+<li>A product of two expressions that you do not want to multiply out: product rule.</li>
+<li>A fraction whose denominator has two or more terms: quotient rule.</li>
+</ol></div>
+
+<h3>Average cost and marginal average cost</h3>
+<p>If \(C(x)\) is the cost of producing \(x\) units, the <b>average cost function</b> is the cost per unit,</p>
+\[\overline{C}(x) = \frac{C(x)}{x}.\]
+<p>Its derivative \(\overline{C}'(x)\) is called the <b>marginal average cost</b>. It tells you how the average cost per unit changes when production goes up by one unit. Companies want the average cost to be as small as possible, and in Chapter 5 you will see that this happens where \(\overline{C}'(x) = 0\). The same words apply to revenue and profit: \(\overline{R}(x) = \dfrac{R(x)}{x}\) is the average revenue and \(\overline{P}(x) = \dfrac{P(x)}{x}\) is the average profit, and their derivatives are the marginal average revenue and the marginal average profit.</p>
+<p>The quotient rule with \(u = C(x)\) and \(v = x\) gives a general formula:</p>
+\[\overline{C}'(x) = \frac{C'(x)\cdot x - C(x)\cdot 1}{x^2} = \frac{x\,C'(x) - C(x)}{x^2}.\]
+<p>Since the denominator \(x\) is a monomial, you can also simplify \(\overline{C}(x)\) first and use the power rule. Both ways appear below.</p>
+
+<div class="ex"><div class="et">Worked example 7</div><p class="p">For the cost function \(C(x) = 1500 + 20x + 0.1x^2\) from Worked example 3, find the average cost function and the marginal average cost function. Compute \(\overline{C}(100)\) and \(\overline{C}'(100)\) and interpret both numbers.</p>
+<ol class="steps">
+<li>Divide the cost by \(x\). Because \(x\) is a monomial, split the fraction term by term.
+\[\overline{C}(x) = \frac{1500 + 20x + 0.1x^2}{x} = \frac{1500}{x} + \frac{20x}{x} + \frac{0.1x^2}{x} = 1500x^{-1} + 20 + 0.1x\]</li>
+<li>Differentiate with the power rule. The derivative of \(1500x^{-1}\) is \(1500(-1)x^{-2}\), the constant 20 gives 0, and \(0.1x\) gives 0.1.
+\[\overline{C}'(x) = -1500x^{-2} + 0 + 0.1 = -\frac{1500}{x^2} + 0.1\]</li>
+<li>Check with the quotient rule formula \(\overline{C}'(x) = \dfrac{x\,C'(x) - C(x)}{x^2}\), using \(C'(x) = 20 + 0.2x\) from Worked example 3. Expand, keep the cost in parentheses, and distribute the minus sign.
+\[\begin{aligned} \overline{C}'(x) &= \frac{x(20 + 0.2x) - (1500 + 20x + 0.1x^2)}{x^2} \\ &= \frac{20x + 0.2x^2 - 1500 - 20x - 0.1x^2}{x^2} \\ &= \frac{0.1x^2 - 1500}{x^2} = 0.1 - \frac{1500}{x^2} \end{aligned}\]
+Both methods agree.</li>
+<li>Evaluate the average cost at \(x = 100\).
+\[\overline{C}(100) = \frac{1500}{100} + 20 + 0.1(100) = 15 + 20 + 10 = 45\]
+At a production level of 100 units, the average cost is $45 per unit.</li>
+<li>Evaluate the marginal average cost at \(x = 100\).
+\[\overline{C}'(100) = -\frac{1500}{100^2} + 0.1 = -\frac{1500}{10000} + 0.1 = -0.15 + 0.1 = -0.05\]
+The value is negative, so the average cost is decreasing. When production goes from 100 to 101 units, the average cost per unit drops by approximately $0.05, that is, about 5 cents.</li>
+</ol><p class="final">Answer: \(\overline{C}(x) = \dfrac{1500}{x} + 20 + 0.1x\), \(\overline{C}'(x) = 0.1 - \dfrac{1500}{x^2}\). \(\overline{C}(100) = 45\): the average cost is $45 per unit. \(\overline{C}'(100) = -0.05\): one more unit lowers the average cost by about 5 cents per unit.</p></div>
+
+<div class="trap"><b>Common mistake: mixing up marginal cost and marginal average cost.</b> \(C'(100) = 40\) is the approximate cost of the next unit. \(\overline{C}'(100) = -0.05\) is the approximate change in the cost per unit. They answer different questions and have different values.</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>The four notations \(f'(x)\), \(\dfrac{dy}{dx}\), \(\dfrac{d}{dx}[f(x)]\), and \(D_x[f(x)]\) all mean the derivative.</li>
+<li>Constant rule: \(k' = 0\). Power rule: \(\dfrac{d}{dx}\big[x^r\big] = r\,x^{r-1}\) for every real \(r\).</li>
+<li>Rewriting: \(\dfrac{1}{x^n} = x^{-n}\), \(\sqrt{x} = x^{1/2}\), \(\sqrt[n]{x^m} = x^{m/n}\). Rewrite before you differentiate.</li>
+<li>Constant multiple rule \((kg)' = k\,g'\) and sum and difference rule \((f \pm g)' = f' \pm g'\).</li>
+<li>Product rule: \((uv)' = u'v + uv'\). Write \(u\), \(v\), \(u'\), \(v'\) first. Never \(u'v'\).</li>
+<li>Quotient rule: \(\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^2}\), "low d-high minus high d-low, over low squared."</li>
+<li>If the denominator is a single term, divide it into each numerator term and use the power rule instead.</li>
+<li>Marginal means derivative. \(C'(a)\) is approximately the cost of the \((a+1)\)st unit, and the same for \(R'\) and \(P'\). Profit is \(P = R - C\), and revenue is \(R = x \cdot p\).</li>
+<li>Average cost \(\overline{C}(x) = \dfrac{C(x)}{x}\), marginal average cost \(\overline{C}'(x) = \dfrac{x\,C'(x) - C(x)}{x^2}\).</li>
+<li>Tangent line at \(x = a\): \(y - f(a) = f'(a)(x - a)\). Horizontal tangents are where \(f'(x) = 0\); get the \(y\)-values from \(f\).</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u01-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Find \(f'(x)\) for \(f(x) = \dfrac{1}{x^5}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Rewrite the fraction as a power of \(x\) so the power rule applies. Moving \(x^5\) from the denominator to the numerator flips the sign of the exponent.
+\[f(x) = \frac{1}{x^5} = x^{-5}\]</li>
+<li>Apply the power rule with \(r = -5\). The new exponent is \(-5 - 1 = -6\).
+\[f'(x) = -5x^{-5-1} = -5x^{-6}\]</li>
+<li>Rewrite with a positive exponent.
+\[f'(x) = -\frac{5}{x^6}\]</li>
+</ol><p class="final">Answer: \(f'(x) = -5x^{-6} = -\dfrac{5}{x^6}\)</p></div></details></div>
+
+<div class="q" id="u01-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Find \(\dfrac{dy}{dx}\) for \(y = \sqrt[4]{x^3}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Rewrite the root as a fractional power using \(\sqrt[n]{x^m} = x^{m/n}\).
+\[y = \sqrt[4]{x^3} = x^{3/4}\]</li>
+<li>Apply the power rule with \(r = \tfrac{3}{4}\). The new exponent is \(\tfrac{3}{4} - 1 = \tfrac{3}{4} - \tfrac{4}{4} = -\tfrac{1}{4}\).
+\[\frac{dy}{dx} = \frac{3}{4}x^{3/4 - 1} = \frac{3}{4}x^{-1/4}\]</li>
+<li>Move the negative power to the denominator and write it as a root, using \(x^{1/4} = \sqrt[4]{x}\).
+\[\frac{dy}{dx} = \frac{3}{4x^{1/4}} = \frac{3}{4\sqrt[4]{x}}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = \dfrac{3}{4}x^{-1/4} = \dfrac{3}{4\sqrt[4]{x}}\)</p></div></details></div>
+
+<div class="q" id="u01-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Find \(D_x\big[7x^3 - 4x^2 + 9x - 11\big]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The symbol \(D_x\) means the derivative with respect to \(x\). By the sum and difference rule, differentiate each term separately.
+\[D_x\big[7x^3\big] - D_x\big[4x^2\big] + D_x[9x] - D_x[11]\]</li>
+<li>Use the constant multiple rule and the power rule on each power, and the constant rule on 11.
+\[7 \cdot 3x^2 - 4 \cdot 2x + 9 \cdot 1 - 0\]</li>
+<li>Multiply out the coefficients.
+\[21x^2 - 8x + 9\]</li>
+</ol><p class="final">Answer: \(21x^2 - 8x + 9\)</p></div></details></div>
+
+<div class="q" id="u01-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">The cost of producing \(x\) bicycle helmets is \(C(x) = 300 + 8x + 0.02x^2\) dollars. Find the marginal cost when 50 helmets have been produced, and say what it means.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Marginal cost is the derivative of cost. Differentiate term by term with the constant, constant multiple, and power rules.
+\[C'(x) = 0 + 8 + 0.02 \cdot 2x = 8 + 0.04x\]</li>
+<li>Substitute \(x = 50\).
+\[C'(50) = 8 + 0.04(50) = 8 + 2 = 10\]
+When 50 helmets have been produced, the cost of producing the 51st helmet is approximately $10.</li>
+</ol><p class="final">Answer: \(C'(50) = 10\). Producing the 51st helmet costs about $10.</p></div></details></div>
+
+<div class="q" id="u01-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Use the product rule to find \(\dfrac{dy}{dx}\) for \(y = (x^2 + 3)(x - 4)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the two factors and differentiate each.
+\[u = x^2 + 3, \qquad v = x - 4, \qquad u' = 2x, \qquad v' = 1\]</li>
+<li>Apply the product rule \(y' = u'v + uv'\).
+\[\frac{dy}{dx} = 2x(x - 4) + (x^2 + 3)(1)\]</li>
+<li>Distribute and combine like terms.
+\[\begin{aligned} \frac{dy}{dx} &= 2x^2 - 8x + x^2 + 3 \\ &= 3x^2 - 8x + 3 \end{aligned}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = 3x^2 - 8x + 3\)</p></div></details></div>
+
+<div class="q" id="u01-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Use the quotient rule to find \(f'(x)\) for \(f(x) = \dfrac{x}{x + 5}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the top and bottom and differentiate each.
+\[u = x, \qquad v = x + 5, \qquad u' = 1, \qquad v' = 1\]</li>
+<li>Apply the quotient rule \(\dfrac{u'v - uv'}{v^2}\): low d-high minus high d-low, over low squared.
+\[f'(x) = \frac{1 \cdot (x + 5) - x \cdot 1}{(x + 5)^2}\]</li>
+<li>Simplify the numerator: \(x + 5 - x = 5\).
+\[f'(x) = \frac{5}{(x + 5)^2}\]</li>
+</ol><p class="final">Answer: \(f'(x) = \dfrac{5}{(x + 5)^2}\)</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u01-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Find \(f'(x)\) for \(f(x) = 6\sqrt{x} - \dfrac{10}{x^2} + \dfrac{2}{\sqrt[3]{x}}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Rewrite every term as a constant times a power of \(x\). Use \(\sqrt{x} = x^{1/2}\), \(\dfrac{1}{x^2} = x^{-2}\), and \(\dfrac{1}{\sqrt[3]{x}} = \dfrac{1}{x^{1/3}} = x^{-1/3}\).
+\[f(x) = 6x^{1/2} - 10x^{-2} + 2x^{-1/3}\]</li>
+<li>Differentiate term by term with the constant multiple rule and the power rule. The new exponents are \(\tfrac{1}{2} - 1 = -\tfrac{1}{2}\), \(-2 - 1 = -3\), and \(-\tfrac{1}{3} - 1 = -\tfrac{4}{3}\).
+\[f'(x) = 6 \cdot \frac{1}{2}x^{-1/2} - 10 \cdot (-2)x^{-3} + 2 \cdot \left(-\frac{1}{3}\right)x^{-4/3}\]</li>
+<li>Multiply out the coefficients. The middle term becomes positive because \(-10 \cdot (-2) = 20\).
+\[f'(x) = 3x^{-1/2} + 20x^{-3} - \frac{2}{3}x^{-4/3}\]</li>
+<li>Rewrite with positive exponents. Since \(x^{4/3} = x \cdot x^{1/3} = x\sqrt[3]{x}\), the last term is \(\dfrac{2}{3x\sqrt[3]{x}}\).
+\[f'(x) = \frac{3}{\sqrt{x}} + \frac{20}{x^3} - \frac{2}{3x\sqrt[3]{x}}\]</li>
+</ol><p class="final">Answer: \(f'(x) = 3x^{-1/2} + 20x^{-3} - \dfrac{2}{3}x^{-4/3} = \dfrac{3}{\sqrt{x}} + \dfrac{20}{x^3} - \dfrac{2}{3x\sqrt[3]{x}}\)</p></div></details></div>
+
+<div class="q" id="u01-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Find \(f'(x)\) for \(f(x) = \dfrac{2x^2 - 5x + 3}{\sqrt{x}}\) without using the quotient rule.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The denominator \(\sqrt{x} = x^{1/2}\) is a single term, so divide it into each term of the numerator. Subtract exponents when dividing powers: \(x^2 / x^{1/2} = x^{3/2}\), \(x / x^{1/2} = x^{1/2}\), and \(1 / x^{1/2} = x^{-1/2}\).
+\[f(x) = \frac{2x^2}{x^{1/2}} - \frac{5x}{x^{1/2}} + \frac{3}{x^{1/2}} = 2x^{3/2} - 5x^{1/2} + 3x^{-1/2}\]</li>
+<li>Differentiate term by term with the power rule. The new exponents are \(\tfrac{3}{2} - 1 = \tfrac{1}{2}\), \(\tfrac{1}{2} - 1 = -\tfrac{1}{2}\), and \(-\tfrac{1}{2} - 1 = -\tfrac{3}{2}\).
+\[f'(x) = 2 \cdot \frac{3}{2}x^{1/2} - 5 \cdot \frac{1}{2}x^{-1/2} + 3 \cdot \left(-\frac{1}{2}\right)x^{-3/2}\]</li>
+<li>Multiply out the coefficients.
+\[f'(x) = 3x^{1/2} - \frac{5}{2}x^{-1/2} - \frac{3}{2}x^{-3/2}\]</li>
+<li>Rewrite with roots, using \(x^{3/2} = x\sqrt{x}\).
+\[f'(x) = 3\sqrt{x} - \frac{5}{2\sqrt{x}} - \frac{3}{2x\sqrt{x}}\]</li>
+</ol><p class="final">Answer: \(f'(x) = 3x^{1/2} - \dfrac{5}{2}x^{-1/2} - \dfrac{3}{2}x^{-3/2} = 3\sqrt{x} - \dfrac{5}{2\sqrt{x}} - \dfrac{3}{2x\sqrt{x}}\)</p></div></details></div>
+
+<div class="q" id="u01-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Use the product rule to find \(\dfrac{dy}{dx}\) for \(y = (4x^2 - 1)(\sqrt{x} + 2)\), and simplify.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the factors, rewrite \(\sqrt{x} = x^{1/2}\), and differentiate each factor with the power rule.
+\[u = 4x^2 - 1, \qquad v = x^{1/2} + 2, \qquad u' = 8x, \qquad v' = \frac{1}{2}x^{-1/2}\]</li>
+<li>Apply the product rule \(y' = u'v + uv'\).
+\[\frac{dy}{dx} = 8x\left(x^{1/2} + 2\right) + \left(4x^2 - 1\right)\cdot\frac{1}{2}x^{-1/2}\]</li>
+<li>Distribute both products, adding exponents: \(x \cdot x^{1/2} = x^{3/2}\) and \(x^2 \cdot x^{-1/2} = x^{3/2}\). Also \(4 \cdot \tfrac{1}{2} = 2\).
+\[\frac{dy}{dx} = 8x^{3/2} + 16x + 2x^{3/2} - \frac{1}{2}x^{-1/2}\]</li>
+<li>Combine the two \(x^{3/2}\) terms: \(8 + 2 = 10\).
+\[\frac{dy}{dx} = 10x^{3/2} + 16x - \frac{1}{2}x^{-1/2}\]</li>
+</ol><p class="final">Answer: \(\dfrac{dy}{dx} = 10x^{3/2} + 16x - \dfrac{1}{2}x^{-1/2} = 10x\sqrt{x} + 16x - \dfrac{1}{2\sqrt{x}}\)</p></div></details></div>
+
+<div class="q" id="u01-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Use the quotient rule to find \(f'(t)\) for \(f(t) = \dfrac{3t^2 - 1}{t^2 + 2}\), and simplify.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the top and bottom and differentiate each with respect to \(t\).
+\[u = 3t^2 - 1, \qquad v = t^2 + 2, \qquad u' = 6t, \qquad v' = 2t\]</li>
+<li>Apply the quotient rule \(\dfrac{u'v - uv'}{v^2}\).
+\[f'(t) = \frac{6t\left(t^2 + 2\right) - \left(3t^2 - 1\right)(2t)}{\left(t^2 + 2\right)^2}\]</li>
+<li>Expand each product in the numerator.
+\[6t\left(t^2 + 2\right) = 6t^3 + 12t, \qquad \left(3t^2 - 1\right)(2t) = 6t^3 - 2t\]</li>
+<li>Subtract, distributing the minus sign to both terms of the second product. Note that \(-(-2t) = +2t\).
+\[\begin{aligned} 6t^3 + 12t - \left(6t^3 - 2t\right) &= 6t^3 + 12t - 6t^3 + 2t \\ &= 14t \end{aligned}\]</li>
+<li>Put the numerator over the denominator.
+\[f'(t) = \frac{14t}{\left(t^2 + 2\right)^2}\]</li>
+</ol><p class="final">Answer: \(f'(t) = \dfrac{14t}{\left(t^2 + 2\right)^2}\)</p></div></details></div>
+
+<div class="q" id="u01-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">Find an equation of the tangent line to the graph of \(f(x) = \dfrac{x + 3}{x - 1}\) at the point where \(x = 3\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the point of tangency by substituting \(x = 3\) into \(f\).
+\[f(3) = \frac{3 + 3}{3 - 1} = \frac{6}{2} = 3\]
+The point is \((3, 3)\).</li>
+<li>Differentiate with the quotient rule. The pieces are \(u = x + 3\), \(v = x - 1\), \(u' = 1\), \(v' = 1\).
+\[f'(x) = \frac{1 \cdot (x - 1) - (x + 3) \cdot 1}{(x - 1)^2}\]</li>
+<li>Simplify the numerator, distributing the minus sign.
+\[(x - 1) - (x + 3) = x - 1 - x - 3 = -4, \qquad \text{so} \qquad f'(x) = \frac{-4}{(x - 1)^2}\]</li>
+<li>The slope of the tangent line is \(f'(3)\).
+\[f'(3) = \frac{-4}{(3 - 1)^2} = \frac{-4}{4} = -1\]</li>
+<li>Write the point-slope form with \((x_1, y_1) = (3, 3)\) and \(m = -1\), then solve for \(y\).
+\[\begin{aligned} y - 3 &= -1(x - 3) \\ y - 3 &= -x + 3 \\ y &= -x + 6 \end{aligned}\]
+Check: at \(x = 3\) the line gives \(-3 + 6 = 3 = f(3)\).</li>
+</ol><p class="final">Answer: \(y = -x + 6\)</p></div></details></div>
+
+<div class="q" id="u01-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">A company sells \(x\) speakers at a price of \(p = 80 - 0.02x\) dollars each, and its cost of producing \(x\) speakers is \(C(x) = 4000 + 20x + 0.01x^2\) dollars. (a) Find the marginal revenue \(R'(500)\). (b) Find the marginal profit function. (c) Find \(P'(500)\) and \(P'(1500)\) and interpret both.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Revenue is the number of units times the price. Substitute the demand function and distribute.
+\[R(x) = x \cdot p = x(80 - 0.02x) = 80x - 0.02x^2\]</li>
+<li>(a) Differentiate with the power rule and substitute \(x = 500\).
+\[\begin{aligned} R'(x) &= 80 - 0.04x \\ R'(500) &= 80 - 0.04(500) = 80 - 20 = 60 \end{aligned}\]
+Selling the 501st speaker increases revenue by approximately $60.</li>
+<li>(b) Profit is revenue minus cost. Put the cost in parentheses, distribute the minus sign, and combine like terms.
+\[\begin{aligned} P(x) &= (80x - 0.02x^2) - (4000 + 20x + 0.01x^2) \\ &= 80x - 0.02x^2 - 4000 - 20x - 0.01x^2 \\ &= -0.03x^2 + 60x - 4000 \end{aligned}\]</li>
+<li>(b) Differentiate with the power rule to get the marginal profit.
+\[P'(x) = -0.06x + 60\]</li>
+<li>(c) Substitute \(x = 500\) and \(x = 1500\).
+\[\begin{aligned} P'(500) &= -0.06(500) + 60 = -30 + 60 = 30 \\ P'(1500) &= -0.06(1500) + 60 = -90 + 60 = -30 \end{aligned}\]
+When 500 speakers have been sold, selling one more increases profit by approximately $30. When 1500 speakers have been sold, selling one more decreases profit by approximately $30.</li>
+</ol><p class="final">Answer: (a) \(R'(500) = 60\). (b) \(P'(x) = 60 - 0.06x\). (c) \(P'(500) = 30\): the 501st speaker adds about $30 of profit. \(P'(1500) = -30\): the 1501st speaker lowers profit by about $30.</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u01-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{\sqrt{x}}{x + 4}\) for \(x \gt 0\). Find \(f'(x)\), write it as a single simplified fraction, and find the point on the graph where the tangent line is horizontal.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>The denominator \(x + 4\) has two terms, so use the quotient rule. Rewrite \(\sqrt{x} = x^{1/2}\) and name the pieces.
+\[u = x^{1/2}, \qquad v = x + 4, \qquad u' = \frac{1}{2}x^{-1/2}, \qquad v' = 1\]</li>
+<li>Apply the quotient rule \(\dfrac{u'v - uv'}{v^2}\).
+\[f'(x) = \frac{\frac{1}{2}x^{-1/2}(x + 4) - x^{1/2}\cdot 1}{(x + 4)^2}\]</li>
+<li>The numerator contains the fraction \(\tfrac{1}{2}x^{-1/2} = \dfrac{1}{2\sqrt{x}}\). Clear it by multiplying the numerator and the denominator by \(2x^{1/2}\). In the numerator, \(2x^{1/2} \cdot \tfrac{1}{2}x^{-1/2}(x + 4) = x + 4\) and \(2x^{1/2} \cdot x^{1/2} = 2x\).
+\[f'(x) = \frac{(x + 4) - 2x}{2x^{1/2}(x + 4)^2}\]</li>
+<li>Simplify the numerator: \(x + 4 - 2x = 4 - x\).
+\[f'(x) = \frac{4 - x}{2\sqrt{x}\,(x + 4)^2}\]</li>
+<li>The tangent line is horizontal where \(f'(x) = 0\). A fraction is zero when its numerator is zero and its denominator is not. The denominator is positive for every \(x \gt 0\).
+\[4 - x = 0 \quad \Longrightarrow \quad x = 4\]</li>
+<li>Find the \(y\)-coordinate with the original function.
+\[f(4) = \frac{\sqrt{4}}{4 + 4} = \frac{2}{8} = \frac{1}{4}\]</li>
+</ol>
+<div class="plot" data-f="Math.sqrt(x)/(x+4)" data-x="0,20" data-y="0,0.35"
+     data-pts="4,0.25,horizontal tangent (4, 1/4)" data-h="0.25"
+     data-cap="Graph of f(x) = sqrt(x)/(x + 4). The tangent line is horizontal at (4, 1/4)."></div>
+<p class="final">Answer: \(f'(x) = \dfrac{4 - x}{2\sqrt{x}\,(x + 4)^2}\). The tangent line is horizontal at \(\left(4, \tfrac{1}{4}\right)\).</p></div></details></div>
+
+<div class="q" id="u01-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">The cost of producing \(x\) units of a product is \(C(x) = 0.1x^2 + 6x + 1000\) dollars. (a) Find the average cost function \(\overline{C}(x)\) and the marginal average cost function \(\overline{C}'(x)\). (b) Compute \(\overline{C}'(50)\) and \(\overline{C}'(200)\) and say what each sign means. (c) Find the production level where the marginal average cost is 0, and show that at that level the marginal cost equals the average cost.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Average cost is cost divided by \(x\). The denominator \(x\) is a single term, so split the fraction.
+\[\overline{C}(x) = \frac{0.1x^2 + 6x + 1000}{x} = \frac{0.1x^2}{x} + \frac{6x}{x} + \frac{1000}{x} = 0.1x + 6 + 1000x^{-1}\]</li>
+<li>(a) Differentiate with the power rule. The derivative of \(1000x^{-1}\) is \(1000(-1)x^{-2} = -1000x^{-2}\).
+\[\overline{C}'(x) = 0.1 + 0 - 1000x^{-2} = 0.1 - \frac{1000}{x^2}\]</li>
+<li>(b) Substitute \(x = 50\) and \(x = 200\).
+\[\begin{aligned} \overline{C}'(50) &= 0.1 - \frac{1000}{2500} = 0.1 - 0.4 = -0.3 \\ \overline{C}'(200) &= 0.1 - \frac{1000}{40000} = 0.1 - 0.025 = 0.075 \end{aligned}\]
+At 50 units the marginal average cost is negative, so producing one more unit lowers the average cost by about $0.30 per unit. At 200 units it is positive, so one more unit raises the average cost by about $0.075 per unit.</li>
+<li>(c) Set the marginal average cost equal to 0 and solve. Multiply both sides by \(x^2\), which is allowed because \(x \gt 0\).
+\[\begin{aligned} 0.1 - \frac{1000}{x^2} &= 0 \\ 0.1 &= \frac{1000}{x^2} \\ 0.1x^2 &= 1000 \\ x^2 &= 10000 \end{aligned}\]
+Since a production level is positive, \(x = 100\).</li>
+<li>(c) Compute the average cost at \(x = 100\).
+\[\overline{C}(100) = 0.1(100) + 6 + \frac{1000}{100} = 10 + 6 + 10 = 26\]</li>
+<li>(c) Compute the marginal cost. Differentiate \(C\), then substitute \(x = 100\).
+\[\begin{aligned} C'(x) &= 0.2x + 6 \\ C'(100) &= 0.2(100) + 6 = 20 + 6 = 26 \end{aligned}\]
+Both equal 26, so at the production level where the marginal average cost is 0, the marginal cost equals the average cost.</li>
+</ol><p class="final">Answer: (a) \(\overline{C}(x) = 0.1x + 6 + \dfrac{1000}{x}\), \(\overline{C}'(x) = 0.1 - \dfrac{1000}{x^2}\). (b) \(\overline{C}'(50) = -0.3\) (average cost falling), \(\overline{C}'(200) = 0.075\) (average cost rising). (c) \(x = 100\) units, where \(C'(100) = \overline{C}(100) = 26\) dollars.</p></div></details></div>
+
+<div class="q" id="u01-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">A small theater's monthly revenue is \(R(t) = p(t)\,q(t)\), where \(p(t)\) is the ticket price in dollars and \(q(t)\) is the number of tickets sold per month, \(t\) months from now. Right now the price is $12 and is rising at $0.50 per month, and the theater sells 800 tickets per month, a number that is falling by 20 tickets per month. How fast is the monthly revenue changing right now? Is it increasing or decreasing?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write down what is known at the present time \(t = 0\). A rate that is falling is a negative derivative.
+\[p = 12, \qquad p' = 0.50 \text{ dollars per month}, \qquad q = 800, \qquad q' = -20 \text{ tickets per month}\]</li>
+<li>Revenue is a product of two functions of \(t\), so use the product rule with \(u = p(t)\) and \(v = q(t)\).
+\[R'(t) = p'(t)\,q(t) + p(t)\,q'(t)\]</li>
+<li>Substitute the known values.
+\[R'(0) = (0.50)(800) + (12)(-20) = 400 - 240 = 160\]
+The first term, $400, is the gain from charging more for the same 800 tickets. The second term, \(-\$240\), is the loss from selling 20 fewer tickets at $12 each.</li>
+</ol><p class="final">Answer: The revenue is increasing at $160 per month.</p></div></details></div>
+
+<div class="q" id="u01-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">Let \(g(x) = \dfrac{\sqrt{x} + 1}{\sqrt{x} - 1}\). (a) Find \(g'(x)\) and simplify. (b) Find \(g'(4)\). (c) Find an equation of the tangent line to the graph of \(g\) at \(x = 9\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Use the quotient rule. Rewrite \(\sqrt{x} = x^{1/2}\); the top and bottom have the same derivative.
+\[u = x^{1/2} + 1, \qquad v = x^{1/2} - 1, \qquad u' = \frac{1}{2}x^{-1/2}, \qquad v' = \frac{1}{2}x^{-1/2}\]</li>
+<li>(a) Apply \(\dfrac{u'v - uv'}{v^2}\).
+\[g'(x) = \frac{\frac{1}{2}x^{-1/2}\left(x^{1/2} - 1\right) - \left(x^{1/2} + 1\right)\frac{1}{2}x^{-1/2}}{\left(x^{1/2} - 1\right)^2}\]</li>
+<li>(a) Both terms of the numerator contain the factor \(\tfrac{1}{2}x^{-1/2}\). Factor it out, then simplify the bracket, distributing the minus sign.
+\[\begin{aligned} \text{numerator} &= \frac{1}{2}x^{-1/2}\Big[\left(x^{1/2} - 1\right) - \left(x^{1/2} + 1\right)\Big] \\ &= \frac{1}{2}x^{-1/2}\Big[x^{1/2} - 1 - x^{1/2} - 1\Big] \\ &= \frac{1}{2}x^{-1/2}(-2) = -x^{-1/2} = -\frac{1}{\sqrt{x}} \end{aligned}\]</li>
+<li>(a) Put the numerator over the denominator. Dividing by \(\sqrt{x}\) inside the numerator moves \(\sqrt{x}\) into the denominator.
+\[g'(x) = \frac{-\frac{1}{\sqrt{x}}}{\left(\sqrt{x} - 1\right)^2} = -\frac{1}{\sqrt{x}\left(\sqrt{x} - 1\right)^2}\]</li>
+<li>(b) Substitute \(x = 4\), using \(\sqrt{4} = 2\).
+\[g'(4) = -\frac{1}{2(2 - 1)^2} = -\frac{1}{2 \cdot 1} = -\frac{1}{2}\]</li>
+<li>(c) Find the point of tangency, using \(\sqrt{9} = 3\).
+\[g(9) = \frac{3 + 1}{3 - 1} = \frac{4}{2} = 2\]
+The point is \((9, 2)\).</li>
+<li>(c) Find the slope.
+\[g'(9) = -\frac{1}{3(3 - 1)^2} = -\frac{1}{3 \cdot 4} = -\frac{1}{12}\]</li>
+<li>(c) Write the point-slope form and solve for \(y\). Note \(\tfrac{9}{12} = \tfrac{3}{4}\) and \(2 = \tfrac{8}{4}\).
+\[\begin{aligned} y - 2 &= -\frac{1}{12}(x - 9) \\ y - 2 &= -\frac{1}{12}x + \frac{3}{4} \\ y &= -\frac{1}{12}x + \frac{3}{4} + \frac{8}{4} = -\frac{1}{12}x + \frac{11}{4} \end{aligned}\]
+Check: at \(x = 9\) the line gives \(-\tfrac{9}{12} + \tfrac{11}{4} = -\tfrac{3}{4} + \tfrac{11}{4} = \tfrac{8}{4} = 2 = g(9)\).</li>
+</ol><p class="final">Answer: (a) \(g'(x) = -\dfrac{1}{\sqrt{x}\left(\sqrt{x} - 1\right)^2}\). (b) \(g'(4) = -\dfrac{1}{2}\). (c) \(y = -\dfrac{1}{12}x + \dfrac{11}{4}\).</p></div></details></div>
+
+<div class="q" id="u01-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">The demand function for a craft kit is \(p = 50 - \sqrt{x}\), where \(p\) is the price in dollars at which \(x\) kits can be sold. The cost of producing \(x\) kits is \(C(x) = 100 + 8x\) dollars. (a) Find the marginal profit function. (b) Find \(P'(100)\) and \(P'(900)\) and interpret them. (c) At what sales level is the marginal profit zero?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Revenue is units times price. Distribute and write \(x\sqrt{x} = x^1 \cdot x^{1/2} = x^{3/2}\).
+\[R(x) = x\left(50 - x^{1/2}\right) = 50x - x^{3/2}\]</li>
+<li>(a) Profit is revenue minus cost. Distribute the minus sign and combine \(50x - 8x = 42x\).
+\[\begin{aligned} P(x) &= \left(50x - x^{3/2}\right) - (100 + 8x) \\ &= 50x - x^{3/2} - 100 - 8x \\ &= 42x - x^{3/2} - 100 \end{aligned}\]</li>
+<li>(a) Differentiate with the power rule. The derivative of \(x^{3/2}\) is \(\tfrac{3}{2}x^{1/2}\).
+\[P'(x) = 42 - \frac{3}{2}x^{1/2} = 42 - \frac{3}{2}\sqrt{x}\]</li>
+<li>(b) Substitute \(x = 100\) and \(x = 900\), using \(\sqrt{100} = 10\) and \(\sqrt{900} = 30\).
+\[\begin{aligned} P'(100) &= 42 - \frac{3}{2}(10) = 42 - 15 = 27 \\ P'(900) &= 42 - \frac{3}{2}(30) = 42 - 45 = -3 \end{aligned}\]
+When 100 kits have been sold, selling one more increases profit by approximately $27. When 900 kits have been sold, selling one more decreases profit by approximately $3.</li>
+<li>(c) Set the marginal profit equal to 0 and solve for \(\sqrt{x}\), then square.
+\[\begin{aligned} 42 - \frac{3}{2}\sqrt{x} &= 0 \\ \frac{3}{2}\sqrt{x} &= 42 \\ \sqrt{x} &= 42 \cdot \frac{2}{3} = 28 \\ x &= 28^2 = 784 \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) \(P'(x) = 42 - \dfrac{3}{2}\sqrt{x}\). (b) \(P'(100) = 27\): the 101st kit adds about $27 of profit. \(P'(900) = -3\): the 901st kit lowers profit by about $3. (c) The marginal profit is zero at \(x = 784\) kits.</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u01-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{x^2 + 8}{x - 1}\). (a) Find \(f'(x)\) and write its numerator in factored form. (b) Find all points on the graph of \(f\) where the tangent line is horizontal. (c) Find an equation of the tangent line to the graph of \(f\) at \(x = 2\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) The denominator has two terms, so use the quotient rule. Name the pieces.
+\[u = x^2 + 8, \qquad v = x - 1, \qquad u' = 2x, \qquad v' = 1\]</li>
+<li>(a) Apply \(\dfrac{u'v - uv'}{v^2}\): low d-high minus high d-low, over low squared.
+\[f'(x) = \frac{2x(x - 1) - \left(x^2 + 8\right)(1)}{(x - 1)^2}\]</li>
+<li>(a) Expand the numerator and distribute the minus sign over both terms of \(x^2 + 8\).
+\[\begin{aligned} 2x(x - 1) - \left(x^2 + 8\right) &= 2x^2 - 2x - x^2 - 8 \\ &= x^2 - 2x - 8 \end{aligned}\]</li>
+<li>(a) Factor the quadratic. Two numbers that multiply to \(-8\) and add to \(-2\) are \(-4\) and \(2\).
+\[x^2 - 2x - 8 = (x - 4)(x + 2), \qquad \text{so} \qquad f'(x) = \frac{(x - 4)(x + 2)}{(x - 1)^2}\]</li>
+<li>(b) The tangent line is horizontal where \(f'(x) = 0\). Set the numerator equal to 0. Neither solution makes the denominator zero, since the denominator is zero only at \(x = 1\).
+\[(x - 4)(x + 2) = 0 \quad \Longrightarrow \quad x = 4 \ \text{ or } \ x = -2\]</li>
+<li>(b) Find the \(y\)-coordinates with the original function \(f\).
+\[f(4) = \frac{16 + 8}{4 - 1} = \frac{24}{3} = 8, \qquad f(-2) = \frac{4 + 8}{-2 - 1} = \frac{12}{-3} = -4\]</li>
+<li>(c) Find the point of tangency at \(x = 2\).
+\[f(2) = \frac{4 + 8}{2 - 1} = \frac{12}{1} = 12\]
+The point is \((2, 12)\).</li>
+<li>(c) Find the slope, using the factored derivative.
+\[f'(2) = \frac{(2 - 4)(2 + 2)}{(2 - 1)^2} = \frac{(-2)(4)}{1} = -8\]</li>
+<li>(c) Write the point-slope form and solve for \(y\).
+\[\begin{aligned} y - 12 &= -8(x - 2) \\ y - 12 &= -8x + 16 \\ y &= -8x + 28 \end{aligned}\]
+Check: at \(x = 2\) the line gives \(-16 + 28 = 12 = f(2)\).</li>
+</ol>
+<div class="plot" data-f="(x**2+8)/(x-1);;-8*x+28" data-x="-6,8" data-y="-20,30"
+     data-pts="4,8,horizontal tangent (4, 8)|-2,-4,horizontal tangent (-2, -4)|2,12,tangent point (2, 12)"
+     data-v="1" data-cap="Graph of f(x) = (x^2 + 8)/(x - 1) with the tangent line y = -8x + 28 at x = 2. The dashed line x = 1 is a vertical asymptote."></div>
+<p class="final">Answer: (a) \(f'(x) = \dfrac{(x - 4)(x + 2)}{(x - 1)^2}\). (b) Horizontal tangents at \((4, 8)\) and \((-2, -4)\). (c) \(y = -8x + 28\).</p></div></details></div>
+
+<div class="q" id="u01-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{(2x + 1)(x - 3)}{x^2}\). (a) Find \(f'(x)\) using the quotient rule, with the product rule for the derivative of the numerator, and simplify. (b) Find \(f'(x)\) again by simplifying \(f\) first, and confirm the two answers agree. (c) Find the point on the graph where the tangent line is horizontal.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Let \(u = (2x + 1)(x - 3)\) be the numerator. Its derivative needs the product rule, with first factor \(2x + 1\) (derivative 2) and second factor \(x - 3\) (derivative 1).
+\[u' = 2(x - 3) + (2x + 1)(1) = 2x - 6 + 2x + 1 = 4x - 5\]</li>
+<li>(a) Expand \(u\) as well, since it will be needed in the quotient rule.
+\[u = (2x + 1)(x - 3) = 2x^2 - 6x + x - 3 = 2x^2 - 5x - 3\]</li>
+<li>(a) The denominator is \(v = x^2\) with \(v' = 2x\). Apply the quotient rule \(\dfrac{u'v - uv'}{v^2}\), noting \(v^2 = \left(x^2\right)^2 = x^4\).
+\[f'(x) = \frac{(4x - 5)x^2 - \left(2x^2 - 5x - 3\right)(2x)}{x^4}\]</li>
+<li>(a) Expand each product in the numerator.
+\[(4x - 5)x^2 = 4x^3 - 5x^2, \qquad \left(2x^2 - 5x - 3\right)(2x) = 4x^3 - 10x^2 - 6x\]</li>
+<li>(a) Subtract, distributing the minus sign to all three terms of the second product.
+\[\begin{aligned} 4x^3 - 5x^2 - \left(4x^3 - 10x^2 - 6x\right) &= 4x^3 - 5x^2 - 4x^3 + 10x^2 + 6x \\ &= 5x^2 + 6x \end{aligned}\]</li>
+<li>(a) Put it over \(x^4\), factor \(x\) out of the numerator, and cancel one factor of \(x\) (valid since \(x \neq 0\) in the domain).
+\[f'(x) = \frac{5x^2 + 6x}{x^4} = \frac{x(5x + 6)}{x^4} = \frac{5x + 6}{x^3}\]</li>
+<li>(b) Simplify first. The denominator \(x^2\) is a single term, so divide it into each term of the expanded numerator.
+\[f(x) = \frac{2x^2 - 5x - 3}{x^2} = \frac{2x^2}{x^2} - \frac{5x}{x^2} - \frac{3}{x^2} = 2 - 5x^{-1} - 3x^{-2}\]</li>
+<li>(b) Differentiate with the power rule. Note \(-5 \cdot (-1) = 5\) and \(-3 \cdot (-2) = 6\).
+\[f'(x) = 0 - 5(-1)x^{-2} - 3(-2)x^{-3} = 5x^{-2} + 6x^{-3} = \frac{5}{x^2} + \frac{6}{x^3}\]</li>
+<li>(b) Combine over the common denominator \(x^3\) to compare with part (a).
+\[\frac{5}{x^2} + \frac{6}{x^3} = \frac{5x}{x^3} + \frac{6}{x^3} = \frac{5x + 6}{x^3}\]
+This matches part (a).</li>
+<li>(c) Set \(f'(x) = 0\). The numerator must be zero, and \(x = -\tfrac{6}{5}\) does not make the denominator zero.
+\[5x + 6 = 0 \quad \Longrightarrow \quad x = -\frac{6}{5}\]</li>
+<li>(c) Find the \(y\)-coordinate with the simplified form \(f(x) = 2 - \dfrac{5}{x} - \dfrac{3}{x^2}\). Here \(\dfrac{5}{-6/5} = -\dfrac{25}{6}\) and \(\left(-\tfrac{6}{5}\right)^2 = \tfrac{36}{25}\), so \(\dfrac{3}{36/25} = \dfrac{75}{36} = \dfrac{25}{12}\).
+\[\begin{aligned} f\left(-\tfrac{6}{5}\right) &= 2 - \left(-\frac{25}{6}\right) - \frac{25}{12} = 2 + \frac{25}{6} - \frac{25}{12} \\ &= \frac{24}{12} + \frac{50}{12} - \frac{25}{12} = \frac{49}{12} \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) and (b) \(f'(x) = \dfrac{5x + 6}{x^3} = \dfrac{5}{x^2} + \dfrac{6}{x^3}\). (c) The tangent line is horizontal at \(\left(-\tfrac{6}{5}, \tfrac{49}{12}\right)\).</p></div></details></div>
+
+<div class="q" id="u01-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">The total cost, in dollars, of producing \(x\) custom chairs is \(C(x) = \dfrac{50x^2 + 1000x}{x + 10}\). (a) Find the marginal cost \(C'(10)\) and interpret it. (b) Find the average cost function in simplest form, and the marginal average cost function. (c) Compute \(\overline{C}(10)\) and \(\overline{C}'(10)\) and interpret both.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Use the quotient rule. Name the pieces.
+\[u = 50x^2 + 1000x, \qquad v = x + 10, \qquad u' = 100x + 1000, \qquad v' = 1\]</li>
+<li>(a) Apply \(\dfrac{u'v - uv'}{v^2}\).
+\[C'(x) = \frac{(100x + 1000)(x + 10) - \left(50x^2 + 1000x\right)(1)}{(x + 10)^2}\]</li>
+<li>(a) Expand the first product.
+\[(100x + 1000)(x + 10) = 100x^2 + 1000x + 1000x + 10000 = 100x^2 + 2000x + 10000\]</li>
+<li>(a) Subtract the second part, distributing the minus sign, and combine like terms.
+\[\begin{aligned} 100x^2 + 2000x + 10000 - 50x^2 - 1000x &= 50x^2 + 1000x + 10000 \end{aligned}\]
+So
+\[C'(x) = \frac{50x^2 + 1000x + 10000}{(x + 10)^2}\]</li>
+<li>(a) Substitute \(x = 10\).
+\[C'(10) = \frac{50(100) + 1000(10) + 10000}{(20)^2} = \frac{5000 + 10000 + 10000}{400} = \frac{25000}{400} = 62.5\]
+When 10 chairs have been produced, the cost of producing the 11th chair is approximately $62.50.</li>
+<li>(b) Average cost is cost divided by \(x\). Factor \(x\) out of the numerator of \(C(x)\) and cancel it.
+\[\overline{C}(x) = \frac{C(x)}{x} = \frac{50x^2 + 1000x}{x(x + 10)} = \frac{x(50x + 1000)}{x(x + 10)} = \frac{50x + 1000}{x + 10}\]</li>
+<li>(b) Differentiate with the quotient rule. The pieces are \(u = 50x + 1000\), \(v = x + 10\), \(u' = 50\), \(v' = 1\).
+\[\overline{C}'(x) = \frac{50(x + 10) - (50x + 1000)(1)}{(x + 10)^2}\]</li>
+<li>(b) Simplify the numerator, distributing the minus sign.
+\[50x + 500 - 50x - 1000 = -500, \qquad \text{so} \qquad \overline{C}'(x) = \frac{-500}{(x + 10)^2}\]</li>
+<li>(c) Evaluate both at \(x = 10\).
+\[\overline{C}(10) = \frac{500 + 1000}{20} = \frac{1500}{20} = 75, \qquad \overline{C}'(10) = \frac{-500}{20^2} = \frac{-500}{400} = -1.25\]
+As a check, \(C(10) = \dfrac{5000 + 10000}{20} = \dfrac{15000}{20} = 750\), and \(\dfrac{750}{10} = 75\).</li>
+<li>(c) Interpret. At a production level of 10 chairs, the average cost is $75 per chair. Because \(\overline{C}'(10) = -1.25\) is negative, producing one more chair (going from 10 to 11) lowers the average cost by approximately $1.25 per chair.</li>
+</ol><p class="final">Answer: (a) \(C'(10) = 62.5\): the 11th chair costs about $62.50. (b) \(\overline{C}(x) = \dfrac{50x + 1000}{x + 10}\), \(\overline{C}'(x) = \dfrac{-500}{(x + 10)^2}\). (c) \(\overline{C}(10) = 75\) dollars per chair; \(\overline{C}'(10) = -1.25\), so one more chair lowers the average cost by about $1.25 per chair.</p></div></details></div>
+
+<div class="q" id="u01-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">The concentration of a medicine in a patient's blood \(t\) hours after an injection is \(c(t) = \dfrac{20t}{t^2 + 4}\) milligrams per liter. (a) Find \(c'(t)\) and simplify. (b) Find \(c'(1)\) and \(c'(4)\), and explain what each one says about the concentration. (c) At what time is the tangent line to the graph of \(c\) horizontal, and what is the concentration then?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Use the quotient rule. Name the pieces.
+\[u = 20t, \qquad v = t^2 + 4, \qquad u' = 20, \qquad v' = 2t\]</li>
+<li>(a) Apply \(\dfrac{u'v - uv'}{v^2}\).
+\[c'(t) = \frac{20\left(t^2 + 4\right) - 20t(2t)}{\left(t^2 + 4\right)^2}\]</li>
+<li>(a) Expand and simplify the numerator, then factor out 20.
+\[\begin{aligned} 20t^2 + 80 - 40t^2 &= -20t^2 + 80 = 20\left(4 - t^2\right) \end{aligned}\]
+So
+\[c'(t) = \frac{20\left(4 - t^2\right)}{\left(t^2 + 4\right)^2}\]</li>
+<li>(b) Substitute \(t = 1\).
+\[c'(1) = \frac{20(4 - 1)}{(1 + 4)^2} = \frac{60}{25} = \frac{12}{5}\]
+One hour after the injection, the concentration is increasing at \(\tfrac{12}{5} = 2.4\) milligrams per liter per hour.</li>
+<li>(b) Substitute \(t = 4\).
+\[c'(4) = \frac{20(4 - 16)}{(16 + 4)^2} = \frac{20(-12)}{400} = \frac{-240}{400} = -\frac{3}{5}\]
+Four hours after the injection, the concentration is decreasing at \(\tfrac{3}{5} = 0.6\) milligrams per liter per hour.</li>
+<li>(c) The tangent line is horizontal where \(c'(t) = 0\). The denominator is never zero, so set the numerator equal to 0. Time is not negative, so reject \(t = -2\).
+\[\begin{aligned} 20\left(4 - t^2\right) &= 0 \\ t^2 &= 4 \\ t &= 2 \quad (t \geq 0) \end{aligned}\]</li>
+<li>(c) Find the concentration at \(t = 2\) with the original function.
+\[c(2) = \frac{20(2)}{4 + 4} = \frac{40}{8} = 5\]</li>
+</ol>
+<div class="plot" data-f="20*x/(x**2+4)" data-x="0,10" data-y="0,6"
+     data-pts="1,4,(1, 4) rising|2,5,horizontal tangent (2, 5)|4,4,(4, 4) falling" data-h="5"
+     data-cap="Graph of the concentration c(t) = 20t/(t^2 + 4), with t on the horizontal axis. It rises until t = 2, where the tangent line is horizontal, and then falls."></div>
+<p class="final">Answer: (a) \(c'(t) = \dfrac{20\left(4 - t^2\right)}{\left(t^2 + 4\right)^2}\). (b) \(c'(1) = \dfrac{12}{5}\): rising at 2.4 mg/L per hour; \(c'(4) = -\dfrac{3}{5}\): falling at 0.6 mg/L per hour. (c) At \(t = 2\) hours, when the concentration is 5 mg/L.</p></div></details></div>
+</section><div class="pager"><span></span><a href="u02.html">Next: The chain rule</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

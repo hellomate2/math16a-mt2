@@ -1,0 +1,543 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Absolute extrema | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 6.1</p><h1>Absolute extrema</h1><p class="sub">Extreme value theorem, the closed interval method, and absolute extrema on open intervals.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 6.1: Absolute extrema</h2>
+
+<h3>Absolute extrema and relative extrema</h3>
+<p>In Section 5.2 you found relative extrema: the tops of hills and the bottoms of valleys on a graph. Section 6.1 looks at every value the function takes on a given set and picks out the very largest one and the very smallest one. Those two values are the <b>absolute extrema</b>. They are what you need in every optimization problem, because "the most profit" or "the least material" means the largest or smallest value of a function over all allowed inputs, not just near one point.</p>
+<p>Here are the professor's definitions. The set \(S\) is usually an interval, for example \([0, 5]\) or \((0, \infty)\).</p>
+<div class="rule"><div class="rt">Absolute extrema on a set S</div>
+<p>Let \(S\) be part of the domain of \(f\) and let \(c\) be a number in \(S\).</p>
+<ul>
+<li>\(f(c)\) is the <b>absolute maximum value of \(f\) on \(S\)</b> if \(f(c) \ge f(x)\) for all \(x\) in \(S\). We also say that \(f\) attains its maximum value at \(c\).</li>
+<li>\(f(c)\) is the <b>absolute minimum value of \(f\) on \(S\)</b> if \(f(c) \le f(x)\) for all \(x\) in \(S\). We also say that \(f\) attains its minimum value at \(c\).</li>
+</ul>
+<p>The maximum and minimum values are called the <b>extreme values</b> of \(f\) on \(S\).</p></div>
+<div class="rule"><div class="rt">Relative (local) extrema</div>
+<ul>
+<li>\(f(c)\) is a <b>relative maximum</b> (or local maximum) of \(f\) if there is an open interval \((a, b)\) containing \(c\) such that \(f(c) \ge f(x)\) for all \(x\) in \((a, b)\).</li>
+<li>\(f(c)\) is a <b>relative minimum</b> (or local minimum) of \(f\) if there is an open interval \((a, b)\) containing \(c\) such that \(f(c) \le f(x)\) for all \(x\) in \((a, b)\).</li>
+</ul></div>
+<p>The difference is the comparison group. A relative maximum only has to beat the points close to it. An absolute maximum has to beat every point in the whole set. The graph below shows \(f(x) = x^3 - 6x^2 + 9x + 1\) on the interval \([0, 5]\). Its derivative is \(f'(x) = 3x^2 - 12x + 9 = 3(x - 1)(x - 3)\), so the hill and the valley sit at \(x = 1\) and \(x = 3\).</p>
+<div class="plot" data-f="(x<0||x>5)?NaN:(x**3-6*x**2+9*x+1)" data-x="-0.5,5.5" data-y="-2,23"
+     data-pts="1,5,relative max (1, 5)|3,1,absolute min (3, 1)|0,1,absolute min (0, 1)|5,21,absolute max (5, 21)"
+     data-cap="f(x) = x^3 - 6x^2 + 9x + 1 drawn only on [0, 5]. The hill at x = 1 is a relative max but not the absolute max, which is at the right endpoint. The valley at x = 3 is a relative min, and its height 1 is also the absolute min."></div>
+<p>Read the picture carefully, because it shows three facts at once.</p>
+<ul>
+<li>The point \((1, 5)\) is a relative maximum, since it is higher than every point near it. It is not the absolute maximum, since \(f(5) = 125 - 150 + 45 + 1 = 21\) is bigger than 5.</li>
+<li>The absolute maximum value is 21, attained at the endpoint \(x = 5\). The graph is not at the top of a hill there. It is the highest point only because the interval stops at \(x = 5\). This is why endpoints must always be checked.</li>
+<li>The absolute minimum value is 1, and it is attained at two numbers: \(f(0) = 1\) and \(f(3) = 27 - 54 + 27 + 1 = 1\). A function has at most one absolute maximum value and at most one absolute minimum value on a set, but each value can be attained at more than one \(x\). When that happens, your answer must list every \(x\).</li>
+</ul>
+<p>Absolute and relative extreme values may or may not exist. A function can have many relative extrema, or none at all.</p>
+
+<h3>The extreme value theorem</h3>
+<p>Before you search for an absolute maximum, it helps to know whether one exists. The extreme value theorem gives a simple condition that guarantees both.</p>
+<div class="rule"><div class="rt">Extreme value theorem</div>
+<p>If \(f\) is continuous on a closed and bounded interval \([a, b]\), then \(f\) attains an absolute maximum value \(f(c)\) and an absolute minimum value \(f(d)\) at some numbers \(c\) and \(d\) in \([a, b]\).</p></div>
+<p>The theorem has three conditions: the function must be <b>continuous</b> (no breaks, jumps, or vertical asymptotes on the interval), the interval must be <b>closed</b> (both endpoints are included), and the interval must be <b>bounded</b> (both endpoints are real numbers, not \(\infty\) or \(-\infty\)). Together these say the interval has the form \([a, b]\). If any one condition fails, the guarantee is gone. Here is a counterexample for each.</p>
+<p><b>Continuity fails.</b> Let \(f(x) = \dfrac{1}{x}\) on \([-1, 1]\). The interval is closed and bounded, but \(f\) is not defined at \(x = 0\), so it is not continuous on \([-1, 1]\). As \(x\) approaches 0 from the right, \(\tfrac{1}{x}\) grows past every number, so there is no absolute maximum. As \(x\) approaches 0 from the left, \(\tfrac{1}{x}\) drops below every number, so there is no absolute minimum either.</p>
+<div class="plot" data-f="(x<-1||x>1)?NaN:(1/x)" data-x="-1.5,1.5" data-y="-8,8" data-v="0"
+     data-pts="1,1,(1, 1)|-1,-1,(-1, -1)"
+     data-cap="f(x) = 1/x on [-1, 1]. The vertical asymptote at x = 0 breaks continuity, and f has no absolute max and no absolute min."></div>
+<p><b>The interval is not closed.</b> Let \(f(x) = x^2\) on the open interval \((0, 2)\). This function is continuous everywhere. Its values get as close as you like to 0 (near \(x = 0\)) and to 4 (near \(x = 2\)), but the endpoints are not in the interval, so the values 0 and 4 are never reached. For any \(x\) in \((0, 2)\) you can pick a number between \(x\) and 2, and \(f\) is larger there. So \(f\) has no absolute maximum on \((0, 2)\), and for the same reason, using numbers between 0 and \(x\), it has no absolute minimum.</p>
+<div class="plot" data-f="(x<=0||x>=2)?NaN:(x**2)" data-x="-0.5,2.5" data-y="-0.5,5"
+     data-pts="0,0,open end: 0 is never reached|2,4,open end: 4 is never reached"
+     data-cap="f(x) = x^2 on the open interval (0, 2). The two dots mark the missing endpoints, so f has no absolute max and no absolute min."></div>
+<p><b>The interval is not bounded.</b> Let \(f(x) = x\) on \([0, \infty)\). This is continuous, and the interval includes its one endpoint, but the interval goes on forever. The values \(f(x) = x\) grow without bound, so there is no absolute maximum. (There is an absolute minimum, \(f(0) = 0\).)</p>
+<div class="trap"><b>Common mistake.</b> Reading the theorem backwards. The theorem says the hypotheses guarantee a max and a min. It does not say that a function failing the hypotheses has no extrema. For example, \(f(x) = x^2\) on \((-1, 1)\) is on an open interval, yet it has an absolute minimum value 0 at \(x = 0\). When the hypotheses fail, you have to investigate instead of quoting the theorem.</div>
+
+<h3>Where absolute extrema can happen</h3>
+<p>Recall from Section 5.1 that a <b>critical number</b> of \(f\) is a number \(c\) in the domain of \(f\) where either \(f'(c) = 0\) or \(f'(c)\) does not exist. Fermat's theorem says that if \(f\) has a relative extremum at \(c\), then \(c\) is a critical number.</p>
+<p>Now take a continuous \(f\) on \([a, b]\) and suppose its absolute maximum is attained at some number \(c\). There are only two possibilities. If \(c\) is strictly inside the interval, then \(f(c)\) beats every nearby point, so it is also a relative maximum, and Fermat's theorem says \(c\) is a critical number. Otherwise \(c\) is one of the endpoints \(a\) or \(b\). The same reasoning works for the absolute minimum. So the absolute extrema can only happen at critical numbers inside the interval or at the endpoints. That short list of candidates is the whole idea of the closed interval method.</p>
+<div class="recipe"><div class="rt">How to find absolute extrema on a closed interval [a, b] (the closed interval method)</div><ol>
+<li>Check that \(f\) is continuous on \([a, b]\). Then the extreme value theorem says the absolute maximum and minimum exist.</li>
+<li>Compute \(f'(x)\) and simplify it into one factored fraction if you can.</li>
+<li>Find the critical numbers: solve \(f'(x) = 0\), and also find every \(x\) in the domain of \(f\) where \(f'(x)\) does not exist (usually where a denominator of \(f'\) is zero).</li>
+<li>Throw out every critical number that is not in the open interval \((a, b)\). Say in writing that you are throwing it out.</li>
+<li>Make a value table: evaluate \(f\) at each remaining critical number and at both endpoints \(a\) and \(b\).</li>
+<li>The largest value in the table is the absolute maximum value, and the smallest is the absolute minimum value. State each value and every \(x\) where it is attained.</li>
+</ol></div>
+<p>You never need a sign chart in this method. The value table does the comparing for you.</p>
+
+<div class="ex"><div class="et">Worked example 1: a polynomial</div><p class="p">Find the absolute maximum and minimum values of \(f(x) = 2x^3 - 3x^2 - 12x + 5\) on \([-2, 3]\).</p>
+<ol class="steps">
+<li>Check continuity. A polynomial is continuous everywhere, so \(f\) is continuous on the closed interval \([-2, 3]\), and the extreme value theorem says the absolute extrema exist.</li>
+<li>Differentiate with the power rule term by term, then factor out the common factor 6. \[\begin{aligned} f'(x) &= 6x^2 - 6x - 12 \\ &= 6(x^2 - x - 2) \\ &= 6(x - 2)(x + 1). \end{aligned}\]</li>
+<li>Find the critical numbers. A polynomial derivative exists everywhere, so the only critical numbers come from \(f'(x) = 0\): \[6(x - 2)(x + 1) = 0 \quad \text{gives} \quad x = 2 \ \text{or} \ x = -1.\] Both lie inside \((-2, 3)\), so both stay.</li>
+<li>Evaluate \(f\) at the critical numbers and the endpoints. \[\begin{aligned} f(-2) &= 2(-8) - 3(4) - 12(-2) + 5 = -16 - 12 + 24 + 5 = 1, \\ f(-1) &= 2(-1) - 3(1) - 12(-1) + 5 = -2 - 3 + 12 + 5 = 12, \\ f(2) &= 2(8) - 3(4) - 12(2) + 5 = 16 - 12 - 24 + 5 = -15, \\ f(3) &= 2(27) - 3(9) - 12(3) + 5 = 54 - 27 - 36 + 5 = -4. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-2\)</td><td>left endpoint</td><td>\(1\)</td></tr>
+<tr><td>\(-1\)</td><td>critical number</td><td>\(12\) (largest)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(-15\) (smallest)</td></tr>
+<tr><td>\(3\)</td><td>right endpoint</td><td>\(-4\)</td></tr></table></li>
+<li>Compare. The largest value is 12 at \(x = -1\) and the smallest is \(-15\) at \(x = 2\).
+<div class="plot" data-f="(x<-2||x>3)?NaN:(2*x**3-3*x**2-12*x+5)" data-x="-2.5,3.5" data-y="-18,15"
+     data-pts="-1,12,absolute max (-1, 12)|2,-15,absolute min (2, -15)|-2,1,(-2, 1)|3,-4,(3, -4)"
+     data-cap="f(x) = 2x^3 - 3x^2 - 12x + 5 on [-2, 3]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is 12, attained at \(x = -1\). The absolute minimum value is \(-15\), attained at \(x = 2\).</p></div>
+
+<div class="ex"><div class="et">Worked example 2: a critical number outside the interval</div><p class="p">Find the absolute maximum and minimum values of \(f(x) = x^3 - 12x + 1\) on \([0, 3]\).</p>
+<ol class="steps">
+<li>Check continuity. \(f\) is a polynomial, so it is continuous on \([0, 3]\) and the absolute extrema exist.</li>
+<li>Differentiate and factor. \[\begin{aligned} f'(x) &= 3x^2 - 12 \\ &= 3(x^2 - 4) \\ &= 3(x - 2)(x + 2). \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'(x) = 0\) gives \(x = 2\) or \(x = -2\). The number \(-2\) is not in \([0, 3]\), so we throw it out. The value \(f(-2)\) has nothing to do with this problem. Only \(x = 2\) stays.</li>
+<li>Evaluate \(f\) at the remaining critical number and the endpoints. \[\begin{aligned} f(0) &= 0 - 0 + 1 = 1, \\ f(2) &= 8 - 24 + 1 = -15, \\ f(3) &= 27 - 36 + 1 = -8. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(0\)</td><td>left endpoint</td><td>\(1\) (largest)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(-15\) (smallest)</td></tr>
+<tr><td>\(3\)</td><td>right endpoint</td><td>\(-8\)</td></tr></table>
+<div class="plot" data-f="(x<0||x>3)?NaN:(x**3-12*x+1)" data-x="-0.5,3.5" data-y="-18,4"
+     data-pts="0,1,absolute max (0, 1)|2,-15,absolute min (2, -15)|3,-8,(3, -8)"
+     data-cap="f(x) = x^3 - 12x + 1 on [0, 3]. The critical number x = -2 is off this picture and does not count."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is 1, attained at \(x = 0\). The absolute minimum value is \(-15\), attained at \(x = 2\).</p></div>
+<div class="trap"><b>Common mistake.</b> Putting \(f(-2) = -8 + 24 + 1 = 17\) into the table in Example 2. It is bigger than every value in the table, so it would give the wrong absolute maximum. A critical number outside the interval is not a candidate.</div>
+
+<div class="ex"><div class="et">Worked example 3: a critical number where f' does not exist</div><p class="p">Find the absolute maximum and minimum values of \(f(x) = 3x^{2/3} - 2x\) on \([-1, 8]\).</p>
+<ol class="steps">
+<li>Check continuity. \(x^{2/3} = \left(\sqrt[3]{x}\right)^2\) is defined and continuous for every real \(x\), including negative \(x\), because cube roots of negative numbers exist. So \(f\) is continuous on \([-1, 8]\) and the absolute extrema exist.</li>
+<li>Differentiate with the power rule. \[\begin{aligned} f'(x) &= 3 \cdot \tfrac{2}{3}x^{-1/3} - 2 \\ &= \frac{2}{x^{1/3}} - 2. \end{aligned}\]</li>
+<li>Write \(f'\) as one fraction so you can see both kinds of critical numbers. Use the common denominator \(x^{1/3}\). \[f'(x) = \frac{2}{x^{1/3}} - \frac{2x^{1/3}}{x^{1/3}} = \frac{2 - 2x^{1/3}}{x^{1/3}} = \frac{2\left(1 - x^{1/3}\right)}{x^{1/3}}.\]</li>
+<li>Find where \(f'(x) = 0\). A fraction is zero when its numerator is zero. \[1 - x^{1/3} = 0 \quad \text{gives} \quad x^{1/3} = 1, \quad \text{so} \quad x = 1^3 = 1.\]</li>
+<li>Find where \(f'(x)\) does not exist. The denominator \(x^{1/3}\) is zero at \(x = 0\). The function itself is defined there, since \(f(0) = 0\), so \(x = 0\) is a critical number. Both \(0\) and \(1\) are inside \((-1, 8)\).</li>
+<li>Evaluate \(f\) at the critical numbers and the endpoints. Use \(\sqrt[3]{-1} = -1\) and \(\sqrt[3]{8} = 2\). \[\begin{aligned} f(-1) &= 3(-1)^2 - 2(-1) = 3 + 2 = 5, \\ f(0) &= 3 \cdot 0 - 0 = 0, \\ f(1) &= 3(1)^2 - 2(1) = 3 - 2 = 1, \\ f(8) &= 3(2)^2 - 2(8) = 12 - 16 = -4. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-1\)</td><td>left endpoint</td><td>\(5\) (largest)</td></tr>
+<tr><td>\(0\)</td><td>critical number (\(f'\) does not exist)</td><td>\(0\)</td></tr>
+<tr><td>\(1\)</td><td>critical number (\(f' = 0\))</td><td>\(1\)</td></tr>
+<tr><td>\(8\)</td><td>right endpoint</td><td>\(-4\) (smallest)</td></tr></table></li>
+<li>Compare. The graph has a sharp point (a cusp) at \(x = 0\), where the tangent line would be vertical. That point is a relative minimum, but it is not the absolute minimum on this interval. Both absolute extrema happen at endpoints.
+<div class="plot" data-f="(x<-1||x>8)?NaN:(3*Math.cbrt(x)**2-2*x)" data-x="-1.5,8.5" data-y="-5,6"
+     data-pts="-1,5,absolute max (-1, 5)|0,0,cusp (0, 0)|1,1,(1, 1)|8,-4,absolute min (8, -4)"
+     data-cap="f(x) = 3x^(2/3) - 2x on [-1, 8]. The sharp point at x = 0 is where f' does not exist."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is 5, attained at \(x = -1\). The absolute minimum value is \(-4\), attained at \(x = 8\).</p></div>
+<div class="trap"><b>Common mistake.</b> Solving only \(f'(x) = 0\) and missing \(x = 0\). With fractional powers, always rewrite \(f'\) with positive exponents as one fraction and check where its denominator is zero. A second mistake goes the other way: a number where \(f\) itself is undefined (like \(x = 0\) for \(f(x) = \tfrac{1}{x}\)) is not a critical number, because a critical number must be in the domain of \(f\).</div>
+
+<div class="ex"><div class="et">Worked example 4: an exponential function</div><p class="p">Find the absolute maximum and minimum values of \(f(x) = xe^{-x/2}\) on \([0, 4]\).</p>
+<ol class="steps">
+<li>Check continuity. \(x\) and \(e^{-x/2}\) are continuous everywhere, so their product is continuous on \([0, 4]\) and the absolute extrema exist.</li>
+<li>Differentiate with the product rule. Let \(u = x\) and \(v = e^{-x/2}\). Then \(u' = 1\) and, by the chain rule, \(v' = e^{-x/2} \cdot \left(-\tfrac{1}{2}\right) = -\tfrac{1}{2}e^{-x/2}\). \[\begin{aligned} f'(x) &= u'v + uv' \\ &= 1 \cdot e^{-x/2} + x\left(-\tfrac{1}{2}e^{-x/2}\right) \\ &= e^{-x/2}\left(1 - \tfrac{x}{2}\right). \end{aligned}\]</li>
+<li>Find the critical numbers. The factor \(e^{-x/2}\) is never zero (an exponential is always positive), so \(f'(x) = 0\) only when \(1 - \tfrac{x}{2} = 0\), which gives \(x = 2\). The derivative exists for every \(x\). So \(x = 2\) is the only critical number, and it is inside \((0, 4)\).</li>
+<li>Evaluate \(f\) at the critical number and the endpoints. \[\begin{aligned} f(0) &= 0 \cdot e^{0} = 0, \\ f(2) &= 2e^{-1} = \frac{2}{e}, \\ f(4) &= 4e^{-2} = \frac{4}{e^2}. \end{aligned}\]</li>
+<li>Compare without a calculator. Both \(\tfrac{2}{e}\) and \(\tfrac{4}{e^2}\) are positive, so 0 is the smallest. To compare the other two, write \(\tfrac{4}{e^2} = \tfrac{2}{e} \cdot \tfrac{2}{e}\). Since \(e \approx 2.72\) is bigger than 2, the factor \(\tfrac{2}{e}\) is less than 1, and multiplying a positive number by something less than 1 makes it smaller. So \(\tfrac{4}{e^2} \lt \tfrac{2}{e}\). (As decimals, \(\tfrac{2}{e} \approx 0.74\) and \(\tfrac{4}{e^2} \approx 0.54\).)
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(0\)</td><td>left endpoint</td><td>\(0\) (smallest)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(\tfrac{2}{e} \approx 0.74\) (largest)</td></tr>
+<tr><td>\(4\)</td><td>right endpoint</td><td>\(\tfrac{4}{e^2} \approx 0.54\)</td></tr></table>
+<div class="plot" data-f="(x<0||x>4)?NaN:(x*Math.exp(-x/2))" data-x="-0.5,4.5" data-y="-0.1,0.9"
+     data-pts="2,0.7358,absolute max (2, 2/e)|0,0,absolute min (0, 0)|4,0.5413,(4, 4/e^2)"
+     data-cap="f(x) = x e^(-x/2) on [0, 4]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(\dfrac{2}{e}\), attained at \(x = 2\). The absolute minimum value is 0, attained at \(x = 0\).</p></div>
+
+<div class="ex"><div class="et">Worked example 5: a trig function on [0, 2π]</div><p class="p">Find the absolute maximum and minimum values of \(f(x) = \sin x + \cos x\) on \([0, 2\pi]\).</p>
+<ol class="steps">
+<li>Check continuity. Sine and cosine are continuous everywhere, so \(f\) is continuous on \([0, 2\pi]\) and the absolute extrema exist.</li>
+<li>Differentiate. The derivative of \(\sin x\) is \(\cos x\) and the derivative of \(\cos x\) is \(-\sin x\). \[f'(x) = \cos x - \sin x.\]</li>
+<li>Set \(f'(x) = 0\). \[\cos x - \sin x = 0 \quad \text{means} \quad \sin x = \cos x.\] At the numbers where \(\cos x = 0\), namely \(x = \tfrac{\pi}{2}\) and \(x = \tfrac{3\pi}{2}\), we have \(\sin x = \pm 1\), so the equation fails there. That means we may divide both sides by \(\cos x\): \[\frac{\sin x}{\cos x} = 1, \quad \text{that is,} \quad \tan x = 1.\]</li>
+<li>List every solution in the interval. Tangent equals 1 at \(x = \tfrac{\pi}{4}\) (first quadrant, where sine and cosine are both \(\tfrac{\sqrt{2}}{2}\)) and at \(x = \tfrac{5\pi}{4}\) (third quadrant, where both are \(-\tfrac{\sqrt{2}}{2}\)). The next solution, \(\tfrac{9\pi}{4}\), is past \(2\pi\). The derivative exists everywhere, so the critical numbers are \(\tfrac{\pi}{4}\) and \(\tfrac{5\pi}{4}\).</li>
+<li>Evaluate \(f\) at the critical numbers and the endpoints. \[\begin{aligned} f(0) &= \sin 0 + \cos 0 = 0 + 1 = 1, \\ f\left(\tfrac{\pi}{4}\right) &= \tfrac{\sqrt{2}}{2} + \tfrac{\sqrt{2}}{2} = \sqrt{2}, \\ f\left(\tfrac{5\pi}{4}\right) &= -\tfrac{\sqrt{2}}{2} - \tfrac{\sqrt{2}}{2} = -\sqrt{2}, \\ f(2\pi) &= \sin 2\pi + \cos 2\pi = 0 + 1 = 1. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(0\)</td><td>left endpoint</td><td>\(1\)</td></tr>
+<tr><td>\(\tfrac{\pi}{4}\)</td><td>critical number</td><td>\(\sqrt{2} \approx 1.41\) (largest)</td></tr>
+<tr><td>\(\tfrac{5\pi}{4}\)</td><td>critical number</td><td>\(-\sqrt{2} \approx -1.41\) (smallest)</td></tr>
+<tr><td>\(2\pi\)</td><td>right endpoint</td><td>\(1\)</td></tr></table>
+<div class="plot" data-f="(x<0||x>2*Math.PI)?NaN:(Math.sin(x)+Math.cos(x))" data-x="-0.5,6.8" data-y="-2,2"
+     data-pts="0.7854,1.4142,absolute max (π/4, √2)|3.927,-1.4142,absolute min (5π/4, -√2)|0,1,(0, 1)|6.2831,1,(2π, 1)"
+     data-cap="f(x) = sin x + cos x on [0, 2π]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(\sqrt{2}\), attained at \(x = \dfrac{\pi}{4}\). The absolute minimum value is \(-\sqrt{2}\), attained at \(x = \dfrac{5\pi}{4}\).</p></div>
+<div class="trap"><b>Common mistake.</b> Stopping at the first solution of a trig equation. On \([0, 2\pi]\), equations like \(\tan x = 1\), \(\sin x = \tfrac{1}{2}\), or \(\cos x = \tfrac{1}{2}\) each have two solutions. Find the reference angle, then use the quadrants where the function has the right sign.</div>
+
+<div class="say"><b>What to write on the exam.</b> Start with a sentence such as "\(f\) is continuous on the closed interval \([-2, 3]\), so by the extreme value theorem it has an absolute maximum and an absolute minimum, and they occur at critical numbers in \((-2, 3)\) or at the endpoints." Show the derivative, name each critical number, say which ones you discard and why, show the arithmetic for every value in your table, and finish with a sentence that gives both the value and the \(x\): "The absolute maximum value is 12, attained at \(x = -1\)."</div>
+
+<h3>Reading absolute extrema from a graph</h3>
+<p>When a problem gives you a graph instead of a formula, the absolute maximum is the \(y\)-coordinate of the highest point of the graph over the given interval, and the absolute minimum is the \(y\)-coordinate of the lowest point. Look at the endpoints as well as the hills and valleys. A filled dot at an end means that endpoint is included and can be the answer. An open dot means the point is missing, so its height is never attained. An arrow means the graph keeps going, so look at where it heads. The first graph on this page is a good model: the highest point is the endpoint \((5, 21)\), and the lowest height, 1, is reached at two places.</p>
+
+<h3>Intervals that are not closed: the critical point theorem</h3>
+<p>Many applied problems live on intervals like \(x \gt 0\), written \((0, \infty)\). The extreme value theorem does not apply, and there are no endpoints to plug in. When there is only one critical number, the following theorem settles the question.</p>
+<div class="rule"><div class="rt">Critical point theorem</div>
+<p>Suppose \(f\) is continuous on an interval \(I\) and has exactly one critical number in \(I\), say at \(c\).</p>
+<ul>
+<li>If \(f\) has a relative maximum at \(x = c\), then \(f(c)\) is the absolute maximum of \(f\) on \(I\).</li>
+<li>If \(f\) has a relative minimum at \(x = c\), then \(f(c)\) is the absolute minimum of \(f\) on \(I\).</li>
+</ul>
+<p>You can only use this theorem if all three conditions hold: \(f\) is continuous on \(I\), \(f\) has exactly one critical number in \(I\), and \(f\) has a relative extremum at that critical number.</p></div>
+<p>Here is why it works for a relative minimum at \(c\). Just to the right of \(c\) the graph goes up. If it ever came back down below \(f(c)\), it would have to turn around somewhere, and the turning point would be a second critical number. There is only one, so the graph can never get lower than \(f(c)\) on the right. The same argument works on the left.</p>
+<p>To decide whether the one critical number is a relative max or a relative min, use either test from Chapter 5. The <b>first derivative test</b>: if \(f'\) changes from positive to negative at \(c\), there is a relative maximum; if it changes from negative to positive, a relative minimum. The <b>second derivative test</b>: if \(f'(c) = 0\) and \(f''(c) \lt 0\), there is a relative maximum; if \(f'(c) = 0\) and \(f''(c) \gt 0\), a relative minimum.</p>
+<div class="recipe"><div class="rt">How to find absolute extrema on an interval that is not closed</div><ol>
+<li>Check that \(f\) is continuous on the interval \(I\).</li>
+<li>Find all critical numbers of \(f\) in \(I\), and count them.</li>
+<li>If there is exactly one, decide with the first or second derivative test whether it is a relative max or a relative min, then quote the critical point theorem to call it absolute.</li>
+<li>For the other kind of extremum, look at what \(f(x)\) does near the ends of \(I\) (as \(x\) approaches an open endpoint, or as \(x \to \infty\)). If \(f\) grows without bound, there is no absolute maximum. If \(f\) drops without bound, there is no absolute minimum. If \(f\) creeps toward a number it never reaches, that number is not attained, so there is no extremum of that kind either.</li>
+<li>If there are two or more critical numbers, the theorem does not apply. Evaluate \(f\) at each critical number and compare those values with the behavior of \(f\) near the ends of the interval.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 6: one critical number, second derivative test</div><p class="p">Find the absolute extrema of \(f(x) = x + \dfrac{9}{x}\) on \((0, \infty)\), or explain why they do not exist.</p>
+<ol class="steps">
+<li>Check continuity. \(f\) is a sum of \(x\) and \(\tfrac{9}{x}\), and the only trouble spot for \(\tfrac{9}{x}\) is \(x = 0\), which is not in \((0, \infty)\). So \(f\) is continuous on \((0, \infty)\).</li>
+<li>Differentiate. Write \(\tfrac{9}{x} = 9x^{-1}\) and use the power rule. \[\begin{aligned} f'(x) &= 1 - 9x^{-2} \\ &= 1 - \frac{9}{x^2} \\ &= \frac{x^2 - 9}{x^2}. \end{aligned}\]</li>
+<li>Find the critical numbers in \((0, \infty)\). The numerator is zero when \(x^2 = 9\), so \(x = 3\) or \(x = -3\). The number \(-3\) is not in the interval, so we throw it out. The denominator is zero only at \(x = 0\), which is not in the interval. So \(x = 3\) is the only critical number in \((0, \infty)\).</li>
+<li>Use the second derivative test at \(x = 3\). From \(f'(x) = 1 - 9x^{-2}\), \[f''(x) = 18x^{-3} = \frac{18}{x^3}, \qquad f''(3) = \frac{18}{27} = \frac{2}{3} \gt 0.\] Since \(f'(3) = 0\) and \(f''(3) \gt 0\), \(f\) has a relative minimum at \(x = 3\).</li>
+<li>Apply the critical point theorem. \(f\) is continuous on \((0, \infty)\) with exactly one critical number there, and it is a relative minimum, so it is the absolute minimum. \[f(3) = 3 + \frac{9}{3} = 3 + 3 = 6.\]</li>
+<li>Show there is no absolute maximum. For \(x \gt 0\), both terms are positive, so \(f(x) \gt x\). That means \(f(x)\) is larger than any number you name once \(x\) is large enough. For example, \(f(100) = 100.09\) and \(f(1000) = 1000.009\). So \(f\) has no largest value. (It also blows up as \(x \to 0^+\), because \(\tfrac{9}{x} \to \infty\).)
+<div class="plot" data-f="x+9/x" data-x="0,12" data-y="0,15"
+     data-pts="3,6,absolute min (3, 6)"
+     data-cap="f(x) = x + 9/x on (0, ∞). The graph rises without bound at both ends, so there is no absolute max."></div></li>
+</ol><p class="final">Answer: The absolute minimum value is 6, attained at \(x = 3\). There is no absolute maximum.</p></div>
+
+<div class="ex"><div class="et">Worked example 7: one critical number, first derivative test</div><p class="p">Find the absolute extrema of \(f(x) = \dfrac{\ln x}{x}\) on \((0, \infty)\), or explain why they do not exist.</p>
+<ol class="steps">
+<li>Check continuity. \(\ln x\) and \(x\) are continuous for \(x \gt 0\), and the denominator \(x\) is never zero there, so \(f\) is continuous on \((0, \infty)\).</li>
+<li>Differentiate with the quotient rule. Let \(u = \ln x\) and \(v = x\), so \(u' = \tfrac{1}{x}\) and \(v' = 1\). \[\begin{aligned} f'(x) &= \frac{u'v - uv'}{v^2} = \frac{\tfrac{1}{x} \cdot x - \ln x \cdot 1}{x^2} \\ &= \frac{1 - \ln x}{x^2}. \end{aligned}\]</li>
+<li>Find the critical numbers. The numerator is zero when \(\ln x = 1\), so \(x = e\). The denominator \(x^2\) is zero only at \(x = 0\), which is not in the domain. So \(x = e\) is the only critical number.</li>
+<li>Use the first derivative test. The denominator \(x^2\) is always positive, so the sign of \(f'\) is the sign of \(1 - \ln x\). Test one number on each side of \(e\).
+<table class="t"><tr><th>Interval</th><th>Test value</th><th>\(1 - \ln x\)</th><th>Sign of \(f'\)</th><th>\(f\) is</th></tr>
+<tr><td>\((0, e)\)</td><td>\(x = 1\)</td><td>\(1 - 0 = 1\)</td><td>\(+\)</td><td>increasing</td></tr>
+<tr><td>\((e, \infty)\)</td><td>\(x = e^2\)</td><td>\(1 - 2 = -1\)</td><td>\(-\)</td><td>decreasing</td></tr></table>
+Because \(f'\) changes from positive to negative at \(x = e\), \(f\) has a relative maximum there.</li>
+<li>Apply the critical point theorem. \(f\) is continuous on \((0, \infty)\) and \(x = e\) is its only critical number, so the relative maximum is the absolute maximum. \[f(e) = \frac{\ln e}{e} = \frac{1}{e}.\]</li>
+<li>Show there is no absolute minimum. As \(x \to 0^+\), \(\ln x \to -\infty\) while \(\tfrac{1}{x} \to \infty\), so \(f(x) = \ln x \cdot \tfrac{1}{x} \to -\infty\). For example, \(f\left(\tfrac{1}{e}\right) = \dfrac{-1}{1/e} = -e\) and \(f\left(\tfrac{1}{e^2}\right) = \dfrac{-2}{1/e^2} = -2e^2\). The values drop below every number, so there is no smallest value.
+<div class="plot" data-f="Math.log(x)/x" data-x="0,12" data-y="-3,1"
+     data-pts="2.7183,0.3679,absolute max (e, 1/e)|0.3679,-2.7183,(1/e, -e)"
+     data-cap="f(x) = ln(x)/x on (0, ∞). It drops without bound as x approaches 0 from the right, so there is no absolute min."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(\dfrac{1}{e}\), attained at \(x = e\). There is no absolute minimum.</p></div>
+
+<div class="say"><b>What to write on the exam.</b> For an interval that is not closed, the grader wants the theorem named and its conditions checked, in a sentence like: "\(f\) is continuous on \((0, \infty)\) and \(x = e\) is its only critical number there. Since \(f'\) changes from positive to negative at \(x = e\), \(f\) has a relative maximum at \(x = e\), so by the critical point theorem \(f(e) = \tfrac{1}{e}\) is the absolute maximum on \((0, \infty)\)." To say an extremum does not exist, give the limit that shows it: "As \(x \to 0^+\), \(f(x) \to -\infty\), so there is no absolute minimum."</div>
+
+<h3>Average cost</h3>
+<p>If \(C(x)\) is the total cost of making \(x\) units, the <b>average cost</b> per unit is \(\overline{C}(x) = \dfrac{C(x)}{x}\). Minimizing average cost is an absolute minimum problem for \(\overline{C}\): divide each term of \(C(x)\) by \(x\) first, then differentiate. If the production level is restricted to a closed interval such as \(10 \le x \le 50\), use the closed interval method. If it is only required that \(x \gt 0\), use the critical point theorem. A useful check: by the quotient rule, \(\overline{C}'(x) = \dfrac{xC'(x) - C(x)}{x^2}\), which is zero exactly when \(C'(x) = \dfrac{C(x)}{x}\). So at the production level with the lowest average cost, the marginal cost equals the average cost.</p>
+
+<div class="trap"><b>Common mistake.</b> Forgetting the endpoints. On a closed interval, the absolute extrema are often at an endpoint (as in Examples 2 and 3), and a solution that only tests critical numbers loses points.</div>
+<div class="trap"><b>Common mistake.</b> Answering with only the \(x\) or only the value. "Absolute maximum at \(x = -1\)" does not say what the maximum is. Give the value and every \(x\) where it is attained.</div>
+<div class="trap"><b>Common mistake.</b> Calling a relative extremum "absolute" on an open interval without quoting the critical point theorem, or quoting it when there are two or more critical numbers in the interval. Count the critical numbers in the interval first.</div>
+<div class="trap"><b>Common mistake.</b> Using the extreme value theorem on \((0, \infty)\) or on an open interval to claim that a maximum must exist. The theorem only covers continuous functions on \([a, b]\).</div>
+<div class="trap"><b>Common mistake.</b> Trying to solve \(e^{-x/2} = 0\) or dividing an equation by \(\ln x\) without care. An exponential is never zero, so drop that factor. When you divide by an expression, check separately whether that expression can be zero.</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>\(f(c)\) is the absolute maximum on \(S\) if \(f(c) \ge f(x)\) for every \(x\) in \(S\), and the absolute minimum if \(f(c) \le f(x)\) for every \(x\) in \(S\). There is at most one absolute max value, but it can be attained at several \(x\).</li>
+<li>The extreme value theorem: a continuous function on a closed, bounded interval \([a, b]\) attains an absolute maximum and an absolute minimum. All three conditions (continuous, closed, bounded) are needed.</li>
+<li>A critical number is a number \(c\) in the domain of \(f\) where \(f'(c) = 0\) or \(f'(c)\) does not exist.</li>
+<li>The closed interval method: critical numbers inside \((a, b)\) plus both endpoints go in a value table, and the largest and smallest values win.</li>
+<li>The critical point theorem: if \(f\) is continuous on \(I\) with exactly one critical number \(c\) in \(I\), a relative max at \(c\) is the absolute max on \(I\), and a relative min at \(c\) is the absolute min on \(I\).</li>
+<li>To show no absolute max or min exists, give a limit: the function goes to \(\infty\) or \(-\infty\) near an end of the interval, or it approaches a value it never reaches.</li>
+<li>Average cost is \(\overline{C}(x) = \dfrac{C(x)}{x}\), and at its minimum the marginal cost equals the average cost.</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u08-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">The graph of \(f(x) = x^3 - 3x\) on the closed interval \([-2, 3]\) is shown below, with four points marked. Use the graph to find the absolute maximum value and the absolute minimum value of \(f\) on \([-2, 3]\), and every \(x\) where each one is attained.
+<div class="plot" data-f="(x<-2||x>3)?NaN:(x**3-3*x)" data-x="-2.5,3.5" data-y="-4,20"
+     data-pts="-2,-2,(-2, -2)|-1,2,(-1, 2)|1,-2,(1, -2)|3,18,(3, 18)"
+     data-cap="f(x) = x^3 - 3x on [-2, 3]. Both ends are included."></div></div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the highest point of the graph over the whole interval, endpoints included. The marked heights are \(-2\), \(2\), \(-2\), and \(18\), and the curve never goes above the point \((3, 18)\). So the absolute maximum value is 18, at the right endpoint \(x = 3\). The hill at \((-1, 2)\) is only a relative maximum, because \(2 \lt 18\).</li>
+<li>Find the lowest point. The lowest height on the graph is \(-2\), and it is reached twice: at the left endpoint \((-2, -2)\) and at the valley \((1, -2)\). Check with the formula: \[f(-2) = -8 + 6 = -2, \qquad f(1) = 1 - 3 = -2.\]</li>
+<li>Check the top value with the formula too. \[f(3) = 27 - 9 = 18.\]</li>
+</ol><p class="final">Answer: The absolute maximum value is 18, attained at \(x = 3\). The absolute minimum value is \(-2\), attained at both \(x = -2\) and \(x = 1\).</p></div></details></div>
+
+<div class="q" id="u08-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">For which of these does the extreme value theorem guarantee both an absolute maximum and an absolute minimum? Give the reason for each. (a) \(f(x) = \dfrac{1}{x - 2}\) on \([0, 3]\). (b) \(g(x) = x^2\) on \((0, 3]\). (c) \(h(x) = \sqrt{x}\) on \([0, 9]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Recall the conditions. The theorem needs a continuous function on a closed and bounded interval \([a, b]\).</li>
+<li>Check (a). The interval \([0, 3]\) is closed and bounded, but \(f\) is undefined at \(x = 2\), which lies inside \([0, 3]\), so \(f\) is not continuous there. The theorem does not apply. (In fact, as \(x \to 2^+\), \(f(x) \to \infty\), and as \(x \to 2^-\), \(f(x) \to -\infty\), so \(f\) has neither extremum on \([0, 3]\).)</li>
+<li>Check (b). \(g(x) = x^2\) is continuous, but \((0, 3]\) is not closed because 0 is left out. The theorem does not apply. (Here \(g\) does have an absolute maximum, \(g(3) = 9\), but no absolute minimum, since \(x^2\) gets close to 0 without reaching it.)</li>
+<li>Check (c). \(h(x) = \sqrt{x}\) is continuous for \(x \ge 0\), so it is continuous on \([0, 9]\), and \([0, 9]\) is closed and bounded. The theorem applies.</li>
+</ol><p class="final">Answer: Only (c). In (a) the function is not continuous on the interval, and in (b) the interval is not closed.</p></div></details></div>
+
+<div class="q" id="u08-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Find all critical numbers of \(f(x) = x^3 - 27x\). Which of them would you use in the closed interval method on \([0, 5]\)?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate with the power rule and factor. \[\begin{aligned} f'(x) &= 3x^2 - 27 \\ &= 3(x^2 - 9) \\ &= 3(x - 3)(x + 3). \end{aligned}\]</li>
+<li>Solve \(f'(x) = 0\). The derivative of a polynomial exists everywhere, so these are all the critical numbers. \[3(x - 3)(x + 3) = 0 \quad \text{gives} \quad x = 3 \ \text{or} \ x = -3.\]</li>
+<li>Keep only the critical numbers inside \((0, 5)\). The number 3 is inside, and \(-3\) is not, so \(-3\) is thrown out.</li>
+</ol><p class="final">Answer: The critical numbers are \(x = 3\) and \(x = -3\). Only \(x = 3\) is used on \([0, 5]\).</p></div></details></div>
+
+<div class="q" id="u08-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = x^2 - 6x + 2\) on \([0, 5]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(f\) is a polynomial, so it is continuous on \([0, 5]\) and the extreme value theorem says both extrema exist.</li>
+<li>Differentiate and find the critical numbers. \[f'(x) = 2x - 6 = 0 \quad \text{gives} \quad x = 3,\] which is inside \((0, 5)\).</li>
+<li>Evaluate \(f\) at the critical number and both endpoints. \[\begin{aligned} f(0) &= 0 - 0 + 2 = 2, \\ f(3) &= 9 - 18 + 2 = -7, \\ f(5) &= 25 - 30 + 2 = -3. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(0\)</td><td>left endpoint</td><td>\(2\) (largest)</td></tr>
+<tr><td>\(3\)</td><td>critical number</td><td>\(-7\) (smallest)</td></tr>
+<tr><td>\(5\)</td><td>right endpoint</td><td>\(-3\)</td></tr></table>
+<div class="plot" data-f="(x<0||x>5)?NaN:(x**2-6*x+2)" data-x="-0.5,5.5" data-y="-8,4"
+     data-pts="0,2,absolute max (0, 2)|3,-7,absolute min (3, -7)|5,-3,(5, -3)"
+     data-cap="f(x) = x^2 - 6x + 2 on [0, 5]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is 2, attained at \(x = 0\). The absolute minimum value is \(-7\), attained at \(x = 3\).</p></div></details></div>
+
+<div class="q" id="u08-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = x + \ln x\) on \([1, e]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(x\) and \(\ln x\) are continuous for \(x \gt 0\), so \(f\) is continuous on \([1, e]\) and both extrema exist.</li>
+<li>Differentiate. \[f'(x) = 1 + \frac{1}{x}.\]</li>
+<li>Look for critical numbers. For \(x\) in \([1, e]\), \(\tfrac{1}{x}\) is positive, so \(f'(x) = 1 + \tfrac{1}{x} \gt 1 \gt 0\). The derivative is never zero there, and it exists at every \(x \gt 0\). So there are no critical numbers in \((1, e)\), and only the endpoints are candidates.</li>
+<li>Evaluate \(f\) at the endpoints. \[f(1) = 1 + \ln 1 = 1 + 0 = 1, \qquad f(e) = e + \ln e = e + 1.\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(1\)</td><td>left endpoint</td><td>\(1\) (smallest)</td></tr>
+<tr><td>\(e\)</td><td>right endpoint</td><td>\(e + 1 \approx 3.72\) (largest)</td></tr></table>
+<div class="plot" data-f="(x<1||x>Math.E)?NaN:(x+Math.log(x))" data-x="0.5,3.2" data-y="0,4.5"
+     data-pts="1,1,absolute min (1, 1)|2.7183,3.7183,absolute max (e, e + 1)"
+     data-cap="f(x) = x + ln x on [1, e] is increasing, so the extrema are at the endpoints."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(e + 1\), attained at \(x = e\). The absolute minimum value is 1, attained at \(x = 1\).</p></div></details></div>
+
+<div class="q" id="u08-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">Use the critical point theorem to find the absolute minimum of \(f(x) = x^2 - 8x + 3\) on \((-\infty, \infty)\). Does \(f\) have an absolute maximum?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(f\) is a polynomial, so it is continuous on \((-\infty, \infty)\).</li>
+<li>Find the critical numbers. \[f'(x) = 2x - 8 = 0 \quad \text{gives} \quad x = 4.\] The derivative exists everywhere, so \(x = 4\) is the only critical number.</li>
+<li>Use the second derivative test. \(f''(x) = 2\), so \(f''(4) = 2 \gt 0\). Since \(f'(4) = 0\) and \(f''(4) \gt 0\), there is a relative minimum at \(x = 4\).</li>
+<li>Apply the critical point theorem. \(f\) is continuous with exactly one critical number, and it is a relative minimum, so it is the absolute minimum. \[f(4) = 16 - 32 + 3 = -13.\]</li>
+<li>Decide about a maximum. As \(x \to \infty\), the \(x^2\) term dominates and \(f(x) \to \infty\). For example, \(f(100) = 10000 - 800 + 3 = 9203\). The values grow without bound, so there is no absolute maximum.
+<div class="plot" data-f="x**2-8*x+3" data-x="-2,10" data-y="-16,25"
+     data-pts="4,-13,absolute min (4, -13)"
+     data-cap="f(x) = x^2 - 8x + 3 has one critical number, the bottom of the parabola."></div></li>
+</ol><p class="final">Answer: The absolute minimum value is \(-13\), attained at \(x = 4\). There is no absolute maximum.</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u08-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = \tfrac{1}{3}x^3 - x^2 - 8x + 4\) on \([-3, 3]\), and every \(x\) where they are attained.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(f\) is a polynomial, so it is continuous on the closed interval \([-3, 3]\), and the extreme value theorem says both extrema exist.</li>
+<li>Differentiate with the power rule and factor. \[\begin{aligned} f'(x) &= \tfrac{1}{3} \cdot 3x^2 - 2x - 8 \\ &= x^2 - 2x - 8 \\ &= (x - 4)(x + 2). \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'(x) = 0\) gives \(x = 4\) or \(x = -2\), and \(f'\) exists everywhere. The number 4 is not in \([-3, 3]\), so we throw it out. Only \(x = -2\) stays.</li>
+<li>Evaluate \(f\) at the critical number and both endpoints. \[\begin{aligned} f(-3) &= \tfrac{1}{3}(-27) - 9 - 8(-3) + 4 = -9 - 9 + 24 + 4 = 10, \\ f(-2) &= \tfrac{1}{3}(-8) - 4 - 8(-2) + 4 = -\tfrac{8}{3} - 4 + 16 + 4 = 16 - \tfrac{8}{3} = \tfrac{40}{3}, \\ f(3) &= \tfrac{1}{3}(27) - 9 - 8(3) + 4 = 9 - 9 - 24 + 4 = -20. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-3\)</td><td>left endpoint</td><td>\(10\)</td></tr>
+<tr><td>\(-2\)</td><td>critical number</td><td>\(\tfrac{40}{3} \approx 13.3\) (largest)</td></tr>
+<tr><td>\(3\)</td><td>right endpoint</td><td>\(-20\) (smallest)</td></tr></table>
+<div class="plot" data-f="(x<-3||x>3)?NaN:(x**3/3-x**2-8*x+4)" data-x="-3.5,3.5" data-y="-23,17"
+     data-pts="-2,13.3333,absolute max (-2, 40/3)|3,-20,absolute min (3, -20)|-3,10,(-3, 10)"
+     data-cap="f(x) = (1/3)x^3 - x^2 - 8x + 4 on [-3, 3]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(\dfrac{40}{3}\), attained at \(x = -2\). The absolute minimum value is \(-20\), attained at \(x = 3\).</p></div></details></div>
+
+<div class="q" id="u08-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = x^4 - 8x^2 + 3\) on \([-1, 3]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(f\) is a polynomial, so it is continuous on \([-1, 3]\) and both extrema exist.</li>
+<li>Differentiate and factor completely. Pull out \(4x\), then factor the difference of squares. \[\begin{aligned} f'(x) &= 4x^3 - 16x \\ &= 4x(x^2 - 4) \\ &= 4x(x - 2)(x + 2). \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'(x) = 0\) gives \(x = 0\), \(x = 2\), or \(x = -2\). The number \(-2\) is not in \([-1, 3]\), so we throw it out. The critical numbers we keep are 0 and 2.</li>
+<li>Evaluate \(f\) at the critical numbers and both endpoints. \[\begin{aligned} f(-1) &= 1 - 8 + 3 = -4, \\ f(0) &= 0 - 0 + 3 = 3, \\ f(2) &= 16 - 32 + 3 = -13, \\ f(3) &= 81 - 72 + 3 = 12. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-1\)</td><td>left endpoint</td><td>\(-4\)</td></tr>
+<tr><td>\(0\)</td><td>critical number</td><td>\(3\)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(-13\) (smallest)</td></tr>
+<tr><td>\(3\)</td><td>right endpoint</td><td>\(12\) (largest)</td></tr></table>
+<div class="plot" data-f="(x<-1||x>3)?NaN:(x**4-8*x**2+3)" data-x="-1.5,3.5" data-y="-15,14"
+     data-pts="3,12,absolute max (3, 12)|2,-13,absolute min (2, -13)|0,3,(0, 3)|-1,-4,(-1, -4)"
+     data-cap="f(x) = x^4 - 8x^2 + 3 on [-1, 3]. The relative max at x = 0 is not the absolute max."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is 12, attained at \(x = 3\). The absolute minimum value is \(-13\), attained at \(x = 2\).</p></div></details></div>
+
+<div class="q" id="u08-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = \dfrac{x}{x^2 + 4}\) on \([0, 4]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. The denominator \(x^2 + 4\) is at least 4, so it is never zero, and \(f\) is continuous everywhere. In particular it is continuous on \([0, 4]\), so both extrema exist.</li>
+<li>Differentiate with the quotient rule. Let \(u = x\) and \(v = x^2 + 4\), so \(u' = 1\) and \(v' = 2x\). \[\begin{aligned} f'(x) &= \frac{u'v - uv'}{v^2} = \frac{1 \cdot (x^2 + 4) - x \cdot 2x}{(x^2 + 4)^2} \\ &= \frac{x^2 + 4 - 2x^2}{(x^2 + 4)^2} \\ &= \frac{4 - x^2}{(x^2 + 4)^2}. \end{aligned}\]</li>
+<li>Find the critical numbers. The denominator is never zero, so \(f'\) exists everywhere. The numerator is zero when \(x^2 = 4\), so \(x = 2\) or \(x = -2\). The number \(-2\) is not in \([0, 4]\), so we throw it out. Only \(x = 2\) stays.</li>
+<li>Evaluate \(f\) at the critical number and both endpoints. \[\begin{aligned} f(0) &= \frac{0}{0 + 4} = 0, \\ f(2) &= \frac{2}{4 + 4} = \frac{2}{8} = \frac{1}{4}, \\ f(4) &= \frac{4}{16 + 4} = \frac{4}{20} = \frac{1}{5}. \end{aligned}\]</li>
+<li>Compare. Since \(\tfrac{1}{4} = 0.25\) and \(\tfrac{1}{5} = 0.2\), the largest value is \(\tfrac{1}{4}\) and the smallest is 0.
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(0\)</td><td>left endpoint</td><td>\(0\) (smallest)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(\tfrac{1}{4}\) (largest)</td></tr>
+<tr><td>\(4\)</td><td>right endpoint</td><td>\(\tfrac{1}{5}\)</td></tr></table>
+<div class="plot" data-f="(x<0||x>4)?NaN:(x/(x**2+4))" data-x="-0.5,4.5" data-y="-0.05,0.32"
+     data-pts="2,0.25,absolute max (2, 1/4)|0,0,absolute min (0, 0)|4,0.2,(4, 1/5)"
+     data-cap="f(x) = x/(x^2 + 4) on [0, 4]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(\dfrac{1}{4}\), attained at \(x = 2\). The absolute minimum value is 0, attained at \(x = 0\).</p></div></details></div>
+
+<div class="q" id="u08-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = x^2e^{-x}\) on \([-1, 3]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(x^2\) and \(e^{-x}\) are continuous everywhere, so their product is continuous on \([-1, 3]\) and both extrema exist.</li>
+<li>Differentiate with the product rule. Let \(u = x^2\) and \(v = e^{-x}\). Then \(u' = 2x\), and by the chain rule \(v' = e^{-x} \cdot (-1) = -e^{-x}\). \[\begin{aligned} f'(x) &= u'v + uv' \\ &= 2x e^{-x} + x^2\left(-e^{-x}\right) \\ &= 2xe^{-x} - x^2e^{-x} \\ &= xe^{-x}(2 - x). \end{aligned}\]</li>
+<li>Find the critical numbers. The derivative exists everywhere. The factor \(e^{-x}\) is never zero, so \(f'(x) = 0\) only when \(x = 0\) or \(2 - x = 0\). That gives \(x = 0\) and \(x = 2\), and both are inside \((-1, 3)\).</li>
+<li>Evaluate \(f\) at the critical numbers and both endpoints. \[\begin{aligned} f(-1) &= (-1)^2e^{1} = e, \\ f(0) &= 0 \cdot e^{0} = 0, \\ f(2) &= 4e^{-2} = \frac{4}{e^2}, \\ f(3) &= 9e^{-3} = \frac{9}{e^3}. \end{aligned}\]</li>
+<li>Compare without a calculator. Every value except \(f(0)\) is positive, so 0 is the smallest. For the largest, compare each with 1. We have \(e \gt 1\). Since \(e \gt 2\), \(e^2 \gt 4\), so \(\tfrac{4}{e^2} \lt 1\). Since \(e^3 \gt 2^3 = 8\) and in fact \(e^3 \gt 2.7^3 \gt 19\), we get \(\tfrac{9}{e^3} \lt 1\). So \(e\) is the largest. (As decimals: \(e \approx 2.72\), \(\tfrac{4}{e^2} \approx 0.54\), \(\tfrac{9}{e^3} \approx 0.45\).)
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-1\)</td><td>left endpoint</td><td>\(e \approx 2.72\) (largest)</td></tr>
+<tr><td>\(0\)</td><td>critical number</td><td>\(0\) (smallest)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(\tfrac{4}{e^2} \approx 0.54\)</td></tr>
+<tr><td>\(3\)</td><td>right endpoint</td><td>\(\tfrac{9}{e^3} \approx 0.45\)</td></tr></table>
+<div class="plot" data-f="(x<-1||x>3)?NaN:(x**2*Math.exp(-x))" data-x="-1.5,3.5" data-y="-0.3,3"
+     data-pts="-1,2.7183,absolute max (-1, e)|0,0,absolute min (0, 0)|2,0.5413,(2, 4/e^2)|3,0.4481,(3, 9/e^3)"
+     data-cap="f(x) = x^2 e^(-x) on [-1, 3]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(e\), attained at \(x = -1\). The absolute minimum value is 0, attained at \(x = 0\).</p></div></details></div>
+
+<div class="q" id="u08-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">The total cost, in dollars, of producing \(x\) units of a product is \(C(x) = 2x^2 + 50x + 800\). The factory can make between 5 and 40 units per day. Find the production level in \([5, 40]\) that minimizes the average cost per unit, and find that minimum average cost.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write the average cost. Divide each term of \(C(x)\) by \(x\). \[\overline{C}(x) = \frac{C(x)}{x} = \frac{2x^2 + 50x + 800}{x} = 2x + 50 + \frac{800}{x}.\] Here \(x\) is the number of units and \(\overline{C}(x)\) is in dollars per unit.</li>
+<li>Check continuity. The only problem for \(\tfrac{800}{x}\) is \(x = 0\), which is not in \([5, 40]\). So \(\overline{C}\) is continuous on the closed interval \([5, 40]\) and has an absolute minimum there.</li>
+<li>Differentiate. Write \(\tfrac{800}{x} = 800x^{-1}\). \[\begin{aligned} \overline{C}'(x) &= 2 - 800x^{-2} = 2 - \frac{800}{x^2} \\ &= \frac{2x^2 - 800}{x^2} = \frac{2(x^2 - 400)}{x^2}. \end{aligned}\]</li>
+<li>Find the critical numbers. The numerator is zero when \(x^2 = 400\), so \(x = 20\) or \(x = -20\). The number \(-20\) is not in \([5, 40]\), and the denominator is zero only at \(x = 0\), also outside. So \(x = 20\) is the only critical number to use.</li>
+<li>Evaluate \(\overline{C}\) at the critical number and both endpoints. \[\begin{aligned} \overline{C}(5) &= 10 + 50 + 160 = 220, \\ \overline{C}(20) &= 40 + 50 + 40 = 130, \\ \overline{C}(40) &= 80 + 50 + 20 = 150. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(\overline{C}(x)\)</th></tr>
+<tr><td>\(5\)</td><td>left endpoint</td><td>\(220\)</td></tr>
+<tr><td>\(20\)</td><td>critical number</td><td>\(130\) (smallest)</td></tr>
+<tr><td>\(40\)</td><td>right endpoint</td><td>\(150\)</td></tr></table>
+<div class="plot" data-f="(x<5||x>40)?NaN:(2*x+50+800/x)" data-x="0,45" data-y="0,250"
+     data-pts="20,130,absolute min (20, 130)|5,220,(5, 220)|40,150,(40, 150)"
+     data-cap="Average cost 2x + 50 + 800/x on [5, 40]."></div></li>
+<li>Check with marginal cost. \(C'(x) = 4x + 50\), so \(C'(20) = 130\), which equals the average cost at \(x = 20\), as it should at the minimum.</li>
+</ol><p class="final">Answer: Producing 20 units per day minimizes the average cost, and the minimum average cost is \$130 per unit.</p></div></details></div>
+
+<div class="q" id="u08-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = x - \ln x\) on \(\left[\tfrac{1}{e}, e\right]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(x\) and \(\ln x\) are continuous for \(x \gt 0\), and every number in \(\left[\tfrac{1}{e}, e\right]\) is positive. So \(f\) is continuous on this closed interval and both extrema exist.</li>
+<li>Differentiate and write as one fraction. \[f'(x) = 1 - \frac{1}{x} = \frac{x - 1}{x}.\]</li>
+<li>Find the critical numbers. The numerator is zero at \(x = 1\), which is inside \(\left(\tfrac{1}{e}, e\right)\) because \(\tfrac{1}{e} \approx 0.37\) and \(e \approx 2.72\). The denominator is zero only at \(x = 0\), which is not in the domain of \(f\). So \(x = 1\) is the only critical number.</li>
+<li>Evaluate \(f\) at the critical number and both endpoints. Use \(\ln\left(\tfrac{1}{e}\right) = -1\), \(\ln 1 = 0\), and \(\ln e = 1\). \[\begin{aligned} f\left(\tfrac{1}{e}\right) &= \tfrac{1}{e} - (-1) = \tfrac{1}{e} + 1, \\ f(1) &= 1 - 0 = 1, \\ f(e) &= e - 1. \end{aligned}\]</li>
+<li>Compare without a calculator. Both \(\tfrac{1}{e} + 1\) and \(e - 1\) are bigger than 1 (since \(\tfrac{1}{e} \gt 0\) and \(e \gt 2\)), so 1 is the smallest. For the largest, use \(e \approx 2.72\): \(e - 1 \approx 1.72\), and \(\tfrac{1}{e} \lt \tfrac{1}{2}\) gives \(\tfrac{1}{e} + 1 \lt 1.5\). So \(e - 1\) is the largest.
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(\tfrac{1}{e}\)</td><td>left endpoint</td><td>\(\tfrac{1}{e} + 1 \approx 1.37\)</td></tr>
+<tr><td>\(1\)</td><td>critical number</td><td>\(1\) (smallest)</td></tr>
+<tr><td>\(e\)</td><td>right endpoint</td><td>\(e - 1 \approx 1.72\) (largest)</td></tr></table>
+<div class="plot" data-f="(x<1/Math.E||x>Math.E)?NaN:(x-Math.log(x))" data-x="0,3" data-y="0,2.2"
+     data-pts="1,1,absolute min (1, 1)|2.7183,1.7183,absolute max (e, e - 1)|0.3679,1.3679,(1/e, 1/e + 1)"
+     data-cap="f(x) = x - ln x on [1/e, e]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(e - 1\), attained at \(x = e\). The absolute minimum value is 1, attained at \(x = 1\).</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u08-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = x - 2\sin x\) on \([0, 2\pi]\). Compare the candidates without a calculator.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(x\) and \(\sin x\) are continuous everywhere, so \(f\) is continuous on the closed interval \([0, 2\pi]\), and both extrema exist by the extreme value theorem.</li>
+<li>Differentiate. The derivative of \(\sin x\) is \(\cos x\). \[f'(x) = 1 - 2\cos x.\]</li>
+<li>Find the critical numbers. The derivative exists everywhere. Set it equal to zero. \[1 - 2\cos x = 0 \quad \text{gives} \quad \cos x = \tfrac{1}{2}.\] The reference angle is \(\tfrac{\pi}{3}\). Cosine is positive in the first and fourth quadrants, so on \([0, 2\pi]\) the solutions are \[x = \tfrac{\pi}{3} \qquad \text{and} \qquad x = 2\pi - \tfrac{\pi}{3} = \tfrac{5\pi}{3}.\] Both are inside \((0, 2\pi)\).</li>
+<li>Evaluate \(f\) at the critical numbers and both endpoints. Use \(\sin\tfrac{\pi}{3} = \tfrac{\sqrt{3}}{2}\) and \(\sin\tfrac{5\pi}{3} = -\tfrac{\sqrt{3}}{2}\). \[\begin{aligned} f(0) &= 0 - 2 \cdot 0 = 0, \\ f\left(\tfrac{\pi}{3}\right) &= \tfrac{\pi}{3} - 2 \cdot \tfrac{\sqrt{3}}{2} = \tfrac{\pi}{3} - \sqrt{3}, \\ f\left(\tfrac{5\pi}{3}\right) &= \tfrac{5\pi}{3} - 2\left(-\tfrac{\sqrt{3}}{2}\right) = \tfrac{5\pi}{3} + \sqrt{3}, \\ f(2\pi) &= 2\pi - 2 \cdot 0 = 2\pi. \end{aligned}\]</li>
+<li>Find the smallest. Since \(\pi \lt 3.2\), we have \(\tfrac{\pi}{3} \lt 1.1\), while \(\sqrt{3} \gt 1.7\) (because \(1.7^2 = 2.89 \lt 3\)). So \(\tfrac{\pi}{3} - \sqrt{3} \lt 0\), which makes it smaller than \(f(0) = 0\). The other two values are positive. The smallest is \(\tfrac{\pi}{3} - \sqrt{3}\).</li>
+<li>Find the largest. The two contenders are \(\tfrac{5\pi}{3} + \sqrt{3}\) and \(2\pi = \tfrac{6\pi}{3}\). Subtract them: \[\left(\tfrac{5\pi}{3} + \sqrt{3}\right) - \tfrac{6\pi}{3} = \sqrt{3} - \tfrac{\pi}{3}.\] From the previous step, \(\sqrt{3} \gt 1.7 \gt 1.1 \gt \tfrac{\pi}{3}\), so this difference is positive, and \(\tfrac{5\pi}{3} + \sqrt{3}\) is the larger one.
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(0\)</td><td>left endpoint</td><td>\(0\)</td></tr>
+<tr><td>\(\tfrac{\pi}{3}\)</td><td>critical number</td><td>\(\tfrac{\pi}{3} - \sqrt{3} \approx -0.68\) (smallest)</td></tr>
+<tr><td>\(\tfrac{5\pi}{3}\)</td><td>critical number</td><td>\(\tfrac{5\pi}{3} + \sqrt{3} \approx 6.97\) (largest)</td></tr>
+<tr><td>\(2\pi\)</td><td>right endpoint</td><td>\(2\pi \approx 6.28\)</td></tr></table>
+<div class="plot" data-f="(x<0||x>2*Math.PI)?NaN:(x-2*Math.sin(x))" data-x="-0.5,6.8" data-y="-1.5,7.8"
+     data-pts="1.0472,-0.6849,absolute min (π/3, π/3 - √3)|5.236,6.968,absolute max (5π/3, 5π/3 + √3)|6.2831,6.2832,(2π, 2π)|0,0,(0, 0)"
+     data-cap="f(x) = x - 2 sin x on [0, 2π]. The right endpoint is close to the max but a little lower."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(\dfrac{5\pi}{3} + \sqrt{3}\), attained at \(x = \dfrac{5\pi}{3}\). The absolute minimum value is \(\dfrac{\pi}{3} - \sqrt{3}\), attained at \(x = \dfrac{\pi}{3}\).</p></div></details></div>
+
+<div class="q" id="u08-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = x^{1/3}(x - 4)\) on \([-1, 8]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. The cube root \(x^{1/3}\) is defined and continuous for every real number, so \(f\) is continuous on \([-1, 8]\) and both extrema exist.</li>
+<li>Multiply out so the power rule applies to each term. \[f(x) = x^{1/3} \cdot x - 4x^{1/3} = x^{4/3} - 4x^{1/3}.\]</li>
+<li>Differentiate with the power rule. \[f'(x) = \tfrac{4}{3}x^{1/3} - \tfrac{4}{3}x^{-2/3}.\]</li>
+<li>Factor out the lowest power, \(\tfrac{4}{3}x^{-2/3}\). Since \(x^{1/3} = x^{-2/3} \cdot x^{1}\), \[\begin{aligned} f'(x) &= \tfrac{4}{3}x^{-2/3}(x - 1) \\ &= \frac{4(x - 1)}{3x^{2/3}}. \end{aligned}\]</li>
+<li>Find the critical numbers. The numerator is zero at \(x = 1\). The denominator \(3x^{2/3}\) is zero at \(x = 0\), where \(f'\) does not exist, and \(f(0) = 0\) is defined, so \(x = 0\) is also a critical number. Both are inside \((-1, 8)\).</li>
+<li>Evaluate \(f\) at the critical numbers and both endpoints. Use \(\sqrt[3]{-1} = -1\) and \(\sqrt[3]{8} = 2\). \[\begin{aligned} f(-1) &= (-1)(-1 - 4) = (-1)(-5) = 5, \\ f(0) &= 0 \cdot (0 - 4) = 0, \\ f(1) &= 1 \cdot (1 - 4) = -3, \\ f(8) &= 2 \cdot (8 - 4) = 8. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-1\)</td><td>left endpoint</td><td>\(5\)</td></tr>
+<tr><td>\(0\)</td><td>critical number (\(f'\) does not exist)</td><td>\(0\)</td></tr>
+<tr><td>\(1\)</td><td>critical number (\(f' = 0\))</td><td>\(-3\) (smallest)</td></tr>
+<tr><td>\(8\)</td><td>right endpoint</td><td>\(8\) (largest)</td></tr></table></li>
+<li>Note what happens at \(x = 0\). The denominator \(3x^{2/3}\) is never negative, so the sign of \(f'\) is the sign of \(x - 1\), which is negative on both sides of 0. The graph keeps falling through \((0, 0)\) with a vertical tangent line, so 0 is a critical number that is not a relative extremum. It still had to go in the table.
+<div class="plot" data-f="(x<-1||x>8)?NaN:(Math.cbrt(x)*(x-4))" data-x="-1.5,8.5" data-y="-4.5,9.5"
+     data-pts="8,8,absolute max (8, 8)|1,-3,absolute min (1, -3)|-1,5,(-1, 5)|0,0,vertical tangent (0, 0)"
+     data-cap="f(x) = x^(1/3)(x - 4) on [-1, 8]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is 8, attained at \(x = 8\). The absolute minimum value is \(-3\), attained at \(x = 1\).</p></div></details></div>
+
+<div class="q" id="u08-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute extrema of \(f(x) = x^2 - 8\ln x\) on \((0, \infty)\), or explain why they do not exist.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(x^2\) is continuous everywhere and \(\ln x\) is continuous for \(x \gt 0\), so \(f\) is continuous on \((0, \infty)\). The interval is not closed, so the closed interval method does not apply. We will use the critical point theorem.</li>
+<li>Differentiate and write as one fraction. \[\begin{aligned} f'(x) &= 2x - \frac{8}{x} \\ &= \frac{2x^2 - 8}{x} \\ &= \frac{2(x - 2)(x + 2)}{x}. \end{aligned}\]</li>
+<li>Find the critical numbers in \((0, \infty)\). The numerator is zero at \(x = 2\) and \(x = -2\). The number \(-2\) is not in the interval. The denominator is zero only at \(x = 0\), which is not in the domain. So \(x = 2\) is the only critical number.</li>
+<li>Use the second derivative test. From \(f'(x) = 2x - 8x^{-1}\), \[f''(x) = 2 + 8x^{-2} = 2 + \frac{8}{x^2}, \qquad f''(2) = 2 + \frac{8}{4} = 4 \gt 0.\] Since \(f'(2) = 0\) and \(f''(2) \gt 0\), \(f\) has a relative minimum at \(x = 2\).</li>
+<li>Apply the critical point theorem. \(f\) is continuous on \((0, \infty)\) with exactly one critical number there, and it is a relative minimum, so it is the absolute minimum. \[f(2) = 2^2 - 8\ln 2 = 4 - 8\ln 2.\]</li>
+<li>Show there is no absolute maximum. As \(x \to 0^+\), \(\ln x \to -\infty\), so \(-8\ln x \to \infty\), while \(x^2 \to 0\). So \(f(x) \to \infty\). For example, \(f\left(\tfrac{1}{e^2}\right) = \tfrac{1}{e^4} - 8(-2) = 16 + \tfrac{1}{e^4}\), and \(f\left(\tfrac{1}{e^{10}}\right) = \tfrac{1}{e^{20}} + 80\). The values grow without bound, so there is no largest one.
+<div class="plot" data-f="x**2-8*Math.log(x)" data-x="0,5" data-y="-3,14"
+     data-pts="2,-1.5452,absolute min (2, 4 - 8 ln 2)"
+     data-cap="f(x) = x^2 - 8 ln x on (0, ∞). It rises without bound near x = 0 and as x grows."></div></li>
+</ol><p class="final">Answer: The absolute minimum value is \(4 - 8\ln 2\), attained at \(x = 2\). There is no absolute maximum.</p></div></details></div>
+
+<div class="q" id="u08-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">A small shop's total cost, in dollars, to make \(x\) units is \(C(x) = x^3 + 16x + 128\). Find the minimum average cost per unit and the production level where it happens (a) when \(1 \le x \le 8\), and (b) when \(8 \le x \le 16\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write the average cost by dividing each term by \(x\). \[\overline{C}(x) = \frac{x^3 + 16x + 128}{x} = x^2 + 16 + \frac{128}{x}.\] It is in dollars per unit, and it is continuous for \(x \gt 0\), so it is continuous on both closed intervals.</li>
+<li>Differentiate and write as one fraction. \[\begin{aligned} \overline{C}'(x) &= 2x - \frac{128}{x^2} \\ &= \frac{2x^3 - 128}{x^2} \\ &= \frac{2(x^3 - 64)}{x^2}. \end{aligned}\]</li>
+<li>Find the critical numbers. The numerator is zero when \(x^3 = 64\), so \(x = 4\). The denominator is zero only at \(x = 0\), which is in neither interval. So \(x = 4\) is the only critical number.</li>
+<li>Part (a): \(x = 4\) is inside \((1, 8)\). Evaluate at it and at both endpoints. \[\begin{aligned} \overline{C}(1) &= 1 + 16 + 128 = 145, \\ \overline{C}(4) &= 16 + 16 + 32 = 64, \\ \overline{C}(8) &= 64 + 16 + 16 = 96. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(\overline{C}(x)\)</th></tr>
+<tr><td>\(1\)</td><td>left endpoint</td><td>\(145\)</td></tr>
+<tr><td>\(4\)</td><td>critical number</td><td>\(64\) (smallest)</td></tr>
+<tr><td>\(8\)</td><td>right endpoint</td><td>\(96\)</td></tr></table></li>
+<li>Part (b): \(x = 4\) is not in \([8, 16]\), so there are no critical numbers in this interval and only the endpoints are candidates. \[\overline{C}(8) = 96, \qquad \overline{C}(16) = 256 + 16 + 8 = 280.\] This matches the sign of the derivative: for \(x \gt 4\), \(x^3 \gt 64\), so \(\overline{C}'(x) \gt 0\) and \(\overline{C}\) is increasing on all of \([8, 16]\). The smallest value is at the left end.
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(\overline{C}(x)\)</th></tr>
+<tr><td>\(8\)</td><td>left endpoint</td><td>\(96\) (smallest)</td></tr>
+<tr><td>\(16\)</td><td>right endpoint</td><td>\(280\)</td></tr></table>
+<div class="plot" data-f="(x<1||x>16)?NaN:(x**2+16+128/x)" data-x="0,17" data-y="0,300"
+     data-pts="4,64,min on [1, 8]: (4, 64)|8,96,min on [8, 16]: (8, 96)|1,145,(1, 145)|16,280,(16, 280)"
+     data-cap="Average cost x^2 + 16 + 128/x on [1, 16]. On [8, 16] the curve only rises."></div></li>
+</ol><p class="final">Answer: (a) The minimum average cost is \$64 per unit, at \(x = 4\) units. (b) The minimum average cost is \$96 per unit, at \(x = 8\) units.</p></div></details></div>
+
+<div class="q" id="u08-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">The function \(f(x) = x^3 - 3x^2 + k\), where \(k\) is a constant, has absolute minimum value 5 on \([0, 3]\). Find \(k\). Then find the absolute maximum value of \(f\) on \([0, 3]\) and every \(x\) where it is attained.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(f\) is a polynomial for every value of \(k\), so it is continuous on \([0, 3]\) and both extrema exist.</li>
+<li>Differentiate and factor. The constant \(k\) has derivative 0. \[f'(x) = 3x^2 - 6x = 3x(x - 2).\]</li>
+<li>Find the critical numbers. \(f'(x) = 0\) gives \(x = 0\) or \(x = 2\). The number 0 is an endpoint, not inside \((0, 3)\), but it is already in the table as an endpoint. The number 2 is inside.</li>
+<li>Evaluate \(f\) at the candidates in terms of \(k\). \[\begin{aligned} f(0) &= 0 - 0 + k = k, \\ f(2) &= 8 - 12 + k = k - 4, \\ f(3) &= 27 - 27 + k = k. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(0\)</td><td>left endpoint</td><td>\(k\)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(k - 4\) (smallest)</td></tr>
+<tr><td>\(3\)</td><td>right endpoint</td><td>\(k\)</td></tr></table></li>
+<li>Use the given minimum. Whatever \(k\) is, \(k - 4\) is the smallest value in the table, so the absolute minimum is \(k - 4\). Set it equal to 5. \[k - 4 = 5 \quad \text{gives} \quad k = 9.\]</li>
+<li>Read off the maximum with \(k = 9\). The largest value in the table is \(k = 9\), attained at both \(x = 0\) and \(x = 3\).
+<div class="plot" data-f="(x<0||x>3)?NaN:(x**3-3*x**2+9)" data-x="-0.5,3.5" data-y="0,11"
+     data-pts="0,9,absolute max (0, 9)|3,9,absolute max (3, 9)|2,5,absolute min (2, 5)"
+     data-cap="f(x) = x^3 - 3x^2 + 9 on [0, 3]. The maximum value 9 is attained at both endpoints."></div></li>
+</ol><p class="final">Answer: \(k = 9\). The absolute maximum value is 9, attained at both \(x = 0\) and \(x = 3\).</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u08-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and absolute minimum values of \(f(x) = x^2(x - 2)^2\) on the interval \([-1, 3]\), and all values of \(x\) where they occur. Explain why your answers are the absolute extrema.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Say why the extrema exist. \(f\) is a polynomial, so it is continuous on the closed, bounded interval \([-1, 3]\). By the extreme value theorem, \(f\) attains an absolute maximum and an absolute minimum on \([-1, 3]\), each at a critical number in \((-1, 3)\) or at an endpoint.</li>
+<li>Expand so the power rule applies term by term. \[\begin{aligned} f(x) &= x^2(x^2 - 4x + 4) \\ &= x^4 - 4x^3 + 4x^2. \end{aligned}\]</li>
+<li>Differentiate and factor completely. \[\begin{aligned} f'(x) &= 4x^3 - 12x^2 + 8x \\ &= 4x(x^2 - 3x + 2) \\ &= 4x(x - 1)(x - 2). \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'\) exists everywhere, and \(f'(x) = 0\) gives \(x = 0\), \(x = 1\), or \(x = 2\). All three are inside \((-1, 3)\).</li>
+<li>Evaluate \(f\) at the critical numbers and both endpoints, using the factored form \(f(x) = x^2(x - 2)^2\). \[\begin{aligned} f(-1) &= (-1)^2(-3)^2 = 1 \cdot 9 = 9, \\ f(0) &= 0^2(-2)^2 = 0, \\ f(1) &= 1^2(-1)^2 = 1, \\ f(2) &= 2^2 \cdot 0^2 = 0, \\ f(3) &= 3^2 \cdot 1^2 = 9. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-1\)</td><td>left endpoint</td><td>\(9\) (largest)</td></tr>
+<tr><td>\(0\)</td><td>critical number</td><td>\(0\) (smallest)</td></tr>
+<tr><td>\(1\)</td><td>critical number</td><td>\(1\)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(0\) (smallest)</td></tr>
+<tr><td>\(3\)</td><td>right endpoint</td><td>\(9\) (largest)</td></tr></table></li>
+<li>Compare and explain. The largest value is 9, reached at two candidates, and the smallest is 0, also reached at two candidates. Because the absolute extrema can only happen at these five numbers, these are the absolute extrema. (A quick check: \(f(x) = [x(x - 2)]^2\) is a square, so it is never negative, and 0 is the least it could be.)
+<div class="plot" data-f="(x<-1||x>3)?NaN:(x**2*(x-2)**2)" data-x="-1.5,3.5" data-y="-1,10.5"
+     data-pts="-1,9,max (-1, 9)|3,9,max (3, 9)|0,0,min (0, 0)|2,0,min (2, 0)|1,1,(1, 1)"
+     data-cap="f(x) = x^2 (x - 2)^2 on [-1, 3]. The absolute max 9 is attained at x = -1 and x = 3, and the absolute min 0 at x = 0 and x = 2."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is 9, attained at \(x = -1\) and \(x = 3\). The absolute minimum value is 0, attained at \(x = 0\) and \(x = 2\).</p></div></details></div>
+
+<div class="q" id="u08-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">Find the absolute maximum and absolute minimum values of \(f(x) = (x^2 - 3)e^{x}\) on \([-2, 2]\). Give exact answers and explain how you compared the candidates.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Say why the extrema exist. \(x^2 - 3\) and \(e^x\) are continuous everywhere, so \(f\) is continuous on the closed interval \([-2, 2]\), and by the extreme value theorem it attains both an absolute maximum and an absolute minimum there.</li>
+<li>Differentiate with the product rule. Let \(u = x^2 - 3\) and \(v = e^x\), so \(u' = 2x\) and \(v' = e^x\). \[\begin{aligned} f'(x) &= u'v + uv' \\ &= 2x e^x + (x^2 - 3)e^x \\ &= e^x(x^2 + 2x - 3) \\ &= e^x(x + 3)(x - 1). \end{aligned}\]</li>
+<li>Find the critical numbers. \(f'\) exists everywhere, and \(e^x\) is never zero, so \(f'(x) = 0\) only when \(x = -3\) or \(x = 1\). The number \(-3\) is not in \([-2, 2]\), so we throw it out. Only \(x = 1\) stays.</li>
+<li>Evaluate \(f\) at the critical number and both endpoints. \[\begin{aligned} f(-2) &= (4 - 3)e^{-2} = e^{-2} = \frac{1}{e^2}, \\ f(1) &= (1 - 3)e^{1} = -2e, \\ f(2) &= (4 - 3)e^{2} = e^2. \end{aligned}\]</li>
+<li>Compare. The value \(-2e\) is the only negative one, so it is the smallest. Since \(e \gt 1\), we have \(e^2 \gt 1\) and \(\tfrac{1}{e^2} \lt 1\), so \(e^2\) is the largest.
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-2\)</td><td>left endpoint</td><td>\(\tfrac{1}{e^2} \approx 0.14\)</td></tr>
+<tr><td>\(1\)</td><td>critical number</td><td>\(-2e \approx -5.44\) (smallest)</td></tr>
+<tr><td>\(2\)</td><td>right endpoint</td><td>\(e^2 \approx 7.39\) (largest)</td></tr></table>
+<div class="plot" data-f="(x<-2||x>2)?NaN:((x**2-3)*Math.exp(x))" data-x="-2.5,2.5" data-y="-6.5,8.5"
+     data-pts="2,7.3891,absolute max (2, e^2)|1,-5.4366,absolute min (1, -2e)|-2,0.1353,(-2, 1/e^2)"
+     data-cap="f(x) = (x^2 - 3)e^x on [-2, 2]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(e^2\), attained at \(x = 2\). The absolute minimum value is \(-2e\), attained at \(x = 1\).</p></div></details></div>
+
+<div class="q" id="u08-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = 2\sqrt{x} - \ln x\) for \(x \gt 0\). (a) Find the absolute extrema of \(f\) on \((0, \infty)\), or explain why they do not exist. Justify your answer. (b) Use part (a) to explain why \(\ln x \le 2\sqrt{x} - 2\) for every \(x \gt 0\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check continuity. \(\sqrt{x}\) and \(\ln x\) are continuous for \(x \gt 0\), so \(f\) is continuous on \((0, \infty)\). This interval is not closed, so we use the critical point theorem.</li>
+<li>Differentiate. Write \(2\sqrt{x} = 2x^{1/2}\), so its derivative is \(2 \cdot \tfrac{1}{2}x^{-1/2} = \tfrac{1}{\sqrt{x}}\). \[f'(x) = \frac{1}{\sqrt{x}} - \frac{1}{x}.\]</li>
+<li>Combine into one fraction with denominator \(x\). Since \(\tfrac{1}{\sqrt{x}} = \tfrac{\sqrt{x}}{\sqrt{x}\sqrt{x}} = \tfrac{\sqrt{x}}{x}\), \[f'(x) = \frac{\sqrt{x}}{x} - \frac{1}{x} = \frac{\sqrt{x} - 1}{x}.\]</li>
+<li>Find the critical numbers. The numerator is zero when \(\sqrt{x} = 1\), so \(x = 1\). The denominator is zero only at \(x = 0\), which is not in the domain. So \(x = 1\) is the only critical number in \((0, \infty)\).</li>
+<li>Use the first derivative test. For \(x \gt 0\) the denominator is positive, so the sign of \(f'\) is the sign of \(\sqrt{x} - 1\).
+<table class="t"><tr><th>Interval</th><th>Test value</th><th>\(\sqrt{x} - 1\)</th><th>Sign of \(f'\)</th><th>\(f\) is</th></tr>
+<tr><td>\((0, 1)\)</td><td>\(x = \tfrac{1}{4}\)</td><td>\(\tfrac{1}{2} - 1 = -\tfrac{1}{2}\)</td><td>\(-\)</td><td>decreasing</td></tr>
+<tr><td>\((1, \infty)\)</td><td>\(x = 4\)</td><td>\(2 - 1 = 1\)</td><td>\(+\)</td><td>increasing</td></tr></table>
+Because \(f'\) changes from negative to positive at \(x = 1\), \(f\) has a relative minimum at \(x = 1\).</li>
+<li>Apply the critical point theorem. \(f\) is continuous on \((0, \infty)\) and \(x = 1\) is its only critical number there, so the relative minimum is the absolute minimum. \[f(1) = 2\sqrt{1} - \ln 1 = 2 - 0 = 2.\]</li>
+<li>Show there is no absolute maximum. As \(x \to 0^+\), \(\ln x \to -\infty\), so \(-\ln x \to \infty\), while \(2\sqrt{x} \to 0\). So \(f(x) \to \infty\). For example, \(f\left(\tfrac{1}{e^{10}}\right) = \tfrac{2}{e^5} + 10 \gt 10\). The values grow without bound, so there is no largest value.
+<div class="plot" data-f="2*Math.sqrt(x)-Math.log(x)" data-x="0,10" data-y="0,6"
+     data-pts="1,2,absolute min (1, 2)"
+     data-cap="f(x) = 2√x - ln x on (0, ∞). It never goes below 2."></div></li>
+<li>Part (b). Part (a) says 2 is the smallest value of \(f\) on \((0, \infty)\), so \(f(x) \ge 2\) for every \(x \gt 0\). Write that out and rearrange. \[\begin{aligned} 2\sqrt{x} - \ln x &\ge 2 \\ 2\sqrt{x} - 2 &\ge \ln x. \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) The absolute minimum value is 2, attained at \(x = 1\). There is no absolute maximum, because \(f(x) \to \infty\) as \(x \to 0^+\). (b) Since \(f(x) \ge 2\) for all \(x \gt 0\), \(2\sqrt{x} - \ln x \ge 2\), which rearranges to \(\ln x \le 2\sqrt{x} - 2\).</p></div></details></div>
+
+<div class="q" id="u08-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">A workshop's total cost, in dollars, to make \(x\) chairs per day is \(C(x) = 2x^2 + 30x + 1800\). (a) If any positive number of chairs per day is allowed, how many chairs per day minimize the average cost per chair? Explain why your answer gives the smallest possible average cost, and find that average cost. (b) The workshop can make at most 20 chairs per day. Now how many chairs per day minimize the average cost, and what is the minimum average cost?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Define the variables. Let \(x\) be the number of chairs made per day and \(\overline{C}(x)\) the average cost in dollars per chair. Divide each term of \(C(x)\) by \(x\). \[\overline{C}(x) = \frac{2x^2 + 30x + 1800}{x} = 2x + 30 + \frac{1800}{x}.\] In part (a) the domain is \(x \gt 0\), that is, \((0, \infty)\). \(\overline{C}\) is continuous there.</li>
+<li>Differentiate. Write \(\tfrac{1800}{x} = 1800x^{-1}\). \[\begin{aligned} \overline{C}'(x) &= 2 - 1800x^{-2} = 2 - \frac{1800}{x^2} \\ &= \frac{2x^2 - 1800}{x^2} = \frac{2(x^2 - 900)}{x^2}. \end{aligned}\]</li>
+<li>Find the critical numbers in \((0, \infty)\). The numerator is zero when \(x^2 = 900\), so \(x = 30\) or \(x = -30\). The number \(-30\) is not in the domain, and the denominator is zero only at \(x = 0\), also not in the domain. So \(x = 30\) is the only critical number.</li>
+<li>Use the second derivative test. From \(\overline{C}'(x) = 2 - 1800x^{-2}\), \[\overline{C}''(x) = 3600x^{-3} = \frac{3600}{x^3}, \qquad \overline{C}''(30) = \frac{3600}{27000} = \frac{2}{15} \gt 0.\] So \(\overline{C}\) has a relative minimum at \(x = 30\).</li>
+<li>Apply the critical point theorem. \(\overline{C}\) is continuous on \((0, \infty)\) and \(x = 30\) is its only critical number there, so the relative minimum is the absolute minimum. \[\overline{C}(30) = 2(30) + 30 + \frac{1800}{30} = 60 + 30 + 60 = 150.\] As a check, the marginal cost is \(C'(x) = 4x + 30\), and \(C'(30) = 150\) equals the average cost there.</li>
+<li>Part (b): the domain is now \((0, 20]\), and the critical number 30 is not in it. For \(0 \lt x \le 20\) we have \(x^2 \le 400 \lt 900\), so the numerator \(2(x^2 - 900)\) is negative and \(\overline{C}'(x) \lt 0\). That means \(\overline{C}\) is decreasing on all of \((0, 20]\), so its smallest value is at the right end, \(x = 20\). (Near \(x = 0\), \(\tfrac{1800}{x} \to \infty\), so small production levels are very expensive per chair.) \[\overline{C}(20) = 2(20) + 30 + \frac{1800}{20} = 40 + 30 + 90 = 160.\]
+<div class="plot" data-f="2*x+30+1800/x" data-x="0,60" data-y="0,400"
+     data-pts="30,150,absolute min (30, 150)|20,160,(20, 160)"
+     data-cap="Average cost 2x + 30 + 1800/x. Without a cap the minimum is at (30, 150). With the cap x ≤ 20 the curve is still falling at x = 20, so the best choice is (20, 160)."></div></li>
+</ol><p class="final">Answer: (a) 30 chairs per day, with a minimum average cost of \$150 per chair. It is the smallest possible because \(x = 30\) is the only critical number on \((0, \infty)\) and \(\overline{C}''(30) \gt 0\), so by the critical point theorem it is the absolute minimum. (b) 20 chairs per day, with a minimum average cost of \$160 per chair, because \(\overline{C}\) is decreasing on \((0, 20]\).</p></div></details></div>
+</section><div class="pager"><a href="u07.html">Back: Curve sketching</a><a href="u09.html">Next: Optimization word problems</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

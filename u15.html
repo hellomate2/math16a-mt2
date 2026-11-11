@@ -1,0 +1,139 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mock Midterm A | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Mock</p><h1>Mock Midterm A</h1><p class="sub">5 questions, 10 points each, 60 minutes, no calculator.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">The exam</a></div><section id="learn"><h2>Mock Midterm A</h2>
+<p>This is a full practice exam written to match the length, style, and difficulty of the professor's practice Midterm 2 and his real Fall 2025 Midterm 2. Every question is new. Treat it like the real thing: one sitting, a 60 minute timer, blank paper, and nothing else on the desk.</p>
+
+<div class="rule"><div class="rt">Instructions (as they appear on the exam)</div>
+<p>There are 5 questions on this exam. Each question is worth 10 points.</p>
+<p>Write complete, clear, legible solutions.</p>
+<p>Calculators are not allowed.</p>
+<p>Time: 60 minutes. No notes, no formula sheet, no textbook.</p>
+</div>
+
+<h3>How to take this mock</h3>
+<ol>
+<li>Open the exam page, start a 60 minute timer, and work the five questions on paper in any order you like.</li>
+<li>Do not open any solution until the timer ends. If you get stuck on a question, write down what you know (the variables, the equation, the derivative) and move on. Partial work earns partial credit on the real exam too.</li>
+<li>When time is up, grade yourself with the solutions and the scoring guide below, then write your score at the top of the page.</li>
+</ol>
+
+<details><summary>Show which topics are on this mock</summary>
+<ul>
+<li>Curve sketching of a polynomial, with local extrema and inflection points labeled (Section 5.4).</li>
+<li>Differentials and the maximum error in a calculated volume (Section 6.6).</li>
+<li>The chain rule with logarithms, exponentials, and a trig function, and logarithm properties used before differentiating (Sections 4.3, 4.4, 4.5, 13.2).</li>
+<li>Implicit differentiation and the tangent line at a point (Section 6.4).</li>
+<li>Optimization: the least fencing for a field with a fixed area split into pens (Section 6.2).</li>
+</ul>
+</details>
+
+<h3>Scoring guide</h3>
+<p>Each solution ends with a line called "Where the points are." It gives a reasonable way to split the 10 points among the steps of that question. It is general advice for self-grading and is not the professor's rubric. Give yourself the points for a step only if the work for that step is written down and correct; a correct final number with no supporting work should earn very little, because the exam grades written solutions. Take off one point for a final answer with missing or wrong units, and take off the justification points in the optimization question if you did not explain why your answer is the smallest. A score of 45 or more out of 50 means you are on track for the real exam. A score from 35 to 44 means you should redo the questions you lost points on and then work the Level 3 and Level 4 problems in those units. Below 35, go back to the lessons for the topics you missed before trying Mock Midterm B.</p>
+</section>
+<section id="L1"><div class="lvl"><h2>The exam</h2><span>Set a 60 minute timer. Closed book, no calculator.</span></div><div class="q" id="u15-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) Draw a rough sketch of the graph of the function \(f(x) = x^4 - 8x^2 + 7\). Label any local extrema and inflection points.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the domain and check for asymptotes. The function is a polynomial, so its domain is all real numbers \((-\infty, \infty)\), and a polynomial has no vertical or horizontal asymptotes. Since the leading term is \(x^4\), \(f(x) \to \infty\) as \(x \to \infty\) and as \(x \to -\infty\).</li>
+<li>Look for symmetry, since it halves the work. Replace \(x\) by \(-x\). \[f(-x) = (-x)^4 - 8(-x)^2 + 7 = x^4 - 8x^2 + 7 = f(x).\] So \(f\) is even, and its graph is symmetric about the \(y\)-axis.</li>
+<li>Find the intercepts. The \(y\)-intercept is \(f(0) = 7\). For the \(x\)-intercepts, set \(f(x) = 0\). The expression is a quadratic in \(x^2\), so factor it the way you would factor \(u^2 - 8u + 7 = (u - 1)(u - 7)\). \[\begin{aligned}x^4 - 8x^2 + 7 &= 0\\ (x^2 - 1)(x^2 - 7) &= 0\\ x^2 = 1 \quad &\text{or} \quad x^2 = 7\\ x = \pm 1 \quad &\text{or} \quad x = \pm\sqrt{7}.\end{aligned}\]</li>
+<li>Find the first derivative with the power rule and factor it completely. \[\begin{aligned}f'(x) &= 4x^3 - 16x\\ &= 4x(x^2 - 4)\\ &= 4x(x - 2)(x + 2).\end{aligned}\]</li>
+<li>Find the critical numbers. The derivative exists everywhere, so the critical numbers are the solutions of \(f'(x) = 0\): \(x = -2\), \(x = 0\), and \(x = 2\).</li>
+<li>Make a sign chart for \(f'\) by testing one number in each interval. \[\begin{aligned}f'(-3) &= 4(-3)(-5)(-1) = -60 \lt 0,\\ f'(-1) &= 4(-1)(-3)(1) = 12 \gt 0,\\ f'(1) &= 4(1)(-1)(3) = -12 \lt 0,\\ f'(3) &= 4(3)(1)(5) = 60 \gt 0.\end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -2)\)</th><th>\((-2, 0)\)</th><th>\((0, 2)\)</th><th>\((2, \infty)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td><td>increasing</td></tr>
+</table></li>
+<li>Classify the critical numbers with the first derivative test. Because \(f'\) changes from negative to positive at \(x = -2\) and at \(x = 2\), \(f\) has a local minimum at each of them. Because \(f'\) changes from positive to negative at \(x = 0\), \(f\) has a local maximum at \(x = 0\).</li>
+<li>Find the \(y\)-values of the local extrema. \[\begin{aligned}f(2) &= 2^4 - 8(2)^2 + 7 = 16 - 32 + 7 = -9,\\ f(-2) &= (-2)^4 - 8(-2)^2 + 7 = 16 - 32 + 7 = -9,\\ f(0) &= 7.\end{aligned}\] So the local minima are \((-2, -9)\) and \((2, -9)\), and the local maximum is \((0, 7)\).</li>
+<li>Find the second derivative by differentiating \(f'(x) = 4x^3 - 16x\). \[f''(x) = 12x^2 - 16 = 4(3x^2 - 4).\]</li>
+<li>Find where \(f''(x) = 0\). \[\begin{aligned}3x^2 - 4 &= 0\\ x^2 &= \frac{4}{3}\\ x &= \pm\frac{2}{\sqrt{3}} = \pm\frac{2\sqrt{3}}{3}.\end{aligned}\] (These are about \(\pm 1.15\).)</li>
+<li>Make a sign chart for \(f''\). \[\begin{aligned}f''(-2) &= 12(4) - 16 = 32 \gt 0,\\ f''(0) &= -16 \lt 0,\\ f''(2) &= 32 \gt 0.\end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\(\left(-\infty, -\tfrac{2\sqrt{3}}{3}\right)\)</th><th>\(\left(-\tfrac{2\sqrt{3}}{3}, \tfrac{2\sqrt{3}}{3}\right)\)</th><th>\(\left(\tfrac{2\sqrt{3}}{3}, \infty\right)\)</th></tr>
+<tr><td>Sign of \(f''\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>\(f\) is</td><td>concave up</td><td>concave down</td><td>concave up</td></tr>
+</table>
+The concavity changes at both \(x = -\tfrac{2\sqrt{3}}{3}\) and \(x = \tfrac{2\sqrt{3}}{3}\), and \(f\) is defined there, so both are inflection points.</li>
+<li>Find the \(y\)-value at the inflection points. At \(x = \pm\tfrac{2\sqrt{3}}{3}\) we have \(x^2 = \tfrac{4}{3}\) and \(x^4 = \left(\tfrac{4}{3}\right)^2 = \tfrac{16}{9}\). \[\begin{aligned}f\left(\pm\tfrac{2\sqrt{3}}{3}\right) &= \frac{16}{9} - 8\cdot\frac{4}{3} + 7\\ &= \frac{16}{9} - \frac{96}{9} + \frac{63}{9}\\ &= -\frac{17}{9}.\end{aligned}\] So the inflection points are \(\left(-\tfrac{2\sqrt{3}}{3}, -\tfrac{17}{9}\right)\) and \(\left(\tfrac{2\sqrt{3}}{3}, -\tfrac{17}{9}\right)\), about \((\pm 1.15, -1.89)\).</li>
+<li>Sketch the graph. Plot the intercepts, the three extrema, and the two inflection points. Coming in from the left the graph falls while concave up to the minimum \((-2, -9)\), rises through the inflection point, where it switches to concave down, reaches the maximum \((0, 7)\), and then the right half is the mirror image.
+<div class="plot" data-f="x**4-8*x**2+7" data-x="-3.2,3.2" data-y="-11,10" data-pts="-2,-9,local min (-2, -9)|2,-9,local min (2, -9)|0,7,local max (0, 7)|-1.1547,-1.8889,P|1.1547,-1.8889,Q" data-cap="Graph of f(x) = x^4 - 8x^2 + 7. P = (-2√3/3, -17/9) and Q = (2√3/3, -17/9) are the inflection points. The graph crosses the x-axis at -√7, -1, 1, and √7."></div></li>
+</ol><p class="final">Answer: Local minima at \((-2, -9)\) and \((2, -9)\), local maximum at \((0, 7)\), inflection points at \(\left(\pm\tfrac{2\sqrt{3}}{3}, -\tfrac{17}{9}\right)\). The function decreases on \((-\infty, -2)\) and \((0, 2)\), increases on \((-2, 0)\) and \((2, \infty)\), is concave up on \(\left(-\infty, -\tfrac{2\sqrt{3}}{3}\right)\) and \(\left(\tfrac{2\sqrt{3}}{3}, \infty\right)\), and concave down on \(\left(-\tfrac{2\sqrt{3}}{3}, \tfrac{2\sqrt{3}}{3}\right)\). The graph is the W-shaped curve shown above.</p>
+<p class="say"><b>Where the points are.</b> About 2 points for \(f'\) and the critical numbers, 2 for the sign chart of \(f'\) and naming the local max and min, 2 for \(f''\) and its sign chart, 1 for the \(y\)-values of the labeled points, and 3 for a sketch with the right shape (rising and falling in the right places, bending the right way) with every extremum and inflection point labeled.</p></div></details></div>
+
+<div class="q" id="u15-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">A cylindrical water tank is exactly 10 meters tall. Its radius was measured as 4 meters, with a maximum error in measurement of 0.05 meters.<br>(a) (7 points) Use differentials to estimate the maximum error in the calculated volume of the tank.<br>(b) (3 points) Estimate the relative error (the percentage error) in the calculated volume.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<ellipse cx="160" cy="40" rx="70" ry="16" stroke="currentColor" fill="none"/>
+<line x1="90" y1="40" x2="90" y2="160" stroke="currentColor" fill="none"/>
+<line x1="230" y1="40" x2="230" y2="160" stroke="currentColor" fill="none"/>
+<path d="M90 160 A70 16 0 0 0 230 160" stroke="currentColor" fill="none"/>
+<line x1="160" y1="40" x2="230" y2="40" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<text x="185" y="34" fill="currentColor" stroke="none" font-size="14">r = 4</text>
+<line x1="250" y1="40" x2="250" y2="160" stroke="currentColor" fill="none" stroke-dasharray="4,4"/>
+<text x="258" y="105" fill="currentColor" stroke="none" font-size="14">h = 10</text>
+</svg>
+<ol class="steps">
+<li>Name the quantities with units. Let \(r\) be the radius of the tank in meters and \(V\) its volume in cubic meters. The height is exactly \(h = 10\) m, so it has no error. The measured radius is \(r = 4\), and the error in the radius is \(dr\), with \(|dr| \le 0.05\).</li>
+<li>Write the volume as a function of \(r\) alone. The volume of a cylinder is \(V = \pi r^2 h\), and \(h = 10\). \[V = \pi r^2 (10) = 10\pi r^2.\]</li>
+<li>(a) Write the differential of \(V\). By definition \(dV = V'(r)\,dr\), and the power rule gives \(V'(r) = 20\pi r\). \[dV = 20\pi r\,dr.\]</li>
+<li>Substitute the measured radius \(r = 4\) and the largest error \(dr = 0.05\). \[\begin{aligned}dV &= 20\pi (4)(0.05)\\ &= 80\pi (0.05)\\ &= 4\pi.\end{aligned}\] The error \(dr\) can be anywhere from \(-0.05\) to \(0.05\), so \(|dV| \le 4\pi\). The differential approximates the actual change \(\Delta V\), so the maximum error in the volume is about \(4\pi\) cubic meters.</li>
+<li>(b) Find the calculated volume at \(r = 4\). \[V(4) = 10\pi (4)^2 = 160\pi.\]</li>
+<li>The relative error is the error divided by the quantity. \[\frac{dV}{V} = \frac{4\pi}{160\pi} = \frac{1}{40} = 0.025 = 2.5\%.\] For comparison, the relative error in the radius is \(\tfrac{0.05}{4} = 1.25\%\). The volume depends on \(r^2\), so its relative error is twice as large.</li>
+</ol><p class="final">Answer: (a) The maximum error in the volume is approximately \(dV = 4\pi\) cubic meters. (b) The relative error is approximately \(\tfrac{1}{40} = 2.5\%\).</p>
+<p class="say"><b>Where the points are.</b> About 2 points for writing \(V = 10\pi r^2\) (using the fixed height), 3 for \(dV = 20\pi r\,dr\), 2 for substituting \(r = 4\), \(dr = 0.05\) and stating \(4\pi\) with units, and 3 for part (b): 1 for \(V = 160\pi\) and 2 for the ratio written as a fraction or a percentage.</p></div></details></div>
+
+<div class="q" id="u15-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">(a) (6 points) Find the derivative of the function \(f(x) = \tan\left[\ln\left(x^2 + e^{x}\right)\right]\).<br>(b) (4 points) Find the derivative of the function \(g(x) = \ln\left[\dfrac{x^3 e^{2x}}{(x^2 + 1)^4}\right]\) for \(x \gt 0\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Identify the layers of \(f\) from the outside in. The outside function is \(\tan(u)\), the middle function is \(u = \ln(w)\), and the inside function is \(w = x^2 + e^x\). The chain rule says to differentiate each layer, keep what is inside it, and multiply the results.</li>
+<li>Differentiate each layer. \[\begin{aligned}\frac{d}{du}\tan u &= \sec^2 u,\\ \frac{d}{dw}\ln w &= \frac{1}{w},\\ \frac{d}{dx}\left(x^2 + e^x\right) &= 2x + e^x.\end{aligned}\]</li>
+<li>Multiply the three pieces, putting each inside expression back in. \[\begin{aligned}f'(x) &= \sec^2\left[\ln\left(x^2 + e^x\right)\right]\cdot\frac{1}{x^2 + e^x}\cdot\left(2x + e^x\right)\\ &= \frac{\left(2x + e^x\right)\sec^2\left[\ln\left(x^2 + e^x\right)\right]}{x^2 + e^x}.\end{aligned}\]</li>
+<li>(b) Before differentiating, use the properties of logarithms to break \(g\) into simple pieces: \(\ln\tfrac{A}{B} = \ln A - \ln B\), \(\ln(AB) = \ln A + \ln B\), \(\ln(A^n) = n\ln A\), and \(\ln(e^{2x}) = 2x\). These are allowed because \(x \gt 0\), so every piece is positive. \[\begin{aligned}g(x) &= \ln\left(x^3\right) + \ln\left(e^{2x}\right) - \ln\left[(x^2 + 1)^4\right]\\ &= 3\ln x + 2x - 4\ln\left(x^2 + 1\right).\end{aligned}\]</li>
+<li>Differentiate term by term. The last term uses the chain rule: \(\dfrac{d}{dx}\ln(x^2 + 1) = \dfrac{1}{x^2 + 1}\cdot 2x\). \[\begin{aligned}g'(x) &= 3\cdot\frac{1}{x} + 2 - 4\cdot\frac{2x}{x^2 + 1}\\ &= \frac{3}{x} + 2 - \frac{8x}{x^2 + 1}.\end{aligned}\]</li>
+<li>If you want a single fraction, use the common denominator \(x(x^2 + 1)\). \[\begin{aligned}g'(x) &= \frac{3(x^2 + 1) + 2x(x^2 + 1) - 8x\cdot x}{x(x^2 + 1)}\\ &= \frac{3x^2 + 3 + 2x^3 + 2x - 8x^2}{x(x^2 + 1)}\\ &= \frac{2x^3 - 5x^2 + 2x + 3}{x(x^2 + 1)}.\end{aligned}\] Either form earns full credit.</li>
+</ol><p class="final">Answer: (a) \(f'(x) = \dfrac{\left(2x + e^x\right)\sec^2\left[\ln\left(x^2 + e^x\right)\right]}{x^2 + e^x}\). (b) \(g'(x) = \dfrac{3}{x} + 2 - \dfrac{8x}{x^2 + 1} = \dfrac{2x^3 - 5x^2 + 2x + 3}{x(x^2 + 1)}\).</p>
+<p class="say"><b>Where the points are.</b> In (a), about 2 points for each layer of the chain rule: \(\sec^2\) of the correct inside, the factor \(\tfrac{1}{x^2 + e^x}\), and the factor \(2x + e^x\). In (b), about 2 points for the correct log expansion \(3\ln x + 2x - 4\ln(x^2 + 1)\) and 2 for differentiating it. Differentiating (b) directly with the quotient rule also works but is long, and an algebra slip there costs points.</p></div></details></div>
+
+<div class="q" id="u15-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">Consider the curve \(x^2 + 2xy^2 - y^3 = 1\).<br>(a) (6 points) Use implicit differentiation to find \(y' = \dfrac{dy}{dx}\).<br>(b) (4 points) Show that the point \((1, 2)\) is on the curve, and find an equation of the tangent line to the curve at \((1, 2)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). Every time you differentiate an expression in \(y\), the chain rule adds a factor of \(y'\).</li>
+<li>Differentiate the terms one at a time. The first term gives \(\dfrac{d}{dx}x^2 = 2x\). The second term \(2xy^2\) is a product, so use the product rule with \(u = 2x\), \(v = y^2\), \(u' = 2\), \(v' = 2y\,y'\). \[\frac{d}{dx}\left(2xy^2\right) = u'v + uv' = 2y^2 + 2x\cdot 2y\,y' = 2y^2 + 4xy\,y'.\] The third term gives \(\dfrac{d}{dx}y^3 = 3y^2\,y'\). The right side is the constant 1, whose derivative is 0.</li>
+<li>Write the differentiated equation. \[2x + 2y^2 + 4xy\,y' - 3y^2\,y' = 0.\]</li>
+<li>Collect the \(y'\) terms on one side and everything else on the other, then factor out \(y'\). \[\begin{aligned}4xy\,y' - 3y^2\,y' &= -2x - 2y^2\\ y'\left(4xy - 3y^2\right) &= -2x - 2y^2.\end{aligned}\]</li>
+<li>Divide to solve for \(y'\). Multiplying the top and bottom by \(-1\) gives a neater form. \[y' = \frac{-2x - 2y^2}{4xy - 3y^2} = \frac{2x + 2y^2}{3y^2 - 4xy}.\]</li>
+<li>(b) Check the point by substituting \(x = 1\), \(y = 2\) into the left side. \[1^2 + 2(1)(2)^2 - 2^3 = 1 + 8 - 8 = 1.\] This equals the right side, so \((1, 2)\) is on the curve.</li>
+<li>Find the slope by substituting \(x = 1\), \(y = 2\) into \(y'\). \[\begin{aligned}y' &= \frac{2(1) + 2(2)^2}{3(2)^2 - 4(1)(2)}\\ &= \frac{2 + 8}{12 - 8} = \frac{10}{4} = \frac{5}{2}.\end{aligned}\]</li>
+<li>Write the tangent line with the point-slope formula \(y - y_1 = m(x - x_1)\), then simplify. \[\begin{aligned}y - 2 &= \frac{5}{2}(x - 1)\\ y &= \frac{5}{2}x - \frac{5}{2} + 2\\ y &= \frac{5}{2}x - \frac{1}{2}.\end{aligned}\]</li>
+</ol><p class="final">Answer: (a) \(y' = \dfrac{2x + 2y^2}{3y^2 - 4xy}\). (b) The slope at \((1, 2)\) is \(\tfrac{5}{2}\), and the tangent line is \(y = \tfrac{5}{2}x - \tfrac{1}{2}\).</p>
+<p class="say"><b>Where the points are.</b> In (a), about 4 points for differentiating correctly (the product rule on \(2xy^2\) is where most points are lost, and each \(y\) term needs its \(y'\)) and 2 for solving for \(y'\). In (b), 1 point for checking the point, 2 for the slope \(\tfrac{5}{2}\), and 1 for the line.</p></div></details></div>
+
+<div class="q" id="u15-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">A farmer wants to fence in a rectangular field with an area of 800 square meters and divide it into three equal pens with two more fences, both parallel to one pair of sides of the field.<br>(a) (4 points) Write the total length of fencing needed as a function of one variable, and state its domain.<br>(b) (6 points) Find the dimensions of the field that use the least amount of fencing, and explain why your answer gives the smallest possible amount of fencing.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="40" y="40" width="240" height="120" stroke="currentColor" fill="none"/>
+<line x1="120" y1="40" x2="120" y2="160" stroke="currentColor" fill="none"/>
+<line x1="200" y1="40" x2="200" y2="160" stroke="currentColor" fill="none"/>
+<text x="156" y="32" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="156" y="178" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="26" y="105" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="288" y="105" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="106" y="105" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="186" y="105" fill="currentColor" stroke="none" font-size="14">y</text>
+</svg>
+<ol class="steps">
+<li>(a) Name the variables with units. Let \(x\) be the length in meters of the two sides of the field that are perpendicular to the dividing fences, and let \(y\) be the length in meters of the other two sides. Each dividing fence is parallel to the \(y\) sides, so each one is also \(y\) meters long. Let \(L\) be the total length of fencing in meters.</li>
+<li>Write the quantity to minimize. There are two sides of length \(x\) and four pieces of length \(y\) (the two outer sides and the two dividers). \[L = 2x + 4y.\]</li>
+<li>Write the constraint and solve it for \(y\). The area is 800. \[xy = 800, \quad\text{so}\quad y = \frac{800}{x}.\]</li>
+<li>Substitute to get \(L\) as a function of \(x\) alone. \[L(x) = 2x + 4\cdot\frac{800}{x} = 2x + \frac{3200}{x}.\] Both side lengths must be positive, and \(x\) cannot be 0 because it is in a denominator, so the domain is \(x \gt 0\), the interval \((0, \infty)\).</li>
+<li>(b) Differentiate. Write \(\tfrac{3200}{x} = 3200x^{-1}\) and use the power rule. \[L'(x) = 2 - 3200x^{-2} = 2 - \frac{3200}{x^2}.\]</li>
+<li>Find the critical numbers by setting \(L'(x) = 0\). (\(L'\) is undefined only at \(x = 0\), which is not in the domain.) \[\begin{aligned}2 - \frac{3200}{x^2} &= 0\\ 2 &= \frac{3200}{x^2}\\ 2x^2 &= 3200\\ x^2 &= 1600\\ x &= 40.\end{aligned}\] We keep only \(x = 40\) because \(x \gt 0\).</li>
+<li>Justify that this is the smallest amount of fencing. The second derivative is \[L''(x) = 6400x^{-3} = \frac{6400}{x^3},\] which is positive for every \(x \gt 0\). So \(L\) is concave up on the whole domain \((0, \infty)\), and \(x = 40\) is its only critical number there. A function that is concave up on an interval and has exactly one critical number in it has its absolute minimum at that critical number. So no other choice of \(x\) uses less fencing. (The first derivative test also works: \(L'(x) \lt 0\) for \(0 \lt x \lt 40\) and \(L'(x) \gt 0\) for \(x \gt 40\), so \(L\) decreases and then increases.)</li>
+<li>Find the other dimension and the fencing used. \[\begin{aligned}y &= \frac{800}{40} = 20,\\ L(40) &= 2(40) + \frac{3200}{40} = 80 + 80 = 160.\end{aligned}\]</li>
+</ol><p class="final">Answer: (a) \(L(x) = 2x + \dfrac{3200}{x}\) meters, with domain \(x \gt 0\). (b) The field should be 40 meters by 20 meters, with the two dividing fences parallel to the 20 meter sides. This uses 160 meters of fencing, the least possible, because \(L''(x) = \tfrac{6400}{x^3} \gt 0\) on \((0, \infty)\) and \(x = 40\) is the only critical number.</p>
+<p class="say"><b>Where the points are.</b> In (a), about 1 point for defining the variables, 2 for \(L = 2x + 4y\) with \(xy = 800\) turned into one variable, and 1 for the domain. In (b), 2 points for \(L'\) and the critical number, 2 for the justification (the second derivative test together with the sentence that \(x = 40\) is the only critical number on \((0, \infty)\)), and 2 for both dimensions stated in a sentence with units.</p></div></details></div>
+</section><div class="pager"><a href="u20.html">Back: Past Berkeley exam problems: optimization, rates, elasticity, approximation</a><a href="u16.html">Next: Mock Midterm B</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

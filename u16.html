@@ -1,0 +1,141 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mock Midterm B | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Mock</p><h1>Mock Midterm B</h1><p class="sub">5 questions, 10 points each, 60 minutes, no calculator.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">The exam</a></div><section id="learn"><h2>Mock Midterm B</h2>
+<p>This is a second full practice exam at the level of the professor's practice Midterm 2 and his real Fall 2025 Midterm 2. It covers a different set of topics from Mock Midterm A, so the two together touch every major type of question in the scope. Take it in one sitting with a 60 minute timer and nothing on the desk but paper and a pencil.</p>
+
+<div class="rule"><div class="rt">Instructions (as they appear on the exam)</div>
+<p>There are 5 questions on this exam. Each question is worth 10 points.</p>
+<p>Write complete, clear, legible solutions.</p>
+<p>Calculators are not allowed.</p>
+<p>Time: 60 minutes. No notes, no formula sheet, no textbook.</p>
+</div>
+
+<h3>How to take this mock</h3>
+<ol>
+<li>Open the exam page, start a 60 minute timer, and work the five questions on paper in any order you like.</li>
+<li>Do not open any solution until the timer ends. If you get stuck, write down the setup you would use and move on, then come back if time allows.</li>
+<li>When time is up, grade yourself with the solutions and the scoring guide below.</li>
+</ol>
+
+<details><summary>Show which topics are on this mock</summary>
+<ul>
+<li>Intervals of increase and decrease, local extrema, intervals of concavity, and inflection points of a function with an exponential (Sections 5.1 to 5.3).</li>
+<li>Elasticity of demand, unit elasticity, and whether to raise or lower a price to increase revenue (Section 6.3).</li>
+<li>Related rates with similar triangles: a shadow on a wall (Section 6.5).</li>
+<li>Absolute extrema on a closed interval for a function with a sine, comparing values without a calculator (Section 6.1, Section 13.2).</li>
+<li>Optimization: the poster with the smallest area for a given printed area and margins (Section 6.2).</li>
+</ul>
+</details>
+
+<h3>Scoring guide</h3>
+<p>Each solution ends with a line called "Where the points are." It gives a reasonable way to split the 10 points among the steps of that question. It is general advice for self-grading and is not the professor's rubric. Award a step's points only if the work for that step is written down and correct, since the exam grades written solutions and a bare final answer earns very little. Two places on this mock where points are easy to lose: the word "explain" in the elasticity question means a sentence that connects the value of \(E\) to what happens to revenue, and the optimization question asks you to explain why your answer is the smallest, so a missing justification costs points even when the dimensions are right. A score of 45 or more out of 50 means you are on track. From 35 to 44, redo the questions you lost points on and then work the Level 3 and Level 4 problems in those units. Below 35, review the lessons for the topics you missed before taking Mock Midterm C.</p>
+</section>
+<section id="L1"><div class="lvl"><h2>The exam</h2><span>Set a 60 minute timer. Closed book, no calculator.</span></div><div class="q" id="u16-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = x e^{-x^2/2}\).<br>(a) (5 points) Find the intervals where \(f\) is increasing and the intervals where it is decreasing, and find all local extrema.<br>(b) (5 points) Find the intervals where \(f\) is concave up and the intervals where it is concave down, and find the \(x\)-coordinates of all inflection points.<br>You do NOT need to graph the function.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Note the domain. Both \(x\) and \(e^{-x^2/2}\) are defined for every real number, so the domain is \((-\infty, \infty)\).</li>
+<li>Differentiate with the product rule. Let \(u = x\) and \(v = e^{-x^2/2}\). Then \(u' = 1\), and by the chain rule \(v' = e^{-x^2/2}\cdot\dfrac{d}{dx}\left(-\dfrac{x^2}{2}\right) = e^{-x^2/2}\cdot(-x) = -x e^{-x^2/2}\). \[\begin{aligned}f'(x) &= u'v + uv'\\ &= 1\cdot e^{-x^2/2} + x\cdot\left(-x e^{-x^2/2}\right)\\ &= e^{-x^2/2} - x^2 e^{-x^2/2}\\ &= \left(1 - x^2\right)e^{-x^2/2}\\ &= (1 - x)(1 + x)e^{-x^2/2}.\end{aligned}\]</li>
+<li>Find the critical numbers. The derivative exists everywhere. An exponential is never zero (in fact \(e^{-x^2/2} \gt 0\) for every \(x\)), so \(f'(x) = 0\) exactly when \(1 - x^2 = 0\), which gives \(x = -1\) and \(x = 1\).</li>
+<li>Make a sign chart for \(f'\). Since \(e^{-x^2/2} \gt 0\), the sign of \(f'\) is the sign of \(1 - x^2\). Test one number in each interval: \(1 - (-2)^2 = -3 \lt 0\), \(1 - 0^2 = 1 \gt 0\), \(1 - 2^2 = -3 \lt 0\).
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -1)\)</th><th>\((-1, 1)\)</th><th>\((1, \infty)\)</th></tr>
+<tr><td>Sign of \(f'\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td></tr>
+<tr><td>\(f\) is</td><td>decreasing</td><td>increasing</td><td>decreasing</td></tr>
+</table></li>
+<li>Classify the critical numbers with the first derivative test and find the values. Because \(f'\) changes from negative to positive at \(x = -1\), \(f\) has a local minimum there. Because \(f'\) changes from positive to negative at \(x = 1\), \(f\) has a local maximum there. \[\begin{aligned}f(-1) &= (-1)e^{-1/2} = -\frac{1}{\sqrt{e}},\\ f(1) &= (1)e^{-1/2} = \frac{1}{\sqrt{e}}.\end{aligned}\]</li>
+<li>(b) Differentiate \(f'(x) = \left(1 - x^2\right)e^{-x^2/2}\) with the product rule. Let \(u = 1 - x^2\) and \(v = e^{-x^2/2}\). Then \(u' = -2x\) and, as before, \(v' = -x e^{-x^2/2}\). \[\begin{aligned}f''(x) &= u'v + uv'\\ &= -2x e^{-x^2/2} + \left(1 - x^2\right)\left(-x e^{-x^2/2}\right)\\ &= e^{-x^2/2}\left(-2x - x + x^3\right)\\ &= e^{-x^2/2}\left(x^3 - 3x\right)\\ &= x\left(x^2 - 3\right)e^{-x^2/2}\\ &= x\left(x - \sqrt{3}\right)\left(x + \sqrt{3}\right)e^{-x^2/2}.\end{aligned}\]</li>
+<li>Find where \(f''(x) = 0\). Again the exponential is never zero, so \(x\left(x^2 - 3\right) = 0\), which gives \(x = -\sqrt{3}\), \(x = 0\), and \(x = \sqrt{3}\).</li>
+<li>Make a sign chart for \(f''\). Its sign is the sign of \(x^3 - 3x\). Test one number in each interval. \[\begin{aligned}(-2)^3 - 3(-2) &= -8 + 6 = -2 \lt 0,\\ (-1)^3 - 3(-1) &= -1 + 3 = 2 \gt 0,\\ 1^3 - 3(1) &= -2 \lt 0,\\ 2^3 - 3(2) &= 8 - 6 = 2 \gt 0.\end{aligned}\]
+<table class="t">
+<tr><th>Interval</th><th>\((-\infty, -\sqrt{3})\)</th><th>\((-\sqrt{3}, 0)\)</th><th>\((0, \sqrt{3})\)</th><th>\((\sqrt{3}, \infty)\)</th></tr>
+<tr><td>Sign of \(f''\)</td><td>\(-\)</td><td>\(+\)</td><td>\(-\)</td><td>\(+\)</td></tr>
+<tr><td>\(f\) is</td><td>concave down</td><td>concave up</td><td>concave down</td><td>concave up</td></tr>
+</table></li>
+<li>Name the inflection points. The concavity changes at \(x = -\sqrt{3}\), \(x = 0\), and \(x = \sqrt{3}\), and \(f\) is defined at each of them, so all three are inflection points. Their \(y\)-values are \(f(-\sqrt{3}) = -\sqrt{3}e^{-3/2}\), \(f(0) = 0\), and \(f(\sqrt{3}) = \sqrt{3}e^{-3/2}\). The graph was not required, but it is shown below to confirm the sign charts.
+<div class="plot" data-f="x*Math.exp(-x*x/2)" data-x="-4,4" data-y="-0.9,0.9" data-pts="1,0.6065,local max (1, 1/√e)|-1,-0.6065,local min (-1, -1/√e)|0,0,inflection (0, 0)|1.7321,0.3865,inflection x = √3|-1.7321,-0.3865,inflection x = -√3" data-h="0" data-cap="Graph of f(x) = x e^(-x^2/2). The x-axis is a horizontal asymptote."></div></li>
+</ol><p class="final">Answer: (a) \(f\) is decreasing on \((-\infty, -1)\) and \((1, \infty)\) and increasing on \((-1, 1)\). It has a local minimum \(f(-1) = -\tfrac{1}{\sqrt{e}}\) and a local maximum \(f(1) = \tfrac{1}{\sqrt{e}}\). (b) \(f\) is concave down on \((-\infty, -\sqrt{3})\) and \((0, \sqrt{3})\) and concave up on \((-\sqrt{3}, 0)\) and \((\sqrt{3}, \infty)\). The inflection points are at \(x = -\sqrt{3}\), \(x = 0\), and \(x = \sqrt{3}\).</p>
+<p class="say"><b>Where the points are.</b> In (a), about 2 points for \(f'\) (product rule plus the chain rule on the exponent), 2 for the critical numbers and the sign chart, and 1 for naming the local max and min. In (b), about 2 points for \(f''\) simplified and factored, 2 for the sign chart, and 1 for the three inflection points. Saying "\(e^{-x^2/2} \gt 0\), so the sign of \(f'\) is the sign of \(1 - x^2\)" is the sentence that justifies the whole sign chart.</p></div></details></div>
+
+<div class="q" id="u16-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Suppose that the demand for a product is \(q = 600 - 2p^2\), where \(p\) is the price in dollars and \(0 \lt p \lt 10\sqrt{3}\). Recall that the elasticity of demand is \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\).<br>(a) (4 points) At what price will the demand have unit elasticity?<br>(b) (4 points) If the price is $8, should it be increased or decreased in order to increase revenue? Explain.<br>(c) (2 points) What price gives the largest revenue, and what is that revenue?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate the demand function with respect to \(p\). \[\frac{dq}{dp} = -4p.\]</li>
+<li>Substitute into the formula for \(E\) and simplify. \[\begin{aligned}E &= -\frac{p}{600 - 2p^2}\cdot(-4p)\\ &= \frac{4p^2}{600 - 2p^2}\\ &= \frac{2p^2}{300 - p^2}.\end{aligned}\] (The last step divides the top and bottom by 2.) On the domain, \(300 - p^2 \gt 0\), so \(E \gt 0\).</li>
+<li>Set \(E = 1\) for unit elasticity and solve. \[\begin{aligned}\frac{2p^2}{300 - p^2} &= 1\\ 2p^2 &= 300 - p^2\\ 3p^2 &= 300\\ p^2 &= 100\\ p &= 10.\end{aligned}\] We keep only the positive root because a price is positive.</li>
+<li>(b) Evaluate \(E\) at \(p = 8\). \[E(8) = \frac{2(64)}{300 - 64} = \frac{128}{236} = \frac{32}{59}.\] Since \(32 \lt 59\), \(E(8) \lt 1\), so the demand is inelastic at \(p = 8\).</li>
+<li>Connect elasticity to revenue. Revenue is \(R = pq\), and by the product rule \[\frac{dR}{dp} = q + p\frac{dq}{dp} = q + q\cdot\frac{p}{q}\cdot\frac{dq}{dp} = q - qE = q(1 - E).\] At \(p = 8\) the demand is \(q = 600 - 128 = 472 \gt 0\) and \(1 - E = \tfrac{27}{59} \gt 0\), so \(\dfrac{dR}{dp} \gt 0\). Revenue increases as the price increases.</li>
+<li>Say what this means in words. Because the demand is inelastic at $8, a small increase in price causes a smaller relative drop in the number of units sold, so the higher price per unit more than makes up for the lost sales. The price should be increased.</li>
+<li>(c) Revenue is largest where the demand has unit elasticity. From the formula, \(E \lt 1\) exactly when \(2p^2 \lt 300 - p^2\), that is \(p^2 \lt 100\), so \(E \lt 1\) for \(0 \lt p \lt 10\) and \(E \gt 1\) for \(10 \lt p \lt 10\sqrt{3}\). So \(\dfrac{dR}{dp} = q(1 - E)\) is positive before \(p = 10\) and negative after it: revenue increases and then decreases, and its maximum is at \(p = 10\).</li>
+<li>Check directly and compute the revenue. \(R(p) = p\left(600 - 2p^2\right) = 600p - 2p^3\), so \(R'(p) = 600 - 6p^2\), which is 0 when \(p^2 = 100\), that is \(p = 10\), matching the elasticity answer. At \(p = 10\), \[q = 600 - 2(100) = 400, \qquad R = 10\cdot 400 = 4000.\]</li>
+</ol><p class="final">Answer: (a) The demand has unit elasticity at a price of $10. (b) At $8, \(E = \tfrac{32}{59} \lt 1\), so the demand is inelastic and \(\tfrac{dR}{dp} = q(1 - E) \gt 0\); the price should be increased to increase revenue. (c) The revenue is largest at a price of $10, where it is $4000.</p>
+<p class="say"><b>Where the points are.</b> In (a), about 2 points for \(E(p)\) and 2 for solving \(E = 1\). In (b), 1 point for computing \(E(8)\), 1 for calling the demand inelastic, and 2 for the explanation that ties inelastic demand to revenue going up when the price goes up (a bare "increase" earns very little). In (c), 1 point for \(p = 10\) and 1 for the revenue $4000.</p></div></details></div>
+
+<div class="q" id="u16-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">A spotlight sits on the ground and shines on a vertical wall 12 meters away. A person 2 meters tall walks from the spotlight straight toward the wall at 2 meters per second, so the person's shadow appears on the wall.<br>(a) (4 points) Let \(x\) be the person's distance from the spotlight and \(y\) the height of the shadow on the wall. Write an equation relating \(x\) and \(y\), and find the height of the shadow when the person is 4 meters from the wall.<br>(b) (6 points) How fast is the height of the shadow changing when the person is 4 meters from the wall? Is it increasing or decreasing?</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<line x1="20" y1="170" x2="300" y2="170" stroke="currentColor" fill="none"/>
+<line x1="280" y1="20" x2="280" y2="170" stroke="currentColor" fill="none"/>
+<circle cx="30" cy="167" r="4" stroke="currentColor" fill="none"/>
+<line x1="150" y1="120" x2="150" y2="170" stroke="currentColor" fill="none" stroke-width="3"/>
+<line x1="30" y1="170" x2="280" y2="66" stroke="currentColor" fill="none" stroke-dasharray="5,4"/>
+<line x1="280" y1="66" x2="280" y2="170" stroke="currentColor" fill="none" stroke-width="3"/>
+<text x="84" y="188" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="200" y="188" fill="currentColor" stroke="none" font-size="13">12 - x</text>
+<text x="132" y="150" fill="currentColor" stroke="none" font-size="14">2</text>
+<text x="288" y="122" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="14" y="160" fill="currentColor" stroke="none" font-size="12">light</text>
+<text x="284" y="34" fill="currentColor" stroke="none" font-size="12">wall</text>
+</svg>
+<ol class="steps">
+<li>(a) Name the variables with units. Let \(t\) be time in seconds, \(x\) the distance in meters from the spotlight to the person, and \(y\) the height in meters of the shadow on the wall. The person walks toward the wall, away from the light, so \(x\) is increasing: \(\dfrac{dx}{dt} = 2\) m/s.</li>
+<li>Find the relation with similar triangles. The light ray from the spotlight passes over the top of the person's head and hits the wall at the top of the shadow. The small right triangle (legs \(x\) and 2) and the large right triangle (legs 12 and \(y\)) share the angle at the spotlight, so they are similar and their sides are proportional. \[\begin{aligned}\frac{y}{12} &= \frac{2}{x}\\ xy &= 24.\end{aligned}\]</li>
+<li>Find \(x\) and \(y\) at the instant in question. When the person is 4 m from the wall, the distance from the light is \(x = 12 - 4 = 8\). Then \[8y = 24, \quad\text{so}\quad y = 3.\]</li>
+<li>(b) Write what is given and what is wanted. Given: \(\dfrac{dx}{dt} = 2\) when \(x = 8\) and \(y = 3\). Wanted: \(\dfrac{dy}{dt}\) at that instant.</li>
+<li>Differentiate \(xy = 24\) with respect to \(t\). The left side is a product, so use the product rule with \(u = x\), \(v = y\), \(u' = \dfrac{dx}{dt}\), \(v' = \dfrac{dy}{dt}\). The right side is constant. \[\frac{dx}{dt}\,y + x\,\frac{dy}{dt} = 0.\]</li>
+<li>Substitute \(x = 8\), \(y = 3\), \(\dfrac{dx}{dt} = 2\), and solve. \[\begin{aligned}(2)(3) + 8\frac{dy}{dt} &= 0\\ 8\frac{dy}{dt} &= -6\\ \frac{dy}{dt} &= -\frac{6}{8} = -\frac{3}{4}.\end{aligned}\] The rate is negative, so the shadow is getting shorter. This makes sense: as the person gets closer to the wall, the shadow gets closer to the person's own height.</li>
+</ol><p class="final">Answer: (a) \(xy = 24\) (from \(\tfrac{y}{12} = \tfrac{2}{x}\)), and the shadow is 3 meters tall when the person is 4 meters from the wall. (b) \(\tfrac{dy}{dt} = -\tfrac{3}{4}\): the shadow is decreasing at \(\tfrac{3}{4}\) meters per second.</p>
+<p class="say"><b>Where the points are.</b> In (a), about 1 point for a labeled picture with variables, 2 for the similar triangles equation, and 1 for \(x = 8\), \(y = 3\) (using \(x = 4\) here is the most common mistake). In (b), 3 points for differentiating with respect to \(t\), 2 for substituting and solving, and 1 for the sentence with units that says the shadow is decreasing.</p></div></details></div>
+
+<div class="q" id="u16-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">(10 points) Find the absolute maximum value and the absolute minimum value of \(f(x) = x - 2\sin x\) on the interval \([0, 2\pi]\), and say where each one occurs.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Explain which method applies. The function \(f\) is continuous on the closed interval \([0, 2\pi]\), so by the extreme value theorem it has an absolute maximum and an absolute minimum there. Use the closed interval method: compare the values of \(f\) at the critical numbers inside the interval and at the two endpoints.</li>
+<li>Differentiate. \[f'(x) = 1 - 2\cos x.\]</li>
+<li>Find the critical numbers. \(f'\) exists everywhere, so solve \(f'(x) = 0\). \[\begin{aligned}1 - 2\cos x &= 0\\ \cos x &= \frac{1}{2}.\end{aligned}\] On \([0, 2\pi]\) the cosine equals \(\tfrac{1}{2}\) at \(x = \tfrac{\pi}{3}\) (first quadrant) and at \(x = 2\pi - \tfrac{\pi}{3} = \tfrac{5\pi}{3}\) (fourth quadrant).</li>
+<li>Evaluate \(f\) at the endpoints and the critical numbers. Use \(\sin\tfrac{\pi}{3} = \tfrac{\sqrt{3}}{2}\), \(\sin\tfrac{5\pi}{3} = -\tfrac{\sqrt{3}}{2}\), and \(\sin 0 = \sin 2\pi = 0\). \[\begin{aligned}f(0) &= 0 - 2(0) = 0,\\ f\left(\tfrac{\pi}{3}\right) &= \frac{\pi}{3} - 2\cdot\frac{\sqrt{3}}{2} = \frac{\pi}{3} - \sqrt{3},\\ f\left(\tfrac{5\pi}{3}\right) &= \frac{5\pi}{3} - 2\left(-\frac{\sqrt{3}}{2}\right) = \frac{5\pi}{3} + \sqrt{3},\\ f(2\pi) &= 2\pi - 2(0) = 2\pi.\end{aligned}\]</li>
+<li>Compare \(\tfrac{\pi}{3}\) and \(\sqrt{3}\) without a calculator, since both comparisons below depend on it. Because \(\pi \lt 4\), we get \(\tfrac{\pi}{3} \lt \tfrac{4}{3}\). Because \(\left(\tfrac{4}{3}\right)^2 = \tfrac{16}{9} \lt 3\), we get \(\tfrac{4}{3} \lt \sqrt{3}\). So \[\frac{\pi}{3} \lt \sqrt{3}.\]</li>
+<li>Find the smallest value. From the last step, \(f\left(\tfrac{\pi}{3}\right) = \tfrac{\pi}{3} - \sqrt{3} \lt 0\). The other three values, \(0\), \(\tfrac{5\pi}{3} + \sqrt{3}\), and \(2\pi\), are all at least 0. So the smallest value is \(\tfrac{\pi}{3} - \sqrt{3}\).</li>
+<li>Find the largest value. The two candidates are \(\tfrac{5\pi}{3} + \sqrt{3}\) and \(2\pi\) (the others are at most 0). Subtract them. \[\left(\frac{5\pi}{3} + \sqrt{3}\right) - 2\pi = \sqrt{3} - \frac{\pi}{3} \gt 0,\] again by the comparison above. So \(\tfrac{5\pi}{3} + \sqrt{3}\) is the largest value.
+<div class="plot" data-f="x-2*Math.sin(x)" data-x="0,6.2832" data-y="-2.2,7.5" data-pts="1.0472,-0.6849,absolute min at π/3|5.236,6.968,absolute max at 5π/3|0,0,(0, 0)|6.2832,6.2832,(2π, 2π)" data-cap="Graph of f(x) = x - 2 sin x on [0, 2π]."></div></li>
+</ol><p class="final">Answer: The absolute maximum value is \(\tfrac{5\pi}{3} + \sqrt{3}\), at \(x = \tfrac{5\pi}{3}\). The absolute minimum value is \(\tfrac{\pi}{3} - \sqrt{3}\), at \(x = \tfrac{\pi}{3}\).</p>
+<p class="say"><b>Where the points are.</b> About 1 point for naming the closed interval method, 3 for \(f'\) and both critical numbers in \([0, 2\pi]\) (missing \(\tfrac{5\pi}{3}\) is the usual error), 3 for the four function values, 2 for comparing them without a calculator, and 1 for stating the answers with the \(x\)-values where they occur.</p></div></details></div>
+
+<div class="q" id="u16-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">A rectangular poster must have a printed region of 50 square inches. The poster has margins of 4 inches at the top and at the bottom, and margins of 2 inches on the left and on the right.<br>(a) (4 points) Write the total area of the poster as a function of one variable, and state its domain.<br>(b) (6 points) Find the dimensions of the poster with the smallest total area, and explain why your answer gives the smallest possible area.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200">
+<rect x="110" y="10" width="90" height="180" stroke="currentColor" fill="none"/>
+<rect x="130" y="50" width="50" height="100" stroke="currentColor" fill="none" stroke-dasharray="4,3"/>
+<text x="150" y="45" fill="currentColor" stroke="none" font-size="14">x</text>
+<text x="184" y="104" fill="currentColor" stroke="none" font-size="14">y</text>
+<text x="150" y="32" fill="currentColor" stroke="none" font-size="12">4</text>
+<text x="150" y="174" fill="currentColor" stroke="none" font-size="12">4</text>
+<text x="115" y="104" fill="currentColor" stroke="none" font-size="12">2</text>
+<text x="188" y="122" fill="currentColor" stroke="none" font-size="12">2</text>
+<text x="210" y="60" fill="currentColor" stroke="none" font-size="12">poster</text>
+<text x="210" y="104" fill="currentColor" stroke="none" font-size="12">printed region</text>
+</svg>
+<ol class="steps">
+<li>(a) Name the variables with units. Let \(x\) be the width and \(y\) the height of the printed region, both in inches, and let \(A\) be the total area of the poster in square inches.</li>
+<li>Write the dimensions of the whole poster. The width is the printed width plus two side margins of 2 inches, and the height is the printed height plus two margins of 4 inches. \[\text{width} = x + 4, \qquad \text{height} = y + 8.\] So the quantity to minimize is \[A = (x + 4)(y + 8).\]</li>
+<li>Write the constraint and solve it for \(y\). The printed area is 50. \[xy = 50, \quad\text{so}\quad y = \frac{50}{x}.\]</li>
+<li>Substitute and expand to get \(A\) as a function of \(x\) alone. \[\begin{aligned}A(x) &= (x + 4)\left(\frac{50}{x} + 8\right)\\ &= 50 + 8x + \frac{200}{x} + 32\\ &= 82 + 8x + \frac{200}{x}.\end{aligned}\] The printed width must be positive and \(x\) is in a denominator, so the domain is \(x \gt 0\), the interval \((0, \infty)\).</li>
+<li>(b) Differentiate, writing \(\tfrac{200}{x} = 200x^{-1}\). \[A'(x) = 8 - 200x^{-2} = 8 - \frac{200}{x^2}.\]</li>
+<li>Find the critical numbers. \(A'\) is undefined only at \(x = 0\), which is not in the domain, so solve \(A'(x) = 0\). \[\begin{aligned}8 - \frac{200}{x^2} &= 0\\ 8x^2 &= 200\\ x^2 &= 25\\ x &= 5.\end{aligned}\] We keep only \(x = 5\) because \(x \gt 0\).</li>
+<li>Justify that this gives the smallest area. The second derivative is \[A''(x) = 400x^{-3} = \frac{400}{x^3},\] which is positive for every \(x \gt 0\). So \(A\) is concave up on all of \((0, \infty)\), and \(x = 5\) is its only critical number there. Therefore \(A(5)\) is the absolute minimum of \(A\) on its domain, and no other poster with this printed area and these margins has a smaller area.</li>
+<li>Find the remaining dimensions and the area. \[\begin{aligned}y &= \frac{50}{5} = 10,\\ \text{poster width} &= 5 + 4 = 9,\\ \text{poster height} &= 10 + 8 = 18,\\ A(5) &= 82 + 40 + 40 = 162 = 9\cdot 18.\end{aligned}\]</li>
+</ol><p class="final">Answer: (a) \(A(x) = (x + 4)\left(\dfrac{50}{x} + 8\right) = 82 + 8x + \dfrac{200}{x}\) square inches, with domain \(x \gt 0\), where \(x\) is the width of the printed region. (b) The poster should be 9 inches wide and 18 inches tall (printed region 5 by 10 inches), with area 162 square inches. This is the smallest possible because \(A''(x) = \tfrac{400}{x^3} \gt 0\) on \((0, \infty)\) and \(x = 5\) is the only critical number.</p>
+<p class="say"><b>Where the points are.</b> In (a), about 1 point for defining the variables, 2 for \(A = (x + 4)(y + 8)\) with \(y = \tfrac{50}{x}\) substituted, and 1 for the domain. In (b), 2 points for \(A'\) and \(x = 5\), 2 for the justification sentence, and 2 for giving the poster's dimensions (not just the printed region) with units. Adding only one margin on each dimension, \(x + 2\) and \(y + 4\), is the most common setup mistake.</p></div></details></div>
+</section><div class="pager"><a href="u15.html">Back: Mock Midterm A</a><a href="u17.html">Next: Mock Midterm C (harder)</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

@@ -1,0 +1,362 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Everything to memorize | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span></header><main><p class="sub">Sheet</p><h1>Everything to memorize</h1><p class="sub">Every rule, recipe, and formula for Midterm 2 on one page.</p><div class="toc"><a href="#learn">Lesson</a></div><section id="learn"><h2>Everything to memorize for Midterm 2</h2>
+<p>This page collects every rule, recipe, formula, and justification sentence from Sections 4.1 to 4.5, 13.2, 12.7, and 5.1 to 6.6 in one place. The exam allows no calculator and no formula sheet, so everything here has to come out of your head. Read the whole page the night before. In the morning, cover the right-hand column of each table and say the formula out loud before you look, then read Parts 6, 7, and 8 again.</p>
+
+<h3>Part 1. Derivative rules</h3>
+<p>The first table holds the rules that combine functions. The second table holds the derivative of each basic function, together with its chain rule version. In the chain rule column, \(u = g(x)\) is the inside function and \(u' = g'(x)\) is its derivative.</p>
+
+<table class="t" id="rules">
+<tr><th>Rule</th><th>Formula</th><th>Tiny example</th></tr>
+<tr><td>Constant rule</td><td>\(\frac{d}{dx}[k] = 0\)</td><td>\(\frac{d}{dx}[\pi^2] = 0\)</td></tr>
+<tr><td>Power rule (any real \(n\))</td><td>\(\frac{d}{dx}[x^n] = nx^{n-1}\)</td><td>\(\frac{d}{dx}[\sqrt{x}] = \frac{d}{dx}[x^{1/2}] = \frac{1}{2\sqrt{x}}\)</td></tr>
+<tr><td>Constant multiple rule</td><td>\(\frac{d}{dx}[k\,f(x)] = k\,f'(x)\)</td><td>\(\frac{d}{dx}[4x^3] = 12x^2\)</td></tr>
+<tr><td>Sum and difference rule</td><td>\((f \pm g)' = f' \pm g'\)</td><td>\(\frac{d}{dx}[x^2 - 5x + 1] = 2x - 5\)</td></tr>
+<tr><td>Product rule</td><td>\((uv)' = u'v + uv'\)</td><td>\(\frac{d}{dx}[x^2e^x] = 2xe^x + x^2e^x\)</td></tr>
+<tr><td>Quotient rule</td><td>\(\left(\frac{u}{v}\right)' = \frac{u'v - uv'}{v^2}\)</td><td>\(\frac{d}{dx}\left[\frac{x}{x+1}\right] = \frac{(1)(x+1) - x(1)}{(x+1)^2} = \frac{1}{(x+1)^2}\)</td></tr>
+<tr><td>Chain rule</td><td>\(\frac{d}{dx}f(g(x)) = f'(g(x))\cdot g'(x)\)</td><td>\(\frac{d}{dx}(3x+1)^5 = 5(3x+1)^4\cdot 3 = 15(3x+1)^4\)</td></tr>
+<tr><td>Generalized power rule</td><td>\(\frac{d}{dx}[g(x)]^n = n[g(x)]^{n-1}g'(x)\)</td><td>\(\frac{d}{dx}\sqrt{x^2+9} = \frac{2x}{2\sqrt{x^2+9}} = \frac{x}{\sqrt{x^2+9}}\)</td></tr>
+<tr><td>Logarithmic differentiation, for \(h = u(x)^{v(x)}\)</td><td>\(\ln h = v\ln u\), then \(\frac{h'}{h} = \frac{d}{dx}[v\ln u]\)</td><td>\(\frac{d}{dx}[x^x] = x^x(\ln x + 1)\)</td></tr>
+</table>
+
+<table class="t" id="funcs">
+<tr><th>Function</th><th>Derivative</th><th>Chain rule version</th><th>Tiny example</th></tr>
+<tr><td>\(e^x\)</td><td>\(e^x\)</td><td>\(\frac{d}{dx}e^{u} = e^{u}\,u'\)</td><td>\(\frac{d}{dx}e^{x^2} = 2xe^{x^2}\)</td></tr>
+<tr><td>\(a^x\)</td><td>\((\ln a)\,a^x\)</td><td>\(\frac{d}{dx}a^{u} = (\ln a)\,a^{u}\,u'\)</td><td>\(\frac{d}{dx}3^{2x} = 2(\ln 3)\,3^{2x}\)</td></tr>
+<tr><td>\(\ln x\), for \(x \gt 0\)</td><td>\(\frac{1}{x}\)</td><td>\(\frac{d}{dx}\ln u = \frac{u'}{u}\)</td><td>\(\frac{d}{dx}\ln(x^2+1) = \frac{2x}{x^2+1}\)</td></tr>
+<tr><td>\(\ln|x|\), for \(x \ne 0\)</td><td>\(\frac{1}{x}\)</td><td>\(\frac{d}{dx}\ln|u| = \frac{u'}{u}\)</td><td>\(\frac{d}{dx}\ln|2x - 5| = \frac{2}{2x - 5}\)</td></tr>
+<tr><td>\(\log_a x\)</td><td>\(\frac{1}{(\ln a)\,x}\)</td><td>\(\frac{d}{dx}\log_a u = \frac{u'}{(\ln a)\,u}\)</td><td>\(\frac{d}{dx}\log_2(x^3+1) = \frac{3x^2}{(\ln 2)(x^3+1)}\)</td></tr>
+<tr><td>\(\sin x\)</td><td>\(\cos x\)</td><td>\(\frac{d}{dx}\sin u = \cos u\cdot u'\)</td><td>\(\frac{d}{dx}\sin(3x) = 3\cos(3x)\)</td></tr>
+<tr><td>\(\cos x\)</td><td>\(-\sin x\)</td><td>\(\frac{d}{dx}\cos u = -\sin u\cdot u'\)</td><td>\(\frac{d}{dx}\cos(x^2) = -2x\sin(x^2)\)</td></tr>
+<tr><td>\(\tan x\)</td><td>\(\sec^2 x\)</td><td>\(\frac{d}{dx}\tan u = \sec^2 u\cdot u'\)</td><td>\(\frac{d}{dx}\tan(5x) = 5\sec^2(5x)\)</td></tr>
+<tr><td>\(\cot x\)</td><td>\(-\csc^2 x\)</td><td>\(\frac{d}{dx}\cot u = -\csc^2 u\cdot u'\)</td><td>\(\frac{d}{dx}\cot(4x) = -4\csc^2(4x)\)</td></tr>
+<tr><td>\(\sec x\)</td><td>\(\sec x\tan x\)</td><td>\(\frac{d}{dx}\sec u = \sec u\tan u\cdot u'\)</td><td>\(\frac{d}{dx}\sec(2x) = 2\sec(2x)\tan(2x)\)</td></tr>
+<tr><td>\(\csc x\)</td><td>\(-\csc x\cot x\)</td><td>\(\frac{d}{dx}\csc u = -\csc u\cot u\cdot u'\)</td><td>\(\frac{d}{dx}\csc(x^3) = -3x^2\csc(x^3)\cot(x^3)\)</td></tr>
+</table>
+
+<div class="mem"><div class="rt">How to remember the derivative tables</div><ul>
+<li>The power rule needs a variable base and a constant exponent, as in \(x^5\). The exponential rule needs a constant base and a variable exponent, as in \(5^x\). The function \(x^x\) has a variable in both places, so it needs logarithmic differentiation.</li>
+<li>The number \(\ln a\) multiplies in the rule for \(a^x\) and divides in the rule for \(\log_a x\). When \(a = e\), \(\ln e = 1\) and both rules turn into the rules for \(e^x\) and \(\ln x\).</li>
+<li>The three trig functions whose names start with "co" (cosine, cotangent, cosecant) have the three derivatives with a minus sign.</li>
+<li>The square \(\sec^2 x\) belongs to \(\tan x\), and the product \(\sec x\tan x\) belongs to \(\sec x\). In the same way, \(\csc^2 x\) goes with \(\cot x\), and \(\csc x\cot x\) goes with \(\csc x\).</li>
+<li>\(\sin^2 x\) means \((\sin x)^2\), so \(\frac{d}{dx}\sin^2 x = 2\sin x\cos x\) by the generalized power rule. That is different from \(\frac{d}{dx}\sin(x^2) = 2x\cos(x^2)\).</li>
+<li>For three layers, write one factor per layer, from the outside in: \(\frac{d}{dx}\ln[\cos(e^{2x})] = \frac{-\sin(e^{2x})\cdot 2e^{2x}}{\cos(e^{2x})} = -2e^{2x}\tan(e^{2x})\).</li>
+<li>Numbers such as \(e^2\), \(\ln 3\), and \(\cos\tfrac{\pi}{6}\) are constants, so each has derivative 0.</li>
+</ul></div>
+
+<h3>Part 2. Exponents, logarithms, and the unit circle</h3>
+
+<div class="rule"><div class="rt">Exponent properties</div>
+<p>For \(x \gt 0\) and any real \(a\) and \(b\):</p>
+\[x^a x^b = x^{a+b}, \qquad \frac{x^a}{x^b} = x^{a-b}, \qquad (x^a)^b = x^{ab}, \qquad x^{-a} = \frac{1}{x^a}, \qquad x^0 = 1,\]
+\[x^{1/n} = \sqrt[n]{x}, \qquad x^{m/n} = \sqrt[n]{x^m}.\]
+<p>The same rules hold for \(e\): \(e^{x}\cdot e^{x} = e^{2x}\), \(\frac{e^{5x}}{e^{2x}} = e^{3x}\), and \((e^x)^3 = e^{3x}\). The number \(e^{\text{anything}}\) is always positive and never 0.</p></div>
+
+<div class="rule"><div class="rt">Logarithm properties</div>
+<p>For \(x \gt 0\), \(y \gt 0\), and any real \(r\):</p>
+\[\ln(xy) = \ln x + \ln y, \qquad \ln\frac{x}{y} = \ln x - \ln y, \qquad \ln x^r = r\ln x, \qquad \log_a x = \frac{\ln x}{\ln a},\]
+\[\ln 1 = 0, \qquad \ln e = 1, \qquad e^{\ln x} = x, \qquad \ln e^x = x, \qquad a^x = e^{x\ln a}.\]
+<p>The logarithm \(\ln x\) is defined only for \(x \gt 0\). It is negative on \((0, 1)\), zero at \(x = 1\), and positive on \((1, \infty)\). To solve \(e^x = 5\), take \(\ln\) of both sides to get \(x = \ln 5\). Simplify a logarithm with these properties before you differentiate it. A logarithm of a sum, such as \(\ln(x^2 + 5)\), cannot be split.</p></div>
+
+<div class="rule"><div class="rt">Trig definitions and identities</div>
+\[\tan x = \frac{\sin x}{\cos x}, \qquad \cot x = \frac{\cos x}{\sin x}, \qquad \sec x = \frac{1}{\cos x}, \qquad \csc x = \frac{1}{\sin x},\]
+\[\sin^2 x + \cos^2 x = 1, \qquad 1 + \tan^2 x = \sec^2 x, \qquad \sin(2x) = 2\sin x\cos x.\]
+<p>Angles are in radians, and \(\pi\) radians equals \(180^\circ\). The derivative formulas for trig functions are only true in radians.</p></div>
+
+<table class="t" id="unitcircle">
+<tr><th>Angle (radians)</th><th>Degrees</th><th>\(\sin\)</th><th>\(\cos\)</th><th>\(\tan\)</th></tr>
+<tr><td>\(0\)</td><td>\(0^\circ\)</td><td>\(0\)</td><td>\(1\)</td><td>\(0\)</td></tr>
+<tr><td>\(\tfrac{\pi}{6}\)</td><td>\(30^\circ\)</td><td>\(\tfrac{1}{2}\)</td><td>\(\tfrac{\sqrt{3}}{2}\)</td><td>\(\tfrac{1}{\sqrt{3}}\)</td></tr>
+<tr><td>\(\tfrac{\pi}{4}\)</td><td>\(45^\circ\)</td><td>\(\tfrac{\sqrt{2}}{2}\)</td><td>\(\tfrac{\sqrt{2}}{2}\)</td><td>\(1\)</td></tr>
+<tr><td>\(\tfrac{\pi}{3}\)</td><td>\(60^\circ\)</td><td>\(\tfrac{\sqrt{3}}{2}\)</td><td>\(\tfrac{1}{2}\)</td><td>\(\sqrt{3}\)</td></tr>
+<tr><td>\(\tfrac{\pi}{2}\)</td><td>\(90^\circ\)</td><td>\(1\)</td><td>\(0\)</td><td>undefined</td></tr>
+<tr><td>\(\tfrac{2\pi}{3}\)</td><td>\(120^\circ\)</td><td>\(\tfrac{\sqrt{3}}{2}\)</td><td>\(-\tfrac{1}{2}\)</td><td>\(-\sqrt{3}\)</td></tr>
+<tr><td>\(\tfrac{3\pi}{4}\)</td><td>\(135^\circ\)</td><td>\(\tfrac{\sqrt{2}}{2}\)</td><td>\(-\tfrac{\sqrt{2}}{2}\)</td><td>\(-1\)</td></tr>
+<tr><td>\(\tfrac{5\pi}{6}\)</td><td>\(150^\circ\)</td><td>\(\tfrac{1}{2}\)</td><td>\(-\tfrac{\sqrt{3}}{2}\)</td><td>\(-\tfrac{1}{\sqrt{3}}\)</td></tr>
+<tr><td>\(\pi\)</td><td>\(180^\circ\)</td><td>\(0\)</td><td>\(-1\)</td><td>\(0\)</td></tr>
+<tr><td>\(\tfrac{7\pi}{6}\)</td><td>\(210^\circ\)</td><td>\(-\tfrac{1}{2}\)</td><td>\(-\tfrac{\sqrt{3}}{2}\)</td><td>\(\tfrac{1}{\sqrt{3}}\)</td></tr>
+<tr><td>\(\tfrac{5\pi}{4}\)</td><td>\(225^\circ\)</td><td>\(-\tfrac{\sqrt{2}}{2}\)</td><td>\(-\tfrac{\sqrt{2}}{2}\)</td><td>\(1\)</td></tr>
+<tr><td>\(\tfrac{4\pi}{3}\)</td><td>\(240^\circ\)</td><td>\(-\tfrac{\sqrt{3}}{2}\)</td><td>\(-\tfrac{1}{2}\)</td><td>\(\sqrt{3}\)</td></tr>
+<tr><td>\(\tfrac{3\pi}{2}\)</td><td>\(270^\circ\)</td><td>\(-1\)</td><td>\(0\)</td><td>undefined</td></tr>
+<tr><td>\(\tfrac{5\pi}{3}\)</td><td>\(300^\circ\)</td><td>\(-\tfrac{\sqrt{3}}{2}\)</td><td>\(\tfrac{1}{2}\)</td><td>\(-\sqrt{3}\)</td></tr>
+<tr><td>\(\tfrac{7\pi}{4}\)</td><td>\(315^\circ\)</td><td>\(-\tfrac{\sqrt{2}}{2}\)</td><td>\(\tfrac{\sqrt{2}}{2}\)</td><td>\(-1\)</td></tr>
+<tr><td>\(\tfrac{11\pi}{6}\)</td><td>\(330^\circ\)</td><td>\(-\tfrac{1}{2}\)</td><td>\(\tfrac{\sqrt{3}}{2}\)</td><td>\(-\tfrac{1}{\sqrt{3}}\)</td></tr>
+</table>
+
+<div class="mem"><div class="rt">How to rebuild the unit circle from four facts</div><ul>
+<li>Memorize the first quadrant only: \(\sin\) goes \(0, \tfrac{1}{2}, \tfrac{\sqrt{2}}{2}, \tfrac{\sqrt{3}}{2}, 1\) as the angle goes \(0, \tfrac{\pi}{6}, \tfrac{\pi}{4}, \tfrac{\pi}{3}, \tfrac{\pi}{2}\), and \(\cos\) is the same list backwards.</li>
+<li>Every other angle has a reference angle in the first quadrant, and its sine and cosine have the same size as those of the reference angle. For example, \(\tfrac{5\pi}{6}\) has reference angle \(\tfrac{\pi}{6}\).</li>
+<li>The signs: in quadrant I all three are positive, in quadrant II only sine is positive, in quadrant III only tangent is positive, and in quadrant IV only cosine is positive.</li>
+<li>On \([0, 2\pi]\), equations such as \(\sin x = \tfrac{1}{2}\) or \(\cos x = -\tfrac{\sqrt{2}}{2}\) have two solutions. For \(\sin x = \tfrac{1}{2}\) they are \(x = \tfrac{\pi}{6}\) and \(x = \tfrac{5\pi}{6}\).</li>
+</ul></div>
+
+<h3>Part 3. L'Hospital's rule</h3>
+
+<div class="rule"><div class="rt">L'Hospital's rule (Section 12.7)</div>
+<p>Suppose \(f\) and \(g\) are differentiable near \(a\) and \(g'(x) \ne 0\) near \(a\). If the limit \(\lim\limits_{x\to a}\frac{f(x)}{g(x)}\) has the form \(\tfrac{0}{0}\) (both \(f(x) \to 0\) and \(g(x) \to 0\)) or the form \(\tfrac{\pm\infty}{\pm\infty}\) (both go to \(\pm\infty\)), then</p>
+\[\lim_{x\to a}\frac{f(x)}{g(x)} = \lim_{x\to a}\frac{f'(x)}{g'(x)},\]
+<p>provided the limit on the right exists or is \(\pm\infty\). The same is true for \(x \to a^+\), \(x \to a^-\), \(x \to \infty\), and \(x \to -\infty\).</p></div>
+
+<div class="recipe"><div class="rt">How to use L'Hospital's rule</div><ol>
+<li>Substitute first. Find the limit of the top and the limit of the bottom separately, and write down both.</li>
+<li>If the form is \(\tfrac{0}{0}\) or \(\tfrac{\pm\infty}{\pm\infty}\), write that in words. If it is any other form, the rule does not apply, and the answer comes from substitution.</li>
+<li>Differentiate the top and the bottom separately. Do not use the quotient rule.</li>
+<li>Simplify the new quotient and substitute again. If the form is still \(\tfrac{0}{0}\) or \(\tfrac{\pm\infty}{\pm\infty}\), check it in words and apply the rule again.</li>
+<li>A product of the form \(0\cdot\infty\) must first be rewritten as a quotient, as in \(x\ln x = \frac{\ln x}{1/x}\). A difference of the form \(\infty - \infty\) must first be combined into one fraction.</li>
+</ol></div>
+
+<div class="mem"><div class="rt">Limits to know</div><ul>
+<li>\(\lim\limits_{x\to 0}\frac{e^{3x} - 1}{x} = \lim\limits_{x\to 0}\frac{3e^{3x}}{1} = 3\), since the form is \(\tfrac{0}{0}\).</li>
+<li>\(\lim\limits_{x\to 0}\frac{\sin x}{x} = \lim\limits_{x\to 0}\frac{\cos x}{1} = 1\), since the form is \(\tfrac{0}{0}\).</li>
+<li>\(\lim\limits_{x\to\infty}\frac{\ln x}{x} = \lim\limits_{x\to\infty}\frac{1/x}{1} = 0\), since the form is \(\tfrac{\infty}{\infty}\).</li>
+<li>\(\lim\limits_{x\to\infty}\frac{x^2}{e^x} = \lim\limits_{x\to\infty}\frac{2x}{e^x} = \lim\limits_{x\to\infty}\frac{2}{e^x} = 0\), with the form \(\tfrac{\infty}{\infty}\) checked at both steps.</li>
+<li>\(\lim\limits_{x\to 0^+}x\ln x = \lim\limits_{x\to 0^+}\frac{\ln x}{1/x} = \lim\limits_{x\to 0^+}\frac{1/x}{-1/x^2} = \lim\limits_{x\to 0^+}(-x) = 0\).</li>
+<li>Growth order as \(x \to \infty\): \(\ln x\) grows more slowly than any power \(x^p\) with \(p \gt 0\), and every power grows more slowly than \(e^x\).</li>
+</ul></div>
+
+<div class="trap"><b>Common mistake.</b> The limit \(\lim\limits_{x\to 0}\frac{x + \cos x}{x + 2}\) has the form \(\tfrac{1}{2}\), which is not indeterminate, so the answer is \(\tfrac{1}{2}\) by substitution. Applying the rule anyway gives \(\lim\limits_{x\to 0}\frac{1 - \sin x}{1} = 1\), which is wrong.</div>
+
+<h3>Part 4. The recipes</h3>
+
+<div class="mem"><div class="rt">Definitions you must be able to state</div><ul>
+<li>A critical number of \(f\) is a number \(c\) in the domain of \(f\) where \(f'(c) = 0\) or \(f'(c)\) does not exist.</li>
+<li>If \(f'(x) \gt 0\) on an interval, \(f\) is increasing there. If \(f'(x) \lt 0\) on an interval, \(f\) is decreasing there.</li>
+<li>If \(f''(x) \gt 0\) on an interval, the graph is concave up there (it lies above its tangent lines). If \(f''(x) \lt 0\), the graph is concave down.</li>
+<li>An inflection point is a point \((c, f(c))\) on the graph, with \(f\) continuous at \(c\), where the concavity changes.</li>
+<li>The extreme value theorem says that a function continuous on a closed, bounded interval \([a, b]\) has an absolute maximum and an absolute minimum on \([a, b]\).</li>
+<li>The tangent line to \(y = f(x)\) at \(x = a\) is \(y - f(a) = f'(a)(x - a)\).</li>
+<li>Velocity is \(v(t) = s'(t)\) and acceleration is \(a(t) = v'(t) = s''(t)\). The object speeds up when \(v\) and \(a\) have the same sign.</li>
+<li>Marginal cost, revenue, and profit are \(C'(x)\), \(R'(x)\), and \(P'(x)\). Revenue is \(R = xp\), profit is \(P = R - C\), and average cost is \(\overline{C}(x) = \frac{C(x)}{x}\).</li>
+</ul></div>
+
+<div class="recipe"><div class="rt">Sign chart and the first derivative test</div><ol>
+<li>Find the domain of \(f\) and list every number that is not in it.</li>
+<li>Compute \(f'(x)\), write it as one fraction, and factor the numerator and the denominator completely.</li>
+<li>Find the critical numbers: the numbers in the domain where the numerator of \(f'\) is 0 or the denominator of \(f'\) is 0.</li>
+<li>Put the critical numbers and the numbers outside the domain on a number line in order. They cut the domain into open intervals.</li>
+<li>In each interval, pick a test value strictly inside it, find the sign of each factor of \(f'\) there, and multiply the signs.</li>
+<li>Where \(f' \gt 0\), \(f\) is increasing, and where \(f' \lt 0\), \(f\) is decreasing. Write the answer as open intervals, and never join two intervals across a number that is not in the domain.</li>
+<li>At each critical number \(c\), apply the first derivative test. If \(f'\) changes from positive to negative, \(f\) has a relative maximum at \(c\). If \(f'\) changes from negative to positive, \(f\) has a relative minimum at \(c\). If \(f'\) does not change sign, there is no relative extremum at \(c\).</li>
+<li>Compute the value \(f(c)\) from the original function \(f\).</li>
+</ol></div>
+
+<div class="recipe"><div class="rt">The second derivative test</div><ol>
+<li>Solve \(f'(x) = 0\) to get the critical numbers \(c\) where the tangent line is horizontal.</li>
+<li>Compute \(f''(x)\) and substitute each \(c\).</li>
+<li>If \(f''(c) \gt 0\), the graph is concave up at \(c\), so \(f\) has a relative minimum at \(c\).</li>
+<li>If \(f''(c) \lt 0\), the graph is concave down at \(c\), so \(f\) has a relative maximum at \(c\).</li>
+<li>If \(f''(c) = 0\), the test is inconclusive, so use the first derivative test at \(c\). Use the first derivative test also at any critical number where \(f'(c)\) does not exist.</li>
+<li>Compute the value \(f(c)\) from the original function \(f\).</li>
+</ol></div>
+
+<div class="recipe"><div class="rt">The curve sketching checklist</div><ol>
+<li>Find the domain: exclude division by 0, even roots of negative numbers, and logarithms of numbers that are not positive.</li>
+<li>Find the intercepts: the \(y\)-intercept is \((0, f(0))\), and the \(x\)-intercepts solve \(f(x) = 0\) when that equation can be solved.</li>
+<li>Check symmetry: \(f\) is even if \(f(-x) = f(x)\) and odd if \(f(-x) = -f(x)\).</li>
+<li>Find the vertical asymptotes and the one-sided limits on each side of them.</li>
+<li>Find the horizontal asymptotes or the end behavior from \(\lim\limits_{x\to\infty} f(x)\) and \(\lim\limits_{x\to-\infty} f(x)\).</li>
+<li>Compute and factor \(f'\), find the critical numbers, make the sign chart of \(f'\), and use the first derivative test to find the local maxima and minima as points.</li>
+<li>Compute and factor \(f''\), make the sign chart of \(f''\), and find the intervals of concavity and the inflection points as points.</li>
+<li>Make a summary table with the sign of \(f'\), the sign of \(f''\), and the shape on each interval.</li>
+<li>Draw the asymptotes as dashed lines, plot and label every local extremum and inflection point with its coordinates, and connect the points with a curve that follows the shapes in the table.</li>
+</ol></div>
+
+<div class="recipe"><div class="rt">The closed interval method for absolute extrema on [a, b]</div><ol>
+<li>Check that \(f\) is continuous on \([a, b]\), so the extreme value theorem guarantees an absolute maximum and an absolute minimum.</li>
+<li>Compute \(f'(x)\) and find every critical number.</li>
+<li>Throw out every critical number that is not in the open interval \((a, b)\), and say so in writing.</li>
+<li>Make a value table with \(f\) at each remaining critical number and at both endpoints \(a\) and \(b\).</li>
+<li>The largest value in the table is the absolute maximum value, and the smallest value is the absolute minimum value. State each value together with every \(x\) where it is attained.</li>
+</ol></div>
+
+<div class="recipe"><div class="rt">Absolute extrema on an interval that is not closed (the critical point theorem)</div><ol>
+<li>Check that \(f\) is continuous on the interval \(I\).</li>
+<li>Find all critical numbers of \(f\) in \(I\) and count them. The theorem needs exactly one critical number \(c\).</li>
+<li>Use the first or second derivative test to show that \(f\) has a relative maximum or a relative minimum at \(c\).</li>
+<li>Quote the critical point theorem: a relative maximum at the only critical number is the absolute maximum on \(I\), and a relative minimum at the only critical number is the absolute minimum on \(I\).</li>
+<li>For the other kind of extremum, look at \(f(x)\) near the ends of \(I\). If \(f(x) \to \infty\), there is no absolute maximum, and if \(f(x) \to -\infty\), there is no absolute minimum.</li>
+<li>If there are two or more critical numbers, the theorem does not apply. Evaluate \(f\) at each critical number and compare with the behavior of \(f\) near the ends of \(I\).</li>
+</ol></div>
+
+<div class="recipe"><div class="rt">How to solve an optimization problem</div><ol>
+<li>Draw a picture and label every length with a letter.</li>
+<li>Define each variable in a sentence with its units.</li>
+<li>Write the quantity to maximize or minimize (the objective) as a formula.</li>
+<li>Write the constraint as an equation, solve it for one variable, and substitute into the objective so it depends on one variable.</li>
+<li>State the domain from the context, for example \(x \gt 0\) or \(0 \le x \le 4\).</li>
+<li>Differentiate, and find the critical numbers inside the domain.</li>
+<li>Justify the maximum or minimum. Use the closed interval method on a closed, bounded domain. Use the critical point theorem with the first or second derivative test on an open or unbounded domain with one critical number.</li>
+<li>Answer the question asked, in a sentence with units, giving every dimension and the optimal value if it is asked for.</li>
+</ol></div>
+
+<div class="recipe"><div class="rt">Elasticity of demand and the revenue rule</div><ol>
+<li>Write the demand as \(q\) in terms of \(p\).</li>
+<li>Compute \(\frac{dq}{dp}\) as a formula in \(p\) before you substitute any price.</li>
+<li>Substitute into \(E = -\frac{p}{q}\cdot\frac{dq}{dp}\) and simplify. In this course \(E\) is always positive.</li>
+<li>Substitute the given price and compare \(E\) with 1.</li>
+<li>If \(E \lt 1\), demand is inelastic, and raising the price raises revenue. If \(E \gt 1\), demand is elastic, and lowering the price raises revenue. If \(E = 1\), demand has unit elasticity, and revenue is at its maximum.</li>
+<li>If the demand is given as \(p\) in terms of \(q\), use \(\frac{dq}{dp} = \frac{1}{dp/dq}\).</li>
+</ol></div>
+
+<div class="rule"><div class="rt">Why the revenue rule works</div>
+<p>Revenue is price times quantity, \(R = pq\), where \(q\) depends on \(p\). The product rule gives</p>
+\[\frac{dR}{dp} = q + p\frac{dq}{dp} = q\left(1 + \frac{p}{q}\cdot\frac{dq}{dp}\right) = q(1 - E).\]
+<p>Since \(q \gt 0\), the sign of \(\frac{dR}{dp}\) is the sign of \(1 - E\). When \(E \gt 1\), \(\frac{dR}{dp} \lt 0\), so revenue falls as the price rises. When \(E \lt 1\), \(\frac{dR}{dp} \gt 0\), so revenue rises with the price.</p>
+<p>Example. For \(q = 48 - p^2\), \(\frac{dq}{dp} = -2p\), so \(E = -\frac{p}{48 - p^2}\cdot(-2p) = \frac{2p^2}{48 - p^2}\). At \(p = 6\), \(E = \frac{72}{12} = 6\). Unit elasticity happens when \(2p^2 = 48 - p^2\), so \(p^2 = 16\) and \(p = 4\).</p></div>
+
+<div class="say"><b>What to write for "explain".</b> "At \(p = 6\), \(E = 6\), which is greater than 1, so demand is elastic at \(p = 6\). Since \(\frac{dR}{dp} = q(1 - E)\) and \(q \gt 0\), \(\frac{dR}{dp} \lt 0\) there, so revenue decreases when the price increases. Therefore the price should be decreased: demand is elastic at \(p = 6\), so lowering the price raises revenue."</div>
+
+<div class="recipe"><div class="rt">The economic order quantity (lot size) formula</div><ol>
+<li>Name the numbers: \(M\) units are needed per year, they arrive in equal batches (or orders) of \(q\) units, each batch costs \(f\) dollars to set up or order, each unit costs \(g\) dollars, and storing one unit for a year costs \(k\) dollars.</li>
+<li>Build the yearly cost. There are \(\frac{M}{q}\) batches, which cost \(\frac{fM}{q}\). The units themselves cost \(gM\). The average inventory is \(\frac{q}{2}\), which costs \(\frac{kq}{2}\) to store. So \(C(q) = \frac{fM}{q} + gM + \frac{kq}{2}\) on \(0 \lt q \le M\).</li>
+<li>Differentiate: \(C'(q) = -\frac{fM}{q^2} + \frac{k}{2}\).</li>
+<li>Set \(C'(q) = 0\): \(\frac{k}{2} = \frac{fM}{q^2}\), so \(q^2 = \frac{2fM}{k}\) and \(q = \sqrt{\frac{2fM}{k}}\). The term \(gM\) is a constant, so \(g\) does not appear.</li>
+<li>Justify the minimum: \(C''(q) = \frac{2fM}{q^3} \gt 0\) for every \(q \gt 0\), and this is the only critical number in the domain, so by the critical point theorem it gives the absolute minimum cost. Check that it is at most \(M\).</li>
+<li>If the problem changes an assumption, such as charging storage on the maximum inventory \(q\) instead of \(\frac{q}{2}\), build \(C(q)\) again from its parts instead of using the formula.</li>
+</ol>
+<p>Example. With \(M = 900\), \(f = 50\), and \(k = 4\), \(q = \sqrt{\frac{2(50)(900)}{4}} = \sqrt{22500} = 150\) units per batch, so there are \(\frac{900}{150} = 6\) batches per year.</p></div>
+
+<div class="recipe"><div class="rt">Implicit differentiation</div><ol>
+<li>Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\). Every term with \(y\) gets a factor \(y'\) from the chain rule, for example \(\frac{d}{dx}[y^3] = 3y^2y'\) and \(\frac{d}{dx}[e^y] = e^y y'\). A product such as \(xy\) needs the product rule: \(\frac{d}{dx}[xy] = y + xy'\). A constant side becomes 0.</li>
+<li>Move every term that contains \(y'\) to one side and every other term to the other side.</li>
+<li>Factor \(y'\) out.</li>
+<li>Divide by the expression that multiplies \(y'\). The answer may contain both \(x\) and \(y\).</li>
+<li>For a slope at a point, first check that the point satisfies the original equation, then substitute both coordinates into \(y'\).</li>
+</ol>
+<p>Example. For \(x^2 + y^2 = 25\), \(2x + 2yy' = 0\), so \(y' = -\frac{x}{y}\). The point \((3, 4)\) is on the curve because \(9 + 16 = 25\), and the slope there is \(-\frac{3}{4}\).</p></div>
+
+<div class="recipe"><div class="rt">Related rates</div><ol>
+<li>Draw a picture. Label the lengths that change with letters and the lengths that stay fixed with numbers.</li>
+<li>Name each variable in a sentence with its units, at time \(t\).</li>
+<li>Write the given rate and the wanted rate as derivatives with respect to \(t\). A decreasing quantity has a negative rate.</li>
+<li>Write an equation relating the variables that is true at every time. Use a geometry formula, the Pythagorean theorem, or similar triangles.</li>
+<li>Differentiate both sides with respect to \(t\), with the chain rule on every variable.</li>
+<li>Only now substitute the numbers for the instant in the problem. Find any missing value from the original equation.</li>
+<li>Solve for the wanted rate and answer in a sentence with units, saying whether the quantity is increasing or decreasing.</li>
+</ol>
+<p>Example. A 13 ft ladder has its bottom \(x\) ft from a wall and its top \(y\) ft up the wall, so \(x^2 + y^2 = 169\). Then \(2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0\). When \(x = 5\), \(y = 12\), and if \(\frac{dx}{dt} = 2\) ft/s, then \(2(5)(2) + 2(12)\frac{dy}{dt} = 0\), so \(\frac{dy}{dt} = -\frac{20}{24} = -\frac{5}{6}\). The top slides down at \(\frac{5}{6}\) ft/s.</p></div>
+
+<div class="recipe"><div class="rt">Linear approximation</div><ol>
+<li>Write the number as \(f(x)\) for a simple function \(f\).</li>
+<li>Choose a base point \(a\) near \(x\) where \(f(a)\) and \(f'(a)\) are easy to compute exactly, such as a perfect square for \(\sqrt{x}\).</li>
+<li>Compute \(dx = x - a\), keeping its sign.</li>
+<li>Use \(f(x) \approx L(x) = f(a) + f'(a)(x - a)\).</li>
+<li>If the graph is concave up near \(a\), the approximation is too small. If it is concave down, the approximation is too big.</li>
+</ol>
+<p>Example. With \(f(x) = \sqrt{x}\) and \(a = 25\), \(f'(x) = \frac{1}{2\sqrt{x}}\), so \(\sqrt{26} \approx 5 + \frac{1}{10}(1) = 5.1\). Since \(\sqrt{x}\) is concave down, \(5.1\) is a little too big.</p></div>
+
+<div class="recipe"><div class="rt">Differentials and the error estimate</div><ol>
+<li>The differential of \(y = f(x)\) is \(dy = f'(x)\,dx\). The actual change is \(\Delta y = f(x + dx) - f(x)\), and \(\Delta y \approx dy\) when \(dx\) is small.</li>
+<li>For a measurement error, let \(x\) be the measured value and \(dx\) the maximum error in the measurement. If the problem gives a diameter but the formula uses the radius, halve both.</li>
+<li>Write the formula \(Q\) for the computed quantity and differentiate: \(dQ = Q'(x)\,dx\).</li>
+<li>Substitute the measured value (not \(x + dx\)) and the maximum error. The result \(dQ\) is the approximate maximum error in \(Q\), in the units of \(Q\).</li>
+<li>The relative error is \(\frac{dQ}{Q}\), and the percentage error is \(\frac{dQ}{Q}\times 100\%\). Neither has units.</li>
+</ol>
+<p>Example. A sphere's radius is measured as 6 cm with maximum error 0.02 cm. Then \(V = \frac{4}{3}\pi r^3\) and \(dV = 4\pi r^2\,dr = 4\pi(36)(0.02) = 2.88\pi\) cm\(^3\). Since \(V = \frac{4}{3}\pi(216) = 288\pi\) cm\(^3\), the relative error is \(\frac{2.88\pi}{288\pi} = 0.01\), which is a percentage error of 1%.</p></div>
+
+<h3>Part 5. Geometry formulas</h3>
+
+<table class="t" id="geometry">
+<tr><th>Shape</th><th>Area or volume</th><th>Perimeter or surface area</th></tr>
+<tr><td>Rectangle, length \(l\), width \(w\)</td><td>\(A = lw\)</td><td>\(P = 2l + 2w\)</td></tr>
+<tr><td>Square, side \(s\)</td><td>\(A = s^2\)</td><td>\(P = 4s\)</td></tr>
+<tr><td>Triangle, base \(b\), height \(h\)</td><td>\(A = \tfrac{1}{2}bh\)</td><td>Add the three sides.</td></tr>
+<tr><td>Circle, radius \(r\)</td><td>\(A = \pi r^2\)</td><td>Circumference \(C = 2\pi r\)</td></tr>
+<tr><td>Box, base \(x\) by \(y\), height \(h\)</td><td>\(V = xyh\)</td><td>Closed: \(S = 2xy + 2xh + 2yh\)</td></tr>
+<tr><td>Box, square base \(x\) by \(x\), height \(h\)</td><td>\(V = x^2h\)</td><td>Closed: \(S = 2x^2 + 4xh\). Open top: \(S = x^2 + 4xh\).</td></tr>
+<tr><td>Cube, edge \(s\)</td><td>\(V = s^3\)</td><td>\(S = 6s^2\)</td></tr>
+<tr><td>Cylinder, radius \(r\), height \(h\)</td><td>\(V = \pi r^2h\)</td><td>Closed: \(S = 2\pi r^2 + 2\pi rh\). Open top: \(S = \pi r^2 + 2\pi rh\). Side alone: \(2\pi rh\).</td></tr>
+<tr><td>Cone, radius \(r\), height \(h\)</td><td>\(V = \tfrac{1}{3}\pi r^2h\)</td><td>Side: \(S = \pi r\sqrt{r^2 + h^2}\)</td></tr>
+<tr><td>Sphere, radius \(r\)</td><td>\(V = \tfrac{4}{3}\pi r^3\)</td><td>\(S = 4\pi r^2\)</td></tr>
+</table>
+
+<div class="mem"><div class="rt">Right triangles and similar triangles</div><ul>
+<li>The Pythagorean theorem: in a right triangle with legs \(a\) and \(b\) and hypotenuse \(c\), \(a^2 + b^2 = c^2\). It is the equation for ladders, two objects moving at right angles, and a rope from a dock to a boat.</li>
+<li>The distance from \((x, y)\) to \((a, b)\) is \(\sqrt{(x - a)^2 + (y - b)^2}\). To minimize a distance, minimize its square instead.</li>
+<li>Similar triangles have their corresponding sides in the same ratio. For a cone tank 12 ft tall with top radius 4 ft, the water at depth \(h\) has radius \(r\) with \(\frac{r}{h} = \frac{4}{12}\), so \(r = \frac{h}{3}\) and \(V = \frac{1}{3}\pi\left(\frac{h}{3}\right)^2h = \frac{\pi h^3}{27}\). Remove \(r\) this way before you differentiate.</li>
+<li>For a shadow, a 15 ft lamp post and a 6 ft person standing \(x\) ft from the post with a shadow of length \(s\) ft give \(\frac{15}{x + s} = \frac{6}{s}\), so \(15s = 6x + 6s\) and \(s = \frac{2x}{3}\).</li>
+<li>The cylinder's side unrolls into a rectangle of width \(2\pi r\) and height \(h\), which is why its area is \(2\pi rh\).</li>
+<li>Two useful checks: \(\frac{d}{dr}\left[\pi r^2\right] = 2\pi r\) (area to circumference) and \(\frac{d}{dr}\left[\frac{4}{3}\pi r^3\right] = 4\pi r^2\) (volume to surface area).</li>
+</ul></div>
+
+<h3>Part 6. Sentences that earn the justification points</h3>
+<p>Written work is graded, and a correct number with no reason can lose points. Copy the pattern of these sentences and change the function, the number, and the interval.</p>
+
+<div class="say"><b>Increasing, decreasing, and relative extrema.</b><ul>
+<li>"\(f\) is increasing on \((-\infty, 1)\) because \(f'(x) \gt 0\) there, and decreasing on \((1, 3)\) because \(f'(x) \lt 0\) there."</li>
+<li>"\(f\) has a relative maximum at \(x = c\) because \(f'\) changes from positive to negative at \(c\). The relative maximum value is \(f(c)\)."</li>
+<li>"\(f\) has a relative minimum at \(x = c\) because \(f'\) changes from negative to positive at \(c\)."</li>
+<li>"\(f\) has no relative extremum at \(x = 0\) because \(f'\) is negative on both sides of 0."</li>
+<li>"Since \(f'(c) = 0\) and \(f''(c) \gt 0\), \(f\) has a relative minimum at \(x = c\) by the second derivative test."</li>
+<li>"Since \(f''(c) = 0\), the second derivative test is inconclusive, so I use the first derivative test."</li>
+</ul></div>
+
+<div class="say"><b>Concavity and inflection points.</b><ul>
+<li>"The graph of \(f\) is concave up on \((1, \infty)\) because \(f''(x) \gt 0\) there."</li>
+<li>"\((1, f(1))\) is an inflection point because \(f\) is continuous at 1 and \(f''\) changes sign at \(x = 1\)."</li>
+<li>"\(f''(0) = 0\), but \(f''\) does not change sign at 0, so there is no inflection point at \(x = 0\)."</li>
+</ul></div>
+
+<div class="say"><b>Absolute extrema.</b><ul>
+<li>"\(f\) is continuous on the closed interval \([a, b]\), so by the extreme value theorem it has an absolute maximum and an absolute minimum, which I find by the closed interval method."</li>
+<li>"The critical number \(x = 5\) is not in \([0, 4]\), so I discard it."</li>
+<li>"The absolute maximum value is 12, attained at \(x = -1\)."</li>
+<li>"\(C\) is continuous on \((0, \infty)\) and \(x = c\) is its only critical number there. Since this is the only critical number on the interval and \(C''(c)\) is positive, the critical number gives the absolute minimum by the critical point theorem."</li>
+<li>"As \(x \to 0^+\), \(f(x) \to \infty\), so \(f\) has no absolute maximum on \((0, \infty)\)."</li>
+</ul></div>
+
+<div class="say"><b>Elasticity, order quantity, and limits.</b><ul>
+<li>"Demand is elastic at \(p = 6\) because \(E = 6 \gt 1\), so lowering the price raises revenue, since \(\frac{dR}{dp} = q(1 - E) \lt 0\)."</li>
+<li>"Demand is inelastic at \(p = 2\) because \(E = \frac{2}{11} \lt 1\), so raising the price raises revenue, since \(\frac{dR}{dp} = q(1 - E) \gt 0\)."</li>
+<li>"Since \(C''(q) = \frac{2fM}{q^3} \gt 0\) for all \(q \gt 0\) and this is the only critical number in \((0, M]\), it gives the absolute minimum cost."</li>
+<li>"As \(x \to 0\), the numerator approaches 0 and the denominator approaches 0, so the limit has the form \(\frac{0}{0}\) and L'Hospital's rule applies."</li>
+</ul></div>
+
+<div class="say"><b>Implicit differentiation, related rates, and differentials.</b><ul>
+<li>"The point \((3, 4)\) is on the curve because \(3^2 + 4^2 = 25\)."</li>
+<li>"Differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\)."</li>
+<li>"Let \(x\) be the distance in feet from the wall to the bottom of the ladder at time \(t\) in seconds."</li>
+<li>"The top of the ladder is sliding down the wall at \(\frac{5}{6}\) ft/s."</li>
+<li>"Since \(f''(x) \lt 0\) near \(x = 25\), the graph is concave down, the tangent line lies above the graph, and the linear approximation overestimates."</li>
+<li>"The maximum error in the calculated volume is approximately \(2.88\pi\) cm\(^3\), and the percentage error is about 1%."</li>
+</ul></div>
+
+<h3>Part 7. The 15 most common mistakes</h3>
+
+<div class="trap"><b>Read each one and say the fix out loud.</b><ol>
+<li>Forgetting the derivative of the inside function is the most common chain rule error, so after every outside derivative multiply by \(g'(x)\), as in \(\frac{d}{dx}e^{-2x} = -2e^{-2x}\).</li>
+<li>The product rule is never \(u'v'\) and the quotient rule numerator is \(u'v - uv'\) in that order, so write \(u\), \(v\), \(u'\), and \(v'\) before you put either rule together.</li>
+<li>The power rule does not apply to \(a^x\), and the base \(a\) rules need \(\ln a\), so write \(\frac{d}{dx}2^x = (\ln 2)\,2^x\) and \(\frac{d}{dx}\log_2 x = \frac{1}{(\ln 2)\,x}\).</li>
+<li>A logarithm of a sum such as \(\ln(x^2 + 5)\) cannot be split, because the logarithm properties only split products, quotients, and powers.</li>
+<li>The minus signs belong to the derivatives of \(\cos\), \(\cot\), and \(\csc\), and \(\sec^2 x\) is the derivative of \(\tan x\) while \(\sec x\tan x\) is the derivative of \(\sec x\).</li>
+<li>L'Hospital's rule gives wrong answers on forms that are not \(\tfrac{0}{0}\) or \(\tfrac{\pm\infty}{\pm\infty}\), so substitute first, write the form in words, and then differentiate the top and the bottom separately without the quotient rule.</li>
+<li>The \(y\)-coordinate of an extremum, an inflection point, or a point of tangency comes from the original \(f\), never from \(f'\) or \(f''\).</li>
+<li>A critical number can be a number in the domain where \(f'\) does not exist, so always check the denominator of \(f'\), and put every number outside the domain on the sign chart without joining intervals across it.</li>
+<li>\(f'(c) = 0\) does not guarantee an extremum and \(f''(c) = 0\) does not guarantee an inflection point, so show the sign change on a chart before you claim either one.</li>
+<li>In the closed interval method, always evaluate \(f\) at both endpoints, and throw out the critical numbers that are outside the interval before you build the table.</li>
+<li>In optimization, "\(f''(c) \gt 0\), so it is a minimum" only proves a relative minimum, so add that \(c\) is the only critical number in the domain and cite the critical point theorem.</li>
+<li>Substituting the numbers for one instant before differentiating turns a changing quantity into a constant with rate 0, so in related rates and elasticity differentiate the general formula first and substitute afterward.</li>
+<li>In implicit differentiation every term with \(y\) needs a factor \(y'\) and every product such as \(xy\) needs the product rule, so \(\frac{d}{dx}[xy] = y + xy'\) and not \(y'\).</li>
+<li>A negative elasticity means a dropped minus sign, and elastic demand (\(E \gt 1\)) means lower the price to raise revenue, so rederive \(\frac{dR}{dp} = q(1 - E)\) whenever you are unsure of the direction.</li>
+<li>With differentials, evaluate \(f'\) at the measured or base value, take \(dx\) as new minus old with its sign, and remember that \(dy\) is only the change, so the new value is \(f(a) + dy\).</li>
+</ol></div>
+
+<h3>Part 8. Exam strategy</h3>
+
+<div class="recipe"><div class="rt">On exam day</div><ol>
+<li>Read all five questions before you write anything, and decide the order you will do them in.</li>
+<li>Start with the question you are surest of, so you bank those 10 points early and settle in.</li>
+<li>When you are stuck, write the setup anyway: the variables with units, the equation, the rule you would use, and the derivative. Setup earns partial credit.</li>
+<li>Name each rule and theorem as you use it, and write the justification sentence from Part 6.</li>
+<li>Leave answers exact (fractions, roots, \(\pi\), \(e\), \(\ln\)), box each final answer, and answer word problems in a sentence.</li>
+<li>Keep units on every answer to a word problem: feet per second, square centimeters, dollars.</li>
+<li>Check that a given point is on the curve before you use it, and check that each point you report satisfies the original function.</li>
+<li>With time left, check one derivative by a second method, such as plugging one number into both the factored and the unfactored form of \(f'\).</li>
+</ol></div>
+</section><div class="pager"><a href="u17.html">Back: Mock Midterm C (harder)</a><a href="index.html">Home</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

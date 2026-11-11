@@ -1,0 +1,412 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Differentials and linear approximation | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Section 6.6</p><h1>Differentials and linear approximation</h1><p class="sub">dy = f&#x27;(x) dx, approximating numbers, and estimating measurement error.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Level 1</a><a href="#L2">Level 2</a><a href="#L3">Level 3</a><a href="#L4">Level 4</a></div><section id="learn"><h2>Section 6.6: Differentials and linear approximation</h2>
+
+<h3>The idea: a straight line that stands in for the curve</h3>
+<p>Some numbers are hard to compute by hand. Without a calculator you cannot easily find \(\sqrt{26}\), the cube root of 7.9, or \(e^{0.02}\). But each of these is a value of a simple function at a point that is very close to a point where everything is easy. For example, \(\sqrt{26}\) is the function \(f(x) = \sqrt{x}\) at \(x = 26\), and 26 is right next to 25, where \(\sqrt{25} = 5\) exactly.</p>
+<p>Here is the key picture. If you zoom in on the graph of a differentiable function near a point, the graph looks more and more like a straight line. That line is the <b>tangent line</b> at the point: it passes through the point \((a, f(a))\) and has the same slope as the curve there, namely \(f'(a)\). Because the tangent line matches both the height and the steepness of the curve at \(x = a\), its values are very close to the values of \(f\) for \(x\) near \(a\). And a line is easy to evaluate: you only need \(f(a)\) and \(f'(a)\), which you can compute exactly when \(a\) is a nice number.</p>
+<p>The professor's way of saying it: sometimes it is hard to compute the exact values of a function \(f\), but you may know the exact value and the derivative at some number \(x = a\). Then you can use the tangent line to approximate the values of \(f\) near \(x = a\).</p>
+
+<h3>The linearization</h3>
+<p>By the point-slope formula, the tangent line to the graph of \(f\) at \((a, f(a))\) is</p>
+\[y - f(a) = f'(a)(x - a) \qquad \text{or} \qquad y = f(a) + f'(a)(x - a).\]
+
+<div class="rule"><div class="rt">Linearization and linear approximation</div>
+<p>The linear function</p>
+\[L(x) = f(a) + f'(a)(x - a)\]
+<p>is called the <b>linearization</b> of \(f\) at \(x = a\). For \(x\) near \(a\),</p>
+\[f(x) \approx L(x) = f(a) + f'(a)(x - a).\]
+<p>This is called the <b>linear approximation</b> of \(f\) at \(x = a\). It is usually good when \(x\) is near \(a\) and gets worse as \(x\) moves farther from \(a\).</p>
+</div>
+
+<p>The graph below shows \(f(x) = \sqrt{x}\) together with its tangent line at \(a = 4\). Since \(f(4) = 2\) and \(f'(x) = \dfrac{1}{2\sqrt{x}}\) gives \(f'(4) = \dfrac{1}{4}\), the linearization is \(L(x) = 2 + \tfrac{1}{4}(x - 4) = \tfrac{1}{4}x + 1\). Near \(x = 4\) the line and the curve are almost on top of each other. Far away, at \(x = 9\), the line gives 3.25 while the curve gives 3, so the gap has grown.</p>
+
+<div class="plot" data-f="Math.sqrt(x);;x/4+1" data-x="0,10" data-y="0,4" data-v="4,9" data-pts="4,2,point of tangency (4, 2)|9,3,curve (9, 3)|9,3.25,tangent line (9, 3.25)" data-cap="f(x) = sqrt(x) and its tangent line L(x) = x/4 + 1 at a = 4. Dashed lines mark x = 4 and x = 9. From x = 4 to x = 9 the curve rises 1 and the tangent line rises 1.25."></div>
+
+<div class="ex"><div class="et">Worked example 1</div><p class="p">Use a linear approximation to estimate \(\sqrt{26}\).</p>
+<ol class="steps">
+<li>Choose the function. The number \(\sqrt{26}\) is a value of \(f(x) = \sqrt{x} = x^{1/2}\) at \(x = 26\).</li>
+<li>Choose the base point. You need a number \(a\) close to 26 where \(\sqrt{a}\) is known exactly. The perfect square 25 works, so take \(a = 25\).</li>
+<li>Find the derivative with the power rule. \[\begin{aligned} f'(x) &= \tfrac{1}{2}x^{-1/2} \\ &= \frac{1}{2\sqrt{x}}. \end{aligned}\]</li>
+<li>Evaluate \(f\) and \(f'\) at \(a = 25\). \[f(25) = \sqrt{25} = 5, \qquad f'(25) = \frac{1}{2\sqrt{25}} = \frac{1}{2 \cdot 5} = \frac{1}{10}.\]</li>
+<li>Write the linearization. \[L(x) = f(25) + f'(25)(x - 25) = 5 + \frac{1}{10}(x - 25).\]</li>
+<li>Evaluate at \(x = 26\). Here \(x - a = 26 - 25 = 1\). \[\begin{aligned} \sqrt{26} \approx L(26) &= 5 + \frac{1}{10}(1) \\ &= 5 + 0.1 = 5.1. \end{aligned}\]</li>
+<li>Check that the answer is reasonable. \(5.1^2 = 26.01\), which is very close to 26, so 5.1 is very close to \(\sqrt{26}\).</li>
+</ol><p class="final">Answer: \(\sqrt{26} \approx 5.1\).</p></div>
+
+<h3>Choosing a good base point</h3>
+<p>The whole method depends on the base point \(a\). It must satisfy two conditions. First, \(f(a)\) and \(f'(a)\) must be easy to compute exactly by hand. Second, \(a\) must be close to the number you care about. The professor showed what happens if you pick a worse point: to estimate \(\sqrt{65}\) with \(a = 64\) you get \(8 + \tfrac{1}{16} = 8.0625\), which is excellent, while \(a = 49\) gives \(7 + \tfrac{16}{14} \approx 8.143\), which is noticeably worse because 49 is far from 65.</p>
+<table class="t">
+<tr><th>Number</th><th>Function \(f\)</th><th>Base point \(a\)</th><th>\(f(a)\)</th><th>\(f'(a)\)</th><th>\(x - a\)</th><th>Estimate</th></tr>
+<tr><td>\(\sqrt{26}\)</td><td>\(\sqrt{x}\)</td><td>25</td><td>5</td><td>\(\tfrac{1}{10}\)</td><td>1</td><td>5.1</td></tr>
+<tr><td>\(\sqrt[3]{7.9}\)</td><td>\(x^{1/3}\)</td><td>8</td><td>2</td><td>\(\tfrac{1}{12}\)</td><td>\(-0.1\)</td><td>\(\tfrac{239}{120} \approx 1.9917\)</td></tr>
+<tr><td>\(e^{0.02}\)</td><td>\(e^x\)</td><td>0</td><td>1</td><td>1</td><td>0.02</td><td>1.02</td></tr>
+<tr><td>\(\ln(1.05)\)</td><td>\(\ln x\)</td><td>1</td><td>0</td><td>1</td><td>0.05</td><td>0.05</td></tr>
+<tr><td>\((2.01)^5\)</td><td>\(x^5\)</td><td>2</td><td>32</td><td>80</td><td>0.01</td><td>32.8</td></tr>
+</table>
+<p>Good base points by function: for square roots use a perfect square, for cube roots a perfect cube, for \(e^x\) use \(a = 0\) (since \(e^0 = 1\)), for \(\ln x\) use \(a = 1\) (since \(\ln 1 = 0\)), and for powers like \(x^5\) use the nearest integer.</p>
+
+<div class="recipe"><div class="rt">How to approximate a number with a linear approximation</div><ol>
+<li>Write the number as a value \(f(x)\) of a simple function. For example \(\sqrt[3]{7.9} = f(7.9)\) with \(f(x) = x^{1/3}\).</li>
+<li>Choose a base point \(a\) near \(x\) where \(f(a)\) and \(f'(a)\) are easy to compute exactly.</li>
+<li>Compute \(dx = x - a\). Keep the sign: it is negative when \(x\) is less than \(a\).</li>
+<li>Find \(f'(x)\), then compute the exact numbers \(f(a)\) and \(f'(a)\).</li>
+<li>Write \(f(x) \approx f(a) + f'(a)(x - a)\) and simplify to a single number.</li>
+<li>If the problem asks whether the estimate is too big or too small, use the concavity test further down this page.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 2</div><p class="p">Use a linear approximation to estimate the cube root of 7.9.</p>
+<ol class="steps">
+<li>Choose the function. The number is \(f(7.9)\) where \(f(x) = x^{1/3}\).</li>
+<li>Choose the base point. The perfect cube 8 is close to 7.9 and \(8^{1/3} = 2\), so take \(a = 8\).</li>
+<li>Compute \(x - a\). Since 7.9 is below 8, this is negative. \[x - a = 7.9 - 8 = -0.1.\]</li>
+<li>Find the derivative with the power rule. \[\begin{aligned} f'(x) &= \tfrac{1}{3}x^{-2/3} \\ &= \frac{1}{3x^{2/3}}. \end{aligned}\]</li>
+<li>Evaluate at \(a = 8\). Since \(8^{2/3} = (8^{1/3})^2 = 2^2 = 4\), \[f(8) = 2, \qquad f'(8) = \frac{1}{3 \cdot 4} = \frac{1}{12}.\]</li>
+<li>Apply the linear approximation. \[\begin{aligned} \sqrt[3]{7.9} &\approx f(8) + f'(8)(7.9 - 8) \\ &= 2 + \frac{1}{12}(-0.1) \\ &= 2 - \frac{0.1}{12} = 2 - \frac{1}{120} \\ &= \frac{240}{120} - \frac{1}{120} = \frac{239}{120}. \end{aligned}\]</li>
+<li>Convert to a decimal if you want one. Since \(\tfrac{1}{120} \approx 0.00833\), the estimate is \(2 - 0.00833 \approx 1.9917\). It makes sense that the answer is a little less than 2, because 7.9 is a little less than 8.</li>
+</ol><p class="final">Answer: \(\sqrt[3]{7.9} \approx \dfrac{239}{120} \approx 1.9917\).</p></div>
+
+<div class="ex"><div class="et">Worked example 3</div><p class="p">Use a linear approximation to estimate \((2.01)^5\).</p>
+<ol class="steps">
+<li>Choose the function and base point. Let \(f(x) = x^5\) and \(a = 2\), since \(2^5 = 32\) is easy. Then \(x - a = 2.01 - 2 = 0.01\).</li>
+<li>Find the derivative with the power rule and evaluate at 2. \[f'(x) = 5x^4, \qquad f'(2) = 5 \cdot 2^4 = 5 \cdot 16 = 80.\]</li>
+<li>Apply the linear approximation. \[\begin{aligned} (2.01)^5 &\approx f(2) + f'(2)(0.01) \\ &= 32 + 80(0.01) \\ &= 32 + 0.8 = 32.8. \end{aligned}\]</li>
+<li>Compare with the true value. Multiplying out gives \((2.01)^5 \approx 32.808\), so the estimate is off by less than 0.01.</li>
+</ol><p class="final">Answer: \((2.01)^5 \approx 32.8\).</p></div>
+
+<h3>Differentials: the same idea in shorthand</h3>
+<p>Differentials are a short-hand notation for linear approximation. They are especially handy for estimating changes and measurement errors.</p>
+<div class="rule"><div class="rt">Differentials</div>
+<p>Let \(y = f(x)\) be a differentiable function. The <b>differential of \(x\)</b>, written \(dx\), is any real number (in practice a small change in \(x\)). The <b>differential of \(y\)</b> is</p>
+\[dy = f'(x)\,dx.\]
+<p>If \(x\) changes to \(x + \Delta x\), the <b>actual change</b> in \(y\) is \(\Delta y = f(x + \Delta x) - f(x)\). When \(\Delta x = dx\) is small,</p>
+\[\Delta y \approx dy = f'(x)\,dx, \qquad \text{so} \qquad f(x + dx) \approx f(x) + f'(x)\,dx.\]
+</div>
+<p>Read the two symbols carefully. \(\Delta y\) is how much the <b>curve</b> rises when you move from \(x\) to \(x + dx\). \(dy\) is how much the <b>tangent line</b> rises over the same run. In the graph above, start at \(x = 4\) and take \(dx = 5\). The curve goes from 2 to 3, so \(\Delta y = 1\). The tangent line has slope \(\tfrac14\), so it rises \(dy = \tfrac{1}{4} \cdot 5 = 1.25\). The step \(dx = 5\) is large on purpose so you can see the gap; for small \(dx\) the two rises are nearly equal.</p>
+<p>The formula \(f(x + dx) \approx f(x) + f'(x)\,dx\) is exactly the linearization with the starting point called \(x\) instead of \(a\), and \(dx = x - a\). So every linear approximation problem can be done in either language.</p>
+<p>A note on notation: \(\dfrac{dy}{dx}\) has meant \(f'(x)\) all along. Now that \(dx\) and \(dy\) are numbers, \(\dfrac{dy}{dx}\) can also be read as a ratio, and the definition \(dy = f'(x)\,dx\) shows that the ratio equals \(f'(x)\), so the two meanings agree.</p>
+
+<div class="recipe"><div class="rt">How to find dy for given values of x and dx</div><ol>
+<li>Find \(f'(x)\) using the derivative rules, naming each rule you use.</li>
+<li>Write \(dy = f'(x)\,dx\). If no numbers are given, this is the answer.</li>
+<li>Substitute the starting value of \(x\) (not \(x + dx\)) into \(f'(x)\), and substitute the given \(dx\).</li>
+<li>Simplify to a number. If the problem asks, compute \(\Delta y = f(x + dx) - f(x)\) and compare.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 4</div><p class="p">Let \(y = x^3 - 2x\). (a) Find \(dy\). (b) Evaluate \(dy\) when \(x = 2\) and \(dx = 0.1\). (c) Compare with \(\Delta y\).</p>
+<ol class="steps">
+<li>(a) Differentiate term by term with the power rule. \[f'(x) = 3x^2 - 2.\]</li>
+<li>Write the differential. \[dy = (3x^2 - 2)\,dx.\]</li>
+<li>(b) Substitute \(x = 2\) and \(dx = 0.1\). \[\begin{aligned} dy &= (3 \cdot 2^2 - 2)(0.1) \\ &= (12 - 2)(0.1) \\ &= 10(0.1) = 1. \end{aligned}\]</li>
+<li>(c) Compute the actual change \(\Delta y = f(2.1) - f(2)\). First \(2.1^3 = 9.261\), so \[\begin{aligned} f(2.1) &= 9.261 - 4.2 = 5.061, \\ f(2) &= 8 - 4 = 4, \\ \Delta y &= 5.061 - 4 = 1.061. \end{aligned}\]</li>
+<li>Compare. The differential \(dy = 1\) is close to the true change \(\Delta y = 1.061\), and it took far less arithmetic.</li>
+</ol><p class="final">Answer: (a) \(dy = (3x^2 - 2)\,dx\). (b) \(dy = 1\). (c) \(\Delta y = 1.061\), close to \(dy\).</p></div>
+
+<h3>Why the approximation is good only for small dx</h3>
+<p>The tangent line matches the curve's height and slope at one point, but not how the curve bends. The bending makes the curve pull away from the line, and the gap grows quickly as you move away. You can see this exactly with \(f(x) = x^2\) at \(x = 2\). Here \(dy = 2x\,dx = 4\,dx\), while</p>
+\[\Delta y = (2 + dx)^2 - 2^2 = 4 + 4\,dx + (dx)^2 - 4 = 4\,dx + (dx)^2.\]
+<p>So the error \(\Delta y - dy\) is exactly \((dx)^2\).</p>
+<table class="t">
+<tr><th>\(dx\)</th><th>\(dy = 4\,dx\)</th><th>\(\Delta y = 4\,dx + (dx)^2\)</th><th>error \(\Delta y - dy\)</th></tr>
+<tr><td>1</td><td>4</td><td>5</td><td>1</td></tr>
+<tr><td>0.1</td><td>0.4</td><td>0.41</td><td>0.01</td></tr>
+<tr><td>0.01</td><td>0.04</td><td>0.0401</td><td>0.0001</td></tr>
+</table>
+<p>Each time \(dx\) shrinks by a factor of 10, the error shrinks by a factor of 100. That is why the method is trusted only for small \(dx\), and why the base point should be as close as possible to the number you want.</p>
+
+<h3>Overestimate or underestimate: use concavity</h3>
+<p>The second derivative tells you which side of the tangent line the curve is on.</p>
+<div class="rule"><div class="rt">Concavity and the tangent line</div>
+<p>If \(f''(x) \gt 0\) on an interval around \(a\) (concave up), the graph lies above its tangent line there, so \(L(x) \le f(x)\) and the linear approximation is an <b>underestimate</b>.</p>
+<p>If \(f''(x) \lt 0\) on an interval around \(a\) (concave down), the graph lies below its tangent line there, so \(L(x) \ge f(x)\) and the linear approximation is an <b>overestimate</b>.</p>
+</div>
+<p>For \(f(x) = \sqrt{x}\), \(f''(x) = -\tfrac{1}{4}x^{-3/2} \lt 0\) for all \(x \gt 0\), so the graph is concave down and the estimate \(\sqrt{26} \approx 5.1\) from Example 1 is an overestimate. This agrees with \(5.1^2 = 26.01 \gt 26\). The graph below shows the opposite case: \(e^x\) is concave up, and its tangent line \(y = 1 + x\) at \(a = 0\) stays below the curve, so \(e^{0.02} \approx 1.02\) is an underestimate.</p>
+
+<div class="plot" data-f="Math.exp(x);;1+x" data-x="-2,2" data-y="-1,6" data-pts="0,1,point of tangency (0, 1)" data-cap="e^x is concave up, so its tangent line y = 1 + x at a = 0 lies below the curve on both sides."></div>
+
+<div class="ex"><div class="et">Worked example 5</div><p class="p">There is a function \(y = f(x)\) for which you do not have a formula, but you know that \(f(3) = 5\) and \(f'(x) = \sqrt{x^2 + 7}\). (a) Approximate \(f(3.1)\) and \(f(2.9)\). (b) Are these estimates larger or smaller than the actual values?</p>
+<ol class="steps">
+<li>Evaluate the derivative at the base point \(a = 3\). \[f'(3) = \sqrt{3^2 + 7} = \sqrt{9 + 7} = \sqrt{16} = 4.\]</li>
+<li>Write the linearization at \(a = 3\). \[L(x) = f(3) + f'(3)(x - 3) = 5 + 4(x - 3).\]</li>
+<li>(a) Evaluate at \(x = 3.1\), where \(x - 3 = 0.1\). \[f(3.1) \approx 5 + 4(0.1) = 5 + 0.4 = 5.4.\]</li>
+<li>Evaluate at \(x = 2.9\), where \(x - 3 = -0.1\). \[f(2.9) \approx 5 + 4(-0.1) = 5 - 0.4 = 4.6.\]</li>
+<li>(b) Find \(f''\) by differentiating \(f'(x) = (x^2 + 7)^{1/2}\) with the chain rule. The outside function is \(u^{1/2}\) with derivative \(\tfrac12 u^{-1/2}\), and the inside is \(u = x^2 + 7\) with derivative \(2x\). \[\begin{aligned} f''(x) &= \tfrac{1}{2}(x^2 + 7)^{-1/2} \cdot 2x \\ &= \frac{x}{\sqrt{x^2 + 7}}. \end{aligned}\]</li>
+<li>Find the sign of \(f''\) near 3. For \(x \gt 0\) the numerator \(x\) is positive and the square root is positive, so \(f''(x) \gt 0\) on the whole interval from 2.9 to 3.1. So \(f\) is concave up there, the graph lies above its tangent line, and both estimates are below the true values.</li>
+</ol><p class="final">Answer: (a) \(f(3.1) \approx 5.4\) and \(f(2.9) \approx 4.6\). (b) Both are underestimates (smaller than the actual values), because \(f''(x) = \dfrac{x}{\sqrt{x^2+7}} \gt 0\) near \(x = 3\), so \(f\) is concave up there.</p></div>
+
+<div class="say"><b>What to write on the exam.</b> "Since \(f''(x) \gt 0\) near \(x = 3\), \(f\) is concave up there, so the tangent line lies below the graph and the linear approximation underestimates \(f(3.1)\)." For concave down, swap the words: "concave down, the tangent line lies above the graph, so the approximation is an overestimate."</div>
+
+<h3>Estimating measurement error</h3>
+<p>Suppose you measure a length \(x\), but your measurement could be off by as much as some small amount. You then compute another quantity from it, such as an area or a volume \(Q = g(x)\). The error in \(x\) causes an error in \(Q\). If the measured value is \(x\) and the true value is \(x + dx\), the error in \(Q\) is \(\Delta Q = g(x + dx) - g(x)\), and the differential estimates it:</p>
+\[\Delta Q \approx dQ = g'(x)\,dx.\]
+<p>Using the largest possible error in \(x\) as \(dx\) gives the estimated <b>maximum error</b> in \(Q\).</p>
+<div class="rule"><div class="rt">Maximum, relative, and percentage error</div>
+<p>If \(x\) is measured with maximum error \(dx\), the maximum error in \(Q = g(x)\) is approximately \(dQ = g'(x)\,dx\), evaluated at the measured value of \(x\).</p>
+<p>The <b>relative error</b> is \(\dfrac{dQ}{Q}\), the error compared to the size of the quantity, where \(Q\) is computed from the measured value. The <b>percentage error</b> is the relative error times 100%.</p>
+</div>
+<p>The formulas you need, all of which you must know by heart:</p>
+<table class="t">
+<tr><th>Shape</th><th>Formula</th><th>Differential</th></tr>
+<tr><td>square of side \(s\), area</td><td>\(A = s^2\)</td><td>\(dA = 2s\,ds\)</td></tr>
+<tr><td>circle of radius \(r\), area</td><td>\(A = \pi r^2\)</td><td>\(dA = 2\pi r\,dr\)</td></tr>
+<tr><td>cube of edge \(x\), volume</td><td>\(V = x^3\)</td><td>\(dV = 3x^2\,dx\)</td></tr>
+<tr><td>cube of edge \(x\), surface area</td><td>\(S = 6x^2\)</td><td>\(dS = 12x\,dx\)</td></tr>
+<tr><td>sphere of radius \(r\), volume</td><td>\(V = \tfrac{4}{3}\pi r^3\)</td><td>\(dV = 4\pi r^2\,dr\)</td></tr>
+<tr><td>sphere of radius \(r\), surface area</td><td>\(S = 4\pi r^2\)</td><td>\(dS = 8\pi r\,dr\)</td></tr>
+<tr><td>cylinder, radius \(r\), height \(h\)</td><td>\(V = \pi r^2 h\)</td><td>with \(h\) fixed: \(dV = 2\pi r h\,dr\)</td></tr>
+<tr><td>cone, radius \(r\), height \(h\)</td><td>\(V = \tfrac{1}{3}\pi r^2 h\)</td><td>with \(h\) fixed: \(dV = \tfrac{2}{3}\pi r h\,dr\)</td></tr>
+</table>
+<p>For a cylinder or cone, only one dimension can be the measured one. Substitute the fixed dimension as a number first so that the volume is a function of one variable, then differentiate.</p>
+
+<div class="recipe"><div class="rt">How to estimate the maximum error in a computed quantity</div><ol>
+<li>Name the variables with units: the measured quantity, its measured value, and its maximum error, which becomes \(dx\). If the problem gives a diameter but your formula uses a radius, halve both the measurement and its error.</li>
+<li>Write the formula for the computed quantity \(Q\) in terms of the one measured variable, substituting any fixed dimensions as numbers.</li>
+<li>Differentiate to get \(dQ = Q'(x)\,dx\).</li>
+<li>Substitute the measured value for \(x\) and the maximum error for \(dx\). Simplify.</li>
+<li>State the answer in a sentence with units: "The maximum error in the volume is approximately ... cubic cm."</li>
+<li>If asked, compute the relative error \(\dfrac{dQ}{Q}\) using \(Q\) at the measured value, and multiply by 100% for the percentage error.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 6</div><p class="p">The radius of a sphere was measured as 10 cm with a maximum error in measurement of 0.05 cm. Use differentials to estimate (a) the maximum error in the calculated volume, (b) the relative and percentage error in the volume, and (c) the maximum error in the calculated surface area and its percentage error.</p>
+<ol class="steps">
+<li>Name the variables. Let \(r\) be the radius in cm, \(V\) the volume in cubic cm, and \(S\) the surface area in square cm. The measured radius is \(r = 10\) and its maximum error is \(dr = 0.05\).</li>
+<li>(a) Write the volume formula and its differential, using the power rule. \[\begin{aligned} V &= \tfrac{4}{3}\pi r^3, \\ dV &= \tfrac{4}{3}\pi \cdot 3r^2\,dr = 4\pi r^2\,dr. \end{aligned}\]</li>
+<li>Substitute \(r = 10\) and \(dr = 0.05\). \[\begin{aligned} dV &= 4\pi (10)^2 (0.05) \\ &= 4\pi \cdot 100 \cdot 0.05 \\ &= 4\pi \cdot 5 = 20\pi. \end{aligned}\]</li>
+<li>(b) Compute the volume at the measured radius. \[V = \tfrac{4}{3}\pi (10)^3 = \tfrac{4000}{3}\pi.\]</li>
+<li>Divide to get the relative error. \[\begin{aligned} \frac{dV}{V} &= \frac{20\pi}{\tfrac{4000}{3}\pi} = 20 \cdot \frac{3}{4000} \\ &= \frac{60}{4000} = \frac{3}{200} = 0.015. \end{aligned}\] Multiplying by 100% gives a percentage error of 1.5%.</li>
+<li>(c) Write the surface area formula and its differential. \[S = 4\pi r^2, \qquad dS = 8\pi r\,dr.\]</li>
+<li>Substitute \(r = 10\) and \(dr = 0.05\). \[dS = 8\pi (10)(0.05) = 8\pi \cdot 0.5 = 4\pi.\]</li>
+<li>Compute the relative error in \(S\). Here \(S = 4\pi(10)^2 = 400\pi\), so \[\frac{dS}{S} = \frac{4\pi}{400\pi} = \frac{1}{100} = 0.01,\] which is 1%.</li>
+</ol><p class="final">Answer: (a) The maximum error in the volume is approximately \(20\pi\) cubic cm. (b) The relative error is \(0.015\), a percentage error of 1.5%. (c) The maximum error in the surface area is approximately \(4\pi\) square cm, a percentage error of 1%.</p></div>
+
+<p>A useful check: the relative error in the radius is \(\tfrac{0.05}{10} = 0.005\), or 0.5%. The volume is proportional to \(r^3\), and its percentage error is 3 times as large (1.5%). The surface area is proportional to \(r^2\), and its percentage error is 2 times as large (1%). In general, if \(Q = k x^n\), then \(dQ = nkx^{n-1}\,dx\), so \(\dfrac{dQ}{Q} = n\,\dfrac{dx}{x}\).</p>
+
+<div class="say"><b>What to write on the exam.</b> Start with the formula and its differential, then substitute: "\(V = \tfrac{4}{3}\pi r^3\), so \(dV = 4\pi r^2\,dr\). With \(r = 10\) and \(dr = 0.05\), \(dV = 4\pi(100)(0.05) = 20\pi\). The maximum error in the calculated volume is approximately \(20\pi\) cm\(^3\)."</div>
+
+<h3>Business uses: approximate change in cost, revenue, or profit</h3>
+<p>The same tool estimates how much cost, revenue, or profit changes when production changes a little. If production goes from \(x\) units to \(x + dx\) units, the change in revenue is approximately \(dR = R'(x)\,dx\), and similarly \(dC = C'(x)\,dx\). Since profit is \(P(x) = R(x) - C(x)\), the change in profit is approximately \(dP = dR - dC\). When \(dx = 1\), \(dR = R'(x)\), which is the marginal revenue: the derivative estimates the revenue from one more unit.</p>
+
+<div class="recipe"><div class="rt">How to approximate a change in cost, revenue, or profit</div><ol>
+<li>Identify the current production level \(x\) and compute \(dx\) = new level minus current level (negative if production drops).</li>
+<li>Differentiate the given function (for profit, use \(P = R - C\), so \(P' = R' - C'\)).</li>
+<li>Evaluate the derivative at the current level \(x\) and multiply by \(dx\).</li>
+<li>State the answer in dollars, and say whether it is an increase or a decrease. If the new value is wanted, add the change to the current value.</li>
+</ol></div>
+
+<div class="ex"><div class="et">Worked example 7</div><p class="p">A company's revenue from selling \(x\) units is \(R(x) = 400\sqrt{x}\) dollars and its cost of producing \(x\) units is \(C(x) = 500 + 8x\) dollars. Use differentials to approximate the change in profit (a) if production and sales go from 100 to 101 units, and (b) if they drop from 100 to 95 units.</p>
+<ol class="steps">
+<li>Write the profit function. \[P(x) = R(x) - C(x) = 400\sqrt{x} - 500 - 8x.\]</li>
+<li>Differentiate with the power rule, writing \(400\sqrt{x} = 400x^{1/2}\). \[\begin{aligned} P'(x) &= 400 \cdot \tfrac{1}{2}x^{-1/2} - 8 \\ &= \frac{200}{\sqrt{x}} - 8. \end{aligned}\]</li>
+<li>Evaluate at the current level \(x = 100\). \[P'(100) = \frac{200}{\sqrt{100}} - 8 = \frac{200}{10} - 8 = 20 - 8 = 12.\]</li>
+<li>(a) Here \(dx = 101 - 100 = 1\). \[dP = P'(100)\,dx = 12(1) = 12.\]</li>
+<li>(b) Here \(dx = 95 - 100 = -5\). \[dP = P'(100)\,dx = 12(-5) = -60.\]</li>
+</ol><p class="final">Answer: (a) Profit increases by about $12. (b) Profit decreases by about $60.</p></div>
+
+<h3>Common mistakes</h3>
+<div class="trap"><b>Common mistake.</b> Choosing a base point that is not easy to evaluate. To estimate \(\sqrt{26}\), the base point must be 25, not 26 and not 27. If you need a calculator to find \(f(a)\) or \(f'(a)\), you picked the wrong \(a\).</div>
+<div class="trap"><b>Common mistake.</b> Getting the sign of \(dx\) wrong. Always compute \(dx\) as new minus old (or \(x - a\)). For \(\sqrt[3]{7.9}\) from \(a = 8\), \(dx = -0.1\), and the estimate must come out less than 2.</div>
+<div class="trap"><b>Common mistake.</b> Forgetting to add \(f(a)\). The quantity \(f'(a)\,dx\) is only the change. Writing \(\sqrt{26} \approx 0.1\) instead of \(5 + 0.1 = 5.1\) is a common slip.</div>
+<div class="trap"><b>Common mistake.</b> Confusing \(dy\) with the new value. When a problem asks for the change, the maximum error, or \(dy\), the answer is \(dy\) itself. When it asks for the value \(f(x + dx)\), the answer is \(f(x) + dy\). In Example 6, the maximum error is \(20\pi\), not \(\tfrac{4000}{3}\pi + 20\pi\).</div>
+<div class="trap"><b>Common mistake.</b> Plugging \(x + dx\) into \(f'\). The derivative is evaluated at the starting (measured) value. In Example 6, use \(r = 10\), not \(r = 10.05\).</div>
+<div class="trap"><b>Common mistake.</b> Using the wrong \(dx\) when the problem describes a diameter or a coating. If the diameter has maximum error 0.2, the radius has maximum error 0.1. A coating of thickness \(t\) on a cube adds \(t\) on each side, so the edge grows by \(2t\).</div>
+<div class="trap"><b>Common mistake.</b> Forgetting units. An error in a volume is in cubic units (cm\(^3\)), an error in an area is in square units (cm\(^2\)), and changes in cost, revenue, or profit are in dollars. Relative and percentage errors have no units.</div>
+
+<div class="mem"><div class="rt">What to have memorized</div><ul>
+<li>The linearization of \(f\) at \(x = a\) is \(L(x) = f(a) + f'(a)(x - a)\), and \(f(x) \approx L(x)\) for \(x\) near \(a\).</li>
+<li>The differential of \(y = f(x)\) is \(dy = f'(x)\,dx\). The actual change is \(\Delta y = f(x + dx) - f(x)\), and \(\Delta y \approx dy\) for small \(dx\).</li>
+<li>The value form: \(f(x + dx) \approx f(x) + f'(x)\,dx\).</li>
+<li>\(dy\) is the rise of the tangent line and \(\Delta y\) is the rise of the curve. The approximation is good only for small \(dx\).</li>
+<li>Concave up (\(f'' \gt 0\)) means the linear approximation underestimates. Concave down (\(f'' \lt 0\)) means it overestimates.</li>
+<li>Maximum error in \(Q\): \(dQ = Q'(x)\,dx\) with \(dx\) equal to the maximum measurement error. Relative error is \(\dfrac{dQ}{Q}\), percentage error is \(\dfrac{dQ}{Q} \times 100\%\).</li>
+<li>If \(Q = kx^n\), the relative error in \(Q\) is \(n\) times the relative error in \(x\).</li>
+<li>Formulas: square \(A = s^2\); circle \(A = \pi r^2\); cube \(V = x^3\), \(S = 6x^2\); sphere \(V = \tfrac{4}{3}\pi r^3\), \(S = 4\pi r^2\); cylinder \(V = \pi r^2 h\); cone \(V = \tfrac{1}{3}\pi r^2 h\).</li>
+<li>Good base points: perfect squares for \(\sqrt{x}\), perfect cubes for \(\sqrt[3]{x}\), \(a = 0\) for \(e^x\), \(a = 1\) for \(\ln x\).</li>
+<li>Business: \(dR = R'(x)\,dx\), \(dC = C'(x)\,dx\), \(dP = dR - dC\).</li>
+</ul></div>
+</section>
+<section id="L1"><div class="lvl"><h2>Level 1: Warm-ups</h2><span>One idea at a time.</span></div><div class="q" id="u13-q01"><div class="qh"><span class="qn">Problem 1</span><label><input type="checkbox"> done</label></div><div class="p">Find the differential \(dy\) if \(y = x^4 - 3x^2\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate term by term with the power rule. \[\frac{dy}{dx} = 4x^3 - 3 \cdot 2x = 4x^3 - 6x.\]</li>
+<li>Multiply by \(dx\), since the differential is \(dy = f'(x)\,dx\). \[dy = (4x^3 - 6x)\,dx.\]</li>
+</ol><p class="final">Answer: \(dy = (4x^3 - 6x)\,dx\).</p></div></details></div>
+
+<div class="q" id="u13-q02"><div class="qh"><span class="qn">Problem 2</span><label><input type="checkbox"> done</label></div><div class="p">Let \(y = 5x^2 - x\). Find \(dy\) when \(x = 3\) and \(dx = 0.2\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Find the derivative with the power rule and write the differential. \[f'(x) = 10x - 1, \qquad dy = (10x - 1)\,dx.\]</li>
+<li>Substitute \(x = 3\) and \(dx = 0.2\). \[\begin{aligned} dy &= (10 \cdot 3 - 1)(0.2) \\ &= 29(0.2) = 5.8. \end{aligned}\]</li>
+</ol><p class="final">Answer: \(dy = 5.8\).</p></div></details></div>
+
+<div class="q" id="u13-q03"><div class="qh"><span class="qn">Problem 3</span><label><input type="checkbox"> done</label></div><div class="p">Find the linearization of \(f(x) = e^x\) at \(a = 0\), and use it to estimate \(e^{0.03}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Evaluate \(f\) and \(f'\) at \(a = 0\). The derivative of \(e^x\) is \(e^x\), so \[f(0) = e^0 = 1, \qquad f'(0) = e^0 = 1.\]</li>
+<li>Write the linearization \(L(x) = f(a) + f'(a)(x - a)\). \[L(x) = 1 + 1(x - 0) = 1 + x.\]</li>
+<li>Evaluate at \(x = 0.03\). \[e^{0.03} \approx L(0.03) = 1 + 0.03 = 1.03.\]</li>
+</ol><p class="final">Answer: \(L(x) = 1 + x\), and \(e^{0.03} \approx 1.03\).</p></div></details></div>
+
+<div class="q" id="u13-q04"><div class="qh"><span class="qn">Problem 4</span><label><input type="checkbox"> done</label></div><div class="p">Use a linear approximation to estimate \(\sqrt{49.7}\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Choose the function and base point. Let \(f(x) = \sqrt{x}\) and \(a = 49\), a perfect square close to 49.7. Then \(x - a = 49.7 - 49 = 0.7\).</li>
+<li>Find \(f'(x) = \dfrac{1}{2\sqrt{x}}\) with the power rule and evaluate at 49. \[f(49) = 7, \qquad f'(49) = \frac{1}{2 \cdot 7} = \frac{1}{14}.\]</li>
+<li>Apply \(f(x) \approx f(a) + f'(a)(x - a)\). \[\begin{aligned} \sqrt{49.7} &\approx 7 + \frac{1}{14}(0.7) \\ &= 7 + \frac{0.7}{14} = 7 + 0.05 = 7.05. \end{aligned}\]</li>
+</ol><p class="final">Answer: \(\sqrt{49.7} \approx 7.05\).</p></div></details></div>
+
+<div class="q" id="u13-q05"><div class="qh"><span class="qn">Problem 5</span><label><input type="checkbox"> done</label></div><div class="p">Use a linear approximation to estimate \(\ln(0.98)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Choose the function and base point. Let \(f(x) = \ln x\) and \(a = 1\), since \(\ln 1 = 0\). Then \(x - a = 0.98 - 1 = -0.02\), which is negative because 0.98 is below 1.</li>
+<li>Evaluate \(f\) and \(f'(x) = \dfrac{1}{x}\) at 1. \[f(1) = 0, \qquad f'(1) = \frac{1}{1} = 1.\]</li>
+<li>Apply the linear approximation. \[\ln(0.98) \approx 0 + 1(-0.02) = -0.02.\]</li>
+</ol><p class="final">Answer: \(\ln(0.98) \approx -0.02\).</p></div></details></div>
+
+<div class="q" id="u13-q06"><div class="qh"><span class="qn">Problem 6</span><label><input type="checkbox"> done</label></div><div class="p">The radius of a circle increases from 6 cm to 6.1 cm. Use differentials to approximate the increase in its area.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Write the area formula and its differential. With \(A = \pi r^2\), the power rule gives \[dA = 2\pi r\,dr.\]</li>
+<li>Substitute the starting radius \(r = 6\) and \(dr = 6.1 - 6 = 0.1\). \[\begin{aligned} dA &= 2\pi (6)(0.1) \\ &= 1.2\pi. \end{aligned}\]</li>
+</ol><p class="final">Answer: The area increases by approximately \(1.2\pi\) square cm.</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Level 2: Standard</h2><span>Homework level.</span></div><div class="q" id="u13-q07"><div class="qh"><span class="qn">Problem 7</span><label><input type="checkbox"> done</label></div><div class="p">Let \(y = \sqrt{2x + 5}\). Find \(dy\) when \(x = 2\) and \(dx = 0.18\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate with the chain rule. Write \(y = u^{1/2}\) with inside \(u = 2x + 5\). The outside derivative is \(\tfrac{1}{2}u^{-1/2}\) and the inside derivative is \(u' = 2\). \[\begin{aligned} \frac{dy}{dx} &= \tfrac{1}{2}(2x + 5)^{-1/2} \cdot 2 \\ &= \frac{1}{\sqrt{2x + 5}}. \end{aligned}\]</li>
+<li>Write the differential. \[dy = \frac{1}{\sqrt{2x + 5}}\,dx.\]</li>
+<li>Substitute \(x = 2\) and \(dx = 0.18\). Since \(2(2) + 5 = 9\) and \(\sqrt{9} = 3\), \[\begin{aligned} dy &= \frac{1}{3}(0.18) \\ &= 0.06. \end{aligned}\]</li>
+</ol><p class="final">Answer: \(dy = 0.06\).</p></div></details></div>
+
+<div class="q" id="u13-q08"><div class="qh"><span class="qn">Problem 8</span><label><input type="checkbox"> done</label></div><div class="p">Use a linear approximation to estimate the cube root of 27.54.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Choose the function and base point. Let \(f(x) = x^{1/3}\) and \(a = 27\), the perfect cube closest to 27.54. Then \(x - a = 27.54 - 27 = 0.54\).</li>
+<li>Find the derivative with the power rule. \[f'(x) = \tfrac{1}{3}x^{-2/3} = \frac{1}{3x^{2/3}}.\]</li>
+<li>Evaluate at 27. Since \(27^{1/3} = 3\), \(27^{2/3} = 3^2 = 9\). \[f(27) = 3, \qquad f'(27) = \frac{1}{3 \cdot 9} = \frac{1}{27}.\]</li>
+<li>Apply \(f(x) \approx f(a) + f'(a)(x - a)\). \[\begin{aligned} \sqrt[3]{27.54} &\approx 3 + \frac{1}{27}(0.54) \\ &= 3 + \frac{0.54}{27} = 3 + 0.02 = 3.02. \end{aligned}\]</li>
+</ol><p class="final">Answer: \(\sqrt[3]{27.54} \approx 3.02\).</p></div></details></div>
+
+<div class="q" id="u13-q09"><div class="qh"><span class="qn">Problem 9</span><label><input type="checkbox"> done</label></div><div class="p">Use a linear approximation to estimate \((1.98)^4\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Choose the function and base point. Let \(f(x) = x^4\) and \(a = 2\). Then \(x - a = 1.98 - 2 = -0.02\).</li>
+<li>Find the derivative with the power rule and evaluate at 2. \[f(2) = 2^4 = 16, \qquad f'(x) = 4x^3, \qquad f'(2) = 4 \cdot 8 = 32.\]</li>
+<li>Apply the linear approximation. \[\begin{aligned} (1.98)^4 &\approx 16 + 32(-0.02) \\ &= 16 - 0.64 = 15.36. \end{aligned}\]</li>
+</ol><p class="final">Answer: \((1.98)^4 \approx 15.36\).</p></div></details></div>
+
+<div class="q" id="u13-q10"><div class="qh"><span class="qn">Problem 10</span><label><input type="checkbox"> done</label></div><div class="p">The edge of a cube was measured as 10 cm with a maximum error in measurement of 0.05 cm. Use differentials to estimate the maximum error in the calculated volume of the cube. Then find the percentage error in the volume.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables. Let \(x\) be the edge length in cm and \(V\) the volume in cubic cm. The measured edge is \(x = 10\), and the maximum error is \(dx = 0.05\).</li>
+<li>Write the volume formula and its differential with the power rule. \[V = x^3, \qquad dV = 3x^2\,dx.\]</li>
+<li>Substitute \(x = 10\) and \(dx = 0.05\). \[\begin{aligned} dV &= 3(10)^2(0.05) \\ &= 3 \cdot 100 \cdot 0.05 \\ &= 15. \end{aligned}\]</li>
+<li>Compute the volume at the measured edge: \(V = 10^3 = 1000\). Then the relative error is \[\frac{dV}{V} = \frac{15}{1000} = 0.015.\]</li>
+<li>Multiply by 100% to get the percentage error: \(0.015 \times 100\% = 1.5\%\). As a check, the edge's relative error is \(\tfrac{0.05}{10} = 0.005\), and since \(V = x^3\) the volume's relative error should be 3 times that, which is 0.015.</li>
+</ol><p class="final">Answer: The maximum error in the volume is approximately 15 cubic cm, a percentage error of 1.5%.</p></div></details></div>
+
+<div class="q" id="u13-q11"><div class="qh"><span class="qn">Problem 11</span><label><input type="checkbox"> done</label></div><div class="p">The cost in dollars of producing \(x\) units of a product is \(C(x) = 2000 + 40x - 0.02x^2\). Use differentials to approximate the change in cost when production increases from 500 to 504 units.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Identify the current level and the change. Here \(x = 500\) and \(dx = 504 - 500 = 4\).</li>
+<li>Differentiate the cost function with the power rule. \[C'(x) = 40 - 0.04x.\]</li>
+<li>Evaluate at the current level \(x = 500\). \[C'(500) = 40 - 0.04(500) = 40 - 20 = 20.\]</li>
+<li>Compute the differential. \[dC = C'(500)\,dx = 20(4) = 80.\]</li>
+</ol><p class="final">Answer: The cost increases by approximately $80.</p></div></details></div>
+
+<div class="q" id="u13-q12"><div class="qh"><span class="qn">Problem 12</span><label><input type="checkbox"> done</label></div><div class="p">Let \(f(x) = \dfrac{x}{x + 1}\). (a) Find \(dy\) when \(x = 1\) and \(dx = 0.2\). (b) Find the actual change \(\Delta y\) and compare.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) Differentiate with the quotient rule. Let the numerator be \(u = x\) with \(u' = 1\), and the denominator be \(v = x + 1\) with \(v' = 1\). \[\begin{aligned} f'(x) &= \frac{u'v - uv'}{v^2} = \frac{1 \cdot (x + 1) - x \cdot 1}{(x + 1)^2} \\ &= \frac{x + 1 - x}{(x + 1)^2} = \frac{1}{(x + 1)^2}. \end{aligned}\]</li>
+<li>Substitute \(x = 1\) and \(dx = 0.2\) into \(dy = f'(x)\,dx\). \[\begin{aligned} dy &= \frac{1}{(1 + 1)^2}(0.2) \\ &= \frac{1}{4}(0.2) = 0.05. \end{aligned}\]</li>
+<li>(b) Compute \(f(1.2)\) and \(f(1)\). \[f(1.2) = \frac{1.2}{2.2} = \frac{12}{22} = \frac{6}{11}, \qquad f(1) = \frac{1}{2}.\]</li>
+<li>Subtract with a common denominator of 22. \[\begin{aligned} \Delta y &= \frac{6}{11} - \frac{1}{2} = \frac{12}{22} - \frac{11}{22} \\ &= \frac{1}{22} \approx 0.045. \end{aligned}\]</li>
+<li>Compare. The differential 0.05 is close to the true change \(\tfrac{1}{22} \approx 0.045\). It is a little too big because this graph is concave down for \(x \gt -1\), so the tangent line rises faster than the curve.</li>
+</ol><p class="final">Answer: (a) \(dy = 0.05\). (b) \(\Delta y = \dfrac{1}{22} \approx 0.045\), slightly less than \(dy\).</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Level 3: Harder</h2><span>Several ideas at once.</span></div><div class="q" id="u13-q13"><div class="qh"><span class="qn">Problem 13</span><label><input type="checkbox"> done</label></div><div class="p">Use a linear approximation to estimate \(\sqrt{98}\). Then use concavity to decide whether your estimate is larger or smaller than the true value.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Choose the function and base point. Let \(f(x) = \sqrt{x}\) and \(a = 100\), the perfect square closest to 98. Then \(x - a = 98 - 100 = -2\).</li>
+<li>Find \(f'(x) = \tfrac{1}{2}x^{-1/2} = \dfrac{1}{2\sqrt{x}}\) with the power rule, and evaluate at 100. \[f(100) = 10, \qquad f'(100) = \frac{1}{2 \cdot 10} = \frac{1}{20}.\]</li>
+<li>Apply the linear approximation. \[\begin{aligned} \sqrt{98} &\approx 10 + \frac{1}{20}(-2) \\ &= 10 - \frac{2}{20} = 10 - 0.1 = 9.9. \end{aligned}\]</li>
+<li>Find the second derivative with the power rule, starting from \(f'(x) = \tfrac{1}{2}x^{-1/2}\). \[\begin{aligned} f''(x) &= \tfrac{1}{2} \cdot \left(-\tfrac{1}{2}\right)x^{-3/2} \\ &= -\frac{1}{4x^{3/2}}. \end{aligned}\]</li>
+<li>Find its sign. For \(x \gt 0\), \(x^{3/2} \gt 0\), so \(f''(x) \lt 0\). The graph is concave down, so it lies below its tangent line, and the tangent line value 9.9 is larger than \(\sqrt{98}\).</li>
+<li>Confirm by squaring: \(9.9^2 = 98.01\), which is larger than 98, so 9.9 is slightly too big.</li>
+</ol><p class="final">Answer: \(\sqrt{98} \approx 9.9\). This is an overestimate, because \(f''(x) = -\dfrac{1}{4x^{3/2}} \lt 0\), so \(\sqrt{x}\) is concave down and its tangent line lies above the graph.</p></div></details></div>
+
+<div class="q" id="u13-q14"><div class="qh"><span class="qn">Problem 14</span><label><input type="checkbox"> done</label></div><div class="p">A function \(f\) satisfies \(f(1) = 3\) and \(f'(x) = \sqrt{x^3 + 3}\). (a) Use a linear approximation to estimate \(f(1.1)\) and \(f(0.9)\). (b) Are your estimates too large or too small? Justify.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Evaluate the derivative at the base point \(a = 1\). \[f'(1) = \sqrt{1^3 + 3} = \sqrt{4} = 2.\]</li>
+<li>Write the linearization. \[L(x) = f(1) + f'(1)(x - 1) = 3 + 2(x - 1).\]</li>
+<li>(a) Evaluate at \(x = 1.1\) and \(x = 0.9\). \[\begin{aligned} f(1.1) &\approx 3 + 2(0.1) = 3.2, \\ f(0.9) &\approx 3 + 2(-0.1) = 2.8. \end{aligned}\]</li>
+<li>(b) Differentiate \(f'(x) = (x^3 + 3)^{1/2}\) with the chain rule. The outside is \(u^{1/2}\) with derivative \(\tfrac12 u^{-1/2}\), and the inside is \(u = x^3 + 3\) with derivative \(3x^2\). \[\begin{aligned} f''(x) &= \tfrac{1}{2}(x^3 + 3)^{-1/2} \cdot 3x^2 \\ &= \frac{3x^2}{2\sqrt{x^3 + 3}}. \end{aligned}\]</li>
+<li>Find its sign near 1. For \(x\) between 0.9 and 1.1, the numerator \(3x^2\) is positive and the square root is positive, so \(f''(x) \gt 0\). The graph is concave up there and lies above its tangent line, so the tangent line values are below the true values.</li>
+</ol><p class="final">Answer: (a) \(f(1.1) \approx 3.2\) and \(f(0.9) \approx 2.8\). (b) Both are too small (underestimates), because \(f''(x) = \dfrac{3x^2}{2\sqrt{x^3+3}} \gt 0\) near \(x = 1\), so \(f\) is concave up there.</p></div></details></div>
+
+<div class="q" id="u13-q15"><div class="qh"><span class="qn">Problem 15</span><label><input type="checkbox"> done</label></div><div class="p">A cylindrical can has a fixed height of 10 cm. Its radius was measured as 4 cm with a maximum error of 0.02 cm. Use differentials to estimate the maximum error in the calculated volume of the can, and find the percentage error.</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200"><ellipse cx="160" cy="40" rx="60" ry="15" stroke="currentColor" fill="none"/><line x1="100" y1="40" x2="100" y2="160" stroke="currentColor"/><line x1="220" y1="40" x2="220" y2="160" stroke="currentColor"/><path d="M100 160 A60 15 0 0 0 220 160" stroke="currentColor" fill="none"/><line x1="160" y1="40" x2="220" y2="40" stroke="currentColor"/><text x="185" y="34" fill="currentColor">r</text><line x1="240" y1="40" x2="240" y2="160" stroke="currentColor"/><text x="248" y="105" fill="currentColor">h = 10</text></svg>
+<ol class="steps">
+<li>Name the variables. Let \(r\) be the radius in cm and \(V\) the volume in cubic cm. The height is fixed at \(h = 10\) cm. The measured radius is \(r = 4\), and its maximum error is \(dr = 0.02\).</li>
+<li>Write the volume in terms of \(r\) alone by substituting \(h = 10\). \[V = \pi r^2 h = \pi r^2 (10) = 10\pi r^2.\]</li>
+<li>Differentiate with the power rule. \[dV = 20\pi r\,dr.\]</li>
+<li>Substitute \(r = 4\) and \(dr = 0.02\). \[\begin{aligned} dV &= 20\pi (4)(0.02) \\ &= 80\pi (0.02) = 1.6\pi. \end{aligned}\]</li>
+<li>Compute the volume at the measured radius: \(V = 10\pi(4)^2 = 160\pi\). Then the relative error is \[\frac{dV}{V} = \frac{1.6\pi}{160\pi} = \frac{1.6}{160} = 0.01.\]</li>
+<li>Multiply by 100%: the percentage error is 1%. As a check, the radius has relative error \(\tfrac{0.02}{4} = 0.005\), and since \(V\) is proportional to \(r^2\), the volume's relative error is 2 times that, which is 0.01.</li>
+</ol><p class="final">Answer: The maximum error in the volume is approximately \(1.6\pi\) cubic cm, a percentage error of 1%.</p></div></details></div>
+
+<div class="q" id="u13-q16"><div class="qh"><span class="qn">Problem 16</span><label><input type="checkbox"> done</label></div><div class="p">A machine cuts circular disks whose area is supposed to be \(100\pi\) square cm, with an error of no more than \(\pi\) square cm. Use differentials to estimate how much error can be allowed in the radius.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables. Let \(r\) be the radius in cm and \(A\) the area in square cm. The intended area is \(A = 100\pi\), and the allowed error in area is \(dA = \pi\). The unknown is \(dr\).</li>
+<li>Find the intended radius from \(A = \pi r^2\). \[\begin{aligned} \pi r^2 &= 100\pi \\ r^2 &= 100 \\ r &= 10, \end{aligned}\] taking the positive root because a radius is positive.</li>
+<li>Write the differential of the area with the power rule. \[dA = 2\pi r\,dr.\]</li>
+<li>Substitute \(r = 10\) and \(dA = \pi\), then solve for \(dr\). \[\begin{aligned} \pi &= 2\pi (10)\,dr \\ \pi &= 20\pi\,dr \\ dr &= \frac{\pi}{20\pi} = \frac{1}{20} = 0.05. \end{aligned}\]</li>
+</ol><p class="final">Answer: The radius can be off by at most about 0.05 cm.</p></div></details></div>
+
+<div class="q" id="u13-q17"><div class="qh"><span class="qn">Problem 17</span><label><input type="checkbox"> done</label></div><div class="p">A company's revenue in dollars from selling \(x\) units is \(R(x) = 1500\ln(0.02x + 1)\), and its cost of producing \(x\) units is \(C(x) = 200 + 4x + 0.01x^2\) dollars. The company currently produces and sells 50 units. (a) Use differentials to approximate the change in revenue, the change in cost, and the change in profit if production and sales increase to 52 units. (b) Use part (a) to approximate the profit at 52 units, given that the profit at 50 units is \(P(50) = 1500\ln 2 - 425\) dollars.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Identify the current level and the change: \(x = 50\) and \(dx = 52 - 50 = 2\).</li>
+<li>Differentiate the revenue with the chain rule. The outside is \(1500\ln u\) with derivative \(\dfrac{1500}{u}\), and the inside is \(u = 0.02x + 1\) with derivative \(0.02\). \[\begin{aligned} R'(x) &= \frac{1500}{0.02x + 1} \cdot 0.02 \\ &= \frac{30}{0.02x + 1}. \end{aligned}\]</li>
+<li>Evaluate at \(x = 50\). Since \(0.02(50) + 1 = 1 + 1 = 2\), \[R'(50) = \frac{30}{2} = 15, \qquad dR = 15(2) = 30.\]</li>
+<li>Differentiate the cost with the power rule and evaluate at 50. \[\begin{aligned} C'(x) &= 4 + 0.02x, \\ C'(50) &= 4 + 1 = 5, \\ dC &= 5(2) = 10. \end{aligned}\]</li>
+<li>Find the change in profit. Since \(P = R - C\), \[dP = dR - dC = 30 - 10 = 20.\]</li>
+<li>(b) Add the change to the current profit, using \(P(52) \approx P(50) + dP\). \[\begin{aligned} P(52) &\approx (1500\ln 2 - 425) + 20 \\ &= 1500\ln 2 - 405. \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) Revenue increases by about $30, cost increases by about $10, and profit increases by about $20. (b) \(P(52) \approx 1500\ln 2 - 405\) dollars.</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Level 4: Exam level</h2><span>Same style as the professor's exam questions.</span></div><div class="q" id="u13-q18"><div class="qh"><span class="qn">Problem 18</span><label><input type="checkbox"> done</label></div><div class="p">The radius of a sphere was measured as 4 cm with a maximum error in measurement of 0.05 cm. Use differentials to estimate (a) the maximum error in the calculated volume of the sphere, (b) the percentage error in the calculated volume, and (c) the maximum error in the calculated surface area.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variables. Let \(r\) be the radius in cm, \(V\) the volume in cubic cm, and \(S\) the surface area in square cm. The measured radius is \(r = 4\) and the maximum error is \(dr = 0.05\).</li>
+<li>(a) Write the volume formula and differentiate with the power rule. \[\begin{aligned} V &= \tfrac{4}{3}\pi r^3, \\ dV &= \tfrac{4}{3}\pi \cdot 3r^2\,dr = 4\pi r^2\,dr. \end{aligned}\]</li>
+<li>Substitute \(r = 4\) and \(dr = 0.05\). \[\begin{aligned} dV &= 4\pi (4)^2 (0.05) \\ &= 4\pi \cdot 16 \cdot 0.05 \\ &= 64\pi \cdot 0.05 = 3.2\pi. \end{aligned}\]</li>
+<li>(b) Compute the volume at the measured radius. \[V = \tfrac{4}{3}\pi (4)^3 = \tfrac{4}{3}\pi \cdot 64 = \tfrac{256}{3}\pi.\]</li>
+<li>Divide to get the relative error. \[\begin{aligned} \frac{dV}{V} &= \frac{3.2\pi}{\tfrac{256}{3}\pi} = 3.2 \cdot \frac{3}{256} \\ &= \frac{9.6}{256} = \frac{96}{2560} = \frac{3}{80} = 0.0375. \end{aligned}\]</li>
+<li>Multiply by 100% to get the percentage error: \(0.0375 \times 100\% = 3.75\%\). As a check, the radius has relative error \(\tfrac{0.05}{4} = 0.0125\), and since \(V\) is proportional to \(r^3\), the volume's relative error is \(3(0.0125) = 0.0375\).</li>
+<li>(c) Write the surface area formula and its differential. \[S = 4\pi r^2, \qquad dS = 8\pi r\,dr.\]</li>
+<li>Substitute \(r = 4\) and \(dr = 0.05\). \[\begin{aligned} dS &= 8\pi (4)(0.05) \\ &= 32\pi(0.05) = 1.6\pi. \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) The maximum error in the volume is approximately \(3.2\pi\) cubic cm. (b) The percentage error in the volume is approximately 3.75%. (c) The maximum error in the surface area is approximately \(1.6\pi\) square cm.</p></div></details></div>
+
+<div class="q" id="u13-q19"><div class="qh"><span class="qn">Problem 19</span><label><input type="checkbox"> done</label></div><div class="p">A cone has a fixed height of 12 cm. The radius of its base was measured as 3 cm with a maximum error in measurement of 0.1 cm. Use differentials to estimate the maximum error in the calculated volume of the cone, and find the percentage error. (The volume of a cone is \(V = \tfrac{1}{3}\pi r^2 h\).)</div>
+<details class="sol"><summary>Show full solution</summary><div>
+<svg class="dia" viewBox="0 0 320 200"><line x1="160" y1="20" x2="100" y2="170" stroke="currentColor"/><line x1="160" y1="20" x2="220" y2="170" stroke="currentColor"/><ellipse cx="160" cy="170" rx="60" ry="12" stroke="currentColor" fill="none"/><line x1="160" y1="20" x2="160" y2="170" stroke="currentColor"/><line x1="160" y1="170" x2="220" y2="170" stroke="currentColor"/><text x="186" y="165" fill="currentColor">r</text><text x="166" y="100" fill="currentColor">h = 12</text></svg>
+<ol class="steps">
+<li>Name the variables. Let \(r\) be the radius in cm and \(V\) the volume in cubic cm. The height is fixed at \(h = 12\) cm. The measured radius is \(r = 3\), and its maximum error is \(dr = 0.1\).</li>
+<li>Write the volume in terms of \(r\) alone by substituting \(h = 12\). \[V = \tfrac{1}{3}\pi r^2 (12) = 4\pi r^2.\]</li>
+<li>Differentiate with the power rule. \[dV = 8\pi r\,dr.\]</li>
+<li>Substitute \(r = 3\) and \(dr = 0.1\). \[\begin{aligned} dV &= 8\pi (3)(0.1) \\ &= 24\pi(0.1) = 2.4\pi. \end{aligned}\]</li>
+<li>Compute the volume at the measured radius: \(V = 4\pi(3)^2 = 36\pi\). Then the relative error is \[\begin{aligned} \frac{dV}{V} &= \frac{2.4\pi}{36\pi} = \frac{2.4}{36} \\ &= \frac{24}{360} = \frac{1}{15}. \end{aligned}\]</li>
+<li>Multiply by 100% to get the percentage error. \[\frac{1}{15} \times 100\% = \frac{100}{15}\% = \frac{20}{3}\% \approx 6.67\%.\] As a check, the radius has relative error \(\tfrac{0.1}{3} = \tfrac{1}{30}\), and since \(V\) is proportional to \(r^2\), the volume's relative error is \(2 \cdot \tfrac{1}{30} = \tfrac{1}{15}\).</li>
+</ol><p class="final">Answer: The maximum error in the volume is approximately \(2.4\pi\) cubic cm, a percentage error of \(\tfrac{20}{3}\% \approx 6.67\%\).</p></div></details></div>
+
+<div class="q" id="u13-q20"><div class="qh"><span class="qn">Problem 20</span><label><input type="checkbox"> done</label></div><div class="p">Use a linear approximation to estimate the cube root of 63.4. Is your estimate larger or smaller than the true value? Explain using concavity.</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Choose the function and base point. Let \(f(x) = x^{1/3}\) and \(a = 64\), since \(64^{1/3} = 4\). Then \(x - a = 63.4 - 64 = -0.6\).</li>
+<li>Find the derivative with the power rule. \[f'(x) = \tfrac{1}{3}x^{-2/3} = \frac{1}{3x^{2/3}}.\]</li>
+<li>Evaluate at 64. Since \(64^{2/3} = (64^{1/3})^2 = 4^2 = 16\), \[f(64) = 4, \qquad f'(64) = \frac{1}{3 \cdot 16} = \frac{1}{48}.\]</li>
+<li>Apply the linear approximation. \[\begin{aligned} \sqrt[3]{63.4} &\approx 4 + \frac{1}{48}(-0.6) \\ &= 4 - \frac{0.6}{48} = 4 - \frac{6}{480} = 4 - \frac{1}{80} \\ &= \frac{320}{80} - \frac{1}{80} = \frac{319}{80} = 3.9875. \end{aligned}\]</li>
+<li>Find the second derivative with the power rule, starting from \(f'(x) = \tfrac{1}{3}x^{-2/3}\). \[\begin{aligned} f''(x) &= \tfrac{1}{3}\cdot\left(-\tfrac{2}{3}\right)x^{-5/3} \\ &= -\frac{2}{9x^{5/3}}. \end{aligned}\]</li>
+<li>Find its sign near 64. For \(x \gt 0\), \(x^{5/3} \gt 0\), so \(f''(x) \lt 0\) on an interval containing 63.4 and 64. The graph is concave down there, so it lies below its tangent line, and the tangent line value is larger than the true value.</li>
+</ol><p class="final">Answer: \(\sqrt[3]{63.4} \approx \dfrac{319}{80} = 3.9875\). This is an overestimate, because \(f''(x) = -\dfrac{2}{9x^{5/3}} \lt 0\) for \(x \gt 0\), so the cube root function is concave down and its tangent line at 64 lies above the graph.</p></div></details></div>
+
+<div class="q" id="u13-q21"><div class="qh"><span class="qn">Problem 21</span><label><input type="checkbox"> done</label></div><div class="p">The diameter of a circular table top was measured as 20 inches with a maximum error in measurement of 0.2 inches. (a) Use differentials to estimate the maximum error in the calculated area of the table top. (b) Find the percentage error in the area. (c) How small must the maximum error in the diameter be so that the percentage error in the area is at most 1%?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Convert the diameter information to the radius, since the area formula uses the radius. Let \(r\) be the radius in inches and \(A\) the area in square inches. The radius is half the diameter, so the measured radius is \(r = \tfrac{20}{2} = 10\), and its maximum error is also halved: \(dr = \tfrac{0.2}{2} = 0.1\).</li>
+<li>(a) Write the area formula and its differential with the power rule. \[A = \pi r^2, \qquad dA = 2\pi r\,dr.\]</li>
+<li>Substitute \(r = 10\) and \(dr = 0.1\). \[\begin{aligned} dA &= 2\pi(10)(0.1) \\ &= 20\pi(0.1) = 2\pi. \end{aligned}\]</li>
+<li>(b) Compute the area at the measured radius, \(A = \pi(10)^2 = 100\pi\), and divide. \[\frac{dA}{A} = \frac{2\pi}{100\pi} = \frac{2}{100} = 0.02,\] which is a percentage error of 2%.</li>
+<li>(c) Let \(E\) be the maximum error in the diameter, in inches. Then the maximum error in the radius is \(dr = \tfrac{E}{2}\), and \[\begin{aligned} dA &= 2\pi(10)\left(\tfrac{E}{2}\right) = 10\pi E, \\ \frac{dA}{A} &= \frac{10\pi E}{100\pi} = \frac{E}{10}. \end{aligned}\]</li>
+<li>Require a relative error of at most \(1\% = 0.01\) and solve for \(E\). \[\begin{aligned} \frac{E}{10} &\le 0.01 \\ E &\le 0.1. \end{aligned}\]</li>
+</ol><p class="final">Answer: (a) The maximum error in the area is approximately \(2\pi\) square inches. (b) The percentage error is 2%. (c) The diameter must be measured with maximum error at most 0.1 inches.</p></div></details></div>
+</section><div class="pager"><a href="u12.html">Back: Related rates</a><a href="u14.html">Next: The professor&#x27;s two Midterm 2 exams, fully solved</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>

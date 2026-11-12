@@ -1,0 +1,398 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz 5: Worksheet 10 (Sections 6.1 to 6.4) | Math 16A Midterm 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<link rel="stylesheet" href="assets/style.css"></head><body>
+<header class="top"><a class="home" href="index.html">Math 16A Midterm 2</a><span class="sp"></span><button class="tog" id="toggleAll">Show all solutions</button><span id="pagecount" style="font:500 .85rem system-ui;color:var(--muted)"></span><span class="bar" id="pagebar"><i></i></span></header><main><p class="sub">Quiz 5</p><h1>Quiz 5: Worksheet 10 (Sections 6.1 to 6.4)</h1><p class="sub">Concept review filled in, every worksheet problem solved, twin problems, and a 20 minute mock quiz.</p><div class="toc"><a href="#learn">Lesson</a><a href="#L1">Worksheet examples</a><a href="#L2">Worksheet exercises</a><a href="#L3">Twin problems</a><a href="#L4">Mock quiz</a></div><section id="learn"><h2>Quiz 5: Worksheet 10, solved and drilled</h2>
+
+<div class="big"><div class="rt">The big idea</div><p>Your GSI said to prepare for Quiz 5 with Yvette's Worksheet 10, which covers Sections 6.1 to 6.4. That worksheet has three kinds of problems: absolute extrema, optimization word problems, and implicit differentiation. It also asks you to know five definitions and theorems. If you can do every problem on this page without looking at the solution, you are ready for the quiz.</p></div>
+
+<div class="recipe"><div class="rt">How to use this page if you are starting from zero</div><ol>
+<li>Read the concept review below. These are the five blanks at the top of the worksheet, filled in with the professor's wording. About 10 minutes.</li>
+<li>Read the three recipes below. Each one is the whole method for one problem type. About 10 minutes.</li>
+<li>Do the worksheet examples in Level 1 on paper, then open the solution and compare line by line. About 30 minutes.</li>
+<li>Do the worksheet exercises in Level 2 the same way. About 45 minutes.</li>
+<li>Do the twin problems in Level 3. Each one is a worksheet problem with new numbers, and a few have a trap. About 45 minutes.</li>
+<li>Take the mock quiz in Level 4 with a 20 minute timer, closed book, no calculator.</li>
+</ol>
+<p>That is about 3 hours. If you only have one hour, read the concept review and the recipes, then do Level 1 and the mock quiz.</p></div>
+
+<p class="sub">The course calendar lists Sections 6.1 to 6.6 for Quiz 5, while the worksheet covers 6.1 to 6.4. If you have 30 extra minutes, do Level 1 and Level 2 of <a href="u12.html">related rates</a> and <a href="u13.html">differentials</a> too.</p>
+
+<h3>Concept review (the worksheet's blanks, filled in)</h3>
+
+<div class="rule"><div class="rt">Extreme Value Theorem</div>
+<p>If \(f\) is continuous on a closed and bounded interval \([a, b]\), then \(f\) attains an absolute maximum value \(f(c)\) and an absolute minimum value \(f(d)\) at some numbers \(c\) and \(d\) in \([a, b]\).</p></div>
+<p class="plain"><b>In plain words:</b> if the graph has no breaks and you only look between two endpoints that are included, there is always a highest point and a lowest point. Both conditions matter. On an open interval like \((0, \infty)\), or for a function with a break, there may be no highest or lowest point.</p>
+
+<div class="rule"><div class="rt">Closed interval method</div>
+<p>To find the absolute maximum and minimum of a continuous function \(f\) on \([a, b]\):</p>
+<ol>
+<li>Find the critical numbers of \(f\) in \((a, b)\): the numbers where \(f'(x) = 0\) or where \(f'(x)\) does not exist but \(f(x)\) does.</li>
+<li>Evaluate \(f\) at each of those critical numbers and at the endpoints \(a\) and \(b\).</li>
+<li>The largest of these values is the absolute maximum, and the smallest is the absolute minimum.</li>
+</ol></div>
+<p class="plain"><b>In plain words:</b> make a short list of x-values (critical numbers inside the interval plus both endpoints), plug each one into the original function, and pick the biggest and smallest outputs. You do not need a sign chart.</p>
+
+<div class="rule"><div class="rt">Critical Point Theorem</div>
+<p>Suppose \(f\) is continuous on an interval \(I\) and has exactly one critical number in \(I\), say at \(c\).</p>
+<ul>
+<li>If \(f\) has a local maximum at \(x = c\), then this is the absolute maximum of \(f\) on \(I\).</li>
+<li>If \(f\) has a local minimum at \(x = c\), then this is the absolute minimum of \(f\) on \(I\).</li>
+</ul>
+<p>You can only use this theorem if \(f\) is continuous on \(I\), \(f\) has exactly one critical number in \(I\), and \(f\) has a local extreme value at that critical number.</p></div>
+<p class="plain"><b>In plain words:</b> this is the tool for intervals with no endpoints to plug in, like \((0, \infty)\). If there is only one critical number and it is a valley (check with the second derivative test or a sign chart), the graph can never come back down lower anywhere else, so that valley is the lowest point overall.</p>
+
+<div class="rule"><div class="rt">Elasticity of demand</div>
+<p>If the demand is \(q = f(p)\), where \(q\) is the quantity demanded at price \(p\), the elasticity of demand is
+\[E = -\frac{p}{q} \cdot \frac{dq}{dp}.\]
+If \(E \lt 1\) the demand is inelastic, if \(E \gt 1\) the demand is elastic, and if \(E = 1\) the demand has unit elasticity. Since \(\dfrac{dR}{dp} = q(1 - E)\), revenue is maximized where \(E = 1\).</p></div>
+<p class="plain"><b>In plain words:</b> \(E\) measures how strongly buyers react to a price change. Elastic (\(E \gt 1\)) means they react a lot, so lowering the price brings in more revenue. Inelastic (\(E \lt 1\)) means they barely react, so raising the price brings in more revenue. At \(E = 1\) the revenue is as large as it can be.</p>
+
+<div class="rule"><div class="rt">Implicit differentiation</div>
+<p>When \(y\) is defined by an equation in \(x\) and \(y\) that you cannot (or do not want to) solve for \(y\), treat \(y\) as a function of \(x\). Differentiate both sides with respect to \(x\), using the chain rule on every term with \(y\) (so the derivative of \(y^2\) is \(2y\,y'\)), then solve the resulting equation for \(y'\).</p></div>
+<p class="plain"><b>In plain words:</b> take the derivative of every term as usual, but each time you take the derivative of something with a \(y\) in it, multiply by \(y'\). Then collect the \(y'\) terms on one side, factor out \(y'\), and divide.</p>
+
+<h3>The three recipes</h3>
+
+<div class="recipe"><div class="rt">Absolute extrema (Section 6.1)</div><ol>
+<li>Is the interval closed, like \([-1, 3]\)? Use the closed interval method: critical numbers inside, both endpoints, a table of values, pick the largest and smallest.</li>
+<li>Is it open or unbounded, like \((0, \infty)\)? Find the critical numbers. If there is exactly one, classify it with \(f''\) and use the Critical Point Theorem.</li>
+<li>For "does f have an absolute maximum?", look at what \(f(x)\) does near the ends of the interval. If it grows without bound, there is no absolute maximum.</li>
+</ol></div>
+<div class="trap"><b>Trap 1.</b> Throw out any critical number outside the interval. In Worksheet Example 1, \(x = -2\) is a critical number but it is not in \([-1, 3]\).</div>
+<div class="trap"><b>Trap 2.</b> A critical number can also be where \(f'\) does not exist, for example \(x = 0\) when \(f'\) has \(x^{1/3}\) in the denominator. Exercise 1′(a) has one.</div>
+
+<div class="recipe"><div class="rt">Optimization (Section 6.2)</div><ol>
+<li>Name the variables and draw a picture. Write the quantity to maximize or minimize.</li>
+<li>Use the constraint (fixed fence, the curve the corners sit on, the price rule) to write it as a function of one variable.</li>
+<li>State the domain: the values of the variable that make physical sense.</li>
+<li>Differentiate, set equal to 0, solve.</li>
+<li>Justify the max or min: closed interval method on the domain, or the second derivative test plus the Critical Point Theorem.</li>
+<li>Answer the exact question in a sentence, with units. If it asks for dimensions, give both. If it asks for the area, give the area too.</li>
+</ol></div>
+<div class="trap"><b>Trap 3.</b> Check that the critical number is inside the domain. In Exercise 2′ the "best" price would need 450 seats, but the theater only has 420, so the answer is at the endpoint.</div>
+
+<div class="recipe"><div class="rt">Implicit differentiation and tangent lines (Section 6.4)</div><ol>
+<li>Check the point is on the curve by plugging it in.</li>
+<li>Differentiate both sides with respect to \(x\). Use the product rule on terms like \(xy\) and \(y\,e^{x-1}\), and put \(y'\) on every derivative of a \(y\).</li>
+<li>Move every \(y'\) term to the left side and every other term to the right side.</li>
+<li>Factor out \(y'\) and divide.</li>
+<li>Plug in the point to get the slope \(m\), then write \(y - y_1 = m(x - x_1)\).</li>
+</ol></div>
+<div class="say"><b>Horizontal and vertical tangents.</b> Write \(y' = \dfrac{\text{top}}{\text{bottom}}\). Horizontal tangent: set the top equal to 0. Vertical tangent: set the bottom equal to 0. Either way, substitute the result back into the original equation to find the actual points, and check that the other part is not also 0 there.</div>
+<div class="trap"><b>Trap 4.</b> The derivative of \(xy\) is \(y + x\,y'\), not \(y'\). This is the most common lost point on implicit differentiation.</div>
+
+<div class="stuck"><div class="rt">If you get stuck</div><ul>
+<li>For absolute extrema, write a table with three columns: \(x\), why it is a candidate, \(f(x)\).</li>
+<li>Factor \(f'\) completely before solving \(f'(x) = 0\). Pull out the common factor first, such as \(4x\) or \(x^{-1/3}\).</li>
+<li>With fractional powers, rewrite \(f\) as a sum of powers before you differentiate: \(x^{2/3}(x - 5) = x^{5/3} - 5x^{2/3}\).</li>
+<li>In an optimization problem, if you have two variables, look for the sentence that connects them. That is your constraint.</li>
+<li>In implicit differentiation, circle every \(y'\) after you differentiate. That makes collecting them easier.</li>
+</ul></div>
+
+<div class="qc"><div class="rt">Quick check</div>
+<details class="qa"><summary>Does \(f(x) = x - 2\ln x\) have to have an absolute maximum on \((0, \infty)\)?</summary><p>No. The Extreme Value Theorem only promises one on a closed interval, and in fact \(f(x) \to \infty\) as \(x \to 0^+\) and as \(x \to \infty\), so there is no maximum.</p></details>
+<details class="qa"><summary>In the closed interval method, do you plug the critical numbers into \(f\) or \(f'\)?</summary><p>Into \(f\). You want the heights of the graph, and \(f'\) is 0 at every critical number anyway.</p></details>
+<details class="qa"><summary>What is the derivative of \(y^3\) with respect to \(x\)?</summary><p>\(3y^2\,y'\), by the chain rule, because \(y\) is a function of \(x\).</p></details>
+<details class="qa"><summary>Demand is elastic at the current price. Should the price go up or down to raise revenue?</summary><p>Down. \(dR/dp = q(1 - E)\) is negative when \(E \gt 1\), so revenue rises as the price falls.</p></details>
+<details class="qa"><summary>If \(y' = \dfrac{y - 2x}{2y - x}\), where are the vertical tangent lines?</summary><p>Where the bottom is 0, that is \(x = 2y\), at the points of the curve on that line where the top is not also 0.</p></details>
+</div>
+</section>
+<section id="L1"><div class="lvl"><h2>Worksheet examples</h2><span>The three examples on page 1, solved in full.</span></div><p class="sub">These are the three "Example" problems on page 1 of Worksheet 10, solved in full.</p>
+
+<div class="q" id="q5-q01"><div class="qh"><span class="qn">Problem 1</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Worksheet Example 1, Section 6.1) Find the absolute maximum and minimum values of \(f(x) = x^4 - 8x^2 + 3\) on \([-1, 3]\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the conditions. \(f\) is a polynomial, so it is continuous everywhere, and \([-1, 3]\) is closed and bounded. By the Extreme Value Theorem both extrema exist, and the closed interval method finds them.</li>
+<li>Differentiate with the power rule. \[f'(x) = 4x^3 - 16x.\]</li>
+<li>Factor completely. Pull out \(4x\), then factor the difference of squares. \[f'(x) = 4x(x^2 - 4) = 4x(x - 2)(x + 2).\]</li>
+<li>Find the critical numbers. \(f'\) exists everywhere, so set it equal to 0. \[4x(x - 2)(x + 2) = 0 \quad\Longrightarrow\quad x = 0, \quad x = 2, \quad x = -2.\]</li>
+<li>Keep only the critical numbers inside \((-1, 3)\). \(x = 0\) and \(x = 2\) are inside. \(x = -2\) is less than \(-1\), so it is outside the interval and we throw it out.</li>
+<li>Evaluate \(f\) at the critical numbers and the endpoints.
+\[\begin{aligned} f(-1) &= (-1)^4 - 8(-1)^2 + 3 = 1 - 8 + 3 = -4, \\ f(0) &= 0 - 0 + 3 = 3, \\ f(2) &= 2^4 - 8(2)^2 + 3 = 16 - 32 + 3 = -13, \\ f(3) &= 3^4 - 8(3)^2 + 3 = 81 - 72 + 3 = 12. \end{aligned}\]
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-1\)</td><td>left endpoint</td><td>\(-4\)</td></tr>
+<tr><td>\(0\)</td><td>critical number</td><td>\(3\)</td></tr>
+<tr><td>\(2\)</td><td>critical number</td><td>\(-13\)</td></tr>
+<tr><td>\(3\)</td><td>right endpoint</td><td>\(12\)</td></tr></table></li>
+<li>Pick the largest and smallest values in the table. The largest is 12 and the smallest is \(-13\).</li>
+</ol>
+<p class="final">Answer: the absolute maximum value is \(12\), at \(x = 3\). The absolute minimum value is \(-13\), at \(x = 2\).</p></div></details></div>
+
+<div class="q" id="q5-q02"><div class="qh"><span class="qn">Problem 2</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Worksheet Example 2, Section 6.2) A rectangle has its base on the x-axis and its two upper corners on the parabola \(y = 12 - x^2\). Find the dimensions of the rectangle with the largest possible area. What is the largest possible area?</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Draw the picture and name the variables. The parabola is symmetric about the y-axis, so the rectangle is too. Let the upper right corner be \((x, 12 - x^2)\) with \(x \gt 0\). Then the upper left corner is \((-x, 12 - x^2)\).
+<div class="plot" data-f="12-x**2;;(x>=-2&&x<=2)?8:NaN" data-x="-4,4" data-y="-1,13" data-pts="2,8,(x, 12 - x^2)|-2,8,(-x, 12 - x^2)" data-v="-2,2" data-cap="The parabola y = 12 - x^2 and the best rectangle, which runs from x = -2 to x = 2 with height 8."></div></li>
+<li>Write the width and height. The width runs from \(-x\) to \(x\), so it is \(2x\). The height is the y-value of the corner, \(12 - x^2\).</li>
+<li>Write the area as a function of one variable. \[A(x) = (\text{width})(\text{height}) = 2x(12 - x^2) = 24x - 2x^3.\]</li>
+<li>State the domain. We need \(x \ge 0\), and the height \(12 - x^2\) cannot be negative, so \(x^2 \le 12\), that is \(x \le \sqrt{12} = 2\sqrt{3}\). The domain is \([0, 2\sqrt{3}]\).</li>
+<li>Differentiate and set equal to 0. \[A'(x) = 24 - 6x^2 = 0 \quad\Longrightarrow\quad 6x^2 = 24 \quad\Longrightarrow\quad x^2 = 4 \quad\Longrightarrow\quad x = 2.\] We drop \(x = -2\) because it is not in the domain.</li>
+<li>Justify that this is the maximum with the closed interval method on \([0, 2\sqrt{3}]\).
+\[\begin{aligned} A(0) &= 0, \\ A(2) &= 24(2) - 2(2)^3 = 48 - 16 = 32, \\ A(2\sqrt{3}) &= 2(2\sqrt{3})(12 - 12) = 0. \end{aligned}\]
+The largest value is \(A(2) = 32\). (You can also say \(A''(x) = -12x\), so \(A''(2) = -24 \lt 0\), which means a local maximum, and it is the only critical number in the domain, so by the Critical Point Theorem it is the absolute maximum.)</li>
+<li>Find the dimensions. The width is \(2x = 2(2) = 4\). The height is \(12 - x^2 = 12 - 4 = 8\).</li>
+</ol>
+<p class="final">Answer: the rectangle is 4 wide and 8 tall, and the largest possible area is 32.</p></div></details></div>
+
+<div class="q" id="q5-q03"><div class="qh"><span class="qn">Problem 3</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Worksheet Example 3, Section 6.4) Find \(y'\) if \(x^2 + xy + y^2 = 7\). Then find an equation for the tangent line to the curve at the point \((1, 2)\).</div>
+<details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check that \((1, 2)\) is on the curve. \[1^2 + (1)(2) + 2^2 = 1 + 2 + 4 = 7.\] It is.</li>
+<li>Differentiate each term with respect to \(x\). The term \(xy\) is a product, so use the product rule with \(u = x\), \(v = y\), \(u' = 1\), \(v' = y'\). The term \(y^2\) needs the chain rule.
+\[\begin{aligned} \frac{d}{dx}(x^2) &= 2x, \\ \frac{d}{dx}(xy) &= 1 \cdot y + x \cdot y' = y + x\,y', \\ \frac{d}{dx}(y^2) &= 2y\,y', \\ \frac{d}{dx}(7) &= 0. \end{aligned}\]</li>
+<li>Put the pieces together. \[2x + y + x\,y' + 2y\,y' = 0.\]</li>
+<li>Keep the \(y'\) terms on the left and move the rest to the right. \[x\,y' + 2y\,y' = -2x - y.\]</li>
+<li>Factor out \(y'\) and divide. \[\begin{aligned} y'(x + 2y) &= -(2x + y) \\ y' &= -\frac{2x + y}{x + 2y}. \end{aligned}\]</li>
+<li>Find the slope at \((1, 2)\). \[y' = -\frac{2(1) + 2}{1 + 2(2)} = -\frac{4}{5}.\]</li>
+<li>Write the tangent line in point-slope form, then solve for \(y\). \[\begin{aligned} y - 2 &= -\tfrac{4}{5}(x - 1) \\ y &= -\tfrac{4}{5}x + \tfrac{4}{5} + 2 = -\tfrac{4}{5}x + \tfrac{14}{5}. \end{aligned}\]</li>
+</ol>
+<p class="final">Answer: \(y' = -\dfrac{2x + y}{x + 2y}\), and the tangent line is \(y - 2 = -\tfrac{4}{5}(x - 1)\), which is \(y = -\tfrac{4}{5}x + \tfrac{14}{5}\).</p></div></details></div>
+</section>
+<section id="L2"><div class="lvl"><h2>Worksheet exercises</h2><span>The five exercises on page 2, solved in full.</span></div><p class="sub">These are the five "Exercise" problems on page 2 of Worksheet 10, solved in full. Try each one on paper first.</p>
+
+<div class="q" id="q5-q04"><div class="qh"><span class="qn">Problem 4</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Worksheet Exercise 1′(a), Section 6.1) Find the absolute maximum and minimum values of \(f(x) = x^{2/3}(x - 5)\) on \([-1, 8]\).</div>
+<details class="hint"><summary>Hint</summary><div>Multiply it out first: \(f(x) = x^{5/3} - 5x^{2/3}\). After you differentiate, factor out \(x^{-1/3}\). The negative power means \(f'\) does not exist at one point.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the conditions. \(x^{2/3} = (\sqrt[3]{x})^2\) is defined and continuous for every real \(x\), including negatives, so \(f\) is continuous on the closed interval \([-1, 8]\). Both extrema exist.</li>
+<li>Multiply out so each term is a single power of \(x\). Add exponents: \(x^{2/3} \cdot x = x^{2/3 + 3/3} = x^{5/3}\). \[f(x) = x^{5/3} - 5x^{2/3}.\]</li>
+<li>Differentiate with the power rule. \[f'(x) = \tfrac{5}{3}x^{2/3} - 5 \cdot \tfrac{2}{3}x^{-1/3} = \tfrac{5}{3}x^{2/3} - \tfrac{10}{3}x^{-1/3}.\]</li>
+<li>Factor out the smallest power, \(\tfrac{5}{3}x^{-1/3}\). Dividing \(x^{2/3}\) by \(x^{-1/3}\) leaves \(x^{2/3 + 1/3} = x\). \[f'(x) = \tfrac{5}{3}x^{-1/3}(x - 2) = \frac{5(x - 2)}{3x^{1/3}}.\]</li>
+<li>Find the critical numbers. The top is 0 when \(x = 2\). The bottom is 0 when \(x = 0\), so \(f'(0)\) does not exist, while \(f(0) = 0\) does exist. So both \(x = 2\) and \(x = 0\) are critical numbers, and both are inside \((-1, 8)\).</li>
+<li>Evaluate \(f\) at the critical numbers and the endpoints. Use \((-1)^{2/3} = (\sqrt[3]{-1})^2 = (-1)^2 = 1\) and \(8^{2/3} = (\sqrt[3]{8})^2 = 2^2 = 4\).
+\[\begin{aligned} f(-1) &= 1 \cdot (-1 - 5) = -6, \\ f(0) &= 0 \cdot (0 - 5) = 0, \\ f(2) &= 2^{2/3}(2 - 5) = -3 \cdot 2^{2/3} = -3\sqrt[3]{4}, \\ f(8) &= 4 \cdot (8 - 5) = 12. \end{aligned}\]</li>
+<li>Compare \(-3\sqrt[3]{4}\) with \(-6\) without a calculator. Since \(1^3 = 1 \lt 4 \lt 8 = 2^3\), we have \(1 \lt \sqrt[3]{4} \lt 2\), so \(-6 \lt -3\sqrt[3]{4} \lt -3\). That makes \(-6\) the smallest value.
+<table class="t"><tr><th>\(x\)</th><th>Why it is a candidate</th><th>\(f(x)\)</th></tr>
+<tr><td>\(-1\)</td><td>left endpoint</td><td>\(-6\)</td></tr>
+<tr><td>\(0\)</td><td>critical number (\(f'\) does not exist)</td><td>\(0\)</td></tr>
+<tr><td>\(2\)</td><td>critical number (\(f' = 0\))</td><td>\(-3\sqrt[3]{4} \approx -4.76\)</td></tr>
+<tr><td>\(8\)</td><td>right endpoint</td><td>\(12\)</td></tr></table></li>
+</ol>
+<p class="final">Answer: the absolute maximum value is \(12\), at \(x = 8\). The absolute minimum value is \(-6\), at \(x = -1\).</p>
+<p class="wrong"><b>Where students lose points:</b> missing \(x = 0\) as a critical number (it comes from \(f'\) not existing), and thinking the local min at \(x = 2\) must be the absolute min. Here the left endpoint is lower.</p></div></details></div>
+
+<div class="q" id="q5-q05"><div class="qh"><span class="qn">Problem 5</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Worksheet Exercise 1′(b), Section 6.1) Find the absolute minimum value of \(f(x) = x - 2\ln x\) on \((0, \infty)\). Does \(f\) have an absolute maximum value on \((0, \infty)\)?</div>
+<details class="hint"><summary>Hint</summary><div>The interval has no endpoints to plug in, so find the one critical number, classify it with \(f''\), and use the Critical Point Theorem.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Note the setting. \(\ln x\) is continuous on \((0, \infty)\), so \(f\) is continuous there. The interval is not closed, so the closed interval method does not apply. We will use the Critical Point Theorem.</li>
+<li>Differentiate. The derivative of \(\ln x\) is \(\tfrac{1}{x}\). \[f'(x) = 1 - \frac{2}{x}.\]</li>
+<li>Find the critical numbers. \(f'\) exists for every \(x \gt 0\). Set it equal to 0. \[1 - \frac{2}{x} = 0 \quad\Longrightarrow\quad \frac{2}{x} = 1 \quad\Longrightarrow\quad x = 2.\] This is the only critical number in \((0, \infty)\).</li>
+<li>Classify it with the second derivative test. Write \(f'(x) = 1 - 2x^{-1}\). \[f''(x) = 2x^{-2} = \frac{2}{x^2}, \qquad f''(2) = \frac{2}{4} = \frac{1}{2} \gt 0.\] So \(f\) is concave up at \(x = 2\), and \(f\) has a local minimum there.</li>
+<li>Apply the Critical Point Theorem. \(f\) is continuous on \((0, \infty)\), has exactly one critical number there, and has a local minimum at it. So \(f(2)\) is the absolute minimum. \[f(2) = 2 - 2\ln 2.\]</li>
+<li>Check for an absolute maximum by looking at the ends of the interval. As \(x \to 0^+\), \(\ln x \to -\infty\), so \(-2\ln x \to +\infty\) and \(f(x) \to \infty\). As \(x \to \infty\), \(x\) grows much faster than \(2\ln x\), so \(f(x) \to \infty\). The values of \(f\) get as large as you like, so there is no largest value.</li>
+</ol>
+<p class="final">Answer: the absolute minimum value is \(2 - 2\ln 2\) (about 0.61), at \(x = 2\). There is no absolute maximum on \((0, \infty)\).</p>
+<p class="wrong"><b>Where students lose points:</b> not stating why the local minimum is absolute (name the Critical Point Theorem and its conditions), and saying "no maximum" without giving a reason.</p></div></details></div>
+
+<div class="q" id="q5-q06"><div class="qh"><span class="qn">Problem 6</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Worksheet Exercise 2′, Section 6.2) A theater has 420 seats. At a ticket price of $30 it sells 300 tickets, and for each $1 decrease in price it sells 20 more tickets. What ticket price maximizes the revenue? What is the maximum revenue?</div>
+<details class="hint"><summary>Hint</summary><div>Let \(x\) be the number of $1 decreases. Write the price and the number of tickets in terms of \(x\). Then ask how many decreases the 420 seats allow.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Name the variable. Let \(x\) be the number of $1 price decreases. Then
+\[\text{price} = 30 - x \text{ dollars}, \qquad \text{tickets sold} = 300 + 20x.\]</li>
+<li>Write the revenue. Revenue is price times tickets sold.
+\[\begin{aligned} R(x) &= (30 - x)(300 + 20x) \\ &= 9000 + 600x - 300x - 20x^2 \\ &= 9000 + 300x - 20x^2. \end{aligned}\]</li>
+<li>State the domain. The theater cannot sell more than 420 tickets: \[300 + 20x \le 420 \quad\Longrightarrow\quad 20x \le 120 \quad\Longrightarrow\quad x \le 6.\] The problem only talks about decreases, so \(x \ge 0\). The domain is \([0, 6]\).</li>
+<li>Differentiate and set equal to 0. \[R'(x) = 300 - 40x = 0 \quad\Longrightarrow\quad x = 7.5.\]</li>
+<li>Notice the trap. \(x = 7.5\) would mean selling \(300 + 20(7.5) = 450\) tickets, which is more than the 420 seats. It is outside the domain, so there is no critical number in \([0, 6]\).</li>
+<li>Use the closed interval method on \([0, 6]\). With no critical numbers inside, only the endpoints are candidates.
+\[\begin{aligned} R(0) &= (30)(300) = 9000, \\ R(6) &= (30 - 6)(300 + 120) = (24)(420) = 10{,}080. \end{aligned}\]
+This makes sense: \(R'(x) = 300 - 40x \gt 0\) for all \(x\) in \([0, 6]\), so revenue keeps rising until the theater is full.</li>
+<li>Translate back to a price. \(x = 6\) means the price is \(30 - 6 = 24\) dollars, and all 420 seats sell.</li>
+</ol>
+<p class="final">Answer: a ticket price of $24 maximizes revenue (every seat sells), and the maximum revenue is $10,080.</p>
+<p class="wrong"><b>Where students lose points:</b> answering $22.50 from \(R' = 0\) without noticing it needs 450 seats, and forgetting to convert \(x\) back into a ticket price.</p></div></details></div>
+
+<div class="q" id="q5-q07"><div class="qh"><span class="qn">Problem 7</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Worksheet Exercise 3′(a), Section 6.4) Find an equation for the tangent line to the curve \(y\,e^{x-1} + xy^2 = 2\) at the point \((1, 1)\).</div>
+<details class="hint"><summary>Hint</summary><div>Both terms on the left are products, so use the product rule twice. The derivative of \(e^{x-1}\) is \(e^{x-1}\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the point. \[1 \cdot e^{1-1} + 1 \cdot 1^2 = 1 \cdot 1 + 1 = 2.\] It is on the curve.</li>
+<li>Differentiate the first term with the product rule: \(u = y\), \(v = e^{x-1}\), \(u' = y'\), \(v' = e^{x-1}\) (chain rule, the inside \(x - 1\) has derivative 1).
+\[\frac{d}{dx}\left(y\,e^{x-1}\right) = y'\,e^{x-1} + y\,e^{x-1}.\]</li>
+<li>Differentiate the second term with the product rule: \(u = x\), \(v = y^2\), \(u' = 1\), \(v' = 2y\,y'\).
+\[\frac{d}{dx}\left(xy^2\right) = y^2 + 2xy\,y'.\]</li>
+<li>Put it together. The right side, 2, has derivative 0. \[y'\,e^{x-1} + y\,e^{x-1} + y^2 + 2xy\,y' = 0.\]</li>
+<li>Collect the \(y'\) terms and solve.
+\[\begin{aligned} y'\,e^{x-1} + 2xy\,y' &= -y\,e^{x-1} - y^2 \\ y'\left(e^{x-1} + 2xy\right) &= -\left(y\,e^{x-1} + y^2\right) \\ y' &= -\frac{y\,e^{x-1} + y^2}{e^{x-1} + 2xy}. \end{aligned}\]</li>
+<li>Plug in \((1, 1)\), where \(e^{x-1} = e^0 = 1\). \[y' = -\frac{1 \cdot 1 + 1}{1 + 2(1)(1)} = -\frac{2}{3}.\]</li>
+<li>Write the tangent line. \[\begin{aligned} y - 1 &= -\tfrac{2}{3}(x - 1) \\ y &= -\tfrac{2}{3}x + \tfrac{2}{3} + 1 = -\tfrac{2}{3}x + \tfrac{5}{3}. \end{aligned}\]</li>
+</ol>
+<p class="final">Answer: \(y - 1 = -\tfrac{2}{3}(x - 1)\), which is \(y = -\tfrac{2}{3}x + \tfrac{5}{3}\).</p>
+<p class="wrong"><b>Where students lose points:</b> writing the derivative of \(y\,e^{x-1}\) as just \(y'\,e^{x-1}\) (it needs both product rule terms), and plugging in before differentiating.</p></div></details></div>
+
+<div class="q" id="q5-q08"><div class="qh"><span class="qn">Problem 8</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Worksheet Exercise 3′(b), Section 6.4) Find all points on the curve \(x^2 - xy + y^2 = 12\) where the tangent line is horizontal, and all points where it is vertical.</div>
+<details class="hint"><summary>Hint</summary><div>Find \(y'\) as a fraction. Horizontal means the top is 0. Vertical means the bottom is 0. Each gives a line like \(y = 2x\) that you substitute into the curve.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate both sides. For \(-xy\), the product rule gives \(-(y + x\,y') = -y - x\,y'\). \[2x - y - x\,y' + 2y\,y' = 0.\]</li>
+<li>Solve for \(y'\).
+\[\begin{aligned} -x\,y' + 2y\,y' &= y - 2x \\ y'(2y - x) &= y - 2x \\ y' &= \frac{y - 2x}{2y - x}. \end{aligned}\]</li>
+<li>Horizontal tangents: set the top equal to 0. \[y - 2x = 0 \quad\Longrightarrow\quad y = 2x.\]</li>
+<li>Substitute \(y = 2x\) into the curve to find the points.
+\[\begin{aligned} x^2 - x(2x) + (2x)^2 &= 12 \\ x^2 - 2x^2 + 4x^2 &= 12 \\ 3x^2 &= 12 \\ x^2 &= 4 \\ x &= 2 \text{ or } x = -2. \end{aligned}\]
+Then \(y = 2x\) gives the points \((2, 4)\) and \((-2, -4)\).</li>
+<li>Check the bottom is not 0 at these points. At \((2, 4)\): \(2(4) - 2 = 6 \ne 0\). At \((-2, -4)\): \(2(-4) - (-2) = -6 \ne 0\). Both are true horizontal tangents.</li>
+<li>Vertical tangents: set the bottom equal to 0. \[2y - x = 0 \quad\Longrightarrow\quad x = 2y.\]</li>
+<li>Substitute \(x = 2y\) into the curve.
+\[\begin{aligned} (2y)^2 - (2y)y + y^2 &= 12 \\ 4y^2 - 2y^2 + y^2 &= 12 \\ 3y^2 &= 12 \\ y &= 2 \text{ or } y = -2. \end{aligned}\]
+Then \(x = 2y\) gives the points \((4, 2)\) and \((-4, -2)\).</li>
+<li>Check the top is not 0 there. At \((4, 2)\): \(2 - 8 = -6 \ne 0\). At \((-4, -2)\): \(-2 + 8 = 6 \ne 0\). Both are true vertical tangents.</li>
+</ol>
+<p class="final">Answer: horizontal tangent lines at \((2, 4)\) and \((-2, -4)\). Vertical tangent lines at \((4, 2)\) and \((-4, -2)\).</p>
+<p class="wrong"><b>Where students lose points:</b> stopping at \(y = 2x\) without substituting into the curve to get actual points, and finding only the positive solution of \(x^2 = 4\).</p></div></details></div>
+</section>
+<section id="L3"><div class="lvl"><h2>Twin problems</h2><span>Same types, new numbers, same traps.</span></div><p class="sub">Each problem here is a worksheet problem with new numbers. A few have the same trap as the worksheet, and a few cover elasticity, which the concept review lists but the worksheet does not drill.</p>
+
+<div class="q" id="q5-q09"><div class="qh"><span class="qn">Problem 9</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Twin of Example 1) Find the absolute maximum and minimum values of \(f(x) = x^3 - 3x^2 - 9x + 2\) on \([-2, 2]\).</div>
+<details class="hint"><summary>Hint</summary><div>Factor \(f'(x) = 3x^2 - 6x - 9\) and check which critical numbers are actually in \([-2, 2]\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>\(f\) is a polynomial, so it is continuous on the closed interval \([-2, 2]\). Use the closed interval method.</li>
+<li>Differentiate and factor. \[f'(x) = 3x^2 - 6x - 9 = 3(x^2 - 2x - 3) = 3(x - 3)(x + 1).\]</li>
+<li>Critical numbers: \(x = 3\) and \(x = -1\). Only \(x = -1\) is inside \((-2, 2)\). Throw out \(x = 3\).</li>
+<li>Evaluate.
+\[\begin{aligned} f(-2) &= -8 - 12 + 18 + 2 = 0, \\ f(-1) &= -1 - 3 + 9 + 2 = 7, \\ f(2) &= 8 - 12 - 18 + 2 = -20. \end{aligned}\]</li>
+<li>The largest value is 7 and the smallest is \(-20\).</li>
+</ol>
+<p class="final">Answer: absolute maximum \(7\) at \(x = -1\), absolute minimum \(-20\) at \(x = 2\).</p>
+<p class="wrong"><b>Where students lose points:</b> plugging in \(x = 3\), which is outside the interval, and getting \(f(3) = -25\) as the minimum.</p></div></details></div>
+
+<div class="q" id="q5-q10"><div class="qh"><span class="qn">Problem 10</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Twin of Exercise 1′(a)) Find the absolute maximum and minimum values of \(f(x) = x^{2/3}(x + 5)\) on \([-8, 1]\).</div>
+<details class="hint"><summary>Hint</summary><div>Rewrite as \(x^{5/3} + 5x^{2/3}\), differentiate, and factor out \(\tfrac{5}{3}x^{-1/3}\). There are two critical numbers, one from \(f' = 0\) and one from \(f'\) not existing.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>\(f\) is continuous on \([-8, 1]\), because \(x^{2/3}\) is defined for all real \(x\). Multiply out: \[f(x) = x^{5/3} + 5x^{2/3}.\]</li>
+<li>Differentiate. \[f'(x) = \tfrac{5}{3}x^{2/3} + \tfrac{10}{3}x^{-1/3}.\]</li>
+<li>Factor out \(\tfrac{5}{3}x^{-1/3}\). \[f'(x) = \tfrac{5}{3}x^{-1/3}(x + 2) = \frac{5(x + 2)}{3x^{1/3}}.\]</li>
+<li>Critical numbers: \(x = -2\) (top is 0) and \(x = 0\) (bottom is 0, \(f'\) does not exist, but \(f(0) = 0\) exists). Both are inside \((-8, 1)\).</li>
+<li>Evaluate. Use \((-8)^{2/3} = (\sqrt[3]{-8})^2 = (-2)^2 = 4\) and \((-2)^{2/3} = (\sqrt[3]{-2})^2 = \sqrt[3]{4}\).
+\[\begin{aligned} f(-8) &= 4(-8 + 5) = -12, \\ f(-2) &= \sqrt[3]{4}\,(-2 + 5) = 3\sqrt[3]{4}, \\ f(0) &= 0, \\ f(1) &= 1 \cdot (1 + 5) = 6. \end{aligned}\]</li>
+<li>Compare \(3\sqrt[3]{4}\) with 6. Since \(\sqrt[3]{4} \lt \sqrt[3]{8} = 2\), we get \(3\sqrt[3]{4} \lt 6\). So the largest value is 6 and the smallest is \(-12\).</li>
+</ol>
+<p class="final">Answer: absolute maximum \(6\) at \(x = 1\), absolute minimum \(-12\) at \(x = -8\).</p>
+<p class="wrong"><b>Where students lose points:</b> computing \((-8)^{2/3}\) as \(-4\). Take the cube root first, \(-2\), then square it, giving \(4\).</p></div></details></div>
+
+<div class="q" id="q5-q11"><div class="qh"><span class="qn">Problem 11</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Twin of Exercise 1′(b)) Find the absolute maximum value of \(f(x) = x\,e^{-x}\) on \((0, \infty)\). Does \(f\) have an absolute minimum value on \((0, \infty)\)?</div>
+<details class="hint"><summary>Hint</summary><div>Product rule, then factor out \(e^{-x}\). Use the Critical Point Theorem. For the minimum, think about what \(f(x)\) does as \(x \to 0^+\) and as \(x \to \infty\), and whether it ever reaches that value.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>\(f\) is continuous on \((0, \infty)\). Differentiate with the product rule: \(u = x\), \(v = e^{-x}\), \(u' = 1\), \(v' = -e^{-x}\).
+\[f'(x) = e^{-x} - x\,e^{-x} = e^{-x}(1 - x).\]</li>
+<li>Critical numbers. \(e^{-x}\) is never 0, so \(f'(x) = 0\) only when \(1 - x = 0\), that is \(x = 1\). It is the only critical number.</li>
+<li>Classify it with a sign chart. For \(0 \lt x \lt 1\), \(1 - x \gt 0\), so \(f' \gt 0\). For \(x \gt 1\), \(1 - x \lt 0\), so \(f' \lt 0\). Since \(f'\) changes from positive to negative, \(f\) has a local maximum at \(x = 1\).</li>
+<li>By the Critical Point Theorem (continuous, exactly one critical number, local max there), \(f(1) = 1 \cdot e^{-1} = \tfrac{1}{e}\) is the absolute maximum.</li>
+<li>Minimum. For every \(x \gt 0\), \(f(x) = \tfrac{x}{e^x} \gt 0\). As \(x \to 0^+\), \(f(x) \to 0\), and as \(x \to \infty\), \(f(x) \to 0\) as well (by L'Hospital, \(\lim \tfrac{x}{e^x} = \lim \tfrac{1}{e^x} = 0\)). So the values get as close to 0 as you like but never equal 0, and nothing is smallest.</li>
+</ol>
+<p class="final">Answer: the absolute maximum value is \(\tfrac{1}{e}\), at \(x = 1\). There is no absolute minimum on \((0, \infty)\).</p>
+<p class="wrong"><b>Where students lose points:</b> saying the minimum is 0. The value 0 is approached but never reached on the open interval.</p></div></details></div>
+
+<div class="q" id="q5-q12"><div class="qh"><span class="qn">Problem 12</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Twin of Example 2) A rectangle has its base on the x-axis and its two upper corners on the parabola \(y = 27 - x^2\). Find the dimensions of the rectangle with the largest area, and the largest area.</div>
+<details class="hint"><summary>Hint</summary><div>With the upper right corner at \((x, 27 - x^2)\), the width is \(2x\) and the height is \(27 - x^2\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Let the upper right corner be \((x, 27 - x^2)\), \(x \ge 0\). The width is \(2x\) and the height is \(27 - x^2\). \[A(x) = 2x(27 - x^2) = 54x - 2x^3.\]</li>
+<li>Domain: the height must be at least 0, so \(x^2 \le 27\), that is \(0 \le x \le 3\sqrt{3}\).</li>
+<li>Differentiate and solve. \[A'(x) = 54 - 6x^2 = 0 \quad\Longrightarrow\quad x^2 = 9 \quad\Longrightarrow\quad x = 3.\]</li>
+<li>Justify. \(A(0) = 0\), \(A(3\sqrt{3}) = 0\), and \(A(3) = 54(3) - 2(27) = 162 - 54 = 108\). The largest is \(A(3) = 108\).</li>
+<li>Dimensions: width \(2(3) = 6\), height \(27 - 9 = 18\).</li>
+</ol>
+<p class="final">Answer: 6 wide and 18 tall, with largest area 108.</p>
+<p class="wrong"><b>Where students lose points:</b> using \(x\) as the width instead of \(2x\), which gives the wrong rectangle.</p></div></details></div>
+
+<div class="q" id="q5-q13"><div class="qh"><span class="qn">Problem 13</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Optimization, minimum version) An open-top box with a square base must hold 32 cubic feet. Find the dimensions that use the least material.</div>
+<details class="hint"><summary>Hint</summary><div>Let the base be \(x\) by \(x\) and the height \(h\). The volume equation gives \(h\) in terms of \(x\). The material is the base plus four sides.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Let the base be \(x\) by \(x\) feet and the height \(h\) feet. The volume is \(x^2 h = 32\), so \(h = \dfrac{32}{x^2}\).</li>
+<li>The material is the area of the base plus the four sides (no top). \[S = x^2 + 4xh = x^2 + 4x \cdot \frac{32}{x^2} = x^2 + \frac{128}{x}.\] The domain is \(x \gt 0\).</li>
+<li>Differentiate and solve. \[S'(x) = 2x - \frac{128}{x^2} = 0 \quad\Longrightarrow\quad 2x^3 = 128 \quad\Longrightarrow\quad x^3 = 64 \quad\Longrightarrow\quad x = 4.\]</li>
+<li>Justify. \(S''(x) = 2 + \dfrac{256}{x^3} \gt 0\) for \(x \gt 0\), so \(x = 4\) is a local minimum. It is the only critical number on \((0, \infty)\), so by the Critical Point Theorem it is the absolute minimum.</li>
+<li>Height: \(h = \dfrac{32}{16} = 2\). Material: \(S(4) = 16 + 32 = 48\) square feet.</li>
+</ol>
+<p class="final">Answer: the base is 4 ft by 4 ft and the height is 2 ft, using 48 square feet of material.</p>
+<p class="wrong"><b>Where students lose points:</b> including a top in the surface area, and skipping the justification that it is a minimum.</p></div></details></div>
+
+<div class="q" id="q5-q14"><div class="qh"><span class="qn">Problem 14</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Twin of Exercise 2′, no trap this time) The same theater from the worksheet is renovated to have 500 seats. At $30 it sells 300 tickets, and each $1 decrease sells 20 more. What price maximizes revenue now, and what is the maximum revenue?</div>
+<details class="hint"><summary>Hint</summary><div>The revenue function is the same as on the worksheet. Only the domain changes.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Let \(x\) be the number of $1 decreases. As on the worksheet, \[R(x) = (30 - x)(300 + 20x) = 9000 + 300x - 20x^2.\]</li>
+<li>New domain: \(300 + 20x \le 500\), so \(20x \le 200\), so \(x \le 10\). The domain is \([0, 10]\).</li>
+<li>Differentiate. \(R'(x) = 300 - 40x = 0\) gives \(x = 7.5\), which is inside \([0, 10]\) this time.</li>
+<li>Closed interval method.
+\[\begin{aligned} R(0) &= 9000, \\ R(7.5) &= (22.5)(450) = 10{,}125, \\ R(10) &= (20)(500) = 10{,}000. \end{aligned}\]
+The largest is \(R(7.5)\).</li>
+<li>Price: \(30 - 7.5 = 22.50\) dollars, selling 450 tickets.</li>
+</ol>
+<p class="final">Answer: a price of $22.50 maximizes revenue, and the maximum revenue is $10,125.</p>
+<p class="wrong"><b>Where students lose points:</b> assuming the theater must be full. With 500 seats, filling it gives only $10,000.</p></div></details></div>
+
+<div class="q" id="q5-q15"><div class="qh"><span class="qn">Problem 15</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Twin of Exercise 2′, with the cap) A tour charges $40 per person and gets 60 people. For each $1 decrease in price, 5 more people sign up. The bus holds 100 people. What price maximizes revenue?</div>
+<details class="hint"><summary>Hint</summary><div>Find where \(R' = 0\), then check how many people that would need.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Let \(x\) be the number of $1 decreases. Price \(40 - x\), people \(60 + 5x\).
+\[R(x) = (40 - x)(60 + 5x) = 2400 + 200x - 60x - 5x^2 = 2400 + 140x - 5x^2.\]</li>
+<li>Domain: \(60 + 5x \le 100\), so \(x \le 8\). The domain is \([0, 8]\).</li>
+<li>\(R'(x) = 140 - 10x = 0\) gives \(x = 14\), which would need \(60 + 70 = 130\) people. It is outside the domain.</li>
+<li>So check the endpoints. \(R(0) = 40 \cdot 60 = 2400\) and \(R(8) = 32 \cdot 100 = 3200\). Also \(R'(x) \gt 0\) on all of \([0, 8]\), so revenue rises until the bus is full.</li>
+</ol>
+<p class="final">Answer: charge $32 per person, which fills the bus and gives $3,200 in revenue.</p>
+<p class="wrong"><b>Where students lose points:</b> answering $26 from \(R' = 0\) without checking the bus capacity.</p></div></details></div>
+
+<div class="q" id="q5-q16"><div class="qh"><span class="qn">Problem 16</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Elasticity) The demand for a product is \(q = 300 - 5p\).
+(a) Find the elasticity of demand \(E(p)\). (b) Is demand elastic or inelastic at \(p = 20\)? Should the price be raised or lowered to increase revenue? (c) What price maximizes revenue?</div>
+<details class="hint"><summary>Hint</summary><div>Use \(E = -\dfrac{p}{q}\cdot\dfrac{dq}{dp}\) with \(dq/dp = -5\). Revenue is largest where \(E = 1\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) \(\dfrac{dq}{dp} = -5\). \[E(p) = -\frac{p}{300 - 5p} \cdot (-5) = \frac{5p}{300 - 5p} = \frac{p}{60 - p}.\]</li>
+<li>(b) \(E(20) = \dfrac{20}{40} = \dfrac{1}{2} \lt 1\), so demand is inelastic. Since \(\dfrac{dR}{dp} = q(1 - E) = q \cdot \tfrac{1}{2} \gt 0\), revenue increases when the price increases.</li>
+<li>(c) Set \(E = 1\): \(\dfrac{p}{60 - p} = 1\), so \(p = 60 - p\), so \(p = 30\). Check with revenue: \(R = p(300 - 5p) = 300p - 5p^2\), \(R' = 300 - 10p = 0\) gives \(p = 30\), and \(R'' = -10 \lt 0\), a maximum.</li>
+</ol>
+<p class="final">Answer: (a) \(E(p) = \dfrac{p}{60 - p}\). (b) Inelastic, so raise the price. (c) \(p = 30\) dollars.</p>
+<p class="wrong"><b>Where students lose points:</b> dropping the minus sign in the formula and getting a negative \(E\), and mixing up which way to move the price.</p></div></details></div>
+
+<div class="q" id="q5-q17"><div class="qh"><span class="qn">Problem 17</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Twin of Exercise 3′(a)) Find an equation for the tangent line to \(x\,e^{y} + y = 1\) at the point \((1, 0)\).</div>
+<details class="hint"><summary>Hint</summary><div>Product rule on \(x\,e^y\): the derivative of \(e^y\) with respect to \(x\) is \(e^y\,y'\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the point: \(1 \cdot e^0 + 0 = 1\). It is on the curve.</li>
+<li>Differentiate. For \(x\,e^y\): \(u = x\), \(v = e^y\), \(u' = 1\), \(v' = e^y\,y'\). \[e^y + x\,e^y\,y' + y' = 0.\]</li>
+<li>Solve for \(y'\). \[y'(x\,e^y + 1) = -e^y \quad\Longrightarrow\quad y' = -\frac{e^y}{x\,e^y + 1}.\]</li>
+<li>At \((1, 0)\): \(y' = -\dfrac{1}{1 + 1} = -\dfrac{1}{2}\).</li>
+<li>Tangent line: \(y - 0 = -\tfrac{1}{2}(x - 1)\), so \(y = -\tfrac{1}{2}x + \tfrac{1}{2}\).</li>
+</ol>
+<p class="final">Answer: \(y = -\tfrac{1}{2}x + \tfrac{1}{2}\).</p>
+<p class="wrong"><b>Where students lose points:</b> writing the derivative of \(e^y\) as \(e^y\) without the \(y'\).</p></div></details></div>
+
+<div class="q" id="q5-q18"><div class="qh"><span class="qn">Problem 18</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">(Twin of Exercise 3′(b)) Find all points on \(x^2 + xy + y^2 = 3\) where the tangent line is horizontal, and all points where it is vertical.</div>
+<details class="hint"><summary>Hint</summary><div>You already found \(y'\) for \(x^2 + xy + y^2 = 7\) in Level 1. The derivative is the same, since the constant on the right does not matter.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Differentiate as in Worksheet Example 3. \[2x + y + x\,y' + 2y\,y' = 0 \quad\Longrightarrow\quad y' = -\frac{2x + y}{x + 2y}.\]</li>
+<li>Horizontal: top \(2x + y = 0\), so \(y = -2x\). Substitute: \[x^2 + x(-2x) + 4x^2 = 3 \quad\Longrightarrow\quad 3x^2 = 3 \quad\Longrightarrow\quad x = \pm 1.\] Points: \((1, -2)\) and \((-1, 2)\). The bottom \(x + 2y\) is \(1 - 4 = -3\) and \(-1 + 4 = 3\), not 0.</li>
+<li>Vertical: bottom \(x + 2y = 0\), so \(x = -2y\). Substitute: \[4y^2 + (-2y)y + y^2 = 3 \quad\Longrightarrow\quad 3y^2 = 3 \quad\Longrightarrow\quad y = \pm 1.\] Points: \((-2, 1)\) and \((2, -1)\). The top \(2x + y\) is \(-3\) and \(3\), not 0.</li>
+</ol>
+<p class="final">Answer: horizontal at \((1, -2)\) and \((-1, 2)\). Vertical at \((-2, 1)\) and \((2, -1)\).</p>
+<p class="wrong"><b>Where students lose points:</b> mixing up the two conditions. Horizontal means slope 0, so the top of the fraction is 0.</p></div></details></div>
+</section>
+<section id="L4"><div class="lvl"><h2>Mock quiz</h2><span>20 minute timer, closed book, no calculator.</span></div><p class="sub">Set a 20 minute timer. Closed book, no calculator. Write every step, then grade yourself against the full solutions.</p>
+
+<div class="q" id="q5-q19"><div class="qh"><span class="qn">Problem 19</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find the absolute maximum and minimum values of \(f(x) = 2x^3 - 3x^2 - 12x + 5\) on \([-2, 3]\).</div>
+<details class="hint"><summary>Hint</summary><div>Factor \(f'(x) = 6x^2 - 6x - 12\). Then make a table of four values.</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>\(f\) is a polynomial, so it is continuous on the closed interval \([-2, 3]\), and the closed interval method applies.</li>
+<li>Differentiate and factor. \[f'(x) = 6x^2 - 6x - 12 = 6(x^2 - x - 2) = 6(x - 2)(x + 1).\]</li>
+<li>Critical numbers: \(x = 2\) and \(x = -1\), both inside \((-2, 3)\).</li>
+<li>Evaluate.
+\[\begin{aligned} f(-2) &= 2(-8) - 3(4) - 12(-2) + 5 = -16 - 12 + 24 + 5 = 1, \\ f(-1) &= 2(-1) - 3(1) - 12(-1) + 5 = -2 - 3 + 12 + 5 = 12, \\ f(2) &= 2(8) - 3(4) - 12(2) + 5 = 16 - 12 - 24 + 5 = -15, \\ f(3) &= 2(27) - 3(9) - 12(3) + 5 = 54 - 27 - 36 + 5 = -4. \end{aligned}\]</li>
+<li>The largest value is 12 and the smallest is \(-15\).</li>
+</ol>
+<p class="final">Answer: absolute maximum \(12\) at \(x = -1\), absolute minimum \(-15\) at \(x = 2\).</p>
+<p class="wrong"><b>Where students lose points:</b> sign errors when cubing and squaring negatives. Write \((-2)^3 = -8\) and \((-2)^2 = 4\) separately before multiplying.</p></div></details></div>
+
+<div class="q" id="q5-q20"><div class="qh"><span class="qn">Problem 20</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">A farmer wants a rectangular field of area 600 square meters, divided into two pens by a fence parallel to one side. What dimensions use the least total fencing? Justify that your answer is a minimum.</div>
+<details class="hint"><summary>Hint</summary><div>Let \(x\) be the length of the three parallel fences (two sides plus the divider) and \(y\) the other two sides. Then the fencing is \(3x + 2y\) and \(xy = 600\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Let \(x\) be the length in meters of the two sides parallel to the divider, and \(y\) the length of the other two sides. There are three fences of length \(x\) (two sides and the divider) and two of length \(y\). \[F = 3x + 2y.\]</li>
+<li>Use the area constraint: \(xy = 600\), so \(y = \dfrac{600}{x}\). \[F(x) = 3x + 2 \cdot \frac{600}{x} = 3x + \frac{1200}{x}, \qquad x \gt 0.\]</li>
+<li>Differentiate and solve. \[F'(x) = 3 - \frac{1200}{x^2} = 0 \quad\Longrightarrow\quad x^2 = 400 \quad\Longrightarrow\quad x = 20.\]</li>
+<li>Justify. \(F''(x) = \dfrac{2400}{x^3} \gt 0\) for \(x \gt 0\), so \(x = 20\) is a local minimum. It is the only critical number on \((0, \infty)\), so by the Critical Point Theorem it is the absolute minimum.</li>
+<li>Find \(y\) and the fencing. \(y = \dfrac{600}{20} = 30\), and \(F(20) = 60 + 60 = 120\).</li>
+</ol>
+<p class="final">Answer: the field is 20 m (the sides parallel to the divider) by 30 m, using 120 m of fencing.</p>
+<p class="wrong"><b>Where students lose points:</b> forgetting the divider (writing \(2x + 2y\)), and not writing the justification sentence.</p></div></details></div>
+
+<div class="q" id="q5-q21"><div class="qh"><span class="qn">Problem 21</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">Find \(y'\) if \(x^2 y + y^3 = 10\). Then find an equation of the tangent line at the point \((3, 1)\).</div>
+<details class="hint"><summary>Hint</summary><div>\(x^2 y\) is a product: its derivative is \(2xy + x^2\,y'\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>Check the point: \(9 \cdot 1 + 1 = 10\). It is on the curve.</li>
+<li>Differentiate. Product rule on \(x^2 y\) with \(u = x^2\), \(v = y\), \(u' = 2x\), \(v' = y'\). Chain rule on \(y^3\). \[2xy + x^2\,y' + 3y^2\,y' = 0.\]</li>
+<li>Solve for \(y'\). \[y'(x^2 + 3y^2) = -2xy \quad\Longrightarrow\quad y' = -\frac{2xy}{x^2 + 3y^2}.\]</li>
+<li>At \((3, 1)\): \[y' = -\frac{2(3)(1)}{9 + 3} = -\frac{6}{12} = -\frac{1}{2}.\]</li>
+<li>Tangent line: \(y - 1 = -\tfrac{1}{2}(x - 3)\), so \(y = -\tfrac{1}{2}x + \tfrac{5}{2}\).</li>
+</ol>
+<p class="final">Answer: \(y' = -\dfrac{2xy}{x^2 + 3y^2}\), and the tangent line is \(y = -\tfrac{1}{2}x + \tfrac{5}{2}\).</p>
+<p class="wrong"><b>Where students lose points:</b> writing the derivative of \(x^2 y\) as \(2x\,y'\).</p></div></details></div>
+
+<div class="q" id="q5-q22"><div class="qh"><span class="qn">Problem 22</span><label class="redo"><input type="checkbox" class="redo"> redo later</label><label><input type="checkbox" class="done"> done</label></div><div class="p">The demand for a product is \(q = 48 - p^2\), for \(0 \lt p \lt \sqrt{48}\).
+(a) Find \(E(p)\). (b) At \(p = 5\), is demand elastic or inelastic, and should the price go up or down to raise revenue? (c) At what price is revenue maximized?</div>
+<details class="hint"><summary>Hint</summary><div>\(dq/dp = -2p\). Revenue is maximized where \(E = 1\).</div></details><details class="sol"><summary>Show full solution</summary><div><ol class="steps">
+<li>(a) \(\dfrac{dq}{dp} = -2p\). \[E(p) = -\frac{p}{48 - p^2} \cdot (-2p) = \frac{2p^2}{48 - p^2}.\]</li>
+<li>(b) \(E(5) = \dfrac{2(25)}{48 - 25} = \dfrac{50}{23} \gt 1\), so demand is elastic. Then \(\dfrac{dR}{dp} = q(1 - E) \lt 0\), so lowering the price raises revenue.</li>
+<li>(c) Set \(E = 1\). \[\frac{2p^2}{48 - p^2} = 1 \quad\Longrightarrow\quad 2p^2 = 48 - p^2 \quad\Longrightarrow\quad 3p^2 = 48 \quad\Longrightarrow\quad p^2 = 16 \quad\Longrightarrow\quad p = 4.\] Check with \(R = p(48 - p^2) = 48p - p^3\): \(R' = 48 - 3p^2 = 0\) gives \(p = 4\), and \(R''(4) = -24 \lt 0\), a maximum.</li>
+</ol>
+<p class="final">Answer: (a) \(E(p) = \dfrac{2p^2}{48 - p^2}\). (b) Elastic at \(p = 5\), so lower the price. (c) \(p = 4\).</p>
+<p class="wrong"><b>Where students lose points:</b> plugging into \(E\) correctly but then saying "raise the price" for an elastic demand. Elastic means lower it.</p></div></details></div>
+</section><div class="pager"><span></span><a href="u01.html">Next: Derivative rules: power, sum, product, quotient</a></div></main><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="assets/app.js"></script></body></html>
